@@ -1,0 +1,84 @@
+	.file	"Target.ic"
+	.version	"01.01"
+/ SRC Modula-3 version cygnus-2.7.2-960712 (i486--linuxelf) compiled by GNU C version egcs-2.91.66 19990314/Linux (egcs-1.1.2 release).
+/ options passed:  -fno-strength-reduce -O2
+/ options enabled:  -fdefer-pop -fcse-follow-jumps -fcse-skip-blocks
+/ -fexpensive-optimizations -fthread-jumps -fpeephole -fforce-mem
+/ -ffunction-cse -finline -fkeep-static-consts -fcaller-saves
+/ -fpcc-struct-return -frerun-cse-after-loop -fschedule-insns2 -fcommon
+/ -fverbose-asm -fgnu-linker -m80387 -mhard-float -mno-soft-float -mieee-fp
+/ -mfp-ret-in-387 -mschedule-prologue -mcpu=i486 -march=i486
+
+gcc2_compiled.:
+.globl MI_Target
+.data
+	.align 4
+	.type	 MI_Target,@object
+	.size	 MI_Target,1016
+MI_Target:
+	.long MI_Target+833
+	.long MI_Target+648
+	.zero	20
+	.long MI_Target+820
+	.long MI_Target+820
+	.zero	620
+	.long 1649186066
+.byte 152
+.byte 65
+.byte 66
+.byte 104
+.byte 138
+.byte 212
+.byte 14
+.byte 10
+	.long 1
+	.zero	4
+	.long 12
+	.long 4
+	.zero	20
+	.long MI_Target+971
+	.long MI_Target+977
+	.long MI_Target+979
+	.zero	28
+	.long MI_Target+991
+	.zero	72
+.byte 42
+.byte 48
+.byte 4
+.byte 43
+.byte 188
+.byte 2
+.byte 4
+.byte 42
+.byte 52
+.byte 4
+.byte 37
+.byte 4
+.byte 0
+	.ascii	"/home/ftp/tmp/pm3/tmp/pm3-1.1.15/language/modula3/m3compiler"
+	.ascii	"/m3bootstrap/LINUXLIBC6/pm3-LINUXLIBC6/boot-LINUXLIBC6/m3mid"
+	.ascii	"dle/src/Target.i3"
+	.zero	1
+.byte 4
+.byte 14
+.byte 16
+.byte 16
+.byte 16
+.byte 0
+.byte 4
+.byte 0
+.byte 6
+.byte 15
+.byte 5
+.byte 16
+.byte 116
+.byte 101
+.byte 248
+.byte 80
+.byte 7
+.byte 2
+.byte 25
+.byte 25
+	.ascii	"Target.CallingConvention"
+	.zero	1
+	.ident	"GCC: (GNU) cygnus-2.7.2-960712"

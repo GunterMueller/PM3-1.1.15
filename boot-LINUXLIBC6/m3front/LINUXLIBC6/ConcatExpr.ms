@@ -1,0 +1,566 @@
+	.file	"ConcatExpr.mc"
+	.version	"01.01"
+/ SRC Modula-3 version cygnus-2.7.2-960712 (i486--linuxelf) compiled by GNU C version egcs-2.91.66 19990314/Linux (egcs-1.1.2 release).
+/ options passed:  -fno-strength-reduce -O2
+/ options enabled:  -fdefer-pop -fcse-follow-jumps -fcse-skip-blocks
+/ -fexpensive-optimizations -fthread-jumps -fpeephole -fforce-mem
+/ -ffunction-cse -finline -fkeep-static-consts -fcaller-saves
+/ -fpcc-struct-return -frerun-cse-after-loop -fschedule-insns2 -fcommon
+/ -fverbose-asm -fgnu-linker -m80387 -mhard-float -mno-soft-float -mieee-fp
+/ -mfp-ret-in-387 -mschedule-prologue -mcpu=i486 -march=i486
+
+gcc2_compiled.:
+.text
+	.align 16
+	.type	 ConcatExpr__New,@function
+ConcatExpr__New:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%ebx
+	movl 12(%ebp),%esi
+	movl MM_ConcatExpr+168,%eax
+	pushl %eax
+	movl MI_RTHooks+80,%eax
+	call *%eax
+	movl %eax,%edi
+	pushl %edi
+	movl MI_ExprRep+460,%eax
+	call *%eax
+	movl %ebx,16(%edi)
+	movl %esi,20(%edi)
+	movl $0,24(%edi)
+	movl MI_Textt+44,%eax
+	movl %eax,8(%edi)
+	movl $0,28(%edi)
+	leal -12(%ebp),%esp
+	movl %edi,%eax
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe1:
+	.size	 ConcatExpr__New,.Lfe1-ConcatExpr__New
+	.align 16
+	.type	 ConcatExpr__Check,@function
+ConcatExpr__Check:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $12,%esp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%esi
+	movl 12(%ebp),%eax
+	pushl %eax
+	movl 16(%esi),%eax
+	pushl %eax
+	movl MI_Expr+156,%eax
+	call *%eax
+	movl 12(%ebp),%eax
+	pushl %eax
+	movl 20(%esi),%eax
+	pushl %eax
+	movl MI_Expr+156,%eax
+	call *%eax
+	movl 16(%esi),%eax
+	pushl %eax
+	movl MI_Expr+152,%eax
+	call *%eax
+	movl %eax,%ebx
+	pushl %ebx
+	movl MI_Type+80,%eax
+	call *%eax
+	movl %eax,-12(%ebp)
+	movl 20(%esi),%eax
+	pushl %eax
+	movl MI_Expr+152,%eax
+	call *%eax
+	pushl %eax
+	movl MI_Type+80,%eax
+	call *%eax
+	movl %eax,%ebx
+	addl $32,%esp
+	movl -12(%ebp),%ecx
+	pushl %ecx
+	movl MI_Textt+44,%eax
+	pushl %eax
+	movl MI_Type+124,%eax
+	movl %ebx,%edi
+	call *%eax
+	addl $8,%esp
+	testl %eax,%eax
+	je .L3
+	pushl %ebx
+	movl MI_Textt+44,%eax
+	pushl %eax
+	movl MI_Type+124,%eax
+	call *%eax
+	addl $8,%esp
+	testl %eax,%eax
+	je .L3
+	movl 12(%ebp),%eax
+	pushl %eax
+	movl 16(%esi),%eax
+	pushl %eax
+	movl MI_Textt+44,%eax
+	pushl %eax
+	movl MI_AssignStmt+48,%eax
+	call *%eax
+	movl 12(%ebp),%eax
+	pushl %eax
+	movl 20(%esi),%eax
+	pushl %eax
+	movl MI_Textt+44,%eax
+	pushl %eax
+	movl MI_AssignStmt+48,%eax
+	call *%eax
+	addl $24,%esp
+	jmp .L4
+	.align 16
+.L3:
+	pushl %edi
+	movl -12(%ebp),%ecx
+	pushl %ecx
+	pushl $MM_ConcatExpr+180
+	movl MI_Expr+248,%eax
+	call *%eax
+	movl %eax,%ebx
+	movl %ebx,8(%esi)
+	addl $12,%esp
+.L4:
+	leal -4(%ebp),%eax
+	pushl %eax
+	leal -8(%ebp),%eax
+	pushl %eax
+	movl MI_Error+80,%eax
+	call *%eax
+	addl $8,%esp
+	cmpl $0,-8(%ebp)
+	jne .L5
+	pushl %esi
+	call ConcatExpr__Fold
+	addl $4,%esp
+.L5:
+	movl 24(%esi),%edx
+	testl %edx,%edx
+	je .L2
+	movl 12(%ebp),%eax
+	pushl %eax
+	pushl %edx
+	movl MI_Expr+156,%eax
+	call *%eax
+.L2:
+	leal -24(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe2:
+	.size	 ConcatExpr__Check,.Lfe2-ConcatExpr__Check
+	.align 16
+	.type	 ConcatExpr__Prep,@function
+ConcatExpr__Prep:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%ebx
+	movl 24(%ebx),%esi
+	testl %esi,%esi
+	je .L8
+	pushl %esi
+	movl MI_Expr+200,%eax
+	call *%eax
+	jmp .L7
+	.align 16
+.L8:
+	movl 16(%ebx),%eax
+	pushl %eax
+	movl MI_Expr+200,%eax
+	call *%eax
+	movl 20(%ebx),%eax
+	pushl %eax
+	movl MI_Expr+200,%eax
+	call *%eax
+	pushl $6
+	movl MI_Runtime+52,%eax
+	call *%eax
+	movl %eax,%edi
+	pushl %edi
+	movl MI_Procedure+92,%eax
+	call *%eax
+	movl MI_Target+752,%eax
+	addl $16,%esp
+	testl %eax,%eax
+	jne .L10
+	pushl $1364
+	call _m3_fault
+	.align 16
+.L10:
+	cmpb $0,8(%eax)
+	je .L11
+	movl 16(%ebx),%eax
+	pushl %eax
+	movl MI_Expr+204,%eax
+	call *%eax
+	addl $4,%esp
+	cmpb $0,MI_Host+83
+	je .L12
+	movl 16(%ebx),%eax
+	pushl %eax
+	movl MI_Expr+152,%eax
+	call *%eax
+	pushl %eax
+	movl MI_Textt+44,%eax
+	pushl %eax
+	movl MI_Narrow+48,%eax
+	call *%eax
+	addl $12,%esp
+.L12:
+	pushl %esi
+	movl MI_CG+744,%eax
+	call *%eax
+	movl 20(%ebx),%eax
+	pushl %eax
+	movl MI_Expr+204,%eax
+	call *%eax
+	addl $8,%esp
+	cmpb $0,MI_Host+83
+	je .L16
+	movl 20(%ebx),%eax
+	jmp .L17
+	.align 16
+.L11:
+	movl 20(%ebx),%eax
+	pushl %eax
+	movl MI_Expr+204,%eax
+	call *%eax
+	addl $4,%esp
+	cmpb $0,MI_Host+83
+	je .L15
+	movl 20(%ebx),%eax
+	pushl %eax
+	movl MI_Expr+152,%eax
+	call *%eax
+	pushl %eax
+	movl MI_Textt+44,%eax
+	pushl %eax
+	movl MI_Narrow+48,%eax
+	call *%eax
+	addl $12,%esp
+.L15:
+	pushl %esi
+	movl MI_CG+744,%eax
+	call *%eax
+	movl 16(%ebx),%eax
+	pushl %eax
+	movl MI_Expr+204,%eax
+	call *%eax
+	addl $8,%esp
+	cmpb $0,MI_Host+83
+	je .L16
+	movl 16(%ebx),%eax
+.L17:
+	pushl %eax
+	movl MI_Expr+152,%eax
+	call *%eax
+	pushl %eax
+	movl MI_Textt+44,%eax
+	pushl %eax
+	movl MI_Narrow+48,%eax
+	call *%eax
+	addl $12,%esp
+.L16:
+	pushl %esi
+	movl MI_CG+744,%eax
+	call *%eax
+	addl $4,%esp
+	pushl %edi
+	movl MI_Procedure+96,%eax
+	call *%eax
+	movl %eax,28(%ebx)
+.L7:
+	leal -12(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe3:
+	.size	 ConcatExpr__Prep,.Lfe3-ConcatExpr__Prep
+	.align 16
+	.type	 ConcatExpr__Compile,@function
+ConcatExpr__Compile:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%esi
+	movl 24(%esi),%ebx
+	testl %ebx,%ebx
+	je .L19
+	pushl %ebx
+	movl MI_Expr+204,%eax
+	call *%eax
+	jmp .L18
+	.align 16
+.L19:
+	movl 28(%esi),%eax
+	pushl %eax
+	movl MI_CG+228,%eax
+	call *%eax
+	movl MI_Target+64,%eax
+	pushl %eax
+	movl MI_CG+720,%eax
+	call *%eax
+	movl 28(%esi),%eax
+	pushl %eax
+	movl MI_CG+232,%eax
+	call *%eax
+	movl %ebx,28(%esi)
+.L18:
+	leal -8(%ebp),%esp
+	popl %ebx
+	popl %esi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe4:
+	.size	 ConcatExpr__Compile,.Lfe4-ConcatExpr__Compile
+	.align 16
+	.type	 ConcatExpr__Fold,@function
+ConcatExpr__Fold:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $8,%esp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%edi
+	movl $0,-4(%ebp)
+	movl 24(%edi),%ecx
+	movl %ecx,-8(%ebp)
+	testl %ecx,%ecx
+	je .L22
+	movl -8(%ebp),%eax
+	jmp .L26
+	.align 16
+.L22:
+	movl 16(%edi),%eax
+	pushl %eax
+	movl MI_Expr+160,%eax
+	call *%eax
+	movl %eax,%ebx
+	movl %ebx,%esi
+	addl $4,%esp
+	testl %ebx,%ebx
+	je .L26
+	movl %edi,%ebx
+	movl %esi,16(%ebx)
+	movl 20(%ebx),%eax
+	pushl %eax
+	movl MI_Expr+160,%eax
+	call *%eax
+	movl %eax,%ebx
+	movl %ebx,%edx
+	addl $4,%esp
+	testl %ebx,%ebx
+	je .L26
+	movl %edi,%ebx
+	leal -4(%ebp),%eax
+	movl %edx,20(%ebx)
+	movl -8(%ebp),%ecx
+	movl %ecx,-4(%ebp)
+	pushl %eax
+	pushl %edx
+	pushl %esi
+	movl MI_TextExpr+48,%eax
+	call *%eax
+	testl %eax,%eax
+	je .L25
+	movl -4(%ebp),%eax
+	movl %eax,24(%ebx)
+.L25:
+	movl -4(%ebp),%eax
+.L26:
+	leal -20(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe5:
+	.size	 ConcatExpr__Fold,.Lfe5-ConcatExpr__Fold
+	.align 16
+	.type	 M_ConcatExpr_tdf13fbad_LINK,@function
+M_ConcatExpr_tdf13fbad_LINK:
+	pushl %ebp
+	movl %esp,%ebp
+	movl MM_ConcatExpr+168,%eax
+	movl %ebp,%esp
+	movl 52(%eax),%edx
+	movl MI_ExprRep+468,%eax
+	movl %eax,4(%edx)
+	movl MM_ConcatExpr+148,%eax
+	movl %eax,8(%edx)
+	movl MI_ExprRep+464,%eax
+	movl %eax,36(%edx)
+	movl MM_ConcatExpr+152,%eax
+	movl %eax,52(%edx)
+	movl MM_ConcatExpr+156,%eax
+	movl %eax,56(%edx)
+	movl MI_ExprRep+520,%eax
+	movl %eax,60(%edx)
+	movl %eax,64(%edx)
+	movl MI_ExprRep+524,%eax
+	movl %eax,68(%edx)
+	movl %eax,72(%edx)
+	movl MM_ConcatExpr+160,%eax
+	movl %eax,16(%edx)
+	movl MI_ExprRep+544,%eax
+	movl %eax,12(%edx)
+	movl MI_ExprRep+484,%eax
+	movl %eax,20(%edx)
+	movl MI_ExprRep+488,%eax
+	movl %eax,24(%edx)
+	movl %eax,28(%edx)
+	movl %eax,32(%edx)
+	movl MI_ExprRep+500,%eax
+	movl %eax,40(%edx)
+	movl MI_ExprRep+504,%eax
+	movl %eax,44(%edx)
+	movl MI_ExprRep+508,%eax
+	movl %eax,48(%edx)
+	movl MI_ExprRep+536,%eax
+	movl %eax,76(%edx)
+	popl %ebp
+	ret
+.Lfe6:
+	.size	 M_ConcatExpr_tdf13fbad_LINK,.Lfe6-M_ConcatExpr_tdf13fbad_LINK
+	.align 16
+	.type	 _m3_fault,@function
+_m3_fault:
+	pushl %ebp
+	movl %esp,%ebp
+	movl 8(%ebp),%eax
+	pushl %eax
+	pushl $MM_ConcatExpr
+	movl MI_RTHooks+108,%eax
+	call *%eax
+	.align 16
+.Lfe7:
+	.size	 _m3_fault,.Lfe7-_m3_fault
+.globl MM_ConcatExpr
+.data
+	.align 4
+	.type	 MM_ConcatExpr,@object
+	.size	 MM_ConcatExpr,476
+MM_ConcatExpr:
+	.long MM_ConcatExpr+284
+	.long MM_ConcatExpr+44
+	.long MM_ConcatExpr+168
+	.zero	8
+	.long MM_ConcatExpr+220
+	.zero	28
+	.long -552338515
+.byte 178
+.byte 208
+.byte 48
+.byte 209
+.byte 31
+.byte 43
+.byte 35
+.byte 14
+	.long 1
+	.zero	4
+	.long 8
+	.long 4
+	.zero	4
+	.long 0
+	.zero	12
+	.long MM_ConcatExpr+431
+	.long MM_ConcatExpr+434
+	.long MM_ConcatExpr+437
+	.zero	4
+	.long M_ConcatExpr_tdf13fbad_LINK
+	.long -765996802
+	.zero	12
+	.long MM_ConcatExpr+450
+	.long MM_ConcatExpr+463
+	.zero	4
+	.long ConcatExpr__Check
+	.long ConcatExpr__Prep
+	.long ConcatExpr__Compile
+	.long ConcatExpr__Fold
+	.long ConcatExpr__New
+	.zero	4
+	.long -552338515
+	.long 2
+	.long MM_ConcatExpr+188
+	.long 4
+	.ascii	"'&'"
+	.zero	1
+	.ascii	"Fold"
+	.zero	1
+	.ascii	"Compile"
+	.zero	1
+	.ascii	"Prep"
+	.zero	1
+	.ascii	"Check"
+	.zero	1
+	.ascii	"New"
+	.zero	1
+	.long ConcatExpr__Fold
+	.long MM_ConcatExpr+192
+	.zero	4
+	.long ConcatExpr__Compile
+	.long MM_ConcatExpr+197
+	.zero	4
+	.long ConcatExpr__Prep
+	.long MM_ConcatExpr+205
+	.zero	4
+	.long ConcatExpr__Check
+	.long MM_ConcatExpr+210
+	.zero	4
+	.long ConcatExpr__New
+	.long MM_ConcatExpr+216
+	.long MI_ConcatExpr+44
+	.zero	4
+	.ascii	"/home/ftp/tmp/pm3/tmp/pm3-1.1.15/language/modula3/m3compiler"
+	.ascii	"/m3bootstrap/LINUXLIBC6/pm3-LINUXLIBC6/boot-LINUXLIBC6/m3fro"
+	.ascii	"nt/src/exprs/ConcatExpr.m3"
+	.zero	1
+.byte 4
+.byte 4
+.byte 0
+.byte 4
+.byte 4
+.byte 0
+.byte 3
+.byte 10
+.byte 2
+.byte 16
+.byte 11
+.byte 185
+.byte 21
+.byte 235
+.byte 16
+.byte 194
+.byte 223
+.byte 210
+.byte 77
+	.ascii	"ConcatExpr.P"
+	.zero	1
+	.ascii	"ConcatExpr.P"
+	.zero	1
+	.ident	"GCC: (GNU) cygnus-2.7.2-960712"

@@ -1,0 +1,2466 @@
+	.file	"CaseStmt.mc"
+	.version	"01.01"
+/ SRC Modula-3 version cygnus-2.7.2-960712 (i486--linuxelf) compiled by GNU C version egcs-2.91.66 19990314/Linux (egcs-1.1.2 release).
+/ options passed:  -fno-strength-reduce -O2
+/ options enabled:  -fdefer-pop -fcse-follow-jumps -fcse-skip-blocks
+/ -fexpensive-optimizations -fthread-jumps -fpeephole -fforce-mem
+/ -ffunction-cse -finline -fkeep-static-consts -fcaller-saves
+/ -fpcc-struct-return -frerun-cse-after-loop -fschedule-insns2 -fcommon
+/ -fverbose-asm -fgnu-linker -m80387 -mhard-float -mno-soft-float -mieee-fp
+/ -mfp-ret-in-387 -mschedule-prologue -mcpu=i486 -march=i486
+
+gcc2_compiled.:
+.text
+	.align 16
+	.type	 CaseStmt__Parse,@function
+CaseStmt__Parse:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $12,%esp
+	pushl %esi
+	pushl %ebx
+	movl MM_CaseStmt+416,%eax
+	pushl %eax
+	movl MI_RTHooks+80,%eax
+	call *%eax
+	movl %eax,%esi
+	pushl %esi
+	movl MI_StmtRep+148,%eax
+	call *%eax
+	leal -12(%ebp),%eax
+	leal -4(%ebp),%edx
+	movl %edx,-12(%ebp)
+	movl $1,-8(%ebp)
+	movl $8,-4(%ebp)
+	pushl %eax
+	movl MM_CaseStmt+424,%eax
+	pushl %eax
+	movl MI_RTHooks+84,%eax
+	call *%eax
+	movl %eax,20(%esi)
+	pushl $52
+	movl MI_Scanner+108,%eax
+	call *%eax
+	movl MI_Expr+148,%eax
+	call *%eax
+	movl %eax,12(%esi)
+	pushl $79
+	movl MI_Scanner+108,%eax
+	call *%eax
+	addl $24,%esp
+	cmpb $32,MI_Scanner+44
+	sete %bl
+	testb %bl,%bl
+	je .L3
+	movl MI_Scanner+104,%eax
+.L10:
+	call *%eax
+.L3:
+	xorl %eax,%eax
+	movb MI_Scanner+44,%al
+	cmpl $56,%eax
+	je .L5
+	cmpl $58,%eax
+	je .L5
+	xorb %bl,%bl
+	pushl %esi
+	call CaseStmt__ParseCase
+	addl $4,%esp
+	cmpb $32,MI_Scanner+44
+	jne .L5
+	movl MI_Scanner+104,%eax
+	movb $1,%bl
+	jmp .L10
+	.align 16
+.L5:
+	testb %bl,%bl
+	je .L8
+	pushl $MM_CaseStmt+436
+	movl MI_Scanner+116,%eax
+	call *%eax
+	addl $4,%esp
+.L8:
+	cmpb $56,MI_Scanner+44
+	jne .L9
+	movl MI_Scanner+104,%eax
+	call *%eax
+	movb $1,25(%esi)
+	movl MI_Stmt+44,%eax
+	call *%eax
+	movl %eax,28(%esi)
+.L9:
+	pushl $58
+	movl MI_Scanner+108,%eax
+	call *%eax
+	leal -20(%ebp),%esp
+	movl %esi,%eax
+	popl %ebx
+	popl %esi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe1:
+	.size	 CaseStmt__Parse,.Lfe1-CaseStmt__Parse
+	.align 16
+	.type	 CaseStmt__ParseCase,@function
+CaseStmt__ParseCase:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%esi
+.L12:
+	movl MM_CaseStmt+460,%eax
+	pushl %eax
+	movl MI_RTHooks+80,%eax
+	call *%eax
+	movl %eax,%ecx
+	movl %ecx,%ebx
+	addl $4,%esp
+	testl %ecx,%ecx
+	jne .L13
+	pushl $1396
+	call _m3_fault
+	.align 16
+.L13:
+	movl MI_Scanner+88,%eax
+	movl %eax,36(%ecx)
+	movl 16(%esi),%eax
+	movl %eax,(%ecx)
+	movl %ebx,16(%esi)
+	movl $0,4(%ebx)
+	movl MI_Expr+148,%eax
+	call *%eax
+	movl %ebx,%edx
+	movl %eax,%ecx
+	movl %ecx,8(%edx)
+	movl $0,12(%edx)
+	movl 32(%esi),%eax
+	movl %eax,32(%edx)
+	movb $0,40(%edx)
+	cmpb $27,MI_Scanner+44
+	jne .L20
+	movl MI_Scanner+104,%eax
+	call *%eax
+	movl MI_Expr+148,%eax
+	call *%eax
+	movl %eax,%edx
+	movl %edx,12(%ebx)
+.L20:
+	cmpb $15,MI_Scanner+44
+	jne .L23
+	movl MI_Scanner+104,%eax
+	call *%eax
+	jmp .L12
+	.align 16
+.L23:
+	pushl $34
+	movl MI_Scanner+108,%eax
+	call *%eax
+	movl 20(%esi),%eax
+	addl $4,%esp
+	testl %eax,%eax
+	jne .L24
+	pushl $1636
+	call _m3_fault
+	.align 16
+.L24:
+	movl 4(%eax),%eax
+	decl %eax
+	cmpl %eax,32(%esi)
+	jle .L25
+	pushl %esi
+	call CaseStmt__ExpandBodies
+	addl $4,%esp
+.L25:
+	movl MI_Stmt+44,%eax
+	call *%eax
+	movl %eax,%ecx
+	movl 20(%esi),%eax
+	testl %eax,%eax
+	jne .L26
+	pushl $1652
+	call _m3_fault
+	.align 16
+.L26:
+	movl %eax,%edx
+	movl 32(%esi),%ebx
+	cmpl %ebx,4(%edx)
+	ja .L27
+	pushl $1650
+	call _m3_fault
+	.align 16
+.L27:
+	movl (%edx),%eax
+	leal -8(%ebp),%esp
+	movl %ecx,(%eax,%ebx,4)
+	incl 32(%esi)
+	popl %ebx
+	popl %esi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe2:
+	.size	 CaseStmt__ParseCase,.Lfe2-CaseStmt__ParseCase
+	.align 16
+	.type	 CaseStmt__ExpandBodies,@function
+CaseStmt__ExpandBodies:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $16,%esp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%esi
+	leal -12(%ebp),%eax
+	movl 20(%esi),%ebx
+	leal -4(%ebp),%esi
+	movl %esi,-12(%ebp)
+	movl $1,-8(%ebp)
+	testl %ebx,%ebx
+	jne .L29
+	pushl $1780
+	call _m3_fault
+	.align 16
+.L29:
+	movl 4(%ebx),%esi
+	addl %esi,%esi
+	movl %esi,-4(%ebp)
+	pushl %eax
+	movl MM_CaseStmt+424,%eax
+	pushl %eax
+	movl MI_RTHooks+84,%eax
+	call *%eax
+	movl %eax,%ecx
+	addl $8,%esp
+	xorl %edx,%edx
+	movl 4(%ebx),%edi
+	decl %edi
+	jmp .L31
+	.align 16
+.L32:
+	testl %ecx,%ecx
+	jne .L33
+	pushl $1796
+	call _m3_fault
+	.align 16
+.L33:
+	cmpl %edx,4(%ecx)
+	ja .L34
+	pushl $1794
+	call _m3_fault
+	.align 16
+.L34:
+	movl (%ecx),%eax
+	leal (%eax,%edx,4),%eax
+	movl %eax,-16(%ebp)
+	testl %ebx,%ebx
+	jne .L35
+	pushl $1796
+	call _m3_fault
+	.align 16
+.L35:
+	cmpl %edx,4(%ebx)
+	ja .L36
+	pushl $1794
+	call _m3_fault
+	.align 16
+.L36:
+	movl (%ebx),%eax
+	movl -16(%ebp),%esi
+	movl (%eax,%edx,4),%eax
+	movl %eax,(%esi)
+	incl %edx
+.L31:
+	cmpl %edi,%edx
+	jle .L32
+	movl 8(%ebp),%esi
+	leal -28(%ebp),%esp
+	movl %ecx,20(%esi)
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe3:
+	.size	 CaseStmt__ExpandBodies,.Lfe3-CaseStmt__ExpandBodies
+	.align 16
+	.type	 CaseStmt__Check,@function
+CaseStmt__Check:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $32,%esp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%esi
+	movl 12(%ebp),%eax
+	pushl %eax
+	movl 12(%esi),%eax
+	pushl %eax
+	movl MI_Expr+156,%eax
+	call *%eax
+	movl 12(%esi),%eax
+	pushl %eax
+	movl MI_Expr+152,%eax
+	call *%eax
+	movl %eax,%edi
+	pushl %edi
+	movl MI_Type+104,%eax
+	xorl %ebx,%ebx
+	call *%eax
+	addl $16,%esp
+	testl %eax,%eax
+	jne .L39
+	pushl $MM_CaseStmt+472
+	movl MI_Error+44,%eax
+	call *%eax
+	movb $1,26(%esi)
+	movl MI_ErrType+44,%edi
+	addl $4,%esp
+.L39:
+	movl 16(%esi),%edx
+	jmp .L40
+	.align 16
+.L41:
+	movl (%edx),%eax
+	movl %ebx,(%edx)
+	movl %edx,%ebx
+	movl %eax,%edx
+.L40:
+	testl %edx,%edx
+	jne .L41
+	movl %ebx,16(%esi)
+	leal -24(%ebp),%eax
+	pushl %eax
+	leal -32(%ebp),%eax
+	pushl %eax
+	pushl %edi
+	movl MI_Type+112,%eax
+	call *%eax
+	movl 16(%esi),%edx
+	movl $0,16(%esi)
+	addl $12,%esp
+	jmp .L45
+	.align 16
+.L46:
+	movl 36(%edx),%eax
+	movl %eax,MI_Scanner+88
+	movl (%edx),%ebx
+	movl 12(%ebp),%eax
+	pushl %eax
+	leal -24(%ebp),%eax
+	pushl %eax
+	leal -32(%ebp),%eax
+	pushl %eax
+	pushl %edi
+	pushl %edx
+	movl 16(%esi),%eax
+	pushl %eax
+	pushl %esi
+	call CaseStmt__AddNode
+	movl %eax,16(%esi)
+	movl %ebx,%edx
+	addl $28,%esp
+.L45:
+	testl %edx,%edx
+	jne .L46
+	movl %edx,%ebx
+	movl 32(%esi),%edi
+	decl %edi
+	jmp .L50
+	.align 16
+.L51:
+	movl 20(%esi),%eax
+	testl %eax,%eax
+	jne .L52
+	pushl $2420
+	call _m3_fault
+	.align 16
+.L52:
+	movl %eax,%edx
+	cmpl %ebx,4(%edx)
+	ja .L53
+	pushl $2418
+	call _m3_fault
+	.align 16
+.L53:
+	movl 12(%ebp),%eax
+	pushl %eax
+	movl (%edx),%eax
+	movl (%eax,%ebx,4),%eax
+	pushl %eax
+	movl MI_Stmt+48,%eax
+	call *%eax
+	incl %ebx
+	addl $8,%esp
+.L50:
+	cmpl %edi,%ebx
+	jle .L51
+	cmpb $0,25(%esi)
+	je .L55
+	movl 12(%ebp),%eax
+	pushl %eax
+	movl 28(%esi),%eax
+	pushl %eax
+	movl MI_Stmt+48,%eax
+	call *%eax
+	addl $8,%esp
+.L55:
+	leal -8(%ebp),%eax
+	pushl %eax
+	leal -16(%ebp),%eax
+	pushl %eax
+	movl 12(%esi),%eax
+	pushl %eax
+	movl MI_Expr+164,%eax
+	call *%eax
+	movl $1,%eax
+	addl $12,%esp
+	cmpb $0,25(%esi)
+	jne .L56
+	movl -4(%ebp),%eax
+	movl -8(%ebp),%edx
+	pushl %eax
+	pushl %edx
+	movl -12(%ebp),%eax
+	movl -16(%ebp),%edx
+	pushl %eax
+	pushl %edx
+	movl 16(%esi),%eax
+	pushl %eax
+	call CaseStmt__CompleteTree
+	addl $20,%esp
+	testl %eax,%eax
+	setne %al
+	andl $255,%eax
+.L56:
+	movb %al,24(%esi)
+	testb %al,%al
+	jne .L38
+	cmpb $0,26(%esi)
+	jne .L38
+	movl 4(%esi),%eax
+	movl %eax,MI_Scanner+88
+	pushl $MM_CaseStmt+528
+	pushl $1
+	movl MI_Error+64,%eax
+	call *%eax
+.L38:
+	leal -44(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe4:
+	.size	 CaseStmt__Check,.Lfe4-CaseStmt__Check
+	.align 16
+	.type	 CaseStmt__AddNode,@function
+CaseStmt__AddNode:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%edi
+	movl 16(%ebp),%esi
+	testl %esi,%esi
+	jne .L59
+	pushl $2708
+	call _m3_fault
+	.align 16
+.L59:
+	movl %esi,%ebx
+	leal 16(%ebx),%eax
+	pushl %eax
+	movl 32(%ebp),%eax
+	pushl %eax
+	movl 20(%ebp),%ecx
+	pushl %ecx
+	movl 8(%ebx),%eax
+	pushl %eax
+	pushl %ebx
+	pushl %edi
+	call CaseStmt__CheckLabel
+	addl $24,%esp
+	movl 12(%ebx),%edx
+	testl %edx,%edx
+	je .L67
+	leal 24(%ebx),%eax
+	pushl %eax
+	movl 32(%ebp),%eax
+	pushl %eax
+	movl 20(%ebp),%ecx
+	pushl %ecx
+	pushl %edx
+	pushl %ebx
+	pushl %edi
+	call CaseStmt__CheckLabel
+	addl $24,%esp
+	jmp .L65
+	.align 16
+.L67:
+	movl 16(%ebx),%eax
+	movl %eax,24(%ebx)
+	movl 20(%ebx),%eax
+	movl %eax,28(%ebx)
+.L65:
+	testl %esi,%esi
+	jne .L68
+	pushl $2804
+	call _m3_fault
+	.align 16
+.L68:
+	cmpb $0,40(%esi)
+	jne .L71
+	cmpb $0,26(%edi)
+	jne .L71
+	movl 24(%ebp),%eax
+	pushl %eax
+	leal 16(%esi),%eax
+	pushl %eax
+	movl MI_TInt+104,%eax
+	call *%eax
+	addl $8,%esp
+	testl %eax,%eax
+	jne .L73
+	leal 24(%esi),%eax
+	pushl %eax
+	movl 28(%ebp),%eax
+	pushl %eax
+	movl MI_TInt+104,%eax
+	call *%eax
+	addl $8,%esp
+	testl %eax,%eax
+	je .L71
+.L73:
+	pushl $MM_CaseStmt+592
+	movl MI_Error+44,%eax
+	call *%eax
+	addl $4,%esp
+	movb $1,40(%esi)
+.L71:
+	pushl %esi
+	movl 12(%ebp),%ecx
+	pushl %ecx
+	pushl %edi
+	call CaseStmt__AddToTree
+	movl %eax,%ebx
+	leal -12(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe5:
+	.size	 CaseStmt__AddNode,.Lfe5-CaseStmt__AddNode
+	.align 16
+	.type	 CaseStmt__CheckLabel,@function
+CaseStmt__CheckLabel:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $32,%esp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 12(%ebp),%edi
+	movl 16(%ebp),%esi
+	movl $0,-24(%ebp)
+	leal -4(%ebp),%ebx
+	pushl %ebx
+	leal -12(%ebp),%eax
+	pushl %eax
+	movl MI_Error+80,%eax
+	call *%eax
+	movl 24(%ebp),%eax
+	pushl %eax
+	pushl %esi
+	movl MI_Expr+156,%eax
+	call *%eax
+	pushl %ebx
+	leal -8(%ebp),%eax
+	pushl %eax
+	movl MI_Error+80,%eax
+	call *%eax
+	movl -12(%ebp),%eax
+	addl $24,%esp
+	cmpl %eax,-8(%ebp)
+	jle .L78
+	testl %edi,%edi
+	jne .L79
+	pushl $3076
+	call _m3_fault
+	.align 16
+.L79:
+	movb $1,40(%edi)
+	movl 28(%ebp),%eax
+	movl MI_TInt+44,%edx
+	movl %edx,(%eax)
+	movl MI_TInt+48,%edx
+	jmp .L87
+	.align 16
+.L78:
+	pushl %esi
+	movl MI_Expr+152,%eax
+	call *%eax
+	movl %eax,-24(%ebp)
+	movl 8(%ebp),%ecx
+	addl $4,%esp
+	cmpb $0,26(%ecx)
+	jne .L80
+	pushl %eax
+	movl 20(%ebp),%ecx
+	pushl %ecx
+	movl MI_Type+124,%eax
+	call *%eax
+	addl $8,%esp
+	testl %eax,%eax
+	jne .L80
+	pushl $MM_CaseStmt+632
+	movl MI_Error+44,%eax
+	call *%eax
+	addl $4,%esp
+	testl %edi,%edi
+	jne .L81
+	pushl $3156
+	call _m3_fault
+	.align 16
+.L81:
+	movb $1,40(%edi)
+.L80:
+	pushl %esi
+	movl MI_Expr+160,%eax
+	call *%eax
+	movl %eax,%esi
+	addl $4,%esp
+	testl %esi,%esi
+	jne .L82
+	testl %edi,%edi
+	jne .L83
+	pushl $3220
+	call _m3_fault
+	.align 16
+.L83:
+	cmpb $0,40(%edi)
+	jne .L82
+	pushl $MM_CaseStmt+684
+	movl MI_Error+44,%eax
+	call *%eax
+	addl $4,%esp
+	movb $1,40(%edi)
+.L82:
+	movl MI_TInt+44,%eax
+	movl %eax,-20(%ebp)
+	movl MI_TInt+48,%eax
+	movl %eax,-16(%ebp)
+	leal -20(%ebp),%ebx
+	pushl %ebx
+	pushl %esi
+	movl MI_IntegerExpr+48,%eax
+	call *%eax
+	addl $8,%esp
+	testl %eax,%eax
+	jne .L86
+	leal -24(%ebp),%eax
+	pushl %eax
+	pushl %ebx
+	pushl %esi
+	movl MI_EnumExpr+48,%eax
+	call *%eax
+.L86:
+	movl 28(%ebp),%eax
+	movl -20(%ebp),%edx
+	movl %edx,(%eax)
+	movl -16(%ebp),%edx
+.L87:
+	movl %edx,4(%eax)
+	leal -44(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe6:
+	.size	 CaseStmt__CheckLabel,.Lfe6-CaseStmt__CheckLabel
+	.align 16
+	.type	 CaseStmt__AddToTree,@function
+CaseStmt__AddToTree:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $20,%esp
+	pushl %edi
+	pushl %esi
+	xorl %eax,%eax
+	pushl %ebx
+	movl 12(%ebp),%ebx
+	cmpl $0,16(%ebp)
+	jne .L89
+	pushl $3412
+	call _m3_fault
+	.align 16
+.L89:
+	movl 16(%ebp),%esi
+	movl %esi,-20(%ebp)
+	movl %eax,(%esi)
+	movl -20(%ebp),%esi
+	movl %eax,4(%esi)
+	cmpb $0,40(%esi)
+	jne .L94
+	movl 8(%ebp),%esi
+	cmpb $0,26(%esi)
+	jne .L94
+	testl %ebx,%ebx
+	jne .L97
+	movl -20(%ebp),%ebx
+	jmp .L94
+	.align 16
+.L97:
+	leal 16(%ebx),%esi
+	movl %esi,-8(%ebp)
+	pushl %esi
+	movl -20(%ebp),%esi
+	addl $24,%esi
+	movl %esi,-12(%ebp)
+	pushl %esi
+	movl MI_TInt+104,%eax
+	call *%eax
+	addl $8,%esp
+	testl %eax,%eax
+	je .L102
+	movl -20(%ebp),%esi
+	jmp .L136
+	.align 16
+.L102:
+	movl -20(%ebp),%edi
+	addl $16,%edi
+	pushl %edi
+	leal 24(%ebx),%esi
+	movl %esi,-16(%ebp)
+	pushl %esi
+	movl MI_TInt+104,%eax
+	call *%eax
+	addl $8,%esp
+	testl %eax,%eax
+	je .L107
+	movl -20(%ebp),%esi
+	jmp .L137
+	.align 16
+.L107:
+	movl -20(%ebp),%esi
+	movl 32(%ebx),%eax
+	cmpl %eax,32(%esi)
+	je .L108
+	pushl $MM_CaseStmt+724
+	movl MI_Error+44,%eax
+	call *%eax
+	movb $1,40(%esi)
+	jmp .L94
+	.align 16
+.L108:
+	pushl $MM_CaseStmt+772
+	pushl $2
+	movl MI_Error+64,%eax
+	call *%eax
+	addl $8,%esp
+	movl -8(%ebp),%esi
+	pushl %esi
+	pushl %edi
+	movl MI_TInt+104,%eax
+	call *%eax
+	movb %al,-4(%ebp)
+	addl $8,%esp
+	movl -12(%ebp),%esi
+	pushl %esi
+	movl -16(%ebp),%esi
+	pushl %esi
+	movl MI_TInt+104,%eax
+	call *%eax
+	addl $8,%esp
+	cmpb $0,-4(%ebp)
+	je .L126
+	testb %al,%al
+	je .L114
+	movl MM_CaseStmt+460,%eax
+	pushl %eax
+	movl MI_RTHooks+80,%eax
+	call *%eax
+	movl %eax,-20(%ebp)
+	addl $4,%esp
+	testl %eax,%eax
+	jne .L115
+	pushl $3716
+	call _m3_fault
+	.align 16
+.L115:
+	cmpl $0,16(%ebp)
+	jne .L116
+	pushl $3716
+	call _m3_fault
+	.align 16
+.L116:
+	movl -20(%ebp),%edi
+	movl 16(%ebp),%eax
+	movl %eax,%esi
+	cld
+	movl $11,%ecx
+	rep
+	movsl
+	testl %ebx,%ebx
+	jne .L118
+	pushl $3732
+	call _m3_fault
+	.align 16
+.L118:
+	movl -20(%ebp),%eax
+	addl $24,%eax
+	pushl %eax
+	pushl $MI_TInt+52
+	leal 16(%ebx),%eax
+	pushl %eax
+	movl MI_TInt+84,%eax
+	call *%eax
+	addl $12,%esp
+	movl -20(%ebp),%esi
+	pushl %esi
+	movl (%ebx),%eax
+	pushl %eax
+	movl 8(%ebp),%esi
+	pushl %esi
+	call CaseStmt__AddToTree
+	movl %eax,-20(%ebp)
+	addl $12,%esp
+	movl %eax,(%ebx)
+	jmp .L138
+	.align 16
+.L114:
+	movl 16(%ebp),%eax
+	addl $24,%eax
+	pushl %eax
+	pushl $MI_TInt+52
+	leal 16(%ebx),%eax
+	pushl %eax
+	movl MI_TInt+84,%eax
+	call *%eax
+	addl $12,%esp
+	testl %ebx,%ebx
+	jne .L129
+	pushl $3828
+	call _m3_fault
+	.align 16
+.L129:
+	movl 16(%ebp),%esi
+.L136:
+	pushl %esi
+	movl (%ebx),%eax
+	pushl %eax
+	movl 8(%ebp),%esi
+	pushl %esi
+	call CaseStmt__AddToTree
+	movl %eax,-20(%ebp)
+	movl %eax,(%ebx)
+	jmp .L94
+	.align 16
+.L126:
+	testb %al,%al
+	je .L94
+.L138:
+	movl 16(%ebp),%eax
+	addl $16,%eax
+	pushl %eax
+	pushl $MI_TInt+52
+	leal 24(%ebx),%eax
+	pushl %eax
+	movl MI_TInt+80,%eax
+	call *%eax
+	addl $12,%esp
+	movl 16(%ebp),%esi
+.L137:
+	pushl %esi
+	movl 4(%ebx),%eax
+	pushl %eax
+	movl 8(%ebp),%esi
+	pushl %esi
+	call CaseStmt__AddToTree
+	movl %eax,4(%ebx)
+.L94:
+	leal -32(%ebp),%esp
+	movl %ebx,%eax
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe7:
+	.size	 CaseStmt__AddToTree,.Lfe7-CaseStmt__AddToTree
+	.align 16
+	.type	 CaseStmt__CompleteTree,@function
+CaseStmt__CompleteTree:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $28,%esp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%ebx
+	jmp .L140
+	.align 16
+.L141:
+	leal 12(%ebp),%esi
+	pushl %esi
+	leal 24(%ebx),%edx
+	movl %edx,-20(%ebp)
+	pushl %edx
+	movl MI_TInt+104,%eax
+	call *%eax
+	addl $8,%esp
+	testl %eax,%eax
+	jne .L143
+	leal 16(%ebx),%edx
+	movl %edx,-24(%ebp)
+	pushl %edx
+	leal 20(%ebp),%edx
+	movl %edx,-28(%ebp)
+	pushl %edx
+	movl MI_TInt+104,%eax
+	call *%eax
+	addl $8,%esp
+	testl %eax,%eax
+	je .L146
+.L143:
+	pushl %esi
+	jmp .L166
+	.align 16
+.L146:
+	leal -16(%ebp),%edi
+	pushl %edi
+	pushl %esi
+	movl -24(%ebp),%edx
+	pushl %edx
+	movl MI_TInt+84,%eax
+	call *%eax
+	addl $12,%esp
+	testl %eax,%eax
+	je .L147
+	leal -8(%ebp),%esi
+	pushl %esi
+	movl -20(%ebp),%edx
+	pushl %edx
+	movl -28(%ebp),%edx
+	pushl %edx
+	movl MI_TInt+84,%eax
+	call *%eax
+	addl $12,%esp
+	testl %eax,%eax
+	je .L147
+	pushl %edi
+	pushl %esi
+	movl MI_TInt+104,%eax
+	call *%eax
+	addl $8,%esp
+	testl %eax,%eax
+	je .L147
+	pushl %edi
+	pushl $MI_TInt+52
+	movl -20(%ebp),%edx
+	pushl %edx
+	movl MI_TInt+80,%eax
+	call *%eax
+	addl $12,%esp
+	testl %eax,%eax
+	je .L150
+	movl 24(%ebp),%eax
+	movl 20(%ebp),%edx
+	pushl %eax
+	pushl %edx
+	movl -12(%ebp),%eax
+	movl -16(%ebp),%edx
+	pushl %eax
+	pushl %edx
+	movl 4(%ebx),%eax
+	pushl %eax
+	call CaseStmt__CompleteTree
+	addl $20,%esp
+	testl %eax,%eax
+	je .L165
+.L150:
+	testl %ebx,%ebx
+	jne .L153
+	pushl $4180
+	call _m3_fault
+	.align 16
+.L153:
+	leal 20(%ebp),%eax
+	pushl %eax
+	pushl $MI_TInt+52
+	leal 16(%ebx),%eax
+	pushl %eax
+	movl MI_TInt+84,%eax
+	call *%eax
+	addl $12,%esp
+	testl %eax,%eax
+	je .L167
+	movl (%ebx),%ebx
+	jmp .L140
+	.align 16
+.L147:
+	testl %ebx,%ebx
+	jne .L157
+	pushl $4260
+	call _m3_fault
+	.align 16
+.L157:
+	leal -16(%ebp),%eax
+	pushl %eax
+	pushl $MI_TInt+52
+	leal 16(%ebx),%eax
+	pushl %eax
+	movl MI_TInt+84,%eax
+	call *%eax
+	addl $12,%esp
+	testl %eax,%eax
+	je .L158
+	movl -12(%ebp),%eax
+	movl -16(%ebp),%edx
+	pushl %eax
+	pushl %edx
+	movl 16(%ebp),%eax
+	movl 12(%ebp),%edx
+	pushl %eax
+	pushl %edx
+	movl (%ebx),%eax
+	pushl %eax
+	call CaseStmt__CompleteTree
+	addl $20,%esp
+	testl %eax,%eax
+	je .L165
+.L158:
+	testl %ebx,%ebx
+	jne .L161
+	pushl $4308
+	call _m3_fault
+	.align 16
+.L161:
+	leal 12(%ebp),%eax
+	pushl %eax
+	pushl $MI_TInt+52
+	leal 24(%ebx),%eax
+	pushl %eax
+	movl MI_TInt+80,%eax
+	call *%eax
+	addl $12,%esp
+	testl %eax,%eax
+	jne .L163
+.L167:
+	movl $1,%eax
+	jmp .L165
+	.align 16
+.L163:
+	movl 4(%ebx),%ebx
+.L140:
+	testl %ebx,%ebx
+	jne .L141
+	leal 12(%ebp),%eax
+	pushl %eax
+.L166:
+	leal 20(%ebp),%eax
+	pushl %eax
+	movl MI_TInt+104,%eax
+	call *%eax
+.L165:
+	leal -40(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe8:
+	.size	 CaseStmt__CompleteTree,.Lfe8-CaseStmt__CompleteTree
+	.align 16
+	.type	 CaseStmt__Compile,@function
+CaseStmt__Compile:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $24,%esp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%ebx
+	movl MI_Target+120,%eax
+	movl %eax,-24(%ebp)
+	movl MI_Target+124,%eax
+	movl %eax,-20(%ebp)
+	movl 16(%ebx),%edx
+	jmp .L169
+	.align 16
+.L170:
+	movl 16(%edx),%eax
+	movl %eax,-24(%ebp)
+	movl 20(%edx),%eax
+	movl %eax,-20(%ebp)
+	movl (%edx),%edx
+.L169:
+	testl %edx,%edx
+	jne .L170
+	movl MI_Target+112,%eax
+	movl %eax,-16(%ebp)
+	movl MI_Target+116,%eax
+	movl %eax,-12(%ebp)
+	movl 16(%ebx),%edx
+	jmp .L174
+	.align 16
+.L175:
+	movl 24(%edx),%eax
+	movl %eax,-16(%ebp)
+	movl 28(%edx),%eax
+	movl %eax,-12(%ebp)
+	movl 4(%edx),%edx
+.L174:
+	testl %edx,%edx
+	jne .L175
+	pushl %edx
+	movl 16(%ebx),%eax
+	pushl %eax
+	call CaseStmt__FlattenTree
+	movl %eax,16(%ebx)
+	leal -8(%ebp),%eax
+	pushl %eax
+	leal -24(%ebp),%edi
+	pushl %edi
+	movl MI_TInt+72,%eax
+	call *%eax
+	addl $16,%esp
+	testl %eax,%eax
+	je .L179
+	leal -4(%ebp),%eax
+	pushl %eax
+	leal -16(%ebp),%esi
+	pushl %esi
+	movl MI_TInt+72,%eax
+	call *%eax
+	addl $8,%esp
+	testl %eax,%eax
+	je .L179
+	movl -8(%ebp),%eax
+	pushl %eax
+	movl -4(%ebp),%eax
+	pushl %eax
+	pushl %ebx
+	call CaseStmt__ShouldBeIndexed
+	addl $12,%esp
+	testl %eax,%eax
+	je .L179
+	pushl %esi
+	pushl %edi
+	movl -4(%ebp),%eax
+	pushl %eax
+	movl -8(%ebp),%eax
+	pushl %eax
+	pushl %ebx
+	call CaseStmt__GenIndexedBranch
+	jmp .L180
+	.align 16
+.L179:
+	pushl %ebx
+	call CaseStmt__GenIfTable
+.L180:
+	leal -36(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe9:
+	.size	 CaseStmt__Compile,.Lfe9-CaseStmt__Compile
+	.align 16
+	.type	 CaseStmt__FlattenTree,@function
+CaseStmt__FlattenTree:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %ebx
+	movl 8(%ebp),%ebx
+	movl 12(%ebp),%eax
+	testl %ebx,%ebx
+	je .L186
+	pushl %eax
+	movl 4(%ebx),%eax
+	pushl %eax
+	call CaseStmt__FlattenTree
+	addl $8,%esp
+	movl %eax,4(%ebx)
+	pushl %ebx
+	movl (%ebx),%eax
+	pushl %eax
+	call CaseStmt__FlattenTree
+.L186:
+	movl -4(%ebp),%ebx
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe10:
+	.size	 CaseStmt__FlattenTree,.Lfe10-CaseStmt__FlattenTree
+	.align 16
+	.type	 CaseStmt__ShouldBeIndexed,@function
+CaseStmt__ShouldBeIndexed:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $16,%esp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	xorl %ebx,%ebx
+	movl 12(%ebp),%eax
+	subl 16(%ebp),%eax
+	cmpl $4096,%eax
+	jg .L200
+	testl %eax,%eax
+	jl .L200
+	movl %ebx,%esi
+	movl MI_Target+112,%eax
+	movl %eax,-16(%ebp)
+	movl MI_Target+116,%eax
+	movl 8(%ebp),%ecx
+	movl %eax,-12(%ebp)
+	movl 16(%ecx),%ebx
+	jmp .L190
+	.align 16
+.L191:
+	leal -8(%ebp),%edi
+	pushl %edi
+	pushl $MI_TInt+52
+	leal 16(%ebx),%eax
+	pushl %eax
+	movl MI_TInt+84,%eax
+	call *%eax
+	addl $12,%esp
+	testl %eax,%eax
+	je .L193
+	pushl %edi
+	leal -16(%ebp),%eax
+	pushl %eax
+	movl MI_TInt+104,%eax
+	call *%eax
+	addl $8,%esp
+	testl %eax,%eax
+	je .L193
+	incl %esi
+.L193:
+	incl %esi
+	testl %ebx,%ebx
+	jne .L194
+	pushl $5428
+	call _m3_fault
+	.align 16
+.L194:
+	movl 24(%ebx),%eax
+	movl %eax,-16(%ebp)
+	movl 28(%ebx),%eax
+	movl %eax,-12(%ebp)
+	movl 4(%ebx),%ebx
+.L190:
+	testl %ebx,%ebx
+	jne .L191
+	cmpl $7,%esi
+	jg .L197
+.L200:
+	movl %ebx,%eax
+	jmp .L199
+	.align 16
+.L197:
+	movl 12(%ebp),%edx
+	subl 16(%ebp),%edx
+	cmpl $256,%edx
+	jle .L198
+	movl 8(%ebp),%ecx
+	movl 32(%ecx),%eax
+	leal (%eax,%eax,4),%eax
+	sall $2,%eax
+	cmpl %edx,%eax
+	setg %al
+	andl $255,%eax
+	jmp .L199
+	.align 16
+.L198:
+	movl $1,%eax
+.L199:
+	leal -28(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe11:
+	.size	 CaseStmt__ShouldBeIndexed,.Lfe11-CaseStmt__ShouldBeIndexed
+	.align 16
+	.type	 CaseStmt__GenIndexedBranch,@function
+CaseStmt__GenIndexedBranch:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $68,%esp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	leal -16(%ebp),%eax
+	pushl %eax
+	leal -24(%ebp),%eax
+	pushl %eax
+	movl 8(%ebp),%ecx
+	movl 12(%ecx),%eax
+	pushl %eax
+	movl MI_Expr+164,%eax
+	call *%eax
+	movl 8(%ebp),%esi
+	movl 32(%esi),%eax
+	pushl %eax
+	movl MI_CG+52,%eax
+	call *%eax
+	movl %eax,-44(%ebp)
+	pushl $1
+	movl MI_CG+52,%eax
+	call *%eax
+	movl %eax,-52(%ebp)
+	leal -36(%ebp),%edx
+	leal -28(%ebp),%ecx
+	movl %ecx,-36(%ebp)
+	movl $1,-32(%ebp)
+	movl 16(%ebp),%eax
+	subl 12(%ebp),%eax
+	incl %eax
+	movl %eax,-28(%ebp)
+	pushl %edx
+	movl MM_CaseStmt+808,%eax
+	pushl %eax
+	movl MI_RTHooks+84,%eax
+	call *%eax
+	movl %eax,%ebx
+	movl %ebx,-40(%ebp)
+	addl $28,%esp
+	testl %ebx,%ebx
+	jne .L202
+	pushl $5908
+	call _m3_fault
+	.align 16
+.L202:
+	xorl %edx,%edx
+	movl 4(%ebx),%edi
+	decl %edi
+	jmp .L203
+	.align 16
+.L204:
+	cmpl $0,-40(%ebp)
+	jne .L205
+	pushl $5908
+	call _m3_fault
+	.align 16
+.L205:
+	movl -40(%ebp),%ebx
+	cmpl %edx,4(%ebx)
+	ja .L206
+	pushl $5906
+	call _m3_fault
+	.align 16
+.L206:
+	movl (%ebx),%eax
+	movl -52(%ebp),%esi
+	movl %esi,(%eax,%edx,4)
+	incl %edx
+.L203:
+	cmpl %edi,%edx
+	jle .L204
+	pushl $1
+	movl MI_CG+52,%eax
+	call *%eax
+	movl %eax,-48(%ebp)
+	movl 8(%ebp),%ecx
+	addl $4,%esp
+	movl 16(%ecx),%edi
+	jmp .L208
+	.align 16
+.L209:
+	movl -44(%ebp),%esi
+	addl 32(%edi),%esi
+	movl %esi,-68(%ebp)
+	leal -8(%ebp),%eax
+	pushl %eax
+	leal 16(%edi),%eax
+	pushl %eax
+	movl MI_TInt+72,%eax
+	call *%eax
+	addl $8,%esp
+	testb %al,%al
+	jne .L213
+	pushl $6016
+	call _m3_fault
+	.align 16
+.L213:
+	leal -4(%ebp),%eax
+	pushl %eax
+	leal 24(%edi),%eax
+	pushl %eax
+	movl MI_TInt+72,%eax
+	call *%eax
+	addl $8,%esp
+	testb %al,%al
+	jne .L214
+	pushl $6032
+	call _m3_fault
+	.align 16
+.L214:
+	movl -8(%ebp),%edx
+	subl 12(%ebp),%edx
+	jmp .L215
+	.align 16
+.L216:
+	cmpl $0,-40(%ebp)
+	jne .L217
+	pushl $6084
+	call _m3_fault
+	.align 16
+.L217:
+	movl -40(%ebp),%ebx
+	cmpl %edx,4(%ebx)
+	ja .L218
+	pushl $6082
+	call _m3_fault
+	.align 16
+.L218:
+	movl (%ebx),%eax
+	movl -68(%ebp),%ecx
+	movl %ecx,(%eax,%edx,4)
+	cmpl %edx,-64(%ebp)
+	je .L220
+	incl %edx
+.L215:
+	movl -4(%ebp),%esi
+	subl 12(%ebp),%esi
+	movl %esi,-64(%ebp)
+	cmpl %edx,%esi
+	jge .L216
+.L220:
+	testl %edi,%edi
+	jne .L221
+	pushl $6148
+	call _m3_fault
+	.align 16
+.L221:
+	movl 4(%edi),%edi
+.L208:
+	testl %edi,%edi
+	jne .L209
+	movl 8(%ebp),%ecx
+	movl 12(%ecx),%eax
+	pushl %eax
+	movl MI_Expr+200,%eax
+	call *%eax
+	movl 8(%ebp),%esi
+	movl 12(%esi),%eax
+	pushl %eax
+	movl MI_Expr+204,%eax
+	call *%eax
+	addl $8,%esp
+	cmpl $0,12(%ebp)
+	je .L223
+	movl 12(%ebp),%ecx
+	pushl %ecx
+	movl MI_CG+424,%eax
+	call *%eax
+	pushl $2
+	movl MI_CG+464,%eax
+	call *%eax
+	addl $8,%esp
+.L223:
+	leal -24(%ebp),%ebx
+	pushl %ebx
+	movl 20(%ebp),%eax
+	pushl %eax
+	movl MI_TInt+108,%eax
+	call *%eax
+	addl $8,%esp
+	testl %eax,%eax
+	je .L224
+	movl 24(%ebp),%eax
+	pushl %eax
+	leal -16(%ebp),%eax
+	pushl %eax
+	movl MI_TInt+108,%eax
+	call *%eax
+	movl %eax,-68(%ebp)
+	addl $8,%esp
+	testl %eax,%eax
+	jne .L225
+.L224:
+	pushl %ebx
+	movl 20(%ebp),%eax
+	pushl %eax
+	movl MI_TInt+108,%eax
+	call *%eax
+	movl %eax,-68(%ebp)
+	addl $8,%esp
+	testl %eax,%eax
+	je .L226
+	movl MI_CG+220,%eax
+	call *%eax
+	movl %eax,%ebx
+	pushl %ebx
+	movl MI_CG+228,%eax
+	call *%eax
+	movl 16(%ebp),%eax
+	subl 12(%ebp),%eax
+	pushl %eax
+	movl MI_CG+424,%eax
+	call *%eax
+	pushl %edi
+	pushl $2
+	movl -52(%ebp),%esi
+	pushl %esi
+	movl MI_CG+340,%eax
+	jmp .L238
+	.align 16
+.L226:
+	movl 24(%ebp),%eax
+	pushl %eax
+	leal -16(%ebp),%eax
+	pushl %eax
+	movl MI_TInt+108,%eax
+	call *%eax
+	movl %eax,-68(%ebp)
+	addl $8,%esp
+	testl %eax,%eax
+	je .L227
+	movl MI_CG+220,%eax
+	call *%eax
+	movl %eax,%ebx
+	pushl %ebx
+	movl MI_CG+228,%eax
+	call *%eax
+	pushl $MI_TInt+44
+	movl MI_CG+428,%eax
+	call *%eax
+	pushl %edi
+	pushl $2
+	movl -52(%ebp),%ecx
+	pushl %ecx
+	movl MI_CG+348,%eax
+.L238:
+	call *%eax
+	pushl %ebx
+	movl MI_CG+228,%eax
+	call *%eax
+	pushl %ebx
+	movl MI_CG+232,%eax
+	call *%eax
+	addl $28,%esp
+	jmp .L225
+	.align 16
+.L227:
+	movl MI_CG+220,%eax
+	call *%eax
+	movl %eax,%ebx
+	pushl %ebx
+	movl MI_CG+228,%eax
+	call *%eax
+	pushl $MI_TInt+44
+	movl MI_CG+428,%eax
+	call *%eax
+	movl -68(%ebp),%esi
+	pushl %esi
+	pushl $2
+	movl -52(%ebp),%ecx
+	pushl %ecx
+	movl MI_CG+348,%eax
+	call *%eax
+	pushl %ebx
+	movl MI_CG+228,%eax
+	call *%eax
+	movl 16(%ebp),%eax
+	subl 12(%ebp),%eax
+	pushl %eax
+	movl MI_CG+424,%eax
+	call *%eax
+	pushl %esi
+	pushl $2
+	movl -52(%ebp),%esi
+	pushl %esi
+	movl MI_CG+340,%eax
+	call *%eax
+	addl $40,%esp
+	pushl %ebx
+	movl MI_CG+228,%eax
+	call *%eax
+	pushl %ebx
+	movl MI_CG+232,%eax
+	call *%eax
+	addl $8,%esp
+.L225:
+	cmpl $0,-40(%ebp)
+	jne .L228
+	pushl $6868
+	call _m3_fault
+	.align 16
+.L228:
+	movl -40(%ebp),%ecx
+	pushl %ecx
+	movl MI_CG+356,%eax
+	call *%eax
+	movl $0,-56(%ebp)
+	movl -56(%ebp),%edi
+	movl 8(%ebp),%esi
+	addl $4,%esp
+	movl 32(%esi),%esi
+	decl %esi
+	movl %esi,-60(%ebp)
+	jmp .L229
+	.align 16
+.L230:
+	pushl $0
+	movl -44(%ebp),%eax
+	addl %edi,%eax
+	pushl %eax
+	movl MI_CG+316,%eax
+	call *%eax
+	movl 8(%ebp),%ecx
+	addl $8,%esp
+	movl 20(%ecx),%eax
+	testl %eax,%eax
+	jne .L231
+	pushl $6964
+	call _m3_fault
+	.align 16
+.L231:
+	movl %eax,%ebx
+	cmpl %edi,4(%ebx)
+	ja .L232
+	pushl $6962
+	call _m3_fault
+	.align 16
+.L232:
+	movl (%ebx),%eax
+	movl (%eax,%edi,4),%eax
+	pushl %eax
+	movl MI_Stmt+52,%eax
+	call *%eax
+	movl %eax,-68(%ebp)
+	orl %eax,-56(%ebp)
+	addl $4,%esp
+	testb $1,%al
+	je .L233
+	movl -48(%ebp),%esi
+	pushl %esi
+	movl MI_CG+320,%eax
+	call *%eax
+	addl $4,%esp
+.L233:
+	incl %edi
+.L229:
+	cmpl %edi,-60(%ebp)
+	jge .L230
+	pushl $0
+	movl -52(%ebp),%ecx
+	pushl %ecx
+	movl MI_CG+316,%eax
+	call *%eax
+	movl 8(%ebp),%esi
+	addl $8,%esp
+	cmpb $0,25(%esi)
+	je .L235
+	movl 28(%esi),%eax
+	pushl %eax
+	movl MI_Stmt+52,%eax
+	call *%eax
+	movl %eax,-68(%ebp)
+	orl %eax,-56(%ebp)
+	addl $4,%esp
+	jmp .L236
+	.align 16
+.L235:
+	movl 8(%ebp),%ecx
+	cmpb $0,24(%ecx)
+	jne .L236
+	cmpb $0,MI_Host+86
+	je .L236
+	movl MI_CG+672,%eax
+	call *%eax
+.L236:
+	pushl $0
+	movl -48(%ebp),%esi
+	pushl %esi
+	movl MI_CG+316,%eax
+	call *%eax
+	leal -80(%ebp),%esp
+	movl -56(%ebp),%eax
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe12:
+	.size	 CaseStmt__GenIndexedBranch,.Lfe12-CaseStmt__GenIndexedBranch
+	.align 16
+	.type	 CaseStmt__GenIfTable,@function
+CaseStmt__GenIfTable:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $48,%esp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%edi
+	movl 16(%edi),%eax
+	pushl %eax
+	call CaseStmt__CollapseTree
+	movl %eax,16(%edi)
+	movl 32(%edi),%eax
+	pushl %eax
+	movl MI_CG+52,%eax
+	call *%eax
+	movl %eax,-36(%ebp)
+	pushl $1
+	movl MI_CG+52,%eax
+	call *%eax
+	movl %eax,-32(%ebp)
+	pushl $1
+	movl MI_CG+52,%eax
+	call *%eax
+	movl %eax,-28(%ebp)
+	movl $0,-40(%ebp)
+	movl 12(%edi),%eax
+	pushl %eax
+	movl MI_Expr+200,%eax
+	call *%eax
+	movl 12(%edi),%eax
+	pushl %eax
+	movl MI_Expr+204,%eax
+	call *%eax
+	movl MI_CG+220,%eax
+	call *%eax
+	movl %eax,-44(%ebp)
+	leal -16(%ebp),%eax
+	pushl %eax
+	leal -24(%ebp),%eax
+	pushl %eax
+	movl 12(%edi),%eax
+	pushl %eax
+	movl MI_Expr+164,%eax
+	call *%eax
+	movl -24(%ebp),%eax
+	movl %eax,-8(%ebp)
+	movl -20(%ebp),%eax
+	movl %eax,-4(%ebp)
+	movl 16(%edi),%esi
+	addl $36,%esp
+	jmp .L240
+	.align 16
+.L241:
+	movl 36(%esi),%eax
+	pushl %eax
+	movl MI_CG+72,%eax
+	call *%eax
+	addl $4,%esp
+	leal 16(%esi),%ebx
+	leal -8(%ebp),%edx
+	pushl %ebx
+	movl %edx,-48(%ebp)
+	pushl %edx
+	movl MI_TInt+104,%eax
+	call *%eax
+	addl $8,%esp
+	testl %eax,%eax
+	je .L244
+	movl -44(%ebp),%edx
+	pushl %edx
+	movl MI_CG+228,%eax
+	call *%eax
+	addl $4,%esp
+	pushl %ebx
+	movl MI_CG+428,%eax
+	call *%eax
+	pushl $0
+	pushl $2
+	movl -32(%ebp),%edx
+	pushl %edx
+	movl MI_CG+348,%eax
+	call *%eax
+	addl $16,%esp
+.L244:
+	movl -44(%ebp),%edx
+	pushl %edx
+	movl MI_CG+228,%eax
+	call *%eax
+	addl $4,%esp
+	leal 24(%esi),%ebx
+	pushl %ebx
+	movl MI_CG+428,%eax
+	call *%eax
+	addl $4,%esp
+	pushl $50
+	pushl $2
+	movl -36(%ebp),%eax
+	addl 32(%esi),%eax
+	pushl %eax
+	movl MI_CG+352,%eax
+	call *%eax
+	addl $12,%esp
+	movl -48(%ebp),%edx
+	pushl %edx
+	pushl $MI_TInt+52
+	pushl %ebx
+	movl MI_TInt+80,%eax
+	call *%eax
+	addl $12,%esp
+	testl %eax,%eax
+	jne .L249
+	cmpl $0,4(%esi)
+	je .L252
+	pushl $MM_CaseStmt+820
+	movl MI_Error+44,%eax
+	call *%eax
+	addl $4,%esp
+.L252:
+	movl 24(%esi),%eax
+	movl %eax,-8(%ebp)
+	movl 28(%esi),%eax
+	movl %eax,-4(%ebp)
+.L249:
+	testl %esi,%esi
+	jne .L253
+	pushl $7844
+	call _m3_fault
+	.align 16
+.L253:
+	movl 4(%esi),%esi
+.L240:
+	testl %esi,%esi
+	jne .L241
+	leal -16(%ebp),%eax
+	pushl %eax
+	leal -8(%ebp),%eax
+	pushl %eax
+	movl MI_TInt+108,%eax
+	call *%eax
+	addl $8,%esp
+	testl %eax,%eax
+	je .L255
+	movl -32(%ebp),%edx
+	pushl %edx
+	movl MI_CG+320,%eax
+	call *%eax
+	addl $4,%esp
+.L255:
+	movl -44(%ebp),%edx
+	pushl %edx
+	movl MI_CG+232,%eax
+	call *%eax
+	movl %esi,%ebx
+	movl 32(%edi),%esi
+	decl %esi
+	addl $4,%esp
+	jmp .L256
+	.align 16
+.L257:
+	pushl $0
+	movl -36(%ebp),%eax
+	addl %ebx,%eax
+	pushl %eax
+	movl MI_CG+316,%eax
+	call *%eax
+	movl 20(%edi),%eax
+	addl $8,%esp
+	testl %eax,%eax
+	jne .L258
+	pushl $7972
+	call _m3_fault
+	.align 16
+.L258:
+	cmpl %ebx,4(%eax)
+	ja .L259
+	pushl $7970
+	call _m3_fault
+	.align 16
+.L259:
+	movl (%eax),%eax
+	movl (%eax,%ebx,4),%eax
+	pushl %eax
+	movl MI_Stmt+52,%eax
+	call *%eax
+	orl %eax,-40(%ebp)
+	addl $4,%esp
+	testb $1,%al
+	je .L260
+	movl -28(%ebp),%edx
+	pushl %edx
+	movl MI_CG+320,%eax
+	call *%eax
+	addl $4,%esp
+.L260:
+	incl %ebx
+.L256:
+	cmpl %esi,%ebx
+	jle .L257
+	pushl $0
+	movl -32(%ebp),%edx
+	pushl %edx
+	movl MI_CG+316,%eax
+	call *%eax
+	addl $8,%esp
+	cmpb $0,25(%edi)
+	je .L262
+	movl 28(%edi),%eax
+	pushl %eax
+	movl MI_Stmt+52,%eax
+	call *%eax
+	orl %eax,-40(%ebp)
+	addl $4,%esp
+	jmp .L263
+	.align 16
+.L262:
+	cmpb $0,24(%edi)
+	jne .L263
+	cmpb $0,MI_Host+86
+	je .L263
+	movl MI_CG+672,%eax
+	call *%eax
+.L263:
+	pushl $0
+	movl -28(%ebp),%edx
+	pushl %edx
+	movl MI_CG+316,%eax
+	call *%eax
+	leal -60(%ebp),%esp
+	movl -40(%ebp),%eax
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe13:
+	.size	 CaseStmt__GenIfTable,.Lfe13-CaseStmt__GenIfTable
+	.align 16
+	.type	 CaseStmt__CollapseTree,@function
+CaseStmt__CollapseTree:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $20,%esp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%esi
+	jmp .L266
+	.align 16
+.L267:
+	movl 32(%esi),%edx
+	movl %edx,-20(%ebp)
+	movl 24(%esi),%eax
+	movl %eax,-16(%ebp)
+	movl 28(%esi),%eax
+	movl %eax,-12(%ebp)
+	movl 4(%esi),%ebx
+	jmp .L271
+	.align 16
+.L272:
+	movl 24(%ebx),%eax
+	movl %eax,-16(%ebp)
+	movl 28(%ebx),%eax
+	movl %eax,-12(%ebp)
+	movl 4(%ebx),%ebx
+.L271:
+	testl %ebx,%ebx
+	je .L278
+	movl -20(%ebp),%edx
+	cmpl %edx,32(%ebx)
+	jne .L278
+	leal -8(%ebp),%edi
+	pushl %edi
+	pushl $MI_TInt+52
+	leal -16(%ebp),%eax
+	pushl %eax
+	movl MI_TInt+80,%eax
+	call *%eax
+	addl $12,%esp
+	testl %eax,%eax
+	je .L278
+	leal 16(%ebx),%eax
+	pushl %eax
+	pushl %edi
+	movl MI_TInt+100,%eax
+	call *%eax
+	addl $8,%esp
+	testl %eax,%eax
+	jne .L272
+.L278:
+	testl %esi,%esi
+	jne .L279
+	pushl $8468
+	call _m3_fault
+	.align 16
+.L279:
+	movl %ebx,4(%esi)
+	movl -16(%ebp),%eax
+	movl %eax,24(%esi)
+	movl -12(%ebp),%eax
+	movl %eax,28(%esi)
+	movl %ebx,%esi
+.L266:
+	testl %esi,%esi
+	jne .L267
+	leal -32(%ebp),%esp
+	movl 8(%ebp),%eax
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe14:
+	.size	 CaseStmt__CollapseTree,.Lfe14-CaseStmt__CollapseTree
+	.align 16
+	.type	 CaseStmt__GetOutcome,@function
+CaseStmt__GetOutcome:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $4,%esp
+	pushl %edi
+	pushl %esi
+	xorl %esi,%esi
+	pushl %ebx
+	movl 8(%ebp),%edi
+	movl %esi,%ebx
+	movl 32(%edi),%edx
+	decl %edx
+	movl %edx,-4(%ebp)
+	jmp .L283
+	.align 16
+.L284:
+	movl 20(%edi),%eax
+	testl %eax,%eax
+	jne .L285
+	pushl $8644
+	call _m3_fault
+	.align 16
+.L285:
+	cmpl %ebx,4(%eax)
+	ja .L286
+	pushl $8642
+	call _m3_fault
+	.align 16
+.L286:
+	movl (%eax),%eax
+	movl (%eax,%ebx,4),%eax
+	pushl %eax
+	movl MI_Stmt+56,%eax
+	call *%eax
+	orl %eax,%esi
+	incl %ebx
+	addl $4,%esp
+.L283:
+	cmpl %ebx,-4(%ebp)
+	jge .L284
+	cmpb $0,25(%edi)
+	je .L288
+	movl 28(%edi),%eax
+	pushl %eax
+	movl MI_Stmt+56,%eax
+	call *%eax
+	orl %eax,%esi
+.L288:
+	leal -16(%ebp),%esp
+	movl %esi,%eax
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe15:
+	.size	 CaseStmt__GetOutcome,.Lfe15-CaseStmt__GetOutcome
+	.align 16
+	.type	 M_CaseStmt_tea928833_LINK,@function
+M_CaseStmt_tea928833_LINK:
+	pushl %ebp
+	movl %esp,%ebp
+	movl MM_CaseStmt+416,%eax
+	movl %ebp,%esp
+	movl 52(%eax),%edx
+	movl MM_CaseStmt+364,%eax
+	movl %eax,4(%edx)
+	movl MM_CaseStmt+384,%eax
+	movl %eax,8(%edx)
+	movl MM_CaseStmt+408,%eax
+	movl %eax,12(%edx)
+	popl %ebp
+	ret
+.Lfe16:
+	.size	 M_CaseStmt_tea928833_LINK,.Lfe16-M_CaseStmt_tea928833_LINK
+	.align 16
+	.type	 _m3_fault,@function
+_m3_fault:
+	pushl %ebp
+	movl %esp,%ebp
+	movl 8(%ebp),%eax
+	pushl %eax
+	pushl $MM_CaseStmt
+	movl MI_RTHooks+108,%eax
+	call *%eax
+	.align 16
+.Lfe17:
+	.size	 _m3_fault,.Lfe17-_m3_fault
+.globl MM_CaseStmt
+.data
+	.align 4
+	.type	 MM_CaseStmt,@object
+	.size	 MM_CaseStmt,1516
+MM_CaseStmt:
+	.long MM_CaseStmt+1204
+	.long MM_CaseStmt+44
+	.long MM_CaseStmt+416
+	.zero	8
+	.long MM_CaseStmt+1020
+	.zero	28
+	.long -359495629
+.byte 107
+.byte 167
+.byte 112
+.byte 237
+.byte 88
+.byte 47
+.byte 226
+.byte 7
+	.long 1
+	.zero	4
+	.long 24
+	.long 4
+	.zero	4
+	.long 0
+	.zero	12
+	.long MM_CaseStmt+1450
+	.long MM_CaseStmt+1460
+	.long MM_CaseStmt+1466
+	.zero	4
+	.long M_CaseStmt_tea928833_LINK
+	.long 1595657850
+	.zero	12
+	.long MM_CaseStmt+1493
+	.long MM_CaseStmt+1504
+	.long MM_CaseStmt+148
+	.zero	8
+	.long 1452204118
+.byte 125
+.byte 147
+.byte 149
+.byte 91
+.byte 43
+.byte 115
+.byte 27
+.byte 13
+	.long 1
+	.zero	4
+	.long 44
+	.long 4
+	.zero	20
+	.long MM_CaseStmt+1385
+	.long MM_CaseStmt+1401
+	.long MM_CaseStmt+1406
+	.zero	28
+	.long MM_CaseStmt+1436
+	.long MM_CaseStmt+252
+	.zero	8
+	.long 771312780
+.byte 119
+.byte 192
+.byte 201
+.byte 38
+.byte 251
+.byte 140
+.byte 48
+.byte 11
+	.long 1
+	.zero	4
+	.long 8
+	.long 4
+	.zero	8
+	.long 1
+	.long 4
+	.zero	4
+	.long MM_CaseStmt+1349
+	.long MM_CaseStmt+1354
+	.long MM_CaseStmt+1359
+	.zero	28
+	.long MM_CaseStmt+1367
+	.zero	4
+	.long CaseStmt__ParseCase
+	.long CaseStmt__ExpandBodies
+	.long CaseStmt__Check
+	.long CaseStmt__AddNode
+	.long CaseStmt__CheckLabel
+	.long CaseStmt__AddToTree
+	.long CaseStmt__CompleteTree
+	.long CaseStmt__Compile
+	.long CaseStmt__FlattenTree
+	.long CaseStmt__ShouldBeIndexed
+	.long CaseStmt__GenIndexedBranch
+	.long CaseStmt__GenIfTable
+	.long CaseStmt__CollapseTree
+	.long CaseStmt__GetOutcome
+	.long CaseStmt__Parse
+	.long MM_CaseStmt+424
+	.long -359495629
+	.long MM_CaseStmt+460
+	.long 771312780
+	.long 2
+	.long MM_CaseStmt+444
+	.long 13
+	.ascii	"missing case"
+	.zero	4
+	.long MM_CaseStmt+808
+	.long 1452204118
+	.long 2
+	.long MM_CaseStmt+480
+	.long 42
+	.ascii	"invalid expression type for case selector"
+	.zero	3
+	.long 2
+	.long MM_CaseStmt+536
+	.long 51
+	.ascii	"CASE statement does not handle all possible values"
+	.zero	2
+	.long 2
+	.long MM_CaseStmt+600
+	.long 25
+	.ascii	"case labels out of range"
+	.zero	4
+	.long 2
+	.long MM_CaseStmt+640
+	.long 40
+	.ascii	"case label not compatible with selector"
+	.zero	1
+	.long 2
+	.long MM_CaseStmt+692
+	.long 28
+	.ascii	"case label must be constant"
+	.zero	1
+	.long 2
+	.long MM_CaseStmt+732
+	.long 35
+	.ascii	"duplicate labels in case statement"
+	.zero	2
+	.long 2
+	.long MM_CaseStmt+780
+	.long 28
+	.ascii	"repeated labels in case arm"
+	.zero	5
+	.long 562018850
+	.long 2
+	.long MM_CaseStmt+828
+	.long 21
+	.ascii	"case label too large"
+	.zero	4
+	.ascii	"GetOutcome"
+	.zero	1
+	.ascii	"CollapseTree"
+	.zero	1
+	.ascii	"GenIfTable"
+	.zero	1
+	.ascii	"GenIndexedBranch"
+	.zero	1
+	.ascii	"ShouldBeIndexed"
+	.zero	1
+	.ascii	"FlattenTree"
+	.zero	1
+	.ascii	"Compile"
+	.zero	1
+	.ascii	"CompleteTree"
+	.zero	1
+	.ascii	"AddToTree"
+	.zero	1
+	.ascii	"CheckLabel"
+	.zero	1
+	.ascii	"AddNode"
+	.zero	1
+	.ascii	"Check"
+	.zero	1
+	.ascii	"ExpandBodies"
+	.zero	1
+	.ascii	"ParseCase"
+	.zero	1
+	.ascii	"Parse"
+	.zero	4
+	.long CaseStmt__GetOutcome
+	.long MM_CaseStmt+852
+	.zero	4
+	.long CaseStmt__CollapseTree
+	.long MM_CaseStmt+863
+	.zero	4
+	.long CaseStmt__GenIfTable
+	.long MM_CaseStmt+876
+	.zero	4
+	.long CaseStmt__GenIndexedBranch
+	.long MM_CaseStmt+887
+	.zero	4
+	.long CaseStmt__ShouldBeIndexed
+	.long MM_CaseStmt+904
+	.zero	4
+	.long CaseStmt__FlattenTree
+	.long MM_CaseStmt+920
+	.zero	4
+	.long CaseStmt__Compile
+	.long MM_CaseStmt+932
+	.zero	4
+	.long CaseStmt__CompleteTree
+	.long MM_CaseStmt+940
+	.zero	4
+	.long CaseStmt__AddToTree
+	.long MM_CaseStmt+953
+	.zero	4
+	.long CaseStmt__CheckLabel
+	.long MM_CaseStmt+963
+	.zero	4
+	.long CaseStmt__AddNode
+	.long MM_CaseStmt+974
+	.zero	4
+	.long CaseStmt__Check
+	.long MM_CaseStmt+982
+	.zero	4
+	.long CaseStmt__ExpandBodies
+	.long MM_CaseStmt+988
+	.zero	4
+	.long CaseStmt__ParseCase
+	.long MM_CaseStmt+1001
+	.zero	4
+	.long CaseStmt__Parse
+	.long MM_CaseStmt+1011
+	.long MI_CaseStmt+44
+	.zero	4
+	.ascii	"/home/ftp/tmp/pm3/tmp/pm3-1.1.15/language/modula3/m3compiler"
+	.ascii	"/m3bootstrap/LINUXLIBC6/pm3-LINUXLIBC6/boot-LINUXLIBC6/m3fro"
+	.ascii	"nt/src/stmts/CaseStmt.m3"
+	.zero	1
+.byte 24
+.byte 1
+.byte 4
+.byte 0
+.byte 0
+.byte 24
+.byte 1
+.byte 4
+.byte 0
+.byte 0
+.byte 2
+.byte 11
+.byte 1
+.byte 16
+.byte 122
+.byte 206
+.byte 27
+.byte 95
+	.ascii	"CaseStmt.StmtList"
+	.zero	1
+.byte 4
+.byte 4
+.byte 4
+.byte 4
+.byte 1
+.byte 17
+.byte 26
+.byte 4
+.byte 1
+.byte 17
+.byte 26
+.byte 4
+.byte 14
+.byte 14
+.byte 16
+.byte 0
+.byte 4
+.byte 4
+.byte 4
+.byte 4
+.byte 0
+.byte 13
+.byte 15
+.byte 9
+.byte 16
+.byte 86
+.byte 224
+.byte 142
+.byte 86
+.byte 23
+.byte 16
+.byte 11
+.byte 185
+.byte 21
+.byte 235
+.byte 25
+.byte 15
+.byte 1
+.byte 1
+.byte 4
+.byte 12
+.byte 16
+.byte 19
+.byte 0
+.byte 66
+.byte 255
+.byte 255
+.byte 27
+.byte 7
+.byte 32
+.byte 2
+	.ascii	"CaseStmt.Tree"
+	.zero	1
+.byte 4
+.byte 4
+.byte 4
+.byte 16
+.byte 16
+.byte 16
+.byte 34
+.byte 4
+.byte 14
+.byte 0
+.byte 4
+.byte 4
+.byte 4
+.byte 37
+.byte 4
+.byte 0
+.byte 9
+.byte 10
+.byte 8
+.byte 16
+.byte 11
+.byte 185
+.byte 21
+.byte 235
+.byte 16
+.byte 86
+.byte 224
+.byte 142
+.byte 86
+.byte 16
+.byte 140
+.byte 76
+.byte 249
+.byte 45
+.byte 2
+.byte 26
+.byte 26
+.byte 16
+.byte 122
+.byte 206
+.byte 27
+.byte 95
+.byte 7
+	.ascii	"CaseStmt.P"
+	.zero	1
+	.ascii	"CaseStmt.P"
+	.zero	2
+	.ident	"GCC: (GNU) cygnus-2.7.2-960712"

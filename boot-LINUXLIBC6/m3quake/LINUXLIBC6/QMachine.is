@@ -1,0 +1,103 @@
+	.file	"QMachine.ic"
+	.version	"01.01"
+/ SRC Modula-3 version cygnus-2.7.2-960712 (i486--linuxelf) compiled by GNU C version egcs-2.91.66 19990314/Linux (egcs-1.1.2 release).
+/ options passed:  -fno-strength-reduce -O2
+/ options enabled:  -fdefer-pop -fcse-follow-jumps -fcse-skip-blocks
+/ -fexpensive-optimizations -fthread-jumps -fpeephole -fforce-mem
+/ -ffunction-cse -finline -fkeep-static-consts -fcaller-saves
+/ -fpcc-struct-return -frerun-cse-after-loop -fschedule-insns2 -fcommon
+/ -fverbose-asm -fgnu-linker -m80387 -mhard-float -mno-soft-float -mieee-fp
+/ -mfp-ret-in-387 -mschedule-prologue -mcpu=i486 -march=i486
+
+gcc2_compiled.:
+.globl MI_QMachine
+.data
+	.align 4
+	.type	 MI_QMachine,@object
+	.size	 MI_QMachine,444
+MI_QMachine:
+	.long MI_QMachine+264
+	.long MI_QMachine+44
+	.zero	8
+	.long MI_QMachine+252
+	.zero	32
+	.long 221014116
+.byte 234
+.byte 101
+.byte 253
+.byte 22
+.byte 142
+.byte 13
+.byte 209
+.byte 27
+	.long 1
+	.zero	4
+	.long 0
+	.long 1
+	.zero	4
+	.long 44
+	.zero	20
+	.long MI_QMachine+426
+	.zero	8
+	.long -1651526519
+	.zero	16
+	.long MI_QMachine+429
+	.long MI_QMachine+148
+	.zero	8
+	.long 802853858
+.byte 181
+.byte 39
+.byte 203
+.byte 53
+.byte 87
+.byte 180
+.byte 17
+.byte 26
+	.long 1
+	.zero	4
+	.long 8
+	.long 4
+	.zero	8
+	.long 1
+	.long 12
+	.zero	4
+	.long MI_QMachine+403
+	.long MI_QMachine+411
+	.long MI_QMachine+417
+	.zero	36
+	.long 588878224
+	.long 221014116
+	.zero	4
+	.ascii	"/home/ftp/tmp/pm3/tmp/pm3-1.1.15/language/modula3/m3compiler"
+	.ascii	"/m3bootstrap/LINUXLIBC6/pm3-LINUXLIBC6/boot-LINUXLIBC6/m3qua"
+	.ascii	"ke/src/QMachine.i3"
+	.zero	1
+.byte 24
+.byte 1
+.byte 16
+.byte 36
+.byte 14
+.byte 4
+.byte 0
+.byte 0
+.byte 24
+.byte 1
+.byte 41
+.byte 4
+.byte 0
+.byte 0
+.byte 5
+.byte 11
+.byte 1
+.byte 15
+.byte 3
+.byte 5
+.byte 6
+.byte 7
+.byte 17
+.byte 1
+.byte 10
+.byte 0
+	.ascii	"QMachine.T_"
+	.zero	4
+	.ident	"GCC: (GNU) cygnus-2.7.2-960712"

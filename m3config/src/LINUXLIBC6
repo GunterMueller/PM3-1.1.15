@@ -1,0 +1,21 @@
+
+readonly TARGET = "LINUXLIBC6"
+
+include("COMMON")
+include("GCWRAP")
+
+PLATFORM_SUPPORTS_INTERNAL_BACKEND = "T"
+PLATFORM_SUPPORTS_SHARED_LIB = "T"
+
+X11ROOT = "/usr/X11R6/lib"
+OPENGLROOT = "/usr/lib"
+LINK_suffix += GCWRAPFLAGS
+MAKESHLIB += GCWRAPFLAGS
+% Debian settings
+%INSTALL_ROOT="/usr"
+%INSTALL_IMPLS = ""
+%EXPORTRPATH="EXPORTS"
+%RPATH_FLAG=""
+
+setDefault("","")
+

@@ -1,0 +1,473 @@
+	.file	"LockStmt.mc"
+	.version	"01.01"
+/ SRC Modula-3 version cygnus-2.7.2-960712 (i486--linuxelf) compiled by GNU C version egcs-2.91.66 19990314/Linux (egcs-1.1.2 release).
+/ options passed:  -fno-strength-reduce -O2
+/ options enabled:  -fdefer-pop -fcse-follow-jumps -fcse-skip-blocks
+/ -fexpensive-optimizations -fthread-jumps -fpeephole -fforce-mem
+/ -ffunction-cse -finline -fkeep-static-consts -fcaller-saves
+/ -fpcc-struct-return -frerun-cse-after-loop -fschedule-insns2 -fcommon
+/ -fverbose-asm -fgnu-linker -m80387 -mhard-float -mno-soft-float -mieee-fp
+/ -mfp-ret-in-387 -mschedule-prologue -mcpu=i486 -march=i486
+
+gcc2_compiled.:
+.text
+	.align 16
+	.type	 LockStmt__Parse,@function
+LockStmt__Parse:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %ebx
+	movl MM_LockStmt+172,%eax
+	pushl %eax
+	movl MI_RTHooks+80,%eax
+	call *%eax
+	movl %eax,%ebx
+	pushl %ebx
+	movl MI_StmtRep+148,%eax
+	call *%eax
+	pushl $72
+	movl MI_Scanner+108,%eax
+	call *%eax
+	movl MI_Expr+148,%eax
+	call *%eax
+	movl %eax,12(%ebx)
+	pushl $55
+	movl MI_Scanner+108,%eax
+	call *%eax
+	movl MI_Stmt+44,%eax
+	call *%eax
+	movl %eax,16(%ebx)
+	pushl $58
+	movl MI_Scanner+108,%eax
+	call *%eax
+	movl %ebx,%eax
+	movl -4(%ebp),%ebx
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe1:
+	.size	 LockStmt__Parse,.Lfe1-LockStmt__Parse
+	.align 16
+	.type	 LockStmt__Check,@function
+LockStmt__Check:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %ebx
+	movl 8(%ebp),%ebx
+	movl 12(%ebp),%eax
+	pushl %eax
+	movl 12(%ebx),%eax
+	pushl %eax
+	movl MI_Expr+156,%eax
+	call *%eax
+	movl 12(%ebx),%eax
+	pushl %eax
+	movl MI_Expr+152,%eax
+	call *%eax
+	movl %eax,%edx
+	movl MI_Mutex+44,%eax
+	pushl %eax
+	pushl %edx
+	movl MI_Type+120,%eax
+	call *%eax
+	addl $20,%esp
+	testl %eax,%eax
+	jne .L3
+	pushl $MM_LockStmt+184
+	movl MI_Error+44,%eax
+	call *%eax
+	addl $4,%esp
+.L3:
+	pushl $0
+	pushl $-1
+	pushl $-1
+	movl MI_Marker+72,%eax
+	call *%eax
+	movl 12(%ebp),%eax
+	pushl %eax
+	movl 16(%ebx),%eax
+	pushl %eax
+	movl MI_Stmt+48,%eax
+	call *%eax
+	movl MI_Marker+44,%eax
+	call *%eax
+	movl -4(%ebp),%ebx
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe2:
+	.size	 LockStmt__Check,.Lfe2-LockStmt__Check
+	.align 16
+	.type	 LockStmt__Compile,@function
+LockStmt__Compile:
+	pushl %ebp
+	movl %esp,%ebp
+	movl 8(%ebp),%eax
+	cmpb $0,MI_Target+805
+	jne .L5
+	pushl %eax
+	call LockStmt__Compile2
+	jmp .L6
+	.align 16
+.L5:
+	pushl %eax
+	call LockStmt__Compile1
+.L6:
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe3:
+	.size	 LockStmt__Compile,.Lfe3-LockStmt__Compile
+	.align 16
+	.type	 LockStmt__Compile1,@function
+LockStmt__Compile1:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%edx
+	movl 12(%edx),%eax
+	pushl %eax
+	movl MI_Expr+200,%eax
+	call *%eax
+	movl 8(%ebp),%edx
+	movl 12(%edx),%eax
+	pushl %eax
+	movl MI_Expr+204,%eax
+	call *%eax
+	movl MI_Mutex+44,%eax
+	pushl %eax
+	movl MI_Type+132,%eax
+	xorl %ebx,%ebx
+	call *%eax
+	pushl %ebx
+	pushl %ebx
+	pushl $1
+	movl %eax,%esi
+	pushl %esi
+	pushl %ebx
+	movl MI_Target+64,%eax
+	pushl %eax
+	movl MI_Target+60,%eax
+	pushl %eax
+	pushl %ebx
+	movl MI_CG+200,%eax
+	call *%eax
+	addl $44,%esp
+	pushl $0
+	movl %eax,%edi
+	pushl %edi
+	movl MI_CG+412,%eax
+	call *%eax
+	pushl $0
+	pushl %edi
+	pushl $1
+	movl MI_Marker+132,%eax
+	call *%eax
+	movl 8(%ebp),%edx
+	movl 12(%edx),%eax
+	pushl %eax
+	movl MI_Expr+228,%eax
+	call *%eax
+	pushl $2
+	movl MI_CG+52,%eax
+	call *%eax
+	pushl $1
+	movl %eax,%esi
+	pushl %esi
+	movl MI_CG+316,%eax
+	call *%eax
+	addl $36,%esp
+	pushl %edi
+	leal 1(%esi),%ebx
+	pushl %ebx
+	pushl %esi
+	movl MI_Marker+72,%eax
+	call *%eax
+	movl MI_Marker+48,%eax
+	call *%eax
+	movl 8(%ebp),%edx
+	movl 16(%edx),%eax
+	pushl %eax
+	movl MI_Stmt+52,%eax
+	call *%eax
+	movl %eax,%esi
+	movl MI_Marker+44,%eax
+	call *%eax
+	pushl $1
+	pushl %ebx
+	movl MI_CG+316,%eax
+	call *%eax
+	addl $24,%esp
+	testl $1,%esi
+	je .L8
+	pushl $0
+	pushl %edi
+	pushl $0
+	movl MI_Marker+132,%eax
+	call *%eax
+	movl 8(%ebp),%edx
+	movl 12(%edx),%eax
+	pushl %eax
+	movl MI_Expr+228,%eax
+	call *%eax
+.L8:
+	leal -12(%ebp),%esp
+	movl %esi,%eax
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe4:
+	.size	 LockStmt__Compile1,.Lfe4-LockStmt__Compile1
+	.align 16
+	.type	 LockStmt__Compile2,@function
+LockStmt__Compile2:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%edx
+	movl 12(%edx),%eax
+	pushl %eax
+	movl MI_Expr+200,%eax
+	call *%eax
+	movl 8(%ebp),%edx
+	movl 12(%edx),%eax
+	pushl %eax
+	movl MI_Expr+204,%eax
+	xorl %ebx,%ebx
+	call *%eax
+	pushl %ebx
+	pushl %ebx
+	pushl $1
+	pushl %ebx
+	pushl $14
+	movl MI_Target+64,%eax
+	pushl %eax
+	movl MI_M3RT+168,%eax
+	pushl %eax
+	pushl %ebx
+	movl MI_CG+200,%eax
+	call *%eax
+	movl %eax,%edi
+	addl $40,%esp
+	movl MI_M3RT+164,%eax
+	pushl %eax
+	pushl %edi
+	movl MI_CG+412,%eax
+	call *%eax
+	movl MI_M3RT+164,%eax
+	pushl %eax
+	pushl %edi
+	pushl $1
+	movl MI_Marker+132,%eax
+	call *%eax
+	movl 8(%ebp),%edx
+	movl 12(%edx),%eax
+	pushl %eax
+	movl MI_Expr+228,%eax
+	call *%eax
+	pushl $2
+	movl MI_CG+52,%eax
+	call *%eax
+	pushl $1
+	movl %eax,%esi
+	pushl %esi
+	movl MI_CG+316,%eax
+	call *%eax
+	addl $36,%esp
+	pushl $6
+	pushl %edi
+	movl MI_Marker+124,%eax
+	call *%eax
+	pushl %edi
+	leal 1(%esi),%ebx
+	pushl %ebx
+	pushl %esi
+	movl MI_Marker+72,%eax
+	call *%eax
+	movl 8(%ebp),%edx
+	movl 16(%edx),%eax
+	pushl %eax
+	movl MI_Stmt+52,%eax
+	call *%eax
+	movl %eax,%esi
+	movl MI_Marker+44,%eax
+	call *%eax
+	pushl $1
+	pushl %ebx
+	movl MI_CG+316,%eax
+	call *%eax
+	addl $32,%esp
+	testl $1,%esi
+	je .L10
+	pushl %edi
+	movl MI_Marker+128,%eax
+	call *%eax
+	movl MI_M3RT+164,%eax
+	pushl %eax
+	pushl %edi
+	pushl $0
+	movl MI_Marker+132,%eax
+	call *%eax
+	movl 8(%ebp),%edx
+	movl 12(%edx),%eax
+	pushl %eax
+	movl MI_Expr+228,%eax
+	call *%eax
+.L10:
+	leal -12(%ebp),%esp
+	movl %esi,%eax
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe5:
+	.size	 LockStmt__Compile2,.Lfe5-LockStmt__Compile2
+	.align 16
+	.type	 LockStmt__GetOutcome,@function
+LockStmt__GetOutcome:
+	pushl %ebp
+	movl %esp,%ebp
+	movl 8(%ebp),%eax
+	movl 16(%eax),%eax
+	pushl %eax
+	movl MI_Stmt+56,%eax
+	call *%eax
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe6:
+	.size	 LockStmt__GetOutcome,.Lfe6-LockStmt__GetOutcome
+	.align 16
+	.type	 M_LockStmt_t32402fb5_LINK,@function
+M_LockStmt_t32402fb5_LINK:
+	pushl %ebp
+	movl %esp,%ebp
+	movl MM_LockStmt+172,%eax
+	movl %ebp,%esp
+	movl 52(%eax),%edx
+	movl MM_LockStmt+148,%eax
+	movl %eax,4(%edx)
+	movl MM_LockStmt+152,%eax
+	movl %eax,8(%edx)
+	movl MM_LockStmt+164,%eax
+	movl %eax,12(%edx)
+	popl %ebp
+	ret
+.Lfe7:
+	.size	 M_LockStmt_t32402fb5_LINK,.Lfe7-M_LockStmt_t32402fb5_LINK
+.globl MM_LockStmt
+.data
+	.align 4
+	.type	 MM_LockStmt,@object
+	.size	 MM_LockStmt,524
+MM_LockStmt:
+	.long MM_LockStmt+348
+	.long MM_LockStmt+44
+	.long MM_LockStmt+172
+	.zero	8
+	.long MM_LockStmt+272
+	.zero	28
+	.long 843067317
+.byte 230
+.byte 225
+.byte 232
+.byte 36
+.byte 83
+.byte 206
+.byte 168
+.byte 22
+	.long 1
+	.zero	4
+	.long 8
+	.long 4
+	.zero	4
+	.long 0
+	.zero	12
+	.long MM_LockStmt+493
+	.long MM_LockStmt+496
+	.long MM_LockStmt+499
+	.zero	4
+	.long M_LockStmt_t32402fb5_LINK
+	.long 1595657850
+	.zero	16
+	.long MM_LockStmt+512
+	.zero	4
+	.long LockStmt__Check
+	.long LockStmt__Compile
+	.long LockStmt__Compile1
+	.long LockStmt__Compile2
+	.long LockStmt__GetOutcome
+	.long LockStmt__Parse
+	.zero	4
+	.long 843067317
+	.long 2
+	.long MM_LockStmt+192
+	.long 27
+	.ascii	"expression must be a mutex"
+	.zero	2
+	.ascii	"GetOutcome"
+	.zero	1
+	.ascii	"Compile2"
+	.zero	1
+	.ascii	"Compile1"
+	.zero	1
+	.ascii	"Compile"
+	.zero	1
+	.ascii	"Check"
+	.zero	1
+	.ascii	"Parse"
+	.zero	4
+	.long LockStmt__GetOutcome
+	.long MM_LockStmt+220
+	.zero	4
+	.long LockStmt__Compile2
+	.long MM_LockStmt+231
+	.zero	4
+	.long LockStmt__Compile1
+	.long MM_LockStmt+240
+	.zero	4
+	.long LockStmt__Compile
+	.long MM_LockStmt+249
+	.zero	4
+	.long LockStmt__Check
+	.long MM_LockStmt+257
+	.zero	4
+	.long LockStmt__Parse
+	.long MM_LockStmt+263
+	.long MI_LockStmt+44
+	.zero	4
+	.ascii	"/home/ftp/tmp/pm3/tmp/pm3-1.1.15/language/modula3/m3compiler"
+	.ascii	"/m3bootstrap/LINUXLIBC6/pm3-LINUXLIBC6/boot-LINUXLIBC6/m3fro"
+	.ascii	"nt/src/stmts/LockStmt.m3"
+	.zero	1
+.byte 4
+.byte 4
+.byte 0
+.byte 4
+.byte 4
+.byte 0
+.byte 3
+.byte 10
+.byte 2
+.byte 16
+.byte 11
+.byte 185
+.byte 21
+.byte 235
+.byte 16
+.byte 122
+.byte 206
+.byte 27
+.byte 95
+	.ascii	"LockStmt.P"
+	.zero	2
+	.ident	"GCC: (GNU) cygnus-2.7.2-960712"

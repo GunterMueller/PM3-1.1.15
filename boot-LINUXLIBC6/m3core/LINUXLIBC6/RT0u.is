@@ -1,0 +1,87 @@
+	.file	"RT0u.ic"
+	.version	"01.01"
+/ SRC Modula-3 version cygnus-2.7.2-960712 (i486--linuxelf) compiled by GNU C version egcs-2.91.66 19990314/Linux (egcs-1.1.2 release).
+/ options passed:  -fno-strength-reduce -O2
+/ options enabled:  -fdefer-pop -fcse-follow-jumps -fcse-skip-blocks
+/ -fexpensive-optimizations -fthread-jumps -fpeephole -fforce-mem
+/ -ffunction-cse -finline -fkeep-static-consts -fcaller-saves
+/ -fpcc-struct-return -frerun-cse-after-loop -fschedule-insns2 -fcommon
+/ -fverbose-asm -fgnu-linker -m80387 -mhard-float -mno-soft-float -mieee-fp
+/ -mfp-ret-in-387 -mschedule-prologue -mcpu=i486 -march=i486
+
+gcc2_compiled.:
+.globl MI_RT0u
+.data
+	.align 4
+	.type	 MI_RT0u,@object
+	.size	 MI_RT0u,540
+MI_RT0u:
+	.long MI_RT0u+380
+	.long MI_RT0u+48
+	.zero	48
+	.long 1924506922
+.byte 60
+.byte 97
+.byte 184
+.byte 113
+.byte 22
+.byte 196
+.byte 13
+.byte 3
+	.zero	8
+	.long 4
+	.long 4
+	.zero	20
+	.long MI_RT0u+537
+	.zero	40
+	.long MI_RT0u+160
+	.zero	16
+	.long -296061214
+.byte 1
+.byte 63
+.byte 216
+.byte 243
+.byte 227
+.byte 73
+.byte 130
+.byte 29
+	.zero	8
+	.long 4
+	.long 4
+	.zero	20
+	.long MI_RT0u+535
+	.zero	40
+	.long MI_RT0u+268
+	.zero	12
+	.long 463743954
+.byte 23
+.byte 49
+.byte 47
+.byte 28
+.byte 197
+.byte 26
+.byte 139
+.byte 7
+	.zero	8
+	.long 4194304
+	.long 4
+	.zero	20
+	.long MI_RT0u+528
+	.zero	52
+	.ascii	"/home/ftp/tmp/pm3/tmp/pm3-1.1.15/language/modula3/m3compiler"
+	.ascii	"/m3bootstrap/LINUXLIBC6/pm3-LINUXLIBC6/boot-LINUXLIBC6/m3cor"
+	.ascii	"e/src/runtime/POSIX/RT0u.i3"
+	.zero	1
+.byte 1
+.byte 14
+.byte 28
+.byte 0
+.byte 0
+.byte 16
+.byte 0
+.byte 5
+.byte 0
+.byte 5
+.byte 0
+	.zero	1
+	.ident	"GCC: (GNU) cygnus-2.7.2-960712"

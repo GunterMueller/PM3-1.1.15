@@ -1,0 +1,12 @@
+% Copyright (C) 1994, Digital Equipment Corporation
+% All rights reserved.
+% See the file COPYRIGHT for a full description.
+%
+% Last modified on Wed Dec 14 14:42:15 PST 1994 by kalsow 
+%      modified on Mon Sep 26 14:44:07 PDT 1994 by isard 
+
+Module    ("M3x86")
+interface ("M3x86Rep")
+module    ("Stackx86")
+module    ("Codex86")
+

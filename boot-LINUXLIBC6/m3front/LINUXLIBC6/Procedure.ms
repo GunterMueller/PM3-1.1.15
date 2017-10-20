@@ -1,0 +1,2787 @@
+	.file	"Procedure.mc"
+	.version	"01.01"
+/ SRC Modula-3 version cygnus-2.7.2-960712 (i486--linuxelf) compiled by GNU C version egcs-2.91.66 19990314/Linux (egcs-1.1.2 release).
+/ options passed:  -fno-strength-reduce -O2
+/ options enabled:  -fdefer-pop -fcse-follow-jumps -fcse-skip-blocks
+/ -fexpensive-optimizations -fthread-jumps -fpeephole -fforce-mem
+/ -ffunction-cse -finline -fkeep-static-consts -fcaller-saves
+/ -fpcc-struct-return -frerun-cse-after-loop -fschedule-insns2 -fcommon
+/ -fverbose-asm -fgnu-linker -m80387 -mhard-float -mno-soft-float -mieee-fp
+/ -mfp-ret-in-387 -mschedule-prologue -mcpu=i486 -march=i486
+
+gcc2_compiled.:
+.text
+	.align 16
+	.type	 Procedure__Reset,@function
+Procedure__Reset:
+	pushl %ebp
+	movl %esp,%ebp
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe1:
+	.size	 Procedure__Reset,.Lfe1-Procedure__Reset
+	.align 16
+	.type	 Procedure__ParseDecl,@function
+Procedure__ParseDecl:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%eax
+	movl 8(%eax),%edi
+	pushl $82
+	movl MI_Scanner+108,%eax
+	call *%eax
+	movl MI_Scanner+112,%eax
+	call *%eax
+	movl %eax,%esi
+	pushl %esi
+	call Procedure__Create
+	movl %eax,%ebx
+	movl 8(%ebp),%eax
+	xorl %edx,%edx
+	movb 30(%ebx),%dl
+	andb $247,%dl
+	movb 6(%eax),%al
+	andl $255,%eax
+	andl $1,%eax
+	sall $3,%eax
+	orl %eax,%edx
+	movb %dl,30(%ebx)
+	movl 8(%ebp),%eax
+	andl $239,%edx
+	movb 7(%eax),%al
+	andl $255,%eax
+	andl $1,%eax
+	sall $4,%eax
+	orl %eax,%edx
+	movb %dl,30(%ebx)
+	movl 8(%ebp),%eax
+	addl $8,%esp
+	cmpb $0,4(%eax)
+	je .L3
+	movb %dl,%al
+	orb $4,%al
+	movb %al,30(%ebx)
+	movl 8(%ebp),%eax
+	movl (%eax),%eax
+	testl %eax,%eax
+	jne .L4
+	movl 12(%ebx),%eax
+.L4:
+	movl %eax,16(%ebx)
+.L3:
+	testl %edi,%edi
+	jne .L6
+	movl MI_Target+752,%edi
+.L6:
+	pushl %edi
+	pushl %esi
+	movl MI_ProcType+48,%eax
+	call *%eax
+	movl %eax,40(%ebx)
+	pushl %ebx
+	movl MI_Scope+72,%eax
+	call *%eax
+	xorl %edx,%edx
+	movb MI_Scanner+44,%dl
+	addl $12,%esp
+	cmpl $21,%edx
+	jne .L7
+	movl MM_Procedure+416,%eax
+	pushl %eax
+	movl MI_RTHooks+80,%eax
+	call *%eax
+	movl %ebx,36(%eax)
+	movl %eax,52(%ebx)
+	pushl %eax
+	movl MI_ProcBody+148,%eax
+	call *%eax
+	movl MI_Scanner+104,%eax
+	call *%eax
+	addl $8,%esp
+	cmpb $0,12(%ebp)
+	je .L8
+	pushl $MM_Procedure+428
+	pushl %esi
+	movl MI_Error+52,%eax
+	call *%eax
+	addl $8,%esp
+.L8:
+	movl 8(%ebp),%eax
+	cmpb $0,4(%eax)
+	je .L9
+	pushl $MM_Procedure+484
+	pushl %esi
+	pushl $2
+	movl MI_Error+68,%eax
+	call *%eax
+	andb $251,30(%ebx)
+	movl $0,16(%ebx)
+	addl $12,%esp
+.L9:
+	pushl $0
+	pushl $0
+	pushl %esi
+	pushl $1
+	movl MI_Scope+52,%eax
+	call *%eax
+	movl %eax,44(%ebx)
+	pushl $0
+	movl MI_BlockStmt+44,%eax
+	call *%eax
+	movl %eax,48(%ebx)
+	pushl %eax
+	movl MI_BlockStmt+48,%eax
+	call *%eax
+	movl %eax,64(%ebx)
+	movl MI_Scanner+88,%eax
+	movl %eax,76(%ebx)
+	movl MI_Scanner+112,%eax
+	call *%eax
+	addl $24,%esp
+	jmp .L16
+	.align 16
+.L7:
+	cmpb $0,12(%ebp)
+	jne .L11
+	movl 8(%ebp),%eax
+	cmpb $0,4(%eax)
+	jne .L11
+	cmpl $16,%edx
+	jne .L14
+	movl MM_Procedure+416,%eax
+	pushl %eax
+	movl MI_RTHooks+80,%eax
+	call *%eax
+	movl %ebx,36(%eax)
+	movl %eax,52(%ebx)
+	pushl %eax
+	movl MI_ProcBody+148,%eax
+	call *%eax
+	pushl $MM_Procedure+592
+	pushl %esi
+	movl MI_Error+52,%eax
+	call *%eax
+	movl MI_Scanner+104,%eax
+	call *%eax
+	pushl $0
+	pushl $0
+	pushl %esi
+	pushl $1
+	movl MI_Scope+52,%eax
+	call *%eax
+	addl $32,%esp
+	movl %eax,44(%ebx)
+	pushl $0
+	movl MI_BlockStmt+44,%eax
+	call *%eax
+	movl %eax,48(%ebx)
+	pushl %eax
+	movl MI_BlockStmt+48,%eax
+	call *%eax
+	movl %eax,64(%ebx)
+	movl MI_Scanner+88,%eax
+	movl %eax,76(%ebx)
+	movl MI_Scanner+112,%eax
+	call *%eax
+	addl $8,%esp
+.L16:
+	cmpl %esi,%eax
+	je .L15
+	pushl $MM_Procedure+540
+	pushl %esi
+	movl MI_Error+52,%eax
+	call *%eax
+	addl $8,%esp
+.L15:
+	movl MI_Scope+48,%eax
+	call *%eax
+	movl MI_ProcBody+152,%eax
+	call *%eax
+	jmp .L11
+	.align 16
+.L14:
+	pushl $MM_Procedure+640
+	pushl %esi
+	movl MI_Error+52,%eax
+	call *%eax
+	addl $8,%esp
+.L11:
+	pushl $16
+	movl MI_Scanner+108,%eax
+	call *%eax
+	leal -12(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe2:
+	.size	 Procedure__ParseDecl,.Lfe2-Procedure__ParseDecl
+	.align 16
+	.type	 Procedure__IsEqual,@function
+Procedure__IsEqual:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%esi
+	movl 12(%ebp),%ebx
+	pushl %esi
+	movl MI_Value+104,%eax
+	call *%eax
+	movl %eax,%esi
+	pushl %ebx
+	movl MI_Value+104,%eax
+	xorl %edi,%edi
+	call *%eax
+	movl %eax,%ebx
+	cmpl %ebx,%esi
+	jne .L18
+	movl $1,%eax
+	jmp .L32
+	.align 16
+.L18:
+	testl %esi,%esi
+	je .L28
+	movl -4(%esi),%eax
+	sall $11,%eax
+	movl %eax,%edx
+	shrl $12,%edx
+	cmpl %edx,MM_Procedure+696
+	jg .L28
+	movl MM_Procedure+692,%eax
+	cmpl %edx,4(%eax)
+	jl .L28
+	movl %esi,%edi
+	testl %ebx,%ebx
+	je .L28
+	movl -4(%ebx),%eax
+	sall $11,%eax
+	movl %eax,%edx
+	shrl $12,%edx
+	cmpl %edx,MM_Procedure+696
+	jg .L28
+	movl MM_Procedure+692,%eax
+	cmpl %edx,4(%eax)
+	jl .L28
+	movl %ebx,%eax
+	jmp .L30
+	.align 16
+.L28:
+	xorl %eax,%eax
+	jmp .L32
+	.align 16
+.L30:
+	movl $1,%edx
+	cmpl %eax,36(%edi)
+	je .L31
+	cmpl %edi,36(%eax)
+	sete %al
+	xorl %edx,%edx
+	movb %al,%dl
+.L31:
+	movl %edx,%eax
+.L32:
+	leal -12(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe3:
+	.size	 Procedure__IsEqual,.Lfe3-Procedure__IsEqual
+	.align 16
+	.type	 Procedure__Create,@function
+Procedure__Create:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%ebx
+	movl MM_Procedure+692,%eax
+	pushl %eax
+	movl MI_RTHooks+80,%eax
+	call *%eax
+	pushl $4
+	pushl %ebx
+	movl %eax,%esi
+	pushl %esi
+	movl MI_ValueRep+148,%eax
+	call *%eax
+	orb $2,30(%esi)
+	movl $0,36(%esi)
+	movl $0,40(%esi)
+	movl $0,44(%esi)
+	movl $0,52(%esi)
+	movl $0,48(%esi)
+	andb $251,30(%esi)
+	movb $0,60(%esi)
+	movb $0,62(%esi)
+	movl $0,56(%esi)
+	movl $0,16(%esi)
+	movb $1,61(%esi)
+	movl $0,64(%esi)
+	movl $0,68(%esi)
+	movl $0,72(%esi)
+	movl 4(%esi),%eax
+	movl %eax,76(%esi)
+	leal -8(%ebp),%esp
+	movl %esi,%eax
+	popl %ebx
+	popl %esi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe4:
+	.size	 Procedure__Create,.Lfe4-Procedure__Create
+	.align 16
+	.type	 Procedure__Define,@function
+Procedure__Define:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $4,%esp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 20(%ebp),%edi
+	xorl %ebx,%ebx
+	testl %edi,%edi
+	jne .L35
+	pushl %ebx
+	pushl %ebx
+	pushl %ebx
+	pushl %ebx
+	pushl %ebx
+	movl MI_ProcType+96,%eax
+	call *%eax
+	movl %eax,%esi
+	addl $20,%esp
+	jmp .L36
+	.align 16
+.L35:
+	movl %edi,%esi
+.L36:
+	movl 12(%ebp),%edx
+	pushl %edx
+	pushl %esi
+	movl MI_ProcType+100,%eax
+	call *%eax
+	pushl $0
+	movl 8(%ebp),%edx
+	pushl %edx
+	movl MI_M3ID+44,%eax
+	call *%eax
+	movl %eax,-4(%ebp)
+	pushl %eax
+	call Procedure__Create
+	movl %eax,%ebx
+	addl $20,%esp
+	movl %esi,40(%ebx)
+	testl %edi,%edi
+	sete %al
+	movb %al,60(%ebx)
+	pushl %ebx
+	movl MI_Scope+72,%eax
+	call *%eax
+	addl $4,%esp
+	cmpb $0,16(%ebp)
+	je .L34
+	pushl %ebx
+	movl -4(%ebp),%edx
+	pushl %edx
+	movl MI_Scanner+120,%eax
+	call *%eax
+.L34:
+	leal -16(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe5:
+	.size	 Procedure__Define,.Lfe5-Procedure__Define
+	.align 16
+	.type	 Procedure__NoteExport,@function
+Procedure__NoteExport:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%eax
+	movl 12(%ebp),%ebx
+	pushl %eax
+	movl MI_Value+104,%eax
+	call *%eax
+	movl %eax,%edx
+	addl $4,%esp
+	testl %edx,%edx
+	je .L39
+	movl -4(%edx),%eax
+	sall $11,%eax
+	movl %eax,%ecx
+	shrl $12,%ecx
+	cmpl %ecx,MM_Procedure+696
+	jg .L40
+	movl MM_Procedure+692,%eax
+	cmpl %ecx,4(%eax)
+	jge .L39
+.L40:
+	pushl $3141
+	call _m3_fault
+	.align 16
+.L39:
+	pushl %ebx
+	movl MI_Value+104,%eax
+	movl %edx,%esi
+	call *%eax
+	movl %eax,%edx
+	addl $4,%esp
+	testl %edx,%edx
+	je .L41
+	movl -4(%edx),%eax
+	sall $11,%eax
+	movl %eax,%ecx
+	shrl $12,%ecx
+	cmpl %ecx,MM_Procedure+696
+	jg .L42
+	movl MM_Procedure+692,%eax
+	cmpl %ecx,4(%eax)
+	jge .L41
+.L42:
+	pushl $3141
+	call _m3_fault
+	.align 16
+.L41:
+	movl %edx,%ebx
+	cmpl $0,36(%esi)
+	je .L43
+	pushl $0
+	jmp .L46
+	.align 16
+.L43:
+	movl 40(%esi),%eax
+	pushl %eax
+	movl 40(%edx),%eax
+	pushl %eax
+	movl MI_Type+124,%eax
+	call *%eax
+	addl $8,%esp
+	testl %eax,%eax
+	jne .L45
+	pushl %eax
+.L46:
+	pushl %esi
+	call Procedure__Redefined
+	jmp .L38
+	.align 16
+.L45:
+	movl %esi,%edx
+	movl %ebx,36(%edx)
+	movl 20(%ebx),%eax
+	movl %eax,20(%edx)
+	movl 72(%ebx),%eax
+	movl %eax,72(%edx)
+	orb $128,30(%edx)
+.L38:
+	leal -8(%ebp),%esp
+	popl %ebx
+	popl %esi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe6:
+	.size	 Procedure__NoteExport,.Lfe6-Procedure__NoteExport
+	.align 16
+	.type	 Procedure__TypeOf,@function
+Procedure__TypeOf:
+	pushl %ebp
+	movl %esp,%ebp
+	movl 8(%ebp),%eax
+	movl %ebp,%esp
+	popl %ebp
+	movl 40(%eax),%eax
+	ret
+.Lfe7:
+	.size	 Procedure__TypeOf,.Lfe7-Procedure__TypeOf
+	.align 16
+	.type	 Procedure__Check,@function
+Procedure__Check:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %ebx
+	movl 8(%ebp),%ebx
+	movl 40(%ebx),%eax
+	pushl %eax
+	movl MI_Type+64,%eax
+	call *%eax
+	movl 12(%ebp),%eax
+	pushl %eax
+	movl 36(%ebx),%eax
+	pushl %eax
+	movl MI_Value+44,%eax
+	call *%eax
+	addl $12,%esp
+	cmpb $0,60(%ebx)
+	je .L49
+	movb $0,62(%ebx)
+	jmp .L48
+	.align 16
+.L49:
+	cmpb $0,MI_Host+75
+	jne .L51
+	testb $4,30(%ebx)
+	je .L52
+	cmpb $0,MI_Host+74
+	jne .L51
+.L52:
+	pushl %ebx
+	call Procedure__IsNested
+	testl %eax,%eax
+	je .L48
+.L51:
+	movb $1,62(%ebx)
+.L48:
+	movl -4(%ebp),%ebx
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe8:
+	.size	 Procedure__Check,.Lfe8-Procedure__Check
+	.align 16
+	.type	 Procedure__CheckBody,@function
+Procedure__CheckBody:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $68,%esp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	xorl %ebx,%ebx
+	movl %ebx,-64(%ebp)
+	movl -64(%ebp),%ecx
+	movl %ecx,-48(%ebp)
+	movl %ecx,-44(%ebp)
+	movl %ecx,-40(%ebp)
+	movl %ecx,-36(%ebp)
+	movl %ecx,-32(%ebp)
+	movl %ecx,-28(%ebp)
+	movl %ecx,-24(%ebp)
+	movl %ecx,-20(%ebp)
+	movl %ecx,-16(%ebp)
+	movl %ecx,-12(%ebp)
+	movl %ecx,-8(%ebp)
+	movl %ecx,-4(%ebp)
+	movl 8(%ebp),%ecx
+	movl %ebx,-52(%ebp)
+	cmpl $0,52(%ecx)
+	je .L54
+	pushl %ecx
+	movl MI_Coverage+48,%eax
+	call *%eax
+	movl 8(%ebp),%ecx
+	movl 44(%ecx),%eax
+	pushl %eax
+	movl MI_Scope+60,%eax
+	call *%eax
+	movl %eax,-64(%ebp)
+	pushl %ebx
+	pushl $1
+	movl 8(%ebp),%ecx
+	pushl %ecx
+	movl MI_Value+112,%eax
+	call *%eax
+	movl 8(%ebp),%ecx
+	movl 52(%ecx),%edx
+	movl %eax,12(%edx)
+	movl 40(%ecx),%eax
+	pushl %eax
+	movl MI_ProcType+68,%eax
+	call *%eax
+	movl 8(%ebp),%ecx
+	movl %eax,-68(%ebp)
+	movl 40(%ecx),%eax
+	pushl %eax
+	movl MI_ProcType+84,%eax
+	call *%eax
+	movl %eax,-56(%ebp)
+	addl $28,%esp
+	testl %eax,%eax
+	jne .L56
+	pushl $4116
+	call _m3_fault
+	.align 16
+.L56:
+	movl -56(%ebp),%ecx
+	cmpb $0,9(%ecx)
+	je .L57
+	movl -68(%ebp),%ecx
+	pushl %ecx
+	movl 8(%ebp),%ecx
+	pushl %ecx
+	call Procedure__CheckResult
+	addl $8,%esp
+.L57:
+	movl 8(%ebp),%ecx
+	movl 40(%ecx),%eax
+	pushl %eax
+	movl MI_ProcType+64,%eax
+	call *%eax
+	movl %eax,%edx
+	movl %edx,%ebx
+	addl $4,%esp
+	jmp .L58
+	.align 16
+.L59:
+	movl 12(%ebx),%eax
+	pushl %eax
+	pushl %ebx
+	movl MI_Variable+52,%eax
+	call *%eax
+	movl %eax,%edx
+	movl %edx,%esi
+	pushl %esi
+	movl MI_Scope+72,%eax
+	call *%eax
+	leal -28(%ebp),%eax
+	pushl %eax
+	pushl %ebx
+	movl MI_Formal+52,%eax
+	call *%eax
+	movl -4(%ebp),%eax
+	pushl %eax
+	pushl %esi
+	movl MI_Variable+116,%eax
+	call *%eax
+	movl %ebx,%edx
+	movl 20(%esi),%eax
+	addl $28,%esp
+	movl %eax,20(%edx)
+	movl 8(%edx),%ebx
+.L58:
+	testl %ebx,%ebx
+	jne .L59
+	cmpl $0,-56(%ebp)
+	jne .L61
+	pushl $4356
+	call _m3_fault
+	.align 16
+.L61:
+	movl -56(%ebp),%ecx
+	cmpb $0,9(%ecx)
+	jne .L62
+	movl -68(%ebp),%ecx
+	pushl %ecx
+	movl 8(%ebp),%ecx
+	pushl %ecx
+	call Procedure__CheckResult
+	addl $8,%esp
+.L62:
+	movl 8(%ebp),%ecx
+	movl 40(%ecx),%eax
+	pushl %eax
+	movl MI_ProcType+76,%eax
+	call *%eax
+	leal -52(%ebp),%edi
+	movl 12(%ebp),%esi
+	movl %eax,-60(%ebp)
+	cld
+	movl $6,%ecx
+	rep
+	movsl
+	movl 12(%ebp),%eax
+	movb $0,(%eax)
+	movl 12(%ebp),%eax
+	movl %ebx,12(%eax)
+	movl %ebx,16(%eax)
+	movl %ebx,20(%eax)
+	movl 8(%ebp),%ecx
+	movl 64(%ecx),%eax
+	pushl %eax
+	movl MI_ESet+92,%eax
+	call *%eax
+	pushl $1
+	movl 8(%ebp),%ecx
+	movl 64(%ecx),%eax
+	pushl %eax
+	movl -60(%ebp),%ecx
+	pushl %ecx
+	movl 12(%ebp),%eax
+	pushl %eax
+	movl MI_ESet+96,%eax
+	call *%eax
+	movl 8(%ebp),%ecx
+	orb $1,30(%ecx)
+	incl MI_Type+44
+	movl 12(%ebp),%eax
+	pushl %eax
+	movl 44(%ecx),%eax
+	pushl %eax
+	movl MI_Scope+92,%eax
+	call *%eax
+	addl $32,%esp
+	movl -56(%ebp),%ecx
+	pushl %ecx
+	movl 8(%ebp),%ecx
+	movl 56(%ecx),%eax
+	pushl %eax
+	movl -68(%ebp),%ecx
+	pushl %ecx
+	movl MI_Marker+88,%eax
+	call *%eax
+	movl 12(%ebp),%eax
+	pushl %eax
+	movl 8(%ebp),%ecx
+	movl 48(%ecx),%eax
+	pushl %eax
+	movl MI_Stmt+48,%eax
+	call *%eax
+	movl MI_Marker+44,%eax
+	call *%eax
+	movl 8(%ebp),%ecx
+	movl 44(%ecx),%eax
+	pushl %eax
+	movl MI_Scope+96,%eax
+	call *%eax
+	decl MI_Type+44
+	movl 12(%ebp),%eax
+	movl 8(%ebp),%ecx
+	movb (%eax),%al
+	movb %al,61(%ecx)
+	movl 12(%ebp),%eax
+	addl $24,%esp
+	cmpl $0,16(%eax)
+	jg .L63
+	cmpl $0,20(%eax)
+	jg .L63
+	cmpl $0,12(%eax)
+	jle .L64
+	cmpb $0,MI_Target+812
+	je .L64
+.L63:
+	movl 8(%ebp),%ecx
+	movb $1,61(%ecx)
+.L64:
+	movl 12(%ebp),%edx
+	movb -52(%ebp),%al
+	movb %al,(%edx)
+	movl 12(%ebp),%edx
+	movl -40(%ebp),%eax
+	movl %eax,12(%edx)
+	movl -36(%ebp),%eax
+	movl %eax,16(%edx)
+	movl -32(%ebp),%eax
+	movl %eax,20(%edx)
+	pushl $1
+	movl 8(%ebp),%ecx
+	movl 64(%ecx),%eax
+	pushl %eax
+	movl -60(%ebp),%ecx
+	pushl %ecx
+	pushl %edx
+	movl MI_ESet+100,%eax
+	call *%eax
+	movl -64(%ebp),%ecx
+	pushl %ecx
+	movl MI_Scope+64,%eax
+	call *%eax
+.L54:
+	leal -80(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe9:
+	.size	 Procedure__CheckBody,.Lfe9-Procedure__CheckBody
+	.align 16
+	.type	 Procedure__CheckResult,@function
+Procedure__CheckResult:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $28,%esp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 12(%ebp),%edi
+	xorl %ebx,%ebx
+	testl %edi,%edi
+	je .L65
+	cmpl $0,MM_Procedure+252
+	jne .L67
+	pushl %ebx
+	pushl $MM_Procedure+704
+	movl MI_M3ID+44,%eax
+	call *%eax
+	movl %eax,MM_Procedure+252
+	addl $8,%esp
+.L67:
+	cmpl $0,MM_Procedure+256
+	jne .L68
+	pushl %ebx
+	pushl $MM_Procedure+724
+	movl MI_M3ID+44,%eax
+	call *%eax
+	movl %eax,MM_Procedure+256
+	addl $8,%esp
+.L68:
+	pushl %edi
+	movl MI_ProcType+88,%eax
+	call *%eax
+	movl %eax,%esi
+	addl $4,%esp
+	testl %esi,%esi
+	je .L69
+	movl MM_Procedure+256,%eax
+	movl %eax,-28(%ebp)
+	movb $1,-24(%ebp)
+	movl $-1,-20(%ebp)
+	movl %edi,-16(%ebp)
+	movl %ebx,-12(%ebp)
+	movb $0,-8(%ebp)
+	movl %ebx,-4(%ebp)
+	leal -28(%ebp),%eax
+	pushl %eax
+	movl MI_Formal+44,%eax
+	call *%eax
+	movl %eax,%ebx
+	andb $247,31(%ebx)
+	movl 8(%ebp),%edx
+	movl 4(%edx),%eax
+	movl %eax,4(%ebx)
+	orb $128,30(%ebx)
+	pushl %ebx
+	movl MI_Scope+72,%eax
+	call *%eax
+	movl MM_Procedure+252,%eax
+	pushl %eax
+	pushl %ebx
+	movl MI_Variable+52,%eax
+	call *%eax
+	movl %eax,%ebx
+	addl $16,%esp
+	jmp .L70
+	.align 16
+.L69:
+	pushl $1
+	movl MM_Procedure+252,%eax
+	pushl %eax
+	movl MI_Variable+48,%eax
+	call *%eax
+	pushl %esi
+	pushl %esi
+	pushl %esi
+	pushl %esi
+	pushl %edi
+	movl %eax,%ebx
+	pushl %ebx
+	movl MI_Variable+56,%eax
+	call *%eax
+	addl $32,%esp
+.L70:
+	andb $247,31(%ebx)
+	movl 8(%ebp),%edx
+	movl 4(%edx),%eax
+	movl %eax,4(%ebx)
+	orb $128,30(%ebx)
+	pushl %ebx
+	movl MI_Scope+72,%eax
+	call *%eax
+	movl 8(%ebp),%edx
+	movl %ebx,56(%edx)
+.L65:
+	leal -40(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe10:
+	.size	 Procedure__CheckResult,.Lfe10-Procedure__CheckResult
+	.align 16
+	.type	 Procedure__Load,@function
+Procedure__Load:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%esi
+	cmpb $0,60(%esi)
+	je .L72
+	pushl $MM_Procedure+744
+	movl 12(%esi),%eax
+	pushl %eax
+	movl MI_Error+52,%eax
+	call *%eax
+	addl $8,%esp
+.L72:
+	movl %esi,%ebx
+	orb $128,30(%ebx)
+	pushl %ebx
+	movl MI_Value+60,%eax
+	call *%eax
+	addl $4,%esp
+	cmpb $0,62(%ebx)
+	je .L73
+	movl 68(%ebx),%eax
+	pushl %eax
+	movl MI_CG+756,%eax
+	call *%eax
+	jmp .L71
+	.align 16
+.L73:
+	pushl %esi
+	movl MI_Scope+116,%eax
+	call *%eax
+	movl %eax,%ebx
+	movl 72(%esi),%eax
+	pushl %eax
+	pushl %ebx
+	movl MI_CG+388,%eax
+	call *%eax
+.L71:
+	leal -8(%ebp),%esp
+	popl %ebx
+	popl %esi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe11:
+	.size	 Procedure__Load,.Lfe11-Procedure__Load
+	.align 16
+	.type	 Procedure__LoadStaticLink,@function
+Procedure__LoadStaticLink:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %ebx
+	movl 8(%ebp),%ebx
+	cmpb $0,60(%ebx)
+	je .L76
+	pushl $MM_Procedure+744
+	movl 12(%ebx),%eax
+	pushl %eax
+	movl MI_Error+52,%eax
+	call *%eax
+	addl $8,%esp
+.L76:
+	orb $128,30(%ebx)
+	pushl %ebx
+	movl MI_Value+60,%eax
+	call *%eax
+	pushl %ebx
+	call Procedure__IsNested
+	addl $8,%esp
+	testl %eax,%eax
+	je .L77
+	movl 68(%ebx),%eax
+	pushl %eax
+	movl MI_CG+760,%eax
+	call *%eax
+	jmp .L75
+	.align 16
+.L77:
+	movl MI_CG+416,%eax
+	call *%eax
+.L75:
+	movl -4(%ebp),%ebx
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe12:
+	.size	 Procedure__LoadStaticLink,.Lfe12-Procedure__LoadStaticLink
+	.align 16
+	.type	 Procedure__SetGlobals,@function
+Procedure__SetGlobals:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %ebx
+	movl 8(%ebp),%ebx
+	movl 72(%ebx),%edx
+	testl %edx,%edx
+	jne .L79
+	cmpb $0,62(%ebx)
+	jne .L79
+	movl 12(%ebx),%eax
+	pushl %eax
+	pushl %edx
+	movl MI_Target+64,%eax
+	pushl %eax
+	movl MI_Target+60,%eax
+	pushl %eax
+	movl MI_Module+108,%eax
+	call *%eax
+	movl %eax,72(%ebx)
+.L79:
+	movl -4(%ebp),%ebx
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe13:
+	.size	 Procedure__SetGlobals,.Lfe13-Procedure__SetGlobals
+	.align 16
+	.type	 Procedure__ImportProc,@function
+Procedure__ImportProc:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $4,%esp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%edi
+	movl 12(%ebp),%eax
+	movl 16(%ebp),%esi
+	movb 20(%ebp),%bl
+	movb $0,-1(%ebp)
+	pushl $0
+	pushl %eax
+	movl MI_M3ID+44,%eax
+	call *%eax
+	movl %eax,%edx
+	leal -1(%ebp),%eax
+	pushl %eax
+	movl 24(%ebp),%ecx
+	pushl %ecx
+	xorl %eax,%eax
+	movb %bl,%al
+	pushl %eax
+	pushl %esi
+	pushl %edx
+	movl MI_CG+288,%eax
+	call *%eax
+	movl %eax,68(%edi)
+	addl $28,%esp
+	cmpb $0,-1(%ebp)
+	je .L82
+	movl 44(%edi),%eax
+	testl %eax,%eax
+	je .L84
+	pushl %eax
+	movl MI_Scope+60,%eax
+	call *%eax
+	movl %eax,%ebx
+	movl 44(%edi),%eax
+	pushl %eax
+	movl MI_Scope+100,%eax
+	call *%eax
+	pushl %ebx
+	movl MI_Scope+64,%eax
+	call *%eax
+	jmp .L82
+	.align 16
+.L84:
+	movl 24(%ebp),%ecx
+	pushl %ecx
+	pushl %edi
+	call Procedure__DeclareFormals
+.L82:
+	leal -16(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe14:
+	.size	 Procedure__ImportProc,.Lfe14-Procedure__ImportProc
+	.align 16
+	.type	 Procedure__DeclareFormals,@function
+Procedure__DeclareFormals:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $4,%esp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%ebx
+	movl 12(%ebp),%esi
+	movl 40(%ebx),%eax
+	pushl %eax
+	movl MI_ProcType+64,%eax
+	call *%eax
+	movl %eax,%edi
+	movl 40(%ebx),%eax
+	pushl %eax
+	movl MI_ProcType+68,%eax
+	call *%eax
+	movl %eax,-4(%ebp)
+	movl %edi,%ebx
+	addl $8,%esp
+	jmp .L87
+	.align 16
+.L88:
+	pushl $1
+	pushl $1
+	pushl %ebx
+	movl MI_Formal+76,%eax
+	call *%eax
+	movl 8(%ebx),%ebx
+	addl $12,%esp
+.L87:
+	testl %ebx,%ebx
+	jne .L88
+	testl %esi,%esi
+	jne .L90
+	pushl $6436
+	call _m3_fault
+	.align 16
+.L90:
+	cmpb $0,9(%esi)
+	je .L91
+	movl -4(%ebp),%edx
+	pushl %edx
+	call Procedure__DeclareResult
+	addl $4,%esp
+.L91:
+	movl %edi,%ebx
+	jmp .L92
+	.align 16
+.L93:
+	pushl $1
+	pushl $0
+	pushl %ebx
+	movl MI_Formal+76,%eax
+	call *%eax
+	movl 8(%ebx),%ebx
+	addl $12,%esp
+.L92:
+	testl %ebx,%ebx
+	jne .L93
+	testl %esi,%esi
+	jne .L95
+	pushl $6532
+	call _m3_fault
+	.align 16
+.L95:
+	cmpb $0,9(%esi)
+	jne .L86
+	movl -4(%ebp),%edx
+	pushl %edx
+	call Procedure__DeclareResult
+.L86:
+	leal -16(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe15:
+	.size	 Procedure__DeclareFormals,.Lfe15-Procedure__DeclareFormals
+	.align 16
+	.type	 Procedure__DeclareResult,@function
+Procedure__DeclareResult:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %ebx
+	movl 8(%ebp),%ebx
+	testl %ebx,%ebx
+	je .L97
+	pushl %ebx
+	movl MI_ProcType+88,%eax
+	call *%eax
+	addl $4,%esp
+	testl %eax,%eax
+	je .L97
+	movl MM_Procedure+256,%eax
+	testl %eax,%eax
+	jne .L99
+	pushl %eax
+	pushl $MM_Procedure+724
+	movl MI_M3ID+44,%eax
+	call *%eax
+	movl %eax,MM_Procedure+256
+	addl $8,%esp
+.L99:
+	pushl %ebx
+	movl MI_Type+132,%eax
+	call *%eax
+	pushl %eax
+	movl MI_CG+128,%eax
+	call *%eax
+	pushl $50
+	pushl $0
+	pushl $0
+	pushl %eax
+	pushl $0
+	movl MI_Target+64,%eax
+	pushl %eax
+	movl MI_Target+60,%eax
+	pushl %eax
+	movl MM_Procedure+256,%eax
+	pushl %eax
+	movl MI_CG+204,%eax
+	call *%eax
+.L97:
+	movl -4(%ebp),%ebx
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe16:
+	.size	 Procedure__DeclareResult,.Lfe16-Procedure__DeclareResult
+	.align 16
+	.type	 Procedure__Declarer,@function
+Procedure__Declarer:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $32,%esp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%esi
+	xorl %ebx,%ebx
+	movl %ebx,-28(%ebp)
+	pushl $1
+	pushl %ebx
+	pushl %esi
+	movl MI_Value+112,%eax
+	call *%eax
+	movl %eax,-20(%ebp)
+	addl $12,%esp
+	movl 36(%esi),%eax
+	testl %eax,%eax
+	je .L101
+	movl 40(%eax),%eax
+	pushl %eax
+	movl MI_Type+140,%eax
+	call *%eax
+	addl $4,%esp
+.L101:
+	movl 40(%esi),%eax
+	pushl %eax
+	movl MI_Type+140,%eax
+	call *%eax
+	movl 40(%esi),%eax
+	pushl %eax
+	movl MI_Type+132,%eax
+	call *%eax
+	movl %eax,-16(%ebp)
+	movl 40(%esi),%eax
+	pushl %eax
+	movl MI_ProcType+72,%eax
+	call *%eax
+	movb %al,-24(%ebp)
+	movl 40(%esi),%eax
+	pushl %eax
+	movl MI_ProcType+60,%eax
+	call *%eax
+	movl %eax,-32(%ebp)
+	movl %eax,-8(%ebp)
+	movl 40(%esi),%eax
+	pushl %eax
+	movl MI_ProcType+84,%eax
+	call *%eax
+	movl %eax,-4(%ebp)
+	pushl %esi
+	call Procedure__SetGlobals
+	pushl %ebx
+	movl MI_Module+112,%eax
+	call *%eax
+	movl %eax,-12(%ebp)
+	pushl %esi
+	movl MI_Scope+116,%eax
+	call *%eax
+	movl %eax,%edi
+	addl $32,%esp
+	cmpl $0,72(%esi)
+	je .L102
+	cmpl %edi,-12(%ebp)
+	jne .L102
+	pushl %ebx
+	pushl %ebx
+	pushl %esi
+	movl MI_Value+112,%eax
+	call *%eax
+	pushl %ebx
+	pushl %eax
+	movl MI_M3ID+44,%eax
+	call *%eax
+	movl %eax,-32(%ebp)
+	movl -16(%ebp),%ecx
+	pushl %ecx
+	movl MI_Target+60,%eax
+	pushl %eax
+	movl 72(%esi),%eax
+	pushl %eax
+	movl -32(%ebp),%ecx
+	pushl %ecx
+	movl MI_CG+108,%eax
+	call *%eax
+	addl $36,%esp
+.L102:
+	movl 52(%esi),%eax
+	testl %eax,%eax
+	jne .L103
+	cmpb $0,62(%esi)
+	je .L104
+	movl -4(%ebp),%ecx
+	pushl %ecx
+	xorl %eax,%eax
+	movb -24(%ebp),%al
+	pushl %eax
+	movl -8(%ebp),%ecx
+	pushl %ecx
+	movl -20(%ebp),%ecx
+	pushl %ecx
+	pushl %esi
+	call Procedure__ImportProc
+	addl $20,%esp
+.L104:
+	movl 72(%esi),%edx
+	testl %edx,%edx
+	je .L112
+	cmpl %edi,-12(%ebp)
+	jne .L112
+	movl 68(%esi),%eax
+	testl %eax,%eax
+	je .L112
+	pushl %eax
+	pushl %edx
+	movl MI_CG+260,%eax
+	call *%eax
+	jmp .L112
+	.align 16
+.L103:
+	movl 4(%eax),%eax
+	testl %eax,%eax
+	je .L106
+	movl 16(%eax),%eax
+	movl %eax,-28(%ebp)
+.L106:
+	pushl $0
+	movl -20(%ebp),%ecx
+	pushl %ecx
+	movl MI_M3ID+44,%eax
+	call *%eax
+	movl %eax,-32(%ebp)
+	xorl %edx,%edx
+	addl $8,%esp
+	cmpb $0,62(%esi)
+	je .L107
+	xorl %eax,%eax
+	movb 31(%esi),%al
+	testb $16,%al
+	jne .L108
+	testb $8,%al
+	je .L107
+.L108:
+	movl $1,%edx
+.L107:
+	movl -28(%ebp),%ecx
+	pushl %ecx
+	pushl %edx
+	movl -4(%ebp),%ecx
+	pushl %ecx
+	movl 52(%esi),%eax
+	movl 8(%eax),%eax
+	pushl %eax
+	xorl %eax,%eax
+	movb -24(%ebp),%al
+	pushl %eax
+	movl -8(%ebp),%ecx
+	pushl %ecx
+	movl -32(%ebp),%ecx
+	pushl %ecx
+	movl MI_CG+292,%eax
+	call *%eax
+	movl %eax,68(%esi)
+	movl 52(%esi),%ebx
+	addl $28,%esp
+	movl %eax,16(%ebx)
+	cmpb $0,62(%esi)
+	jne .L110
+	cmpl %edi,-12(%ebp)
+	jne .L111
+	movl 68(%esi),%eax
+	pushl %eax
+	movl 72(%esi),%eax
+	pushl %eax
+	movl MI_CG+260,%eax
+	call *%eax
+	addl $8,%esp
+	jmp .L110
+	.align 16
+.L111:
+	movl 52(%esi),%ebx
+	movl %edi,20(%ebx)
+	movl 52(%esi),%edx
+	movl 72(%esi),%eax
+	movl %eax,24(%edx)
+	pushl $0
+	pushl $0
+	pushl %esi
+	movl MI_Value+112,%eax
+	call *%eax
+	movl %eax,%ebx
+	movl 12(%esi),%eax
+	pushl %eax
+	pushl $0
+	movl MI_Target+64,%eax
+	pushl %eax
+	movl MI_Target+60,%eax
+	pushl %eax
+	movl MI_Module+108,%eax
+	call *%eax
+	pushl $0
+	movl %eax,%edx
+	pushl %ebx
+	movl MI_M3ID+44,%eax
+	movl %edx,%edi
+	call *%eax
+	movl %eax,%edx
+	addl $36,%esp
+	movl -16(%ebp),%ecx
+	pushl %ecx
+	movl MI_Target+60,%eax
+	pushl %eax
+	pushl %edi
+	pushl %edx
+	movl MI_CG+108,%eax
+	call *%eax
+	movl 68(%esi),%eax
+	pushl %eax
+	pushl %edi
+	movl MI_CG+260,%eax
+	call *%eax
+	addl $24,%esp
+.L110:
+	movl 4(%esi),%eax
+	movl %eax,MI_Scanner+88
+	movl 44(%esi),%eax
+	testl %eax,%eax
+	je .L112
+	pushl %eax
+	movl MI_Scope+60,%eax
+	call *%eax
+	movl %eax,%ebx
+	movl 44(%esi),%eax
+	pushl %eax
+	movl MI_Scope+100,%eax
+	call *%eax
+	pushl %ebx
+	movl MI_Scope+64,%eax
+	call *%eax
+.L112:
+	movl $1,%eax
+	leal -44(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe17:
+	.size	 Procedure__Declarer,.Lfe17-Procedure__Declarer
+	.align 16
+	.type	 Procedure__NeedInit,@function
+Procedure__NeedInit:
+	pushl %ebp
+	movl %esp,%ebp
+	movl 8(%ebp),%eax
+	xorl %edx,%edx
+	movl 52(%eax),%eax
+	testl %eax,%eax
+	je .L115
+	cmpl $0,8(%eax)
+	setg %al
+	xorl %edx,%edx
+	movb %al,%dl
+.L115:
+	movl %edx,%eax
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe18:
+	.size	 Procedure__NeedInit,.Lfe18-Procedure__NeedInit
+	.align 16
+	.type	 Procedure__LangInit,@function
+Procedure__LangInit:
+	pushl %ebp
+	movl %esp,%ebp
+	movl 8(%ebp),%edx
+	movl 52(%edx),%eax
+	testl %eax,%eax
+	je .L116
+	cmpl $0,8(%eax)
+	jle .L116
+	cmpb $0,MI_Host+79
+	je .L120
+	pushl %edx
+	call Procedure__GenBody
+	jmp .L116
+	.align 16
+.L120:
+	movl 68(%edx),%eax
+	pushl %eax
+	movl MI_CG+312,%eax
+	call *%eax
+.L116:
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe19:
+	.size	 Procedure__LangInit,.Lfe19-Procedure__LangInit
+	.align 16
+	.type	 Procedure__ToExpr,@function
+Procedure__ToExpr:
+	pushl %ebp
+	movl %esp,%ebp
+	movl 8(%ebp),%eax
+	pushl %eax
+	movl MI_ProcExpr+44,%eax
+	call *%eax
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe20:
+	.size	 Procedure__ToExpr,.Lfe20-Procedure__ToExpr
+	.align 16
+	.type	 Procedure__IsNested,@function
+Procedure__IsNested:
+	pushl %ebp
+	movl %esp,%ebp
+	xorl %eax,%eax
+	movl 8(%ebp),%edx
+	testl %edx,%edx
+	je .L123
+	movl 52(%edx),%edx
+	testl %edx,%edx
+	je .L123
+	cmpl $0,8(%edx)
+	setne %al
+	andl $255,%eax
+.L123:
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe21:
+	.size	 Procedure__IsNested,.Lfe21-Procedure__IsNested
+	.align 16
+	.type	 Procedure__StaticLevel,@function
+Procedure__StaticLevel:
+	pushl %ebp
+	movl %esp,%ebp
+	movl 8(%ebp),%eax
+	testl %eax,%eax
+	je .L125
+	movl 52(%eax),%eax
+	testl %eax,%eax
+	jne .L126
+.L125:
+	xorl %eax,%eax
+	jmp .L127
+	.align 16
+.L126:
+	movl 8(%eax),%eax
+.L127:
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe22:
+	.size	 Procedure__StaticLevel,.Lfe22-Procedure__StaticLevel
+	.align 16
+	.type	 Procedure__CGName,@function
+Procedure__CGName:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%esi
+	movl 12(%ebp),%ebx
+	movl 16(%ebp),%edi
+	orb $128,30(%esi)
+	pushl %esi
+	movl MI_Value+60,%eax
+	call *%eax
+	movl 68(%esi),%eax
+	movl %eax,(%ebx)
+	addl $4,%esp
+	cmpb $0,62(%esi)
+	je .L129
+	movl $0,(%edi)
+	movl 20(%ebp),%edx
+	movl $0,(%edx)
+	jmp .L128
+	.align 16
+.L129:
+	pushl %esi
+	movl MI_Scope+116,%eax
+	call *%eax
+	movl %eax,(%edi)
+	movl 20(%ebp),%edx
+	movl 72(%esi),%eax
+	movl %eax,(%edx)
+.L128:
+	leal -12(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe23:
+	.size	 Procedure__CGName,.Lfe23-Procedure__CGName
+	.align 16
+	.type	 Procedure__EmitDecl,@function
+Procedure__EmitDecl:
+	pushl %ebp
+	movl %esp,%ebp
+	movl 8(%ebp),%eax
+	movl 36(%eax),%eax
+	pushl %eax
+	movl MI_Value+60,%eax
+	call *%eax
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe24:
+	.size	 Procedure__EmitDecl,.Lfe24-Procedure__EmitDecl
+	.align 16
+	.type	 Procedure__EmitBody,@function
+Procedure__EmitBody:
+	pushl %ebp
+	movl %esp,%ebp
+	movl 8(%ebp),%eax
+	movl 36(%eax),%edx
+	cmpl $0,8(%eax)
+	jle .L133
+	cmpb $0,MI_Host+79
+	jne .L132
+.L133:
+	pushl %edx
+	call Procedure__GenBody
+.L132:
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe25:
+	.size	 Procedure__EmitBody,.Lfe25-Procedure__EmitBody
+	.align 16
+	.type	 Procedure__GenBody,@function
+Procedure__GenBody:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $12,%esp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%esi
+	movl $0,-4(%ebp)
+	cmpb $0,MI_Host+79
+	je .L136
+	movl 52(%esi),%eax
+	testl %eax,%eax
+	je .L136
+	cmpl $0,8(%eax)
+	jle .L136
+	movl MI_Tracer+160,%eax
+	call *%eax
+.L136:
+	movl 4(%esi),%eax
+	movl %eax,MI_Scanner+88
+	movl 44(%esi),%eax
+	pushl %eax
+	movl MI_Scope+60,%eax
+	call *%eax
+	movl %eax,-12(%ebp)
+	movl 40(%esi),%eax
+	pushl %eax
+	movl MI_ProcType+68,%eax
+	call *%eax
+	movl %eax,%edi
+	movl 40(%esi),%eax
+	pushl %eax
+	movl MI_ProcType+84,%eax
+	call *%eax
+	movl %eax,%ebx
+	movl 4(%esi),%eax
+	pushl %eax
+	movl MI_CG+72,%eax
+	call *%eax
+	movl 68(%esi),%eax
+	pushl %eax
+	movl MI_CG+296,%eax
+	call *%eax
+	movl 44(%esi),%eax
+	pushl %eax
+	movl MI_Scope+100,%eax
+	call *%eax
+	pushl %ebx
+	movl 56(%esi),%eax
+	pushl %eax
+	pushl %edi
+	movl MI_Marker+88,%eax
+	call *%eax
+	movl MI_Marker+104,%eax
+	addl $36,%esp
+	call *%eax
+	leal -4(%ebp),%eax
+	pushl %eax
+	leal -8(%ebp),%eax
+	pushl %eax
+	pushl %esi
+	call Procedure__StartRaises
+	movl 44(%esi),%eax
+	pushl %eax
+	movl MI_Scope+104,%eax
+	call *%eax
+	movl 48(%esi),%eax
+	pushl %eax
+	movl MI_BlockStmt+52,%eax
+	call *%eax
+	movl %eax,MI_Scanner+88
+	pushl %esi
+	movl MI_Coverage+60,%eax
+	call *%eax
+	movl 48(%esi),%eax
+	pushl %eax
+	movl MI_Stmt+52,%eax
+	call *%eax
+	movb %al,%bl
+	andb $1,%bl
+	xorl %eax,%eax
+	movb %bl,%al
+	pushl %eax
+	movl -4(%ebp),%eax
+	pushl %eax
+	movl -8(%ebp),%eax
+	pushl %eax
+	pushl %esi
+	call Procedure__EndRaises
+	addl $44,%esp
+	testb %bl,%bl
+	je .L137
+	movl 76(%esi),%eax
+	pushl %eax
+	movl MI_CG+72,%eax
+	call *%eax
+	addl $4,%esp
+	testl %edi,%edi
+	jne .L138
+	pushl %edi
+	pushl %edi
+	movl MI_Marker+108,%eax
+	call *%eax
+	addl $8,%esp
+	jmp .L137
+	.align 16
+.L138:
+	pushl $MM_Procedure+796
+	movl 12(%esi),%eax
+	pushl %eax
+	pushl $1
+	movl MI_Error+68,%eax
+	call *%eax
+	addl $12,%esp
+	cmpb $0,MI_Host+85
+	je .L137
+	movl MI_CG+668,%eax
+	call *%eax
+.L137:
+	movl MI_Marker+44,%eax
+	call *%eax
+	movl 44(%esi),%eax
+	pushl %eax
+	movl MI_Scope+108,%eax
+	call *%eax
+	movl 68(%esi),%eax
+	pushl %eax
+	movl MI_CG+300,%eax
+	call *%eax
+	movl -12(%ebp),%edx
+	pushl %edx
+	movl MI_Scope+64,%eax
+	call *%eax
+	leal -24(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe26:
+	.size	 Procedure__GenBody,.Lfe26-Procedure__GenBody
+	.align 16
+	.type	 Procedure__StartRaises,@function
+Procedure__StartRaises:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $8,%esp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%eax
+	movl 12(%ebp),%edi
+	movl 16(%ebp),%esi
+	movl $0,-8(%ebp)
+	cmpb $0,MI_Host+90
+	je .L141
+	cmpb $0,61(%eax)
+	je .L141
+	movl 40(%eax),%eax
+	pushl %eax
+	movl MI_ProcType+76,%eax
+	call *%eax
+	movl %eax,%ebx
+	pushl %ebx
+	movl MI_ESet+64,%eax
+	call *%eax
+	addl $8,%esp
+	testl %eax,%eax
+	jne .L141
+	cmpb $0,MI_Target+805
+	je .L145
+	movl %eax,%edx
+	jmp .L146
+	.align 16
+.L145:
+	pushl %ebx
+	movl MI_ESet+68,%eax
+	call *%eax
+	addl $4,%esp
+	testl %eax,%eax
+	je .L147
+	movl MI_M3RT+116,%edx
+	jmp .L146
+	.align 16
+.L147:
+	movl MI_M3RT+160,%edx
+.L146:
+	movl $0,(%esi)
+	testl %edx,%edx
+	je .L148
+	jge .L149
+	pushl $10145
+	call _m3_fault
+	.align 16
+.L149:
+	pushl $0
+	pushl $0
+	pushl $1
+	pushl $0
+	pushl $14
+	movl MI_Target+64,%eax
+	pushl %eax
+	pushl %edx
+	pushl $0
+	movl MI_CG+200,%eax
+	call *%eax
+	movl %eax,(%esi)
+	addl $32,%esp
+.L148:
+	pushl $2
+	movl MI_CG+52,%eax
+	call *%eax
+	movl %eax,(%edi)
+	pushl $1
+	pushl %eax
+	movl MI_CG+316,%eax
+	call *%eax
+	movl (%esi),%eax
+	pushl %eax
+	pushl %ebx
+	movl (%edi),%edx
+	leal 1(%edx),%eax
+	pushl %eax
+	pushl %edx
+	movl MI_Marker+84,%eax
+	call *%eax
+	addl $28,%esp
+	cmpb $0,MI_Target+805
+	je .L150
+	movl MI_Marker+48,%eax
+	call *%eax
+	jmp .L141
+	.align 16
+.L150:
+	pushl %ebx
+	movl MI_ESet+68,%eax
+	call *%eax
+	addl $4,%esp
+	testl %eax,%eax
+	je .L152
+	pushl $5
+	jmp .L153
+	.align 16
+.L152:
+	leal -4(%ebp),%eax
+	pushl %eax
+	leal -8(%ebp),%eax
+	pushl %eax
+	pushl %ebx
+	movl MI_ESet+60,%eax
+	call *%eax
+	movl MI_Target+64,%eax
+	pushl %eax
+	movl -4(%ebp),%eax
+	pushl %eax
+	movl -8(%ebp),%eax
+	pushl %eax
+	movl MI_CG+368,%eax
+	call *%eax
+	movl MI_M3RT+156,%eax
+	pushl %eax
+	movl (%esi),%eax
+	pushl %eax
+	movl MI_CG+412,%eax
+	call *%eax
+	addl $32,%esp
+	pushl $4
+.L153:
+	movl (%esi),%eax
+	pushl %eax
+	movl MI_Marker+124,%eax
+	call *%eax
+.L141:
+	leal -20(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe27:
+	.size	 Procedure__StartRaises,.Lfe27-Procedure__StartRaises
+	.align 16
+	.type	 Procedure__EndRaises,@function
+Procedure__EndRaises:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %ebx
+	movl 8(%ebp),%eax
+	movl 16(%ebp),%ebx
+	cmpb $0,MI_Host+90
+	je .L154
+	cmpb $0,61(%eax)
+	je .L154
+	movl 40(%eax),%eax
+	pushl %eax
+	movl MI_ProcType+76,%eax
+	call *%eax
+	pushl %eax
+	movl MI_ESet+64,%eax
+	call *%eax
+	addl $8,%esp
+	testl %eax,%eax
+	jne .L154
+	pushl $1
+	movl 12(%ebp),%eax
+	incl %eax
+	pushl %eax
+	movl MI_CG+316,%eax
+	call *%eax
+	movl MI_Marker+44,%eax
+	call *%eax
+	addl $8,%esp
+	cmpb $0,MI_Target+805
+	jne .L154
+	cmpb $0,20(%ebp)
+	je .L154
+	pushl %ebx
+	movl MI_Marker+128,%eax
+	call *%eax
+.L154:
+	movl -4(%ebp),%ebx
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe28:
+	.size	 Procedure__EndRaises,.Lfe28-Procedure__EndRaises
+	.align 16
+	.type	 Procedure__StartCall,@function
+Procedure__StartCall:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $4,%esp
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%ebx
+	movl 40(%ebx),%eax
+	pushl %eax
+	movl MI_ProcType+72,%eax
+	call *%eax
+	movb %al,-4(%ebp)
+	movl 40(%ebx),%eax
+	pushl %eax
+	movl MI_ProcType+84,%eax
+	call *%eax
+	movl %eax,%esi
+	orb $128,30(%ebx)
+	pushl %ebx
+	movl MI_Value+60,%eax
+	call *%eax
+	addl $12,%esp
+	cmpl $0,68(%ebx)
+	je .L162
+	pushl %ebx
+	call Procedure__StaticLevel
+	movl %eax,%edx
+	xorl %eax,%eax
+	movb -4(%ebp),%al
+	pushl %eax
+	pushl %edx
+	movl 68(%ebx),%eax
+	pushl %eax
+	movl MI_CG+728,%eax
+	call *%eax
+	jmp .L161
+	.align 16
+.L162:
+	pushl %esi
+	xorl %eax,%eax
+	movb -4(%ebp),%al
+	pushl %eax
+	movl MI_CG+736,%eax
+	call *%eax
+.L161:
+	leal -12(%ebp),%esp
+	popl %ebx
+	popl %esi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe29:
+	.size	 Procedure__StartCall,.Lfe29-Procedure__StartCall
+	.align 16
+	.type	 Procedure__EmitCall,@function
+Procedure__EmitCall:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%esi
+	movl 40(%esi),%eax
+	pushl %eax
+	movl MI_ProcType+72,%eax
+	call *%eax
+	movb %al,%bl
+	movl 40(%esi),%eax
+	pushl %eax
+	movl MI_ProcType+84,%eax
+	call *%eax
+	movl %eax,%edx
+	movl %edx,%edi
+	addl $8,%esp
+	movl 68(%esi),%edx
+	testl %edx,%edx
+	je .L165
+	xorl %eax,%eax
+	movb %bl,%al
+	pushl %eax
+	pushl %edx
+	movl MI_CG+732,%eax
+	call *%eax
+	addl $8,%esp
+	jmp .L166
+	.align 16
+.L165:
+	pushl %esi
+	movl MI_Scope+116,%eax
+	call *%eax
+	movl %eax,%edx
+	movl 72(%esi),%eax
+	pushl %eax
+	pushl %edx
+	movl MI_CG+388,%eax
+	call *%eax
+	pushl %edi
+	xorl %eax,%eax
+	movb %bl,%al
+	pushl %eax
+	movl MI_CG+740,%eax
+	call *%eax
+	addl $20,%esp
+.L166:
+	xorl %eax,%eax
+	movb %bl,%al
+	pushl %eax
+	call Procedure__CaptureResult
+	movl %eax,%ebx
+	movl 40(%esi),%eax
+	pushl %eax
+	movl MI_Marker+116,%eax
+	call *%eax
+	leal -12(%ebp),%esp
+	movl %ebx,%eax
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe30:
+	.size	 Procedure__EmitCall,.Lfe30-Procedure__EmitCall
+	.align 16
+	.type	 Procedure__CaptureResult,@function
+Procedure__CaptureResult:
+	pushl %ebp
+	movl %esp,%ebp
+	xorl %eax,%eax
+	movb 8(%ebp),%al
+	cmpl $15,%eax
+	jne .L168
+	xorl %eax,%eax
+	jmp .L170
+	.align 16
+.L168:
+	cmpl $14,%eax
+	jne .L169
+	pushl %eax
+	movl MI_CG+640,%eax
+	call *%eax
+	xorl %eax,%eax
+	jmp .L170
+	.align 16
+.L169:
+	movl MI_CG+220,%eax
+	call *%eax
+.L170:
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe31:
+	.size	 Procedure__CaptureResult,.Lfe31-Procedure__CaptureResult
+	.align 16
+	.type	 Procedure__Redefined,@function
+Procedure__Redefined:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %ebx
+	movl 8(%ebp),%ecx
+	movl 12(%ebp),%eax
+	movl MI_Scanner+88,%ebx
+	testl %eax,%eax
+	jne .L172
+	movl 4(%ecx),%eax
+	jmp .L174
+	.align 16
+.L172:
+	movl 4(%ecx),%edx
+	movl 4(%eax),%eax
+	cmpl %edx,%eax
+	jle .L174
+	movl %edx,%eax
+.L174:
+	movl %eax,MI_Scanner+88
+	pushl $MM_Procedure+840
+	movl 12(%ecx),%eax
+	pushl %eax
+	movl MI_Error+52,%eax
+	call *%eax
+	movl %ebx,MI_Scanner+88
+	movl -4(%ebp),%ebx
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe32:
+	.size	 Procedure__Redefined,.Lfe32-Procedure__Redefined
+	.align 16
+	.type	 Procedure__Signature,@function
+Procedure__Signature:
+	pushl %ebp
+	movl %esp,%ebp
+	movl 8(%ebp),%eax
+	testl %eax,%eax
+	je .L176
+	movl 40(%eax),%eax
+.L176:
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe33:
+	.size	 Procedure__Signature,.Lfe33-Procedure__Signature
+	.align 16
+	.type	 Procedure__HasBody,@function
+Procedure__HasBody:
+	pushl %ebp
+	movl %esp,%ebp
+	xorl %eax,%eax
+	movl 8(%ebp),%edx
+	testl %edx,%edx
+	je .L179
+	cmpl $0,52(%edx)
+	setne %al
+	andl $255,%eax
+.L179:
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe34:
+	.size	 Procedure__HasBody,.Lfe34-Procedure__HasBody
+	.align 16
+	.type	 Procedure__AddFPTag,@function
+Procedure__AddFPTag:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $8,%esp
+	pushl %ebx
+	movl 8(%ebp),%ebx
+.L181:
+	movl $5,-4(%ebp)
+	movl RTThread__handlerStack,%eax
+	movl %eax,-8(%ebp)
+	leal -8(%ebp),%edx
+	movl %edx,RTThread__handlerStack
+	movl 72(%ebx),%eax
+	pushl %eax
+	movl MI_Target+60,%eax
+	pushl %eax
+	call m3_div
+	pushl $1
+	pushl %eax
+	pushl $MM_Procedure+872
+	movl 12(%ebp),%eax
+	pushl %eax
+	pushl %ebx
+	movl MI_ValueRep+152,%eax
+	call *%eax
+	movl -8(%ebp),%eax
+	movl %eax,RTThread__handlerStack
+	movl $1,%eax
+.L182:
+	movl -12(%ebp),%ebx
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe35:
+	.size	 Procedure__AddFPTag,.Lfe35-Procedure__AddFPTag
+	.align 16
+	.type	 Procedure__FPType,@function
+Procedure__FPType:
+	pushl %ebp
+	movl %esp,%ebp
+	movl 8(%ebp),%edx
+	movl 36(%edx),%eax
+	testl %eax,%eax
+	je .L184
+	movl 40(%eax),%eax
+	jmp .L185
+	.align 16
+.L184:
+	movl 40(%edx),%eax
+.L185:
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe36:
+	.size	 Procedure__FPType,.Lfe36-Procedure__FPType
+	.align 16
+	.type	 M_Procedure_td8219e41_LINK,@function
+M_Procedure_td8219e41_LINK:
+	pushl %ebp
+	movl %esp,%ebp
+	movl MM_Procedure+416,%eax
+	movl %ebp,%esp
+	movl 52(%eax),%edx
+	movl MM_Procedure+312,%eax
+	movl %eax,4(%edx)
+	movl MM_Procedure+316,%eax
+	movl %eax,8(%edx)
+	popl %ebp
+	ret
+.Lfe37:
+	.size	 M_Procedure_td8219e41_LINK,.Lfe37-M_Procedure_td8219e41_LINK
+	.align 16
+	.type	 M_Procedure_ta63553f9_LINK,@function
+M_Procedure_ta63553f9_LINK:
+	pushl %ebp
+	movl %esp,%ebp
+	movl MM_Procedure+1920,%eax
+	movl %ebp,%esp
+	movl 52(%eax),%edx
+	movl MM_Procedure+268,%eax
+	movl %eax,4(%edx)
+	movl MM_Procedure+280,%eax
+	movl %eax,8(%edx)
+	movl MM_Procedure+276,%eax
+	movl %eax,12(%edx)
+	movl MM_Procedure+296,%eax
+	movl %eax,16(%edx)
+	movl MI_ValueRep+172,%ecx
+	movl %ecx,20(%edx)
+	movl MM_Procedure+300,%eax
+	movl %eax,24(%edx)
+	movl MM_Procedure+304,%eax
+	movl %eax,28(%edx)
+	movl %ecx,32(%edx)
+	movl MM_Procedure+308,%eax
+	movl %eax,36(%edx)
+	movl MI_ValueRep+160,%eax
+	movl %eax,40(%edx)
+	movl MM_Procedure+264,%eax
+	movl %eax,44(%edx)
+	movl MI_ValueRep+184,%eax
+	movl %eax,48(%edx)
+	movl MM_Procedure+336,%eax
+	movl %eax,52(%edx)
+	movl MM_Procedure+340,%eax
+	movl %eax,56(%edx)
+	popl %ebp
+	ret
+.Lfe38:
+	.size	 M_Procedure_ta63553f9_LINK,.Lfe38-M_Procedure_ta63553f9_LINK
+	.align 16
+	.type	 _m3_fault,@function
+_m3_fault:
+	pushl %ebp
+	movl %esp,%ebp
+	movl 8(%ebp),%eax
+	pushl %eax
+	pushl $MM_Procedure
+	movl MI_RTHooks+108,%eax
+	call *%eax
+	.align 16
+.Lfe39:
+	.size	 _m3_fault,.Lfe39-_m3_fault
+.globl MM_Procedure
+.data
+	.align 4
+	.type	 MM_Procedure,@object
+	.size	 MM_Procedure,1964
+MM_Procedure:
+	.long MM_Procedure+1672
+	.long MM_Procedure+44
+	.long MM_Procedure+416
+	.long MM_Procedure+404
+	.zero	4
+	.long MM_Procedure+1236
+	.zero	28
+	.long -1506454535
+.byte 102
+.byte 19
+.byte 131
+.byte 185
+.byte 159
+.byte 64
+.byte 182
+.byte 31
+	.long 1
+	.zero	4
+	.long 44
+	.long 4
+	.zero	4
+	.long 0
+	.zero	12
+	.long MM_Procedure+1846
+	.long MM_Procedure+1861
+	.long MM_Procedure+1871
+	.zero	4
+	.long M_Procedure_ta63553f9_LINK
+	.long -105857942
+	.zero	12
+	.long MM_Procedure+1928
+	.long MM_Procedure+1951
+	.long MM_Procedure+148
+	.zero	8
+	.long -668885439
+.byte 192
+.byte 171
+.byte 86
+.byte 209
+.byte 129
+.byte 53
+.byte 119
+.byte 9
+	.long 1
+	.zero	4
+	.long 4
+	.long 4
+	.zero	4
+	.long 0
+	.zero	12
+	.long MM_Procedure+1819
+	.long MM_Procedure+1821
+	.long MM_Procedure+1823
+	.zero	4
+	.long M_Procedure_td8219e41_LINK
+	.long 1338658032
+	.zero	16
+	.long MM_Procedure+1831
+	.zero	12
+	.long Procedure__Create
+	.long Procedure__TypeOf
+	.long Procedure__Check
+	.long Procedure__CheckResult
+	.long Procedure__Load
+	.long Procedure__SetGlobals
+	.long Procedure__ImportProc
+	.long Procedure__DeclareFormals
+	.long Procedure__DeclareResult
+	.long Procedure__Declarer
+	.long Procedure__NeedInit
+	.long Procedure__LangInit
+	.long Procedure__ToExpr
+	.long Procedure__EmitDecl
+	.long Procedure__EmitBody
+	.long Procedure__GenBody
+	.long Procedure__StartRaises
+	.long Procedure__EndRaises
+	.long Procedure__Redefined
+	.long Procedure__AddFPTag
+	.long Procedure__FPType
+	.long Procedure__ParseDecl
+	.long Procedure__Signature
+	.long Procedure__HasBody
+	.long Procedure__IsNested
+	.long Procedure__StaticLevel
+	.long Procedure__Define
+	.long Procedure__CheckBody
+	.long Procedure__IsEqual
+	.long Procedure__NoteExport
+	.long Procedure__CGName
+	.long Procedure__LoadStaticLink
+	.long Procedure__CaptureResult
+	.long Procedure__StartCall
+	.long Procedure__EmitCall
+	.long Procedure__Reset
+	.long -712670126
+	.long -1506454535
+	.zero	4
+	.long MM_Procedure+692
+	.long -668885439
+	.long 2
+	.long MM_Procedure+436
+	.long 44
+	.ascii	"procedure declaration cannot include a body"
+	.zero	1
+	.long 2
+	.long MM_Procedure+492
+	.long 41
+	.ascii	"external procedure cannot include a body"
+	.zero	4
+	.long 2
+	.long MM_Procedure+548
+	.long 38
+	.ascii	"Initial name doesn't match final name"
+	.zero	3
+	.long 2
+	.long MM_Procedure+600
+	.long 36
+	.ascii	"expecting '=' before procedure body"
+	.zero	1
+	.long 2
+	.long MM_Procedure+648
+	.long 42
+	.ascii	"procedure declaration must include a body"
+	.zero	3
+	.long MM_Procedure+1920
+	.long -712670126
+	.long 2
+	.long MM_Procedure+712
+	.long 8
+	.ascii	"_result"
+	.zero	1
+	.long 2
+	.long MM_Procedure+732
+	.long 8
+	.ascii	"_return"
+	.zero	1
+	.long 2
+	.long MM_Procedure+752
+	.long 37
+	.ascii	"builtin operation is not a procedure"
+	.zero	4
+	.long 2
+	.long MM_Procedure+804
+	.long 32
+	.ascii	"function may not return a value"
+	.zero	1
+	.long 2
+	.long MM_Procedure+848
+	.long 20
+	.ascii	"procedure redefined"
+	.zero	1
+	.long 2
+	.long MM_Procedure+880
+	.long 11
+	.ascii	"PROCEDURE "
+	.zero	2
+	.ascii	"FPType"
+	.zero	1
+	.ascii	"AddFPTag"
+	.zero	1
+	.ascii	"HasBody"
+	.zero	1
+	.ascii	"Signature"
+	.zero	1
+	.ascii	"Redefined"
+	.zero	1
+	.ascii	"CaptureResult"
+	.zero	1
+	.ascii	"EmitCall"
+	.zero	1
+	.ascii	"StartCall"
+	.zero	1
+	.ascii	"EndRaises"
+	.zero	1
+	.ascii	"StartRaises"
+	.zero	1
+	.ascii	"GenBody"
+	.zero	1
+	.ascii	"EmitBody"
+	.zero	1
+	.ascii	"EmitDecl"
+	.zero	1
+	.ascii	"CGName"
+	.zero	1
+	.ascii	"StaticLevel"
+	.zero	1
+	.ascii	"IsNested"
+	.zero	1
+	.ascii	"ToExpr"
+	.zero	1
+	.ascii	"LangInit"
+	.zero	1
+	.ascii	"NeedInit"
+	.zero	1
+	.ascii	"Declarer"
+	.zero	1
+	.ascii	"DeclareResult"
+	.zero	1
+	.ascii	"DeclareFormals"
+	.zero	1
+	.ascii	"ImportProc"
+	.zero	1
+	.ascii	"SetGlobals"
+	.zero	1
+	.ascii	"LoadStaticLink"
+	.zero	1
+	.ascii	"Load"
+	.zero	1
+	.ascii	"CheckResult"
+	.zero	1
+	.ascii	"CheckBody"
+	.zero	1
+	.ascii	"Check"
+	.zero	1
+	.ascii	"TypeOf"
+	.zero	1
+	.ascii	"NoteExport"
+	.zero	1
+	.ascii	"Define"
+	.zero	1
+	.ascii	"Create"
+	.zero	1
+	.ascii	"IsEqual"
+	.zero	1
+	.ascii	"ParseDecl"
+	.zero	1
+	.ascii	"Reset"
+	.zero	3
+	.long Procedure__FPType
+	.long MM_Procedure+892
+	.zero	4
+	.long Procedure__AddFPTag
+	.long MM_Procedure+899
+	.zero	4
+	.long Procedure__HasBody
+	.long MM_Procedure+908
+	.long MI_Procedure+52
+	.long Procedure__Signature
+	.long MM_Procedure+916
+	.long MI_Procedure+48
+	.long Procedure__Redefined
+	.long MM_Procedure+926
+	.zero	4
+	.long Procedure__CaptureResult
+	.long MM_Procedure+936
+	.long MI_Procedure+88
+	.long Procedure__EmitCall
+	.long MM_Procedure+950
+	.long MI_Procedure+96
+	.long Procedure__StartCall
+	.long MM_Procedure+959
+	.long MI_Procedure+92
+	.long Procedure__EndRaises
+	.long MM_Procedure+969
+	.zero	4
+	.long Procedure__StartRaises
+	.long MM_Procedure+979
+	.zero	4
+	.long Procedure__GenBody
+	.long MM_Procedure+991
+	.zero	4
+	.long Procedure__EmitBody
+	.long MM_Procedure+999
+	.zero	4
+	.long Procedure__EmitDecl
+	.long MM_Procedure+1008
+	.zero	4
+	.long Procedure__CGName
+	.long MM_Procedure+1017
+	.long MI_Procedure+80
+	.long Procedure__StaticLevel
+	.long MM_Procedure+1024
+	.long MI_Procedure+60
+	.long Procedure__IsNested
+	.long MM_Procedure+1036
+	.long MI_Procedure+56
+	.long Procedure__ToExpr
+	.long MM_Procedure+1045
+	.zero	4
+	.long Procedure__LangInit
+	.long MM_Procedure+1052
+	.zero	4
+	.long Procedure__NeedInit
+	.long MM_Procedure+1061
+	.zero	4
+	.long Procedure__Declarer
+	.long MM_Procedure+1070
+	.zero	4
+	.long Procedure__DeclareResult
+	.long MM_Procedure+1079
+	.zero	4
+	.long Procedure__DeclareFormals
+	.long MM_Procedure+1093
+	.zero	4
+	.long Procedure__ImportProc
+	.long MM_Procedure+1108
+	.zero	4
+	.long Procedure__SetGlobals
+	.long MM_Procedure+1119
+	.zero	4
+	.long Procedure__LoadStaticLink
+	.long MM_Procedure+1130
+	.long MI_Procedure+84
+	.long Procedure__Load
+	.long MM_Procedure+1145
+	.zero	4
+	.long Procedure__CheckResult
+	.long MM_Procedure+1150
+	.zero	4
+	.long Procedure__CheckBody
+	.long MM_Procedure+1162
+	.long MI_Procedure+68
+	.long Procedure__Check
+	.long MM_Procedure+1172
+	.zero	4
+	.long Procedure__TypeOf
+	.long MM_Procedure+1178
+	.zero	4
+	.long Procedure__NoteExport
+	.long MM_Procedure+1185
+	.long MI_Procedure+76
+	.long Procedure__Define
+	.long MM_Procedure+1196
+	.long MI_Procedure+64
+	.long Procedure__Create
+	.long MM_Procedure+1203
+	.zero	4
+	.long Procedure__IsEqual
+	.long MM_Procedure+1210
+	.long MI_Procedure+72
+	.long Procedure__ParseDecl
+	.long MM_Procedure+1218
+	.long MI_Procedure+44
+	.long Procedure__Reset
+	.long MM_Procedure+1228
+	.long MI_Procedure+100
+	.zero	4
+	.ascii	"/home/ftp/tmp/pm3/tmp/pm3-1.1.15/language/modula3/m3compiler"
+	.ascii	"/m3bootstrap/LINUXLIBC6/pm3-LINUXLIBC6/boot-LINUXLIBC6/m3fro"
+	.ascii	"nt/src/values/Procedure.m3"
+	.zero	1
+.byte 4
+.byte 0
+.byte 4
+.byte 0
+.byte 2
+.byte 10
+.byte 1
+.byte 16
+.byte 82
+.byte 132
+.byte 133
+.byte 213
+	.ascii	"Procedure.Body"
+	.zero	1
+.byte 4
+.byte 4
+.byte 4
+.byte 4
+.byte 4
+.byte 4
+.byte 16
+.byte 16
+.byte 16
+.byte 34
+.byte 4
+.byte 4
+.byte 14
+.byte 14
+.byte 0
+.byte 4
+.byte 4
+.byte 4
+.byte 4
+.byte 4
+.byte 4
+.byte 37
+.byte 4
+.byte 4
+.byte 0
+.byte 14
+.byte 10
+.byte 13
+.byte 16
+.byte 82
+.byte 132
+.byte 133
+.byte 213
+.byte 16
+.byte 38
+.byte 84
+.byte 147
+.byte 129
+.byte 16
+.byte 225
+.byte 46
+.byte 241
+.byte 204
+.byte 16
+.byte 122
+.byte 206
+.byte 27
+.byte 95
+.byte 16
+.byte 65
+.byte 158
+.byte 33
+.byte 216
+.byte 16
+.byte 25
+.byte 159
+.byte 238
+.byte 8
+.byte 2
+.byte 29
+.byte 29
+.byte 16
+.byte 44
+.byte 196
+.byte 243
+.byte 11
+.byte 16
+.byte 117
+.byte 167
+.byte 196
+.byte 100
+.byte 7
+.byte 34
+	.zero	5
+	.long -1506454535
+	.ascii	"Procedure_^%#%^__0001M"
+	.zero	1
+	.ascii	"Procedure.T"
+	.zero	2
+	.ident	"GCC: (GNU) cygnus-2.7.2-960712"

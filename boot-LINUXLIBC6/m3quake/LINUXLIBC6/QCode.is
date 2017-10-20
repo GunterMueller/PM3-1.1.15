@@ -1,0 +1,481 @@
+	.file	"QCode.ic"
+	.version	"01.01"
+/ SRC Modula-3 version cygnus-2.7.2-960712 (i486--linuxelf) compiled by GNU C version egcs-2.91.66 19990314/Linux (egcs-1.1.2 release).
+/ options passed:  -fno-strength-reduce -O2
+/ options enabled:  -fdefer-pop -fcse-follow-jumps -fcse-skip-blocks
+/ -fexpensive-optimizations -fthread-jumps -fpeephole -fforce-mem
+/ -ffunction-cse -finline -fkeep-static-consts -fcaller-saves
+/ -fpcc-struct-return -frerun-cse-after-loop -fschedule-insns2 -fcommon
+/ -fverbose-asm -fgnu-linker -m80387 -mhard-float -mno-soft-float -mieee-fp
+/ -mfp-ret-in-387 -mschedule-prologue -mcpu=i486 -march=i486
+
+gcc2_compiled.:
+.globl MI_QCode
+.data
+	.align 4
+	.type	 MI_QCode,@object
+	.size	 MI_QCode,1768
+MI_QCode:
+	.long MI_QCode+1512
+	.long MI_QCode+236
+	.zero	8
+	.long MI_QCode+1500
+	.zero	24
+	.long MI_QCode+656
+	.long MI_QCode+676
+	.long MI_QCode+696
+	.long MI_QCode+720
+	.long MI_QCode+744
+	.long MI_QCode+764
+	.long MI_QCode+788
+	.long MI_QCode+812
+	.long MI_QCode+832
+	.long MI_QCode+848
+	.long MI_QCode+864
+	.long MI_QCode+880
+	.long MI_QCode+904
+	.long MI_QCode+932
+	.long MI_QCode+956
+	.long MI_QCode+980
+	.long MI_QCode+1000
+	.long MI_QCode+1020
+	.long MI_QCode+1040
+	.long MI_QCode+1064
+	.long MI_QCode+1088
+	.long MI_QCode+1108
+	.long MI_QCode+1132
+	.long MI_QCode+1152
+	.long MI_QCode+1176
+	.long MI_QCode+1196
+	.long MI_QCode+1216
+	.long MI_QCode+1240
+	.long MI_QCode+1264
+	.long MI_QCode+1284
+	.long MI_QCode+1312
+	.long MI_QCode+1344
+	.long MI_QCode+1368
+	.long MI_QCode+1392
+	.long MI_QCode+1416
+	.long MI_QCode+1440
+	.long MI_QCode+1464
+	.long MI_QCode+1484
+.byte 1
+.byte 2
+.byte 1
+.byte 1
+.byte 2
+.byte 1
+.byte 0
+.byte 0
+.byte 0
+.byte 0
+.byte 0
+.byte 0
+.byte 0
+.byte 2
+.byte 3
+.byte 3
+.byte 3
+.byte 0
+.byte 0
+.byte 0
+.byte 2
+.byte 2
+.byte 2
+.byte 2
+.byte 2
+.byte 2
+.byte 0
+.byte 0
+.byte 0
+.byte 0
+.byte 0
+.byte 0
+.byte 0
+.byte 1
+.byte 1
+.byte 0
+.byte 0
+.byte 1
+	.zero	10
+	.long -1801557661
+.byte 235
+.byte 42
+.byte 211
+.byte 152
+.byte 136
+.byte 67
+.byte 77
+.byte 12
+	.long 1
+	.zero	4
+	.long 20
+	.long 4
+	.zero	4
+	.long 12
+	.zero	12
+	.long MI_QCode+1723
+	.long MI_QCode+1729
+	.long MI_QCode+1734
+	.zero	8
+	.long -1651526519
+	.zero	16
+	.long MI_QCode+1752
+	.long MI_QCode+340
+	.zero	8
+	.long -1180300958
+.byte 149
+.byte 138
+.byte 42
+.byte 186
+.byte 247
+.byte 131
+.byte 140
+.byte 3
+	.long 1
+	.zero	4
+	.long 8
+	.long 4
+	.zero	8
+	.long 1
+	.long 8
+	.zero	4
+	.long MI_QCode+1708
+	.zero	4
+	.long MI_QCode+1715
+	.zero	32
+	.long MI_QCode+444
+	.zero	8
+	.long 54026910
+.byte 208
+.byte 138
+.byte 7
+.byte 13
+.byte 78
+.byte 232
+.byte 63
+.byte 14
+	.long 1
+	.zero	4
+	.long 24
+	.long 4
+	.zero	20
+	.long MI_QCode+1666
+	.long MI_QCode+1675
+	.long MI_QCode+1677
+	.zero	28
+	.long MI_QCode+1693
+	.long MI_QCode+548
+	.zero	8
+	.long 1143252536
+.byte 41
+.byte 142
+.byte 250
+.byte 73
+.byte 17
+.byte 40
+.byte 222
+.byte 13
+	.long 1
+	.zero	4
+	.long 8
+	.long 4
+	.zero	8
+	.long 1
+	.long 4
+	.zero	4
+	.long MI_QCode+1648
+	.long MI_QCode+1653
+	.long MI_QCode+1658
+	.zero	36
+	.long 2
+	.long MI_QCode+664
+	.long 8
+	.ascii	"Integer"
+	.zero	1
+	.long 2
+	.long MI_QCode+684
+	.long 7
+	.ascii	"String"
+	.zero	2
+	.long 2
+	.long MI_QCode+704
+	.long 11
+	.ascii	"BuildArray"
+	.zero	2
+	.long 2
+	.long MI_QCode+728
+	.long 11
+	.ascii	"BuildTable"
+	.zero	2
+	.long 2
+	.long MI_QCode+752
+	.long 7
+	.ascii	"GetEnv"
+	.zero	2
+	.long 2
+	.long MI_QCode+772
+	.long 9
+	.ascii	"PushProc"
+	.zero	4
+	.long 2
+	.long MI_QCode+796
+	.long 9
+	.ascii	"IsMember"
+	.zero	4
+	.long 2
+	.long MI_QCode+820
+	.long 7
+	.ascii	"Concat"
+	.zero	2
+	.long 2
+	.long MI_QCode+840
+	.long 4
+	.ascii	"And"
+	.zero	1
+	.long 2
+	.long MI_QCode+856
+	.long 3
+	.ascii	"Or"
+	.zero	2
+	.long 2
+	.long MI_QCode+872
+	.long 4
+	.ascii	"Not"
+	.zero	1
+	.long 2
+	.long MI_QCode+888
+	.long 11
+	.ascii	"IndexTable"
+	.zero	2
+	.long 2
+	.long MI_QCode+912
+	.long 15
+	.ascii	"SubscriptArray"
+	.zero	2
+	.long 2
+	.long MI_QCode+940
+	.long 12
+	.ascii	"InitForeach"
+	.zero	1
+	.long 2
+	.long MI_QCode+964
+	.long 12
+	.ascii	"NextForeach"
+	.zero	1
+	.long 2
+	.long MI_QCode+988
+	.long 5
+	.ascii	"Goto"
+	.zero	4
+	.long 2
+	.long MI_QCode+1008
+	.long 8
+	.ascii	"IfFalse"
+	.zero	1
+	.long 2
+	.long MI_QCode+1028
+	.long 5
+	.ascii	"Halt"
+	.zero	4
+	.long 2
+	.long MI_QCode+1048
+	.long 10
+	.ascii	"PushScope"
+	.zero	3
+	.long 2
+	.long MI_QCode+1072
+	.long 9
+	.ascii	"PopScope"
+	.zero	4
+	.long 2
+	.long MI_QCode+1096
+	.long 8
+	.ascii	"DefineG"
+	.zero	1
+	.long 2
+	.long MI_QCode+1116
+	.long 9
+	.ascii	"DefineGR"
+	.zero	4
+	.long 2
+	.long MI_QCode+1140
+	.long 8
+	.ascii	"DefineL"
+	.zero	1
+	.long 2
+	.long MI_QCode+1160
+	.long 9
+	.ascii	"DefineLR"
+	.zero	4
+	.long 2
+	.long MI_QCode+1184
+	.long 8
+	.ascii	"LoadVar"
+	.zero	1
+	.long 2
+	.long MI_QCode+1204
+	.long 7
+	.ascii	"Assign"
+	.zero	2
+	.long 2
+	.long MI_QCode+1224
+	.long 12
+	.ascii	"AssignTable"
+	.zero	1
+	.long 2
+	.long MI_QCode+1248
+	.long 12
+	.ascii	"AssignArray"
+	.zero	1
+	.long 2
+	.long MI_QCode+1272
+	.long 7
+	.ascii	"Append"
+	.zero	2
+	.long 2
+	.long MI_QCode+1292
+	.long 14
+	.ascii	"StartRedirect"
+	.zero	3
+	.long 2
+	.long MI_QCode+1320
+	.long 20
+	.ascii	"StartAppendRedirect"
+	.zero	1
+	.long 2
+	.long MI_QCode+1352
+	.long 12
+	.ascii	"EndRedirect"
+	.zero	1
+	.long 2
+	.long MI_QCode+1376
+	.long 10
+	.ascii	"StartCall"
+	.zero	3
+	.long 2
+	.long MI_QCode+1400
+	.long 9
+	.ascii	"CallProc"
+	.zero	4
+	.long 2
+	.long MI_QCode+1424
+	.long 9
+	.ascii	"CallFunc"
+	.zero	4
+	.long 2
+	.long MI_QCode+1448
+	.long 12
+	.ascii	"ReturnValue"
+	.zero	1
+	.long 2
+	.long MI_QCode+1472
+	.long 7
+	.ascii	"Return"
+	.zero	2
+	.long 2
+	.long MI_QCode+1492
+	.long 8
+	.ascii	"SetLine"
+	.zero	1
+	.long -2096627300
+	.long -1801557661
+	.zero	4
+	.ascii	"/home/ftp/tmp/pm3/tmp/pm3-1.1.15/language/modula3/m3compiler"
+	.ascii	"/m3bootstrap/LINUXLIBC6/pm3-LINUXLIBC6/boot-LINUXLIBC6/m3qua"
+	.ascii	"ke/src/QCode.i3"
+	.zero	1
+.byte 24
+.byte 1
+.byte 4
+.byte 0
+.byte 0
+.byte 24
+.byte 1
+.byte 4
+.byte 0
+.byte 0
+.byte 2
+.byte 11
+.byte 1
+.byte 16
+.byte 158
+.byte 98
+.byte 56
+.byte 3
+.byte 4
+.byte 14
+.byte 14
+.byte 14
+.byte 16
+.byte 16
+.byte 35
+.byte 6
+.byte 0
+.byte 4
+.byte 0
+.byte 8
+.byte 15
+.byte 7
+.byte 16
+.byte 156
+.byte 1
+.byte 8
+.byte 131
+.byte 7
+.byte 19
+.byte 254
+.byte 126
+.byte 24
+.byte 2
+.byte 27
+.byte 13
+	.ascii	"QCode.ProcInfo"
+	.zero	1
+.byte 24
+.byte 1
+.byte 16
+.byte 36
+.byte 14
+.byte 0
+.byte 0
+.byte 4
+.byte 11
+.byte 1
+.byte 15
+.byte 2
+.byte 5
+.byte 38
+.byte 7
+.byte 14
+.byte 4
+.byte 14
+.byte 14
+.byte 4
+.byte 0
+.byte 37
+.byte 4
+.byte 41
+.byte 4
+.byte 0
+.byte 6
+.byte 10
+.byte 5
+.byte 7
+.byte 16
+.byte 98
+.byte 9
+.byte 166
+.byte 185
+.byte 19
+.byte 254
+.byte 126
+.byte 23
+.byte 16
+.byte 56
+.byte 166
+.byte 36
+.byte 68
+	.ascii	"QCode.Stream_"
+	.zero	3
+	.ident	"GCC: (GNU) cygnus-2.7.2-960712"

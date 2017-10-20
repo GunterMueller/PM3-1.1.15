@@ -1,0 +1,60 @@
+% 
+% Standard configuration file for IBMR2
+%
+%  This configuration assumes that you have installed bsdcc as
+%  described in "Porting 4.3 BSD Programs to AIX Version 3.1.
+%  The following is a simple form of these instructions.
+%  
+%     (1) Add the following stanza to /etc/xlc.cfg:
+%  
+%  * standard c compiler aliased as bsdcc
+%  bsdcc:  use        = DEFLT
+%          crt        = /lib/crt0.o
+%          mcrt       = /lib/mcrt0.o
+%          gcrt       = /lib/gcrt0.o
+%          libraries  = -lbsd, -lc
+%          proflibs   = -L/lib/profiled,-L/usr/lib/profiled
+%          options    = -H512,-T512, -qlanglvl=extended, -qnoro, -D_BSD,
+%  -D_NONSTD_TYPES, -D_NO_PROTO, -D_BSD_INCLUDES, -bnodelcsect, -U__STR__,
+%  -U__MATH__
+%  
+%      Note that the options are a single line.
+%  
+%     (2) As root, execute the following statements:
+%  
+%     	cd /bin
+%  	ln -s xlc bsdcc
+%  
+%     The result is to make bsdcc a C compiler that is as closely
+%     compatible with 4.3 BSD as possible.  The porting guide
+%     discusses the remaining incompatibilities.  The troff source
+%     for a version of the porting document is in file
+%     /usr/lpp/bos/bsdport.tr.
+%  
+%   ALSO NOTE:  There is a bug in earlier versions of the 3.2 xlc compiler
+%   that will give you compilation errors.  The earliest version known to
+%   compile m3 2.10(and above) is 1.2.0.7.  1.2.0.0 does not work.  To see
+%   which version you have, type "/usr/ucb/what /usr/lpp/xlc/bin/xlcentry".
+%
+
+%-------------------------------------------------- compilation environment ---
+
+readonly TARGET = "IBMR2"
+
+include("COMMON")
+
+%INSTALL_ROOT = "/usr/local"
+
+PLATFORM_SUPPORTS_MOTIF  = "TRUE"
+X11_WITH_SHARED_MEM = ""
+
+CC = [ "/bin/bsdcc", "-w", "-c" ]
+LINK = [ "/bin/bsdcc", "-w" ]
+MAKELIB = [ "/bin/ar", "cru" ]
+MAKESHLIB = [ "ld" ]
+RANLIB = [ "ranlib" ]
+
+setDefault("","")
+
+NAMING_CONVENTIONS = GRUMPY_POSIX_CONVENTIONS
+TARGET_NAMING_CONVENTIONS = NAMING_CONVENTIONS

@@ -1,0 +1,64 @@
+	.file	"M3Libs.ic"
+	.version	"01.01"
+/ SRC Modula-3 version cygnus-2.7.2-960712 (i486--linuxelf) compiled by GNU C version egcs-2.91.66 19990314/Linux (egcs-1.1.2 release).
+/ options passed:  -fno-strength-reduce -O2
+/ options enabled:  -fdefer-pop -fcse-follow-jumps -fcse-skip-blocks
+/ -fexpensive-optimizations -fthread-jumps -fpeephole -fforce-mem
+/ -ffunction-cse -finline -fkeep-static-consts -fcaller-saves
+/ -fpcc-struct-return -frerun-cse-after-loop -fschedule-insns2 -fcommon
+/ -fverbose-asm -fgnu-linker -m80387 -mhard-float -mno-soft-float -mieee-fp
+/ -mfp-ret-in-387 -mschedule-prologue -mcpu=i486 -march=i486
+
+gcc2_compiled.:
+.globl MI_M3Libs
+.data
+	.align 4
+	.type	 MI_M3Libs,@object
+	.size	 MI_M3Libs,316
+MI_M3Libs:
+	.long MI_M3Libs+148
+	.long MI_M3Libs+44
+	.zero	44
+	.long 655008973
+.byte 95
+.byte 26
+.byte 157
+.byte 38
+.byte 146
+.byte 190
+.byte 151
+.byte 1
+	.long 1
+	.zero	4
+	.long 8
+	.long 4
+	.zero	20
+	.long MI_M3Libs+289
+	.long MI_M3Libs+293
+	.long MI_M3Libs+295
+	.zero	28
+	.long MI_M3Libs+305
+	.zero	4
+	.ascii	"/home/ftp/tmp/pm3/tmp/pm3-1.1.15/language/modula3/m3compiler"
+	.ascii	"/m3bootstrap/LINUXLIBC6/pm3-LINUXLIBC6/boot-LINUXLIBC6/m3tem"
+	.ascii	"plates/src/M3Libs.i3"
+	.zero	1
+.byte 4
+.byte 16
+.byte 16
+.byte 0
+.byte 4
+.byte 0
+.byte 4
+.byte 15
+.byte 3
+.byte 16
+.byte 116
+.byte 101
+.byte 248
+.byte 80
+.byte 2
+.byte 24
+	.ascii	"M3Libs.T"
+	.zero	3
+	.ident	"GCC: (GNU) cygnus-2.7.2-960712"

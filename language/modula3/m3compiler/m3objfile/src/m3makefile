@@ -1,0 +1,17 @@
+% Copyright (C) 1994, Digital Equipment Corporation
+% All rights reserved.
+% See the file COPYRIGHT for a full description.
+%
+% Last modified on Tue Nov 22 07:56:33 PST 1994 by kalsow
+
+import ("m3middle")
+
+if equal(TARGET,"LINUXELF") or equal(TARGET,"LINUXLIBC6")
+  include_dir("linux")
+else 
+  if equal(TARGET,"NT386")
+    include_dir("nt")
+  end
+end
+
+Library ("m3objfile")

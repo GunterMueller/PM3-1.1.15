@@ -1,0 +1,2755 @@
+	.file	"Fmt.mc"
+	.version	"01.01"
+/ SRC Modula-3 version cygnus-2.7.2-960712 (i486--linuxelf) compiled by GNU C version egcs-2.91.66 19990314/Linux (egcs-1.1.2 release).
+/ options passed:  -fno-strength-reduce -O2
+/ options enabled:  -fdefer-pop -fcse-follow-jumps -fcse-skip-blocks
+/ -fexpensive-optimizations -fthread-jumps -fpeephole -fforce-mem
+/ -ffunction-cse -finline -fkeep-static-consts -fcaller-saves
+/ -fpcc-struct-return -frerun-cse-after-loop -fschedule-insns2 -fcommon
+/ -fverbose-asm -fgnu-linker -m80387 -mhard-float -mno-soft-float -mieee-fp
+/ -mfp-ret-in-387 -mschedule-prologue -mcpu=i486 -march=i486
+
+gcc2_compiled.:
+.text
+	.align 16
+	.type	 Fmt__Bool,@function
+Fmt__Bool:
+	pushl %ebp
+	movl %esp,%ebp
+	movl $MM_Fmt+884,%eax
+	xorl %edx,%edx
+	movb 8(%ebp),%dl
+	movl %ebp,%esp
+	popl %ebp
+	movl (%eax,%edx,4),%eax
+	ret
+.Lfe1:
+	.size	 Fmt__Bool,.Lfe1-Fmt__Bool
+	.align 16
+	.type	 Fmt__Char,@function
+Fmt__Char:
+	pushl %ebp
+	movl %esp,%ebp
+	xorl %eax,%eax
+	movb 8(%ebp),%al
+	pushl %eax
+	movl MI_Text+72,%eax
+	call *%eax
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe2:
+	.size	 Fmt__Char,.Lfe2-Fmt__Char
+	.align 16
+	.type	 Fmt__Int,@function
+Fmt__Int:
+	pushl %ebp
+	movl %esp,%ebp
+	movl 8(%ebp),%edx
+	movb 12(%ebp),%al
+	cmpl $-50,%edx
+	jl .L4
+	cmpl $100,%edx
+	jg .L4
+	cmpb $10,%al
+	jne .L4
+	addl $50,%edx
+	cmpl $150,%edx
+	jbe .L5
+	pushl $865
+	call _m3_fault
+	.align 16
+.L5:
+	movl $MM_Fmt+44,%eax
+	movl (%eax,%edx,4),%eax
+	jmp .L6
+	.align 16
+.L4:
+	andl $255,%eax
+	pushl %eax
+	pushl %edx
+	call Fmt__AnyInt
+.L6:
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe3:
+	.size	 Fmt__Int,.Lfe3-Fmt__Int
+	.align 16
+	.type	 Fmt__AnyInt,@function
+Fmt__AnyInt:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $52,%esp
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%edx
+.L8:
+	movl $5,-40(%ebp)
+	movl RTThread__handlerStack,%eax
+	movl %eax,-44(%ebp)
+	leal -44(%ebp),%ecx
+	movl %ecx,RTThread__handlerStack
+	leal -36(%ebp),%esi
+	movl %esi,-52(%ebp)
+	movl $33,-48(%ebp)
+	pushl $0
+	xorl %eax,%eax
+	movb 12(%ebp),%al
+	pushl %eax
+	pushl %edx
+	leal -52(%ebp),%ebx
+	pushl %ebx
+	movl MI_Convert+64,%eax
+	call *%eax
+	addl $16,%esp
+	testl %eax,%eax
+	jge .L9
+	pushl $1009
+	call _m3_fault
+	.align 16
+.L9:
+	cmpl $33,%eax
+	jle .L10
+	pushl $1009
+	call _m3_fault
+	.align 16
+.L10:
+	movl %eax,-48(%ebp)
+	movl %esi,-52(%ebp)
+	pushl %ebx
+	movl MI_Text+76,%eax
+	call *%eax
+	movl %eax,%edx
+	movl -44(%ebp),%eax
+	movl %eax,RTThread__handlerStack
+	movl %edx,%eax
+.L11:
+	leal -60(%ebp),%esp
+	popl %ebx
+	popl %esi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe4:
+	.size	 Fmt__AnyInt,.Lfe4-Fmt__AnyInt
+	.align 16
+	.type	 Fmt__Unsigned,@function
+Fmt__Unsigned:
+	pushl %ebp
+	movl %esp,%ebp
+	movl 8(%ebp),%edx
+	movb 12(%ebp),%al
+	testl %edx,%edx
+	jl .L13
+	cmpl $100,%edx
+	jg .L13
+	cmpb $10,%al
+	jne .L13
+	addl $50,%edx
+	cmpl $150,%edx
+	jbe .L14
+	pushl $1105
+	call _m3_fault
+	.align 16
+.L14:
+	movl $MM_Fmt+44,%eax
+	movl (%eax,%edx,4),%eax
+	jmp .L15
+	.align 16
+.L13:
+	andl $255,%eax
+	pushl %eax
+	pushl %edx
+	call Fmt__AnyUnsigned
+.L15:
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe5:
+	.size	 Fmt__Unsigned,.Lfe5-Fmt__Unsigned
+	.align 16
+	.type	 Fmt__AnyUnsigned,@function
+Fmt__AnyUnsigned:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $48,%esp
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%edx
+.L17:
+	movl $5,-36(%ebp)
+	movl RTThread__handlerStack,%eax
+	movl %eax,-40(%ebp)
+	leal -40(%ebp),%ecx
+	movl %ecx,RTThread__handlerStack
+	leal -32(%ebp),%esi
+	movl %esi,-48(%ebp)
+	movl $32,-44(%ebp)
+	pushl $0
+	xorl %eax,%eax
+	movb 12(%ebp),%al
+	pushl %eax
+	pushl %edx
+	leal -48(%ebp),%ebx
+	pushl %ebx
+	movl MI_Convert+68,%eax
+	call *%eax
+	addl $16,%esp
+	testl %eax,%eax
+	jge .L18
+	pushl $1249
+	call _m3_fault
+	.align 16
+.L18:
+	cmpl $32,%eax
+	jle .L19
+	pushl $1249
+	call _m3_fault
+	.align 16
+.L19:
+	movl %eax,-44(%ebp)
+	movl %esi,-48(%ebp)
+	pushl %ebx
+	movl MI_Text+76,%eax
+	call *%eax
+	movl %eax,%edx
+	movl -40(%ebp),%eax
+	movl %eax,RTThread__handlerStack
+	movl %edx,%eax
+.L20:
+	leal -56(%ebp),%esp
+	popl %ebx
+	popl %esi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe6:
+	.size	 Fmt__AnyUnsigned,.Lfe6-Fmt__AnyUnsigned
+	.align 16
+	.type	 Fmt__Real,@function
+Fmt__Real:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $60,%esp
+	pushl %esi
+	leal -40(%ebp),%eax
+	pushl %ebx
+	movl 16(%ebp),%esi
+	movl $0,-20(%ebp)
+	movl $0,-16(%ebp)
+	movl $0,-12(%ebp)
+	movl $0,-8(%ebp)
+	movl $0,-4(%ebp)
+	pushl %eax
+	movl 8(%ebp),%eax
+	pushl %eax
+	movl MI_RealFloat+96,%eax
+	call *%eax
+	leal 12(%esi),%ecx
+	xorl %eax,%eax
+	movb -40(%ebp),%al
+	addl $8,%esp
+	movb MI_FmtBufF+44(%eax),%dl
+	movb %dl,-20(%ebp)
+	movb $0,-19(%ebp)
+	movl $2,-16(%ebp)
+	movb -39(%ebp),%al
+	movb %al,-18(%ebp)
+	cmpb $2,%dl
+	jne .L22
+	xorl %eax,%eax
+	movb -38(%ebp),%al
+	movl %eax,-12(%ebp)
+	movl -28(%ebp),%edx
+	movl %edx,-8(%ebp)
+	movb -24(%ebp),%al
+	movb %al,-4(%ebp)
+	testl %edx,%edx
+	jg .L23
+	leal 13(%esi),%ecx
+	jmp .L22
+	.align 16
+.L23:
+	addl %edx,%ecx
+.L22:
+	movb 12(%ebp),%bl
+	movb %bl,-52(%ebp)
+	movl %esi,-48(%ebp)
+	movb 20(%ebp),%bl
+	movb %bl,-44(%ebp)
+	testl %ecx,%ecx
+	jge .L25
+	pushl $1633
+	call _m3_fault
+	.align 16
+.L25:
+	leal -37(%ebp),%ebx
+	movl %ebx,-60(%ebp)
+	movl $9,-56(%ebp)
+	leal -52(%ebp),%eax
+	pushl %eax
+	leal -60(%ebp),%eax
+	pushl %eax
+	leal -20(%ebp),%eax
+	pushl %eax
+	pushl %ecx
+	call Fmt__Float
+	leal -68(%ebp),%esp
+	popl %ebx
+	popl %esi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe7:
+	.size	 Fmt__Real,.Lfe7-Fmt__Real
+	.align 16
+	.type	 Fmt__LongReal,@function
+Fmt__LongReal:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $68,%esp
+	pushl %esi
+	leal -48(%ebp),%eax
+	pushl %ebx
+	movl 20(%ebp),%esi
+	movl $0,-20(%ebp)
+	movl $0,-16(%ebp)
+	movl $0,-12(%ebp)
+	movl $0,-8(%ebp)
+	movl $0,-4(%ebp)
+	pushl %eax
+	movl 12(%ebp),%eax
+	movl 8(%ebp),%edx
+	pushl %eax
+	pushl %edx
+	movl MI_LongFloat+96,%eax
+	call *%eax
+	leal 12(%esi),%ecx
+	xorl %eax,%eax
+	movb -48(%ebp),%al
+	addl $12,%esp
+	movb MI_FmtBufF+50(%eax),%dl
+	movb %dl,-20(%ebp)
+	movb $1,-19(%ebp)
+	movl $3,-16(%ebp)
+	movb -47(%ebp),%al
+	movb %al,-18(%ebp)
+	cmpb $2,%dl
+	jne .L27
+	xorl %eax,%eax
+	movb -46(%ebp),%al
+	movl %eax,-12(%ebp)
+	movl -28(%ebp),%edx
+	movl %edx,-8(%ebp)
+	movb -24(%ebp),%al
+	movb %al,-4(%ebp)
+	testl %edx,%edx
+	jg .L28
+	leal 13(%esi),%ecx
+	jmp .L27
+	.align 16
+.L28:
+	addl %edx,%ecx
+.L27:
+	movb 16(%ebp),%bl
+	movb %bl,-60(%ebp)
+	movl %esi,-56(%ebp)
+	movb 24(%ebp),%bl
+	movb %bl,-52(%ebp)
+	testl %ecx,%ecx
+	jge .L30
+	pushl $1985
+	call _m3_fault
+	.align 16
+.L30:
+	leal -45(%ebp),%ebx
+	movl %ebx,-68(%ebp)
+	movl $17,-64(%ebp)
+	leal -60(%ebp),%eax
+	pushl %eax
+	leal -68(%ebp),%eax
+	pushl %eax
+	leal -20(%ebp),%eax
+	pushl %eax
+	pushl %ecx
+	call Fmt__Float
+	leal -76(%ebp),%esp
+	popl %ebx
+	popl %esi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe8:
+	.size	 Fmt__LongReal,.Lfe8-Fmt__LongReal
+	.align 16
+	.type	 Fmt__Extended,@function
+Fmt__Extended:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $68,%esp
+	pushl %esi
+	leal -48(%ebp),%eax
+	pushl %ebx
+	movl 20(%ebp),%esi
+	movl $0,-20(%ebp)
+	movl $0,-16(%ebp)
+	movl $0,-12(%ebp)
+	movl $0,-8(%ebp)
+	movl $0,-4(%ebp)
+	pushl %eax
+	movl 12(%ebp),%eax
+	movl 8(%ebp),%edx
+	pushl %eax
+	pushl %edx
+	movl MI_ExtendedFloat+96,%eax
+	call *%eax
+	leal 12(%esi),%ecx
+	xorl %eax,%eax
+	movb -48(%ebp),%al
+	addl $12,%esp
+	movb MI_FmtBufF+56(%eax),%dl
+	movb %dl,-20(%ebp)
+	movb $2,-19(%ebp)
+	movl $3,-16(%ebp)
+	movb -47(%ebp),%al
+	movb %al,-18(%ebp)
+	cmpb $2,%dl
+	jne .L32
+	xorl %eax,%eax
+	movb -46(%ebp),%al
+	movl %eax,-12(%ebp)
+	movl -28(%ebp),%edx
+	movl %edx,-8(%ebp)
+	movb -24(%ebp),%al
+	movb %al,-4(%ebp)
+	testl %edx,%edx
+	jg .L33
+	leal 13(%esi),%ecx
+	jmp .L32
+	.align 16
+.L33:
+	addl %edx,%ecx
+.L32:
+	movb 16(%ebp),%bl
+	movb %bl,-60(%ebp)
+	movl %esi,-56(%ebp)
+	movb 24(%ebp),%bl
+	movb %bl,-52(%ebp)
+	testl %ecx,%ecx
+	jge .L35
+	pushl $2337
+	call _m3_fault
+	.align 16
+.L35:
+	leal -45(%ebp),%ebx
+	movl %ebx,-68(%ebp)
+	movl $17,-64(%ebp)
+	leal -60(%ebp),%eax
+	pushl %eax
+	leal -68(%ebp),%eax
+	pushl %eax
+	leal -20(%ebp),%eax
+	pushl %eax
+	pushl %ecx
+	call Fmt__Float
+	leal -76(%ebp),%esp
+	popl %ebx
+	popl %esi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe9:
+	.size	 Fmt__Extended,.Lfe9-Fmt__Extended
+	.align 16
+	.type	 Fmt__Float,@function
+Fmt__Float:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $132,%esp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%edx
+	cmpl $100,%edx
+	jg .L37
+	leal -100(%ebp),%esi
+	movl %esi,-108(%ebp)
+	movl $100,-104(%ebp)
+	movl 20(%ebp),%eax
+	pushl %eax
+	movl 16(%ebp),%eax
+	pushl %eax
+	movl 12(%ebp),%eax
+	pushl %eax
+	leal -108(%ebp),%ebx
+	pushl %ebx
+	movl MI_FmtBufF+64,%eax
+	call *%eax
+	addl $16,%esp
+	cmpl $100,%eax
+	jle .L38
+	pushl $2929
+	call _m3_fault
+	.align 16
+.L38:
+	movl %eax,-104(%ebp)
+	movl %esi,-108(%ebp)
+	pushl %ebx
+	movl MI_Text+76,%eax
+	call *%eax
+	movl %eax,%ebx
+	jmp .L39
+	.align 16
+.L37:
+	leal -124(%ebp),%eax
+	leal -116(%ebp),%edi
+	movl %edi,-124(%ebp)
+	movl $1,-120(%ebp)
+	movl %edx,-116(%ebp)
+	pushl %eax
+	movl MM_Fmt+3384,%eax
+	pushl %eax
+	movl MI_RTHooks+96,%eax
+	call *%eax
+	movl %eax,%edx
+	movl %edx,-112(%ebp)
+	addl $8,%esp
+	testl %edx,%edx
+	jne .L40
+	pushl $3012
+	call _m3_fault
+	.align 16
+.L40:
+	movl 20(%ebp),%eax
+	pushl %eax
+	movl 16(%ebp),%eax
+	pushl %eax
+	movl 12(%ebp),%eax
+	pushl %eax
+	pushl %edx
+	movl MI_FmtBufF+64,%eax
+	call *%eax
+	movl %eax,%ecx
+	movl -112(%ebp),%eax
+	addl $16,%esp
+	testl %eax,%eax
+	jne .L41
+	pushl $3044
+	call _m3_fault
+	.align 16
+.L41:
+	movl %eax,%edx
+	movl %ecx,-128(%ebp)
+	movl %ecx,%eax
+	subl 4(%edx),%eax
+	testl %eax,%eax
+	jle .L42
+	pushl $3041
+	call _m3_fault
+	.align 16
+.L42:
+	movl (%edx),%eax
+	movl %eax,-132(%ebp)
+	leal -132(%ebp),%eax
+	pushl %eax
+	movl MI_Text+76,%eax
+	call *%eax
+	movl %eax,%ebx
+	leal -112(%ebp),%eax
+	pushl %eax
+	movl MI_RTHooks+100,%eax
+	call *%eax
+.L39:
+	leal -144(%ebp),%esp
+	movl %ebx,%eax
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe10:
+	.size	 Fmt__Float,.Lfe10-Fmt__Float
+	.align 16
+	.type	 Fmt__Pad,@function
+Fmt__Pad:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $112,%esp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%edi
+	movl 12(%ebp),%ebx
+	movl $0,-112(%ebp)
+	pushl %edi
+	movl MI_Text+56,%eax
+	call *%eax
+	movl %ebx,%esi
+	subl %eax,%esi
+	addl $4,%esp
+	testl %esi,%esi
+	jle .L57
+	movl $100,%eax
+	movl %esi,%ebx
+	cmpl %eax,%esi
+	jle .L45
+	movl %eax,%ebx
+.L45:
+	movl -112(%ebp),%eax
+	leal -1(%ebx),%edx
+	jmp .L46
+	.align 16
+.L47:
+	cmpl $99,%eax
+	jle .L48
+	pushl $3345
+	call _m3_fault
+	.align 16
+.L48:
+	movb 16(%ebp),%cl
+	movb %cl,-100(%eax,%ebp)
+	incl %eax
+.L46:
+	cmpl %edx,%eax
+	jle .L47
+	testl %ebx,%ebx
+	jge .L50
+	pushl $3361
+	call _m3_fault
+	.align 16
+.L50:
+	cmpl $100,%ebx
+	jle .L51
+	pushl $3361
+	call _m3_fault
+	.align 16
+.L51:
+	movl %ebx,-104(%ebp)
+	leal -100(%ebp),%ecx
+	movl %ecx,-108(%ebp)
+	leal -108(%ebp),%eax
+	pushl %eax
+	movl MI_Text+76,%eax
+	call *%eax
+	movl %eax,-112(%ebp)
+	addl $4,%esp
+	jmp .L52
+	.align 16
+.L53:
+	cmpb $1,20(%ebp)
+	jne .L54
+	pushl %edi
+	movl -112(%ebp),%ecx
+	pushl %ecx
+	jmp .L63
+	.align 16
+.L54:
+	movl -112(%ebp),%ecx
+	pushl %ecx
+	pushl %edi
+.L63:
+	movl MI_RTHooks+76,%eax
+	call *%eax
+	movl %eax,%edi
+	addl $8,%esp
+	subl %ebx,%esi
+.L52:
+	cmpl %ebx,%esi
+	jge .L53
+	testl %esi,%esi
+	jle .L57
+	cmpb $1,20(%ebp)
+	jne .L61
+	pushl %esi
+	pushl $0
+	movl -112(%ebp),%ecx
+	pushl %ecx
+	movl MI_Text+64,%eax
+	call *%eax
+	pushl %edi
+	pushl %eax
+	jmp .L64
+	.align 16
+.L61:
+	pushl %esi
+	pushl $0
+	movl -112(%ebp),%ecx
+	pushl %ecx
+	movl MI_Text+64,%eax
+	call *%eax
+	pushl %eax
+	pushl %edi
+.L64:
+	movl MI_RTHooks+76,%eax
+	call *%eax
+	movl %eax,%edi
+.L57:
+	movl %edi,%eax
+	leal -124(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe11:
+	.size	 Fmt__Pad,.Lfe11-Fmt__Pad
+	.align 16
+	.type	 Fmt__F,@function
+Fmt__F:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $28,%esp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 12(%ebp),%eax
+	movl 16(%ebp),%edx
+	movl 20(%ebp),%ecx
+	movl 24(%ebp),%ebx
+	movl 28(%ebp),%esi
+	movl %eax,-20(%ebp)
+	movl %edx,-16(%ebp)
+	movl %ecx,-12(%ebp)
+	movl %ebx,-8(%ebp)
+	movl %esi,-4(%ebp)
+	movl $4,%eax
+	jmp .L73
+	.align 16
+.L67:
+	decl %eax
+	js .L70
+.L73:
+	cmpl $4,%eax
+	jbe .L69
+	pushl $3745
+	call _m3_fault
+	.align 16
+.L69:
+	cmpl $0,-20(%ebp,%eax,4)
+	je .L67
+.L70:
+	incl %eax
+	jns .L71
+	pushl $3761
+	call _m3_fault
+	.align 16
+.L71:
+	cmpl $5,%eax
+	jle .L72
+	pushl $3761
+	call _m3_fault
+	.align 16
+.L72:
+	movl %eax,-24(%ebp)
+	leal -20(%ebp),%edi
+	movl %edi,-28(%ebp)
+	leal -28(%ebp),%eax
+	pushl %eax
+	movl 8(%ebp),%edi
+	pushl %edi
+	call Fmt__FN
+	leal -40(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe12:
+	.size	 Fmt__F,.Lfe12-Fmt__F
+	.align 16
+	.type	 Fmt__ReadSpec,@function
+Fmt__ReadSpec:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%esi
+	movl 12(%ebp),%edi
+	testl %esi,%esi
+	jne .L75
+	pushl $4436
+	call _m3_fault
+	.align 16
+.L75:
+	movl %esi,%edx
+	cmpl %edi,4(%edx)
+	ja .L76
+	pushl $4434
+	call _m3_fault
+	.align 16
+.L76:
+	movl (%edx),%eax
+	leal 1(%edi),%ecx
+	movb (%edi,%eax),%bl
+	cmpb $45,%bl
+	jne .L77
+	movl 16(%ebp),%eax
+	movb $0,(%eax)
+	cmpl %ecx,4(%edx)
+	ja .L79
+	pushl $4514
+	call _m3_fault
+	.align 16
+.L79:
+	movl (%edx),%eax
+	movb (%ecx,%eax),%bl
+	leal 2(%edi),%ecx
+	jmp .L80
+	.align 16
+.L77:
+	movl 16(%ebp),%eax
+	movb $1,(%eax)
+.L80:
+	cmpb $48,%bl
+	jne .L81
+	movl 16(%ebp),%eax
+	movb $48,8(%eax)
+	testl %esi,%esi
+	jne .L82
+	pushl $4612
+	call _m3_fault
+	.align 16
+.L82:
+	movl %esi,%edx
+	cmpl %ecx,4(%edx)
+	ja .L83
+	pushl $4610
+	call _m3_fault
+	.align 16
+.L83:
+	movl (%edx),%eax
+	movb (%ecx,%eax),%bl
+	incl %ecx
+	jmp .L84
+	.align 16
+.L81:
+	movl 16(%ebp),%eax
+	movb $32,8(%eax)
+.L84:
+	movl 16(%ebp),%eax
+	movl $0,4(%eax)
+	jmp .L85
+	.align 16
+.L86:
+	movl 16(%ebp),%ebx
+	movl 4(%ebx),%eax
+	leal (%eax,%eax,4),%eax
+	leal -48(%edx,%eax,2),%eax
+	testl %eax,%eax
+	jge .L87
+	pushl $4721
+	call _m3_fault
+	.align 16
+.L87:
+	movl %eax,4(%ebx)
+	testl %esi,%esi
+	jne .L88
+	pushl $4740
+	call _m3_fault
+	.align 16
+.L88:
+	movl %esi,%edx
+	cmpl %ecx,4(%edx)
+	ja .L89
+	pushl $4738
+	call _m3_fault
+	.align 16
+.L89:
+	movl (%edx),%eax
+	movb (%ecx,%eax),%bl
+	incl %ecx
+.L85:
+	xorl %edx,%edx
+	movb %bl,%dl
+	cmpl $47,%edx
+	jle .L91
+	cmpl $57,%edx
+	jle .L86
+.L91:
+	cmpl $115,%edx
+	jne .L92
+	movl %ecx,%eax
+	subl %edi,%eax
+	incl %eax
+	jns .L94
+	pushl $4817
+	call _m3_fault
+	.align 16
+.L92:
+	xorl %eax,%eax
+.L94:
+	leal -12(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe13:
+	.size	 Fmt__ReadSpec,.Lfe13-Fmt__ReadSpec
+	.align 16
+	.type	 Fmt__PutSpec,@function
+Fmt__PutSpec:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %edi
+	pushl %esi
+	movl 16(%ebp),%edi
+	movl 12(%ebp),%esi
+	addl $-32,%esi
+	jns .L96
+	pushl $5041
+	call _m3_fault
+	.align 16
+.L96:
+	cmpl $31,%esi
+	jle .L97
+	movl (%edi),%eax
+	testl %eax,%eax
+	jne .L98
+	pushl $5076
+	call _m3_fault
+	.align 16
+.L98:
+	pushl %eax
+	pushl %esi
+	movl 8(%ebp),%eax
+	pushl %eax
+	call Fmt__PutSpec
+	jmp .L95
+	.align 16
+.L97:
+	testl %esi,%esi
+	jne .L100
+	movl MM_Fmt+3392,%eax
+	pushl %eax
+	movl MI_RTHooks+80,%eax
+	call *%eax
+	movl %eax,(%edi)
+	addl $4,%esp
+.L100:
+	movl (%edi),%edx
+	testl %edx,%edx
+	jne .L102
+	pushl $5124
+	call _m3_fault
+	.align 16
+.L102:
+	leal 0(,%esi,8),%eax
+	subl %esi,%eax
+	leal 4(%edx,%eax,4),%edi
+	movl 8(%ebp),%esi
+	cld
+	movl $7,%ecx
+	rep
+	movsl
+.L95:
+	leal -8(%ebp),%esp
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe14:
+	.size	 Fmt__PutSpec,.Lfe14-Fmt__PutSpec
+	.align 16
+	.type	 Fmt__GetSpec,@function
+Fmt__GetSpec:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $28,%esp
+	pushl %edi
+	pushl %esi
+	movl 12(%ebp),%ecx
+	movl 8(%ebp),%edx
+	addl $-32,%edx
+	jns .L104
+	pushl $5281
+	call _m3_fault
+	.align 16
+.L104:
+	cmpl $31,%edx
+	jle .L105
+	testl %ecx,%ecx
+	jne .L106
+	pushl $5316
+	call _m3_fault
+	.align 16
+.L106:
+	movl 16(%ebp),%eax
+	pushl %eax
+	movl (%ecx),%eax
+	pushl %eax
+	pushl %edx
+	call Fmt__GetSpec
+	jmp .L103
+	.align 16
+.L105:
+	testl %ecx,%ecx
+	jne .L108
+	pushl $5332
+	call _m3_fault
+	.align 16
+.L108:
+	leal 0(,%edx,8),%eax
+	subl %edx,%eax
+	movl 16(%ebp),%edi
+	leal 4(%ecx,%eax,4),%esi
+	cld
+	movl $7,%ecx
+	rep
+	movsl
+.L103:
+	leal -36(%ebp),%esp
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe15:
+	.size	 Fmt__GetSpec,.Lfe15-Fmt__GetSpec
+	.align 16
+	.type	 Fmt__FN__ReadSpecs.0,@function
+Fmt__FN__ReadSpecs.0:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $40,%esp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl %ecx,-4(%ebp)
+	movl -4(%ebp),%edx
+	movl %edx,-36(%ebp)
+	movl $0,-32(%ebp)
+	movl $0,-28(%ebp)
+	movl $0,-24(%ebp)
+	movl $0,-20(%ebp)
+	movl $0,-16(%ebp)
+	movl $0,-12(%ebp)
+	movl $0,-8(%ebp)
+	movl $0,-40(%ebp)
+	movl -40(%ebp),%ebx
+	jmp .L112
+	.align 16
+.L113:
+	movl -36(%ebp),%edx
+	movl -912(%edx),%eax
+	movl (%eax),%eax
+	testl %eax,%eax
+	jne .L114
+	pushl $5636
+	call _m3_fault
+	.align 16
+.L114:
+	cmpl %ebx,4(%eax)
+	ja .L115
+	pushl $5634
+	call _m3_fault
+	.align 16
+.L115:
+	movl (%eax),%eax
+	cmpb $37,(%ebx,%eax)
+	jne .L116
+	testl %ebx,%ebx
+	jge .L117
+	pushl $5649
+	call _m3_fault
+	.align 16
+.L117:
+	movl %ebx,-32(%ebp)
+	addl $1,%ebx
+	jns .L118
+	pushl $5665
+	call _m3_fault
+	.align 16
+.L118:
+	leal -16(%ebp),%eax
+	pushl %eax
+	pushl %ebx
+	movl -36(%ebp),%edx
+	movl -912(%edx),%eax
+	movl (%eax),%eax
+	pushl %eax
+	call Fmt__ReadSpec
+	movl %eax,-28(%ebp)
+	addl $12,%esp
+	testl %eax,%eax
+	je .L112
+	movl -36(%ebp),%edx
+	leal -1(%eax,%ebx),%ebx
+	movl -912(%edx),%eax
+	movl 4(%eax),%eax
+	movl -40(%ebp),%edx
+	cmpl %edx,4(%eax)
+	ja .L120
+	pushl $5714
+	call _m3_fault
+	.align 16
+.L120:
+	movl (%eax),%eax
+	movl -40(%ebp),%edx
+	movl (%eax,%edx,4),%eax
+	movl %eax,-24(%ebp)
+	pushl %eax
+	movl MI_Text+56,%eax
+	call *%eax
+	movl %eax,-20(%ebp)
+	movl -12(%ebp),%esi
+	movl -28(%ebp),%ecx
+	addl $4,%esp
+	cmpl %esi,%eax
+	jg .L131
+	movl %esi,%eax
+.L131:
+	movl -36(%ebp),%edx
+	subl %ecx,%eax
+	addl -916(%edx),%eax
+	jns .L123
+	pushl $5745
+	call _m3_fault
+	.align 16
+.L123:
+	movl -36(%ebp),%edx
+	movl %eax,-916(%edx)
+	cmpl $31,-40(%ebp)
+	jg .L124
+	jbe .L125
+	pushl $5777
+	call _m3_fault
+	.align 16
+.L125:
+	movl -40(%ebp),%edx
+	leal 0(,%edx,8),%eax
+	subl %edx,%eax
+	movl -36(%ebp),%edx
+	leal -900(%edx,%eax,4),%edi
+	leal -32(%ebp),%esi
+	cld
+	movl $7,%ecx
+	rep
+	movsl
+	jmp .L126
+	.align 16
+.L124:
+	cmpl $0,-40(%ebp)
+	jge .L127
+	pushl $5793
+	call _m3_fault
+	.align 16
+.L127:
+	movl -36(%ebp),%eax
+	addl $-4,%eax
+	pushl %eax
+	movl -40(%ebp),%edx
+	pushl %edx
+	leal -32(%ebp),%eax
+	pushl %eax
+	call Fmt__PutSpec
+	addl $12,%esp
+.L126:
+	incl -40(%ebp)
+	jmp .L112
+	.align 16
+.L116:
+	incl %ebx
+.L112:
+	movl -36(%ebp),%edx
+	cmpl %ebx,-920(%edx)
+	jg .L113
+	cmpl $0,-40(%ebp)
+	jge .L130
+	pushl $5921
+	call _m3_fault
+	.align 16
+.L130:
+	leal -52(%ebp),%esp
+	movl -40(%ebp),%eax
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe16:
+	.size	 Fmt__FN__ReadSpecs.0,.Lfe16-Fmt__FN__ReadSpecs.0
+	.align 16
+	.type	 Fmt__FN__ConstructResult.1,@function
+Fmt__FN__ConstructResult.1:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $104,%esp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl %ecx,-4(%ebp)
+	movl -4(%ebp),%esi
+	movl %esi,-68(%ebp)
+	movl $0,-76(%ebp)
+	movl -76(%ebp),%edi
+	movl %edi,-32(%ebp)
+	movl %edi,-28(%ebp)
+	movl %edi,-24(%ebp)
+	movl %edi,-20(%ebp)
+	movl %edi,-16(%ebp)
+	movl %edi,-12(%ebp)
+	movl %edi,-8(%ebp)
+	movl %edi,-72(%ebp)
+	movl -72(%ebp),%ebx
+	movl -916(%esi),%eax
+	pushl %eax
+	movl MI_TextF+148,%eax
+	call *%eax
+	movl %eax,-76(%ebp)
+	movl -72(%ebp),%esi
+	movl %esi,-80(%ebp)
+	movl 8(%ebp),%edi
+	decl %edi
+	movl %edi,-84(%ebp)
+	addl $4,%esp
+	jmp .L133
+	.align 16
+.L134:
+	cmpl $31,-80(%ebp)
+	jg .L135
+	movl -80(%ebp),%esi
+	leal 0(,%esi,8),%eax
+	subl %esi,%eax
+	leal -32(%ebp),%edx
+	movl -68(%ebp),%edi
+	leal -900(%edi,%eax,4),%eax
+	movl %edx,%edi
+	movl %eax,%esi
+	cld
+	movl $7,%ecx
+	rep
+	movsl
+	jmp .L137
+	.align 16
+.L135:
+	leal -32(%ebp),%eax
+	pushl %eax
+	movl -68(%ebp),%esi
+	movl -4(%esi),%eax
+	pushl %eax
+	movl -80(%ebp),%edi
+	pushl %edi
+	call Fmt__GetSpec
+	addl $12,%esp
+.L137:
+	movl -32(%ebp),%ecx
+	subl -72(%ebp),%ecx
+	testl %ecx,%ecx
+	jle .L138
+	cmpl $0,-76(%ebp)
+	jne .L139
+	pushl $6244
+	call _m3_fault
+	.align 16
+.L139:
+	testl %ebx,%ebx
+	jge .L140
+	pushl $6241
+	call _m3_fault
+	.align 16
+.L140:
+	movl %ecx,-36(%ebp)
+	leal (%ecx,%ebx),%esi
+	movl %esi,-104(%ebp)
+	movl -76(%ebp),%edi
+	movl %esi,%eax
+	subl 4(%edi),%eax
+	testl %eax,%eax
+	jle .L142
+	pushl $6241
+	call _m3_fault
+	.align 16
+.L142:
+	movl -76(%ebp),%esi
+	movl -68(%ebp),%edi
+	addl (%esi),%ebx
+	movl %ebx,-40(%ebp)
+	movl -912(%edi),%eax
+	movl (%eax),%edx
+	testl %edx,%edx
+	jne .L143
+	pushl $6244
+	call _m3_fault
+	.align 16
+.L143:
+	cmpl $0,-72(%ebp)
+	jge .L145
+	pushl $6241
+	call _m3_fault
+	.align 16
+.L145:
+	movl %ecx,-44(%ebp)
+	movl -72(%ebp),%eax
+	addl %ecx,%eax
+	subl 4(%edx),%eax
+	testl %eax,%eax
+	jle .L146
+	pushl $6241
+	call _m3_fault
+	.align 16
+.L146:
+	movl -72(%ebp),%eax
+	addl (%edx),%eax
+	movl %eax,-48(%ebp)
+	pushl %ecx
+	pushl %eax
+	pushl %ebx
+	call memmove
+	movl -104(%ebp),%ebx
+	addl $12,%esp
+.L138:
+	movl -28(%ebp),%eax
+	addl -32(%ebp),%eax
+	movl %eax,-72(%ebp)
+	leal -20(%ebp),%esi
+	movl %esi,-88(%ebp)
+	leal -8(%ebp),%edi
+	movl %edi,-92(%ebp)
+	movl -20(%ebp),%eax
+	movl -12(%ebp),%esi
+	subl %eax,%esi
+	movl %esi,-104(%ebp)
+	cmpb $1,-16(%ebp)
+	jne .L148
+	testl %esi,%esi
+	jle .L148
+	leal (%esi,%ebx),%ecx
+.L149:
+	cmpl $0,-76(%ebp)
+	jne .L150
+	pushl $6420
+	call _m3_fault
+	.align 16
+.L150:
+	movl -76(%ebp),%edi
+	cmpl %ebx,4(%edi)
+	ja .L151
+	pushl $6418
+	call _m3_fault
+	.align 16
+.L151:
+	movl -76(%ebp),%esi
+	movl -92(%ebp),%edi
+	movl (%esi),%edx
+	movb (%edi),%al
+	movb %al,(%ebx,%edx)
+	incl %ebx
+	cmpl %ecx,%ebx
+	jne .L149
+.L148:
+	movl -88(%ebp),%esi
+	movl (%esi),%esi
+	movl %esi,-100(%ebp)
+	testl %esi,%esi
+	jle .L153
+	cmpl $0,-76(%ebp)
+	jne .L154
+	pushl $6484
+	call _m3_fault
+	.align 16
+.L154:
+	testl %ebx,%ebx
+	jge .L155
+	pushl $6481
+	call _m3_fault
+	.align 16
+.L155:
+	movl -100(%ebp),%edi
+	movl %edi,-52(%ebp)
+	movl -76(%ebp),%esi
+	leal (%edi,%ebx),%eax
+	subl 4(%esi),%eax
+	testl %eax,%eax
+	jle .L156
+	pushl $6481
+	call _m3_fault
+	.align 16
+.L156:
+	movl -76(%ebp),%edi
+	movl -24(%ebp),%eax
+	movl (%edi),%edi
+	addl %ebx,%edi
+	movl %edi,-96(%ebp)
+	movl %edi,-56(%ebp)
+	testl %eax,%eax
+	jne .L157
+	pushl $6484
+	call _m3_fault
+	.align 16
+.L157:
+	movl -88(%ebp),%esi
+	movl %eax,%ecx
+	movl (%esi),%edx
+	movl %edx,-60(%ebp)
+	movl %edx,%eax
+	subl 4(%ecx),%eax
+	testl %eax,%eax
+	jle .L158
+	pushl $6481
+	call _m3_fault
+	.align 16
+.L158:
+	movl (%ecx),%eax
+	movl %eax,-64(%ebp)
+	cmpl %edx,-100(%ebp)
+	je .L159
+	pushl $6483
+	call _m3_fault
+	.align 16
+.L159:
+	pushl %edx
+	pushl %eax
+	movl -96(%ebp),%edi
+	pushl %edi
+	call memmove
+	movl -88(%ebp),%esi
+	addl $12,%esp
+	addl (%esi),%ebx
+.L153:
+	cmpb $0,-16(%ebp)
+	jne .L160
+	cmpl $0,-104(%ebp)
+	jle .L160
+	movl -104(%ebp),%edi
+	leal (%edi,%ebx),%ecx
+.L161:
+	cmpl $0,-76(%ebp)
+	jne .L162
+	pushl $6564
+	call _m3_fault
+	.align 16
+.L162:
+	movl -76(%ebp),%esi
+	cmpl %ebx,4(%esi)
+	ja .L163
+	pushl $6562
+	call _m3_fault
+	.align 16
+.L163:
+	movl -76(%ebp),%edi
+	movl -92(%ebp),%esi
+	movl (%edi),%edx
+	movb (%esi),%al
+	movb %al,(%ebx,%edx)
+	incl %ebx
+	cmpl %ecx,%ebx
+	jne .L161
+.L160:
+	incl -80(%ebp)
+.L133:
+	movl -84(%ebp),%edi
+	cmpl %edi,-80(%ebp)
+	jle .L134
+	movl -68(%ebp),%esi
+	movl -920(%esi),%ecx
+	subl -72(%ebp),%ecx
+	testl %ecx,%ecx
+	jle .L166
+	cmpl $0,-76(%ebp)
+	jne .L167
+	pushl $6740
+	call _m3_fault
+	.align 16
+.L167:
+	testl %ebx,%ebx
+	jge .L168
+	pushl $6737
+	call _m3_fault
+	.align 16
+.L168:
+	movl %ecx,-60(%ebp)
+	movl -76(%ebp),%edi
+	leal (%ecx,%ebx),%eax
+	subl 4(%edi),%eax
+	testl %eax,%eax
+	jle .L170
+	pushl $6737
+	call _m3_fault
+	.align 16
+.L170:
+	movl -76(%ebp),%esi
+	movl -68(%ebp),%edi
+	addl (%esi),%ebx
+	movl %ebx,-64(%ebp)
+	movl -912(%edi),%eax
+	movl (%eax),%edx
+	testl %edx,%edx
+	jne .L171
+	pushl $6740
+	call _m3_fault
+	.align 16
+.L171:
+	cmpl $0,-72(%ebp)
+	jge .L172
+	pushl $6737
+	call _m3_fault
+	.align 16
+.L172:
+	movl %ecx,-52(%ebp)
+	movl -72(%ebp),%eax
+	addl %ecx,%eax
+	subl 4(%edx),%eax
+	testl %eax,%eax
+	jle .L174
+	pushl $6737
+	call _m3_fault
+	.align 16
+.L174:
+	movl -72(%ebp),%eax
+	addl (%edx),%eax
+	movl %eax,-56(%ebp)
+	pushl %ecx
+	pushl %eax
+	pushl %ebx
+	call memmove
+.L166:
+	leal -116(%ebp),%esp
+	movl -76(%ebp),%eax
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe17:
+	.size	 Fmt__FN__ConstructResult.1,.Lfe17-Fmt__FN__ConstructResult.1
+	.align 16
+	.type	 Fmt__FN,@function
+Fmt__FN:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $920,%esp
+	pushl %edi
+	pushl %esi
+	leal 8(%ebp),%edx
+	pushl %ebx
+	movl %edx,-912(%ebp)
+.L110:
+	movl $5,-904(%ebp)
+	movl RTThread__handlerStack,%eax
+	movl %eax,-908(%ebp)
+	leal -908(%ebp),%edx
+	movl %edx,RTThread__handlerStack
+	xorl %edi,%edi
+	movl %edi,-920(%ebp)
+	movl %edi,-916(%ebp)
+	pushl $896
+	pushl %edi
+	leal -900(%ebp),%eax
+	pushl %eax
+	call memset
+	movl %edi,-4(%ebp)
+	movl 8(%ebp),%eax
+	pushl %eax
+	movl MI_Text+56,%eax
+	movl %edi,%esi
+	call *%eax
+	movl %eax,%ebx
+	movl %ebx,-920(%ebp)
+	movl %ebx,-916(%ebp)
+	movl %esi,-4(%ebp)
+	movl %ebp,%ecx
+	call Fmt__FN__ReadSpecs.0
+	movl %eax,%ebx
+	movl %ebx,%esi
+	movl 12(%ebp),%eax
+	addl $16,%esp
+	cmpl %ebx,4(%eax)
+	je .L176
+	pushl %edi
+	pushl $MI_Convert+44
+	movl MI_RTHooks+52,%eax
+	call *%eax
+	addl $8,%esp
+.L176:
+	testl %ebx,%ebx
+	jne .L177
+	movl -908(%ebp),%eax
+	movl %eax,RTThread__handlerStack
+	movl 8(%ebp),%eax
+	jmp .L109
+	.align 16
+.L177:
+	pushl %esi
+	movl %ebp,%ecx
+	call Fmt__FN__ConstructResult.1
+	movl %eax,%edx
+	movl -908(%ebp),%eax
+	movl %eax,RTThread__handlerStack
+	movl %edx,%eax
+.L178:
+.L109:
+	leal -932(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe18:
+	.size	 Fmt__FN,.Lfe18-Fmt__FN
+	.align 16
+	.type	 _m3_fault,@function
+_m3_fault:
+	pushl %ebp
+	movl %esp,%ebp
+	movl 8(%ebp),%eax
+	pushl %eax
+	pushl $MM_Fmt
+	movl MI_RTHooks+108,%eax
+	call *%eax
+	.align 16
+.Lfe19:
+	.size	 _m3_fault,.Lfe19-_m3_fault
+.globl MM_Fmt
+.data
+	.align 4
+	.type	 MM_Fmt,@object
+	.size	 MM_Fmt,3972
+MM_Fmt:
+	.long MM_Fmt+3760
+	.long MM_Fmt+660
+	.long MM_Fmt+3384
+	.zero	8
+	.long MM_Fmt+3540
+	.zero	20
+	.long MM_Fmt+972
+	.long MM_Fmt+988
+	.long MM_Fmt+1004
+	.long MM_Fmt+1020
+	.long MM_Fmt+1036
+	.long MM_Fmt+1052
+	.long MM_Fmt+1068
+	.long MM_Fmt+1084
+	.long MM_Fmt+1100
+	.long MM_Fmt+1116
+	.long MM_Fmt+1132
+	.long MM_Fmt+1148
+	.long MM_Fmt+1164
+	.long MM_Fmt+1180
+	.long MM_Fmt+1196
+	.long MM_Fmt+1212
+	.long MM_Fmt+1228
+	.long MM_Fmt+1244
+	.long MM_Fmt+1260
+	.long MM_Fmt+1276
+	.long MM_Fmt+1292
+	.long MM_Fmt+1308
+	.long MM_Fmt+1324
+	.long MM_Fmt+1340
+	.long MM_Fmt+1356
+	.long MM_Fmt+1372
+	.long MM_Fmt+1388
+	.long MM_Fmt+1404
+	.long MM_Fmt+1420
+	.long MM_Fmt+1436
+	.long MM_Fmt+1452
+	.long MM_Fmt+1468
+	.long MM_Fmt+1484
+	.long MM_Fmt+1500
+	.long MM_Fmt+1516
+	.long MM_Fmt+1532
+	.long MM_Fmt+1548
+	.long MM_Fmt+1564
+	.long MM_Fmt+1580
+	.long MM_Fmt+1596
+	.long MM_Fmt+1612
+	.long MM_Fmt+1628
+	.long MM_Fmt+1644
+	.long MM_Fmt+1660
+	.long MM_Fmt+1676
+	.long MM_Fmt+1692
+	.long MM_Fmt+1708
+	.long MM_Fmt+1724
+	.long MM_Fmt+1740
+	.long MM_Fmt+1756
+	.long MM_Fmt+1772
+	.long MM_Fmt+1788
+	.long MM_Fmt+1804
+	.long MM_Fmt+1820
+	.long MM_Fmt+1836
+	.long MM_Fmt+1852
+	.long MM_Fmt+1868
+	.long MM_Fmt+1884
+	.long MM_Fmt+1900
+	.long MM_Fmt+1916
+	.long MM_Fmt+1932
+	.long MM_Fmt+1948
+	.long MM_Fmt+1964
+	.long MM_Fmt+1980
+	.long MM_Fmt+1996
+	.long MM_Fmt+2012
+	.long MM_Fmt+2028
+	.long MM_Fmt+2044
+	.long MM_Fmt+2060
+	.long MM_Fmt+2076
+	.long MM_Fmt+2092
+	.long MM_Fmt+2108
+	.long MM_Fmt+2124
+	.long MM_Fmt+2140
+	.long MM_Fmt+2156
+	.long MM_Fmt+2172
+	.long MM_Fmt+2188
+	.long MM_Fmt+2204
+	.long MM_Fmt+2220
+	.long MM_Fmt+2236
+	.long MM_Fmt+2252
+	.long MM_Fmt+2268
+	.long MM_Fmt+2284
+	.long MM_Fmt+2300
+	.long MM_Fmt+2316
+	.long MM_Fmt+2332
+	.long MM_Fmt+2348
+	.long MM_Fmt+2364
+	.long MM_Fmt+2380
+	.long MM_Fmt+2396
+	.long MM_Fmt+2412
+	.long MM_Fmt+2428
+	.long MM_Fmt+2444
+	.long MM_Fmt+2460
+	.long MM_Fmt+2476
+	.long MM_Fmt+2492
+	.long MM_Fmt+2508
+	.long MM_Fmt+2524
+	.long MM_Fmt+2540
+	.long MM_Fmt+2556
+	.long MM_Fmt+2572
+	.long MM_Fmt+2588
+	.long MM_Fmt+2604
+	.long MM_Fmt+2620
+	.long MM_Fmt+2636
+	.long MM_Fmt+2652
+	.long MM_Fmt+2668
+	.long MM_Fmt+2684
+	.long MM_Fmt+2700
+	.long MM_Fmt+2716
+	.long MM_Fmt+2732
+	.long MM_Fmt+2748
+	.long MM_Fmt+2764
+	.long MM_Fmt+2780
+	.long MM_Fmt+2796
+	.long MM_Fmt+2812
+	.long MM_Fmt+2828
+	.long MM_Fmt+2844
+	.long MM_Fmt+2860
+	.long MM_Fmt+2876
+	.long MM_Fmt+2892
+	.long MM_Fmt+2908
+	.long MM_Fmt+2924
+	.long MM_Fmt+2940
+	.long MM_Fmt+2956
+	.long MM_Fmt+2972
+	.long MM_Fmt+2988
+	.long MM_Fmt+3004
+	.long MM_Fmt+3020
+	.long MM_Fmt+3036
+	.long MM_Fmt+3052
+	.long MM_Fmt+3068
+	.long MM_Fmt+3084
+	.long MM_Fmt+3100
+	.long MM_Fmt+3116
+	.long MM_Fmt+3132
+	.long MM_Fmt+3148
+	.long MM_Fmt+3164
+	.long MM_Fmt+3180
+	.long MM_Fmt+3196
+	.long MM_Fmt+3212
+	.long MM_Fmt+3228
+	.long MM_Fmt+3244
+	.long MM_Fmt+3260
+	.long MM_Fmt+3276
+	.long MM_Fmt+3292
+	.long MM_Fmt+3308
+	.long MM_Fmt+3324
+	.long MM_Fmt+3340
+	.long MM_Fmt+3356
+	.long MM_Fmt+3372
+	.long Fmt__AnyInt
+	.long Fmt__AnyUnsigned
+	.long Fmt__Float
+	.zero	8
+	.long -1120871894
+.byte 247
+.byte 217
+.byte 80
+.byte 168
+.byte 221
+.byte 3
+.byte 96
+.byte 21
+	.zero	8
+	.long 8
+	.long 4
+	.zero	8
+	.long 1
+	.long 1
+	.zero	4
+	.long MM_Fmt+3967
+	.zero	40
+	.long MM_Fmt+764
+	.zero	8
+	.long -1658572356
+.byte 190
+.byte 69
+.byte 184
+.byte 156
+.byte 2
+.byte 116
+.byte 156
+.byte 1
+	.long 1
+	.zero	4
+	.long 900
+	.long 4
+	.zero	20
+	.long MM_Fmt+3899
+	.long MM_Fmt+3913
+	.long MM_Fmt+3922
+	.zero	28
+	.long MM_Fmt+3948
+	.zero	4
+	.long Fmt__ReadSpec
+	.long Fmt__PutSpec
+	.long Fmt__GetSpec
+	.long Fmt__Bool
+	.long MM_Fmt+896
+	.long MM_Fmt+916
+	.long 2
+	.long MM_Fmt+904
+	.long 6
+	.ascii	"FALSE"
+	.zero	3
+	.long 2
+	.long MM_Fmt+924
+	.long 5
+	.ascii	"TRUE"
+	.zero	4
+	.long Fmt__Char
+	.long Fmt__Int
+	.long Fmt__Unsigned
+	.long Fmt__Real
+	.long Fmt__LongReal
+	.long Fmt__Extended
+	.long Fmt__Pad
+	.long Fmt__F
+	.long Fmt__FN
+	.long 2
+	.long MM_Fmt+980
+	.long 4
+	.ascii	"-50"
+	.zero	1
+	.long 2
+	.long MM_Fmt+996
+	.long 4
+	.ascii	"-49"
+	.zero	1
+	.long 2
+	.long MM_Fmt+1012
+	.long 4
+	.ascii	"-48"
+	.zero	1
+	.long 2
+	.long MM_Fmt+1028
+	.long 4
+	.ascii	"-47"
+	.zero	1
+	.long 2
+	.long MM_Fmt+1044
+	.long 4
+	.ascii	"-46"
+	.zero	1
+	.long 2
+	.long MM_Fmt+1060
+	.long 4
+	.ascii	"-45"
+	.zero	1
+	.long 2
+	.long MM_Fmt+1076
+	.long 4
+	.ascii	"-44"
+	.zero	1
+	.long 2
+	.long MM_Fmt+1092
+	.long 4
+	.ascii	"-43"
+	.zero	1
+	.long 2
+	.long MM_Fmt+1108
+	.long 4
+	.ascii	"-42"
+	.zero	1
+	.long 2
+	.long MM_Fmt+1124
+	.long 4
+	.ascii	"-41"
+	.zero	1
+	.long 2
+	.long MM_Fmt+1140
+	.long 4
+	.ascii	"-40"
+	.zero	1
+	.long 2
+	.long MM_Fmt+1156
+	.long 4
+	.ascii	"-39"
+	.zero	1
+	.long 2
+	.long MM_Fmt+1172
+	.long 4
+	.ascii	"-38"
+	.zero	1
+	.long 2
+	.long MM_Fmt+1188
+	.long 4
+	.ascii	"-37"
+	.zero	1
+	.long 2
+	.long MM_Fmt+1204
+	.long 4
+	.ascii	"-36"
+	.zero	1
+	.long 2
+	.long MM_Fmt+1220
+	.long 4
+	.ascii	"-35"
+	.zero	1
+	.long 2
+	.long MM_Fmt+1236
+	.long 4
+	.ascii	"-34"
+	.zero	1
+	.long 2
+	.long MM_Fmt+1252
+	.long 4
+	.ascii	"-33"
+	.zero	1
+	.long 2
+	.long MM_Fmt+1268
+	.long 4
+	.ascii	"-32"
+	.zero	1
+	.long 2
+	.long MM_Fmt+1284
+	.long 4
+	.ascii	"-31"
+	.zero	1
+	.long 2
+	.long MM_Fmt+1300
+	.long 4
+	.ascii	"-30"
+	.zero	1
+	.long 2
+	.long MM_Fmt+1316
+	.long 4
+	.ascii	"-29"
+	.zero	1
+	.long 2
+	.long MM_Fmt+1332
+	.long 4
+	.ascii	"-28"
+	.zero	1
+	.long 2
+	.long MM_Fmt+1348
+	.long 4
+	.ascii	"-27"
+	.zero	1
+	.long 2
+	.long MM_Fmt+1364
+	.long 4
+	.ascii	"-26"
+	.zero	1
+	.long 2
+	.long MM_Fmt+1380
+	.long 4
+	.ascii	"-25"
+	.zero	1
+	.long 2
+	.long MM_Fmt+1396
+	.long 4
+	.ascii	"-24"
+	.zero	1
+	.long 2
+	.long MM_Fmt+1412
+	.long 4
+	.ascii	"-23"
+	.zero	1
+	.long 2
+	.long MM_Fmt+1428
+	.long 4
+	.ascii	"-22"
+	.zero	1
+	.long 2
+	.long MM_Fmt+1444
+	.long 4
+	.ascii	"-21"
+	.zero	1
+	.long 2
+	.long MM_Fmt+1460
+	.long 4
+	.ascii	"-20"
+	.zero	1
+	.long 2
+	.long MM_Fmt+1476
+	.long 4
+	.ascii	"-19"
+	.zero	1
+	.long 2
+	.long MM_Fmt+1492
+	.long 4
+	.ascii	"-18"
+	.zero	1
+	.long 2
+	.long MM_Fmt+1508
+	.long 4
+	.ascii	"-17"
+	.zero	1
+	.long 2
+	.long MM_Fmt+1524
+	.long 4
+	.ascii	"-16"
+	.zero	1
+	.long 2
+	.long MM_Fmt+1540
+	.long 4
+	.ascii	"-15"
+	.zero	1
+	.long 2
+	.long MM_Fmt+1556
+	.long 4
+	.ascii	"-14"
+	.zero	1
+	.long 2
+	.long MM_Fmt+1572
+	.long 4
+	.ascii	"-13"
+	.zero	1
+	.long 2
+	.long MM_Fmt+1588
+	.long 4
+	.ascii	"-12"
+	.zero	1
+	.long 2
+	.long MM_Fmt+1604
+	.long 4
+	.ascii	"-11"
+	.zero	1
+	.long 2
+	.long MM_Fmt+1620
+	.long 4
+	.ascii	"-10"
+	.zero	1
+	.long 2
+	.long MM_Fmt+1636
+	.long 3
+	.ascii	"-9"
+	.zero	2
+	.long 2
+	.long MM_Fmt+1652
+	.long 3
+	.ascii	"-8"
+	.zero	2
+	.long 2
+	.long MM_Fmt+1668
+	.long 3
+	.ascii	"-7"
+	.zero	2
+	.long 2
+	.long MM_Fmt+1684
+	.long 3
+	.ascii	"-6"
+	.zero	2
+	.long 2
+	.long MM_Fmt+1700
+	.long 3
+	.ascii	"-5"
+	.zero	2
+	.long 2
+	.long MM_Fmt+1716
+	.long 3
+	.ascii	"-4"
+	.zero	2
+	.long 2
+	.long MM_Fmt+1732
+	.long 3
+	.ascii	"-3"
+	.zero	2
+	.long 2
+	.long MM_Fmt+1748
+	.long 3
+	.ascii	"-2"
+	.zero	2
+	.long 2
+	.long MM_Fmt+1764
+	.long 3
+	.ascii	"-1"
+	.zero	2
+	.long 2
+	.long MM_Fmt+1780
+	.long 2
+	.ascii	"0"
+	.zero	3
+	.long 2
+	.long MM_Fmt+1796
+	.long 2
+	.ascii	"1"
+	.zero	3
+	.long 2
+	.long MM_Fmt+1812
+	.long 2
+	.ascii	"2"
+	.zero	3
+	.long 2
+	.long MM_Fmt+1828
+	.long 2
+	.ascii	"3"
+	.zero	3
+	.long 2
+	.long MM_Fmt+1844
+	.long 2
+	.ascii	"4"
+	.zero	3
+	.long 2
+	.long MM_Fmt+1860
+	.long 2
+	.ascii	"5"
+	.zero	3
+	.long 2
+	.long MM_Fmt+1876
+	.long 2
+	.ascii	"6"
+	.zero	3
+	.long 2
+	.long MM_Fmt+1892
+	.long 2
+	.ascii	"7"
+	.zero	3
+	.long 2
+	.long MM_Fmt+1908
+	.long 2
+	.ascii	"8"
+	.zero	3
+	.long 2
+	.long MM_Fmt+1924
+	.long 2
+	.ascii	"9"
+	.zero	3
+	.long 2
+	.long MM_Fmt+1940
+	.long 3
+	.ascii	"10"
+	.zero	2
+	.long 2
+	.long MM_Fmt+1956
+	.long 3
+	.ascii	"11"
+	.zero	2
+	.long 2
+	.long MM_Fmt+1972
+	.long 3
+	.ascii	"12"
+	.zero	2
+	.long 2
+	.long MM_Fmt+1988
+	.long 3
+	.ascii	"13"
+	.zero	2
+	.long 2
+	.long MM_Fmt+2004
+	.long 3
+	.ascii	"14"
+	.zero	2
+	.long 2
+	.long MM_Fmt+2020
+	.long 3
+	.ascii	"15"
+	.zero	2
+	.long 2
+	.long MM_Fmt+2036
+	.long 3
+	.ascii	"16"
+	.zero	2
+	.long 2
+	.long MM_Fmt+2052
+	.long 3
+	.ascii	"17"
+	.zero	2
+	.long 2
+	.long MM_Fmt+2068
+	.long 3
+	.ascii	"18"
+	.zero	2
+	.long 2
+	.long MM_Fmt+2084
+	.long 3
+	.ascii	"19"
+	.zero	2
+	.long 2
+	.long MM_Fmt+2100
+	.long 3
+	.ascii	"20"
+	.zero	2
+	.long 2
+	.long MM_Fmt+2116
+	.long 3
+	.ascii	"21"
+	.zero	2
+	.long 2
+	.long MM_Fmt+2132
+	.long 3
+	.ascii	"22"
+	.zero	2
+	.long 2
+	.long MM_Fmt+2148
+	.long 3
+	.ascii	"23"
+	.zero	2
+	.long 2
+	.long MM_Fmt+2164
+	.long 3
+	.ascii	"24"
+	.zero	2
+	.long 2
+	.long MM_Fmt+2180
+	.long 3
+	.ascii	"25"
+	.zero	2
+	.long 2
+	.long MM_Fmt+2196
+	.long 3
+	.ascii	"26"
+	.zero	2
+	.long 2
+	.long MM_Fmt+2212
+	.long 3
+	.ascii	"27"
+	.zero	2
+	.long 2
+	.long MM_Fmt+2228
+	.long 3
+	.ascii	"28"
+	.zero	2
+	.long 2
+	.long MM_Fmt+2244
+	.long 3
+	.ascii	"29"
+	.zero	2
+	.long 2
+	.long MM_Fmt+2260
+	.long 3
+	.ascii	"30"
+	.zero	2
+	.long 2
+	.long MM_Fmt+2276
+	.long 3
+	.ascii	"31"
+	.zero	2
+	.long 2
+	.long MM_Fmt+2292
+	.long 3
+	.ascii	"32"
+	.zero	2
+	.long 2
+	.long MM_Fmt+2308
+	.long 3
+	.ascii	"33"
+	.zero	2
+	.long 2
+	.long MM_Fmt+2324
+	.long 3
+	.ascii	"34"
+	.zero	2
+	.long 2
+	.long MM_Fmt+2340
+	.long 3
+	.ascii	"35"
+	.zero	2
+	.long 2
+	.long MM_Fmt+2356
+	.long 3
+	.ascii	"36"
+	.zero	2
+	.long 2
+	.long MM_Fmt+2372
+	.long 3
+	.ascii	"37"
+	.zero	2
+	.long 2
+	.long MM_Fmt+2388
+	.long 3
+	.ascii	"38"
+	.zero	2
+	.long 2
+	.long MM_Fmt+2404
+	.long 3
+	.ascii	"39"
+	.zero	2
+	.long 2
+	.long MM_Fmt+2420
+	.long 3
+	.ascii	"40"
+	.zero	2
+	.long 2
+	.long MM_Fmt+2436
+	.long 3
+	.ascii	"41"
+	.zero	2
+	.long 2
+	.long MM_Fmt+2452
+	.long 3
+	.ascii	"42"
+	.zero	2
+	.long 2
+	.long MM_Fmt+2468
+	.long 3
+	.ascii	"43"
+	.zero	2
+	.long 2
+	.long MM_Fmt+2484
+	.long 3
+	.ascii	"44"
+	.zero	2
+	.long 2
+	.long MM_Fmt+2500
+	.long 3
+	.ascii	"45"
+	.zero	2
+	.long 2
+	.long MM_Fmt+2516
+	.long 3
+	.ascii	"46"
+	.zero	2
+	.long 2
+	.long MM_Fmt+2532
+	.long 3
+	.ascii	"47"
+	.zero	2
+	.long 2
+	.long MM_Fmt+2548
+	.long 3
+	.ascii	"48"
+	.zero	2
+	.long 2
+	.long MM_Fmt+2564
+	.long 3
+	.ascii	"49"
+	.zero	2
+	.long 2
+	.long MM_Fmt+2580
+	.long 3
+	.ascii	"50"
+	.zero	2
+	.long 2
+	.long MM_Fmt+2596
+	.long 3
+	.ascii	"51"
+	.zero	2
+	.long 2
+	.long MM_Fmt+2612
+	.long 3
+	.ascii	"52"
+	.zero	2
+	.long 2
+	.long MM_Fmt+2628
+	.long 3
+	.ascii	"53"
+	.zero	2
+	.long 2
+	.long MM_Fmt+2644
+	.long 3
+	.ascii	"54"
+	.zero	2
+	.long 2
+	.long MM_Fmt+2660
+	.long 3
+	.ascii	"55"
+	.zero	2
+	.long 2
+	.long MM_Fmt+2676
+	.long 3
+	.ascii	"56"
+	.zero	2
+	.long 2
+	.long MM_Fmt+2692
+	.long 3
+	.ascii	"57"
+	.zero	2
+	.long 2
+	.long MM_Fmt+2708
+	.long 3
+	.ascii	"58"
+	.zero	2
+	.long 2
+	.long MM_Fmt+2724
+	.long 3
+	.ascii	"59"
+	.zero	2
+	.long 2
+	.long MM_Fmt+2740
+	.long 3
+	.ascii	"60"
+	.zero	2
+	.long 2
+	.long MM_Fmt+2756
+	.long 3
+	.ascii	"61"
+	.zero	2
+	.long 2
+	.long MM_Fmt+2772
+	.long 3
+	.ascii	"62"
+	.zero	2
+	.long 2
+	.long MM_Fmt+2788
+	.long 3
+	.ascii	"63"
+	.zero	2
+	.long 2
+	.long MM_Fmt+2804
+	.long 3
+	.ascii	"64"
+	.zero	2
+	.long 2
+	.long MM_Fmt+2820
+	.long 3
+	.ascii	"65"
+	.zero	2
+	.long 2
+	.long MM_Fmt+2836
+	.long 3
+	.ascii	"66"
+	.zero	2
+	.long 2
+	.long MM_Fmt+2852
+	.long 3
+	.ascii	"67"
+	.zero	2
+	.long 2
+	.long MM_Fmt+2868
+	.long 3
+	.ascii	"68"
+	.zero	2
+	.long 2
+	.long MM_Fmt+2884
+	.long 3
+	.ascii	"69"
+	.zero	2
+	.long 2
+	.long MM_Fmt+2900
+	.long 3
+	.ascii	"70"
+	.zero	2
+	.long 2
+	.long MM_Fmt+2916
+	.long 3
+	.ascii	"71"
+	.zero	2
+	.long 2
+	.long MM_Fmt+2932
+	.long 3
+	.ascii	"72"
+	.zero	2
+	.long 2
+	.long MM_Fmt+2948
+	.long 3
+	.ascii	"73"
+	.zero	2
+	.long 2
+	.long MM_Fmt+2964
+	.long 3
+	.ascii	"74"
+	.zero	2
+	.long 2
+	.long MM_Fmt+2980
+	.long 3
+	.ascii	"75"
+	.zero	2
+	.long 2
+	.long MM_Fmt+2996
+	.long 3
+	.ascii	"76"
+	.zero	2
+	.long 2
+	.long MM_Fmt+3012
+	.long 3
+	.ascii	"77"
+	.zero	2
+	.long 2
+	.long MM_Fmt+3028
+	.long 3
+	.ascii	"78"
+	.zero	2
+	.long 2
+	.long MM_Fmt+3044
+	.long 3
+	.ascii	"79"
+	.zero	2
+	.long 2
+	.long MM_Fmt+3060
+	.long 3
+	.ascii	"80"
+	.zero	2
+	.long 2
+	.long MM_Fmt+3076
+	.long 3
+	.ascii	"81"
+	.zero	2
+	.long 2
+	.long MM_Fmt+3092
+	.long 3
+	.ascii	"82"
+	.zero	2
+	.long 2
+	.long MM_Fmt+3108
+	.long 3
+	.ascii	"83"
+	.zero	2
+	.long 2
+	.long MM_Fmt+3124
+	.long 3
+	.ascii	"84"
+	.zero	2
+	.long 2
+	.long MM_Fmt+3140
+	.long 3
+	.ascii	"85"
+	.zero	2
+	.long 2
+	.long MM_Fmt+3156
+	.long 3
+	.ascii	"86"
+	.zero	2
+	.long 2
+	.long MM_Fmt+3172
+	.long 3
+	.ascii	"87"
+	.zero	2
+	.long 2
+	.long MM_Fmt+3188
+	.long 3
+	.ascii	"88"
+	.zero	2
+	.long 2
+	.long MM_Fmt+3204
+	.long 3
+	.ascii	"89"
+	.zero	2
+	.long 2
+	.long MM_Fmt+3220
+	.long 3
+	.ascii	"90"
+	.zero	2
+	.long 2
+	.long MM_Fmt+3236
+	.long 3
+	.ascii	"91"
+	.zero	2
+	.long 2
+	.long MM_Fmt+3252
+	.long 3
+	.ascii	"92"
+	.zero	2
+	.long 2
+	.long MM_Fmt+3268
+	.long 3
+	.ascii	"93"
+	.zero	2
+	.long 2
+	.long MM_Fmt+3284
+	.long 3
+	.ascii	"94"
+	.zero	2
+	.long 2
+	.long MM_Fmt+3300
+	.long 3
+	.ascii	"95"
+	.zero	2
+	.long 2
+	.long MM_Fmt+3316
+	.long 3
+	.ascii	"96"
+	.zero	2
+	.long 2
+	.long MM_Fmt+3332
+	.long 3
+	.ascii	"97"
+	.zero	2
+	.long 2
+	.long MM_Fmt+3348
+	.long 3
+	.ascii	"98"
+	.zero	2
+	.long 2
+	.long MM_Fmt+3364
+	.long 3
+	.ascii	"99"
+	.zero	2
+	.long 2
+	.long MM_Fmt+3380
+	.long 4
+	.ascii	"100"
+	.zero	1
+	.long MM_Fmt+3392
+	.long -1120871894
+	.zero	4
+	.long -1658572356
+	.ascii	"FN"
+	.zero	1
+	.ascii	"FN.ConstructResult"
+	.zero	1
+	.ascii	"FN.ReadSpecs"
+	.zero	1
+	.ascii	"GetSpec"
+	.zero	1
+	.ascii	"PutSpec"
+	.zero	1
+	.ascii	"ReadSpec"
+	.zero	1
+	.ascii	"F"
+	.zero	1
+	.ascii	"Pad"
+	.zero	1
+	.ascii	"Float"
+	.zero	1
+	.ascii	"Extended"
+	.zero	1
+	.ascii	"LongReal"
+	.zero	1
+	.ascii	"Real"
+	.zero	1
+	.ascii	"AnyUnsigned"
+	.zero	1
+	.ascii	"Unsigned"
+	.zero	1
+	.ascii	"AnyInt"
+	.zero	1
+	.ascii	"Int"
+	.zero	1
+	.ascii	"Char"
+	.zero	1
+	.ascii	"Bool"
+	.zero	4
+	.long Fmt__FN
+	.long MM_Fmt+3400
+	.long MI_Fmt+80
+	.long Fmt__FN__ConstructResult.1
+	.long MM_Fmt+3403
+	.zero	4
+	.long Fmt__FN__ReadSpecs.0
+	.long MM_Fmt+3422
+	.zero	4
+	.long Fmt__GetSpec
+	.long MM_Fmt+3435
+	.zero	4
+	.long Fmt__PutSpec
+	.long MM_Fmt+3443
+	.zero	4
+	.long Fmt__ReadSpec
+	.long MM_Fmt+3451
+	.zero	4
+	.long Fmt__F
+	.long MM_Fmt+3460
+	.long MI_Fmt+76
+	.long Fmt__Pad
+	.long MM_Fmt+3462
+	.long MI_Fmt+72
+	.long Fmt__Float
+	.long MM_Fmt+3466
+	.zero	4
+	.long Fmt__Extended
+	.long MM_Fmt+3472
+	.long MI_Fmt+68
+	.long Fmt__LongReal
+	.long MM_Fmt+3481
+	.long MI_Fmt+64
+	.long Fmt__Real
+	.long MM_Fmt+3490
+	.long MI_Fmt+60
+	.long Fmt__AnyUnsigned
+	.long MM_Fmt+3495
+	.zero	4
+	.long Fmt__Unsigned
+	.long MM_Fmt+3507
+	.long MI_Fmt+56
+	.long Fmt__AnyInt
+	.long MM_Fmt+3516
+	.zero	4
+	.long Fmt__Int
+	.long MM_Fmt+3523
+	.long MI_Fmt+52
+	.long Fmt__Char
+	.long MM_Fmt+3527
+	.long MI_Fmt+48
+	.long Fmt__Bool
+	.long MM_Fmt+3532
+	.long MI_Fmt+44
+	.zero	4
+	.ascii	"/home/ftp/tmp/pm3/tmp/pm3-1.1.15/language/modula3/m3compiler"
+	.ascii	"/m3bootstrap/LINUXLIBC6/pm3-LINUXLIBC6/boot-LINUXLIBC6/libm3"
+	.ascii	"/src/fmtlex/Fmt.m3"
+	.zero	1
+.byte 4
+.byte 1
+.byte 18
+.byte 18
+.byte 4
+.byte 18
+.byte 16
+.byte 36
+.byte 18
+.byte 16
+.byte 36
+.byte 26
+.byte 32
+.byte 0
+.byte 4
+.byte 1
+.byte 41
+.byte 4
+.byte 42
+.byte 16
+.byte 26
+.byte 32
+.byte 0
+.byte 12
+.byte 15
+.byte 2
+.byte 16
+.byte 188
+.byte 49
+.byte 36
+.byte 157
+.byte 1
+.byte 32
+.byte 15
+.byte 5
+.byte 3
+.byte 26
+.byte 16
+.byte 116
+.byte 101
+.byte 248
+.byte 80
+.byte 26
+.byte 15
+.byte 3
+.byte 5
+.byte 2
+.byte 26
+.byte 4
+	.ascii	"Fmt.SpecBufferList"
+	.zero	1
+.byte 24
+.byte 1
+.byte 16
+.byte 0
+.byte 0
+	.ident	"GCC: (GNU) cygnus-2.7.2-960712"

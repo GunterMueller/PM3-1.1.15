@@ -1,0 +1,152 @@
+
+if not defined("USE_M3DOC")
+  USE_M3DOC = "T"
+end
+
+htmlFiles = []
+derivedHtmlFiles = {}
+no_extension = [NAMING_CONVENTIONS[17]]
+dtdDir = PKG_USE & SL & "sgml" & SL & "src" & SL & "dtd"
+
+if PLATFORM_SUPPORTS_LATEX 
+  docExt = ".ps"
+else
+  docExt = "_r.html"
+end
+
+sgmlConvCmd = [BIN_USE & SL & "sgmlconv", "-r", ".i3", "_i3.html", "-r", 
+    ".ig", "_ig.html", "-r", ".m3", "_m3.html", "-r", ".mg", "_mg.html", 
+    "-r", ".doc", docExt, "-dtd", dtdDir ]
+callSgmlConv = ""
+
+m3Sgml = BIN_USE & SL & "m3tosgml"
+m3SgmlCmd = [m3Sgml,"-html"]
+callM3Sgml = ""
+
+readonly proc AddDerivedHtmlFile (fn) is
+  if derivedHtmlFiles contains fn 
+    error("M3doc error, Two derived Html files have the same name: " & fn)
+  end
+  derivedHtmlFiles{fn} = ""
+end
+
+readonly proc HtmlFile (nm) is
+  if USE_M3DOC
+    local dest = PKG_INSTALL & SL & PACKAGE & SL & pkg_subdir()
+    local fn = nm & ".html"
+    local src_file = path_of(fn)
+    if defined("_all")
+      htmlFiles += src_file
+      AddDerivedHtmlFile(fn)
+      if stale(fn,src_file)
+        callSgmlConv = "T"
+        sgmlConvCmd += ["-htmlhtml", "-path", pkg_subdir(),src_file,fn]
+      end
+    end
+    deriveds(fn,no_extension) % empty extension
+    _install_file(fn,dest,"0644","T")
+  end
+end
+
+readonly proc HtmlTextFile (nm) is
+  if USE_M3DOC
+    local dest = PKG_INSTALL & SL & PACKAGE & SL & pkg_subdir()
+    local src_file = path_of(nm)
+    if defined("_all")
+      htmlFiles += src_file
+    end
+    _install_file(nm,dest,"0644","")
+  end
+end
+
+readonly proc HtmlInterface (nm) is
+  HtmlUnit(nm,"i3")
+end
+
+readonly proc HtmlGenericInterface (nm) is
+  HtmlUnit(nm,"ig")
+end
+
+readonly proc HtmlImplementation (nm) is
+  HtmlUnit(nm,"m3")
+end
+
+readonly proc HtmlGenericImplementation (nm) is
+  HtmlUnit(nm,"mg")
+end
+
+readonly proc HtmlUnit(nm,ext) is
+  if USE_M3DOC
+    local dest = PKG_INSTALL & SL & PACKAGE & SL & pkg_subdir()
+    local fn = nm & "_" & ext & ".html"
+    local src_file = path_of(nm & "." & ext)  
+    if defined("_all")
+      htmlFiles += src_file
+      AddDerivedHtmlFile(fn)
+      if stale(fn,src_file)
+        callM3Sgml = "T"
+        m3SgmlCmd += [src_file,fn]
+      end
+    end
+    deriveds(fn,no_extension)
+    _install_file(fn,dest,"0644","T")
+  end
+end
+
+proc m3doc_hook() is
+  if callSgmlConv checkExec(sgmlConvCmd,[],".") end
+  if callM3Sgml checkExec(m3SgmlCmd,[],".") end
+end
+
+add_m3_hook(m3doc_hook)
+
+readonly proc HtmlRoot (nm) is
+  if USE_M3DOC
+    local dest = PKG_INSTALL & SL & PACKAGE & SL & pkg_subdir()
+    local fn = nm & docExt
+    local src_file = path_of(nm & ".html")  
+
+    if defined("_all")
+      htmlFiles += src_file
+      if stale(fn,htmlFiles)
+        local tmp1 = nm & "_r.html"
+        local tmp2 = nm & ".tex"
+        local tmp3 = nm & ".dvi"
+        local tmp4 = nm & ".log"
+        local tmp5 = nm & ".aux"
+        local tmp6 = nm & ".idx"
+        local tmp7 = nm & ".ind"
+        local tmp8 = nm & ".ilg"
+        local linearCmd = [BIN_USE & SL & "sgmllinear", "-html", "-f", ".i3", 
+            m3Sgml, "-f", ".ig", m3Sgml, "-f", ".m3", m3Sgml, 
+            "-f", ".mg", m3Sgml, "-dtd", dtdDir, src_file, tmp1]
+
+        if defined("M3DOC_PREFIX") linearCmd += ["-prefix",M3DOC_PREFIX] end
+
+        checkExec(linearCmd,[],".")
+
+        if PLATFORM_SUPPORTS_LATEX
+          checkExec([BIN_USE & SL & "sgmlconv", "-report", "-htmltex", 
+              "-dtd", dtdDir, tmp1,tmp2], [],".")
+          checkExec(["latex", tmp2],[],".")
+          checkExec(["makeindex", nm],[],".")
+          checkExec(["latex", tmp2],[],".")
+          checkExec(["latex", tmp2],[],".")
+          checkExec(["dvips", "-o", fn, tmp3],[],".")
+          delete_file(tmp1)
+          delete_file(tmp2)
+          delete_file(tmp3)
+          delete_file(tmp4)
+          delete_file(tmp5)
+          delete_file(tmp6)
+          delete_file(tmp7)
+          delete_file(tmp8)
+        end
+      end
+    end
+    deriveds(fn,no_extension)
+    _install_file(fn,dest,"0644","T")
+  end
+end
+
+

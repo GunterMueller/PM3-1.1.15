@@ -1,0 +1,123 @@
+	.file	"TextSeqRep.ic"
+	.version	"01.01"
+/ SRC Modula-3 version cygnus-2.7.2-960712 (i486--linuxelf) compiled by GNU C version egcs-2.91.66 19990314/Linux (egcs-1.1.2 release).
+/ options passed:  -fno-strength-reduce -O2
+/ options enabled:  -fdefer-pop -fcse-follow-jumps -fcse-skip-blocks
+/ -fexpensive-optimizations -fthread-jumps -fpeephole -fforce-mem
+/ -ffunction-cse -finline -fkeep-static-consts -fcaller-saves
+/ -fpcc-struct-return -frerun-cse-after-loop -fschedule-insns2 -fcommon
+/ -fverbose-asm -fgnu-linker -m80387 -mhard-float -mno-soft-float -mieee-fp
+/ -mfp-ret-in-387 -mschedule-prologue -mcpu=i486 -march=i486
+
+gcc2_compiled.:
+.globl MI_TextSeqRep
+.data
+	.align 4
+	.type	 MI_TextSeqRep,@object
+	.size	 MI_TextSeqRep,552
+MI_TextSeqRep:
+	.long MI_TextSeqRep+264
+	.long MI_TextSeqRep+44
+	.zero	8
+	.long MI_TextSeqRep+252
+	.zero	32
+	.long -2070207317
+.byte 141
+.byte 64
+.byte 244
+.byte 157
+.byte 38
+.byte 100
+.byte 111
+.byte 25
+	.long 1
+	.zero	4
+	.long 12
+	.long 4
+	.zero	4
+	.long 0
+	.zero	12
+	.long MI_TextSeqRep+492
+	.long MI_TextSeqRep+496
+	.long MI_TextSeqRep+498
+	.zero	8
+	.long -2012935796
+	.zero	12
+	.long MI_TextSeqRep+508
+	.long MI_TextSeqRep+532
+	.long MI_TextSeqRep+148
+	.zero	8
+	.long 1521715965
+.byte 26
+.byte 27
+.byte 208
+.byte 86
+.byte 231
+.byte 145
+.byte 99
+.byte 12
+	.long 1
+	.zero	4
+	.long 8
+	.long 4
+	.zero	8
+	.long 1
+	.long 4
+	.zero	4
+	.long MI_TextSeqRep+430
+	.long MI_TextSeqRep+435
+	.long MI_TextSeqRep+440
+	.zero	24
+	.long MI_TextSeqRep+448
+	.long MI_TextSeqRep+472
+	.zero	4
+	.long -2012935793
+	.long -2070207317
+	.zero	4
+	.ascii	"TextSeqRep.i3 => /home/ftp/tmp/pm3/tmp/pm3-1.1.15/language/m"
+	.ascii	"odula3/m3compiler/m3bootstrap/LINUXLIBC6/pm3-LINUXLIBC6/boot"
+	.ascii	"-LINUXLIBC6/libm3/src/sequence/SequenceRep.ig"
+	.zero	1
+.byte 24
+.byte 1
+.byte 4
+.byte 0
+.byte 0
+.byte 24
+.byte 1
+.byte 4
+.byte 0
+.byte 0
+.byte 2
+.byte 11
+.byte 1
+.byte 16
+.byte 116
+.byte 101
+.byte 248
+.byte 80
+	.ascii	"TextSeqRep_^%#%^__0001I"
+	.zero	1
+	.ascii	"TextSeqRep.RefArray"
+	.zero	1
+.byte 4
+.byte 18
+.byte 18
+.byte 0
+.byte 4
+.byte 0
+.byte 4
+.byte 10
+.byte 3
+.byte 16
+.byte 253
+.byte 138
+.byte 179
+.byte 90
+.byte 3
+.byte 24
+	.ascii	"TextSeqRep_^%#%^__0002I"
+	.zero	1
+	.ascii	"TextSeqRep.Public"
+	.zero	3
+	.ident	"GCC: (GNU) cygnus-2.7.2-960712"

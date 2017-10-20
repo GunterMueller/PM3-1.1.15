@@ -1,0 +1,531 @@
+	.file	"MethodExpr.mc"
+	.version	"01.01"
+/ SRC Modula-3 version cygnus-2.7.2-960712 (i486--linuxelf) compiled by GNU C version egcs-2.91.66 19990314/Linux (egcs-1.1.2 release).
+/ options passed:  -fno-strength-reduce -O2
+/ options enabled:  -fdefer-pop -fcse-follow-jumps -fcse-skip-blocks
+/ -fexpensive-optimizations -fthread-jumps -fpeephole -fforce-mem
+/ -ffunction-cse -finline -fkeep-static-consts -fcaller-saves
+/ -fpcc-struct-return -frerun-cse-after-loop -fschedule-insns2 -fcommon
+/ -fverbose-asm -fgnu-linker -m80387 -mhard-float -mno-soft-float -mieee-fp
+/ -mfp-ret-in-387 -mschedule-prologue -mcpu=i486 -march=i486
+
+gcc2_compiled.:
+.text
+	.align 16
+	.type	 MethodExpr__New,@function
+MethodExpr__New:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%ebx
+	movl 12(%ebp),%esi
+	movl MM_MethodExpr+176,%eax
+	pushl %eax
+	movl MI_RTHooks+80,%eax
+	call *%eax
+	movl %eax,%edi
+	pushl %edi
+	movl MI_ExprRep+460,%eax
+	call *%eax
+	movl %ebx,16(%edi)
+	movl %esi,28(%edi)
+	movl 16(%ebp),%edx
+	movl %edx,20(%edi)
+	movl 20(%ebp),%edx
+	movl %edx,24(%edi)
+	leal -12(%ebp),%esp
+	movl %edi,%eax
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe1:
+	.size	 MethodExpr__New,.Lfe1-MethodExpr__New
+	.align 16
+	.type	 MethodExpr__TypeOf,@function
+MethodExpr__TypeOf:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $24,%esp
+	leal -24(%ebp),%eax
+	pushl %ebx
+	movl 8(%ebp),%ebx
+	movl $0,-24(%ebp)
+	movl $0,-20(%ebp)
+	movl $0,-16(%ebp)
+	movl $0,-12(%ebp)
+	movl $0,-8(%ebp)
+	movl $0,-4(%ebp)
+	pushl %eax
+	movl 20(%ebx),%eax
+	pushl %eax
+	movl MI_Method+52,%eax
+	call *%eax
+	movl 16(%ebx),%eax
+	pushl %eax
+	movl -12(%ebp),%eax
+	pushl %eax
+	movl MI_ProcType+52,%eax
+	call *%eax
+	movl -28(%ebp),%ebx
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe2:
+	.size	 MethodExpr__TypeOf,.Lfe2-MethodExpr__TypeOf
+	.align 16
+	.type	 MethodExpr__Check,@function
+MethodExpr__Check:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %ebx
+	movl 8(%ebp),%ebx
+	movl 16(%ebx),%eax
+	pushl %eax
+	movl MI_Type+64,%eax
+	call *%eax
+	movl %eax,16(%ebx)
+	movl 24(%ebx),%eax
+	pushl %eax
+	movl MI_Type+64,%eax
+	call *%eax
+	movl %eax,24(%ebx)
+	movl 12(%ebp),%eax
+	pushl %eax
+	movl 20(%ebx),%eax
+	pushl %eax
+	movl MI_Value+44,%eax
+	call *%eax
+	pushl %ebx
+	call MethodExpr__TypeOf
+	pushl %eax
+	movl MI_Type+64,%eax
+	call *%eax
+	movl -4(%ebp),%ebx
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe3:
+	.size	 MethodExpr__Check,.Lfe3-MethodExpr__Check
+	.align 16
+	.type	 MethodExpr__EqCheck,@function
+MethodExpr__EqCheck:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%ebx
+	movl 12(%ebp),%ecx
+	movl 16(%ebp),%esi
+	testl %ecx,%ecx
+	je .L8
+	movl -4(%ecx),%eax
+	sall $11,%eax
+	movl %eax,%edx
+	shrl $12,%edx
+	cmpl %edx,MM_MethodExpr+180
+	jg .L8
+	movl MM_MethodExpr+176,%eax
+	cmpl %edx,4(%eax)
+	jl .L8
+	xorl %edx,%edx
+	movl 28(%ecx),%eax
+	cmpl %eax,28(%ebx)
+	jne .L10
+	pushl %esi
+	movl 16(%ecx),%eax
+	pushl %eax
+	movl 16(%ebx),%eax
+	pushl %eax
+	movl MI_Type+116,%eax
+	call *%eax
+	testl %eax,%eax
+	setne %al
+	xorl %edx,%edx
+	movb %al,%dl
+.L10:
+	movl %edx,%eax
+	jmp .L12
+	.align 16
+.L8:
+	xorl %eax,%eax
+.L12:
+	leal -8(%ebp),%esp
+	popl %ebx
+	popl %esi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe4:
+	.size	 MethodExpr__EqCheck,.Lfe4-MethodExpr__EqCheck
+	.align 16
+	.type	 MethodExpr__Compile,@function
+MethodExpr__Compile:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $24,%esp
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%ebx
+	movl $0,-24(%ebp)
+	movl $0,-20(%ebp)
+	movl $0,-16(%ebp)
+	movl $0,-12(%ebp)
+	movl $0,-8(%ebp)
+	movl $0,-4(%ebp)
+	movl 24(%ebx),%eax
+	pushl %eax
+	movl MI_ObjectType+64,%eax
+	call *%eax
+	movl %eax,%esi
+	movl 16(%ebx),%eax
+	pushl %eax
+	movl MI_Type+140,%eax
+	call *%eax
+	leal -24(%ebp),%eax
+	pushl %eax
+	movl 20(%ebx),%eax
+	pushl %eax
+	movl MI_Method+52,%eax
+	call *%eax
+	pushl $1
+	movl MI_M3RT+220,%eax
+	pushl %eax
+	movl 16(%ebx),%eax
+	pushl %eax
+	movl MI_Type+144,%eax
+	call *%eax
+	addl $28,%esp
+	testl %esi,%esi
+	jl .L14
+	addl %esi,-20(%ebp)
+	jmp .L15
+	.align 16
+.L14:
+	pushl $0
+	movl MI_M3RT+204,%eax
+	pushl %eax
+	movl 24(%ebx),%eax
+	pushl %eax
+	movl MI_Type+144,%eax
+	call *%eax
+	pushl $8
+	movl MI_CG+712,%eax
+	call *%eax
+	addl $16,%esp
+.L15:
+	movl MI_Target+64,%eax
+	pushl %eax
+	movl MI_CG+720,%eax
+	call *%eax
+	movl MI_Target+60,%eax
+	pushl %eax
+	movl -20(%ebp),%eax
+	pushl %eax
+	pushl $0
+	movl MI_CG+376,%eax
+	call *%eax
+	movl MI_Target+64,%eax
+	pushl %eax
+	movl MI_CG+720,%eax
+	call *%eax
+	leal -32(%ebp),%esp
+	popl %ebx
+	popl %esi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe5:
+	.size	 MethodExpr__Compile,.Lfe5-MethodExpr__Compile
+	.align 16
+	.type	 MethodExpr__GenFPLiteral,@function
+MethodExpr__GenFPLiteral:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%esi
+	movl 12(%ebp),%ebx
+	pushl $MM_MethodExpr+188
+	pushl %ebx
+	movl MI_M3Buf+52,%eax
+	call *%eax
+	movl 28(%esi),%eax
+	pushl %eax
+	pushl %ebx
+	movl MI_M3ID+64,%eax
+	call *%eax
+	pushl $62
+	pushl %ebx
+	movl MI_M3Buf+48,%eax
+	call *%eax
+	leal -8(%ebp),%esp
+	popl %ebx
+	popl %esi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe6:
+	.size	 MethodExpr__GenFPLiteral,.Lfe6-MethodExpr__GenFPLiteral
+	.align 16
+	.type	 MethodExpr__GenLiteral,@function
+MethodExpr__GenLiteral:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	pushl $1
+	pushl $0
+	movl 8(%ebp),%ecx
+	movl 20(%ecx),%eax
+	pushl %eax
+	movl MI_Value+112,%eax
+	call *%eax
+	movl 8(%ebp),%ecx
+	movl %eax,%ebx
+	movl 16(%ecx),%eax
+	pushl %eax
+	movl MI_Type+128,%eax
+	call *%eax
+	pushl $MM_MethodExpr+208
+	pushl %eax
+	movl MI_RTHooks+76,%eax
+	call *%eax
+	pushl %ebx
+	pushl %eax
+	movl MI_RTHooks+76,%eax
+	call *%eax
+	movl %eax,%edi
+	addl $32,%esp
+	movl 16(%ebp),%ecx
+	pushl %ecx
+	movl MI_Type+132,%eax
+	call *%eax
+	pushl $0
+	movl %eax,%edx
+	pushl %edi
+	movl MI_M3ID+44,%eax
+	movl %edx,%esi
+	call *%eax
+	pushl %esi
+	movl %eax,%edx
+	pushl $0
+	movl MI_Target+64,%eax
+	pushl %eax
+	movl MI_Target+60,%eax
+	pushl %eax
+	pushl %edx
+	movl MI_CG+180,%eax
+	call *%eax
+	addl $32,%esp
+	pushl $0
+	movl %eax,%edi
+	pushl %edi
+	movl 12(%ebp),%ecx
+	pushl %ecx
+	movl MI_CG+268,%eax
+	call *%eax
+	movl 16(%ebp),%ecx
+	pushl %ecx
+	movl MI_Type+140,%eax
+	call *%eax
+	pushl $MM_MethodExpr+224
+	movl 8(%ebp),%ecx
+	movl 28(%ecx),%eax
+	pushl %eax
+	movl MI_Error+52,%eax
+	call *%eax
+	leal -12(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe7:
+	.size	 MethodExpr__GenLiteral,.Lfe7-MethodExpr__GenLiteral
+	.align 16
+	.type	 M_MethodExpr_t423e79ee_LINK,@function
+M_MethodExpr_t423e79ee_LINK:
+	pushl %ebp
+	movl %esp,%ebp
+	movl MM_MethodExpr+176,%eax
+	movl %ebp,%esp
+	movl 52(%eax),%edx
+	movl MM_MethodExpr+148,%eax
+	movl %eax,4(%edx)
+	movl MM_MethodExpr+152,%eax
+	movl %eax,8(%edx)
+	movl MI_ExprRep+464,%eax
+	movl %eax,36(%edx)
+	movl MI_ExprRep+512,%eax
+	movl %eax,52(%edx)
+	movl MM_MethodExpr+160,%eax
+	movl %eax,56(%edx)
+	movl MI_ExprRep+520,%eax
+	movl %eax,60(%edx)
+	movl %eax,64(%edx)
+	movl MI_ExprRep+524,%eax
+	movl %eax,68(%edx)
+	movl %eax,72(%edx)
+	movl MI_ExprRep+480,%eax
+	movl %eax,16(%edx)
+	movl MM_MethodExpr+156,%eax
+	movl %eax,12(%edx)
+	movl MI_ExprRep+484,%eax
+	movl %eax,20(%edx)
+	movl MI_ExprRep+488,%eax
+	movl %eax,24(%edx)
+	movl %eax,28(%edx)
+	movl %eax,32(%edx)
+	movl MM_MethodExpr+164,%eax
+	movl %eax,40(%edx)
+	movl MI_ExprRep+504,%eax
+	movl %eax,44(%edx)
+	movl MM_MethodExpr+168,%eax
+	movl %eax,48(%edx)
+	movl MI_ExprRep+536,%eax
+	movl %eax,76(%edx)
+	popl %ebp
+	ret
+.Lfe8:
+	.size	 M_MethodExpr_t423e79ee_LINK,.Lfe8-M_MethodExpr_t423e79ee_LINK
+.globl MM_MethodExpr
+.data
+	.align 4
+	.type	 MM_MethodExpr,@object
+	.size	 MM_MethodExpr,652
+MM_MethodExpr:
+	.long MM_MethodExpr+452
+	.long MM_MethodExpr+44
+	.long MM_MethodExpr+176
+	.zero	8
+	.long MM_MethodExpr+364
+	.zero	28
+	.long 1111390702
+.byte 113
+.byte 110
+.byte 157
+.byte 65
+.byte 159
+.byte 23
+.byte 163
+.byte 3
+	.long 1
+	.zero	4
+	.long 16
+	.long 4
+	.zero	4
+	.long 0
+	.zero	12
+	.long MM_MethodExpr+599
+	.long MM_MethodExpr+604
+	.long MM_MethodExpr+608
+	.zero	4
+	.long M_MethodExpr_t423e79ee_LINK
+	.long -350897909
+	.zero	12
+	.long MM_MethodExpr+625
+	.long MM_MethodExpr+638
+	.zero	4
+	.long MethodExpr__TypeOf
+	.long MethodExpr__Check
+	.long MethodExpr__EqCheck
+	.long MethodExpr__Compile
+	.long MethodExpr__GenFPLiteral
+	.long MethodExpr__GenLiteral
+	.long MethodExpr__New
+	.zero	4
+	.long 1111390702
+	.long 2
+	.long MM_MethodExpr+196
+	.long 8
+	.ascii	"METHOD<"
+	.zero	1
+	.long 2
+	.long MM_MethodExpr+216
+	.long 2
+	.ascii	"_"
+	.zero	3
+	.long 2
+	.long MM_MethodExpr+232
+	.long 72
+	.ascii	"SRC Modula-3 restriction: default method is not a compile-ti"
+	.ascii	"me constant"
+	.zero	1
+	.ascii	"GenLiteral"
+	.zero	1
+	.ascii	"GenFPLiteral"
+	.zero	1
+	.ascii	"Compile"
+	.zero	1
+	.ascii	"EqCheck"
+	.zero	1
+	.ascii	"Check"
+	.zero	1
+	.ascii	"TypeOf"
+	.zero	1
+	.ascii	"New"
+	.zero	4
+	.long MethodExpr__GenLiteral
+	.long MM_MethodExpr+304
+	.zero	4
+	.long MethodExpr__GenFPLiteral
+	.long MM_MethodExpr+315
+	.zero	4
+	.long MethodExpr__Compile
+	.long MM_MethodExpr+328
+	.zero	4
+	.long MethodExpr__EqCheck
+	.long MM_MethodExpr+336
+	.zero	4
+	.long MethodExpr__Check
+	.long MM_MethodExpr+344
+	.zero	4
+	.long MethodExpr__TypeOf
+	.long MM_MethodExpr+350
+	.zero	4
+	.long MethodExpr__New
+	.long MM_MethodExpr+357
+	.long MI_MethodExpr+44
+	.zero	4
+	.ascii	"/home/ftp/tmp/pm3/tmp/pm3-1.1.15/language/modula3/m3compiler"
+	.ascii	"/m3bootstrap/LINUXLIBC6/pm3-LINUXLIBC6/boot-LINUXLIBC6/m3fro"
+	.ascii	"nt/src/exprs/MethodExpr.m3"
+	.zero	1
+.byte 4
+.byte 4
+.byte 4
+.byte 14
+.byte 0
+.byte 4
+.byte 4
+.byte 4
+.byte 0
+.byte 5
+.byte 10
+.byte 4
+.byte 16
+.byte 38
+.byte 84
+.byte 147
+.byte 129
+.byte 16
+.byte 106
+.byte 188
+.byte 176
+.byte 249
+.byte 23
+.byte 19
+.byte 254
+.byte 126
+	.ascii	"MethodExpr.T"
+	.zero	1
+	.ascii	"MethodExpr.P"
+	.zero	2
+	.ident	"GCC: (GNU) cygnus-2.7.2-960712"

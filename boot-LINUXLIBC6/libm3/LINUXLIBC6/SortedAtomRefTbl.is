@@ -1,0 +1,105 @@
+	.file	"SortedAtomRefTbl.ic"
+	.version	"01.01"
+/ SRC Modula-3 version cygnus-2.7.2-960712 (i486--linuxelf) compiled by GNU C version egcs-2.91.66 19990314/Linux (egcs-1.1.2 release).
+/ options passed:  -fno-strength-reduce -O2
+/ options enabled:  -fdefer-pop -fcse-follow-jumps -fcse-skip-blocks
+/ -fexpensive-optimizations -fthread-jumps -fpeephole -fforce-mem
+/ -ffunction-cse -finline -fkeep-static-consts -fcaller-saves
+/ -fpcc-struct-return -frerun-cse-after-loop -fschedule-insns2 -fcommon
+/ -fverbose-asm -fgnu-linker -m80387 -mhard-float -mno-soft-float -mieee-fp
+/ -mfp-ret-in-387 -mschedule-prologue -mcpu=i486 -march=i486
+
+gcc2_compiled.:
+.globl MI_SortedAtomRefTbl
+.data
+	.align 4
+	.type	 MI_SortedAtomRefTbl,@object
+	.size	 MI_SortedAtomRefTbl,588
+MI_SortedAtomRefTbl:
+	.long MI_SortedAtomRefTbl+356
+	.long MI_SortedAtomRefTbl+44
+	.zero	44
+	.long -260822296
+.byte 158
+.byte 62
+.byte 163
+.byte 233
+.byte 118
+.byte 20
+.byte 215
+.byte 25
+	.long 1
+	.zero	4
+	.long 0
+	.long 1
+	.zero	4
+	.long 4
+	.zero	20
+	.long MI_SortedAtomRefTbl+563
+	.zero	8
+	.long -336406929
+	.zero	16
+	.long MI_SortedAtomRefTbl+566
+	.long MI_SortedAtomRefTbl+148
+	.zero	8
+	.long 1243876599
+.byte 238
+.byte 142
+.byte 81
+.byte 65
+.byte 25
+.byte 130
+.byte 117
+.byte 11
+	.long 1
+	.zero	4
+	.long 0
+	.long 1
+	.zero	4
+	.long 4
+	.zero	20
+	.long MI_SortedAtomRefTbl+534
+	.zero	8
+	.long -886137333
+	.zero	16
+	.long MI_SortedAtomRefTbl+537
+	.long MI_SortedAtomRefTbl+252
+	.zero	8
+	.long -758353085
+.byte 151
+.byte 181
+.byte 182
+.byte 219
+.byte 212
+.byte 198
+.byte 122
+.byte 9
+	.long 1
+	.zero	4
+	.long 0
+	.long 1
+	.zero	4
+	.long 8
+	.zero	20
+	.long MI_SortedAtomRefTbl+531
+	.zero	8
+	.long -260822296
+	.zero	24
+	.ascii	"SortedAtomRefTbl.i3 => /home/ftp/tmp/pm3/tmp/pm3-1.1.15/lang"
+	.ascii	"uage/modula3/m3compiler/m3bootstrap/LINUXLIBC6/pm3-LINUXLIBC"
+	.ascii	"6/boot-LINUXLIBC6/libm3/src/sortedtable/SortedTable.ig"
+	.zero	1
+.byte 1
+.byte 10
+.byte 0
+.byte 1
+.byte 10
+.byte 0
+	.ascii	"SortedAtomRefTbl.Iterator"
+	.zero	1
+.byte 1
+.byte 10
+.byte 0
+	.ascii	"SortedAtomRefTbl.T"
+	.zero	4
+	.ident	"GCC: (GNU) cygnus-2.7.2-960712"

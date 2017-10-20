@@ -1,0 +1,310 @@
+	.file	"Ctypes.ic"
+	.version	"01.01"
+/ SRC Modula-3 version cygnus-2.7.2-960712 (i486--linuxelf) compiled by GNU C version egcs-2.91.66 19990314/Linux (egcs-1.1.2 release).
+/ options passed:  -fno-strength-reduce -O2
+/ options enabled:  -fdefer-pop -fcse-follow-jumps -fcse-skip-blocks
+/ -fexpensive-optimizations -fthread-jumps -fpeephole -fforce-mem
+/ -ffunction-cse -finline -fkeep-static-consts -fcaller-saves
+/ -fpcc-struct-return -frerun-cse-after-loop -fschedule-insns2 -fcommon
+/ -fverbose-asm -fgnu-linker -m80387 -mhard-float -mno-soft-float -mieee-fp
+/ -mfp-ret-in-387 -mschedule-prologue -mcpu=i486 -march=i486
+
+gcc2_compiled.:
+.globl MI_Ctypes
+.data
+	.align 4
+	.type	 MI_Ctypes,@object
+	.size	 MI_Ctypes,1860
+MI_Ctypes:
+	.long MI_Ctypes+1396
+	.long MI_Ctypes+44
+	.zero	44
+	.long 138420323
+.byte 145
+.byte 33
+.byte 138
+.byte 98
+.byte 242
+.byte 1
+.byte 202
+.byte 106
+	.zero	8
+	.long 1
+	.long 1
+	.zero	56
+	.long MI_Ctypes+1830
+	.long MI_Ctypes+1840
+	.long MI_Ctypes+148
+	.zero	8
+	.long -1422439080
+.byte 12
+.byte 100
+.byte 231
+.byte 182
+.byte 84
+.byte 41
+.byte 208
+.byte 29
+	.zero	8
+	.long 1
+	.long 1
+	.zero	20
+	.long MI_Ctypes+1811
+	.zero	36
+	.long MI_Ctypes+1813
+	.long MI_Ctypes+252
+	.zero	8
+	.long 1311614308
+.byte 188
+.byte 236
+.byte 9
+.byte 68
+.byte 216
+.byte 73
+.byte 36
+.byte 10
+	.zero	8
+	.long 4
+	.long 4
+	.zero	20
+	.long MI_Ctypes+1787
+	.zero	36
+	.long MI_Ctypes+1789
+	.long MI_Ctypes+356
+	.zero	8
+	.long -445887466
+.byte 228
+.byte 184
+.byte 83
+.byte 229
+.byte 242
+.byte 244
+.byte 63
+.byte 0
+	.zero	8
+	.long 4
+	.long 4
+	.zero	20
+	.long MI_Ctypes+1758
+	.zero	36
+	.long MI_Ctypes+1760
+	.long MI_Ctypes+460
+	.zero	8
+	.long -1134569227
+.byte 72
+.byte 118
+.byte 69
+.byte 179
+.byte 189
+.byte 174
+.byte 26
+.byte 15
+	.zero	8
+	.long 1
+	.long 1
+	.zero	20
+	.long MI_Ctypes+1730
+	.zero	36
+	.long MI_Ctypes+1732
+	.long MI_Ctypes+564
+	.zero	8
+	.long 1919214795
+.byte 189
+.byte 177
+.byte 236
+.byte 121
+.byte 118
+.byte 85
+.byte 136
+.byte 11
+	.zero	8
+	.long 4
+	.long 4
+	.zero	20
+	.long MI_Ctypes+1697
+	.zero	36
+	.long MI_Ctypes+1699
+	.long MI_Ctypes+668
+	.zero	8
+	.long -2028828814
+.byte 223
+.byte 48
+.byte 178
+.byte 135
+.byte 173
+.byte 183
+.byte 160
+.byte 0
+	.zero	8
+	.long 2
+	.long 2
+	.zero	20
+	.long MI_Ctypes+1677
+	.zero	36
+	.long MI_Ctypes+1679
+	.long MI_Ctypes+772
+	.zero	8
+	.long -1727614667
+.byte 83
+.byte 53
+.byte 44
+.byte 143
+.byte 102
+.byte 132
+.byte 42
+.byte 22
+	.zero	8
+	.long 4
+	.long 4
+	.zero	20
+	.long MI_Ctypes+1652
+	.zero	36
+	.long MI_Ctypes+1654
+	.long MI_Ctypes+876
+	.zero	8
+	.long 2044902238
+.byte 215
+.byte 147
+.byte 72
+.byte 116
+.byte 137
+.byte 40
+.byte 170
+.byte 13
+	.zero	8
+	.long 2
+	.long 2
+	.zero	20
+	.long MI_Ctypes+1623
+	.zero	36
+	.long MI_Ctypes+1625
+	.long MI_Ctypes+980
+	.zero	8
+	.long 2070350314
+.byte 87
+.byte 176
+.byte 98
+.byte 105
+.byte 189
+.byte 185
+.byte 5
+.byte 18
+	.zero	8
+	.long 4
+	.long 4
+	.zero	20
+	.long MI_Ctypes+1605
+	.zero	36
+	.long MI_Ctypes+1607
+	.long MI_Ctypes+1084
+	.zero	8
+	.long -810044947
+.byte 93
+.byte 188
+.byte 51
+.byte 216
+.byte 176
+.byte 13
+.byte 132
+.byte 23
+	.zero	8
+	.long 4
+	.long 4
+	.zero	20
+	.long MI_Ctypes+1582
+	.zero	36
+	.long MI_Ctypes+1584
+	.long MI_Ctypes+1188
+	.zero	8
+	.long -1562870155
+.byte 20
+.byte 124
+.byte 149
+.byte 162
+.byte 97
+.byte 2
+.byte 77
+.byte 0
+	.zero	8
+	.long 4
+	.long 4
+	.zero	20
+	.long MI_Ctypes+1562
+	.zero	36
+	.long MI_Ctypes+1564
+	.long MI_Ctypes+1292
+	.zero	8
+	.long 1611105443
+.byte 238
+.byte 133
+.byte 239
+.byte 123
+.byte 77
+.byte 1
+.byte 232
+.byte 27
+	.zero	8
+	.long 8
+	.long 4
+	.zero	20
+	.long MI_Ctypes+1541
+	.zero	36
+	.long MI_Ctypes+1543
+	.zero	4
+	.ascii	"/home/ftp/tmp/pm3/tmp/pm3-1.1.15/language/modula3/m3compiler"
+	.ascii	"/m3bootstrap/LINUXLIBC6/pm3-LINUXLIBC6/boot-LINUXLIBC6/m3cor"
+	.ascii	"e/src/C/Common/Ctypes.i3"
+	.zero	1
+.byte 8
+.byte 0
+	.ascii	"Ctypes.double_star"
+	.zero	1
+.byte 7
+.byte 0
+	.ascii	"Ctypes.float_star"
+	.zero	1
+.byte 5
+.byte 0
+	.ascii	"Ctypes.int_star_star"
+	.zero	1
+.byte 14
+.byte 0
+	.ascii	"Ctypes.int_star"
+	.zero	1
+.byte 17
+.byte 0
+	.ascii	"Ctypes.unsigned_short_star"
+	.zero	1
+.byte 5
+.byte 0
+	.ascii	"Ctypes.short_star_star"
+	.zero	1
+.byte 13
+.byte 0
+	.ascii	"Ctypes.short_star"
+	.zero	1
+.byte 5
+.byte 0
+	.ascii	"Ctypes.unsigned_char_star_star"
+	.zero	1
+.byte 16
+.byte 0
+	.ascii	"Ctypes.unsigned_char_star"
+	.zero	1
+.byte 5
+.byte 0
+	.ascii	"Ctypes.char_star_star_star"
+	.zero	1
+.byte 5
+.byte 0
+	.ascii	"Ctypes.char_star_star"
+	.zero	1
+.byte 12
+.byte 0
+	.ascii	"Ctypes.char_star"
+	.zero	1
+	.ascii	"$address$"
+	.zero	1
+	.ascii	"Ctypes.void_star"
+	.zero	4
+	.ident	"GCC: (GNU) cygnus-2.7.2-960712"

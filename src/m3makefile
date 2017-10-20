@@ -1,0 +1,268 @@
+% Copyright (C) 1994, Digital Equipment Corporation
+% All rights reserved.
+% See the file COPYRIGHT for a full description.
+%
+% Last modified on Fri Aug 23 00:14:14 PDT 1996 by najork
+%      modified on Mon Jun 19 08:07:53 PDT 1995 by kalsow
+%
+
+%
+% When BOOTSTRAP is true, m3build and m3ship are taken from the "boot"
+% directory.
+%
+% If EXPORTPATH or EXPORTRPATH are set, the binaries are
+% shipped in the absolute or relative path specified, even though
+% eventually the binaries will be used from the default path.
+%
+% If SETROOT is set, the binaries are built and shipped with the INSTALL_ROOT
+% specified.
+%
+% If BUILD_ALL is set, all the packages are built without being shipped.
+%
+% If SHIP_ALL is set, all the packages are shipped, assuming that they were
+% previously built.
+%
+% If CLEAN_ALL is set, the derived files are removed.
+%
+% If LIST_FILES is set, RPM file lists are created.
+%
+% By default, each package is built, shipped and cleaned before passing to
+% the next. Doing all the build, then all the ship, then all the clean
+% requires all the derived files to be kept in the intermediate steps
+% which eats up a LOT of disk space.
+%
+
+local currentPhase = 1
+local firstPhase = ""
+local ret = 0
+
+> "config.tmpl" in
+  if equal(TARGET,"HPPA") or equal(TARGET,"DS3100") or equal(TARGET,"IRIX5")
+      or equal(TARGET,"NT386GNU")
+    write("option(\"optimization\",\"\")",CR)
+  else 
+    write("option(\"optimization\",\"T\")",CR)
+  end
+end
+
+if defined("SETROOT")
+  >> "config.tmpl" in
+    write("INSTALL_ROOT = \"" & escape(SETROOT) & "\"",CR)
+    write("setInstallRoot(\"\",\"\")",CR)
+  end
+end
+
+BOOTSTRAP = lookup("BOOTSTRAP","")
+
+if BOOTSTRAP
+  m3build = [path() & SL & ".." & SL & "boot-" & TARGET & SL &"m3build" & SL &
+      TARGET & SL & "m3build","-T",path() & SL & ".." & SL & "m3config" & SL &
+      "src"]
+  m3ship = [path() & SL & ".." & SL & "boot-" & TARGET & SL & "m3ship" & SL &
+      TARGET & SL & "m3ship","-T",path() & SL & ".." & SL & "m3config" & SL &
+      "src"]
+else
+  m3build = [BIN_USE & SL & "m3build"]
+  m3ship = [BIN_USE & SL & "m3ship"]
+end
+
+m3build += "-F"
+m3build += path() & SL & ".." & SL & TARGET & SL & "config.tmpl"
+
+EXPORTPATH = lookup("EXPORTPATH","")
+EXPORTRPATH = lookup("EXPORTRPATH","")
+
+if EXPORTPATH
+  if equal(OS_TYPE,"WIN32") EXPORTPATH = p2w(EXPORTPATH) end
+end
+
+if EXPORTRPATH
+  if equal(OS_TYPE,"WIN32") EXPORTRPATH = p2w(EXPORTRPATH) end
+  EXPORTPATH = path() & SL & ".." & SL & EXPORTRPATH
+end
+
+if EXPORTPATH
+  >> "config.tmpl" in
+    write("TARGET_BIN_INSTALL = BIN_INSTALL", CR)
+    write("TARGET_LIB_INSTALL = LIB_INSTALL", CR)
+    write("TARGET_DOC_INSTALL = DOC_INSTALL", CR)
+    write("TARGET_PKG_INSTALL = PKG_INSTALL", CR)
+    write("TARGET_EMACS_INSTALL = EMACS_INSTALL", CR)
+    write("TARGET_MAN_INSTALL = MAN_INSTALL", CR)
+    write("TARGET_HTML_INSTALL = HTML_INSTALL", CR)
+    write("TARGET_BIN_USE = BIN_USE", CR)
+    write("TARGET_LIB_USE = LIB_USE", CR)
+    write("TARGET_PKG_USE = PKG_USE", CR)
+
+    write("INSTALL_ROOT = \"" & escape(EXPORTPATH) & "\" & INSTALL_ROOT",CR)
+    write("setInstallRoot(\"\",\"\")",CR)
+  end
+end
+
+if defined("LIST_FILES")
+  doListFiles = "T"
+  ret = exec(["rm","-r","../files"],[],".")
+  ret = exec(["mkdir","../files"],[],".")
+  if not equal(ret, 0) error ("creating list directory failed: ", ret) end
+else
+  doListFiles = ""
+end
+
+if defined("BUILD_ALL") or defined("SHIP_ALL") or defined("CLEAN_ALL")
+  doBuild = ""
+  doShip = ""
+  doClean = ""
+else
+  doBuild = "T"
+  doShip = "T"
+  doClean = "T"
+end
+
+if defined("BUILD_ALL")
+ doBuild = "T"
+end
+
+if defined("SHIP_ALL")
+ doShip = "T"
+end
+
+if defined("CLEAN_ALL")
+  doClean = "T"
+end
+
+readonly proc BuildChunk (dir,pkg,bundle) is
+  local ret = 0
+  local cmd = [m3build]
+
+  if equal(OS_TYPE,"WIN32") dir = p2w(dir) end
+
+  local wd = ".." & SL & dir & SL & pkg
+
+  if not stale (pkg, pkg)
+    % we've already built this chunk
+    write ("-- ", pkg, " done --", CR)
+    if doClean
+      ret = exec ([ "rm", "-rf", BUILD_DIR] , [], wd)
+
+      if not doBuild
+        ret = exec ([ "rm", pkg])
+      end
+    end
+    return
+  end
+
+  % let'm know what we're doing
+  write (CR, "---------- building ", pkg," in ",dir," ----------", CR,CR)
+
+  %
+  % In the first phase, the documentation processing tools are not built
+  % yet. Thus their use is skipped but the compiled files are kept for
+  % the second pass shortly thereafter.
+  %
+
+  if firstPhase cmd += "-DUSE_M3DOC=" end
+
+  % build and ship the chunk
+  if doBuild
+    write(cmd, CR)
+    ret = exec (cmd, [], wd)
+    if not equal(ret, 0) error ("m3build failed with error code: ", ret) end
+  end
+
+  if doShip
+    write(m3ship, CR)
+    ret = exec (m3ship, [], wd)
+    if not equal(ret, 0) error ("m3ship failed with error code: ", ret) end
+  end
+
+  if not firstPhase
+    % We are done, list the files if required.
+
+    if doListFiles
+      ret = exec(["../src/listfiles.sh", 
+        wd & "/" & BUILD_DIR & "/" & ".M3SHIP", 
+        EXPORTPATH & SETROOT,
+        "%attr(-,root,root) " & SETROOT], 
+        ["",">>../files/"& bundle,""],".")
+
+      if not equal(ret, 0) error ("list failed with error code: ", ret) end
+    end
+
+    % Remove the object files
+
+    if  doClean
+      ret = exec ([ "rm", "-rf", BUILD_DIR] , [], wd)
+    end
+
+    % Remember that we've built this chunk
+
+    if doBuild or doShip
+      ret = exec (["touch", pkg])
+      if not equal(ret, 0) error ("touch failed with error code: ", ret) end
+    end
+  end
+end
+
+local capabilities = {}
+
+capabilities{OS_TYPE} = ""
+if not defined("SKIP_LLSCAN") capabilities{"LLSCAN"} = "" end
+
+% m3gdb is sensitive. On some versions of NT it did not work
+if not defined("SKIP_M3GDB") capabilities{"M3GDB"} = "" end
+
+% The "gnuemacs" package requires emacs to build.  But not all systems
+% have emacs installed.
+if not defined("SKIP_GNUEMACS") capabilities{"GNUEMACS"} = "" end
+
+% Both postcard and webcard try to use the non-portable "st_spare2" field
+% to get the nanoseconds portion of file modification times.  Some
+% platforms don't have this field.
+if not defined("NO_ST_SPARE") capabilities{"ST_SPARE"} = "" end
+
+if PLATFORM_SUPPORTS_MOTIF capabilities{"MOTIF"} = "" end
+if PLATFORM_SUPPORTS_DECPEX capabilities{"DECPEX"} = "" end
+if PLATFORM_SUPPORTS_OPENGL capabilities{"OPENGL"} = "" end
+if PLATFORM_SUPPORTS_X capabilities{"X11"} = "" end
+
+proc PkgInfo(name,subdirectory,subtree,bundle,type,bundleHead,buildPhase,
+    dependency,buildPlatforms,buildReq,description) is
+  local ok = ""
+
+  foreach p in buildPlatforms
+    if equal(p,"ALL") or equal(p,TARGET) ok = "T" end
+  end
+
+  foreach r in buildReq
+    if not capabilities contains r ok = "" end
+  end
+
+  if doListFiles
+    local ret = exec(["touch","../files/" & bundle],[],".")
+  end
+
+  if ok and equal(buildPhase,currentPhase)
+    BuildChunk(subdirectory,name,bundle)
+  end
+end
+
+% Build the first few packages which have no requirements
+
+currentPhase = 1
+firstPhase = ""
+include("PACKAGES")
+
+% Build the core packages without documentation
+currentPhase = 2
+firstPhase = "T"
+include("PACKAGES")
+
+% Now that the documentation tools are ready, rebuild the core packages
+firstPhase = ""
+include("PACKAGES")
+
+% Build the remaining packages
+currentPhase = 3
+include("PACKAGES")
+
+OtherPackage("pm3")

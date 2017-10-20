@@ -1,0 +1,1743 @@
+	.file	"CastExpr.mc"
+	.version	"01.01"
+/ SRC Modula-3 version cygnus-2.7.2-960712 (i486--linuxelf) compiled by GNU C version egcs-2.91.66 19990314/Linux (egcs-1.1.2 release).
+/ options passed:  -fno-strength-reduce -O2
+/ options enabled:  -fdefer-pop -fcse-follow-jumps -fcse-skip-blocks
+/ -fexpensive-optimizations -fthread-jumps -fpeephole -fforce-mem
+/ -ffunction-cse -finline -fkeep-static-consts -fcaller-saves
+/ -fpcc-struct-return -frerun-cse-after-loop -fschedule-insns2 -fcommon
+/ -fverbose-asm -fgnu-linker -m80387 -mhard-float -mno-soft-float -mieee-fp
+/ -mfp-ret-in-387 -mschedule-prologue -mcpu=i486 -march=i486
+
+gcc2_compiled.:
+.text
+	.align 16
+	.type	 CastExpr__New,@function
+CastExpr__New:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%ebx
+	movl 12(%ebp),%esi
+	movl MM_CastExpr+212,%eax
+	pushl %eax
+	movl MI_RTHooks+80,%eax
+	call *%eax
+	movl %eax,%edi
+	pushl %edi
+	movl MI_ExprRep+460,%eax
+	call *%eax
+	movl 4(%ebx),%eax
+	movl %eax,4(%edi)
+	movl %ebx,20(%edi)
+	movl %esi,24(%edi)
+	movl %esi,8(%edi)
+	movl $0,28(%edi)
+	movl $0,32(%edi)
+	leal -12(%ebp),%esp
+	movl %edi,%eax
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe1:
+	.size	 CastExpr__New,.Lfe1-CastExpr__New
+	.align 16
+	.type	 CastExpr__Check,@function
+CastExpr__Check:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $96,%esp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%edi
+.L3:
+	movl $5,-68(%ebp)
+	movl RTThread__handlerStack,%eax
+	movl %eax,-72(%ebp)
+	leal -72(%ebp),%ecx
+	movl %ecx,RTThread__handlerStack
+	xorl %eax,%eax
+	movl %eax,-64(%ebp)
+	movl %eax,-60(%ebp)
+	movl %eax,-56(%ebp)
+	movl %eax,-52(%ebp)
+	movl %eax,-48(%ebp)
+	movl %eax,-44(%ebp)
+	movl %eax,-40(%ebp)
+	movl %eax,-36(%ebp)
+	movl %eax,-32(%ebp)
+	movl %eax,-28(%ebp)
+	movl %eax,-24(%ebp)
+	movl %eax,-20(%ebp)
+	movl %eax,-16(%ebp)
+	movl %eax,-12(%ebp)
+	movl %eax,-8(%ebp)
+	movl %eax,-4(%ebp)
+	movl 12(%ebp),%eax
+	pushl %eax
+	movl 20(%edi),%eax
+	pushl %eax
+	movl MI_Expr+156,%eax
+	call *%eax
+	leal -60(%ebp),%eax
+	pushl %eax
+	movl 24(%edi),%eax
+	pushl %eax
+	movl MI_Type+68,%eax
+	call *%eax
+	movl %eax,%esi
+	movl %esi,24(%edi)
+	movl 20(%edi),%eax
+	pushl %eax
+	movl MI_Expr+152,%eax
+	call *%eax
+	movl %eax,%edx
+	leal -40(%ebp),%eax
+	pushl %eax
+	pushl %edx
+	movl MI_Type+68,%eax
+	call *%eax
+	movl %eax,%esi
+	movl 24(%edi),%ebx
+	movl 20(%edi),%eax
+	pushl %eax
+	movl MI_Expr+168,%eax
+	call *%eax
+	addl $32,%esp
+	movb %al,-88(%ebp)
+	pushl %esi
+	movl MI_Type+88,%eax
+	call *%eax
+	movb %al,-84(%ebp)
+	pushl %ebx
+	movl MI_Type+88,%eax
+	call *%eax
+	movb %al,-80(%ebp)
+	leal -64(%ebp),%eax
+	pushl %eax
+	pushl %ebx
+	movl MI_OpenArrayType+52,%eax
+	call *%eax
+	movb %al,-92(%ebp)
+	movl -32(%ebp),%ecx
+	movl %ecx,-76(%ebp)
+	movl -52(%ebp),%ebx
+	addl $16,%esp
+	cmpb $10,-22(%ebp)
+	jne .L4
+	pushl $MM_CastExpr+224
+	movl MI_Error+44,%eax
+	call *%eax
+	addl $4,%esp
+.L4:
+	movl -40(%ebp),%ecx
+	movl %ecx,-96(%ebp)
+	cmpb $0,-92(%ebp)
+	je .L5
+	leal -20(%ebp),%eax
+	pushl %eax
+	movl -64(%ebp),%eax
+	pushl %eax
+	movl MI_Type+68,%eax
+	call *%eax
+	movl %eax,%esi
+	movl %esi,-64(%ebp)
+	addl $8,%esp
+	cmpb $10,-2(%ebp)
+	jne .L6
+	pushl $MM_CastExpr+288
+	movl MI_Error+44,%eax
+	call *%eax
+	addl $4,%esp
+.L6:
+	movl -20(%ebp),%eax
+	testl %eax,%eax
+	jle .L7
+	movl -96(%ebp),%ecx
+	pushl %ecx
+	pushl %eax
+	call m3_mod
+	addl $8,%esp
+	testl %eax,%eax
+	je .L8
+.L7:
+	pushl $MM_CastExpr+356
+	movl MI_Error+44,%eax
+	call *%eax
+	addl $4,%esp
+.L8:
+	movl -12(%ebp),%ebx
+	jmp .L9
+	.align 16
+.L5:
+	movl -96(%ebp),%ecx
+	cmpl %ecx,-60(%ebp)
+	je .L9
+	pushl $MM_CastExpr+424
+	movl MI_Error+44,%eax
+	call *%eax
+	addl $4,%esp
+.L9:
+	cmpl %ebx,-76(%ebp)
+	jl .L11
+	movl -76(%ebp),%ecx
+	pushl %ecx
+	pushl %ebx
+	call m3_mod
+	addl $8,%esp
+	testl %eax,%eax
+	je .L12
+.L11:
+	pushl $MM_CastExpr+484
+	pushl $1
+	movl MI_Error+64,%eax
+	call *%eax
+	addl $8,%esp
+.L12:
+	cmpb $0,-92(%ebp)
+	je .L13
+	cmpb $0,-88(%ebp)
+	je .L14
+	movb $1,16(%edi)
+	jmp .L17
+	.align 16
+.L14:
+	cmpb $0,-84(%ebp)
+	je .L16
+	movb $2,16(%edi)
+	jmp .L17
+	.align 16
+.L16:
+	movb $3,16(%edi)
+	jmp .L17
+	.align 16
+.L13:
+	movb -24(%ebp),%al
+	cmpb %al,-44(%ebp)
+	jne .L18
+	movb -92(%ebp),%cl
+	movb %cl,16(%edi)
+	jmp .L17
+	.align 16
+.L18:
+	cmpb $0,-80(%ebp)
+	je .L19
+	cmpb $0,-88(%ebp)
+	je .L20
+	movb $4,16(%edi)
+	jmp .L17
+	.align 16
+.L20:
+	cmpb $0,-84(%ebp)
+	je .L22
+	movb $5,16(%edi)
+	jmp .L17
+	.align 16
+.L22:
+	movb $6,16(%edi)
+	jmp .L17
+	.align 16
+.L19:
+	cmpb $0,-84(%ebp)
+	je .L23
+	movb $8,16(%edi)
+	jmp .L17
+	.align 16
+.L23:
+	cmpb $0,-88(%ebp)
+	je .L24
+	movb $7,16(%edi)
+	jmp .L17
+	.align 16
+.L24:
+	movb $9,16(%edi)
+.L17:
+	xorl %eax,%eax
+	movb 16(%edi),%al
+	cmpl $1,%eax
+	je .L25
+	cmpl $4,%eax
+	jne .L27
+.L25:
+	movl 20(%edi),%eax
+	pushl %eax
+	movl MI_Expr+184,%eax
+	call *%eax
+.L27:
+	movl -72(%ebp),%eax
+	leal -108(%ebp),%esp
+	movl %eax,RTThread__handlerStack
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe2:
+	.size	 CastExpr__Check,.Lfe2-CastExpr__Check
+	.align 16
+	.type	 CastExpr__EqCheck,@function
+CastExpr__EqCheck:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 12(%ebp),%esi
+	movl 16(%ebp),%edi
+	testl %esi,%esi
+	je .L32
+	movl -4(%esi),%eax
+	sall $11,%eax
+	movl %eax,%ebx
+	shrl $12,%ebx
+	cmpl %ebx,MM_CastExpr+216
+	jg .L32
+	movl MM_CastExpr+212,%eax
+	cmpl %ebx,4(%eax)
+	jl .L32
+	pushl %edi
+	movl 24(%esi),%eax
+	pushl %eax
+	movl 8(%ebp),%edx
+	movl 24(%edx),%eax
+	pushl %eax
+	movl MI_Type+116,%eax
+	xorl %ebx,%ebx
+	call *%eax
+	addl $12,%esp
+	testl %eax,%eax
+	je .L34
+	pushl %edi
+	movl 20(%esi),%eax
+	pushl %eax
+	movl 8(%ebp),%edx
+	movl 20(%edx),%eax
+	pushl %eax
+	movl MI_Expr+232,%eax
+	call *%eax
+	testl %eax,%eax
+	setne %al
+	xorl %ebx,%ebx
+	movb %al,%bl
+.L34:
+	movl %ebx,%eax
+	jmp .L36
+	.align 16
+.L32:
+	xorl %eax,%eax
+.L36:
+	leal -12(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe3:
+	.size	 CastExpr__EqCheck,.Lfe3-CastExpr__EqCheck
+.section	.rodata
+	.align 4
+	.type	 L_3.0,@object
+	.size	 L_3.0,40
+L_3.0:
+	.long .L38
+	.long .L39
+	.long .L39
+	.long .L39
+	.long .L38
+	.long .L38
+	.long .L39
+	.long .L38
+	.long .L38
+	.long .L38
+.text
+	.align 16
+	.type	 CastExpr__NeedsAddress,@function
+CastExpr__NeedsAddress:
+	pushl %ebp
+	movl %esp,%ebp
+	movl 8(%ebp),%edx
+	xorl %eax,%eax
+	movb 16(%edx),%al
+	jmp *L_3.0(,%eax,4)
+	.align 16
+.L38:
+	movl 20(%edx),%eax
+	pushl %eax
+	movl MI_Expr+184,%eax
+	call *%eax
+.L39:
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe4:
+	.size	 CastExpr__NeedsAddress,.Lfe4-CastExpr__NeedsAddress
+.section	.rodata
+	.align 4
+	.type	 L_4.1,@object
+	.size	 L_4.1,40
+L_4.1:
+	.long .L46
+	.long .L47
+	.long .L48
+	.long .L49
+	.long .L50
+	.long .L51
+	.long .L52
+	.long .L53
+	.long .L54
+	.long .L55
+.text
+	.align 16
+	.type	 CastExpr__Prep,@function
+CastExpr__Prep:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $64,%esp
+	pushl %edi
+	pushl %esi
+	xorl %eax,%eax
+	pushl %ebx
+	movl %eax,-40(%ebp)
+	movl %eax,-36(%ebp)
+	movl %eax,-32(%ebp)
+	movl %eax,-28(%ebp)
+	movl %eax,-24(%ebp)
+	movl %eax,-20(%ebp)
+	movl %eax,-16(%ebp)
+	movl %eax,-12(%ebp)
+	movl %eax,-8(%ebp)
+	movl 8(%ebp),%edx
+	movl %eax,-4(%ebp)
+	movl 20(%edx),%edi
+	pushl %edi
+	movl MI_Expr+152,%eax
+	call *%eax
+	movl %eax,%esi
+	movl 8(%ebp),%edx
+	addl $4,%esp
+	movl 24(%edx),%ebx
+	movl 32(%edx),%eax
+	testl %eax,%eax
+	jle .L43
+	incl %eax
+	movl %eax,32(%edx)
+	jmp .L42
+	.align 16
+.L43:
+	leal -40(%ebp),%eax
+	pushl %eax
+	pushl %esi
+	movl MI_Type+68,%eax
+	call *%eax
+	movl %eax,%esi
+	movl %esi,-64(%ebp)
+	leal -20(%ebp),%eax
+	pushl %eax
+	pushl %ebx
+	movl MI_Type+68,%eax
+	call *%eax
+	movl %eax,%esi
+	movb -4(%ebp),%dl
+	movb %dl,-48(%ebp)
+	movl -12(%ebp),%edx
+	movl %edx,-56(%ebp)
+	movb -24(%ebp),%dl
+	movb %dl,-44(%ebp)
+	movl -32(%ebp),%ebx
+	movl -40(%ebp),%edx
+	movl %edx,-60(%ebp)
+	pushl %esi
+	movl MI_Type+140,%eax
+	call *%eax
+	movl -64(%ebp),%edx
+	pushl %edx
+	movl MI_Type+140,%eax
+	call *%eax
+	addl $24,%esp
+	movl %ebx,-52(%ebp)
+	cmpl %ebx,-56(%ebp)
+	jle .L44
+	movl -56(%ebp),%edx
+	movl %edx,-52(%ebp)
+.L44:
+	movl 8(%ebp),%edx
+	xorl %eax,%eax
+	movb 16(%edx),%al
+	jmp *L_4.1(,%eax,4)
+	.align 16
+.L46:
+	jmp .L55
+	.align 16
+.L47:
+	movl 8(%ebp),%edx
+	incl 32(%edx)
+	pushl %edi
+	movl MI_Expr+208,%eax
+	call *%eax
+	pushl %edi
+	movl MI_Expr+216,%eax
+	call *%eax
+	jmp .L67
+	.align 16
+.L48:
+	movl 8(%ebp),%edx
+	incl 32(%edx)
+	pushl %edi
+	movl MI_Expr+200,%eax
+	call *%eax
+	pushl %edi
+	movl MI_Expr+204,%eax
+	call *%eax
+	movl -60(%ebp),%edx
+	pushl %edx
+	movl 8(%ebp),%edx
+	pushl %edx
+	call CastExpr__BuildArray
+	movl 8(%ebp),%edx
+	movl %eax,28(%edx)
+	jmp .L42
+	.align 16
+.L49:
+	movl 8(%ebp),%edx
+	incl 32(%edx)
+	pushl %edi
+	movl MI_Expr+200,%eax
+	call *%eax
+	movl -64(%ebp),%edx
+	pushl %edx
+	movl MI_Type+132,%eax
+	call *%eax
+	addl $8,%esp
+	cmpl $0,-60(%ebp)
+	jge .L57
+	pushl $3553
+	call _m3_fault
+	.align 16
+.L57:
+	cmpl $0,-52(%ebp)
+	jge .L58
+	pushl $3553
+	call _m3_fault
+	.align 16
+.L58:
+	pushl $0
+	pushl $0
+	pushl $1
+	pushl %eax
+	xorl %ebx,%ebx
+	movb -44(%ebp),%bl
+	pushl %ebx
+	movl -52(%ebp),%edx
+	pushl %edx
+	movl -60(%ebp),%edx
+	pushl %edx
+	pushl $0
+	movl MI_CG+200,%eax
+	call *%eax
+	addl $32,%esp
+	movl %eax,%esi
+	pushl %edi
+	movl MI_Expr+204,%eax
+	call *%eax
+	addl $4,%esp
+	pushl %ebx
+	movl -52(%ebp),%edx
+	pushl %edx
+	movl -60(%ebp),%edx
+	pushl %edx
+	pushl $0
+	pushl %esi
+	movl MI_CG+392,%eax
+	call *%eax
+	addl $20,%esp
+	movl -52(%ebp),%edx
+	pushl %edx
+	pushl $0
+	pushl %esi
+	movl MI_CG+368,%eax
+	call *%eax
+.L67:
+	movl -60(%ebp),%edx
+	pushl %edx
+	movl 8(%ebp),%edx
+	pushl %edx
+	call CastExpr__BuildArray
+	movl 8(%ebp),%edx
+	movl %eax,%esi
+	movl %esi,28(%edx)
+	jmp .L42
+	.align 16
+.L50:
+	pushl %edi
+	movl MI_Expr+208,%eax
+	jmp .L68
+	.align 16
+.L51:
+	jmp .L55
+	.align 16
+.L52:
+	movl 8(%ebp),%edx
+	incl 32(%edx)
+	pushl %edi
+	movl MI_Expr+200,%eax
+	call *%eax
+	addl $4,%esp
+	cmpl $0,-60(%ebp)
+	jge .L62
+	pushl $3793
+	call _m3_fault
+	.align 16
+.L62:
+	cmpl $0,-52(%ebp)
+	jge .L63
+	pushl $3793
+	call _m3_fault
+	.align 16
+.L63:
+	pushl $1
+	xorl %eax,%eax
+	movb -48(%ebp),%al
+	pushl %eax
+	movl -52(%ebp),%edx
+	pushl %edx
+	movl -60(%ebp),%edx
+	pushl %edx
+	movl MI_CG+208,%eax
+	call *%eax
+	movl 8(%ebp),%edx
+	movl %eax,28(%edx)
+	pushl %edi
+	movl MI_Expr+204,%eax
+	call *%eax
+	addl $20,%esp
+	xorl %eax,%eax
+	movb -44(%ebp),%al
+	pushl %eax
+	movl -52(%ebp),%edx
+	pushl %edx
+	movl -60(%ebp),%edx
+	pushl %edx
+	pushl $0
+	movl 8(%ebp),%edx
+	movl 28(%edx),%eax
+	pushl %eax
+	movl MI_CG+392,%eax
+	call *%eax
+	jmp .L42
+	.align 16
+.L53:
+.L54:
+.L55:
+	pushl %edi
+	movl MI_Expr+200,%eax
+.L68:
+	call *%eax
+.L42:
+	leal -76(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe5:
+	.size	 CastExpr__Prep,.Lfe5-CastExpr__Prep
+.section	.rodata
+	.align 4
+	.type	 L_5.2,@object
+	.size	 L_5.2,40
+L_5.2:
+	.long .L72
+	.long .L73
+	.long .L73
+	.long .L73
+	.long .L74
+	.long .L75
+	.long .L76
+	.long .L77
+	.long .L78
+	.long .L79
+.text
+	.align 16
+	.type	 CastExpr__Compile,@function
+CastExpr__Compile:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $56,%esp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl $0,-40(%ebp)
+	movl $0,-36(%ebp)
+	movl $0,-32(%ebp)
+	movl $0,-28(%ebp)
+	movl $0,-24(%ebp)
+	movl $0,-20(%ebp)
+	movl $0,-16(%ebp)
+	movl $0,-12(%ebp)
+	movl $0,-8(%ebp)
+	movl 8(%ebp),%ecx
+	movl $0,-4(%ebp)
+	movl 20(%ecx),%edi
+	pushl %edi
+	movl MI_Expr+152,%eax
+	call *%eax
+	movl %eax,%edx
+	movl 8(%ebp),%ecx
+	leal -40(%ebp),%eax
+	movl 24(%ecx),%ebx
+	pushl %eax
+	pushl %edx
+	movl MI_Type+68,%eax
+	call *%eax
+	movl %eax,%edx
+	movl %edx,-56(%ebp)
+	leal -20(%ebp),%eax
+	pushl %eax
+	pushl %ebx
+	movl MI_Type+68,%eax
+	call *%eax
+	movl %eax,%edx
+	movb -4(%ebp),%cl
+	movb %cl,-48(%ebp)
+	movl -12(%ebp),%esi
+	movb -24(%ebp),%cl
+	movb %cl,-44(%ebp)
+	movl -32(%ebp),%ebx
+	movl -40(%ebp),%ecx
+	movl %ecx,-52(%ebp)
+	pushl %edx
+	movl MI_Type+140,%eax
+	call *%eax
+	movl -56(%ebp),%ecx
+	pushl %ecx
+	movl MI_Type+140,%eax
+	call *%eax
+	addl $28,%esp
+	movl %ebx,%edx
+	cmpl %edx,%esi
+	jle .L70
+	movl %esi,%edx
+.L70:
+	movl 8(%ebp),%ecx
+	xorl %eax,%eax
+	movb 16(%ecx),%al
+	jmp *L_5.2(,%eax,4)
+	.align 16
+.L72:
+	pushl %edi
+	movl MI_Expr+204,%eax
+	call *%eax
+	addl $4,%esp
+	testl %esi,%esi
+	jge .L83
+	pushl $4321
+	call _m3_fault
+	.align 16
+.L73:
+	pushl %esi
+	jmp .L87
+	.align 16
+.L74:
+	pushl %edi
+	movl MI_Expr+216,%eax
+	call *%eax
+	addl $4,%esp
+	testl %esi,%esi
+	jge .L83
+	pushl $4433
+	call _m3_fault
+	.align 16
+.L75:
+	pushl %edi
+	movl MI_Expr+204,%eax
+	call *%eax
+	addl $4,%esp
+	testl %esi,%esi
+	jge .L83
+	pushl $4481
+	call _m3_fault
+	.align 16
+.L83:
+	pushl %esi
+	movl MI_CG+720,%eax
+	call *%eax
+	jmp .L69
+	.align 16
+.L76:
+	pushl %edx
+.L87:
+	movl 8(%ebp),%ecx
+	pushl %ecx
+	call CastExpr__PushTmp
+	jmp .L69
+	.align 16
+.L77:
+	jmp .L79
+	.align 16
+.L78:
+	pushl %edi
+	movl MI_Expr+204,%eax
+	call *%eax
+	addl $4,%esp
+	testl %esi,%esi
+	jge .L84
+	pushl $4721
+	call _m3_fault
+	.align 16
+.L84:
+	pushl %esi
+	movl MI_CG+720,%eax
+	call *%eax
+	addl $4,%esp
+	cmpl $0,-52(%ebp)
+	jge .L85
+	pushl $4737
+	call _m3_fault
+	.align 16
+.L85:
+	movl -52(%ebp),%ecx
+	pushl %ecx
+	pushl $0
+	xorl %eax,%eax
+	movb -48(%ebp),%al
+	pushl %eax
+	movl MI_CG+376,%eax
+	call *%eax
+	jmp .L69
+	.align 16
+.L79:
+	pushl %edi
+	movl MI_Expr+204,%eax
+	call *%eax
+	xorl %eax,%eax
+	movb -48(%ebp),%al
+	pushl %eax
+	xorl %eax,%eax
+	movb -44(%ebp),%al
+	pushl %eax
+	movl MI_CG+656,%eax
+	call *%eax
+.L69:
+	leal -68(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe6:
+	.size	 CastExpr__Compile,.Lfe6-CastExpr__Compile
+	.align 16
+	.type	 CastExpr__PushTmp,@function
+CastExpr__PushTmp:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %ebx
+	movl 8(%ebp),%ebx
+	movl 12(%ebp),%edx
+	movl 32(%ebx),%eax
+	decl %eax
+	movl %eax,32(%ebx)
+	testl %eax,%eax
+	jg .L89
+	testl %edx,%edx
+	jge .L90
+	pushl $4913
+	call _m3_fault
+	.align 16
+.L90:
+	pushl %edx
+	pushl $0
+	movl 28(%ebx),%eax
+	pushl %eax
+	movl MI_CG+372,%eax
+	call *%eax
+	movl $0,28(%ebx)
+	jmp .L88
+	.align 16
+.L89:
+	testl %edx,%edx
+	jge .L92
+	pushl $4961
+	call _m3_fault
+	.align 16
+.L92:
+	pushl %edx
+	pushl $0
+	movl 28(%ebx),%eax
+	pushl %eax
+	movl MI_CG+368,%eax
+	call *%eax
+.L88:
+	movl -4(%ebp),%ebx
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe7:
+	.size	 CastExpr__PushTmp,.Lfe7-CastExpr__PushTmp
+	.align 16
+	.type	 CastExpr__BuildArray,@function
+CastExpr__BuildArray:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $28,%esp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%esi
+	movl 12(%ebp),%edi
+.L94:
+	movl $5,-24(%ebp)
+	movl RTThread__handlerStack,%eax
+	movl %eax,-28(%ebp)
+	leal -28(%ebp),%edx
+	movl %edx,RTThread__handlerStack
+	xorl %eax,%eax
+	movl %eax,-20(%ebp)
+	movl %eax,-16(%ebp)
+	movl %eax,-12(%ebp)
+	movl %eax,-8(%ebp)
+	movl %eax,-4(%ebp)
+	movl 24(%esi),%eax
+	pushl %eax
+	movl MI_OpenArrayType+68,%eax
+	call *%eax
+	movl %eax,%ebx
+	leal -20(%ebp),%eax
+	pushl %eax
+	pushl %ebx
+	movl MI_Type+68,%eax
+	call *%eax
+	movl 24(%esi),%eax
+	pushl %eax
+	movl MI_OpenArrayType+72,%eax
+	call *%eax
+	movl %eax,%ebx
+	movl MI_M3RT+292,%eax
+	pushl %eax
+	pushl %ebx
+	movl MI_CG+412,%eax
+	call *%eax
+	pushl %edi
+	movl -20(%ebp),%eax
+	pushl %eax
+	call m3_div
+	pushl %eax
+	movl MI_CG+424,%eax
+	call *%eax
+	addl $36,%esp
+	movl MI_M3RT+300,%eax
+	pushl %eax
+	pushl %ebx
+	movl MI_CG+408,%eax
+	call *%eax
+	movl -28(%ebp),%eax
+	movl %eax,RTThread__handlerStack
+	movl %ebx,%eax
+.L95:
+	leal -40(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe8:
+	.size	 CastExpr__BuildArray,.Lfe8-CastExpr__BuildArray
+.section	.rodata
+	.align 4
+	.type	 L_7.3,@object
+	.size	 L_7.3,40
+L_7.3:
+	.long .L100
+	.long .L101
+	.long .L102
+	.long .L103
+	.long .L100
+	.long .L100
+	.long .L104
+	.long .L100
+	.long .L100
+	.long .L100
+.text
+	.align 16
+	.type	 CastExpr__PrepLV,@function
+CastExpr__PrepLV:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $56,%esp
+	pushl %edi
+	pushl %esi
+	xorl %eax,%eax
+	pushl %ebx
+	movl %eax,-40(%ebp)
+	movl %eax,-36(%ebp)
+	movl %eax,-32(%ebp)
+	movl %eax,-28(%ebp)
+	movl %eax,-24(%ebp)
+	movl %eax,-20(%ebp)
+	movl %eax,-16(%ebp)
+	movl %eax,-12(%ebp)
+	movl %eax,-8(%ebp)
+	movl 8(%ebp),%edx
+	movl %eax,-4(%ebp)
+	movl 20(%edx),%edx
+	movl %edx,-56(%ebp)
+	pushl %edx
+	movl MI_Expr+152,%eax
+	call *%eax
+	movl %eax,%esi
+	movl 8(%ebp),%edx
+	addl $4,%esp
+	movl 24(%edx),%ebx
+	movl 32(%edx),%eax
+	testl %eax,%eax
+	jle .L97
+	incl %eax
+	movl %eax,32(%edx)
+	jmp .L96
+	.align 16
+.L97:
+	leal -40(%ebp),%eax
+	pushl %eax
+	pushl %esi
+	movl MI_Type+68,%eax
+	call *%eax
+	movl %eax,%esi
+	movl %esi,-52(%ebp)
+	leal -20(%ebp),%eax
+	pushl %eax
+	pushl %ebx
+	movl MI_Type+68,%eax
+	call *%eax
+	movl %eax,%esi
+	movl -12(%ebp),%eax
+	addl $16,%esp
+	movl -32(%ebp),%edi
+	cmpl %edi,%eax
+	jle .L98
+	movl %eax,%edi
+.L98:
+	movb -4(%ebp),%bl
+	movb -24(%ebp),%dl
+	movb %dl,-44(%ebp)
+	movl -40(%ebp),%edx
+	movl %edx,-48(%ebp)
+	pushl %esi
+	movl MI_Type+140,%eax
+	call *%eax
+	movl -52(%ebp),%edx
+	pushl %edx
+	movl MI_Type+140,%eax
+	call *%eax
+	movl 8(%ebp),%edx
+	xorl %eax,%eax
+	movb 16(%edx),%al
+	addl $8,%esp
+	jmp *L_7.3(,%eax,4)
+	.align 16
+.L100:
+	movl 8(%ebp),%edx
+	movl 20(%edx),%eax
+	pushl %eax
+	movl MI_Expr+208,%eax
+	call *%eax
+	jmp .L96
+	.align 16
+.L101:
+	movl 8(%ebp),%edx
+	incl 32(%edx)
+	movl -56(%ebp),%edx
+	pushl %edx
+	movl MI_Expr+208,%eax
+	call *%eax
+	movl -56(%ebp),%edx
+	pushl %edx
+	movl MI_Expr+212,%eax
+	call *%eax
+	jmp .L116
+	.align 16
+.L102:
+	movl 8(%ebp),%edx
+	incl 32(%edx)
+	movl -56(%ebp),%edx
+	pushl %edx
+	movl MI_Expr+200,%eax
+	call *%eax
+	movl -56(%ebp),%edx
+	pushl %edx
+	movl MI_Expr+204,%eax
+	call *%eax
+	movl -48(%ebp),%edx
+	pushl %edx
+	movl 8(%ebp),%edx
+	pushl %edx
+	call CastExpr__BuildArray
+	movl 8(%ebp),%edx
+	movl %eax,28(%edx)
+	jmp .L96
+	.align 16
+.L103:
+	movl 8(%ebp),%edx
+	incl 32(%edx)
+	movl -56(%ebp),%edx
+	pushl %edx
+	movl MI_Expr+200,%eax
+	call *%eax
+	movl -52(%ebp),%edx
+	pushl %edx
+	movl MI_Type+132,%eax
+	call *%eax
+	addl $8,%esp
+	cmpl $0,-48(%ebp)
+	jge .L106
+	pushl $5985
+	call _m3_fault
+	.align 16
+.L106:
+	testl %edi,%edi
+	jge .L107
+	pushl $5985
+	call _m3_fault
+	.align 16
+.L107:
+	pushl $0
+	pushl $0
+	pushl $1
+	pushl %eax
+	xorl %ebx,%ebx
+	movb -44(%ebp),%bl
+	pushl %ebx
+	pushl %edi
+	movl -48(%ebp),%edx
+	pushl %edx
+	pushl $0
+	movl MI_CG+200,%eax
+	call *%eax
+	movl %eax,%esi
+	addl $32,%esp
+	movl -56(%ebp),%edx
+	pushl %edx
+	movl MI_Expr+204,%eax
+	call *%eax
+	addl $4,%esp
+	pushl %ebx
+	pushl %edi
+	movl -48(%ebp),%edx
+	pushl %edx
+	pushl $0
+	pushl %esi
+	movl MI_CG+392,%eax
+	call *%eax
+	addl $20,%esp
+	pushl %edi
+	pushl $0
+	pushl %esi
+	movl MI_CG+368,%eax
+	call *%eax
+.L116:
+	movl -48(%ebp),%edx
+	pushl %edx
+	movl 8(%ebp),%edx
+	pushl %edx
+	call CastExpr__BuildArray
+	movl 8(%ebp),%edx
+	movl %eax,%esi
+	movl %esi,28(%edx)
+	jmp .L96
+	.align 16
+.L104:
+	movl 8(%ebp),%edx
+	incl 32(%edx)
+	movl -56(%ebp),%edx
+	pushl %edx
+	movl MI_Expr+200,%eax
+	call *%eax
+	addl $4,%esp
+	cmpl $0,-48(%ebp)
+	jge .L111
+	pushl $6161
+	call _m3_fault
+	.align 16
+.L111:
+	testl %edi,%edi
+	jge .L112
+	pushl $6161
+	call _m3_fault
+	.align 16
+.L112:
+	pushl $1
+	xorl %eax,%eax
+	movb %bl,%al
+	pushl %eax
+	pushl %edi
+	movl -48(%ebp),%edx
+	pushl %edx
+	movl MI_CG+208,%eax
+	call *%eax
+	movl 8(%ebp),%edx
+	movl %eax,28(%edx)
+	movl -56(%ebp),%edx
+	pushl %edx
+	movl MI_Expr+204,%eax
+	call *%eax
+	addl $20,%esp
+	xorl %eax,%eax
+	movb -44(%ebp),%al
+	pushl %eax
+	pushl %edi
+	movl -48(%ebp),%edx
+	pushl %edx
+	pushl $0
+	movl 8(%ebp),%edx
+	movl 28(%edx),%eax
+	pushl %eax
+	movl MI_CG+392,%eax
+	call *%eax
+.L96:
+	leal -68(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe9:
+	.size	 CastExpr__PrepLV,.Lfe9-CastExpr__PrepLV
+.section	.rodata
+	.align 4
+	.type	 L_8.4,@object
+	.size	 L_8.4,40
+L_8.4:
+	.long .L120
+	.long .L121
+	.long .L121
+	.long .L121
+	.long .L120
+	.long .L120
+	.long .L122
+	.long .L120
+	.long .L120
+	.long .L120
+.text
+	.align 16
+	.type	 CastExpr__CompileLV,@function
+CastExpr__CompileLV:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $44,%esp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl $0,-40(%ebp)
+	movl $0,-36(%ebp)
+	movl $0,-32(%ebp)
+	movl $0,-28(%ebp)
+	movl $0,-24(%ebp)
+	movl $0,-20(%ebp)
+	movl $0,-16(%ebp)
+	movl $0,-12(%ebp)
+	movl $0,-8(%ebp)
+	movl 8(%ebp),%edx
+	movl $0,-4(%ebp)
+	movl 20(%edx),%eax
+	pushl %eax
+	movl MI_Expr+152,%eax
+	call *%eax
+	movl %eax,-44(%ebp)
+	movl 8(%ebp),%edx
+	leal -40(%ebp),%eax
+	movl 24(%edx),%edi
+	pushl %eax
+	movl -44(%ebp),%edx
+	pushl %edx
+	movl MI_Type+68,%eax
+	call *%eax
+	movl %eax,-44(%ebp)
+	leal -20(%ebp),%eax
+	pushl %eax
+	pushl %edi
+	movl MI_Type+68,%eax
+	call *%eax
+	movl %eax,%edi
+	movl -12(%ebp),%esi
+	addl $20,%esp
+	movl -32(%ebp),%ebx
+	cmpl %ebx,%esi
+	jle .L118
+	movl %esi,%ebx
+.L118:
+	pushl %edi
+	movl MI_Type+140,%eax
+	call *%eax
+	movl -44(%ebp),%edx
+	pushl %edx
+	movl MI_Type+140,%eax
+	call *%eax
+	movl 8(%ebp),%edx
+	xorl %eax,%eax
+	movb 16(%edx),%al
+	addl $8,%esp
+	jmp *L_8.4(,%eax,4)
+	.align 16
+.L120:
+	movl 8(%ebp),%edx
+	movl 20(%edx),%eax
+	pushl %eax
+	movl MI_Expr+212,%eax
+	call *%eax
+	addl $4,%esp
+	testl %esi,%esi
+	jge .L123
+	pushl $6689
+	call _m3_fault
+	.align 16
+.L123:
+	pushl %esi
+	movl MI_CG+720,%eax
+	call *%eax
+	jmp .L117
+	.align 16
+.L121:
+	pushl %esi
+	jmp .L126
+	.align 16
+.L122:
+	pushl %ebx
+.L126:
+	movl 8(%ebp),%edx
+	pushl %edx
+	call CastExpr__PushTmp
+.L117:
+	leal -56(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe10:
+	.size	 CastExpr__CompileLV,.Lfe10-CastExpr__CompileLV
+	.align 16
+	.type	 CastExpr__Fold,@function
+CastExpr__Fold:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %ebx
+	movl 8(%ebp),%ebx
+	movl 20(%ebx),%eax
+	pushl %eax
+	movl MI_Expr+160,%eax
+	call *%eax
+	movl %eax,%edx
+	testl %eax,%eax
+	je .L128
+	movl %ebx,%eax
+	movl %edx,20(%eax)
+.L128:
+	movl -4(%ebp),%ebx
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe11:
+	.size	 CastExpr__Fold,.Lfe11-CastExpr__Fold
+	.align 16
+	.type	 CastExpr__Bounder,@function
+CastExpr__Bounder:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $16,%esp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%esi
+	movl 16(%ebp),%eax
+	pushl %eax
+	movl 12(%ebp),%eax
+	pushl %eax
+	movl 20(%esi),%eax
+	pushl %eax
+	movl MI_Expr+164,%eax
+	call *%eax
+	leal -8(%ebp),%edi
+	pushl %edi
+	leal -16(%ebp),%ebx
+	pushl %ebx
+	movl 24(%esi),%eax
+	pushl %eax
+	movl MI_Type+112,%eax
+	call *%eax
+	pushl %ebx
+	movl 12(%ebp),%eax
+	pushl %eax
+	movl MI_TInt+104,%eax
+	call *%eax
+	addl $32,%esp
+	testl %eax,%eax
+	je .L131
+	movl 12(%ebp),%eax
+	movl -16(%ebp),%edx
+	movl %edx,(%eax)
+	movl -12(%ebp),%edx
+	movl %edx,4(%eax)
+.L131:
+	movl 16(%ebp),%eax
+	pushl %eax
+	pushl %edi
+	movl MI_TInt+104,%eax
+	call *%eax
+	testl %eax,%eax
+	je .L130
+	movl 16(%ebp),%eax
+	movl -8(%ebp),%edx
+	movl %edx,(%eax)
+	movl -4(%ebp),%edx
+	movl %edx,4(%eax)
+.L130:
+	leal -28(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe12:
+	.size	 CastExpr__Bounder,.Lfe12-CastExpr__Bounder
+	.align 16
+	.type	 CastExpr__IsDesignator,@function
+CastExpr__IsDesignator:
+	pushl %ebp
+	movl %esp,%ebp
+	movl 8(%ebp),%eax
+	movl 20(%eax),%eax
+	pushl %eax
+	movl MI_Expr+168,%eax
+	call *%eax
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe13:
+	.size	 CastExpr__IsDesignator,.Lfe13-CastExpr__IsDesignator
+	.align 16
+	.type	 CastExpr__IsWritable,@function
+CastExpr__IsWritable:
+	pushl %ebp
+	movl %esp,%ebp
+	movl 8(%ebp),%eax
+	movl 20(%eax),%eax
+	pushl %eax
+	movl MI_Expr+172,%eax
+	call *%eax
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe14:
+	.size	 CastExpr__IsWritable,.Lfe14-CastExpr__IsWritable
+	.align 16
+	.type	 CastExpr__GenFPLiteral,@function
+CastExpr__GenFPLiteral:
+	pushl %ebp
+	movl %esp,%ebp
+	movl 8(%ebp),%edx
+	movl 12(%ebp),%eax
+	pushl %eax
+	movl 20(%edx),%eax
+	pushl %eax
+	movl MI_Expr+244,%eax
+	call *%eax
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe15:
+	.size	 CastExpr__GenFPLiteral,.Lfe15-CastExpr__GenFPLiteral
+	.align 16
+	.type	 CastExpr__NoteWrites,@function
+CastExpr__NoteWrites:
+	pushl %ebp
+	movl %esp,%ebp
+	movl 8(%ebp),%eax
+	movl 20(%eax),%eax
+	pushl %eax
+	movl MI_Expr+228,%eax
+	call *%eax
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe16:
+	.size	 CastExpr__NoteWrites,.Lfe16-CastExpr__NoteWrites
+	.align 16
+	.type	 M_CastExpr_tb3b28476_LINK,@function
+M_CastExpr_tb3b28476_LINK:
+	pushl %ebp
+	movl %esp,%ebp
+	movl MM_CastExpr+212,%eax
+	movl MI_ExprRep+468,%edx
+	movl 52(%eax),%eax
+	movl %ebp,%esp
+	movl %edx,4(%eax)
+	movl MM_CastExpr+148,%edx
+	movl %edx,8(%eax)
+	movl MM_CastExpr+156,%edx
+	movl %edx,36(%eax)
+	movl MM_CastExpr+160,%edx
+	movl %edx,52(%eax)
+	movl MM_CastExpr+164,%edx
+	movl %edx,56(%eax)
+	movl MM_CastExpr+176,%edx
+	movl %edx,60(%eax)
+	movl MM_CastExpr+180,%edx
+	movl %edx,64(%eax)
+	movl MI_ExprRep+528,%edx
+	movl %edx,68(%eax)
+	movl MI_ExprRep+532,%edx
+	movl %edx,72(%eax)
+	movl MM_CastExpr+184,%edx
+	movl %edx,16(%eax)
+	movl MM_CastExpr+152,%edx
+	movl %edx,12(%eax)
+	movl MM_CastExpr+188,%edx
+	movl %edx,20(%eax)
+	movl MM_CastExpr+196,%edx
+	movl %edx,24(%eax)
+	movl MM_CastExpr+192,%edx
+	movl %edx,28(%eax)
+	movl MI_ExprRep+488,%edx
+	movl %edx,32(%eax)
+	movl MM_CastExpr+200,%edx
+	movl %edx,40(%eax)
+	movl MI_ExprRep+504,%edx
+	movl %edx,44(%eax)
+	movl MI_ExprRep+508,%edx
+	movl %edx,48(%eax)
+	movl MM_CastExpr+204,%edx
+	movl %edx,76(%eax)
+	popl %ebp
+	ret
+.Lfe17:
+	.size	 M_CastExpr_tb3b28476_LINK,.Lfe17-M_CastExpr_tb3b28476_LINK
+	.align 16
+	.type	 _m3_fault,@function
+_m3_fault:
+	pushl %ebp
+	movl %esp,%ebp
+	movl 8(%ebp),%eax
+	pushl %eax
+	pushl $MM_CastExpr
+	movl MI_RTHooks+108,%eax
+	call *%eax
+	.align 16
+.Lfe18:
+	.size	 _m3_fault,.Lfe18-_m3_fault
+.globl MM_CastExpr
+.data
+	.align 4
+	.type	 MM_CastExpr,@object
+	.size	 MM_CastExpr,1088
+MM_CastExpr:
+	.long MM_CastExpr+888
+	.long MM_CastExpr+44
+	.long MM_CastExpr+212
+	.zero	8
+	.long MM_CastExpr+692
+	.zero	28
+	.long -1280146314
+.byte 124
+.byte 158
+.byte 209
+.byte 169
+.byte 10
+.byte 26
+.byte 99
+.byte 26
+	.long 1
+	.zero	4
+	.long 20
+	.long 4
+	.zero	4
+	.long 0
+	.zero	12
+	.long MM_CastExpr+1033
+	.long MM_CastExpr+1040
+	.long MM_CastExpr+1045
+	.zero	4
+	.long M_CastExpr_tb3b28476_LINK
+	.long -350897909
+	.zero	12
+	.long MM_CastExpr+1066
+	.long MM_CastExpr+1075
+	.zero	4
+	.long CastExpr__Check
+	.long CastExpr__EqCheck
+	.long CastExpr__NeedsAddress
+	.long CastExpr__Prep
+	.long CastExpr__Compile
+	.long CastExpr__PushTmp
+	.long CastExpr__BuildArray
+	.long CastExpr__PrepLV
+	.long CastExpr__CompileLV
+	.long CastExpr__Fold
+	.long CastExpr__Bounder
+	.long CastExpr__IsDesignator
+	.long CastExpr__IsWritable
+	.long CastExpr__GenFPLiteral
+	.long CastExpr__NoteWrites
+	.long CastExpr__New
+	.zero	4
+	.long -1280146314
+	.long 2
+	.long MM_CastExpr+232
+	.long 49
+	.ascii	"LOOPHOLE: first argument cannot be an open array"
+	.zero	4
+	.long 2
+	.long MM_CastExpr+296
+	.long 53
+	.ascii	"LOOPHOLE: multidimensional open arrays not supported"
+	.zero	4
+	.long 2
+	.long MM_CastExpr+364
+	.long 53
+	.ascii	"LOOPHOLE: expression's size incompatible with type's"
+	.zero	4
+	.long 2
+	.long MM_CastExpr+432
+	.long 48
+	.ascii	"LOOPHOLE: expression's size differs from type's"
+	.zero	1
+	.long 2
+	.long MM_CastExpr+492
+	.long 56
+	.ascii	"LOOPHOLE: expression's alignment may differ from type's"
+	.zero	1
+	.ascii	"NoteWrites"
+	.zero	1
+	.ascii	"GenFPLiteral"
+	.zero	1
+	.ascii	"IsWritable"
+	.zero	1
+	.ascii	"IsDesignator"
+	.zero	1
+	.ascii	"Bounder"
+	.zero	1
+	.ascii	"Fold"
+	.zero	1
+	.ascii	"CompileLV"
+	.zero	1
+	.ascii	"PrepLV"
+	.zero	1
+	.ascii	"BuildArray"
+	.zero	1
+	.ascii	"PushTmp"
+	.zero	1
+	.ascii	"Compile"
+	.zero	1
+	.ascii	"Prep"
+	.zero	1
+	.ascii	"NeedsAddress"
+	.zero	1
+	.ascii	"EqCheck"
+	.zero	1
+	.ascii	"Check"
+	.zero	1
+	.ascii	"New"
+	.zero	4
+	.long CastExpr__NoteWrites
+	.long MM_CastExpr+548
+	.zero	4
+	.long CastExpr__GenFPLiteral
+	.long MM_CastExpr+559
+	.zero	4
+	.long CastExpr__IsWritable
+	.long MM_CastExpr+572
+	.zero	4
+	.long CastExpr__IsDesignator
+	.long MM_CastExpr+583
+	.zero	4
+	.long CastExpr__Bounder
+	.long MM_CastExpr+596
+	.zero	4
+	.long CastExpr__Fold
+	.long MM_CastExpr+604
+	.zero	4
+	.long CastExpr__CompileLV
+	.long MM_CastExpr+609
+	.zero	4
+	.long CastExpr__PrepLV
+	.long MM_CastExpr+619
+	.zero	4
+	.long CastExpr__BuildArray
+	.long MM_CastExpr+626
+	.zero	4
+	.long CastExpr__PushTmp
+	.long MM_CastExpr+637
+	.zero	4
+	.long CastExpr__Compile
+	.long MM_CastExpr+645
+	.zero	4
+	.long CastExpr__Prep
+	.long MM_CastExpr+653
+	.zero	4
+	.long CastExpr__NeedsAddress
+	.long MM_CastExpr+658
+	.zero	4
+	.long CastExpr__EqCheck
+	.long MM_CastExpr+671
+	.zero	4
+	.long CastExpr__Check
+	.long MM_CastExpr+679
+	.zero	4
+	.long CastExpr__New
+	.long MM_CastExpr+685
+	.long MI_CastExpr+44
+	.zero	4
+	.ascii	"/home/ftp/tmp/pm3/tmp/pm3-1.1.15/language/modula3/m3compiler"
+	.ascii	"/m3bootstrap/LINUXLIBC6/pm3-LINUXLIBC6/boot-LINUXLIBC6/m3fro"
+	.ascii	"nt/src/exprs/CastExpr.m3"
+	.zero	1
+.byte 16
+.byte 36
+.byte 4
+.byte 4
+.byte 4
+.byte 14
+.byte 0
+.byte 37
+.byte 4
+.byte 4
+.byte 4
+.byte 0
+.byte 6
+.byte 10
+.byte 5
+.byte 5
+.byte 10
+.byte 16
+.byte 11
+.byte 185
+.byte 21
+.byte 235
+.byte 16
+.byte 38
+.byte 84
+.byte 147
+.byte 129
+.byte 16
+.byte 121
+.byte 130
+.byte 239
+.byte 251
+.byte 7
+	.ascii	"CastExpr"
+	.zero	1
+	.ascii	"CastExpr.P"
+	.zero	3
+	.ident	"GCC: (GNU) cygnus-2.7.2-960712"

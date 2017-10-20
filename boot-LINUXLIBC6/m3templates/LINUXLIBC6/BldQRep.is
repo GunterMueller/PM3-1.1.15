@@ -1,0 +1,424 @@
+	.file	"BldQRep.ic"
+	.version	"01.01"
+/ SRC Modula-3 version cygnus-2.7.2-960712 (i486--linuxelf) compiled by GNU C version egcs-2.91.66 19990314/Linux (egcs-1.1.2 release).
+/ options passed:  -fno-strength-reduce -O2
+/ options enabled:  -fdefer-pop -fcse-follow-jumps -fcse-skip-blocks
+/ -fexpensive-optimizations -fthread-jumps -fpeephole -fforce-mem
+/ -ffunction-cse -finline -fkeep-static-consts -fcaller-saves
+/ -fpcc-struct-return -frerun-cse-after-loop -fschedule-insns2 -fcommon
+/ -fverbose-asm -fgnu-linker -m80387 -mhard-float -mno-soft-float -mieee-fp
+/ -mfp-ret-in-387 -mschedule-prologue -mcpu=i486 -march=i486
+
+gcc2_compiled.:
+.text
+	.align 16
+	.type	 I_BldQRep_t41cb6ae8_INIT,@function
+I_BldQRep_t41cb6ae8_INIT:
+	pushl %ebp
+	movl %esp,%ebp
+	movl MI_BldQRep+620,%eax
+	movl $MI_BldQRep+632,%ecx
+	movl $MI_BldQRep+648,%edx
+	movl 24(%eax),%eax
+	addl 8(%ebp),%eax
+	movl %ebp,%esp
+	movl %ecx,60(%eax)
+	movl %edx,64(%eax)
+	movl %ecx,68(%eax)
+	movl %edx,72(%eax)
+	movl $MI_BldQRep+664,76(%eax)
+	movl $MI_BldQRep+680,%edx
+	movl %edx,200(%eax)
+	movl %edx,332(%eax)
+	movl %edx,336(%eax)
+	movl %edx,340(%eax)
+	movl %edx,344(%eax)
+	popl %ebp
+	ret
+.Lfe1:
+	.size	 I_BldQRep_t41cb6ae8_INIT,.Lfe1-I_BldQRep_t41cb6ae8_INIT
+.globl MI_BldQRep
+.data
+	.align 4
+	.type	 MI_BldQRep,@object
+	.size	 MI_BldQRep,708
+MI_BldQRep:
+	.long MI_BldQRep+160
+	.long MI_BldQRep+44
+	.long MI_BldQRep+620
+	.zero	4
+	.long MI_BldQRep+148
+	.zero	32
+	.long 1103850216
+.byte 143
+.byte 125
+.byte 163
+.byte 67
+.byte 103
+.byte 23
+.byte 104
+.byte 2
+	.long 1
+	.zero	4
+	.long 356
+	.long 4
+	.zero	4
+	.long 0
+	.zero	12
+	.long MI_BldQRep+302
+	.long MI_BldQRep+397
+	.long MI_BldQRep+488
+	.long I_BldQRep_t41cb6ae8_INIT
+	.zero	4
+	.long -482055238
+	.zero	16
+	.long MI_BldQRep+689
+	.zero	4
+	.long -482055239
+	.long 1103850216
+	.zero	4
+	.ascii	"/home/ftp/tmp/pm3/tmp/pm3-1.1.15/language/modula3/m3compiler"
+	.ascii	"/m3bootstrap/LINUXLIBC6/pm3-LINUXLIBC6/boot-LINUXLIBC6/m3tem"
+	.ascii	"plates/src/BldQRep.i3"
+	.zero	1
+.byte 4
+.byte 4
+.byte 4
+.byte 4
+.byte 4
+.byte 4
+.byte 4
+.byte 4
+.byte 4
+.byte 4
+.byte 4
+.byte 4
+.byte 4
+.byte 4
+.byte 16
+.byte 36
+.byte 4
+.byte 4
+.byte 4
+.byte 4
+.byte 4
+.byte 4
+.byte 4
+.byte 4
+.byte 4
+.byte 4
+.byte 4
+.byte 1
+.byte 4
+.byte 26
+.byte 4
+.byte 1
+.byte 4
+.byte 26
+.byte 4
+.byte 1
+.byte 4
+.byte 26
+.byte 2
+.byte 1
+.byte 4
+.byte 26
+.byte 1
+.byte 1
+.byte 4
+.byte 26
+.byte 1
+.byte 1
+.byte 4
+.byte 26
+.byte 10
+.byte 4
+.byte 4
+.byte 4
+.byte 4
+.byte 4
+.byte 4
+.byte 4
+.byte 4
+.byte 4
+.byte 4
+.byte 4
+.byte 4
+.byte 4
+.byte 4
+.byte 4
+.byte 4
+.byte 4
+.byte 4
+.byte 4
+.byte 4
+.byte 4
+.byte 4
+.byte 4
+.byte 4
+.byte 4
+.byte 4
+.byte 4
+.byte 4
+.byte 4
+.byte 4
+.byte 4
+.byte 4
+.byte 6
+.byte 6
+.byte 6
+.byte 4
+.byte 4
+.byte 4
+.byte 4
+.byte 16
+.byte 16
+.byte 35
+.byte 4
+.byte 0
+.byte 4
+.byte 4
+.byte 4
+.byte 4
+.byte 4
+.byte 4
+.byte 4
+.byte 4
+.byte 4
+.byte 4
+.byte 4
+.byte 4
+.byte 4
+.byte 4
+.byte 37
+.byte 4
+.byte 4
+.byte 4
+.byte 4
+.byte 4
+.byte 4
+.byte 4
+.byte 4
+.byte 4
+.byte 4
+.byte 4
+.byte 1
+.byte 4
+.byte 26
+.byte 4
+.byte 1
+.byte 4
+.byte 26
+.byte 4
+.byte 1
+.byte 4
+.byte 26
+.byte 2
+.byte 1
+.byte 4
+.byte 26
+.byte 1
+.byte 1
+.byte 4
+.byte 26
+.byte 1
+.byte 1
+.byte 4
+.byte 26
+.byte 10
+.byte 4
+.byte 4
+.byte 4
+.byte 4
+.byte 4
+.byte 4
+.byte 4
+.byte 4
+.byte 4
+.byte 4
+.byte 4
+.byte 4
+.byte 4
+.byte 4
+.byte 4
+.byte 4
+.byte 4
+.byte 4
+.byte 4
+.byte 4
+.byte 4
+.byte 4
+.byte 4
+.byte 4
+.byte 4
+.byte 4
+.byte 4
+.byte 4
+.byte 4
+.byte 4
+.byte 4
+.byte 4
+.byte 42
+.byte 12
+.byte 4
+.byte 4
+.byte 4
+.byte 4
+.byte 37
+.byte 4
+.byte 0
+.byte 65
+.byte 79
+.byte 10
+.byte 65
+.byte 74
+.byte 16
+.byte 116
+.byte 101
+.byte 248
+.byte 80
+.byte 23
+.byte 23
+.byte 23
+.byte 23
+.byte 23
+.byte 23
+.byte 23
+.byte 23
+.byte 23
+.byte 16
+.byte 158
+.byte 221
+.byte 205
+.byte 112
+.byte 33
+.byte 23
+.byte 23
+.byte 2
+.byte 23
+.byte 23
+.byte 23
+.byte 23
+.byte 23
+.byte 23
+.byte 23
+.byte 23
+.byte 23
+.byte 23
+.byte 23
+.byte 1
+.byte 4
+.byte 23
+.byte 49
+.byte 1
+.byte 2
+.byte 23
+.byte 1
+.byte 1
+.byte 23
+.byte 54
+.byte 1
+.byte 10
+.byte 23
+.byte 23
+.byte 23
+.byte 23
+.byte 16
+.byte 8
+.byte 93
+.byte 182
+.byte 23
+.byte 23
+.byte 23
+.byte 16
+.byte 243
+.byte 191
+.byte 147
+.byte 137
+.byte 65
+.byte 65
+.byte 16
+.byte 244
+.byte 227
+.byte 229
+.byte 209
+.byte 16
+.byte 176
+.byte 214
+.byte 175
+.byte 169
+.byte 16
+.byte 120
+.byte 185
+.byte 237
+.byte 173
+.byte 16
+.byte 143
+.byte 9
+.byte 5
+.byte 136
+.byte 70
+.byte 71
+.byte 16
+.byte 207
+.byte 11
+.byte 233
+.byte 57
+.byte 70
+.byte 70
+.byte 70
+.byte 70
+.byte 70
+.byte 65
+.byte 70
+.byte 71
+.byte 16
+.byte 208
+.byte 88
+.byte 246
+.byte 196
+.byte 70
+.byte 16
+.byte 152
+.byte 97
+.byte 192
+.byte 197
+.byte 70
+.byte 83
+.byte 83
+.byte 71
+.byte 71
+.byte 13
+.byte 13
+.byte 13
+.byte 23
+.byte 23
+.byte 23
+.byte 23
+.byte 37
+.byte 37
+.byte 71
+	.zero	5
+	.long 1103850216
+	.long 2
+	.long MI_BldQRep+640
+	.long 2
+	.ascii	"\n"
+	.zero	3
+	.long 2
+	.long MI_BldQRep+656
+	.long 2
+	.ascii	"/"
+	.zero	3
+	.long 2
+	.long MI_BldQRep+672
+	.long 4
+	.ascii	"\")\n"
+	.zero	1
+	.long 2
+	.long MI_BldQRep+688
+	.long 1
+	.zero	1
+	.ascii	"BldQRep.Private"
+	.zero	4
+	.ident	"GCC: (GNU) cygnus-2.7.2-960712"

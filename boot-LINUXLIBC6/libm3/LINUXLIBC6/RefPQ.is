@@ -1,0 +1,119 @@
+	.file	"RefPQ.ic"
+	.version	"01.01"
+/ SRC Modula-3 version cygnus-2.7.2-960712 (i486--linuxelf) compiled by GNU C version egcs-2.91.66 19990314/Linux (egcs-1.1.2 release).
+/ options passed:  -fno-strength-reduce -O2
+/ options enabled:  -fdefer-pop -fcse-follow-jumps -fcse-skip-blocks
+/ -fexpensive-optimizations -fthread-jumps -fpeephole -fforce-mem
+/ -ffunction-cse -finline -fkeep-static-consts -fcaller-saves
+/ -fpcc-struct-return -frerun-cse-after-loop -fschedule-insns2 -fcommon
+/ -fverbose-asm -fgnu-linker -m80387 -mhard-float -mno-soft-float -mieee-fp
+/ -mfp-ret-in-387 -mschedule-prologue -mcpu=i486 -march=i486
+
+gcc2_compiled.:
+.globl MI_RefPQ
+.data
+	.align 4
+	.type	 MI_RefPQ,@object
+	.size	 MI_RefPQ,592
+MI_RefPQ:
+	.long MI_RefPQ+396
+	.long MI_RefPQ+44
+	.zero	44
+	.long 1609233580
+.byte 181
+.byte 165
+.byte 136
+.byte 90
+.byte 25
+.byte 81
+.byte 98
+.byte 5
+	.long 1
+	.zero	4
+	.long 4
+	.long 4
+	.zero	4
+	.long 0
+	.zero	12
+	.long MI_RefPQ+581
+	.long MI_RefPQ+583
+	.long MI_RefPQ+585
+	.zero	8
+	.long -1651526519
+	.zero	20
+	.long MI_RefPQ+188
+	.long MI_RefPQ+152
+	.ascii	"RefPQ.Empty"
+	.zero	1
+	.long MI_RefPQ+168
+	.ascii	"RefPQ.NotInQueue"
+	.zero	12
+	.long -1780046616
+.byte 38
+.byte 155
+.byte 210
+.byte 156
+.byte 206
+.byte 63
+.byte 52
+.byte 9
+	.long 1
+	.zero	4
+	.long 0
+	.long 1
+	.zero	4
+	.long 24
+	.zero	20
+	.long MI_RefPQ+570
+	.zero	8
+	.long -1651526519
+	.zero	16
+	.long MI_RefPQ+573
+	.long MI_RefPQ+292
+	.zero	8
+	.long 386282287
+.byte 242
+.byte 251
+.byte 81
+.byte 24
+.byte 221
+.byte 200
+.byte 87
+.byte 15
+	.long 1
+	.zero	4
+	.long 0
+	.long 1
+	.zero	4
+	.long 12
+	.zero	20
+	.long MI_RefPQ+550
+	.zero	8
+	.long -1780046616
+	.zero	16
+	.long MI_RefPQ+553
+	.zero	4
+	.ascii	"RefPQ.i3 => /home/ftp/tmp/pm3/tmp/pm3-1.1.15/language/modula"
+	.ascii	"3/m3compiler/m3bootstrap/LINUXLIBC6/pm3-LINUXLIBC6/boot-LINU"
+	.ascii	"XLIBC6/libm3/src/pqueue/PQueue.ig"
+	.zero	1
+.byte 1
+.byte 10
+.byte 0
+	.ascii	"RefPQ.DefaultPub"
+	.zero	1
+.byte 1
+.byte 10
+.byte 0
+	.ascii	"RefPQ.T"
+	.zero	1
+.byte 4
+.byte 0
+.byte 4
+.byte 0
+.byte 2
+.byte 10
+.byte 1
+.byte 17
+	.zero	3
+	.ident	"GCC: (GNU) cygnus-2.7.2-960712"

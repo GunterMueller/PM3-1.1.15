@@ -1,0 +1,4460 @@
+	.file	"Pickle.mc"
+	.version	"01.01"
+/ SRC Modula-3 version cygnus-2.7.2-960712 (i486--linuxelf) compiled by GNU C version egcs-2.91.66 19990314/Linux (egcs-1.1.2 release).
+/ options passed:  -fno-strength-reduce -O2
+/ options enabled:  -fdefer-pop -fcse-follow-jumps -fcse-skip-blocks
+/ -fexpensive-optimizations -fthread-jumps -fpeephole -fforce-mem
+/ -ffunction-cse -finline -fkeep-static-consts -fcaller-saves
+/ -fpcc-struct-return -frerun-cse-after-loop -fschedule-insns2 -fcommon
+/ -fverbose-asm -fgnu-linker -m80387 -mhard-float -mno-soft-float -mieee-fp
+/ -mfp-ret-in-387 -mschedule-prologue -mcpu=i486 -march=i486
+
+gcc2_compiled.:
+.text
+	.align 16
+	.type	 Pickle__Write,@function
+Pickle__Write:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%ebx
+	movl 12(%ebp),%esi
+	movl MM_Pickle+1640,%eax
+	pushl %eax
+	movl MI_RTHooks+80,%eax
+	call *%eax
+	movl %eax,%edx
+	movl (%edx),%eax
+	movl %ebx,4(%edx)
+	movl 4(%eax),%eax
+	pushl %esi
+	pushl %edx
+	call *%eax
+	leal -8(%ebp),%esp
+	popl %ebx
+	popl %esi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe1:
+	.size	 Pickle__Write,.Lfe1-Pickle__Write
+	.align 16
+	.type	 Pickle__Read,@function
+Pickle__Read:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %ebx
+	movl 8(%ebp),%ebx
+	movl MM_Pickle+1648,%eax
+	pushl %eax
+	movl MI_RTHooks+80,%eax
+	call *%eax
+	movl %eax,%edx
+	movl (%edx),%eax
+	movl %ebx,4(%edx)
+	movl 4(%eax),%eax
+	pushl %edx
+	call *%eax
+	movl -4(%ebp),%ebx
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe2:
+	.size	 Pickle__Read,.Lfe2-Pickle__Read
+	.align 16
+	.type	 Pickle__Hash,@function
+Pickle__Hash:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $8,%esp
+	movl 8(%ebp),%edx
+	movl 12(%ebp),%ecx
+.L4:
+	movl $5,-4(%ebp)
+	movl RTThread__handlerStack,%eax
+	movl %eax,-8(%ebp)
+	movl %eax,RTThread__handlerStack
+	testl %ecx,%ecx
+	jne .L5
+	pushl $4036
+	call _m3_fault
+	.align 16
+.L5:
+	movl %edx,%eax
+	andl $2147483647,%eax
+	sarl $16,%eax
+	andl $65535,%edx
+	imull %edx,%eax
+	pushl %eax
+	movl 4(%ecx),%eax
+	pushl %eax
+	call m3_mod
+.L6:
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe3:
+	.size	 Pickle__Hash,.Lfe3-Pickle__Hash
+	.align 16
+	.type	 Pickle__ExtendWriterTypes,@function
+Pickle__ExtendWriterTypes:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $20,%esp
+	pushl %edi
+	pushl %esi
+	leal -12(%ebp),%edx
+	pushl %ebx
+	movl 8(%ebp),%ebx
+	leal -4(%ebp),%edi
+	movl 32(%ebx),%esi
+	movl %edi,-12(%ebp)
+	movl $1,-8(%ebp)
+	movl 32(%ebx),%eax
+	testl %eax,%eax
+	jne .L8
+	pushl $4180
+	call _m3_fault
+	.align 16
+.L8:
+	movl 4(%eax),%eax
+	addl %eax,%eax
+	movl %eax,-4(%ebp)
+	pushl %edx
+	movl MM_Pickle+1656,%eax
+	pushl %eax
+	movl MI_RTHooks+84,%eax
+	call *%eax
+	movl %eax,%edx
+	movl %edx,32(%ebx)
+	addl $8,%esp
+	testl %edx,%edx
+	jne .L9
+	pushl $4196
+	call _m3_fault
+	.align 16
+.L9:
+	testl %esi,%esi
+	jne .L10
+	pushl $4196
+	call _m3_fault
+	.align 16
+.L10:
+	movl 4(%esi),%ecx
+	movl %ecx,-16(%ebp)
+	movl %ecx,%eax
+	subl 4(%edx),%eax
+	testl %eax,%eax
+	jle .L11
+	pushl $4193
+	call _m3_fault
+	.align 16
+.L11:
+	movl (%edx),%ebx
+	movl %esi,%edx
+	movl %ebx,-20(%ebp)
+	cmpl %ecx,4(%edx)
+	je .L13
+	pushl $4195
+	call _m3_fault
+	.align 16
+.L13:
+	leal 0(,%ecx,4),%eax
+	pushl %eax
+	movl (%edx),%eax
+	pushl %eax
+	pushl %ebx
+	call memmove
+	leal -32(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe4:
+	.size	 Pickle__ExtendWriterTypes,.Lfe4-Pickle__ExtendWriterTypes
+	.align 16
+	.type	 Pickle__ExtendWriterRefs,@function
+Pickle__ExtendWriterRefs:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $24,%esp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%esi
+	leal -12(%ebp),%edx
+	movl 20(%esi),%edi
+	movl %edi,-24(%ebp)
+	movl 16(%esi),%ebx
+	movl $-1,16(%esi)
+	leal -4(%ebp),%edi
+	movl %edi,-12(%ebp)
+	movl $1,-8(%ebp)
+	movl 20(%esi),%eax
+	testl %eax,%eax
+	jne .L15
+	pushl $4356
+	call _m3_fault
+	.align 16
+.L15:
+	movl 4(%eax),%eax
+	addl %eax,%eax
+	decl %eax
+	movl %eax,-4(%ebp)
+	pushl %edx
+	movl MM_Pickle+1664,%eax
+	pushl %eax
+	movl MI_RTHooks+84,%eax
+	call *%eax
+	movl %eax,%ecx
+	movl %ecx,20(%esi)
+	addl $8,%esp
+	jmp .L16
+	.align 16
+.L17:
+	cmpl $0,-24(%ebp)
+	jne .L18
+	pushl $4404
+	call _m3_fault
+	.align 16
+.L18:
+	movl -24(%ebp),%ecx
+	cmpl %ebx,4(%ecx)
+	ja .L19
+	pushl $4402
+	call _m3_fault
+	.align 16
+.L19:
+	leal (%ebx,%ebx,2),%edx
+	movl (%ecx),%eax
+	leal (%eax,%edx,4),%ecx
+	movl %ecx,-16(%ebp)
+	movl 20(%esi),%eax
+	pushl %eax
+	movl (%ecx),%eax
+	pushl %eax
+	call Pickle__Hash
+	movl %eax,%ebx
+	addl $8,%esp
+.L20:
+	movl 20(%esi),%eax
+	testl %eax,%eax
+	jne .L21
+	pushl $4452
+	call _m3_fault
+	.align 16
+.L21:
+	movl %eax,%ecx
+	cmpl %ebx,4(%ecx)
+	ja .L22
+	pushl $4450
+	call _m3_fault
+	.align 16
+.L22:
+	leal (%ebx,%ebx,2),%edx
+	movl (%ecx),%eax
+	leal (%eax,%edx,4),%ecx
+	movl %ecx,-20(%ebp)
+	movl (%ecx),%edx
+	testl %edx,%edx
+	jne .L23
+	movl -16(%ebp),%eax
+	movl (%eax),%eax
+	movl %eax,(%ecx)
+	movl -16(%ebp),%eax
+	movl -20(%ebp),%edx
+	movl 4(%eax),%eax
+	movl %eax,4(%edx)
+	movl 16(%esi),%eax
+	movl %eax,8(%edx)
+	movl %ebx,16(%esi)
+	jmp .L24
+	.align 16
+.L23:
+	movl -16(%ebp),%eax
+	cmpl %edx,(%eax)
+	jne .L25
+	pushl $4576
+	call _m3_fault
+	.align 16
+.L25:
+	incl %ebx
+	movl 20(%esi),%eax
+	testl %eax,%eax
+	jne .L26
+	pushl $4612
+	call _m3_fault
+	.align 16
+.L26:
+	cmpl %ebx,4(%eax)
+	jg .L20
+	xorl %ebx,%ebx
+	jmp .L20
+	.align 16
+.L24:
+	movl -16(%ebp),%eax
+	movl 8(%eax),%ebx
+.L16:
+	testl %ebx,%ebx
+	jge .L17
+	leal -36(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe5:
+	.size	 Pickle__ExtendWriterRefs,.Lfe5-Pickle__ExtendWriterRefs
+	.align 16
+	.type	 M_Pickle_LINE_340.0,@function
+M_Pickle_LINE_340.0:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $8,%esp
+	pushl %ebx
+	movl %ecx,-4(%ebp)
+	movl MI_RTCollector+56,%eax
+	movl -4(%ebp),%ebx
+	call *%eax
+	movl -44(%ebx),%eax
+	movl (%eax),%eax
+	movl %eax,-40(%ebx)
+	decl 8(%eax)
+	movl -44(%ebx),%eax
+	movl (%eax),%eax
+	movl 16(%eax),%eax
+	jmp .L60
+	.align 16
+.L56:
+	movl -44(%ebx),%eax
+	movl (%eax),%eax
+	movl 20(%eax),%edx
+	testl %edx,%edx
+	jne .L57
+	pushl $5540
+	call _m3_fault
+	.align 16
+.L57:
+	movl %edx,-40(%ebx)
+	movl -48(%ebx),%eax
+	cmpl %eax,4(%edx)
+	ja .L58
+	pushl $5538
+	call _m3_fault
+	.align 16
+.L58:
+	leal (%eax,%eax,2),%eax
+	movl (%edx),%edx
+	leal (%edx,%eax,4),%eax
+	movl %eax,-52(%ebx)
+	movl %eax,-8(%ebp)
+	movl %eax,-52(%ebx)
+	movl $0,(%eax)
+	movl -8(%ebp),%eax
+	movl 8(%eax),%eax
+.L60:
+	movl %eax,-48(%ebx)
+	cmpl $0,-48(%ebx)
+	jge .L56
+	movl -44(%ebx),%eax
+	movl (%eax),%eax
+	movl $-1,16(%eax)
+	movl -12(%ebp),%ebx
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe6:
+	.size	 M_Pickle_LINE_340.0,.Lfe6-M_Pickle_LINE_340.0
+	.align 16
+	.type	 Pickle__WriteRef,@function
+Pickle__WriteRef:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $100,%esp
+	pushl %edi
+	leal 8(%ebp),%edi
+	pushl %esi
+	xorl %esi,%esi
+	pushl %ebx
+	movl 8(%ebp),%eax
+	movl %edi,-44(%ebp)
+	cmpl $0,8(%eax)
+	jne .L30
+	cmpl $0,44(%eax)
+	jne .L31
+	movl MM_Pickle+1672,%eax
+	pushl %eax
+	movl MI_RTHooks+80,%eax
+	call *%eax
+	movl %eax,-52(%ebp)
+	movl %eax,%edx
+	movl 8(%ebp),%eax
+	addl $4,%esp
+	movl %eax,1032(%edx)
+	movl %eax,-40(%ebp)
+	movl %edx,44(%eax)
+.L31:
+	movl 8(%ebp),%eax
+	cmpl $0,52(%eax)
+	jne .L32
+	movl MM_Pickle+1680,%eax
+	pushl %eax
+	movl MI_RTHooks+80,%eax
+	call *%eax
+	movl %eax,-40(%ebp)
+	movl %eax,%edx
+	movl 8(%ebp),%eax
+	addl $4,%esp
+	movl %eax,4(%edx)
+	movl %eax,-52(%ebp)
+	movl %edx,52(%eax)
+.L32:
+	movl 8(%ebp),%eax
+	cmpl $0,20(%eax)
+	jne .L33
+	leal -12(%ebp),%eax
+	leal -4(%ebp),%edi
+	movl %edi,-12(%ebp)
+	movl $1,-8(%ebp)
+	movl $197,-4(%ebp)
+	pushl %eax
+	movl MM_Pickle+1664,%eax
+	pushl %eax
+	movl MI_RTHooks+84,%eax
+	call *%eax
+	movl %eax,-52(%ebp)
+	movl 8(%ebp),%edx
+	addl $8,%esp
+	movl %eax,20(%edx)
+	testl %eax,%eax
+	jne .L34
+	pushl $5060
+	call _m3_fault
+	.align 16
+.L34:
+	movl %eax,%edx
+	movl %esi,%ecx
+	movl (%edx),%eax
+	movl %eax,-20(%ebp)
+	movl 4(%edx),%eax
+	movl %eax,-16(%ebp)
+	leal -1(%eax),%ebx
+	jmp .L35
+	.align 16
+.L36:
+	cmpl %ecx,-16(%ebp)
+	ja .L37
+	pushl $5074
+	call _m3_fault
+	.align 16
+.L37:
+	leal (%ecx,%ecx,2),%edx
+	movl -20(%ebp),%eax
+	incl %ecx
+	movl $0,(%eax,%edx,4)
+.L35:
+	cmpl %ebx,%ecx
+	jle .L36
+	movl 8(%ebp),%eax
+	leal -12(%ebp),%esi
+	leal -4(%ebp),%ebx
+	movl $-1,16(%eax)
+	movl $0,24(%eax)
+	movl %ebx,-12(%ebp)
+	movl MI_RTType+44,%eax
+	movl $1,-8(%ebp)
+	call *%eax
+	incl %eax
+	movl %eax,-4(%ebp)
+	pushl %esi
+	movl MM_Pickle+1656,%eax
+	pushl %eax
+	movl MI_RTHooks+84,%eax
+	call *%eax
+	movl %eax,%edx
+	movl %edx,-52(%ebp)
+	movl 8(%ebp),%eax
+	movl %eax,-40(%ebp)
+	movl %edx,28(%eax)
+	movl %ebx,-12(%ebp)
+	movl $1,-8(%ebp)
+	movl $99,-4(%ebp)
+	pushl %esi
+	movl MM_Pickle+1656,%eax
+	pushl %eax
+	movl MI_RTHooks+84,%eax
+	call *%eax
+	movl %eax,%edx
+	movl %edx,-40(%ebp)
+	movl 8(%ebp),%eax
+	movl %eax,-52(%ebp)
+	addl $16,%esp
+	movl %edx,32(%eax)
+	movl 28(%eax),%edx
+	testl %edx,%edx
+	jne .L39
+	pushl $5172
+	call _m3_fault
+	.align 16
+.L39:
+	movl %edx,-52(%ebp)
+	movl (%edx),%eax
+	movl %eax,-20(%ebp)
+	movl 4(%edx),%eax
+	movl %eax,-16(%ebp)
+	xorl %edx,%edx
+	leal -1(%eax),%ecx
+	jmp .L40
+	.align 16
+.L41:
+	cmpl %edx,-16(%ebp)
+	ja .L42
+	pushl $5186
+	call _m3_fault
+	.align 16
+.L42:
+	movl -20(%ebp),%eax
+	movl $0,(%eax,%edx,4)
+	incl %edx
+.L40:
+	cmpl %ecx,%edx
+	jle .L41
+.L33:
+	movl 8(%ebp),%eax
+	cmpl $-1,16(%eax)
+	je .L44
+	pushl $5248
+	call _m3_fault
+	.align 16
+.L44:
+	movl $0,12(%eax)
+	movl $1,%ebx
+	movl 24(%eax),%esi
+	jmp .L45
+	.align 16
+.L46:
+	movl 8(%ebp),%eax
+	movl 28(%eax),%edx
+	testl %edx,%edx
+	jne .L47
+	pushl $5300
+	call _m3_fault
+	.align 16
+.L47:
+	movl %edx,-52(%ebp)
+	movl 32(%eax),%eax
+	testl %eax,%eax
+	jne .L48
+	pushl $5300
+	call _m3_fault
+	.align 16
+.L48:
+	movl %eax,-40(%ebp)
+	cmpl %ebx,4(%eax)
+	ja .L49
+	pushl $5298
+	call _m3_fault
+	.align 16
+.L49:
+	movl (%eax),%eax
+	movl (%eax,%ebx,4),%ecx
+	cmpl %ecx,4(%edx)
+	ja .L50
+	pushl $5298
+	call _m3_fault
+	.align 16
+.L50:
+	movl (%edx),%eax
+	incl %ebx
+	movl $0,(%eax,%ecx,4)
+.L45:
+	cmpl %esi,%ebx
+	jle .L46
+	movl 8(%ebp),%edx
+	leal -20(%ebp),%eax
+	movl $0,24(%edx)
+	movl $0,40(%edx)
+	movl $MM_Pickle+1203,-20(%ebp)
+	movl $7,-16(%ebp)
+	pushl %eax
+	movl 4(%edx),%eax
+	pushl %eax
+	movl MI_Wr+72,%eax
+	call *%eax
+	movl MI_RTCollector+52,%eax
+	call *%eax
+	movl 8(%ebp),%eax
+	movl %eax,-40(%ebp)
+	addl $8,%esp
+	incl 8(%eax)
+	movl $M_Pickle_LINE_340.0,-28(%ebp)
+	movl %ebp,-24(%ebp)
+.L52:
+	movl $3,-32(%ebp)
+	movl RTThread__handlerStack,%eax
+	movl %eax,-36(%ebp)
+	leal -36(%ebp),%edi
+	movl %edi,RTThread__handlerStack
+	movl 12(%ebp),%edi
+	pushl %edi
+	movl 8(%ebp),%eax
+	pushl %eax
+	call Pickle__WriteRef
+	movl -36(%ebp),%eax
+	movl %eax,RTThread__handlerStack
+	movl %ebp,%ecx
+	call M_Pickle_LINE_340.0
+	addl $8,%esp
+.L53:
+	movl $MM_Pickle+1216,-60(%ebp)
+	movl $2,-56(%ebp)
+	leal -60(%ebp),%eax
+	pushl %eax
+	movl 8(%ebp),%eax
+	movl 4(%eax),%eax
+	pushl %eax
+	movl MI_Wr+72,%eax
+	call *%eax
+	jmp .L29
+	.align 16
+.L30:
+	cmpl $0,12(%ebp)
+	jne .L62
+	pushl $48
+	movl 4(%eax),%eax
+	pushl %eax
+	movl MI_Wr+64,%eax
+	call *%eax
+	jmp .L29
+	.align 16
+.L62:
+	movl 20(%eax),%eax
+	pushl %eax
+	movl 12(%ebp),%edi
+	pushl %edi
+	call Pickle__Hash
+	movl %eax,-48(%ebp)
+	addl $8,%esp
+.L64:
+	movl 8(%ebp),%esi
+	movl 20(%esi),%eax
+	testl %eax,%eax
+	jne .L65
+	pushl $5940
+	call _m3_fault
+	.align 16
+.L65:
+	movl %eax,%ebx
+	movl -48(%ebp),%ecx
+	cmpl %ecx,4(%ebx)
+	ja .L66
+	pushl $5938
+	call _m3_fault
+	.align 16
+.L66:
+	leal (%ecx,%ecx,2),%edx
+	movl (%ebx),%eax
+	leal (%eax,%edx,4),%edx
+	movl %edx,-64(%ebp)
+	movl (%edx),%eax
+	testl %eax,%eax
+	jne .L67
+	movl 12(%ebp),%edi
+	movl %edi,(%edx)
+	movl 8(%ebp),%edx
+	movl -64(%ebp),%ecx
+	movl 12(%edx),%eax
+	movl %eax,4(%ecx)
+	movl 16(%edx),%eax
+	movl %eax,8(%ecx)
+	movl -48(%ebp),%eax
+	movl %eax,16(%edx)
+	movl 12(%edx),%eax
+	leal 1(%eax),%edi
+	movl %edi,12(%edx)
+	movl 20(%edx),%ecx
+	testl %ecx,%ecx
+	jne .L68
+	pushl $6084
+	call _m3_fault
+	.align 16
+.L68:
+	leal 2(,%eax,2),%eax
+	cmpl %eax,4(%ecx)
+	jge .L69
+	pushl %edx
+	call Pickle__ExtendWriterRefs
+	addl $4,%esp
+.L69:
+	movl MM_Pickle+1188,%eax
+	movl %eax,-68(%ebp)
+	pushl %eax
+	movl MI_RTHooks+68,%eax
+	call *%eax
+	addl $4,%esp
+.L70:
+	movl $6,-72(%ebp)
+	movl RTThread__handlerStack,%eax
+	movl %eax,-76(%ebp)
+	leal -76(%ebp),%edi
+	movl %edi,RTThread__handlerStack
+	movl 12(%ebp),%edx
+	testl %edx,%edx
+	je .L71
+	movl -4(%edx),%eax
+	sall $11,%eax
+	movl %eax,%edx
+	shrl $12,%edx
+.L71:
+	movl MM_Pickle+1192,%eax
+	testl %eax,%eax
+	jne .L72
+	pushl $6180
+	call _m3_fault
+	.align 16
+.L72:
+	movl %eax,%ebx
+	cmpl %edx,4(%ebx)
+	ja .L73
+	pushl $6178
+	call _m3_fault
+	.align 16
+.L73:
+	movl (%ebx),%eax
+	movl (%eax,%edx,4),%esi
+.L74:
+	movl -76(%ebp),%eax
+	movl %eax,RTThread__handlerStack
+	movl -68(%ebp),%eax
+	pushl %eax
+	movl MI_RTHooks+72,%eax
+	call *%eax
+	movl 8(%ebp),%eax
+	movl 4(%eax),%eax
+	movl %eax,-80(%ebp)
+	pushl %eax
+	movl MI_RTHooks+68,%eax
+	call *%eax
+	addl $8,%esp
+.L75:
+	movl $6,-84(%ebp)
+	movl RTThread__handlerStack,%eax
+	movl %eax,-88(%ebp)
+	leal -88(%ebp),%edi
+	movl %edi,RTThread__handlerStack
+	pushl $53
+	movl 8(%ebp),%eax
+	movl 4(%eax),%eax
+	pushl %eax
+	movl MI_UnsafeWr+44,%eax
+	call *%eax
+	addl $8,%esp
+.L76:
+	movl -88(%ebp),%eax
+	movl %eax,RTThread__handlerStack
+	movl -80(%ebp),%eax
+	pushl %eax
+	movl MI_RTHooks+72,%eax
+	call *%eax
+	movl 8(%ebp),%edx
+	movl (%edx),%eax
+	movl 8(%eax),%ebx
+	movl 8(%esi),%eax
+	pushl %eax
+	pushl %edx
+	call *%ebx
+	movl (%esi),%eax
+	movl 4(%eax),%ebx
+	movl 8(%ebp),%eax
+	pushl %eax
+	movl 12(%ebp),%edi
+	pushl %edi
+	pushl %esi
+	call *%ebx
+	jmp .L29
+	.align 16
+.L67:
+	cmpl %eax,12(%ebp)
+	jne .L78
+	movl 4(%esi),%eax
+	movl %eax,-92(%ebp)
+	pushl %eax
+	movl MI_RTHooks+68,%eax
+	call *%eax
+	addl $4,%esp
+.L79:
+	movl $6,-96(%ebp)
+	movl RTThread__handlerStack,%eax
+	movl %eax,-100(%ebp)
+	leal -100(%ebp),%edi
+	movl %edi,RTThread__handlerStack
+	pushl $49
+	movl 8(%ebp),%eax
+	movl 4(%eax),%eax
+	pushl %eax
+	movl MI_UnsafeWr+44,%eax
+	call *%eax
+	addl $8,%esp
+.L80:
+	movl -100(%ebp),%eax
+	movl %eax,RTThread__handlerStack
+	movl -92(%ebp),%eax
+	pushl %eax
+	movl MI_RTHooks+72,%eax
+	call *%eax
+	movl 8(%ebp),%edx
+	movl (%edx),%eax
+	movl 12(%eax),%ebx
+	movl -64(%ebp),%eax
+	movl 4(%eax),%eax
+	pushl %eax
+	pushl %edx
+	call *%ebx
+	jmp .L29
+	.align 16
+.L78:
+	leal 1(%ecx),%edi
+	movl %edi,-48(%ebp)
+	movl 20(%esi),%edx
+	testl %edx,%edx
+	jne .L81
+	pushl $6468
+	call _m3_fault
+	.align 16
+.L81:
+	leal 1(%ecx),%eax
+	cmpl %eax,4(%edx)
+	jg .L82
+	movl $0,-48(%ebp)
+.L82:
+	incl 40(%esi)
+	jmp .L64
+	.align 16
+.L29:
+	leal -112(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe7:
+	.size	 Pickle__WriteRef,.Lfe7-Pickle__WriteRef
+	.align 16
+	.type	 Pickle__WriteType,@function
+Pickle__WriteType:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $52,%esp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%esi
+	movl 28(%esi),%eax
+	testl %eax,%eax
+	jne .L84
+	pushl $6676
+	call _m3_fault
+	.align 16
+.L84:
+	movl 12(%ebp),%ecx
+	cmpl %ecx,4(%eax)
+	ja .L85
+	pushl $6674
+	call _m3_fault
+	.align 16
+.L85:
+	movl (%eax),%eax
+	movl 12(%ebp),%ecx
+	leal (%eax,%ecx,4),%ebx
+	movl %ebx,%edi
+	movl (%edi),%eax
+	testl %eax,%eax
+	jne .L86
+	movl %esi,%ebx
+	movl 24(%ebx),%edx
+	incl %edx
+	movl %edx,24(%ebx)
+	movl 32(%ebx),%eax
+	testl %eax,%eax
+	jne .L87
+	pushl $6724
+	call _m3_fault
+	.align 16
+.L87:
+	cmpl %edx,4(%eax)
+	jg .L88
+	pushl %ebx
+	call Pickle__ExtendWriterTypes
+	addl $4,%esp
+.L88:
+	movl 24(%ebx),%eax
+	movl %eax,(%edi)
+	movl 32(%ebx),%eax
+	testl %eax,%eax
+	jne .L89
+	pushl $6788
+	call _m3_fault
+	.align 16
+.L89:
+	movl %eax,%ebx
+	movl 24(%esi),%edx
+	cmpl %edx,4(%ebx)
+	ja .L90
+	pushl $6786
+	call _m3_fault
+	.align 16
+.L90:
+	movl (%ebx),%eax
+	movl 12(%ebp),%ecx
+	movl %ecx,(%eax,%edx,4)
+	cmpl $1048575,%ecx
+	jbe .L91
+	pushl $6801
+	call _m3_fault
+	.align 16
+.L91:
+	leal -8(%ebp),%eax
+	pushl %eax
+	movl 12(%ebp),%ecx
+	pushl %ecx
+	movl MI_RTTypeFP+44,%eax
+	call *%eax
+	movl 4(%esi),%eax
+	movl %eax,-12(%ebp)
+	pushl %eax
+	movl MI_RTHooks+68,%eax
+	call *%eax
+	addl $12,%esp
+.L92:
+	movl $6,-16(%ebp)
+	movl RTThread__handlerStack,%eax
+	movl %eax,-20(%ebp)
+	leal -20(%ebp),%ecx
+	movl %ecx,RTThread__handlerStack
+	pushl $0
+	movl 4(%esi),%eax
+	pushl %eax
+	movl MI_UnsafeWr+44,%eax
+	call *%eax
+	leal -8(%ebp),%ecx
+	movl %ecx,-28(%ebp)
+	movl $8,-24(%ebp)
+	leal -28(%ebp),%eax
+	pushl %eax
+	movl 4(%esi),%eax
+	pushl %eax
+	movl MI_UnsafeWr+52,%eax
+	call *%eax
+	addl $16,%esp
+.L93:
+	movl -20(%ebp),%eax
+	movl %eax,RTThread__handlerStack
+	movl -12(%ebp),%eax
+	jmp .L101
+	.align 16
+.L86:
+	cmpl $254,%eax
+	jg .L95
+	movl 4(%esi),%eax
+	movl %eax,-32(%ebp)
+	pushl %eax
+	movl MI_RTHooks+68,%eax
+	call *%eax
+	addl $4,%esp
+.L96:
+	movl $6,-36(%ebp)
+	movl RTThread__handlerStack,%eax
+	movl %eax,-40(%ebp)
+	leal -40(%ebp),%ecx
+	movl %ecx,RTThread__handlerStack
+	movl (%edi),%eax
+	cmpl $255,%eax
+	jbe .L97
+	pushl $6913
+	call _m3_fault
+	.align 16
+.L97:
+	pushl %eax
+	movl 4(%esi),%eax
+	pushl %eax
+	movl MI_UnsafeWr+44,%eax
+	call *%eax
+	addl $8,%esp
+.L98:
+	movl -40(%ebp),%eax
+	movl %eax,RTThread__handlerStack
+	movl -32(%ebp),%eax
+.L101:
+	pushl %eax
+	movl MI_RTHooks+72,%eax
+	call *%eax
+	jmp .L83
+	.align 16
+.L95:
+	movl 4(%esi),%eax
+	movl %eax,-44(%ebp)
+	pushl %eax
+	movl MI_RTHooks+68,%eax
+	call *%eax
+	addl $4,%esp
+.L99:
+	movl $6,-48(%ebp)
+	movl RTThread__handlerStack,%eax
+	movl %eax,-52(%ebp)
+	leal -52(%ebp),%ecx
+	movl %ecx,RTThread__handlerStack
+	pushl $255
+	movl 4(%esi),%eax
+	pushl %eax
+	movl MI_UnsafeWr+44,%eax
+	call *%eax
+	addl $8,%esp
+.L100:
+	movl -52(%ebp),%eax
+	movl %eax,RTThread__handlerStack
+	movl -44(%ebp),%eax
+	pushl %eax
+	movl MI_RTHooks+72,%eax
+	call *%eax
+	movl (%esi),%eax
+	movl 12(%eax),%ebx
+	movl (%edi),%eax
+	pushl %eax
+	pushl %esi
+	call *%ebx
+.L83:
+	leal -64(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe8:
+	.size	 Pickle__WriteType,.Lfe8-Pickle__WriteType
+	.align 16
+	.type	 Pickle__WriteInt,@function
+Pickle__WriteInt:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $24,%esp
+	pushl %ebx
+	movl 8(%ebp),%ebx
+	movl 12(%ebp),%eax
+	movl %eax,-4(%ebp)
+	movl 4(%ebx),%eax
+	movl %eax,-8(%ebp)
+	pushl %eax
+	movl MI_RTHooks+68,%eax
+	call *%eax
+	addl $4,%esp
+.L103:
+	movl $6,-12(%ebp)
+	movl RTThread__handlerStack,%eax
+	movl %eax,-16(%ebp)
+	leal -16(%ebp),%edx
+	movl %edx,RTThread__handlerStack
+	leal -4(%ebp),%edx
+	movl %edx,-24(%ebp)
+	movl $4,-20(%ebp)
+	leal -24(%ebp),%eax
+	pushl %eax
+	movl 4(%ebx),%eax
+	pushl %eax
+	movl MI_UnsafeWr+52,%eax
+	call *%eax
+	addl $8,%esp
+.L105:
+	movl -16(%ebp),%eax
+	movl %eax,RTThread__handlerStack
+	movl -8(%ebp),%eax
+	pushl %eax
+	movl MI_RTHooks+72,%eax
+	call *%eax
+	movl -28(%ebp),%ebx
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe9:
+	.size	 Pickle__WriteInt,.Lfe9-Pickle__WriteInt
+	.align 16
+	.type	 Pickle__ExtendReaderTypes,@function
+Pickle__ExtendReaderTypes:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $20,%esp
+	pushl %edi
+	pushl %esi
+	leal -12(%ebp),%edx
+	pushl %ebx
+	movl 8(%ebp),%ebx
+	leal -4(%ebp),%edi
+	movl 52(%ebx),%esi
+	movl %edi,-12(%ebp)
+	movl $1,-8(%ebp)
+	movl 52(%ebx),%eax
+	testl %eax,%eax
+	jne .L107
+	pushl $7380
+	call _m3_fault
+	.align 16
+.L107:
+	movl 4(%eax),%eax
+	addl %eax,%eax
+	movl %eax,-4(%ebp)
+	pushl %edx
+	movl MM_Pickle+1656,%eax
+	pushl %eax
+	movl MI_RTHooks+84,%eax
+	call *%eax
+	movl %eax,%edx
+	movl %edx,52(%ebx)
+	addl $8,%esp
+	testl %edx,%edx
+	jne .L108
+	pushl $7396
+	call _m3_fault
+	.align 16
+.L108:
+	testl %esi,%esi
+	jne .L109
+	pushl $7396
+	call _m3_fault
+	.align 16
+.L109:
+	movl 4(%esi),%ecx
+	movl %ecx,-16(%ebp)
+	movl %ecx,%eax
+	subl 4(%edx),%eax
+	testl %eax,%eax
+	jle .L110
+	pushl $7393
+	call _m3_fault
+	.align 16
+.L110:
+	movl (%edx),%ebx
+	movl %esi,%edx
+	movl %ebx,-20(%ebp)
+	cmpl %ecx,4(%edx)
+	je .L112
+	pushl $7395
+	call _m3_fault
+	.align 16
+.L112:
+	leal 0(,%ecx,4),%eax
+	pushl %eax
+	movl (%edx),%eax
+	pushl %eax
+	pushl %ebx
+	call memmove
+	leal -32(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe10:
+	.size	 Pickle__ExtendReaderTypes,.Lfe10-Pickle__ExtendReaderTypes
+	.align 16
+	.type	 Pickle__GetBinaryInt,@function
+Pickle__GetBinaryInt:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $12,%esp
+	leal -4(%ebp),%edx
+	leal -12(%ebp),%eax
+	pushl %ebx
+	movl 8(%ebp),%ebx
+	movl $0,-4(%ebp)
+	movl %edx,-12(%ebp)
+	movl $4,-8(%ebp)
+	pushl %eax
+	movl 4(%ebx),%eax
+	pushl %eax
+	movl MI_Rd+96,%eax
+	call *%eax
+	addl $8,%esp
+	cmpl $4,%eax
+	je .L115
+	pushl $0
+	pushl $MI_Rd+44
+	movl MI_RTHooks+52,%eax
+	call *%eax
+	addl $8,%esp
+.L115:
+	cmpb $51,60(%ebx)
+	jne .L116
+	movb 21(%ebx),%al
+	cmpb %al,MI_PickleRd+161
+	je .L116
+	movl -4(%ebp),%eax
+	pushl %eax
+	movl MI_Swap+48,%eax
+	call *%eax
+	movl %eax,-4(%ebp)
+.L116:
+	movl -4(%ebp),%eax
+	movl -16(%ebp),%ebx
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe11:
+	.size	 Pickle__GetBinaryInt,.Lfe11-Pickle__GetBinaryInt
+	.align 16
+	.type	 Pickle__ReadFP,@function
+Pickle__ReadFP:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $16,%esp
+	pushl %edi
+	leal -16(%ebp),%eax
+	pushl %esi
+	leal -8(%ebp),%esi
+	pushl %ebx
+	movl 8(%ebp),%edi
+	movl %esi,-16(%ebp)
+	movl $8,-12(%ebp)
+	pushl %eax
+	movl 4(%edi),%eax
+	pushl %eax
+	movl MI_Rd+96,%eax
+	call *%eax
+	addl $8,%esp
+	cmpl $8,%eax
+	je .L119
+	pushl $0
+	pushl $MI_Rd+44
+	movl MI_RTHooks+52,%eax
+	call *%eax
+	addl $8,%esp
+.L119:
+	movl %edi,%ebx
+	movl 44(%ebx),%edx
+	incl %edx
+	movl %edx,44(%ebx)
+	movl 52(%ebx),%eax
+	testl %eax,%eax
+	jne .L120
+	pushl $7876
+	call _m3_fault
+	.align 16
+.L120:
+	cmpl %edx,4(%eax)
+	jg .L121
+	pushl %ebx
+	call Pickle__ExtendReaderTypes
+	addl $4,%esp
+.L121:
+	pushl %esi
+	movl MI_RTTypeFP+48,%eax
+	call *%eax
+	movl %eax,%esi
+	addl $4,%esp
+	cmpl $1048575,%esi
+	jne .L122
+	pushl $MM_Pickle+1692
+	pushl $MI_Pickle+44
+	movl MI_RTHooks+52,%eax
+	call *%eax
+	addl $8,%esp
+.L122:
+	movl 52(%ebx),%eax
+	testl %eax,%eax
+	jne .L123
+	pushl $8004
+	call _m3_fault
+	.align 16
+.L123:
+	movl %eax,%ebx
+	movl 44(%edi),%edx
+	cmpl %edx,4(%ebx)
+	ja .L124
+	pushl $8002
+	call _m3_fault
+	.align 16
+.L124:
+	movl (%ebx),%eax
+	leal -28(%ebp),%esp
+	movl %esi,(%eax,%edx,4)
+	movl %esi,%eax
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe12:
+	.size	 Pickle__ReadFP,.Lfe12-Pickle__ReadFP
+	.align 16
+	.type	 Pickle__TCFromIndex,@function
+Pickle__TCFromIndex:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%esi
+	movl 12(%ebp),%ebx
+	cmpl %ebx,44(%esi)
+	jge .L126
+	pushl $MM_Pickle+1756
+	pushl $MI_Pickle+44
+	movl MI_RTHooks+52,%eax
+	call *%eax
+	addl $8,%esp
+.L126:
+	movl 52(%esi),%eax
+	testl %eax,%eax
+	jne .L127
+	pushl $8164
+	call _m3_fault
+	.align 16
+.L127:
+	cmpl %ebx,4(%eax)
+	ja .L128
+	pushl $8162
+	call _m3_fault
+	.align 16
+.L128:
+	movl (%eax),%eax
+	leal -8(%ebp),%esp
+	movl (%eax,%ebx,4),%eax
+	popl %ebx
+	popl %esi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe13:
+	.size	 Pickle__TCFromIndex,.Lfe13-Pickle__TCFromIndex
+	.align 16
+	.type	 Pickle__InvokeSpecial,@function
+Pickle__InvokeSpecial:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $12,%esp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%edi
+	movl 12(%ebp),%ebx
+	movl MM_Pickle+1188,%eax
+	movl %eax,-4(%ebp)
+	pushl %eax
+	movl MI_RTHooks+68,%eax
+	call *%eax
+	addl $4,%esp
+.L130:
+	movl $6,-8(%ebp)
+	movl RTThread__handlerStack,%eax
+	movl %eax,-12(%ebp)
+	leal -12(%ebp),%ecx
+	movl %ecx,RTThread__handlerStack
+	movl MM_Pickle+1192,%eax
+	testl %eax,%eax
+	jne .L131
+	pushl $8292
+	call _m3_fault
+	.align 16
+.L131:
+	cmpl %ebx,4(%eax)
+	ja .L132
+	pushl $8290
+	call _m3_fault
+	.align 16
+.L132:
+	movl (%eax),%eax
+	movl (%eax,%ebx,4),%esi
+.L133:
+	movl -12(%ebp),%eax
+	movl %eax,RTThread__handlerStack
+	movl -4(%ebp),%eax
+	pushl %eax
+	movl MI_RTHooks+72,%eax
+	call *%eax
+	addl $4,%esp
+	cmpl %ebx,8(%esi)
+	je .L134
+	pushl $MM_Pickle+1808
+	pushl $MI_Pickle+44
+	movl MI_RTHooks+52,%eax
+	call *%eax
+	addl $8,%esp
+.L134:
+	movl 48(%edi),%eax
+	testl %eax,%eax
+	jne .L135
+	pushl $8372
+	call _m3_fault
+	.align 16
+.L135:
+	movl 4(%eax),%eax
+	cmpl %eax,40(%edi)
+	jl .L136
+	pushl %edi
+	call Pickle__ExpandRefs
+	addl $4,%esp
+.L136:
+	movl 40(%edi),%ebx
+	movl 48(%edi),%eax
+	testl %eax,%eax
+	jne .L137
+	pushl $8404
+	call _m3_fault
+	.align 16
+.L137:
+	cmpl %ebx,4(%eax)
+	ja .L138
+	pushl $8402
+	call _m3_fault
+	.align 16
+.L138:
+	movl (%eax),%edx
+	movl MM_Pickle+1220,%eax
+	movl %eax,(%edx,%ebx,4)
+	incl 40(%edi)
+	incl 32(%edi)
+	movl (%esi),%eax
+	movl 8(%eax),%eax
+	pushl %ebx
+	pushl %edi
+	pushl %esi
+	call *%eax
+	movl %eax,%esi
+	movl %edi,%eax
+	decl 32(%eax)
+	movl (%eax),%eax
+	movl 16(%eax),%eax
+	pushl %ebx
+	pushl %esi
+	pushl %edi
+	call *%eax
+	leal -24(%ebp),%esp
+	movl %esi,%eax
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe14:
+	.size	 Pickle__InvokeSpecial,.Lfe14-Pickle__InvokeSpecial
+	.align 16
+	.type	 Pickle__ExpandRefs,@function
+Pickle__ExpandRefs:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $20,%esp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%edi
+	movl 48(%edi),%esi
+	testl %esi,%esi
+	jne .L140
+	pushl $8564
+	call _m3_fault
+	.align 16
+.L140:
+	movl 4(%esi),%ebx
+	leal -12(%ebp),%eax
+	leal -4(%ebp),%ecx
+	movl %ecx,-12(%ebp)
+	movl $1,-8(%ebp)
+	movl %ebx,%ecx
+	addl %ebx,%ecx
+	movl %ecx,-4(%ebp)
+	pushl %eax
+	movl MM_Pickle+1856,%eax
+	pushl %eax
+	movl MI_RTHooks+84,%eax
+	call *%eax
+	movl %eax,%edx
+	movl %edx,48(%edi)
+	addl $8,%esp
+	testl %edx,%edx
+	jne .L141
+	pushl $8612
+	call _m3_fault
+	.align 16
+.L141:
+	movl %ebx,-16(%ebp)
+	movl %ebx,%eax
+	subl 4(%edx),%eax
+	testl %eax,%eax
+	jle .L142
+	pushl $8609
+	call _m3_fault
+	.align 16
+.L142:
+	movl (%edx),%edi
+	movl %esi,%edx
+	movl %edi,-20(%ebp)
+	cmpl %ebx,4(%edx)
+	je .L144
+	pushl $8611
+	call _m3_fault
+	.align 16
+.L144:
+	leal 0(,%ebx,4),%eax
+	pushl %eax
+	movl (%edx),%eax
+	pushl %eax
+	pushl %edi
+	call memmove
+	leal -32(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe15:
+	.size	 Pickle__ExpandRefs,.Lfe15-Pickle__ExpandRefs
+	.align 16
+	.type	 Pickle__ReadRef,@function
+Pickle__ReadRef:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%esi
+	xorl %ebx,%ebx
+	cmpl $0,32(%esi)
+	jne .L147
+	pushl %esi
+	call Pickle__StartRead
+.L159:
+	addl $4,%esp
+.L147:
+	movl 4(%esi),%eax
+	pushl %eax
+	movl MI_Rd+80,%eax
+	call *%eax
+	andl $255,%eax
+	addl $4,%esp
+	cmpl $50,%eax
+	jne .L149
+	pushl %esi
+	call Pickle__ReadFP
+	jmp .L159
+	.align 16
+.L149:
+	cmpl $48,%eax
+	jne .L150
+	xorl %ebx,%ebx
+	jmp .L151
+	.align 16
+.L150:
+	cmpl $49,%eax
+	jne .L152
+	movl (%esi),%eax
+	movl 12(%eax),%eax
+	pushl %esi
+	call *%eax
+	movl %eax,%ebx
+	addl $4,%esp
+	cmpl %ebx,40(%esi)
+	jg .L153
+	pushl $MM_Pickle+1868
+	pushl $MI_Pickle+44
+	movl MI_RTHooks+52,%eax
+	call *%eax
+	addl $8,%esp
+.L153:
+	movl 48(%esi),%eax
+	testl %eax,%eax
+	jne .L154
+	pushl $9012
+	call _m3_fault
+	.align 16
+.L154:
+	cmpl %ebx,4(%eax)
+	ja .L155
+	pushl $9010
+	call _m3_fault
+	.align 16
+.L155:
+	movl (%eax),%eax
+	movl (%eax,%ebx,4),%ebx
+	jmp .L151
+	.align 16
+.L152:
+	cmpl $53,%eax
+	jne .L156
+	movl (%esi),%eax
+	movl 8(%eax),%eax
+	pushl %esi
+	call *%eax
+	movl %eax,%ebx
+	pushl %ebx
+	pushl %esi
+	call Pickle__InvokeSpecial
+	movl %eax,%ebx
+	addl $12,%esp
+	jmp .L151
+	.align 16
+.L156:
+	cmpl $51,%eax
+	jne .L157
+	pushl %esi
+	call Pickle__GetBinaryInt
+	movl %eax,%ebx
+	movl %ebx,%edi
+	pushl %esi
+	call Pickle__GetBinaryInt
+	movl %eax,%ebx
+	movl %ebx,36(%esi)
+	pushl %edi
+	pushl %esi
+	call Pickle__TCFromIndex
+	movl %eax,%ebx
+	pushl %ebx
+	pushl %esi
+	call Pickle__InvokeSpecial
+	movl %eax,%ebx
+	movl $0,36(%esi)
+	addl $24,%esp
+	jmp .L151
+	.align 16
+.L157:
+	pushl $MM_Pickle+1920
+	pushl $MI_Pickle+44
+	movl MI_RTHooks+52,%eax
+	call *%eax
+	addl $8,%esp
+.L151:
+	cmpl $0,32(%esi)
+	jne .L158
+	pushl %esi
+	call Pickle__FinishRead
+.L158:
+	leal -12(%ebp),%esp
+	movl %ebx,%eax
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe16:
+	.size	 Pickle__ReadRef,.Lfe16-Pickle__ReadRef
+	.align 16
+	.type	 Pickle__StartRead,@function
+Pickle__StartRead:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $28,%esp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%edi
+	cmpl $0,48(%edi)
+	jne .L161
+	leal -20(%ebp),%esi
+	leal -12(%ebp),%ebx
+	movl %ebx,-20(%ebp)
+	movl $1,-16(%ebp)
+	movl $99,-12(%ebp)
+	pushl %esi
+	movl MM_Pickle+1856,%eax
+	pushl %eax
+	movl MI_RTHooks+84,%eax
+	call *%eax
+	movl %eax,48(%edi)
+	movl %ebx,-20(%ebp)
+	movl $1,-16(%ebp)
+	movl $99,-12(%ebp)
+	pushl %esi
+	movl MM_Pickle+1656,%eax
+	pushl %eax
+	movl MI_RTHooks+84,%eax
+	call *%eax
+	movl %eax,52(%edi)
+	addl $16,%esp
+.L161:
+	cmpl $0,64(%edi)
+	jne .L162
+	movl MM_Pickle+1964,%eax
+	pushl %eax
+	movl MI_RTHooks+80,%eax
+	call *%eax
+	movl %edi,4(%eax)
+	movl %eax,64(%edi)
+	addl $4,%esp
+.L162:
+	movl $0,40(%edi)
+	movl $0,44(%edi)
+	leal -8(%ebp),%ecx
+	movl %ecx,-28(%ebp)
+	movl $7,-24(%ebp)
+	leal -28(%ebp),%eax
+	pushl %eax
+	movl 4(%edi),%eax
+	pushl %eax
+	movl MI_Rd+96,%eax
+	call *%eax
+	addl $8,%esp
+	cmpl $7,%eax
+	je .L163
+	pushl $0
+	pushl $MI_Rd+44
+	movl MI_RTHooks+52,%eax
+	call *%eax
+	addl $8,%esp
+.L163:
+	movb -8(%ebp),%al
+	cmpb %al,MM_Pickle+1203
+	jne .L164
+	movb -7(%ebp),%al
+	cmpb %al,MM_Pickle+1204
+	je .L165
+.L164:
+	pushl $MM_Pickle+1976
+	pushl $MI_Pickle+44
+	movl MI_RTHooks+52,%eax
+	call *%eax
+	addl $8,%esp
+.L165:
+	movb -6(%ebp),%al
+	movb %al,60(%edi)
+	cmpb $51,-6(%ebp)
+	jne .L166
+	addl $-8,%esp
+	movl -8(%ebp),%eax
+	movl %eax,(%esp)
+	movw -4(%ebp),%ax
+	movw %ax,4(%esp)
+	movb -2(%ebp),%al
+	movb %al,6(%esp)
+	call Pickle__GetPacking
+	movl %eax,%edx
+	movl %edx,24(%edi)
+	movl %edi,%ebx
+	leal 8(%ebx),%eax
+	pushl %eax
+	pushl %edx
+	movl MI_RTPacking+52,%eax
+	call *%eax
+	movl $MI_PickleRd+148,%edx
+	movl 12(%edx),%eax
+	pushl %eax
+	movl 8(%edx),%eax
+	pushl %eax
+	movl 4(%edx),%eax
+	pushl %eax
+	movl MI_PickleRd+148,%eax
+	pushl %eax
+	movl 20(%ebx),%eax
+	pushl %eax
+	movl 16(%ebx),%eax
+	pushl %eax
+	movl 12(%ebx),%eax
+	pushl %eax
+	movl 8(%ebx),%eax
+	pushl %eax
+	movl MI_ConvertPacking+388,%eax
+	call *%eax
+	movb %al,28(%ebx)
+	movb 20(%ebx),%al
+	addl $48,%esp
+	cmpb %al,MI_PickleRd+160
+	je .L160
+	jmp .L174
+	.align 16
+.L166:
+	cmpl $0,68(%edi)
+	jne .L169
+	movl MM_Pickle+2064,%eax
+	pushl %eax
+	movl MI_RTHooks+80,%eax
+	call *%eax
+	movl %eax,%ebx
+	addl $4,%esp
+	movl %edi,1032(%ebx)
+	movl %ebx,68(%edi)
+.L169:
+	xorl %edx,%edx
+	movb -6(%ebp),%dl
+	xorl %eax,%eax
+	movb MM_Pickle+1198,%al
+	cmpl %eax,%edx
+	je .L170
+	cmpl $49,%edx
+	je .L170
+	pushl $MM_Pickle+2076
+	pushl $MI_Pickle+44
+	movl MI_RTHooks+52,%eax
+	call *%eax
+	addl $8,%esp
+.L170:
+	movb -5(%ebp),%al
+	cmpb %al,MM_Pickle+1199
+	je .L171
+	pushl $MM_Pickle+2124
+	pushl $MI_Pickle+44
+	movl MI_RTHooks+52,%eax
+	call *%eax
+	addl $8,%esp
+.L171:
+	movb -4(%ebp),%al
+	cmpb %al,MM_Pickle+1200
+	je .L172
+	pushl $MM_Pickle+2168
+	pushl $MI_Pickle+44
+	movl MI_RTHooks+52,%eax
+	call *%eax
+	addl $8,%esp
+.L172:
+	movb -2(%ebp),%al
+	cmpb %al,MM_Pickle+1202
+	je .L160
+.L174:
+	pushl $MM_Pickle+2024
+	pushl $MI_Pickle+44
+	movl MI_RTHooks+52,%eax
+	call *%eax
+.L160:
+	leal -40(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe17:
+	.size	 Pickle__StartRead,.Lfe17-Pickle__StartRead
+	.align 16
+	.type	 Pickle__FinishRead,@function
+Pickle__FinishRead:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $8,%esp
+	pushl %ebx
+	movl 8(%ebp),%ebx
+	movl 4(%ebx),%eax
+	pushl %eax
+	movl MI_Rd+80,%eax
+	call *%eax
+	addl $4,%esp
+	cmpl $52,%eax
+	jne .L176
+	movl 4(%ebx),%eax
+	pushl %eax
+	movl MI_Rd+80,%eax
+	call *%eax
+	addl $4,%esp
+	cmpl $10,%eax
+	je .L177
+.L176:
+	pushl $MM_Pickle+2208
+	pushl $MI_Pickle+44
+	movl MI_RTHooks+52,%eax
+	call *%eax
+	addl $8,%esp
+.L177:
+	movl 48(%ebx),%eax
+	testl %eax,%eax
+	jne .L178
+	pushl $10436
+	call _m3_fault
+	.align 16
+.L178:
+	movl %eax,%edx
+	movl (%edx),%eax
+	movl %eax,-8(%ebp)
+	movl 4(%edx),%eax
+	movl %eax,-4(%ebp)
+	xorl %edx,%edx
+	movl 40(%ebx),%ecx
+	decl %ecx
+	jmp .L179
+	.align 16
+.L180:
+	cmpl %edx,-4(%ebp)
+	ja .L181
+	pushl $10450
+	call _m3_fault
+	.align 16
+.L181:
+	movl -8(%ebp),%eax
+	movl $0,(%eax,%edx,4)
+	incl %edx
+.L179:
+	cmpl %ecx,%edx
+	jle .L180
+	movl -12(%ebp),%ebx
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe18:
+	.size	 Pickle__FinishRead,.Lfe18-Pickle__FinishRead
+	.align 16
+	.type	 Pickle__ReadType,@function
+Pickle__ReadType:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %ebx
+	movl 8(%ebp),%ebx
+	movl 36(%ebx),%eax
+	testl %eax,%eax
+	je .L184
+	movl $0,36(%ebx)
+	jmp .L186
+	.align 16
+.L184:
+	movl 4(%ebx),%eax
+	pushl %eax
+	movl MI_Rd+80,%eax
+	call *%eax
+	addl $4,%esp
+	testb %al,%al
+	jne .L185
+	pushl %ebx
+	call Pickle__ReadFP
+	jmp .L187
+	.align 16
+.L185:
+	andl $255,%eax
+	cmpl $254,%eax
+	jle .L186
+	movl (%ebx),%eax
+	movl 12(%eax),%eax
+	pushl %ebx
+	call *%eax
+.L186:
+	pushl %eax
+	pushl %ebx
+	call Pickle__TCFromIndex
+.L187:
+	movl -4(%ebp),%ebx
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe19:
+	.size	 Pickle__ReadType,.Lfe19-Pickle__ReadType
+	.align 16
+	.type	 Pickle__ReadInt,@function
+Pickle__ReadInt:
+	pushl %ebp
+	movl %esp,%ebp
+	movl 8(%ebp),%eax
+	pushl %eax
+	call Pickle__GetBinaryInt
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe20:
+	.size	 Pickle__ReadInt,.Lfe20-Pickle__ReadInt
+	.align 16
+	.type	 Pickle__NoteRef,@function
+Pickle__NoteRef:
+	pushl %ebp
+	movl %esp,%ebp
+	movl 8(%ebp),%eax
+	movl 12(%ebp),%ecx
+	movl 16(%ebp),%edx
+	movl 48(%eax),%eax
+	testl %eax,%eax
+	jne .L190
+	pushl $10964
+	call _m3_fault
+	.align 16
+.L190:
+	cmpl %edx,4(%eax)
+	ja .L191
+	pushl $10962
+	call _m3_fault
+	.align 16
+.L191:
+	movl (%eax),%eax
+	leal (%eax,%edx,4),%edx
+	movl (%edx),%eax
+	cmpl %eax,MM_Pickle+1220
+	je .L192
+	cmpl %ecx,%eax
+	je .L192
+	pushl $10976
+	call _m3_fault
+	.align 16
+.L192:
+	movl %ecx,(%edx)
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe21:
+	.size	 Pickle__NoteRef,.Lfe21-Pickle__NoteRef
+	.align 16
+	.type	 Pickle__RegisterSpecial,@function
+Pickle__RegisterSpecial:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $20,%esp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%esi
+.L194:
+	movl $5,-4(%ebp)
+	movl RTThread__handlerStack,%eax
+	movl %eax,-8(%ebp)
+	leal -8(%ebp),%ecx
+	movl %ecx,RTThread__handlerStack
+	movl MM_Pickle+1188,%eax
+	movl %eax,-12(%ebp)
+	pushl %eax
+	movl MI_RTHooks+68,%eax
+	call *%eax
+	addl $4,%esp
+.L195:
+	movl $6,-16(%ebp)
+	movl RTThread__handlerStack,%eax
+	movl %eax,-20(%ebp)
+	leal -20(%ebp),%ecx
+	movl %ecx,RTThread__handlerStack
+	movl MM_Pickle+1192,%eax
+	testl %eax,%eax
+	jne .L196
+	pushl $11220
+	call _m3_fault
+	.align 16
+.L196:
+	movl 8(%esi),%edx
+	cmpl %edx,4(%eax)
+	ja .L197
+	pushl $11218
+	call _m3_fault
+	.align 16
+.L197:
+	movl (%eax),%eax
+	movl (%eax,%edx,4),%eax
+	cmpl %edx,8(%eax)
+	jne .L198
+	pushl $0
+	pushl $MM_Pickle+1400
+	movl MI_RTHooks+52,%eax
+	call *%eax
+	addl $8,%esp
+.L198:
+	movl MM_Pickle+1192,%eax
+	testl %eax,%eax
+	jne .L199
+	pushl $11268
+	call _m3_fault
+	.align 16
+.L199:
+	xorl %ebx,%ebx
+	movl 4(%eax),%edi
+	decl %edi
+	jmp .L200
+	.align 16
+.L201:
+	testl %ebx,%ebx
+	je .L202
+	cmpl $1048575,%ebx
+	jle .L203
+	pushl $11281
+	call _m3_fault
+	.align 16
+.L203:
+	movl 8(%esi),%eax
+	cmpl $1048575,%eax
+	jbe .L204
+	pushl $11281
+	call _m3_fault
+	.align 16
+.L204:
+	pushl %eax
+	pushl %ebx
+	movl MI_RTType+48,%eax
+	call *%eax
+	addl $8,%esp
+	testl %eax,%eax
+	je .L202
+	movl MM_Pickle+1192,%eax
+	testl %eax,%eax
+	jne .L205
+	pushl $11316
+	call _m3_fault
+	.align 16
+.L205:
+	cmpl %ebx,4(%eax)
+	ja .L206
+	pushl $11314
+	call _m3_fault
+	.align 16
+.L206:
+	movl (%eax),%eax
+	movl (%eax,%ebx,4),%eax
+	movl 8(%eax),%eax
+	testl %eax,%eax
+	je .L207
+	movl 8(%esi),%edx
+	cmpl $1048575,%edx
+	jbe .L209
+	pushl $11313
+	call _m3_fault
+	.align 16
+.L209:
+	cmpl $1048575,%eax
+	jbe .L211
+	pushl $11313
+	call _m3_fault
+	.align 16
+.L211:
+	pushl %eax
+	pushl %edx
+	movl MI_RTType+48,%eax
+	call *%eax
+	addl $8,%esp
+	testl %eax,%eax
+	je .L202
+.L207:
+	movl MM_Pickle+1192,%eax
+	testl %eax,%eax
+	jne .L213
+	pushl $11364
+	call _m3_fault
+	.align 16
+.L213:
+	cmpl %ebx,4(%eax)
+	ja .L214
+	pushl $11362
+	call _m3_fault
+	.align 16
+.L214:
+	movl (%eax),%eax
+	movl %esi,(%eax,%ebx,4)
+.L202:
+	incl %ebx
+.L200:
+	cmpl %edi,%ebx
+	jle .L201
+.L216:
+	movl -20(%ebp),%eax
+	movl %eax,RTThread__handlerStack
+	movl -12(%ebp),%eax
+	pushl %eax
+	movl MI_RTHooks+72,%eax
+	call *%eax
+.L217:
+	movl -8(%ebp),%eax
+	leal -32(%ebp),%esp
+	movl %eax,RTThread__handlerStack
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe22:
+	.size	 Pickle__RegisterSpecial,.Lfe22-Pickle__RegisterSpecial
+	.align 16
+	.type	 Pickle__ReRegisterSpecial,@function
+Pickle__ReRegisterSpecial:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $16,%esp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%esi
+	movl MM_Pickle+1188,%eax
+	movl %eax,-4(%ebp)
+	pushl %eax
+	movl MI_RTHooks+68,%eax
+	call *%eax
+	addl $4,%esp
+.L219:
+	movl $6,-8(%ebp)
+	movl RTThread__handlerStack,%eax
+	movl %eax,-12(%ebp)
+	leal -12(%ebp),%edi
+	movl %edi,RTThread__handlerStack
+	movl MM_Pickle+1192,%ebx
+	testl %ebx,%ebx
+	jne .L220
+	pushl $11524
+	call _m3_fault
+	.align 16
+.L220:
+	movl %ebx,%eax
+	movl 8(%esi),%edx
+	cmpl %edx,4(%eax)
+	ja .L221
+	pushl $11522
+	call _m3_fault
+	.align 16
+.L221:
+	movl (%eax),%eax
+	movl (%eax,%edx,4),%eax
+	movl 8(%eax),%ecx
+	cmpl %edx,%ecx
+	jne .L222
+	movl %ebx,%eax
+	cmpl %ecx,4(%eax)
+	ja .L224
+	pushl $11538
+	call _m3_fault
+	.align 16
+.L224:
+	movl (%eax),%eax
+	movl (%eax,%ecx,4),%eax
+	movl %eax,4(%esi)
+.L222:
+	movl MM_Pickle+1192,%eax
+	testl %eax,%eax
+	jne .L225
+	pushl $11572
+	call _m3_fault
+	.align 16
+.L225:
+	xorl %ebx,%ebx
+	movl 4(%eax),%eax
+	decl %eax
+	movl %eax,-16(%ebp)
+	jmp .L226
+	.align 16
+.L227:
+	testl %ebx,%ebx
+	je .L228
+	cmpl $1048575,%ebx
+	jle .L229
+	pushl $11585
+	call _m3_fault
+	.align 16
+.L229:
+	movl 8(%esi),%eax
+	cmpl $1048575,%eax
+	jbe .L230
+	pushl $11585
+	call _m3_fault
+	.align 16
+.L230:
+	pushl %eax
+	pushl %ebx
+	movl MI_RTType+48,%eax
+	call *%eax
+	addl $8,%esp
+	testl %eax,%eax
+	je .L228
+	movl MM_Pickle+1192,%eax
+	testl %eax,%eax
+	jne .L231
+	pushl $11620
+	call _m3_fault
+	.align 16
+.L231:
+	cmpl %ebx,4(%eax)
+	ja .L232
+	pushl $11618
+	call _m3_fault
+	.align 16
+.L232:
+	movl (%eax),%eax
+	movl (%eax,%ebx,4),%eax
+	movl 8(%eax),%eax
+	testl %eax,%eax
+	je .L233
+	movl 8(%esi),%edx
+	cmpl $1048575,%edx
+	jbe .L235
+	pushl $11617
+	call _m3_fault
+	.align 16
+.L235:
+	cmpl $1048575,%eax
+	jbe .L237
+	pushl $11617
+	call _m3_fault
+	.align 16
+.L237:
+	pushl %eax
+	pushl %edx
+	movl MI_RTType+48,%eax
+	call *%eax
+	addl $8,%esp
+	testl %eax,%eax
+	je .L228
+.L233:
+	movl MM_Pickle+1192,%eax
+	testl %eax,%eax
+	jne .L239
+	pushl $11668
+	call _m3_fault
+	.align 16
+.L239:
+	cmpl %ebx,4(%eax)
+	ja .L240
+	pushl $11666
+	call _m3_fault
+	.align 16
+.L240:
+	movl (%eax),%eax
+	movl %esi,(%eax,%ebx,4)
+.L228:
+	incl %ebx
+.L226:
+	cmpl %ebx,-16(%ebp)
+	jge .L227
+.L242:
+	movl -12(%ebp),%eax
+	movl %eax,RTThread__handlerStack
+	movl -4(%ebp),%eax
+	pushl %eax
+	movl MI_RTHooks+72,%eax
+	call *%eax
+	leal -28(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe23:
+	.size	 Pickle__ReRegisterSpecial,.Lfe23-Pickle__ReRegisterSpecial
+	.align 16
+	.type	 Pickle__VisitWrite,@function
+Pickle__VisitWrite:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $8,%esp
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%eax
+	movl 1032(%eax),%ebx
+	movl 12(%ebp),%esi
+	movl 36(%ebx),%eax
+	cmpl %esi,%eax
+	je .L244
+	movl %esi,%ecx
+	subl %eax,%ecx
+	movl %ecx,%eax
+	testl %eax,%eax
+	jge .L245
+	pushl $11905
+	call _m3_fault
+	.align 16
+.L245:
+	cmpl $100000001,%eax
+	jle .L246
+	pushl $11905
+	call _m3_fault
+	.align 16
+.L246:
+	movl %eax,-4(%ebp)
+	movl 36(%ebx),%eax
+	testl %eax,%eax
+	jne .L247
+	pushl $11908
+	call _m3_fault
+	.align 16
+.L247:
+	movl %eax,-8(%ebp)
+	leal -8(%ebp),%eax
+	pushl %eax
+	movl 4(%ebx),%eax
+	pushl %eax
+	movl MI_Wr+72,%eax
+	call *%eax
+	addl $8,%esp
+.L244:
+	cmpb $0,16(%ebp)
+	jne .L248
+	movl (%ebx),%eax
+	movl 4(%eax),%edx
+	testl %esi,%esi
+	jne .L249
+	pushl $11988
+	call _m3_fault
+	.align 16
+.L249:
+	movl (%esi),%eax
+	pushl %eax
+	pushl %ebx
+	call *%edx
+.L248:
+	addl $4,%esi
+	leal -16(%ebp),%esp
+	movl %esi,36(%ebx)
+	popl %ebx
+	popl %esi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe24:
+	.size	 Pickle__VisitWrite,.Lfe24-Pickle__VisitWrite
+	.align 16
+	.type	 Pickle__TipeWriteData,@function
+Pickle__TipeWriteData:
+	pushl %ebp
+	movl %esp,%ebp
+	movl 8(%ebp),%eax
+	movl 4(%eax),%edx
+	movl 12(%ebp),%eax
+	pushl %eax
+	movl 4(%edx),%eax
+	pushl %eax
+	movl MI_Wr+72,%eax
+	call *%eax
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe25:
+	.size	 Pickle__TipeWriteData,.Lfe25-Pickle__TipeWriteData
+	.align 16
+	.type	 Pickle__TipeSkipWriteData,@function
+Pickle__TipeSkipWriteData:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $16,%esp
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%eax
+	movl 12(%ebp),%ebx
+	movl 4(%eax),%esi
+	movl MM_Pickle+1604,%eax
+	movl %eax,-8(%ebp)
+	movl MM_Pickle+1608,%eax
+	movl %eax,-4(%ebp)
+	jmp .L252
+	.align 16
+.L253:
+	cmpl $7,%ebx
+	jg .L254
+	testl %ebx,%ebx
+	jge .L255
+	pushl $12369
+	call _m3_fault
+	.align 16
+.L255:
+	cmpl $8,%ebx
+	jle .L256
+	pushl $12369
+	call _m3_fault
+	.align 16
+.L256:
+	movl %ebx,-12(%ebp)
+	leal -8(%ebp),%edx
+	movl %edx,-16(%ebp)
+	leal -16(%ebp),%eax
+	pushl %eax
+	movl 4(%esi),%eax
+	pushl %eax
+	movl MI_Wr+72,%eax
+	call *%eax
+	jmp .L251
+	.align 16
+.L254:
+	leal -8(%ebp),%edx
+	movl %edx,-16(%ebp)
+	movl $8,-12(%ebp)
+	leal -16(%ebp),%eax
+	pushl %eax
+	movl 4(%esi),%eax
+	pushl %eax
+	movl MI_Wr+72,%eax
+	call *%eax
+	addl $-8,%ebx
+	addl $8,%esp
+.L252:
+	testl %ebx,%ebx
+	jg .L253
+.L251:
+	leal -24(%ebp),%esp
+	popl %ebx
+	popl %esi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe26:
+	.size	 Pickle__TipeSkipWriteData,.Lfe26-Pickle__TipeSkipWriteData
+	.align 16
+	.type	 Pickle__TipeWriteRef,@function
+Pickle__TipeWriteRef:
+	pushl %ebp
+	movl %esp,%ebp
+	movl 8(%ebp),%eax
+	subl $184,%esp
+	movl 4(%eax),%eax
+	movl %eax,-184(%ebp)
+.L259:
+	movl $MM_Pickle+2252,-172(%ebp)
+	movl $0,-176(%ebp)
+	movl RTThread__handlerStack,%eax
+	movl %eax,-180(%ebp)
+	leal -180(%ebp),%edx
+	movl %edx,RTThread__handlerStack
+	leal -160(%ebp),%eax
+	pushl %eax
+	call _setjmp
+	addl $4,%esp
+	testl %eax,%eax
+	jne .L260
+	cmpb $0,12(%ebp)
+	jne .L261
+	movl -184(%ebp),%edx
+	movl (%edx),%eax
+	movl 16(%ebp),%edx
+	movl 4(%eax),%eax
+	pushl %edx
+	movl -184(%ebp),%edx
+	pushl %edx
+	call *%eax
+.L261:
+	movl -180(%ebp),%eax
+	movl %eax,RTThread__handlerStack
+	jmp .L258
+	.align 16
+.L260:
+	movl -164(%ebp),%eax
+	pushl %eax
+	pushl $MM_Pickle+2264
+	movl MI_RTHooks+76,%eax
+	call *%eax
+	pushl %eax
+	pushl $MI_ConvertPacking+44
+	movl MI_RTHooks+52,%eax
+	call *%eax
+.L258:
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe27:
+	.size	 Pickle__TipeWriteRef,.Lfe27-Pickle__TipeWriteRef
+	.align 16
+	.type	 Pickle__RootSpecialWrite,@function
+Pickle__RootSpecialWrite:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $204,%esp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl $0,-12(%ebp)
+	movl 12(%ebp),%edx
+	testl %edx,%edx
+	je .L265
+	movl -4(%edx),%eax
+	sall $11,%eax
+	movl %eax,%edx
+	shrl $12,%edx
+.L265:
+	movl 16(%ebp),%edi
+	movl (%edi),%eax
+	movl 8(%eax),%ecx
+	pushl %edx
+	pushl %edi
+	call *%ecx
+	leal -12(%ebp),%eax
+	pushl %eax
+	leal -16(%ebp),%eax
+	pushl %eax
+	movl 12(%ebp),%edi
+	pushl %edi
+	movl MI_RTHeapRep+380,%eax
+	call *%eax
+	xorl %ebx,%ebx
+	movl -16(%ebp),%esi
+	decl %esi
+	addl $20,%esp
+	jmp .L266
+	.align 16
+.L267:
+	movl 16(%ebp),%edi
+	movl (%edi),%eax
+	movl 12(%eax),%ecx
+	movl -12(%ebp),%eax
+	testl %eax,%eax
+	jne .L268
+	pushl $12916
+	call _m3_fault
+	.align 16
+.L268:
+	cmpl $999,%ebx
+	jle .L269
+	pushl $12913
+	call _m3_fault
+	.align 16
+.L269:
+	movl (%eax,%ebx,4),%eax
+	pushl %eax
+	movl 16(%ebp),%edi
+	pushl %edi
+	call *%ecx
+	incl %ebx
+	addl $8,%esp
+.L266:
+	cmpl %esi,%ebx
+	jle .L267
+.L271:
+	movl $MM_Pickle+2288,-188(%ebp)
+	movl $0,-192(%ebp)
+	movl RTThread__handlerStack,%eax
+	movl %eax,-196(%ebp)
+	leal -196(%ebp),%edi
+	movl %edi,RTThread__handlerStack
+	leal -176(%ebp),%eax
+	pushl %eax
+	call _setjmp
+	movl %eax,%ebx
+	addl $4,%esp
+	testl %ebx,%ebx
+	jne .L272
+	movl -16(%ebp),%edx
+	testl %edx,%edx
+	jle .L273
+	movl 12(%ebp),%ecx
+	testl %ecx,%ecx
+	je .L275
+	movl -4(%ecx),%eax
+	sall $11,%eax
+	movl %eax,%ecx
+	shrl $12,%ecx
+.L275:
+	cmpl $1000,%edx
+	jle .L276
+	pushl $13313
+	call _m3_fault
+	.align 16
+.L276:
+	movl %edx,-200(%ebp)
+	movl -12(%ebp),%eax
+	testl %eax,%eax
+	jne .L277
+	pushl $13316
+	call _m3_fault
+	.align 16
+.L277:
+	movl %eax,-204(%ebp)
+	pushl %edx
+	jmp .L282
+	.align 16
+.L273:
+	movl 12(%ebp),%ecx
+	testl %ecx,%ecx
+	je .L279
+	movl -4(%ecx),%eax
+	sall $11,%eax
+	movl %eax,%ecx
+	shrl $12,%ecx
+.L279:
+	leal -8(%ebp),%edi
+	movl %edi,-204(%ebp)
+	movl $2,-200(%ebp)
+	pushl %ebx
+.L282:
+	leal -204(%ebp),%eax
+	movl $MI_PickleRd+148,%edx
+	pushl %eax
+	movl 12(%edx),%eax
+	pushl %eax
+	movl 8(%edx),%eax
+	pushl %eax
+	movl 4(%edx),%eax
+	pushl %eax
+	movl MI_PickleRd+148,%eax
+	pushl %eax
+	pushl %ecx
+	movl 12(%ebp),%edi
+	pushl %edi
+	movl 16(%ebp),%edi
+	movl 52(%edi),%eax
+	pushl %eax
+	movl MI_PklTipeMap+72,%eax
+	call *%eax
+	movl -196(%ebp),%eax
+	movl %eax,RTThread__handlerStack
+	jmp .L264
+	.align 16
+.L272:
+	movl -180(%ebp),%eax
+	pushl %eax
+	pushl $MM_Pickle+2300
+	movl MI_RTHooks+76,%eax
+	call *%eax
+	movl %eax,%ecx
+	pushl %ecx
+	pushl $MI_Pickle+44
+	movl MI_RTHooks+52,%eax
+	call *%eax
+.L264:
+	leal -216(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe28:
+	.size	 Pickle__RootSpecialWrite,.Lfe28-Pickle__RootSpecialWrite
+	.align 16
+	.type	 Pickle__VisitRead,@function
+Pickle__VisitRead:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $8,%esp
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%eax
+	movl 12(%ebp),%esi
+	movl 1032(%eax),%ebx
+	movl %esi,%eax
+	subl 56(%ebx),%eax
+	jns .L284
+	pushl $13601
+	call _m3_fault
+	.align 16
+.L284:
+	cmpl $100000001,%eax
+	jle .L285
+	pushl $13601
+	call _m3_fault
+	.align 16
+.L285:
+	movl %eax,-4(%ebp)
+	movl 56(%ebx),%eax
+	testl %eax,%eax
+	jne .L286
+	pushl $13604
+	call _m3_fault
+	.align 16
+.L286:
+	movl %eax,-8(%ebp)
+	leal -8(%ebp),%eax
+	pushl %eax
+	movl 4(%ebx),%eax
+	pushl %eax
+	movl MI_Rd+96,%eax
+	call *%eax
+	addl $8,%esp
+	cmpb $0,16(%ebp)
+	jne .L287
+	movl (%ebx),%eax
+	movl 4(%eax),%eax
+	pushl %ebx
+	call *%eax
+	addl $4,%esp
+	testl %esi,%esi
+	jne .L288
+	pushl $13668
+	call _m3_fault
+	.align 16
+.L288:
+	movl %eax,(%esi)
+	jmp .L289
+	.align 16
+.L287:
+	testl %esi,%esi
+	jne .L290
+	pushl $13732
+	call _m3_fault
+	.align 16
+.L290:
+	movl $0,(%esi)
+.L289:
+	addl $4,%esi
+	leal -16(%ebp),%esp
+	movl %esi,56(%ebx)
+	popl %ebx
+	popl %esi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe29:
+	.size	 Pickle__VisitRead,.Lfe29-Pickle__VisitRead
+	.align 16
+	.type	 Pickle__TipeReadData,@function
+Pickle__TipeReadData:
+	pushl %ebp
+	movl %esp,%ebp
+	movl 8(%ebp),%eax
+	movl 4(%eax),%edx
+	movl 12(%ebp),%eax
+	pushl %eax
+	movl 4(%edx),%eax
+	pushl %eax
+	movl MI_Rd+96,%eax
+	call *%eax
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe30:
+	.size	 Pickle__TipeReadData,.Lfe30-Pickle__TipeReadData
+	.align 16
+	.type	 Pickle__TipeSkipReadData,@function
+Pickle__TipeSkipReadData:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $16,%esp
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%eax
+	movl 12(%ebp),%ebx
+	movl 4(%eax),%esi
+	jmp .L293
+	.align 16
+.L294:
+	cmpl $7,%ebx
+	jg .L295
+	testl %ebx,%ebx
+	jge .L296
+	pushl $14097
+	call _m3_fault
+	.align 16
+.L296:
+	cmpl $8,%ebx
+	jle .L297
+	pushl $14097
+	call _m3_fault
+	.align 16
+.L297:
+	movl %ebx,-12(%ebp)
+	leal -8(%ebp),%edx
+	movl %edx,-16(%ebp)
+	leal -16(%ebp),%eax
+	pushl %eax
+	movl 4(%esi),%eax
+	pushl %eax
+	movl MI_Rd+96,%eax
+	call *%eax
+	jmp .L292
+	.align 16
+.L295:
+	leal -8(%ebp),%edx
+	movl %edx,-16(%ebp)
+	movl $8,-12(%ebp)
+	leal -16(%ebp),%eax
+	pushl %eax
+	movl 4(%esi),%eax
+	pushl %eax
+	movl MI_Rd+96,%eax
+	call *%eax
+	addl $-8,%ebx
+	addl $8,%esp
+.L293:
+	testl %ebx,%ebx
+	jg .L294
+.L292:
+	leal -24(%ebp),%esp
+	popl %ebx
+	popl %esi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe31:
+	.size	 Pickle__TipeSkipReadData,.Lfe31-Pickle__TipeSkipReadData
+	.align 16
+	.type	 Pickle__TipeReadRef,@function
+Pickle__TipeReadRef:
+	pushl %ebp
+	movl %esp,%ebp
+	movl 8(%ebp),%eax
+	subl $184,%esp
+	movl 4(%eax),%eax
+	movl %eax,-184(%ebp)
+.L300:
+	movl $MM_Pickle+2252,-172(%ebp)
+	movl $0,-176(%ebp)
+	movl RTThread__handlerStack,%eax
+	movl %eax,-180(%ebp)
+	leal -180(%ebp),%ecx
+	movl %ecx,RTThread__handlerStack
+	leal -160(%ebp),%eax
+	pushl %eax
+	call _setjmp
+	movl %eax,%edx
+	addl $4,%esp
+	testl %edx,%edx
+	jne .L301
+	cmpb $0,12(%ebp)
+	jne .L302
+	movl -184(%ebp),%ecx
+	pushl %ecx
+	call Pickle__ReadRef
+	movl %eax,%edx
+.L302:
+	movl -180(%ebp),%eax
+	movl %eax,RTThread__handlerStack
+	movl %edx,%eax
+	jmp .L299
+	.align 16
+.L301:
+	movl -164(%ebp),%eax
+	pushl %eax
+	pushl $MM_Pickle+2264
+	movl MI_RTHooks+76,%eax
+	call *%eax
+	movl %eax,%edx
+	pushl %edx
+	pushl $MI_ConvertPacking+44
+	movl MI_RTHooks+52,%eax
+	call *%eax
+.L299:
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe32:
+	.size	 Pickle__TipeReadRef,.Lfe32-Pickle__TipeReadRef
+	.align 16
+	.type	 Pickle__RootSpecialRead,@function
+Pickle__RootSpecialRead:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $256,%esp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 16(%ebp),%edi
+.L306:
+	movl $MM_Pickle+2336,-48(%ebp)
+	movl $4,-52(%ebp)
+	movl RTThread__handlerStack,%eax
+	movl %eax,-56(%ebp)
+	leal -56(%ebp),%ecx
+	movl %ecx,RTThread__handlerStack
+	movl 12(%ebp),%ecx
+	movl $0,-252(%ebp)
+	movl (%ecx),%eax
+	movl 8(%eax),%eax
+	pushl %ecx
+	call *%eax
+	movl %eax,-248(%ebp)
+	addl $4,%esp
+	cmpl $1048575,%eax
+	jbe .L307
+	pushl $14657
+	call _m3_fault
+	.align 16
+.L307:
+	movl -248(%ebp),%ecx
+	pushl %ecx
+	movl MI_RTType+64,%eax
+	call *%eax
+	movl %eax,-256(%ebp)
+	addl $4,%esp
+	testl %eax,%eax
+	jle .L317
+	movl -252(%ebp),%ebx
+	movl %eax,%esi
+	decl %esi
+	jmp .L309
+	.align 16
+.L310:
+	movl 12(%ebp),%ecx
+	movl (%ecx),%eax
+	movl 12(%eax),%eax
+	pushl %ecx
+	call *%eax
+	addl $4,%esp
+	cmpl $10,%ebx
+	jle .L311
+	pushl $14705
+	call _m3_fault
+	.align 16
+.L311:
+	movl %eax,-44(%ebp,%ebx,4)
+	incl %ebx
+.L309:
+	cmpl %esi,%ebx
+	jle .L310
+	cmpl $0,-256(%ebp)
+	jge .L313
+	pushl $14737
+	call _m3_fault
+	.align 16
+.L313:
+	cmpl $11,-256(%ebp)
+	jle .L314
+	pushl $14737
+	call _m3_fault
+	.align 16
+.L314:
+	movl -256(%ebp),%ecx
+	movl %ecx,-60(%ebp)
+	leal -44(%ebp),%ecx
+	movl %ecx,-64(%ebp)
+	cmpl $1048575,-248(%ebp)
+	jbe .L315
+	pushl $14737
+	call _m3_fault
+	.align 16
+.L315:
+	leal -64(%ebp),%eax
+	pushl %eax
+	movl -248(%ebp),%ecx
+	pushl %ecx
+	movl MI_RTAllocator+56,%eax
+	call *%eax
+	movl %eax,-252(%ebp)
+	addl $8,%esp
+	jmp .L316
+	.align 16
+.L317:
+	movl -248(%ebp),%ecx
+	pushl %ecx
+	movl MI_RTAllocator+44,%eax
+	call *%eax
+	movl %eax,-252(%ebp)
+	addl $4,%esp
+.L316:
+	movl 12(%ebp),%ecx
+	movl (%ecx),%eax
+	movl 16(%eax),%eax
+	pushl %edi
+	movl -252(%ebp),%ecx
+	pushl %ecx
+	movl 12(%ebp),%ecx
+	pushl %ecx
+	call *%eax
+	movl 12(%ebp),%ecx
+	addl $12,%esp
+	cmpb $51,60(%ecx)
+	je .L324
+	movl -252(%ebp),%ecx
+	pushl %ecx
+	movl MI_RTHeap+44,%eax
+	call *%eax
+	movl 12(%ebp),%ebx
+	movl %eax,56(%ebx)
+	movl -252(%ebp),%ecx
+	pushl %ecx
+	movl MI_RTHeap+48,%eax
+	call *%eax
+	movl 56(%ebx),%esi
+	addl %eax,%esi
+	movl 68(%ebx),%eax
+	pushl %eax
+	pushl $7
+	movl -252(%ebp),%ecx
+	pushl %ecx
+	movl MI_RTTypeMap+148,%eax
+	call *%eax
+	movl 56(%ebx),%eax
+	addl $20,%esp
+	cmpl %esi,%eax
+	jae .L323
+	subl %eax,%esi
+	movl %esi,%eax
+	testl %eax,%eax
+	jge .L320
+	pushl $14977
+	call _m3_fault
+	.align 16
+.L320:
+	cmpl $100000001,%eax
+	jle .L321
+	pushl $14977
+	call _m3_fault
+	.align 16
+.L321:
+	movl %eax,-60(%ebp)
+	movl 56(%ebx),%eax
+	testl %eax,%eax
+	jne .L322
+	pushl $14980
+	call _m3_fault
+	.align 16
+.L322:
+	movl %eax,-64(%ebp)
+	leal -64(%ebp),%eax
+	pushl %eax
+	movl 4(%ebx),%eax
+	pushl %eax
+	movl MI_Rd+96,%eax
+	call *%eax
+	jmp .L323
+	.align 16
+.L324:
+	movl $MM_Pickle+2288,-236(%ebp)
+	movl $0,-240(%ebp)
+	movl RTThread__handlerStack,%eax
+	movl %eax,-244(%ebp)
+	leal -244(%ebp),%ecx
+	movl %ecx,RTThread__handlerStack
+	leal -224(%ebp),%eax
+	pushl %eax
+	call _setjmp
+	addl $4,%esp
+	testl %eax,%eax
+	jne .L325
+	cmpl $0,-256(%ebp)
+	jge .L326
+	pushl $15089
+	call _m3_fault
+	.align 16
+.L326:
+	cmpl $11,-256(%ebp)
+	jle .L327
+	pushl $15089
+	call _m3_fault
+	.align 16
+.L327:
+	movl -256(%ebp),%ecx
+	movl %ecx,-60(%ebp)
+	leal -44(%ebp),%ecx
+	movl %ecx,-64(%ebp)
+	leal -64(%ebp),%eax
+	movl $MI_PickleRd+148,%edx
+	pushl %eax
+	movl 12(%edx),%eax
+	pushl %eax
+	movl 8(%edx),%eax
+	pushl %eax
+	movl 4(%edx),%eax
+	pushl %eax
+	movl MI_PickleRd+148,%eax
+	pushl %eax
+	movl 12(%ebp),%ecx
+	movl 20(%ecx),%eax
+	pushl %eax
+	movl 16(%ecx),%eax
+	pushl %eax
+	movl 12(%ecx),%eax
+	pushl %eax
+	movl 8(%ecx),%eax
+	pushl %eax
+	movl -248(%ebp),%ecx
+	pushl %ecx
+	movl -252(%ebp),%ecx
+	pushl %ecx
+	movl 12(%ebp),%ecx
+	movl 64(%ecx),%eax
+	pushl %eax
+	movl MI_PklTipeMap+68,%eax
+	call *%eax
+	movl -244(%ebp),%eax
+	movl %eax,RTThread__handlerStack
+	jmp .L323
+	.align 16
+.L325:
+	movl -228(%ebp),%eax
+	pushl %eax
+	pushl $MM_Pickle+2360
+	movl MI_RTHooks+76,%eax
+	call *%eax
+	movl %eax,%ebx
+	pushl %ebx
+	pushl $MI_Pickle+44
+	movl MI_RTHooks+52,%eax
+	call *%eax
+.L323:
+	movl -56(%ebp),%eax
+	movl %eax,RTThread__handlerStack
+	movl -252(%ebp),%eax
+.L330:
+	leal -268(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe33:
+	.size	 Pickle__RootSpecialRead,.Lfe33-Pickle__RootSpecialRead
+	.align 16
+	.type	 Pickle__GetPacking,@function
+Pickle__GetPacking:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %ebx
+	xorl %ebx,%ebx
+	movb 11(%ebp),%bl
+	xorl %eax,%eax
+	movb 12(%ebp),%al
+	xorl %edx,%edx
+	movb 13(%ebp),%dl
+	xorl %ecx,%ecx
+	movb 14(%ebp),%cl
+	sall $8,%eax
+	orl %eax,%ebx
+	sall $16,%edx
+	sall $24,%ecx
+	orl %ecx,%edx
+	movl %ebx,%eax
+	orl %edx,%eax
+	movl -4(%ebp),%ebx
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe34:
+	.size	 Pickle__GetPacking,.Lfe34-Pickle__GetPacking
+	.align 16
+	.type	 Pickle__PutPacking,@function
+Pickle__PutPacking:
+	pushl %ebp
+	movl %esp,%ebp
+	movl 12(%ebp),%ecx
+	xorl %edx,%edx
+	movb %cl,%dl
+	cmpl $255,%edx
+	jbe .L336
+	pushl $15697
+	call _m3_fault
+	.align 16
+.L336:
+	movl 8(%ebp),%eax
+	movb %dl,3(%eax)
+	movl %ecx,%eax
+	sall $16,%eax
+	movl %eax,%edx
+	shrl $24,%edx
+	cmpl $255,%edx
+	jbe .L337
+	pushl $15713
+	call _m3_fault
+	.align 16
+.L337:
+	movl 8(%ebp),%eax
+	movb %dl,4(%eax)
+	movl %ecx,%eax
+	sall $8,%eax
+	movl %eax,%edx
+	shrl $24,%edx
+	cmpl $255,%edx
+	jbe .L338
+	pushl $15729
+	call _m3_fault
+	.align 16
+.L338:
+	movl 8(%ebp),%eax
+	movb %dl,5(%eax)
+	movl %ecx,%edx
+	shrl $24,%edx
+	cmpl $255,%edx
+	jbe .L339
+	pushl $15745
+	call _m3_fault
+	.align 16
+.L339:
+	movl 8(%ebp),%eax
+	movl %ebp,%esp
+	movb %dl,6(%eax)
+	popl %ebp
+	ret
+.Lfe35:
+	.size	 Pickle__PutPacking,.Lfe35-Pickle__PutPacking
+	.align 16
+	.type	 Pickle__InitHeader,@function
+Pickle__InitHeader:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $4,%esp
+	pushl %ebx
+	movw $0,-2(%ebp)
+	movb $38,MM_Pickle+1196
+	movb $37,MM_Pickle+1197
+	movb $50,MM_Pickle+1198
+	movb $73,MM_Pickle+1199
+	movw $1,-2(%ebp)
+	cmpb $1,-2(%ebp)
+	jne .L341
+	movb $76,MM_Pickle+1200
+	jmp .L343
+	.align 16
+.L341:
+	movb $66,MM_Pickle+1200
+.L343:
+	movb $53,MM_Pickle+1201
+	movb $78,MM_Pickle+1202
+	movb $38,MM_Pickle+1203
+	movb $37,MM_Pickle+1204
+	movb $51,MM_Pickle+1205
+	movl $MI_PickleRd+148,%ebx
+	pushl %ebx
+	movl MI_RTPacking+44,%eax
+	call *%eax
+	pushl %ebx
+	movl MI_RTPacking+48,%eax
+	call *%eax
+	movl %eax,MM_Pickle+1212
+	pushl %eax
+	pushl $MM_Pickle+1203
+	call Pickle__PutPacking
+	movb $52,MM_Pickle+1216
+	movb $10,MM_Pickle+1217
+	movl -8(%ebp),%ebx
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe36:
+	.size	 Pickle__InitHeader,.Lfe36-Pickle__InitHeader
+	.align 16
+	.type	 Pickle__InitSpecials,@function
+Pickle__InitSpecials:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $12,%esp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl MM_Pickle+2388,%eax
+	pushl %eax
+	movl MI_RTHooks+80,%eax
+	call *%eax
+	movl $0,8(%eax)
+	movl %eax,%esi
+	leal -12(%ebp),%ebx
+	leal -4(%ebp),%edi
+	movl %edi,-12(%ebp)
+	movl MI_RTType+44,%eax
+	movl $1,-8(%ebp)
+	call *%eax
+	incl %eax
+	movl %eax,-4(%ebp)
+	pushl %ebx
+	movl MM_Pickle+2396,%eax
+	pushl %eax
+	movl MI_RTHooks+84,%eax
+	call *%eax
+	movl %eax,MM_Pickle+1192
+	addl $12,%esp
+	testl %eax,%eax
+	jne .L348
+	pushl $16404
+	call _m3_fault
+	.align 16
+.L348:
+	xorl %edx,%edx
+	movl 4(%eax),%ecx
+	decl %ecx
+	jmp .L349
+	.align 16
+.L350:
+	movl MM_Pickle+1192,%eax
+	testl %eax,%eax
+	jne .L351
+	pushl $16420
+	call _m3_fault
+	.align 16
+.L351:
+	cmpl %edx,4(%eax)
+	ja .L352
+	pushl $16418
+	call _m3_fault
+	.align 16
+.L352:
+	movl (%eax),%eax
+	movl %esi,(%eax,%edx,4)
+	incl %edx
+.L349:
+	cmpl %ecx,%edx
+	jle .L350
+	leal -24(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe37:
+	.size	 Pickle__InitSpecials,.Lfe37-Pickle__InitSpecials
+	.align 16
+	.type	 _INITM_Pickle,@function
+_INITM_Pickle:
+	pushl %ebp
+	movl %esp,%ebp
+	movl $0,MM_Pickle+1188
+	movl MM_Pickle+2404,%eax
+	pushl %eax
+	movl MI_RTHooks+80,%eax
+	call *%eax
+	movl %eax,MM_Pickle+1188
+	call Pickle__InitHeader
+	call Pickle__InitSpecials
+	movl MM_Pickle+2412,%eax
+	pushl %eax
+	movl MI_RTHooks+80,%eax
+	call *%eax
+	movl %eax,MM_Pickle+1220
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe38:
+	.size	 _INITM_Pickle,.Lfe38-_INITM_Pickle
+	.align 16
+	.type	 M_Pickle_t3f41383c_LINK,@function
+M_Pickle_t3f41383c_LINK:
+	pushl %ebp
+	movl %esp,%ebp
+	movl MM_Pickle+3532,%eax
+	movl %ebp,%esp
+	movl 52(%eax),%edx
+	movl MM_Pickle+1548,%eax
+	movl %eax,4(%edx)
+	movl MM_Pickle+1568,%eax
+	movl %eax,8(%edx)
+	popl %ebp
+	ret
+.Lfe39:
+	.size	 M_Pickle_t3f41383c_LINK,.Lfe39-M_Pickle_t3f41383c_LINK
+	.align 16
+	.type	 M_Pickle_tcb800d8d_LINK,@function
+M_Pickle_tcb800d8d_LINK:
+	pushl %ebp
+	movl %esp,%ebp
+	movl MM_Pickle+2064,%eax
+	movl %ebp,%esp
+	movl 52(%eax),%edx
+	movl MM_Pickle+1552,%eax
+	movl %eax,4(%edx)
+	popl %ebp
+	ret
+.Lfe40:
+	.size	 M_Pickle_tcb800d8d_LINK,.Lfe40-M_Pickle_tcb800d8d_LINK
+	.align 16
+	.type	 M_Pickle_t408b0b63_LINK,@function
+M_Pickle_t408b0b63_LINK:
+	pushl %ebp
+	movl %esp,%ebp
+	movl MM_Pickle+1964,%eax
+	movl %ebp,%esp
+	movl 52(%eax),%edx
+	movl MM_Pickle+1556,%eax
+	movl %eax,4(%edx)
+	movl MM_Pickle+1560,%eax
+	movl %eax,8(%edx)
+	movl MM_Pickle+1564,%eax
+	movl %eax,12(%edx)
+	popl %ebp
+	ret
+.Lfe41:
+	.size	 M_Pickle_t408b0b63_LINK,.Lfe41-M_Pickle_t408b0b63_LINK
+	.align 16
+	.type	 M_Pickle_t8404bb36_LINK,@function
+M_Pickle_t8404bb36_LINK:
+	pushl %ebp
+	movl %esp,%ebp
+	movl MM_Pickle+3692,%eax
+	movl %ebp,%esp
+	movl 52(%eax),%edx
+	movl MM_Pickle+1376,%eax
+	movl %eax,4(%edx)
+	movl MM_Pickle+1388,%eax
+	movl %eax,8(%edx)
+	movl MM_Pickle+1392,%eax
+	movl %eax,12(%edx)
+	movl MM_Pickle+1396,%eax
+	movl %eax,16(%edx)
+	popl %ebp
+	ret
+.Lfe42:
+	.size	 M_Pickle_t8404bb36_LINK,.Lfe42-M_Pickle_t8404bb36_LINK
+	.align 16
+	.type	 M_Pickle_td87ce4b4_LINK,@function
+M_Pickle_td87ce4b4_LINK:
+	pushl %ebp
+	movl %esp,%ebp
+	movl MM_Pickle+1680,%eax
+	movl %ebp,%esp
+	movl 52(%eax),%edx
+	movl MM_Pickle+1536,%eax
+	movl %eax,4(%edx)
+	movl MM_Pickle+1540,%eax
+	movl %eax,8(%edx)
+	movl MM_Pickle+1544,%eax
+	movl %eax,12(%edx)
+	popl %ebp
+	ret
+.Lfe43:
+	.size	 M_Pickle_td87ce4b4_LINK,.Lfe43-M_Pickle_td87ce4b4_LINK
+	.align 16
+	.type	 M_Pickle_t468a1af4_LINK,@function
+M_Pickle_t468a1af4_LINK:
+	pushl %ebp
+	movl %esp,%ebp
+	movl MM_Pickle+1672,%eax
+	movl %ebp,%esp
+	movl 52(%eax),%edx
+	movl MM_Pickle+1428,%eax
+	movl %eax,4(%edx)
+	popl %ebp
+	ret
+.Lfe44:
+	.size	 M_Pickle_t468a1af4_LINK,.Lfe44-M_Pickle_t468a1af4_LINK
+	.align 16
+	.type	 M_Pickle_tdc70a840_LINK,@function
+M_Pickle_tdc70a840_LINK:
+	pushl %ebp
+	movl %esp,%ebp
+	movl MM_Pickle+3856,%eax
+	movl %ebp,%esp
+	movl 52(%eax),%edx
+	movl MM_Pickle+1236,%eax
+	movl %eax,4(%edx)
+	movl MM_Pickle+1240,%eax
+	movl %eax,8(%edx)
+	movl MM_Pickle+1244,%eax
+	movl %eax,12(%edx)
+	popl %ebp
+	ret
+.Lfe45:
+	.size	 M_Pickle_tdc70a840_LINK,.Lfe45-M_Pickle_tdc70a840_LINK
+	.align 16
+	.type	 _m3_fault,@function
+_m3_fault:
+	pushl %ebp
+	movl %esp,%ebp
+	movl 8(%ebp),%eax
+	pushl %eax
+	pushl $MM_Pickle
+	movl MI_RTHooks+108,%eax
+	call *%eax
+	.align 16
+.Lfe46:
+	.size	 _m3_fault,.Lfe46-_m3_fault
+.globl MM_Pickle
+.data
+	.align 4
+	.type	 MM_Pickle,@object
+	.size	 MM_Pickle,4004
+MM_Pickle:
+	.long MM_Pickle+3353
+	.long MM_Pickle+44
+	.long MM_Pickle+1640
+	.long MM_Pickle+1612
+	.zero	4
+	.long MM_Pickle+2884
+	.zero	4
+	.long MM_Pickle+3344
+	.long MM_Pickle+3344
+	.zero	4
+	.long _INITM_Pickle
+	.zero	8
+	.long 1740648647
+.byte 158
+.byte 48
+.byte 207
+.byte 111
+.byte 89
+.byte 0
+.byte 15
+.byte 8
+	.long 1
+	.zero	4
+	.long 8
+	.long 4
+	.zero	8
+	.long 1
+	.long 12
+	.zero	4
+	.long MM_Pickle+3964
+	.long MM_Pickle+3971
+	.long MM_Pickle+3977
+	.zero	28
+	.long MM_Pickle+3985
+	.long MM_Pickle+148
+	.zero	8
+	.long 276539390
+.byte 4
+.byte 116
+.byte 100
+.byte 10
+.byte 250
+.byte 211
+.byte 31
+.byte 26
+	.long 1
+	.zero	4
+	.long 8
+	.long 4
+	.zero	8
+	.long 1
+	.long 4
+	.zero	4
+	.long MM_Pickle+3934
+	.long MM_Pickle+3939
+	.long MM_Pickle+3944
+	.zero	28
+	.long MM_Pickle+3948
+	.long MM_Pickle+252
+	.zero	8
+	.long 1263564632
+.byte 236
+.byte 130
+.byte 35
+.byte 76
+.byte 180
+.byte 245
+.byte 115
+.byte 7
+	.long 1
+	.zero	4
+	.long 8
+	.long 4
+	.zero	8
+	.long 1
+	.long 4
+	.zero	4
+	.long MM_Pickle+3896
+	.long MM_Pickle+3901
+	.long MM_Pickle+3906
+	.zero	28
+	.long MM_Pickle+3914
+	.long MM_Pickle+356
+	.zero	8
+	.long -596596672
+.byte 204
+.byte 85
+.byte 243
+.byte 198
+.byte 140
+.byte 253
+.byte 131
+.byte 26
+	.long 1
+	.zero	4
+	.long 48
+	.long 4
+	.zero	4
+	.long 0
+	.zero	12
+	.long MM_Pickle+3800
+	.long MM_Pickle+3813
+	.long MM_Pickle+3824
+	.zero	4
+	.long M_Pickle_tdc70a840_LINK
+	.long -582017458
+	.zero	12
+	.long MM_Pickle+3864
+	.long MM_Pickle+3882
+	.long MM_Pickle+460
+	.zero	8
+	.long 1183455988
+.byte 151
+.byte 80
+.byte 206
+.byte 90
+.byte 99
+.byte 74
+.byte 68
+.byte 28
+	.long 1
+	.zero	4
+	.long 4
+	.long 4
+	.zero	4
+	.long 0
+	.zero	12
+	.long MM_Pickle+3768
+	.long MM_Pickle+3770
+	.long MM_Pickle+3772
+	.zero	4
+	.long M_Pickle_t468a1af4_LINK
+	.long 717154171
+	.zero	16
+	.long MM_Pickle+3780
+	.long MM_Pickle+564
+	.zero	8
+	.long -662903628
+.byte 41
+.byte 108
+.byte 106
+.byte 196
+.byte 157
+.byte 136
+.byte 22
+.byte 28
+	.long 1
+	.zero	4
+	.long 4
+	.long 4
+	.zero	4
+	.long 0
+	.zero	12
+	.long MM_Pickle+3732
+	.long MM_Pickle+3734
+	.long MM_Pickle+3736
+	.zero	4
+	.long M_Pickle_td87ce4b4_LINK
+	.long 1391291277
+	.zero	16
+	.long MM_Pickle+3744
+	.long MM_Pickle+668
+	.zero	8
+	.long -2080064714
+.byte 118
+.byte 24
+.byte 234
+.byte 149
+.byte 64
+.byte 163
+.byte 238
+.byte 17
+	.long 1
+	.zero	4
+	.long 40
+	.long 4
+	.zero	4
+	.long 0
+	.zero	12
+	.long MM_Pickle+3640
+	.long MM_Pickle+3652
+	.long MM_Pickle+3660
+	.zero	4
+	.long M_Pickle_t8404bb36_LINK
+	.long 989115520
+	.zero	12
+	.long MM_Pickle+3700
+	.long MM_Pickle+3718
+	.long MM_Pickle+772
+	.zero	8
+	.long 1082854243
+.byte 36
+.byte 196
+.byte 94
+.byte 71
+.byte 71
+.byte 207
+.byte 213
+.byte 7
+	.long 1
+	.zero	4
+	.long 4
+	.long 4
+	.zero	4
+	.long 0
+	.zero	12
+	.long MM_Pickle+3605
+	.long MM_Pickle+3607
+	.long MM_Pickle+3609
+	.zero	4
+	.long M_Pickle_t408b0b63_LINK
+	.long -1675799993
+	.zero	16
+	.long MM_Pickle+3617
+	.long MM_Pickle+876
+	.zero	8
+	.long -880800371
+.byte 6
+.byte 184
+.byte 243
+.byte 200
+.byte 139
+.byte 181
+.byte 115
+.byte 3
+	.long 1
+	.zero	4
+	.long 4
+	.long 4
+	.zero	4
+	.long 0
+	.zero	12
+	.long MM_Pickle+3574
+	.long MM_Pickle+3576
+	.long MM_Pickle+3578
+	.zero	4
+	.long M_Pickle_tcb800d8d_LINK
+	.long 717154171
+	.zero	16
+	.long MM_Pickle+3586
+	.long MM_Pickle+980
+	.zero	8
+	.long 1061238844
+.byte 204
+.byte 110
+.byte 7
+.byte 45
+.byte 240
+.byte 86
+.byte 70
+.byte 18
+	.long 1
+	.zero	4
+	.long 0
+	.long 1
+	.zero	4
+	.long 0
+	.zero	20
+	.long MM_Pickle+3527
+	.zero	4
+	.long M_Pickle_t3f41383c_LINK
+	.long -1359859157
+	.zero	12
+	.long MM_Pickle+3540
+	.long MM_Pickle+3559
+	.long MM_Pickle+1084
+	.zero	8
+	.long -2107811474
+.byte 44
+.byte 173
+.byte 226
+.byte 130
+.byte 66
+.byte 244
+.byte 191
+.byte 0
+	.zero	8
+	.long 100000001
+	.long 1
+	.zero	20
+	.long MM_Pickle+3504
+	.zero	36
+	.long MM_Pickle+3512
+	.long MM_Pickle+1248
+	.zero	36
+	.long Pickle__Hash
+	.long Pickle__ExtendWriterTypes
+	.long Pickle__ExtendWriterRefs
+	.long Pickle__WriteRef
+	.long Pickle__WriteType
+	.long Pickle__WriteInt
+	.zero	8
+	.long -2107205726
+.byte 157
+.byte 231
+.byte 15
+.byte 139
+.byte 63
+.byte 112
+.byte 105
+.byte 9
+	.zero	8
+	.long 4
+	.long 1
+	.zero	20
+	.long MM_Pickle+3499
+	.zero	40
+	.long MM_Pickle+1432
+	.long Pickle__ExtendReaderTypes
+	.long Pickle__GetBinaryInt
+	.long Pickle__ReadFP
+	.long Pickle__TCFromIndex
+	.long Pickle__InvokeSpecial
+	.long Pickle__ExpandRefs
+	.long Pickle__ReadRef
+	.long Pickle__StartRead
+	.long Pickle__FinishRead
+	.long Pickle__ReadType
+	.long Pickle__ReadInt
+	.long Pickle__NoteRef
+	.long MM_Pickle+1404
+	.ascii	"Pickle.DuplicateSpecial"
+	.zero	1
+	.long Pickle__VisitWrite
+	.zero	8
+	.long 1688789227
+.byte 182
+.byte 157
+.byte 51
+.byte 98
+.byte 93
+.byte 125
+.byte 155
+.byte 6
+	.zero	8
+	.long 4
+	.long 4
+	.zero	20
+	.long MM_Pickle+3495
+	.long MM_Pickle+3497
+	.zero	40
+	.long Pickle__TipeWriteData
+	.long Pickle__TipeSkipWriteData
+	.long Pickle__TipeWriteRef
+	.long Pickle__RootSpecialWrite
+	.long Pickle__VisitRead
+	.long Pickle__TipeReadData
+	.long Pickle__TipeSkipReadData
+	.long Pickle__TipeReadRef
+	.long Pickle__RootSpecialRead
+	.long Pickle__GetPacking
+	.long Pickle__PutPacking
+	.long Pickle__InitHeader
+	.long Pickle__InitSpecials
+	.long Pickle__Write
+	.long Pickle__Read
+	.long Pickle__RegisterSpecial
+	.long Pickle__ReRegisterSpecial
+.byte 68
+.byte 69
+.byte 65
+.byte 68
+.byte 66
+.byte 69
+.byte 69
+.byte 70
+	.long -1208015212
+	.long 1061238844
+	.long -670312319
+	.long -596596672
+	.long -1160928816
+	.long -2080064714
+	.zero	4
+	.long MM_Pickle+1648
+	.long -670312319
+	.long MM_Pickle+1656
+	.long -1160928816
+	.long MM_Pickle+1664
+	.long 562018850
+	.long MM_Pickle+1672
+	.long 1740648647
+	.long MM_Pickle+1680
+	.long 1183455988
+	.long MM_Pickle+1856
+	.long -662903628
+	.long 2
+	.long MM_Pickle+1700
+	.long 51
+	.ascii	"Can't read pickle (type not known in this program)"
+	.zero	2
+	.long 2
+	.long MM_Pickle+1764
+	.long 38
+	.ascii	"Malformed pickle (TC index too large)"
+	.zero	3
+	.long 2
+	.long MM_Pickle+1816
+	.long 40
+	.ascii	"Can't read pickle (Special not defined)"
+	.zero	1
+	.long MM_Pickle+1964
+	.long 276539390
+	.long 2
+	.long MM_Pickle+1876
+	.long 39
+	.ascii	"Malformed pickle (ref index too large)"
+	.zero	2
+	.long 2
+	.long MM_Pickle+1928
+	.long 34
+	.ascii	"Malformed pickle (unknown switch)"
+	.zero	3
+	.long MM_Pickle+2064
+	.long 1082854243
+	.long 2
+	.long MM_Pickle+1984
+	.long 35
+	.ascii	"Malformed pickle (wrong signature)"
+	.zero	2
+	.long 2
+	.long MM_Pickle+2032
+	.long 29
+	.ascii	"Can't read pickle (REAL rep)"
+	.zero	4
+	.long MM_Pickle+2388
+	.long -880800371
+	.long 2
+	.long MM_Pickle+2084
+	.long 34
+	.ascii	"Can't read pickle (wrong version)"
+	.zero	3
+	.long 2
+	.long MM_Pickle+2132
+	.long 29
+	.ascii	"Can't read pickle (char rep)"
+	.zero	4
+	.long 2
+	.long MM_Pickle+2176
+	.long 27
+	.ascii	"Can't read pickle (endian)"
+	.zero	2
+	.long 2
+	.long MM_Pickle+2216
+	.long 33
+	.ascii	"Malformed pickle (wrong trailer)"
+	.zero	4
+	.long MI_Pickle+44
+	.zero	4
+	.long 2
+	.long MM_Pickle+2272
+	.long 15
+	.ascii	"Pickle.Error: "
+	.zero	2
+	.long MI_PklTipeMap+44
+	.zero	4
+	.long 2
+	.long MM_Pickle+2308
+	.long 25
+	.ascii	"PklTipeMap.Write Error: "
+	.zero	4
+	.long MI_Pickle+44
+	.long MI_Rd+44
+	.long MI_Rd+64
+	.long MI_Thread+184
+	.zero	4
+	.long 2
+	.long MM_Pickle+2368
+	.long 19
+	.ascii	"PklTipeMap.Error: "
+	.zero	2
+	.long MM_Pickle+2396
+	.long -1208015212
+	.long MM_Pickle+2404
+	.long 1263564632
+	.long MM_Pickle+2412
+	.long 356643957
+	.long MM_Pickle+3532
+	.long 1355119930
+	.ascii	"_INITM_Pickle"
+	.zero	1
+	.ascii	"InitSpecials"
+	.zero	1
+	.ascii	"InitHeader"
+	.zero	1
+	.ascii	"PutPacking"
+	.zero	1
+	.ascii	"GetPacking"
+	.zero	1
+	.ascii	"RootSpecialRead"
+	.zero	1
+	.ascii	"TipeReadRef"
+	.zero	1
+	.ascii	"TipeSkipReadData"
+	.zero	1
+	.ascii	"TipeReadData"
+	.zero	1
+	.ascii	"VisitRead"
+	.zero	1
+	.ascii	"RootSpecialWrite"
+	.zero	1
+	.ascii	"TipeWriteRef"
+	.zero	1
+	.ascii	"TipeSkipWriteData"
+	.zero	1
+	.ascii	"TipeWriteData"
+	.zero	1
+	.ascii	"VisitWrite"
+	.zero	1
+	.ascii	"ReRegisterSpecial"
+	.zero	1
+	.ascii	"RegisterSpecial"
+	.zero	1
+	.ascii	"NoteRef"
+	.zero	1
+	.ascii	"ReadInt"
+	.zero	1
+	.ascii	"ReadType"
+	.zero	1
+	.ascii	"FinishRead"
+	.zero	1
+	.ascii	"StartRead"
+	.zero	1
+	.ascii	"ReadRef"
+	.zero	1
+	.ascii	"ExpandRefs"
+	.zero	1
+	.ascii	"InvokeSpecial"
+	.zero	1
+	.ascii	"TCFromIndex"
+	.zero	1
+	.ascii	"ReadFP"
+	.zero	1
+	.ascii	"GetBinaryInt"
+	.zero	1
+	.ascii	"ExtendReaderTypes"
+	.zero	1
+	.ascii	"WriteInt"
+	.zero	1
+	.ascii	"WriteType"
+	.zero	1
+	.ascii	"WriteRef"
+	.zero	1
+	.ascii	"M_Pickle_LINE_340"
+	.zero	1
+	.ascii	"ExtendWriterRefs"
+	.zero	1
+	.ascii	"ExtendWriterTypes"
+	.zero	1
+	.ascii	"Hash"
+	.zero	1
+	.ascii	"Read"
+	.zero	1
+	.ascii	"Write"
+	.zero	4
+	.long _INITM_Pickle
+	.long MM_Pickle+2420
+	.zero	4
+	.long Pickle__InitSpecials
+	.long MM_Pickle+2434
+	.zero	4
+	.long Pickle__InitHeader
+	.long MM_Pickle+2447
+	.zero	4
+	.long Pickle__PutPacking
+	.long MM_Pickle+2458
+	.zero	4
+	.long Pickle__GetPacking
+	.long MM_Pickle+2469
+	.zero	4
+	.long Pickle__RootSpecialRead
+	.long MM_Pickle+2480
+	.zero	4
+	.long Pickle__TipeReadRef
+	.long MM_Pickle+2496
+	.zero	4
+	.long Pickle__TipeSkipReadData
+	.long MM_Pickle+2508
+	.zero	4
+	.long Pickle__TipeReadData
+	.long MM_Pickle+2525
+	.zero	4
+	.long Pickle__VisitRead
+	.long MM_Pickle+2538
+	.zero	4
+	.long Pickle__RootSpecialWrite
+	.long MM_Pickle+2548
+	.zero	4
+	.long Pickle__TipeWriteRef
+	.long MM_Pickle+2565
+	.zero	4
+	.long Pickle__TipeSkipWriteData
+	.long MM_Pickle+2578
+	.zero	4
+	.long Pickle__TipeWriteData
+	.long MM_Pickle+2596
+	.zero	4
+	.long Pickle__VisitWrite
+	.long MM_Pickle+2610
+	.zero	4
+	.long Pickle__ReRegisterSpecial
+	.long MM_Pickle+2621
+	.long MI_Pickle+388
+	.long Pickle__RegisterSpecial
+	.long MM_Pickle+2639
+	.long MI_Pickle+384
+	.long Pickle__NoteRef
+	.long MM_Pickle+2655
+	.zero	4
+	.long Pickle__ReadInt
+	.long MM_Pickle+2663
+	.zero	4
+	.long Pickle__ReadType
+	.long MM_Pickle+2671
+	.zero	4
+	.long Pickle__FinishRead
+	.long MM_Pickle+2680
+	.zero	4
+	.long Pickle__StartRead
+	.long MM_Pickle+2691
+	.zero	4
+	.long Pickle__ReadRef
+	.long MM_Pickle+2701
+	.zero	4
+	.long Pickle__ExpandRefs
+	.long MM_Pickle+2709
+	.zero	4
+	.long Pickle__InvokeSpecial
+	.long MM_Pickle+2720
+	.zero	4
+	.long Pickle__TCFromIndex
+	.long MM_Pickle+2734
+	.zero	4
+	.long Pickle__ReadFP
+	.long MM_Pickle+2746
+	.zero	4
+	.long Pickle__GetBinaryInt
+	.long MM_Pickle+2753
+	.zero	4
+	.long Pickle__ExtendReaderTypes
+	.long MM_Pickle+2766
+	.zero	4
+	.long Pickle__WriteInt
+	.long MM_Pickle+2784
+	.zero	4
+	.long Pickle__WriteType
+	.long MM_Pickle+2793
+	.zero	4
+	.long Pickle__WriteRef
+	.long MM_Pickle+2803
+	.zero	4
+	.long M_Pickle_LINE_340.0
+	.long MM_Pickle+2812
+	.zero	4
+	.long Pickle__ExtendWriterRefs
+	.long MM_Pickle+2830
+	.zero	4
+	.long Pickle__ExtendWriterTypes
+	.long MM_Pickle+2847
+	.zero	4
+	.long Pickle__Hash
+	.long MM_Pickle+2865
+	.zero	4
+	.long Pickle__Read
+	.long MM_Pickle+2870
+	.long MI_Pickle+68
+	.long Pickle__Write
+	.long MM_Pickle+2875
+	.long MI_Pickle+64
+	.zero	4
+.byte 43
+.byte 164
+.byte 4
+.byte 4
+.byte 4
+.byte 42
+.byte 24
+.byte 4
+.byte 0
+	.ascii	"/home/ftp/tmp/pm3/tmp/pm3-1.1.15/language/modula3/m3compiler"
+	.ascii	"/m3bootstrap/LINUXLIBC6/pm3-LINUXLIBC6/boot-LINUXLIBC6/libm3"
+	.ascii	"/src/pickle/Pickle.m3"
+	.zero	1
+.byte 4
+.byte 0
+.byte 4
+.byte 0
+.byte 1
+.byte 16
+.byte 26
+.byte 4
+.byte 0
+.byte 1
+.byte 16
+.byte 29
+.byte 1
+.byte 225
+.byte 245
+.byte 5
+.byte 0
+	.ascii	"Pickle.ToChars"
+	.zero	1
+.byte 1
+.byte 10
+.byte 0
+	.zero	2
+	.long MM_Pickle+3692
+	.long 1061238844
+	.ascii	"Pickle.Special 2.0"
+	.zero	1
+	.ascii	"Pickle.Special"
+	.zero	1
+.byte 4
+.byte 0
+.byte 4
+.byte 0
+.byte 2
+.byte 10
+.byte 1
+.byte 16
+.byte 208
+.byte 161
+.byte 205
+.byte 186
+	.ascii	"Pickle.ReadVisitor"
+	.zero	1
+.byte 4
+.byte 0
+.byte 4
+.byte 0
+.byte 2
+.byte 10
+.byte 1
+.byte 16
+.byte 208
+.byte 161
+.byte 205
+.byte 186
+	.ascii	"Pickle.TipeReadVisitor"
+	.zero	1
+.byte 14
+.byte 14
+.byte 14
+.byte 14
+.byte 4
+.byte 4
+.byte 5
+.byte 16
+.byte 36
+.byte 4
+.byte 4
+.byte 0
+.byte 42
+.byte 16
+.byte 4
+.byte 4
+.byte 41
+.byte 4
+.byte 4
+.byte 0
+.byte 11
+.byte 10
+.byte 10
+.byte 7
+.byte 23
+.byte 23
+.byte 23
+.byte 16
+.byte 254
+.byte 167
+.byte 123
+.byte 16
+.byte 16
+.byte 34
+.byte 186
+.byte 127
+.byte 33
+.byte 0
+.byte 4
+.byte 16
+.byte 99
+.byte 11
+.byte 139
+.byte 64
+.byte 16
+.byte 141
+.byte 13
+.byte 128
+.byte 203
+	.zero	3
+	.long MM_Pickle+3856
+	.long -2080064714
+	.ascii	"Pickle.Reader 2.0"
+	.zero	1
+	.ascii	"Pickle.Reader"
+	.zero	1
+.byte 4
+.byte 0
+.byte 4
+.byte 0
+.byte 2
+.byte 10
+.byte 1
+.byte 16
+.byte 129
+.byte 216
+.byte 11
+.byte 216
+	.ascii	"Pickle.TipeWriteVisitor"
+	.zero	1
+.byte 4
+.byte 0
+.byte 4
+.byte 0
+.byte 2
+.byte 10
+.byte 1
+.byte 16
+.byte 129
+.byte 216
+.byte 11
+.byte 216
+	.ascii	"Pickle.WriteVisitor"
+	.zero	1
+.byte 14
+.byte 14
+.byte 14
+.byte 4
+.byte 14
+.byte 4
+.byte 4
+.byte 5
+.byte 14
+.byte 4
+.byte 5
+.byte 4
+.byte 0
+.byte 42
+.byte 12
+.byte 4
+.byte 37
+.byte 4
+.byte 4
+.byte 41
+.byte 4
+.byte 37
+.byte 4
+.byte 0
+.byte 13
+.byte 10
+.byte 12
+.byte 7
+.byte 23
+.byte 23
+.byte 16
+.byte 199
+.byte 48
+.byte 192
+.byte 103
+.byte 23
+.byte 16
+.byte 34
+.byte 186
+.byte 127
+.byte 33
+.byte 28
+.byte 0
+.byte 23
+.byte 16
+.byte 244
+.byte 26
+.byte 138
+.byte 70
+.byte 30
+.byte 16
+.byte 180
+.byte 228
+.byte 124
+.byte 216
+	.zero	5
+	.long -596596672
+	.ascii	"Pickle.Writer 2.0"
+	.zero	1
+	.ascii	"Pickle.Writer"
+	.zero	1
+.byte 24
+.byte 1
+.byte 4
+.byte 0
+.byte 0
+.byte 24
+.byte 1
+.byte 4
+.byte 0
+.byte 0
+.byte 2
+.byte 11
+.byte 1
+.byte 16
+.byte 148
+.byte 38
+.byte 255
+.byte 183
+	.ascii	"Pickle.SpecialTable"
+	.zero	1
+.byte 24
+.byte 1
+.byte 4
+.byte 0
+.byte 0
+.byte 24
+.byte 1
+.byte 4
+.byte 0
+.byte 0
+.byte 2
+.byte 11
+.byte 1
+.byte 17
+	.ascii	"Pickle.RefArray"
+	.zero	1
+.byte 24
+.byte 1
+.byte 4
+.byte 14
+.byte 14
+.byte 0
+.byte 0
+.byte 24
+.byte 1
+.byte 4
+.byte 41
+.byte 0
+.byte 0
+.byte 5
+.byte 11
+.byte 1
+.byte 15
+.byte 3
+.byte 17
+.byte 7
+.byte 25
+	.ascii	"Pickle.RefTable"
+	.zero	4
+	.ident	"GCC: (GNU) cygnus-2.7.2-960712"

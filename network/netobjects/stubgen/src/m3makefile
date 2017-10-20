@@ -1,0 +1,44 @@
+% Copyright (C) 1994, Digital Equipment Corporation.
+% All rights reserved.
+% See the file COPYRIGHT for a full description.
+%
+% Makefile for network object stub generator
+%
+% Last modified on Mon Jan 23 14:47:21 PST 1995 by kalsow
+%      modified on Thu May 12 16:03:14 PDT 1994 by wobber
+
+
+import("libm3")
+import("m3tk")
+
+interface("ValueProc")
+interface("Protocol")
+
+module("TypeNames")
+module("Type")
+module("Value")
+module("AstToVal")
+module("AstToType")
+module("StubCode")
+module("CodeForType")
+module("ModuleStubCode")
+module("IntfStubCode")
+module("StubGenTool")
+module("StubUtils")
+module("FRefRefTbl")
+
+implementation("Main")
+
+% Be extra careful with multiple versions
+
+if ""
+  option("standalone","T")
+  local stubgenv1 = program_name("stubgenv1")
+  link_file (program_name("stubgen"), stubgenv1)
+  BindExport(stubgenv1)
+end
+
+ManPage("stubgen","1")
+
+Program("stubgen")
+

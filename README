@@ -1,0 +1,39 @@
+The Polytechnique Montreal Distribution of Modula-3
+
+pm3 version 1.1.15 dated Tue Sep  5 17:16:07 EDT 2000
+
+This distribution is based on the DEC SRC Modula-3 release 3.6. Local
+enhancements by Louis Dubeau, Jerome Collin and myself (Michel Dagenais)
+were added, and several packages (libraries, programs, and documentation)
+from other sources were added as well. The online documentation may be
+accessed before the build by pointing your favourite WWW browser to
+intro/src/index.html.
+
+This file is normally part of a source code + bootstrap distribution.
+To compile the bootstrap program, and compile and install the Modula-3
+source, the following steps are required.
+
+- insure that you have the usual development tools (make, gcc, ar).
+
+- check, and modify if needed, the template for your platform. This
+  template determines where the Modula-3 programs, libraries and 
+  documentation will be installed and used, as well as default options
+  for various needed tools. Typically you only need to change the
+  INSTALL_ROOT variable if the default does not suit you.
+  The template is located in m3config/src/{LINUXELF, SOLgnu, NT386GNU...}.
+
+- The file src/m3makefile is used in the following steps to build all the
+  packages. By default, almost all the available packages are built.
+  You may comment out some of these in src/m3makefile to save build time
+  and disk space.
+
+- run "make", which will execute the commands in Makefile. It will
+  build bootstrap versions of "m3build" and "m3ship" and then use
+  these programs to rebuild and install all the libraries and programs in
+  the distribution.
+
+  If you downloaded bootstraps for several platforms, the remaining 
+  Makefile is the last one you downloaded. In that case, you can use 
+  the correct platform specific Makefile as Makefile.PLATFORM 
+  (e.g. Makefile.LINUXELF) and use it with "make -f Makefile.PLATFORM". 
+

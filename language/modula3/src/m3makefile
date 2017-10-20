@@ -1,0 +1,10 @@
+
+import("m3doc")
+
+HtmlFile("index")
+
+include_dir("m3defn")
+include_dir("discussion")
+
+OtherPackage("modula3")
+

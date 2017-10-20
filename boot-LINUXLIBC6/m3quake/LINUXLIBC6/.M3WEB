@@ -1,0 +1,1033 @@
+QVal.m3 467
+QMachine.m3 3048
+QVSeq.m3 727
+QVTbl.m3 1571
+QValue.m3 42
+QCompiler.m3 885
+QCode.m3 399
+QScanner.m3 522
+QToken.m3 36
+Quake.m3 72
+QVal.i3 602
+QMachRep.i3 1984
+QMachine.i3 913
+QVSeqRep.i3 284
+QVSeq.i3 695
+QVTbl.i3 696
+QValue.i3 598
+QCompiler.i3 103
+QCode.i3 1387
+QScanner.i3 340
+QToken.i3 343
+Quake.i3 493
+$ 0
+@QVal.m3
+AQVal
+Reca7a822 2 50f86574 1
+Sm 23199190
+Stbl ba0112c6
+TQuake.Error
+Rfa56c70d 3 00000000 1
+Sm 23199190
+Stbl ba0112c6
+Sbuf c5c06198
+TQuake.Error
+R84ee4c53 2 50f86574 1
+Sm 23199190
+Sarr 39e90bcf
+TQuake.Error
+R8bf319ca 3 00000000 1
+Sm 23199190
+Sarr 39e90bcf
+Sbuf c5c06198
+TQuake.Error
+R4103b2eb 1 50f86574 0
+Sproc 7b7f7894
+DQVal
+CQuake
+CQCode
+CQMachine
+CQVSeq
+CQVTbl
+CQValue
+CM3Buf
+CM3ID
+CTextF
+CText
+CConvert
+CFmt
+CRTHooks
+Qa3575bbd 5ca8a442
+E8ed181d9 QVal.QK
+@QMachine.m3
+AQMachine
+V7aa9cb97 3d1e3efd 0 0 11 0 QMachine.T
+Xinit QMachine.Init
+Xevaluate QMachine.Evaluate
+Xget QMachine.Get
+Xput QMachine.Put
+Xlookup QMachine.LookUp
+Xpush QMachine.Push
+Xpop QMachine.Pop
+Xerror QMachine.Err
+Xcleanup QMachine.CleanUp
+Xcall QMachine.Call
+Xcur_wr QMachine.CurWr
+R10da6d0b 2 23199190 0
+St 23199190
+Swriter 62761487
+Rf897363f 2 00000000 1
+St 23199190
+Ss 8308019c
+TQuake.Error
+Rd7849bdc 2 00000000 1
+St 23199190
+Send_on_return 1e59237d
+TQuake.Error
+Rd373133c 1 00000000 0
+St 23199190
+R1c6a3111 1 00000000 1
+St 23199190
+TQuake.Error
+Rc8b60650 3 00000000 1
+St 23199190
+Sn_args 195c2a74
+SisFunc 1e59237d
+TQuake.Error
+Rb5f2ba79 2 00000000 1
+St 23199190
+Swith_value 1e59237d
+TQuake.Error
+R67bc5c2a 4 00000000 1
+St 23199190
+Sproc 7b7f7894
+Sargs 2fda93e2
+SisFunc 1e59237d
+TQuake.Error
+Qa3575bbd 5ca8a442
+Rad8f47eb 3 1e59237d 0
+St 23199190
+Sname adc6066d
+Svalue a3575bbd
+R05302b19 4 00000000 1
+St 23199190
+Sname adc6066d
+Svalue a3575bbd
+Sreadonly 1e59237d
+TQuake.Error
+R302c03db 1 a46bd6d8 0
+St 23199190
+Rb73bab7a 3 bbac124f 1
+St 23199190
+Sid adc6066d
+Sreadonly 1e59237d
+TQuake.Error
+R8a1b4cde 2 bbac124f 0
+St 23199190
+Sid adc6066d
+Rafa45a11 1 bbac124f 0
+St 23199190
+Rd5f45ab7 2 00000000 0
+St 23199190
+Svalue a3575bbd
+Rc027b988 2 00000000 1
+St 23199190
+Svalue a3575bbd
+TQuake.Error
+R6c4435d3 2 00000000 0
+St 23199190
+Sb 1e59237d
+Rb06eb055 3 00000000 1
+St 23199190
+Snm 50f86574
+Sappend 1e59237d
+TQuake.Error
+R4f04481b 1 62761487 0
+St 23199190
+Rd74ba26f 3 00000000 1
+St 23199190
+Snm adc6066d
+Selts a3575bbd
+TQuake.Error
+R4c78fdf5 1 1e59237d 0
+St 23199190
+Q640706f7 9bf8f908
+R68b76708 3 00000000 0
+St 23199190
+Ss 8308019c
+Sreg 640706f7
+N2ba4581d 195c2a74 0 17 8
+F35a9d449 2ba4581d bbac124f 576
+Ra655baff 4 bbac124f 0
+Snm 50f86574
+Shandler 305485f1
+Sn_args 195c2a74
+SisFunc 1e59237d
+Rf12ce6ab 2 00000000 1
+St 23199190
+Sn_args 195c2a74
+TQuake.Error
+N075733aa 195c2a74 0 199 8
+F46f94475 075733aa 56e16863 1600
+R8ec84092 8 195c2a74 1
+St 23199190
+Scmd 50f86574
+Sargs f173dc91
+Sstdin 50f86574
+Sstdout 50f86574
+Sstderr 50f86574
+Swd 50f86574
+Senv f173dc91
+TQuake.Error
+N4b3873bd 195c2a74 0 4095 16
+F998dd4c6 4b3873bd 56e16863 32768
+Rc3e5cfef 2 00000000 0
+St 23199190
+Sn_args 195c2a74
+R6eff7d4e 1 c5c06198 0
+St 23199190
+R0bfae29b 2 00000000 0
+St 23199190
+Sbuf c5c06198
+R4476fb06 1 50f86574 1
+St 23199190
+TQuake.Error
+R899af064 2 00000000 1
+St 23199190
+Smsg 50f86574
+TQuake.Error
+R0508850a 2 00000000 0
+Sbuf c5c06198
+Sreg 640706f7
+Rdc472aa7 3 00000000 0
+Sbuf c5c06198
+Stxt 50f86574
+Swidth 195c2a74
+Rca49feaf 1 50f86574 0
+Sargs ad398276
+R4381ddae 1 8805098f 0
+Stxt 50f86574
+DQMachRep
+DQMachine
+CQuake
+CStdio
+CQScanner
+CQVSeq
+CQVTbl
+CQCompiler
+CQCode
+CQVal
+CQValue
+CRegularFile
+CM3File
+CM3Buf
+CM3ID
+CRd
+CFileRd
+CFS
+CFile
+CProcess
+CPathname
+CPipe
+CTextF
+CTextSeq
+COSError
+CThread
+CWr
+CFileWr
+CText
+CFmt
+CEnv
+CIntRefTbl
+CAtomList
+CAtom
+CRTHooks
+E8ed181d9 QMachine.QK
+Eff43b4dd QMachine.Op
+Z23199190 7aa9cb97
+Q20549e59 dfab61a6
+Qfa2ead50 05d152af
+Q5b942927 a46bd6d8
+Q5c946d03 a36b92fc
+Q446b1c93 bb94e36c
+Qf970cdbe 068f3241
+Q3a3f9e67 c5c06198
+@QVSeq.m3
+AQVSeq
+V5ba24f84 22411760 0 0 11 0 (Sequence QValue.T)
+Xinit QVSeq.Init
+XfromArray QVSeq.FromArray
+Xaddhi QVSeq.Addhi
+Xaddlo QVSeq.Addlo
+Xremhi QVSeq.Remhi
+Xremlo QVSeq.Remlo
+Xput QVSeq.Put
+Xsize QVSeq.Size
+Xgethi QVSeq.Gethi
+Xgetlo QVSeq.Getlo
+Xget QVSeq.Get
+R8d89410f 2 39e90bcf 0
+Ss 39e90bcf
+SsizeHint 97e237e2
+Q98c8ab9f 67375460
+R31cb34d1 2 39e90bcf 0
+Ss 39e90bcf
+Sa 98c8ab9f
+Qa3575bbd 5ca8a442
+Rd03f55bf 2 00000000 0
+Ss 39e90bcf
+Sx a3575bbd
+Rf113aa12 1 00000000 0
+Ss 39e90bcf
+R60b7aef3 1 00000000 0
+Ss 39e90bcf
+R38d776f8 3 00000000 0
+Ss 39e90bcf
+Si 97e237e2
+Sx a3575bbd
+R01d3710d 2 00000000 0
+Ss 39e90bcf
+Si 97e237e2
+R41576e8b 1 97e237e2 0
+Ss 39e90bcf
+DQVSeq
+CRTHooks
+CQVSeqRep
+CQVSeq
+CQValue
+Z39e90bcf 5ba24f84
+@QVTbl.m3
+AQVTbl
+K42b98596 160 3
+Lkey 0 32 195c2a74
+Lvalue 32 96 5ca8a442
+Ltail 128 32 42b98595
+P42b98595 42b98596
+G205de9fb 42b98595 64
+P9ddf3a83 205de9fb
+V70d60356 58991f09 6 0 8 192 (Default (Table Integer QValue.T))
+Xget QVTbl.Get
+Xput QVTbl.Put
+Xdelete QVTbl.Delete
+Xsize QVTbl.Size
+Xiterate QVTbl.Iterate
+Xinit QVTbl.Init
+XkeyEqual QVTbl.KeyEqual
+XkeyHash QVTbl.KeyHash
+LminLogBuckets 0 32 97e237e2
+Lbuckets 32 32 9ddf3a83
+LlogBuckets 64 32 97e237e2
+LmaxEntries 96 32 97e237e2
+LminEntries 128 32 97e237e2
+LnumEntries 160 32 97e237e2
+V29baea25 948f32cb 4 0 1 128 QVTbl_^%#%^__0001M
+Xnext QVTbl.Next
+Ltbl 0 32 58991f0a
+Lthis 32 32 42b98595
+Lbucket 64 32 97e237e2
+Ldone 96 8 1e59237d
+R7acfea02 2 58991f0a 0
+Stbl 58991f0a
+Sn 97e237e2
+Qe6a3d58b 195c2a74
+Qa3575bbd 5ca8a442
+Rebe35966 3 1e59237d 0
+Stbl 58991f0a
+Skey e6a3d58b
+Sval a3575bbd
+R60bb7a14 3 1e59237d 0
+Stbl 58991f0a
+Skey e6a3d58b
+Sval a3575bbd
+R821d6c38 1 97e237e2 0
+Stbl 58991f0a
+R9878f592 1 948f32cb 0
+Stbl 58991f0a
+R9889ef3b 2 195c2a74 0
+Stbl 58991f0a
+Sk e6a3d58b
+R76624b0b 3 1e59237d 0
+Stbl 58991f0a
+Sk1 e6a3d58b
+Sk2 e6a3d58b
+Rf245e620 1 97e237e2 0
+Sx 97e237e2
+R9ed4a8da 2 00000000 0
+Stbl 58991f0a
+SlogBuckets 97e237e2
+R560a3533 3 1e59237d 0
+Si 29baea25
+Skey e6a3d58b
+Sval a3575bbd
+DQVTbl
+CWord
+CRTHooks
+CQValue
+CInteger
+E58991f09 QVTbl.Public
+E42b98595 QVTbl.EntryList
+E29baea25 QVTbl.DefaultIterator
+Z58991f0a 70d60356
+Qbd467a6a 42b98595
+Rd4f21c29 2 195c2a74 0
+Sx 195c2a74
+Sy 195c2a74
+Rc52a772e 2 195c2a74 0
+Sx 195c2a74
+Sn 195c2a74
+N2da6581d 195c2a74 0 31 8
+R6fb7d834 2 195c2a74 0
+Sx 195c2a74
+Sn 2da6581d
+@QValue.m3
+AQValue
+DQValue
+CM3ID
+CRTHooks
+@QCompiler.m3
+AQCompiler
+Kfd7dd646 96 3
+Llexer 0 32 a08848fb
+Lcode 32 32 8308019c
+Lfile 64 32 adc6066d
+M6a2fc85c f48bf2ab 64
+Q028229b9 fd7dd646
+R37d9c974 1 00000000 1
+Ss 028229b9
+TQuake.Error
+R71fd410f 3 00000000 1
+Ss 028229b9
+Slocal 1e59237d
+Sreadonly 1e59237d
+TQuake.Error
+N25a4581d 195c2a74 0 19 8
+F81f99b86 25a4581d adc6066d 640
+R2e421482 4 00000000 0
+Ss 028229b9
+Sid adc6066d
+Slocal 1e59237d
+Sreadonly 1e59237d
+F8eb3eed2 1e59237d ff43b4dd 16
+F4c3b1a31 1e59237d 8eb3eed2 32
+Rb6c86cb1 1 195c2a74 1
+Ss 028229b9
+TQuake.Error
+R584cf3d5 1 adc6066d 1
+Ss 028229b9
+TQuake.Error
+Rd09e3b8f 2 00000000 1
+Ss 028229b9
+Stok f48bf2ab
+TQuake.Error
+R8078413b 2 00000000 1
+Ss 028229b9
+Smsg 50f86574
+TQuake.Error
+DQCompiler
+CQuake
+CQCode
+CQScanner
+CQToken
+COSError
+CFS
+CM3ID
+CFmt
+CFile
+CRTHooks
+Ef48bf2ab QCompiler.TK
+Eff43b4dd QCompiler.QC
+Efd7dd646 QCompiler.State
+E8eb3eed2 QCompiler.EmitDefine.Z
+@QCode.m3
+AQCode
+Vee151a4c 949e6963 0 0 3 0 QCode_^%#%^__0001M
+Xemit QCode.Emit
+Xpatch QCode.Patch
+Xadd_proc QCode.AddProc
+Re04fae86 3 00000000 0
+Ss 8308019c
+Sop ff43b4dd
+Sa 195c2a74
+R48b8beb7 1 00000000 0
+Ss 8308019c
+Rb6bd3b6f 4 00000000 0
+Ss 8308019c
+Spc 195c2a74
+Sop ff43b4dd
+Sa 195c2a74
+Rfee751e1 2 195c2a74 0
+Ss 8308019c
+Snm adc6066d
+DQCode
+CM3ID
+CRTHooks
+Z8308019c ee151a4c
+Q20549e59 dfab61a6
+@QScanner.m3
+AQScanner
+V885c80c9 a08848f8 5 0 2 160 QScanner_^%#%^__0001M
+Xinit QScanner.Init
+Xnext QScanner.Next
+Lchar 0 8 56e16863
+LcurLine 32 32 195c2a74
+Lcursor 64 32 195c2a74
+Llength 96 32 195c2a74
+Lbuffer 128 32 878be988
+N2da6581d 195c2a74 0 31 8
+Ff1c702b7 2da6581d f48bf2ab 256
+Rcbffa2c2 2 a08848fb 0
+St a08848fb
+Sf a62f63c4
+Ne892bb5e f48bf2ab 2 15 8
+F71e821f8 e892bb5e adc6066d 448
+Rdb3556ff 1 00000000 0
+St a08848fb
+DQScanner
+CQToken
+CM3File
+CM3ID
+COSError
+CFile
+CRTHooks
+Ef48bf2ab QScanner.TK
+Za08848fb 885c80c9
+@QToken.m3
+AQToken
+DQToken
+CRTHooks
+@Quake.m3
+AQuake
+DQuake
+CM3ID
+CQCompiler
+CQValue
+CQMachine
+CWr
+CRTHooks
+@QVal.i3
+BQVal
+Qa3575bbd 5ca8a442
+Rc944588f 2 50f86574 1
+Sm 23199190
+St a3575bbd
+TQuake.Error
+R158677c6 2 1e59237d 1
+Sm 23199190
+St a3575bbd
+TQuake.Error
+Rf7ac6028 2 195c2a74 1
+Sm 23199190
+St a3575bbd
+TQuake.Error
+R1928ff4c 2 adc6066d 1
+Sm 23199190
+St a3575bbd
+TQuake.Error
+Rb67cb4c6 2 ba0112c6 1
+Sm 23199190
+St a3575bbd
+TQuake.Error
+R4efeead0 2 39e90bcf 1
+Sm 23199190
+St a3575bbd
+TQuake.Error
+R6b3380db 2 7b7f7894 1
+Sm 23199190
+St a3575bbd
+TQuake.Error
+R558790b7 3 00000000 1
+Sm 23199190
+St a3575bbd
+Sbuf c5c06198
+TQuake.Error
+DQVal
+CQuake
+CQVSeq
+CQVTbl
+CQValue
+CM3Buf
+CM3ID
+CRTHooks
+E5ca8a442 QVal.T
+@QMachRep.i3
+BQMachRep
+K9bf8f908 352 11
+Lcp 0 32 8308019c
+Lpc 32 32 195c2a74
+Lxp 64 32 195c2a74
+Lsp 96 32 195c2a74
+Llp 128 32 195c2a74
+Lop 160 32 195c2a74
+Lfp 192 32 195c2a74
+Lln 224 32 195c2a74
+Lip 256 32 195c2a74
+Lpi 288 32 0338629e
+Lfn 320 8 1e59237d
+G3464d00f a46bd6d8 64
+Pb28957ed 3464d00f
+Kbb94e36c 128 4
+Liter 0 32 948f32cb
+Larray 32 32 39e90bcf
+Lnext_elt 64 32 195c2a74
+Lvariable 96 32 bbac124f
+G62d7c25d bb94e36c 64
+P356fca3f 62d7c25d
+Ka36b92fc 64 2
+Lname 0 32 50f86574
+Lwr 32 32 62761487
+G19da5940 a36b92fc 64
+Pd0938e09 19da5940
+K05d152af 384 2
+Lproc 0 32 7b7f7894
+Lsaved 32 352 9bf8f908
+G3e1b1c58 05d152af 64
+P71efcd2f 3e1b1c58
+K068f3241 96 3
+Lfile 0 32 8308019c
+Lold_cp 32 32 8308019c
+Lold_pc 64 32 195c2a74
+G430b2f0a 068f3241 64
+P77b0231f 430b2f0a
+N832831d7 195c2a74 0 9 8
+F3f94fdd4 832831d7 c5c06198 320
+K8aa8da94 352 2
+Ltos 0 32 195c2a74
+Lbufs 32 320 3f94fdd4
+V3d1e3efd 0d2c6864 14 0 0 1088 QMachRep_^%#%^__0001I
+Lreg 0 352 9bf8f908
+Lscopes 352 32 b28957ed
+Lstack 384 32 2fda93e2
+Lloops 416 32 356fca3f
+Loutput 448 32 d0938e09
+Lframes 480 32 71efcd2f
+Lincludes 512 32 77b0231f
+Lglobals 544 32 5ad3ba2b
+Ltmp_files 576 32 8805098f
+Ltracing 608 8 1e59237d
+Llast_cp 640 32 8308019c
+Lbindings 672 32 bbac124f
+Lbuffers 704 352 8aa8da94
+Lwriter 1056 32 62761487
+R7bf156d4 1 8805098f 0
+Spath 8805098f
+R06c580a0 3 8805098f 1
+St 23199190
+Sprefix 8805098f
+Spath 8805098f
+TQuake.Error
+Re1efc22b 2 00000000 1
+St 23199190
+Spath 50f86574
+TQuake.Error
+Rb96df8c4 2 00000000 0
+St 23199190
+Ss 50f86574
+DQMachRep
+CQuake
+CWr
+CPathname
+CTextSeq
+CIntRefTbl
+CM3Buf
+CQVSeq
+CQVTbl
+CQValue
+CQCode
+CQMachine
+CRTHooks
+E3d1e3efd QMachRep.Rep
+E9bf8f908 QMachRep.Registers
+Eb28957ed QMachRep.ScopeStack
+E2fda93e2 QMachRep.ValueStack
+E356fca3f QMachRep.LoopStack
+Ed0938e09 QMachRep.OutputStack
+E71efcd2f QMachRep.FrameStack
+E77b0231f QMachRep.IncludeStack
+Ebb94e36c QMachRep.LoopInfo
+Ea36b92fc QMachRep.OutputInfo
+E05d152af QMachRep.FrameInfo
+E068f3241 QMachRep.IncludeInfo
+E8aa8da94 QMachRep.BufStack
+@QMachine.i3
+BQMachine
+R4c08ae5a 1 00000000 1
+Ss 8308019c
+TQuake.Error
+Qa3575bbd 5ca8a442
+Ra8f6909d 2 1e59237d 1
+Snm adc6066d
+Sval a3575bbd
+TQuake.Error
+R4901d94b 3 00000000 1
+Snm adc6066d
+Sval a3575bbd
+Sreadonly 1e59237d
+TQuake.Error
+Rc12ba75c 1 bbac124f 1
+Snm adc6066d
+TQuake.Error
+R40edc7d6 1 00000000 1
+Sval a3575bbd
+TQuake.Error
+R962b128f 1 00000000 1
+Sval a3575bbd
+TQuake.Error
+Rca1e9e5f 1 00000000 1
+Smsg 50f86574
+TQuake.Error
+R7e7ef80a 0 00000000 1
+TQuake.Error
+G67375460 5ca8a442 64
+P2fda93e2 67375460
+Rcb82ecb4 3 00000000 1
+Sproc 7b7f7894
+Sargs 2fda93e2
+SisFunc 1e59237d
+TQuake.Error
+R51d72649 0 62761487 0
+V0d2c6864 9d8fb489 0 11 0 0
+Winit 4239b97a
+Wevaluate 4c08ae5a
+Wget a8f6909d
+Wput 4901d94b
+Wlookup c12ba75c
+Wpush 40edc7d6
+Wpop 962b128f
+Werror ca1e9e5f
+Wcleanup 7e7ef80a
+Wcall cb82ecb4
+Wcur_wr 51d72649
+DQMachine
+CQuake
+CQCode
+CQValue
+CM3ID
+CWr
+CRTHooks
+E23199190 QMachine.T
+E0d2c6864 QMachine.T_
+@QVSeqRep.i3
+BQVSeqRep
+P41408030 67375460 QVSeqRep_^%#%^__0001I
+V22411760 39e90bcc 3 0 0 96 QVSeqRep_^%#%^__0002I
+Lelem 0 32 41408030
+Lst 32 32 97e237e2
+Lsz 64 32 97e237e2
+DQVSeqRep
+CRTHooks
+CQVSeq
+CQValue
+E41408030 QVSeqRep.RefArray
+E22411760 QVSeqRep.Public
+E67375460 QVSeqRep.EArr
+@QVSeq.i3
+BQVSeq
+Y39e90bcf 39e90bcc
+R39e90bcd 1 39e90bcf 0
+SsizeHint 97e237e2
+G67375460 5ca8a442 64
+Q98c8ab9f 67375460
+R39e90bca 1 39e90bcf 0
+Sa 98c8ab9f
+Qa3575bbd 5ca8a442
+Rf5e29a6e 1 00000000 0
+Sx a3575bbd
+R7dace9e6 0 00000000 0
+R67390b42 2 00000000 0
+Si 97e237e2
+Sx a3575bbd
+Rba310990 1 00000000 0
+Si 97e237e2
+V39e90bcc 9d8fb489 0 11 0 0
+Winit 39e90bcd
+WfromArray 39e90bca
+Waddhi f5e29a6e
+Waddlo f5e29a6e
+Wremhi 7dace9e6
+Wremlo 7dace9e6
+Wput 67390b42
+Wsize 5c4c299e
+Wgethi 7dace9e6
+Wgetlo 7dace9e6
+Wget ba310990
+Rf88ad941 2 39e90bcf 0
+Ss 39e90bcf
+St 39e90bcf
+Rbf5d36c1 3 39e90bcf 0
+Ss 39e90bcf
+Sstart 97e237e2
+Slength 97e237e2
+DQVSeq
+CRTHooks
+CQValue
+E39e90bcf QVSeq.T
+E39e90bcc QVSeq.Public
+@QVTbl.i3
+BQVTbl
+Qe6a3d58b 195c2a74
+Qa3575bbd 5ca8a442
+R3c792db7 2 1e59237d 0
+Sk e6a3d58b
+Sv a3575bbd
+R6741a1d2 2 1e59237d 0
+Sk e6a3d58b
+Sv a3575bbd
+R1b193f79 2 1e59237d 0
+Sk e6a3d58b
+Sv a3575bbd
+V948f32cb 9d8fb489 0 1 0 0
+Wnext 1b193f79
+R4629b034 0 948f32cb 0
+Vba0112c6 9d8fb489 0 5 0 0
+Wget 3c792db7
+Wput 6741a1d2
+Wdelete 3c792db7
+Wsize 5c4c299e
+Witerate 4629b034
+Y58991f0a 58991f09
+R58991f08 1 58991f0a 0
+SsizeHint 97e237e2
+Rb5445f81 2 1e59237d 0
+Sk1 e6a3d58b
+Sk2 e6a3d58b
+Rd9746788 1 195c2a74 0
+Sk e6a3d58b
+V58991f09 ba0112c6 0 3 0 0
+Winit 58991f08
+WkeyEqual b5445f81
+WkeyHash d9746788
+DQVTbl
+CWord
+CRTHooks
+CQValue
+CInteger
+Eba0112c6 QVTbl.T
+E948f32cb QVTbl.Iterator
+E58991f0a QVTbl.Default
+@QValue.i3
+BQValue
+H8ed181d9 6 8
+IVar
+IInteger
+IString
+ITable
+IArray
+IProc
+K5ca8a442 96 3
+Lkind 0 8 8ed181d9
+Lint 32 32 195c2a74
+Lref 64 32 1c1c45e6
+Kbbac124c 192 4
+Lnext 0 32 bbac124f
+Lreadonly 32 8 1e59237d
+Lname 64 32 adc6066d
+Lvalue 96 96 5ca8a442
+Pbbac124f bbac124c
+Ka46bd6db 64 2
+Lbindings 0 32 bbac124f
+Lparent 32 32 a46bd6d8
+Pa46bd6d8 a46bd6db
+K10e32804 64 2
+Linfo 0 32 0338629e
+Lenv 32 32 a46bd6d8
+P7b7f7894 10e32804
+F8c854edc 1e59237d adc6066d 64
+DQValue
+CM3ID
+CQCode
+CRTHooks
+E5ca8a442 QValue.T
+E8ed181d9 QValue.Kind
+E7b7f7894 QValue.Proc
+Ea46bd6d8 QValue.Scope
+Ebbac124f QValue.Binding
+@QCompiler.i3
+BQCompiler
+R7d113b5c 1 8308019c 1
+Spath 50f86574
+TQuake.Error
+DQCompiler
+CQuake
+CRTHooks
+@QCode.i3
+BQCode
+Hff43b4dd 38 8
+IInteger
+IString
+IBuildArray
+IBuildTable
+IGetEnv
+IPushProc
+IIsMember
+IConcat
+IAnd
+IOr
+INot
+IIndexTable
+ISubscriptArray
+IInitForeach
+INextForeach
+IGoto
+IIfFalse
+IHalt
+IPushScope
+IPopScope
+IDefineG
+IDefineGR
+IDefineL
+IDefineLR
+ILoadVar
+IAssign
+IAssignTable
+IAssignArray
+IAppend
+IStartRedirect
+IStartAppendRedirect
+IEndRedirect
+IStartCall
+ICallProc
+ICallFunc
+IReturnValue
+IReturn
+ISetLine
+F8e6d3058 ff43b4dd 50f86574 1216
+F6c94c47c ff43b4dd 892831d7 304
+Kdfab61a6 64 2
+Lop 0 8 ff43b4dd
+La 32 32 195c2a74
+Rf2b57d84 2 00000000 0
+Sop ff43b4dd
+Sa 195c2a74
+R40432620 3 00000000 0
+Spc 195c2a74
+Sop ff43b4dd
+Sa 195c2a74
+Ra7fce044 1 195c2a74 0
+Snm adc6066d
+Ge4ac0cec dfab61a6 64
+Pb9a60962 e4ac0cec
+R305485f1 2 00000000 1
+Sm 23199190
+Sn_args 195c2a74
+TQuake.Error
+Ka8201b7d 192 7
+Lcode 0 32 8308019c
+Lentry 32 32 195c2a74
+Lname 64 32 adc6066d
+Ln_args 96 32 195c2a74
+Lbuiltin 128 8 1e59237d
+LisFunc 136 8 1e59237d
+Lhandler 160 32 305485f1
+P0338629e a8201b7d
+G96ee0a26 0338629e 64
+P4424a638 96ee0a26
+V949e6963 9d8fb489 5 3 0 160
+Wemit f2b57d84
+Wpatch 40432620
+Wadd_proc a7fce044
+Lcursor 0 32 195c2a74
+Linstrs 32 32 b9a60962
+Lsource_file 64 32 adc6066d
+Ln_procs 96 32 195c2a74
+Lprocs 128 32 4424a638
+DQCode
+CQuake
+CM3ID
+CRTHooks
+Eff43b4dd QCode.Op
+Edfab61a6 QCode.Instr
+E8308019c QCode.Stream
+E949e6963 QCode.Stream_
+E0338629e QCode.ProcInfo
+E305485f1 QCode.BuiltinProc
+@QScanner.i3
+BQScanner
+F4ac74993 56e16863 1e59237d 2048
+Ya08848fb a08848f8
+Ra08848f9 1 a08848fb 0
+Sf a62f63c4
+Va08848f8 9d8fb489 4 2 0 128
+Winit a08848f9
+Wnext 7b78c34f
+Ltoken 0 8 f48bf2ab
+Lline 32 32 195c2a74
+Lstring 64 32 adc6066d
+Lcardinal 96 32 97e237e2
+DQScanner
+CQToken
+CM3ID
+CFile
+CRTHooks
+Ea08848fb QScanner.T
+Ea08848f8 QScanner.T_
+@QToken.i3
+BQToken
+Hf48bf2ab 34 8
+IUnknown
+IEOF
+IAnd
+IContains
+IElse
+IEnd
+IForeach
+IIf
+IIn
+IIs
+ILocal
+INot
+IOr
+IProc
+IReadonly
+IReturn
+IDollar
+IAmpersand
+ILParen
+IRParen
+IPlus
+IComma
+IColon
+ILess
+IEqual
+IGreater
+IAt
+ILSquare
+IRSquare
+ILBrace
+IRBrace
+ICardinal
+IName
+IString
+Fe5ad9a70 f48bf2ab 50f86574 1088
+DQToken
+CRTHooks
+Ef48bf2ab QToken.T
+@Quake.i3
+BQuake
+Y8308019c 1c1c45e6
+Y23199190 1c1c45e6
+R4239b97a 1 23199190 0
+Swriter 62761487
+Rb07c8fa2 2 00000000 1
+Sm 23199190
+Ssource_file 50f86574
+TQuake.Error
+Rb79edbc1 1 8308019c 1
+Ssource_file 50f86574
+TQuake.Error
+R18b8d89a 2 00000000 1
+Sm 23199190
+Scode_stream 8308019c
+TQuake.Error
+R6df44563 3 00000000 1
+Sm 23199190
+Ssymbol 50f86574
+Svalue 50f86574
+TQuake.Error
+R2d80a266 1 00000000 1
+Sm 23199190
+TQuake.Error
+DQuake
+CWr
+CRTHooks
+E8308019c Quake.CodeStream
+E23199190 Quake.Machine

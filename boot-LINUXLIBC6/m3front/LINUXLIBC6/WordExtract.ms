@@ -1,0 +1,782 @@
+	.file	"WordExtract.mc"
+	.version	"01.01"
+/ SRC Modula-3 version cygnus-2.7.2-960712 (i486--linuxelf) compiled by GNU C version egcs-2.91.66 19990314/Linux (egcs-1.1.2 release).
+/ options passed:  -fno-strength-reduce -O2
+/ options enabled:  -fdefer-pop -fcse-follow-jumps -fcse-skip-blocks
+/ -fexpensive-optimizations -fthread-jumps -fpeephole -fforce-mem
+/ -ffunction-cse -finline -fkeep-static-consts -fcaller-saves
+/ -fpcc-struct-return -frerun-cse-after-loop -fschedule-insns2 -fcommon
+/ -fverbose-asm -fgnu-linker -m80387 -mhard-float -mno-soft-float -mieee-fp
+/ -mfp-ret-in-387 -mschedule-prologue -mcpu=i486 -march=i486
+
+gcc2_compiled.:
+.text
+	.align 16
+	.type	 WordExtract__Check,@function
+WordExtract__Check:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %ebx
+	movl 8(%ebp),%ebx
+	movl 16(%ebx),%eax
+	pushl %eax
+	movl MM_WordExtract+48,%eax
+	pushl %eax
+	leal 20(%ebx),%eax
+	pushl %eax
+	movl 12(%ebp),%eax
+	pushl %eax
+	movl MI_Formal+64,%eax
+	call *%eax
+	movl MI_Int+44,%eax
+	movl %eax,8(%ebx)
+	movl -4(%ebp),%ebx
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe1:
+	.size	 WordExtract__Check,.Lfe1-WordExtract__Check
+	.align 16
+	.type	 WordExtract__Compile,@function
+WordExtract__Compile:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $16,%esp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%ecx
+	xorl %edi,%edi
+	movl 20(%ecx),%eax
+	testl %eax,%eax
+	jne .L3
+	pushl $500
+	call _m3_fault
+	.align 16
+.L3:
+	movl %eax,%edx
+	cmpl $1,4(%edx)
+	ja .L4
+	pushl $498
+	call _m3_fault
+	.align 16
+.L4:
+	leal -8(%ebp),%eax
+	pushl %eax
+	movl (%edx),%eax
+	movl 4(%eax),%eax
+	pushl %eax
+	call WordExtract__GetBitIndex
+	movb %al,%bl
+	movl 8(%ebp),%ecx
+	addl $8,%esp
+	movl 20(%ecx),%eax
+	testl %eax,%eax
+	jne .L5
+	pushl $516
+	call _m3_fault
+	.align 16
+.L5:
+	movl %eax,%edx
+	cmpl $2,4(%edx)
+	ja .L6
+	pushl $514
+	call _m3_fault
+	.align 16
+.L6:
+	leal -4(%ebp),%eax
+	pushl %eax
+	movl (%edx),%eax
+	movl 8(%eax),%eax
+	pushl %eax
+	call WordExtract__GetBitIndex
+	addl $8,%esp
+	testb %bl,%bl
+	je .L7
+	testb %al,%al
+	je .L13
+	movl -4(%ebp),%eax
+	addl -8(%ebp),%eax
+	cmpl %eax,MI_Target+96
+	jge .L8
+	pushl $MM_WordExtract+76
+	pushl $2
+	movl MI_Error+64,%eax
+	call *%eax
+	pushl $MI_TInt+52
+	movl MI_CG+428,%eax
+	call *%eax
+	pushl $MI_TInt+44
+	movl MI_CG+688,%eax
+	jmp .L33
+	.align 16
+.L8:
+	movl 8(%ebp),%ecx
+	movl 20(%ecx),%eax
+	testl %eax,%eax
+	jne .L10
+	pushl $660
+	call _m3_fault
+	.align 16
+.L10:
+	movl %eax,%edx
+	cmpl $0,4(%edx)
+	jne .L11
+	pushl $658
+	call _m3_fault
+	.align 16
+.L11:
+	movl (%edx),%eax
+	movl (%eax),%eax
+	pushl %eax
+	movl MI_Expr+204,%eax
+	call *%eax
+	movl -4(%ebp),%eax
+	pushl %eax
+	movl -8(%ebp),%eax
+	pushl %eax
+	pushl %edi
+	movl MI_CG+620,%eax
+	call *%eax
+	jmp .L2
+	.align 16
+.L7:
+	testb %al,%al
+	je .L13
+	leal -16(%ebp),%ebx
+	pushl %ebx
+	movl -4(%ebp),%eax
+	movl MI_Target+96,%ecx
+	subl %eax,%ecx
+	movl %ecx,%eax
+	pushl %eax
+	movl MI_TInt+68,%eax
+	call *%eax
+	addl $8,%esp
+	testb %al,%al
+	jne .L14
+	pushl $752
+	call _m3_fault
+	.align 16
+.L14:
+	movl 8(%ebp),%ecx
+	movl 20(%ecx),%eax
+	testl %eax,%eax
+	jne .L15
+	pushl $772
+	call _m3_fault
+	.align 16
+.L15:
+	movl %eax,%edx
+	cmpl $0,4(%edx)
+	jne .L16
+	pushl $770
+	call _m3_fault
+	.align 16
+.L16:
+	movl (%edx),%eax
+	movl (%eax),%eax
+	pushl %eax
+	movl MI_Expr+204,%eax
+	call *%eax
+	movl 8(%ebp),%ecx
+	addl $4,%esp
+	movl 20(%ecx),%eax
+	testl %eax,%eax
+	jne .L17
+	pushl $788
+	call _m3_fault
+	.align 16
+.L17:
+	movl %eax,%edx
+	cmpl $1,4(%edx)
+	ja .L18
+	pushl $786
+	call _m3_fault
+	.align 16
+.L18:
+	pushl %ebx
+	pushl $MI_TInt+44
+	movl (%edx),%eax
+	movl 4(%eax),%eax
+	pushl %eax
+	movl MI_CheckExpr+56,%eax
+	call *%eax
+	movl -4(%ebp),%eax
+	pushl %eax
+	pushl $0
+	movl MI_CG+616,%eax
+	call *%eax
+	jmp .L2
+	.align 16
+.L13:
+	testb %bl,%bl
+	je .L19
+	leal -16(%ebp),%ebx
+	pushl %ebx
+	movl -8(%ebp),%eax
+	movl MI_Target+96,%ecx
+	subl %eax,%ecx
+	movl %ecx,%eax
+	pushl %eax
+	movl MI_TInt+68,%eax
+	call *%eax
+	addl $8,%esp
+	testb %al,%al
+	jne .L20
+	pushl $880
+	call _m3_fault
+	.align 16
+.L20:
+	movl 8(%ebp),%ecx
+	movl 20(%ecx),%eax
+	testl %eax,%eax
+	jne .L21
+	pushl $900
+	call _m3_fault
+	.align 16
+.L21:
+	movl %eax,%edx
+	cmpl $0,4(%edx)
+	jne .L22
+	pushl $898
+	call _m3_fault
+	.align 16
+.L22:
+	movl (%edx),%eax
+	movl (%eax),%eax
+	pushl %eax
+	movl MI_Expr+204,%eax
+	call *%eax
+	movl MI_CG+240,%eax
+	call *%eax
+	movl -8(%ebp),%eax
+	pushl %eax
+	movl MI_CG+424,%eax
+	call *%eax
+	movl 8(%ebp),%ecx
+	addl $8,%esp
+	movl 20(%ecx),%eax
+	testl %eax,%eax
+	jne .L23
+	pushl $948
+	call _m3_fault
+	.align 16
+.L23:
+	movl %eax,%edx
+	cmpl $2,4(%edx)
+	ja .L24
+	pushl $946
+	call _m3_fault
+	.align 16
+.L24:
+	pushl %ebx
+	pushl $MI_TInt+44
+	movl (%edx),%eax
+	movl 8(%eax),%eax
+	pushl %eax
+	movl MI_CheckExpr+56,%eax
+	call *%eax
+	pushl $0
+	movl MI_CG+612,%eax
+	jmp .L33
+	.align 16
+.L19:
+	movl 8(%ebp),%ecx
+	movl 20(%ecx),%eax
+	testl %eax,%eax
+	jne .L25
+	pushl $1028
+	call _m3_fault
+	.align 16
+.L25:
+	movl %eax,%edx
+	cmpl $1,4(%edx)
+	ja .L26
+	pushl $1026
+	call _m3_fault
+	.align 16
+.L26:
+	movl $MI_Target+120,%edi
+	pushl %edi
+	movl $MI_TInt+44,%ebx
+	pushl %ebx
+	movl (%edx),%eax
+	movl 4(%eax),%eax
+	pushl %eax
+	movl MI_CheckExpr+56,%eax
+	call *%eax
+	movl MI_CG+220,%eax
+	call *%eax
+	movl %eax,%esi
+	movl 8(%ebp),%ecx
+	addl $12,%esp
+	movl 20(%ecx),%eax
+	testl %eax,%eax
+	jne .L27
+	pushl $1060
+	call _m3_fault
+	.align 16
+.L27:
+	movl %eax,%edx
+	cmpl $2,4(%edx)
+	ja .L28
+	pushl $1058
+	call _m3_fault
+	.align 16
+.L28:
+	pushl %edi
+	pushl %ebx
+	movl (%edx),%eax
+	movl 8(%eax),%eax
+	pushl %eax
+	movl MI_CheckExpr+56,%eax
+	call *%eax
+	movl MI_CG+220,%eax
+	call *%eax
+	movl %eax,%edi
+	addl $12,%esp
+	cmpb $0,MI_Host+84
+	je .L29
+	leal -16(%ebp),%ebx
+	pushl %ebx
+	movl MI_Target+96,%eax
+	pushl %eax
+	movl MI_TInt+68,%eax
+	call *%eax
+	addl $8,%esp
+	testb %al,%al
+	jne .L30
+	pushl $1104
+	call _m3_fault
+	.align 16
+.L30:
+	pushl %esi
+	movl MI_CG+228,%eax
+	call *%eax
+	pushl %edi
+	movl MI_CG+228,%eax
+	call *%eax
+	pushl $2
+	movl MI_CG+460,%eax
+	call *%eax
+	pushl %ebx
+	movl MI_CG+688,%eax
+	call *%eax
+	pushl $2
+	movl MI_CG+640,%eax
+	call *%eax
+	addl $20,%esp
+.L29:
+	movl 8(%ebp),%ecx
+	movl 20(%ecx),%eax
+	testl %eax,%eax
+	jne .L31
+	pushl $1220
+	call _m3_fault
+	.align 16
+.L31:
+	movl %eax,%edx
+	cmpl $0,4(%edx)
+	jne .L32
+	pushl $1218
+	call _m3_fault
+	.align 16
+.L32:
+	movl (%edx),%eax
+	movl (%eax),%eax
+	pushl %eax
+	movl MI_Expr+204,%eax
+	call *%eax
+	movl MI_CG+240,%eax
+	call *%eax
+	pushl %esi
+	movl MI_CG+228,%eax
+	call *%eax
+	pushl %edi
+	movl MI_CG+228,%eax
+	call *%eax
+	pushl $0
+	movl MI_CG+612,%eax
+	call *%eax
+	pushl %esi
+	movl MI_CG+232,%eax
+	call *%eax
+	pushl %edi
+	movl MI_CG+232,%eax
+.L33:
+	call *%eax
+.L2:
+	leal -28(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe2:
+	.size	 WordExtract__Compile,.Lfe2-WordExtract__Compile
+	.align 16
+	.type	 WordExtract__GetBitIndex,@function
+WordExtract__GetBitIndex:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $8,%esp
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%edx
+	pushl %edx
+	movl MI_Expr+160,%eax
+	call *%eax
+	movl %eax,%edx
+	addl $4,%esp
+	testl %eax,%eax
+	je .L37
+	leal -8(%ebp),%ebx
+	pushl %ebx
+	pushl %edx
+	movl MI_IntegerExpr+48,%eax
+	xorl %esi,%esi
+	call *%eax
+	addl $8,%esp
+	testl %eax,%eax
+	je .L36
+	movl 12(%ebp),%eax
+	pushl %eax
+	pushl %ebx
+	movl MI_TInt+72,%eax
+	call *%eax
+	testl %eax,%eax
+	je .L36
+	movl 12(%ebp),%eax
+	movl (%eax),%eax
+	testl %eax,%eax
+	jl .L36
+	cmpl %eax,MI_Target+96
+	setge %al
+	movl %eax,%esi
+	andl $255,%esi
+.L36:
+	movl %esi,%eax
+.L37:
+	leal -16(%ebp),%esp
+	popl %ebx
+	popl %esi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe3:
+	.size	 WordExtract__GetBitIndex,.Lfe3-WordExtract__GetBitIndex
+	.align 16
+	.type	 WordExtract__Fold,@function
+WordExtract__Fold:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $40,%esp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%esi
+	movl 20(%esi),%eax
+	testl %eax,%eax
+	jne .L39
+	pushl $1588
+	call _m3_fault
+	.align 16
+.L39:
+	cmpl $0,4(%eax)
+	jne .L40
+	pushl $1586
+	call _m3_fault
+	.align 16
+.L40:
+	movl (%eax),%eax
+	movl (%eax),%eax
+	pushl %eax
+	movl MI_Expr+160,%eax
+	call *%eax
+	movl %eax,%ebx
+	movl %ebx,%edi
+	movl 20(%esi),%eax
+	addl $4,%esp
+	testl %eax,%eax
+	jne .L41
+	pushl $1604
+	call _m3_fault
+	.align 16
+.L41:
+	movl %eax,%ebx
+	cmpl $1,4(%ebx)
+	ja .L42
+	pushl $1602
+	call _m3_fault
+	.align 16
+.L42:
+	movl (%ebx),%eax
+	movl 4(%eax),%eax
+	pushl %eax
+	movl MI_Expr+160,%eax
+	call *%eax
+	movl %eax,-36(%ebp)
+	movl 20(%esi),%eax
+	addl $4,%esp
+	testl %eax,%eax
+	jne .L43
+	pushl $1620
+	call _m3_fault
+	.align 16
+.L43:
+	cmpl $2,4(%eax)
+	ja .L44
+	pushl $1618
+	call _m3_fault
+	.align 16
+.L44:
+	movl (%eax),%eax
+	movl 8(%eax),%eax
+	pushl %eax
+	movl MI_Expr+160,%eax
+	call *%eax
+	movl %eax,%ebx
+	addl $4,%esp
+	testl %edi,%edi
+	je .L45
+	leal -32(%ebp),%edx
+	movl %edx,-40(%ebp)
+	pushl %edx
+	pushl %edi
+	movl MI_IntegerExpr+48,%eax
+	call *%eax
+	addl $8,%esp
+	testl %eax,%eax
+	je .L45
+	cmpl $0,-36(%ebp)
+	je .L45
+	leal -24(%ebp),%edi
+	pushl %edi
+	movl -36(%ebp),%edx
+	pushl %edx
+	movl MI_IntegerExpr+48,%eax
+	call *%eax
+	addl $8,%esp
+	testl %eax,%eax
+	je .L45
+	testl %ebx,%ebx
+	je .L45
+	leal -16(%ebp),%esi
+	pushl %esi
+	pushl %ebx
+	movl MI_IntegerExpr+48,%eax
+	call *%eax
+	addl $8,%esp
+	testl %eax,%eax
+	je .L45
+	leal -8(%ebp),%ebx
+	pushl %ebx
+	pushl %esi
+	pushl %edi
+	movl -40(%ebp),%edx
+	pushl %edx
+	movl MI_TWord+104,%eax
+	call *%eax
+	addl $16,%esp
+	testl %eax,%eax
+	jne .L46
+.L45:
+	xorl %eax,%eax
+	jmp .L47
+	.align 16
+.L46:
+	pushl %ebx
+	movl MI_IntegerExpr+44,%eax
+	call *%eax
+	movl %eax,%ebx
+.L47:
+	leal -52(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe4:
+	.size	 WordExtract__Fold,.Lfe4-WordExtract__Fold
+	.align 16
+	.type	 WordExtract__Initialize,@function
+WordExtract__Initialize:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %esi
+	pushl %ebx
+	movl MI_Int+44,%eax
+	pushl %eax
+	pushl $0
+	pushl $MM_WordExtract+108
+	movl MI_Formal+48,%eax
+	call *%eax
+	movl %eax,%esi
+	movl MI_Card+44,%eax
+	pushl %eax
+	pushl $1
+	pushl $MM_WordExtract+124
+	movl MI_Formal+48,%eax
+	call *%eax
+	movl %eax,%ebx
+	movl MI_Card+44,%eax
+	pushl %eax
+	pushl $2
+	pushl $MM_WordExtract+140
+	movl MI_Formal+48,%eax
+	call *%eax
+	addl $36,%esp
+	pushl $0
+	pushl %eax
+	pushl %ebx
+	pushl %esi
+	movl MI_Int+44,%eax
+	pushl %eax
+	movl MI_ProcType+96,%eax
+	call *%eax
+	movl %eax,%ebx
+	movl MI_CallExpr+200,%eax
+	pushl %eax
+	movl MI_CallExpr+164,%eax
+	pushl %eax
+	pushl %eax
+	movl MM_WordExtract+64,%eax
+	pushl %eax
+	movl MI_CallExpr+188,%eax
+	pushl %eax
+	pushl %eax
+	movl MI_CallExpr+184,%eax
+	pushl %eax
+	pushl %eax
+	movl MM_WordExtract+56,%eax
+	pushl %eax
+	movl MI_CallExpr+180,%eax
+	pushl %eax
+	movl MM_WordExtract+52,%eax
+	pushl %eax
+	movl MI_CallExpr+176,%eax
+	pushl %eax
+	pushl $0
+	movl MI_Int+44,%eax
+	pushl %eax
+	pushl $1
+	pushl $1
+	pushl $1
+	pushl $3
+	pushl $3
+	movl MI_CallExpr+152,%eax
+	call *%eax
+	addl $96,%esp
+	movl %eax,MM_WordExtract+44
+	pushl %ebx
+	pushl $0
+	pushl %eax
+	pushl $MM_WordExtract+156
+	movl MI_Procedure+64,%eax
+	call *%eax
+	pushl %ebx
+	movl MI_ProcType+64,%eax
+	call *%eax
+	leal -8(%ebp),%esp
+	movl %eax,MM_WordExtract+48
+	popl %ebx
+	popl %esi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe5:
+	.size	 WordExtract__Initialize,.Lfe5-WordExtract__Initialize
+	.align 16
+	.type	 _m3_fault,@function
+_m3_fault:
+	pushl %ebp
+	movl %esp,%ebp
+	movl 8(%ebp),%eax
+	pushl %eax
+	pushl $MM_WordExtract
+	movl MI_RTHooks+108,%eax
+	call *%eax
+	.align 16
+.Lfe6:
+	.size	 _m3_fault,.Lfe6-_m3_fault
+.globl MM_WordExtract
+.data
+	.align 4
+	.type	 MM_WordExtract,@object
+	.size	 MM_WordExtract,440
+MM_WordExtract:
+	.long MM_WordExtract+285
+	.zero	16
+	.long MM_WordExtract+216
+	.zero	4
+	.long MM_WordExtract+280
+	.long MM_WordExtract+280
+	.zero	16
+	.long WordExtract__Check
+	.long WordExtract__Compile
+	.long WordExtract__GetBitIndex
+	.long WordExtract__Fold
+	.long WordExtract__Initialize
+	.long 2
+	.long MM_WordExtract+84
+	.long 19
+	.ascii	"value out of range"
+	.zero	2
+	.long 2
+	.long MM_WordExtract+116
+	.long 2
+	.ascii	"x"
+	.zero	3
+	.long 2
+	.long MM_WordExtract+132
+	.long 2
+	.ascii	"i"
+	.zero	3
+	.long 2
+	.long MM_WordExtract+148
+	.long 2
+	.ascii	"n"
+	.zero	3
+	.long 2
+	.long MM_WordExtract+164
+	.long 8
+	.ascii	"Extract"
+	.zero	1
+	.ascii	"Initialize"
+	.zero	1
+	.ascii	"Fold"
+	.zero	1
+	.ascii	"GetBitIndex"
+	.zero	1
+	.ascii	"Compile"
+	.zero	1
+	.ascii	"Check"
+	.zero	3
+	.long WordExtract__Initialize
+	.long MM_WordExtract+172
+	.long MI_WordExtract+44
+	.long WordExtract__Fold
+	.long MM_WordExtract+183
+	.zero	4
+	.long WordExtract__GetBitIndex
+	.long MM_WordExtract+188
+	.zero	4
+	.long WordExtract__Compile
+	.long MM_WordExtract+200
+	.zero	4
+	.long WordExtract__Check
+	.long MM_WordExtract+208
+	.zero	8
+.byte 42
+.byte 44
+.byte 4
+.byte 4
+.byte 0
+	.ascii	"/home/ftp/tmp/pm3/tmp/pm3-1.1.15/language/modula3/m3compiler"
+	.ascii	"/m3bootstrap/LINUXLIBC6/pm3-LINUXLIBC6/boot-LINUXLIBC6/m3fro"
+	.ascii	"nt/src/builtinWord/WordExtract.m3"
+	.zero	2
+	.ident	"GCC: (GNU) cygnus-2.7.2-960712"

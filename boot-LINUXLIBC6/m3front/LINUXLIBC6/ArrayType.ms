@@ -1,0 +1,1549 @@
+	.file	"ArrayType.mc"
+	.version	"01.01"
+/ SRC Modula-3 version cygnus-2.7.2-960712 (i486--linuxelf) compiled by GNU C version egcs-2.91.66 19990314/Linux (egcs-1.1.2 release).
+/ options passed:  -fno-strength-reduce -O2
+/ options enabled:  -fdefer-pop -fcse-follow-jumps -fcse-skip-blocks
+/ -fexpensive-optimizations -fthread-jumps -fpeephole -fforce-mem
+/ -ffunction-cse -finline -fkeep-static-consts -fcaller-saves
+/ -fpcc-struct-return -frerun-cse-after-loop -fschedule-insns2 -fcommon
+/ -fverbose-asm -fgnu-linker -m80387 -mhard-float -mno-soft-float -mieee-fp
+/ -mfp-ret-in-387 -mschedule-prologue -mcpu=i486 -march=i486
+
+gcc2_compiled.:
+.text
+	.align 16
+	.type	 ArrayType__Parse,@function
+ArrayType__Parse:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	pushl $46
+	movl MI_Scanner+108,%eax
+	xorl %edi,%edi
+	call *%eax
+	pushl $MI_Token+76
+	xorl %eax,%eax
+	movb MI_Scanner+44,%al
+	pushl %eax
+	call set_member
+	addl $12,%esp
+	testl %eax,%eax
+	je .L2
+	pushl %edi
+	pushl %edi
+	call ArrayType__New
+	movl %eax,%edx
+	addl $8,%esp
+	testl %edx,%edx
+	je .L3
+	movl -4(%edx),%eax
+	sall $11,%eax
+	movl %eax,%ecx
+	shrl $12,%ecx
+	cmpl %ecx,MM_ArrayType+232
+	jg .L4
+	movl MM_ArrayType+228,%eax
+	cmpl %ecx,4(%eax)
+	jge .L3
+.L4:
+	pushl $773
+	call _m3_fault
+	.align 16
+.L3:
+	movl %edx,%edi
+	movl %edi,%esi
+.L5:
+	movl MI_Type+56,%eax
+	call *%eax
+	movl %esi,%ebx
+	movl %eax,%edx
+	movl %edx,56(%ebx)
+	cmpb $15,MI_Scanner+44
+	jne .L7
+	movl MI_Scanner+104,%eax
+	call *%eax
+	pushl $0
+	pushl $0
+	call ArrayType__New
+	movl %eax,%ebx
+	movl %ebx,60(%esi)
+	movl %ebx,%edx
+	addl $8,%esp
+	testl %edx,%edx
+	je .L8
+	movl -4(%edx),%eax
+	sall $11,%eax
+	movl %eax,%ecx
+	shrl $12,%ecx
+	cmpl %ecx,MM_ArrayType+232
+	jg .L9
+	movl MM_ArrayType+228,%eax
+	cmpl %ecx,4(%eax)
+	jge .L8
+.L9:
+	pushl $869
+	call _m3_fault
+	.align 16
+.L8:
+	movl %edx,%esi
+	jmp .L5
+	.align 16
+.L7:
+	pushl $79
+	movl MI_Scanner+108,%eax
+	call *%eax
+	movl MI_Type+56,%eax
+	call *%eax
+	movl %eax,%edx
+	movl %edx,60(%ebx)
+	movl %edi,%eax
+	jmp .L10
+	.align 16
+.L2:
+	pushl $79
+	movl MI_Scanner+108,%eax
+	call *%eax
+	movl MI_Type+56,%eax
+	call *%eax
+	movl %eax,%ebx
+	pushl %ebx
+	movl MI_OpenArrayType+44,%eax
+	call *%eax
+	movl %eax,%edx
+.L10:
+	leal -12(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe1:
+	.size	 ArrayType__Parse,.Lfe1-ArrayType__Parse
+	.align 16
+	.type	 ArrayType__New,@function
+ArrayType__New:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%ebx
+	movl 12(%ebp),%esi
+	movl MM_ArrayType+228,%eax
+	pushl %eax
+	movl MI_RTHooks+80,%eax
+	call *%eax
+	pushl $6
+	movl %eax,%edi
+	pushl %edi
+	movl MI_TypeRep+148,%eax
+	call *%eax
+	movl %ebx,56(%edi)
+	movl %esi,60(%edi)
+	movl $0,64(%edi)
+	movl $0,68(%edi)
+	movl $0,80(%edi)
+	movl $0,72(%edi)
+	movl $0,76(%edi)
+	movl $0,84(%edi)
+	movb $0,88(%edi)
+	leal -12(%ebp),%esp
+	movl %edi,%eax
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe2:
+	.size	 ArrayType__New,.Lfe2-ArrayType__New
+	.align 16
+	.type	 ArrayType__Split,@function
+ArrayType__Split:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%esi
+	movl 12(%ebp),%edi
+	pushl %esi
+	call ArrayType__Reduce
+	movl %eax,%ebx
+	addl $4,%esp
+	testl %ebx,%ebx
+	je .L13
+	movl 56(%ebx),%eax
+	movl %eax,(%edi)
+	movl 16(%ebp),%edx
+	movl 60(%ebx),%eax
+	movl %eax,(%edx)
+	jmp .L16
+	.align 16
+.L13:
+	movl 16(%ebp),%eax
+	pushl %eax
+	pushl %esi
+	movl MI_OpenArrayType+52,%eax
+	call *%eax
+	testl %eax,%eax
+	jne .L14
+	movl %ebx,%eax
+	jmp .L15
+	.align 16
+.L14:
+	movl %ebx,(%edi)
+.L16:
+	movl $1,%eax
+.L15:
+	leal -12(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe3:
+	.size	 ArrayType__Split,.Lfe3-ArrayType__Split
+	.align 16
+	.type	 ArrayType__EltPack,@function
+ArrayType__EltPack:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %ebx
+	movl 8(%ebp),%ebx
+	pushl %ebx
+	call ArrayType__Reduce
+	addl $4,%esp
+	testl %eax,%eax
+	je .L18
+	movl 76(%eax),%eax
+	jmp .L20
+	.align 16
+.L18:
+	pushl %ebx
+	movl MI_OpenArrayType+48,%eax
+	call *%eax
+	addl $4,%esp
+	testl %eax,%eax
+	je .L20
+	pushl %ebx
+	movl MI_OpenArrayType+56,%eax
+	call *%eax
+.L20:
+	movl -4(%ebp),%ebx
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe4:
+	.size	 ArrayType__EltPack,.Lfe4-ArrayType__EltPack
+	.align 16
+	.type	 ArrayType__EltAlign,@function
+ArrayType__EltAlign:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %ebx
+	movl 8(%ebp),%ebx
+	pushl %ebx
+	call ArrayType__Reduce
+	addl $4,%esp
+	testl %eax,%eax
+	je .L22
+	movl 72(%eax),%eax
+	jmp .L24
+	.align 16
+.L22:
+	pushl %ebx
+	movl MI_OpenArrayType+48,%eax
+	call *%eax
+	addl $4,%esp
+	testl %eax,%eax
+	jne .L23
+	movl $8,%eax
+	jmp .L24
+	.align 16
+.L23:
+	pushl %ebx
+	movl MI_OpenArrayType+60,%eax
+	call *%eax
+.L24:
+	movl -4(%ebp),%ebx
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe5:
+	.size	 ArrayType__EltAlign,.Lfe5-ArrayType__EltAlign
+	.align 16
+	.type	 ArrayType__OpenCousin,@function
+ArrayType__OpenCousin:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%esi
+	pushl %esi
+	call ArrayType__Reduce
+	movl %eax,%ebx
+	addl $4,%esp
+	testl %ebx,%ebx
+	je .L26
+	cmpl $0,84(%ebx)
+	jne .L27
+	movl 60(%ebx),%eax
+	pushl %eax
+	movl MI_OpenArrayType+44,%eax
+	call *%eax
+	movl %eax,84(%ebx)
+.L27:
+	movl 84(%ebx),%eax
+	jmp .L28
+	.align 16
+.L26:
+	movl %esi,%eax
+.L28:
+	leal -8(%ebp),%esp
+	popl %ebx
+	popl %esi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe6:
+	.size	 ArrayType__OpenCousin,.Lfe6-ArrayType__OpenCousin
+	.align 16
+	.type	 ArrayType__IsBitAddressed,@function
+ArrayType__IsBitAddressed:
+	pushl %ebp
+	movl %esp,%ebp
+	movl 8(%ebp),%eax
+	pushl %eax
+	call ArrayType__Reduce
+	xorl %edx,%edx
+	testl %eax,%eax
+	je .L30
+	cmpb $0,88(%eax)
+	setne %al
+	xorl %edx,%edx
+	movb %al,%dl
+.L30:
+	movl %edx,%eax
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe7:
+	.size	 ArrayType__IsBitAddressed,.Lfe7-ArrayType__IsBitAddressed
+	.align 16
+	.type	 ArrayType__GenIndex,@function
+ArrayType__GenIndex:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%esi
+	pushl %esi
+	call ArrayType__Reduce
+	movl %eax,%ebx
+	addl $4,%esp
+	testl %ebx,%ebx
+	jne .L32
+	pushl %esi
+	movl MI_OpenArrayType+56,%eax
+	call *%eax
+	pushl %eax
+	movl MI_CG+712,%eax
+	jmp .L38
+	.align 16
+.L32:
+	cmpb $0,88(%ebx)
+	jne .L34
+	movl 76(%ebx),%eax
+	pushl %eax
+	movl MI_CG+712,%eax
+	jmp .L38
+	.align 16
+.L34:
+	movl 76(%ebx),%eax
+	cmpl $1,%eax
+	je .L35
+	pushl %eax
+	movl MI_CG+424,%eax
+	call *%eax
+	pushl $2
+	movl MI_CG+468,%eax
+	call *%eax
+	addl $8,%esp
+.L35:
+	movl 64(%ebx),%eax
+	cmpl %eax,80(%ebx)
+	jg .L36
+	movl MI_CG+716,%eax
+	call *%eax
+	jmp .L31
+	.align 16
+.L36:
+	movl MI_CG+220,%eax
+	call *%eax
+	movl %eax,%esi
+	pushl %esi
+	movl MI_CG+228,%eax
+	call *%eax
+	movl 64(%ebx),%eax
+	pushl %eax
+	movl MI_CG+424,%eax
+	call *%eax
+	pushl $0
+	pushl $0
+	pushl $2
+	movl MI_CG+512,%eax
+	call *%eax
+	movl 64(%ebx),%eax
+	pushl %eax
+	movl MI_CG+712,%eax
+	call *%eax
+	pushl %esi
+	movl MI_CG+228,%eax
+	call *%eax
+	movl 64(%ebx),%eax
+	pushl %eax
+	movl MI_CG+424,%eax
+	call *%eax
+	addl $32,%esp
+	pushl $0
+	pushl $0
+	pushl $2
+	movl MI_CG+516,%eax
+	call *%eax
+	movl MI_CG+716,%eax
+	call *%eax
+	pushl %esi
+	movl MI_CG+232,%eax
+.L38:
+	call *%eax
+.L31:
+	leal -8(%ebp),%esp
+	popl %ebx
+	popl %esi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe8:
+	.size	 ArrayType__GenIndex,.Lfe8-ArrayType__GenIndex
+	.align 16
+	.type	 ArrayType__Check,@function
+ArrayType__Check:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $36,%esp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%esi
+.L40:
+	movl $5,-24(%ebp)
+	movl RTThread__handlerStack,%eax
+	movl %eax,-28(%ebp)
+	leal -28(%ebp),%edi
+	movl %edi,RTThread__handlerStack
+	movl $0,-20(%ebp)
+	movl $0,-16(%ebp)
+	movl $0,-12(%ebp)
+	movl $0,-8(%ebp)
+	movl $0,-4(%ebp)
+	movl 56(%esi),%eax
+	pushl %eax
+	movl MI_Type+64,%eax
+	call *%eax
+	movl %eax,56(%esi)
+	pushl %eax
+	movl MI_Type+104,%eax
+	call *%eax
+	addl $8,%esp
+	testl %eax,%eax
+	jne .L41
+	pushl $MM_ArrayType+240
+	movl MI_Error+44,%eax
+	call *%eax
+	movl MI_ErrType+44,%eax
+	movl %eax,56(%esi)
+	addl $4,%esp
+.L41:
+	leal -20(%ebp),%eax
+	pushl %eax
+	movl 60(%esi),%eax
+	pushl %eax
+	movl MI_Type+68,%eax
+	call *%eax
+	movl %eax,60(%esi)
+	addl $8,%esp
+	cmpb $10,-2(%ebp)
+	jne .L42
+	pushl $MM_ArrayType+296
+	movl MI_Error+44,%eax
+	call *%eax
+	addl $4,%esp
+.L42:
+	leal -36(%ebp),%ebx
+	pushl %ebx
+	movl 56(%esi),%eax
+	pushl %eax
+	movl MI_Type+108,%eax
+	call *%eax
+	leal 68(%esi),%eax
+	pushl %eax
+	pushl %ebx
+	movl MI_TInt+72,%eax
+	call *%eax
+	addl $16,%esp
+	testl %eax,%eax
+	jne .L43
+	pushl $MM_ArrayType+352
+	movl MI_Error+44,%eax
+	call *%eax
+	movl $1,68(%esi)
+	addl $4,%esp
+.L43:
+	movl -12(%ebp),%ebx
+	movl %ebx,72(%esi)
+	movl -20(%ebp),%eax
+	movl %eax,76(%esi)
+	cmpb $11,-2(%ebp)
+	je .L44
+	leal -1(%ebx,%eax),%eax
+	pushl %eax
+	pushl %ebx
+	call m3_div
+	imull %ebx,%eax
+	movl %eax,76(%esi)
+	movl -12(%ebp),%eax
+	movl %eax,64(%esi)
+	movb $0,88(%esi)
+	addl $8,%esp
+	jmp .L45
+	.align 16
+.L44:
+	pushl %esi
+	call ArrayType__FindAlignment
+	movl %eax,%ecx
+	movl %ecx,64(%esi)
+	movl $1,%ecx
+	movl 76(%esi),%eax
+	addl $4,%esp
+	cmpl $7,%eax
+	jle .L46
+	pushl %eax
+	movl 64(%esi),%eax
+	pushl %eax
+	call m3_mod
+	addl $8,%esp
+	testl %eax,%eax
+	setne %al
+	xorl %ecx,%ecx
+	movb %al,%cl
+.L46:
+	movb %cl,88(%esi)
+.L45:
+	cmpl $0,68(%esi)
+	jle .L47
+	movl 76(%esi),%eax
+	testl %eax,%eax
+	jle .L47
+	pushl $2147483647
+	pushl %eax
+	call m3_div
+	addl $8,%esp
+	cmpl %eax,68(%esi)
+	jle .L47
+	pushl $MM_ArrayType+420
+	movl MI_Error+44,%eax
+	call *%eax
+	xorl %ebx,%ebx
+	movl %ebx,80(%esi)
+	jmp .L48
+	.align 16
+.L47:
+	movl 76(%esi),%ebx
+	imull 68(%esi),%ebx
+	movl 64(%esi),%eax
+	pushl %eax
+	pushl %ebx
+	movl MI_RecordType+64,%eax
+	call *%eax
+	movl %eax,%ecx
+	movl %ecx,80(%esi)
+.L48:
+	movl 80(%esi),%eax
+	movl %eax,16(%esi)
+	movl 80(%esi),%eax
+	movl %eax,20(%esi)
+	movl 64(%esi),%eax
+	movl %eax,24(%esi)
+	movb $0,33(%esi)
+	movb $0,32(%esi)
+	movb $6,34(%esi)
+	xorl %edx,%edx
+	movb 35(%esi),%dl
+	andb $254,%dl
+	xorl %eax,%eax
+	movb -1(%ebp),%al
+	andl $1,%eax
+	orl %eax,%edx
+	movb %dl,35(%esi)
+	andl $253,%edx
+	movb -1(%ebp),%al
+	andb $2,%al
+	orb %dl,%al
+	movb %al,35(%esi)
+	xorl %ecx,%ecx
+	testb $4,-1(%ebp)
+	je .L49
+	movl -20(%ebp),%eax
+	cmpl %eax,76(%esi)
+	jg .L49
+	cmpl %ebx,80(%esi)
+	setle %al
+	xorl %ecx,%ecx
+	movb %al,%cl
+.L49:
+	xorl %edx,%edx
+	movb 35(%esi),%dl
+	andb $251,%dl
+	movl %ecx,%eax
+	andl $1,%eax
+	sall $2,%eax
+	orb %dl,%al
+	movb %al,35(%esi)
+	movl 68(%esi),%eax
+	leal (%eax,%eax,2),%ecx
+	sall $3,%ecx
+	subl %eax,%ecx
+	movl 76(%esi),%edx
+	leal 0(,%edx,8),%eax
+	subl %edx,%eax
+	leal (%edx,%eax,4),%eax
+	addl %eax,%ecx
+	movl %ecx,28(%esi)
+.L50:
+	movl -28(%ebp),%eax
+	leal -48(%ebp),%esp
+	movl %eax,RTThread__handlerStack
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe9:
+	.size	 ArrayType__Check,.Lfe9-ArrayType__Check
+	.align 16
+	.type	 ArrayType__FindAlignment,@function
+ArrayType__FindAlignment:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %edi
+	pushl %esi
+	xorl %esi,%esi
+	pushl %ebx
+	movl 8(%ebp),%edi
+.L52:
+	movl MI_Target+632(,%esi,4),%ebx
+	cmpl %ebx,72(%edi)
+	jg .L53
+	pushl %ebx
+	pushl %edi
+	movl MI_Type+72,%eax
+	call *%eax
+	addl $8,%esp
+	testl %eax,%eax
+	je .L53
+	movl %ebx,%eax
+	jmp .L56
+	.align 16
+.L53:
+	incl %esi
+	cmpl $3,%esi
+	jle .L52
+	pushl $MM_ArrayType+480
+	movl MI_Error+44,%eax
+	call *%eax
+	movl $8,%eax
+.L56:
+	leal -12(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe10:
+	.size	 ArrayType__FindAlignment,.Lfe10-ArrayType__FindAlignment
+	.align 16
+	.type	 ArrayType__CheckAlign,@function
+ArrayType__CheckAlign:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $16,%esp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 12(%ebp),%edx
+.L58:
+	movl $5,-4(%ebp)
+	movl RTThread__handlerStack,%eax
+	movl %eax,-8(%ebp)
+	leal -8(%ebp),%ecx
+	movl %ecx,RTThread__handlerStack
+	pushl %edx
+	movl MI_Target+96,%eax
+	pushl %eax
+	call m3_mod
+	movl %eax,-16(%ebp)
+	movl -16(%ebp),%ebx
+	xorl %esi,%esi
+	movl 8(%ebp),%edi
+	addl $8,%esp
+	movl 68(%edi),%edi
+	decl %edi
+	movl %edi,-12(%ebp)
+	jmp .L59
+	.align 16
+.L60:
+	pushl %ebx
+	movl 8(%ebp),%ecx
+	movl 60(%ecx),%eax
+	pushl %eax
+	movl MI_Type+72,%eax
+	call *%eax
+	movl %eax,%edx
+	addl $8,%esp
+	testl %edx,%edx
+	jne .L61
+	movl -8(%ebp),%eax
+	movl %eax,RTThread__handlerStack
+	movl %edx,%eax
+	jmp .L57
+	.align 16
+.L61:
+	movl 8(%ebp),%edi
+	movl 76(%edi),%eax
+	addl %ebx,%eax
+	pushl %eax
+	movl MI_Target+96,%eax
+	pushl %eax
+	call m3_mod
+	movl %eax,%ebx
+	addl $8,%esp
+	cmpl %ebx,-16(%ebp)
+	je .L63
+	incl %esi
+.L59:
+	cmpl %esi,-12(%ebp)
+	jge .L60
+.L63:
+	movl -8(%ebp),%eax
+	movl %eax,RTThread__handlerStack
+	movl $1,%eax
+.L64:
+.L57:
+	leal -28(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe11:
+	.size	 ArrayType__CheckAlign,.Lfe11-ArrayType__CheckAlign
+	.align 16
+	.type	 ArrayType__Compiler,@function
+ArrayType__Compiler:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%ebx
+	movl 56(%ebx),%eax
+	pushl %eax
+	movl MI_Type+140,%eax
+	call *%eax
+	movl 60(%ebx),%eax
+	pushl %eax
+	movl MI_Type+140,%eax
+	call *%eax
+	pushl %ebx
+	movl MI_Type+132,%eax
+	call *%eax
+	movl %eax,%edi
+	movl 56(%ebx),%eax
+	pushl %eax
+	movl MI_Type+132,%eax
+	call *%eax
+	movl %eax,%esi
+	movl 60(%ebx),%eax
+	pushl %eax
+	movl MI_Type+132,%eax
+	call *%eax
+	movl 80(%ebx),%edx
+	addl $20,%esp
+	testl %edx,%edx
+	jge .L66
+	pushl $4177
+	call _m3_fault
+	.align 16
+.L66:
+	pushl %edx
+	pushl %eax
+	pushl %esi
+	pushl %edi
+	movl MI_CG+80,%eax
+	call *%eax
+	leal -12(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe12:
+	.size	 ArrayType__Compiler,.Lfe12-ArrayType__Compiler
+	.align 16
+	.type	 ArrayType__EqualChk,@function
+ArrayType__EqualChk:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 12(%ebp),%esi
+	movl 16(%ebp),%edi
+	testl %esi,%esi
+	je .L68
+	movl -4(%esi),%eax
+	sall $11,%eax
+	movl %eax,%ebx
+	shrl $12,%ebx
+	cmpl %ebx,MM_ArrayType+232
+	jg .L69
+	movl MM_ArrayType+228,%eax
+	cmpl %ebx,4(%eax)
+	jge .L68
+.L69:
+	pushl $4245
+	call _m3_fault
+	.align 16
+.L68:
+	pushl %edi
+	movl 60(%esi),%eax
+	pushl %eax
+	movl 8(%ebp),%edx
+	movl 60(%edx),%eax
+	pushl %eax
+	movl MI_Type+116,%eax
+	xorl %ebx,%ebx
+	call *%eax
+	addl $12,%esp
+	testl %eax,%eax
+	je .L70
+	pushl %edi
+	movl 56(%esi),%eax
+	pushl %eax
+	movl 8(%ebp),%edx
+	movl 56(%edx),%eax
+	pushl %eax
+	movl MI_Type+116,%eax
+	call *%eax
+	testl %eax,%eax
+	setne %al
+	xorl %ebx,%ebx
+	movb %al,%bl
+.L70:
+	leal -12(%ebp),%esp
+	movl %ebx,%eax
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe13:
+	.size	 ArrayType__EqualChk,.Lfe13-ArrayType__EqualChk
+	.align 16
+	.type	 ArrayType__Subtyper,@function
+ArrayType__Subtyper:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $24,%esp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 12(%ebp),%esi
+	movl $0,-4(%ebp)
+	movl 8(%ebp),%ebx
+.L72:
+	pushl %ebx
+	call ArrayType__Reduce
+	movl %eax,%edi
+	addl $4,%esp
+	testl %edi,%edi
+	je .L76
+	leal -4(%ebp),%eax
+	pushl %eax
+	pushl %esi
+	movl MI_OpenArrayType+52,%eax
+	call *%eax
+	addl $8,%esp
+	testl %eax,%eax
+	je .L76
+	movl 60(%edi),%ebx
+	movl -4(%ebp),%esi
+	jmp .L72
+	.align 16
+.L76:
+	pushl %ebx
+	call ArrayType__Reduce
+	movl %eax,%edi
+	pushl %esi
+	call ArrayType__Reduce
+	movl %eax,-24(%ebp)
+	addl $8,%esp
+	testl %edi,%edi
+	je .L79
+	testl %eax,%eax
+	je .L79
+	movl -24(%ebp),%edx
+	movl 56(%edi),%eax
+	cmpl %eax,56(%edx)
+	je .L80
+	leal -12(%ebp),%esi
+	pushl %esi
+	pushl %eax
+	movl MI_Type+108,%eax
+	call *%eax
+	leal -20(%ebp),%ebx
+	pushl %ebx
+	movl -24(%ebp),%edx
+	movl 56(%edx),%eax
+	pushl %eax
+	movl MI_Type+108,%eax
+	call *%eax
+	pushl %ebx
+	pushl %esi
+	movl MI_TInt+100,%eax
+	call *%eax
+	addl $24,%esp
+	testl %eax,%eax
+	je .L82
+.L80:
+	movl -24(%ebp),%edx
+	movl 60(%edi),%ebx
+	movl 60(%edx),%esi
+	jmp .L76
+	.align 16
+.L79:
+	pushl $0
+	pushl %esi
+	pushl %ebx
+	movl MI_Type+116,%eax
+	call *%eax
+.L82:
+	leal -36(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe14:
+	.size	 ArrayType__Subtyper,.Lfe14-ArrayType__Subtyper
+	.align 16
+	.type	 ArrayType__Reduce,@function
+ArrayType__Reduce:
+	pushl %ebp
+	movl %esp,%ebp
+	movl 8(%ebp),%edx
+	testl %edx,%edx
+	je .L87
+	cmpb $1,34(%edx)
+	jne .L85
+	pushl %edx
+	movl MI_Type+76,%eax
+	call *%eax
+	movl %eax,%edx
+	addl $4,%esp
+.L85:
+	cmpb $6,34(%edx)
+	je .L86
+	xorl %eax,%eax
+	jmp .L89
+	.align 16
+.L86:
+	testl %edx,%edx
+	je .L87
+	movl -4(%edx),%eax
+	sall $11,%eax
+	movl %eax,%ecx
+	shrl $12,%ecx
+	cmpl %ecx,MM_ArrayType+232
+	jg .L88
+	movl MM_ArrayType+228,%eax
+	cmpl %ecx,4(%eax)
+	jge .L87
+.L88:
+	pushl $4885
+	call _m3_fault
+	.align 16
+.L87:
+	movl %edx,%eax
+.L89:
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe15:
+	.size	 ArrayType__Reduce,.Lfe15-ArrayType__Reduce
+	.align 16
+	.type	 ArrayType__InitCoster,@function
+ArrayType__InitCoster:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $28,%esp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%esi
+	xorl %eax,%eax
+	movb 12(%ebp),%al
+	pushl %eax
+	movl 60(%esi),%eax
+	pushl %eax
+	movl MI_Type+156,%eax
+	call *%eax
+	movl %eax,-4(%ebp)
+	leal -20(%ebp),%edi
+	pushl %edi
+	pushl %eax
+	movl MI_TInt+68,%eax
+	call *%eax
+	addl $16,%esp
+	testl %eax,%eax
+	je .L94
+	leal -28(%ebp),%ebx
+	pushl %ebx
+	movl 56(%esi),%eax
+	pushl %eax
+	movl MI_Type+108,%eax
+	call *%eax
+	pushl $MI_TInt+44
+	pushl %ebx
+	movl MI_TInt+104,%eax
+	call *%eax
+	addl $16,%esp
+	testl %eax,%eax
+	je .L92
+	movl -4(%ebp),%eax
+	leal (%eax,%eax,4),%eax
+	sall $2,%eax
+	jmp .L95
+	.align 16
+.L92:
+	leal -12(%ebp),%esi
+	pushl %esi
+	pushl %ebx
+	pushl %edi
+	movl MI_TInt+88,%eax
+	call *%eax
+	addl $12,%esp
+	testl %eax,%eax
+	je .L94
+	leal -4(%ebp),%eax
+	pushl %eax
+	pushl %esi
+	movl MI_TInt+72,%eax
+	call *%eax
+	testl %eax,%eax
+	je .L94
+	movl -4(%ebp),%eax
+	jmp .L95
+	.align 16
+.L94:
+	movl $2147483647,%eax
+.L95:
+	leal -40(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe16:
+	.size	 ArrayType__InitCoster,.Lfe16-ArrayType__InitCoster
+	.align 16
+	.type	 ArrayType__GenInit,@function
+ArrayType__GenInit:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl MI_CG+220,%eax
+	call *%eax
+	movl %eax,%esi
+	pushl $MI_TInt+44
+	movl MI_CG+428,%eax
+	call *%eax
+	movl MI_CG+224,%eax
+	movl %esi,%ebx
+	call *%eax
+	movl %eax,%esi
+	pushl $1
+	movl MI_CG+52,%eax
+	call *%eax
+	pushl $0
+	movl %eax,%edi
+	pushl %edi
+	movl MI_CG+316,%eax
+	call *%eax
+	pushl %ebx
+	movl MI_CG+228,%eax
+	call *%eax
+	pushl %esi
+	movl MI_CG+228,%eax
+	call *%eax
+	movl 8(%ebp),%edx
+	pushl %edx
+	call ArrayType__GenIndex
+	xorl %eax,%eax
+	movb 12(%ebp),%al
+	pushl %eax
+	movl 8(%ebp),%edx
+	movl 60(%edx),%eax
+	pushl %eax
+	movl MI_Type+148,%eax
+	call *%eax
+	addl $36,%esp
+	pushl %esi
+	movl MI_CG+228,%eax
+	call *%eax
+	pushl $MI_TInt+52
+	movl MI_CG+428,%eax
+	call *%eax
+	pushl $2
+	movl MI_CG+460,%eax
+	call *%eax
+	pushl %esi
+	movl MI_CG+236,%eax
+	call *%eax
+	pushl %esi
+	movl MI_CG+228,%eax
+	call *%eax
+	movl 8(%ebp),%edx
+	movl 68(%edx),%eax
+	pushl %eax
+	movl MI_CG+424,%eax
+	call *%eax
+	pushl $80
+	pushl $2
+	pushl %edi
+	movl MI_CG+348,%eax
+	call *%eax
+	addl $36,%esp
+	pushl %esi
+	movl MI_CG+232,%eax
+	call *%eax
+	pushl %ebx
+	movl MI_CG+232,%eax
+	call *%eax
+	leal -12(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe17:
+	.size	 ArrayType__GenInit,.Lfe17-ArrayType__GenInit
+	.align 16
+	.type	 ArrayType__GenMap,@function
+ArrayType__GenMap:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%ebx
+	movl 12(%ebp),%esi
+	cmpl $0,68(%ebx)
+	jle .L97
+	pushl $0
+	pushl $1
+	pushl %esi
+	movl MI_TipeMap+52,%eax
+	call *%eax
+	xorl %eax,%eax
+	movb 20(%ebp),%al
+	pushl %eax
+	movl 76(%ebx),%eax
+	pushl %eax
+	pushl %esi
+	movl 60(%ebx),%eax
+	pushl %eax
+	movl MI_Type+160,%eax
+	call *%eax
+	movl 68(%ebx),%eax
+	pushl %eax
+	pushl $26
+	movl 76(%ebx),%eax
+	addl %esi,%eax
+	pushl %eax
+	movl MI_TipeMap+52,%eax
+	call *%eax
+	addl $40,%esp
+	movl 80(%ebx),%eax
+	addl %esi,%eax
+	pushl %eax
+	movl MI_TipeMap+60,%eax
+	call *%eax
+.L97:
+	leal -8(%ebp),%esp
+	popl %ebx
+	popl %esi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe18:
+	.size	 ArrayType__GenMap,.Lfe18-ArrayType__GenMap
+	.align 16
+	.type	 ArrayType__GenDesc,@function
+ArrayType__GenDesc:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $8,%esp
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%esi
+	pushl %esi
+	pushl $1
+	movl MI_TipeDesc+52,%eax
+	call *%eax
+	addl $8,%esp
+	testl %eax,%eax
+	je .L99
+	leal -8(%ebp),%ebx
+	pushl %ebx
+	movl 56(%esi),%eax
+	pushl %eax
+	movl MI_Type+108,%eax
+	call *%eax
+	pushl %ebx
+	movl MI_TipeDesc+64,%eax
+	call *%eax
+	movl 60(%esi),%eax
+	pushl %eax
+	movl MI_Type+164,%eax
+	call *%eax
+.L99:
+	leal -16(%ebp),%esp
+	popl %ebx
+	popl %esi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe19:
+	.size	 ArrayType__GenDesc,.Lfe19-ArrayType__GenDesc
+	.align 16
+	.type	 ArrayType__FPrinter,@function
+ArrayType__FPrinter:
+	pushl %ebp
+	movl %esp,%ebp
+	movl 12(%ebp),%eax
+	movl 8(%ebp),%ecx
+	movl $MM_ArrayType+580,(%eax)
+	movl 12(%ebp),%edx
+	movl %ebp,%esp
+	movl $2,8(%edx)
+	movl 56(%ecx),%eax
+	movl %eax,12(%edx)
+	movl 60(%ecx),%eax
+	movl %eax,16(%edx)
+	popl %ebp
+	ret
+.Lfe20:
+	.size	 ArrayType__FPrinter,.Lfe20-ArrayType__FPrinter
+	.align 16
+	.type	 M_ArrayType_tf7a21cb6_LINK,@function
+M_ArrayType_tf7a21cb6_LINK:
+	pushl %ebp
+	movl %esp,%ebp
+	movl MM_ArrayType+228,%eax
+	movl %ebp,%esp
+	movl 52(%eax),%edx
+	movl MM_ArrayType+148,%eax
+	movl %eax,4(%edx)
+	movl MM_ArrayType+156,%eax
+	movl %eax,8(%edx)
+	movl MM_ArrayType+164,%eax
+	movl %eax,12(%edx)
+	movl MM_ArrayType+168,%eax
+	movl %eax,16(%edx)
+	movl MM_ArrayType+160,%eax
+	movl %eax,20(%edx)
+	movl MM_ArrayType+176,%eax
+	movl %eax,24(%edx)
+	movl MM_ArrayType+180,%eax
+	movl %eax,28(%edx)
+	movl MM_ArrayType+184,%eax
+	movl %eax,32(%edx)
+	movl MM_ArrayType+188,%eax
+	movl %eax,36(%edx)
+	movl MM_ArrayType+192,%eax
+	movl %eax,40(%edx)
+	popl %ebp
+	ret
+.Lfe21:
+	.size	 M_ArrayType_tf7a21cb6_LINK,.Lfe21-M_ArrayType_tf7a21cb6_LINK
+	.align 16
+	.type	 _m3_fault,@function
+_m3_fault:
+	pushl %ebp
+	movl %esp,%ebp
+	movl 8(%ebp),%eax
+	pushl %eax
+	pushl $MM_ArrayType
+	movl MI_RTHooks+108,%eax
+	call *%eax
+	.align 16
+.Lfe22:
+	.size	 _m3_fault,.Lfe22-_m3_fault
+.globl MM_ArrayType
+.data
+	.align 4
+	.type	 MM_ArrayType,@object
+	.size	 MM_ArrayType,1220
+MM_ArrayType:
+	.long MM_ArrayType+1016
+	.long MM_ArrayType+44
+	.long MM_ArrayType+228
+	.zero	8
+	.long MM_ArrayType+772
+	.zero	28
+	.long -140370762
+.byte 225
+.byte 97
+.byte 184
+.byte 228
+.byte 87
+.byte 125
+.byte 26
+.byte 19
+	.long 1
+	.zero	4
+	.long 36
+	.long 4
+	.zero	4
+	.long 0
+	.zero	12
+	.long MM_ArrayType+1162
+	.long MM_ArrayType+1172
+	.long MM_ArrayType+1178
+	.zero	4
+	.long M_ArrayType_tf7a21cb6_LINK
+	.long -2121051098
+	.zero	12
+	.long MM_ArrayType+1194
+	.long MM_ArrayType+1206
+	.zero	4
+	.long ArrayType__Check
+	.long ArrayType__FindAlignment
+	.long ArrayType__CheckAlign
+	.long ArrayType__Compiler
+	.long ArrayType__EqualChk
+	.long ArrayType__Subtyper
+	.long ArrayType__Reduce
+	.long ArrayType__InitCoster
+	.long ArrayType__GenInit
+	.long ArrayType__GenMap
+	.long ArrayType__GenDesc
+	.long ArrayType__FPrinter
+	.long ArrayType__Parse
+	.long ArrayType__New
+	.long ArrayType__Split
+	.long ArrayType__EltPack
+	.long ArrayType__EltAlign
+	.long ArrayType__OpenCousin
+	.long ArrayType__IsBitAddressed
+	.long ArrayType__GenIndex
+	.zero	4
+	.long -140370762
+	.long 2
+	.long MM_ArrayType+248
+	.long 41
+	.ascii	"array index type must be an ordinal type"
+	.zero	4
+	.long 2
+	.long MM_ArrayType+304
+	.long 43
+	.ascii	"array element type cannot be an open array"
+	.zero	2
+	.long 2
+	.long MM_ArrayType+360
+	.long 54
+	.ascii	"SRC Modula-3 restriction: array has too many elements"
+	.zero	3
+	.long 2
+	.long MM_ArrayType+428
+	.long 47
+	.ascii	"SRC Modula-3 restriction: array type too large"
+	.zero	2
+	.long 2
+	.long MM_ArrayType+488
+	.long 88
+	.ascii	"SRC Modula-3 restriction: scalars in packed array elements c"
+	.ascii	"annot cross word boundaries"
+	.zero	1
+	.long 2
+	.long MM_ArrayType+588
+	.long 6
+	.ascii	"ARRAY"
+	.zero	3
+	.ascii	"FPrinter"
+	.zero	1
+	.ascii	"GenDesc"
+	.zero	1
+	.ascii	"GenMap"
+	.zero	1
+	.ascii	"GenInit"
+	.zero	1
+	.ascii	"InitCoster"
+	.zero	1
+	.ascii	"Reduce"
+	.zero	1
+	.ascii	"Subtyper"
+	.zero	1
+	.ascii	"EqualChk"
+	.zero	1
+	.ascii	"Compiler"
+	.zero	1
+	.ascii	"CheckAlign"
+	.zero	1
+	.ascii	"FindAlignment"
+	.zero	1
+	.ascii	"Check"
+	.zero	1
+	.ascii	"GenIndex"
+	.zero	1
+	.ascii	"IsBitAddressed"
+	.zero	1
+	.ascii	"OpenCousin"
+	.zero	1
+	.ascii	"EltAlign"
+	.zero	1
+	.ascii	"EltPack"
+	.zero	1
+	.ascii	"Split"
+	.zero	1
+	.ascii	"New"
+	.zero	1
+	.ascii	"Parse"
+	.zero	1
+	.long ArrayType__FPrinter
+	.long MM_ArrayType+596
+	.zero	4
+	.long ArrayType__GenDesc
+	.long MM_ArrayType+605
+	.zero	4
+	.long ArrayType__GenMap
+	.long MM_ArrayType+613
+	.zero	4
+	.long ArrayType__GenInit
+	.long MM_ArrayType+620
+	.zero	4
+	.long ArrayType__InitCoster
+	.long MM_ArrayType+628
+	.zero	4
+	.long ArrayType__Reduce
+	.long MM_ArrayType+639
+	.zero	4
+	.long ArrayType__Subtyper
+	.long MM_ArrayType+646
+	.zero	4
+	.long ArrayType__EqualChk
+	.long MM_ArrayType+655
+	.zero	4
+	.long ArrayType__Compiler
+	.long MM_ArrayType+664
+	.zero	4
+	.long ArrayType__CheckAlign
+	.long MM_ArrayType+673
+	.zero	4
+	.long ArrayType__FindAlignment
+	.long MM_ArrayType+684
+	.zero	4
+	.long ArrayType__Check
+	.long MM_ArrayType+698
+	.zero	4
+	.long ArrayType__GenIndex
+	.long MM_ArrayType+704
+	.long MI_ArrayType+72
+	.long ArrayType__IsBitAddressed
+	.long MM_ArrayType+713
+	.long MI_ArrayType+68
+	.long ArrayType__OpenCousin
+	.long MM_ArrayType+728
+	.long MI_ArrayType+64
+	.long ArrayType__EltAlign
+	.long MM_ArrayType+739
+	.long MI_ArrayType+60
+	.long ArrayType__EltPack
+	.long MM_ArrayType+748
+	.long MI_ArrayType+56
+	.long ArrayType__Split
+	.long MM_ArrayType+756
+	.long MI_ArrayType+52
+	.long ArrayType__New
+	.long MM_ArrayType+762
+	.long MI_ArrayType+48
+	.long ArrayType__Parse
+	.long MM_ArrayType+766
+	.long MI_ArrayType+44
+	.zero	4
+	.ascii	"/home/ftp/tmp/pm3/tmp/pm3-1.1.15/language/modula3/m3compiler"
+	.ascii	"/m3bootstrap/LINUXLIBC6/pm3-LINUXLIBC6/boot-LINUXLIBC6/m3fro"
+	.ascii	"nt/src/types/ArrayType.m3"
+	.zero	1
+.byte 4
+.byte 4
+.byte 14
+.byte 14
+.byte 14
+.byte 14
+.byte 14
+.byte 4
+.byte 16
+.byte 0
+.byte 4
+.byte 4
+.byte 42
+.byte 20
+.byte 4
+.byte 0
+.byte 10
+.byte 10
+.byte 9
+.byte 16
+.byte 38
+.byte 84
+.byte 147
+.byte 129
+.byte 23
+.byte 7
+.byte 25
+.byte 25
+.byte 25
+.byte 25
+.byte 23
+.byte 2
+	.ascii	"ArrayType.P"
+	.zero	1
+	.ascii	"ArrayType.P"
+	.zero	3
+	.ident	"GCC: (GNU) cygnus-2.7.2-960712"

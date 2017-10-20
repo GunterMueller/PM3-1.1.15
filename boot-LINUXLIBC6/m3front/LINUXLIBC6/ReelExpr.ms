@@ -1,0 +1,1501 @@
+	.file	"ReelExpr.mc"
+	.version	"01.01"
+/ SRC Modula-3 version cygnus-2.7.2-960712 (i486--linuxelf) compiled by GNU C version egcs-2.91.66 19990314/Linux (egcs-1.1.2 release).
+/ options passed:  -fno-strength-reduce -O2
+/ options enabled:  -fdefer-pop -fcse-follow-jumps -fcse-skip-blocks
+/ -fexpensive-optimizations -fthread-jumps -fpeephole -fforce-mem
+/ -ffunction-cse -finline -fkeep-static-consts -fcaller-saves
+/ -fpcc-struct-return -frerun-cse-after-loop -fschedule-insns2 -fcommon
+/ -fverbose-asm -fgnu-linker -m80387 -mhard-float -mno-soft-float -mieee-fp
+/ -mfp-ret-in-387 -mschedule-prologue -mcpu=i486 -march=i486
+
+gcc2_compiled.:
+.text
+	.align 16
+	.type	 ReelExpr__New,@function
+ReelExpr__New:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %esi
+	pushl %ebx
+	movb 12(%ebp),%bl
+	movl MM_ReelExpr+312,%eax
+	pushl %eax
+	movl MI_RTHooks+80,%eax
+	call *%eax
+	movl %eax,%esi
+	pushl %esi
+	movl MI_ExprRep+460,%eax
+	call *%eax
+	movb %bl,16(%esi)
+	movl 8(%ebp),%edx
+	movl (%edx),%eax
+	movl %eax,20(%esi)
+	movl 4(%edx),%eax
+	movl %eax,24(%esi)
+	movl 8(%edx),%eax
+	movl %eax,28(%esi)
+	movl 12(%edx),%eax
+	movl %eax,32(%esi)
+	movb $1,12(%esi)
+	xorl %eax,%eax
+	movb %bl,%al
+	testl %eax,%eax
+	jle .L2
+	cmpl $1,%eax
+	jle .L3
+	cmpl $2,%eax
+	jle .L4
+.L2:
+	movl MI_Reel+44,%eax
+	jmp .L7
+	.align 16
+.L3:
+	movl MI_LReel+44,%eax
+	jmp .L7
+	.align 16
+.L4:
+	movl MI_EReel+44,%eax
+.L7:
+	movl %eax,8(%esi)
+	leal -8(%ebp),%esp
+	movl %esi,%eax
+	popl %ebx
+	popl %esi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe1:
+	.size	 ReelExpr__New,.Lfe1-ReelExpr__New
+	.align 16
+	.type	 ReelExpr__EqCheck,@function
+ReelExpr__EqCheck:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %ebx
+	movl 8(%ebp),%ebx
+	movl 12(%ebp),%ecx
+	testl %ecx,%ecx
+	je .L12
+	movl -4(%ecx),%eax
+	sall $11,%eax
+	movl %eax,%edx
+	shrl $12,%edx
+	cmpl %edx,MM_ReelExpr+316
+	jg .L12
+	movl MM_ReelExpr+312,%eax
+	cmpl %edx,4(%eax)
+	jl .L12
+	xorl %edx,%edx
+	movb 16(%ebx),%al
+	cmpb %al,16(%ecx)
+	jne .L14
+	leal 20(%ecx),%eax
+	pushl %eax
+	leal 20(%ebx),%eax
+	pushl %eax
+	movl MI_TFloat+120,%eax
+	call *%eax
+	testl %eax,%eax
+	setne %al
+	xorl %edx,%edx
+	movb %al,%dl
+.L14:
+	movl %edx,%eax
+	jmp .L16
+	.align 16
+.L12:
+	xorl %eax,%eax
+.L16:
+	movl -4(%ebp),%ebx
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe2:
+	.size	 ReelExpr__EqCheck,.Lfe2-ReelExpr__EqCheck
+	.align 16
+	.type	 ReelExpr__Compile,@function
+ReelExpr__Compile:
+	pushl %ebp
+	movl %esp,%ebp
+	movl 8(%ebp),%eax
+	addl $20,%eax
+	pushl %eax
+	movl MI_CG+432,%eax
+	call *%eax
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe3:
+	.size	 ReelExpr__Compile,.Lfe3-ReelExpr__Compile
+	.align 16
+	.type	 ReelExpr__Compare,@function
+ReelExpr__Compare:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $32,%esp
+	pushl %edi
+	pushl %esi
+	leal -16(%ebp),%esi
+	pushl %ebx
+	movl 8(%ebp),%edx
+	movl 12(%ebp),%eax
+	movl 16(%ebp),%edi
+	movl $0,-32(%ebp)
+	movl $0,-28(%ebp)
+	movl $0,-24(%ebp)
+	movl $0,-20(%ebp)
+	movl $0,-16(%ebp)
+	movl $0,-12(%ebp)
+	movl $0,-8(%ebp)
+	movl $0,-4(%ebp)
+	pushl %esi
+	leal -32(%ebp),%ebx
+	pushl %ebx
+	pushl %eax
+	pushl %edx
+	call ReelExpr__SplitPair
+	addl $16,%esp
+	testl %eax,%eax
+	je .L23
+	pushl %esi
+	pushl %ebx
+	movl MI_TFloat+124,%eax
+	call *%eax
+	addl $8,%esp
+	testl %eax,%eax
+	je .L20
+	movl $-1,(%edi)
+	jmp .L21
+	.align 16
+.L20:
+	pushl %ebx
+	pushl %esi
+	movl MI_TFloat+124,%eax
+	call *%eax
+	testl %eax,%eax
+	je .L22
+	movl $1,(%edi)
+	jmp .L21
+	.align 16
+.L22:
+	movl %eax,(%edi)
+.L21:
+	movl $1,%eax
+.L23:
+	leal -44(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe4:
+	.size	 ReelExpr__Compare,.Lfe4-ReelExpr__Compare
+	.align 16
+	.type	 ReelExpr__Add,@function
+ReelExpr__Add:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $48,%esp
+	pushl %edi
+	pushl %esi
+	leal -32(%ebp),%esi
+	pushl %ebx
+	movl 8(%ebp),%edx
+	movl 12(%ebp),%eax
+	movl $0,-48(%ebp)
+	movl $0,-44(%ebp)
+	movl $0,-40(%ebp)
+	movl $0,-36(%ebp)
+	movl $0,-32(%ebp)
+	movl $0,-28(%ebp)
+	movl $0,-24(%ebp)
+	movl $0,-20(%ebp)
+	movl $0,-16(%ebp)
+	movl $0,-12(%ebp)
+	movl $0,-8(%ebp)
+	movl $0,-4(%ebp)
+	pushl %esi
+	leal -48(%ebp),%ebx
+	pushl %ebx
+	pushl %eax
+	pushl %edx
+	call ReelExpr__SplitPair
+	addl $16,%esp
+	testl %eax,%eax
+	je .L27
+	leal -16(%ebp),%edi
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl MI_TFloat+100,%eax
+	call *%eax
+	addl $12,%esp
+	testl %eax,%eax
+	je .L26
+	xorl %eax,%eax
+	movb -16(%ebp),%al
+	pushl %eax
+	pushl %edi
+	call ReelExpr__New
+	movl 16(%ebp),%ecx
+	movl %eax,(%ecx)
+	movl $1,%eax
+.L26:
+.L27:
+	leal -60(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe5:
+	.size	 ReelExpr__Add,.Lfe5-ReelExpr__Add
+	.align 16
+	.type	 ReelExpr__Subtract,@function
+ReelExpr__Subtract:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $48,%esp
+	pushl %edi
+	pushl %esi
+	leal -32(%ebp),%esi
+	pushl %ebx
+	movl 8(%ebp),%edx
+	movl 12(%ebp),%eax
+	movl $0,-48(%ebp)
+	movl $0,-44(%ebp)
+	movl $0,-40(%ebp)
+	movl $0,-36(%ebp)
+	movl $0,-32(%ebp)
+	movl $0,-28(%ebp)
+	movl $0,-24(%ebp)
+	movl $0,-20(%ebp)
+	movl $0,-16(%ebp)
+	movl $0,-12(%ebp)
+	movl $0,-8(%ebp)
+	movl $0,-4(%ebp)
+	pushl %esi
+	leal -48(%ebp),%ebx
+	pushl %ebx
+	pushl %eax
+	pushl %edx
+	call ReelExpr__SplitPair
+	addl $16,%esp
+	testl %eax,%eax
+	je .L31
+	leal -16(%ebp),%edi
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl MI_TFloat+104,%eax
+	call *%eax
+	addl $12,%esp
+	testl %eax,%eax
+	je .L30
+	xorl %eax,%eax
+	movb -16(%ebp),%al
+	pushl %eax
+	pushl %edi
+	call ReelExpr__New
+	movl 16(%ebp),%ecx
+	movl %eax,(%ecx)
+	movl $1,%eax
+.L30:
+.L31:
+	leal -60(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe6:
+	.size	 ReelExpr__Subtract,.Lfe6-ReelExpr__Subtract
+	.align 16
+	.type	 ReelExpr__Multiply,@function
+ReelExpr__Multiply:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $48,%esp
+	pushl %edi
+	pushl %esi
+	leal -32(%ebp),%esi
+	pushl %ebx
+	movl 8(%ebp),%edx
+	movl 12(%ebp),%eax
+	movl $0,-48(%ebp)
+	movl $0,-44(%ebp)
+	movl $0,-40(%ebp)
+	movl $0,-36(%ebp)
+	movl $0,-32(%ebp)
+	movl $0,-28(%ebp)
+	movl $0,-24(%ebp)
+	movl $0,-20(%ebp)
+	movl $0,-16(%ebp)
+	movl $0,-12(%ebp)
+	movl $0,-8(%ebp)
+	movl $0,-4(%ebp)
+	pushl %esi
+	leal -48(%ebp),%ebx
+	pushl %ebx
+	pushl %eax
+	pushl %edx
+	call ReelExpr__SplitPair
+	addl $16,%esp
+	testl %eax,%eax
+	je .L35
+	leal -16(%ebp),%edi
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl MI_TFloat+108,%eax
+	call *%eax
+	addl $12,%esp
+	testl %eax,%eax
+	je .L34
+	xorl %eax,%eax
+	movb -16(%ebp),%al
+	pushl %eax
+	pushl %edi
+	call ReelExpr__New
+	movl 16(%ebp),%ecx
+	movl %eax,(%ecx)
+	movl $1,%eax
+.L34:
+.L35:
+	leal -60(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe7:
+	.size	 ReelExpr__Multiply,.Lfe7-ReelExpr__Multiply
+	.align 16
+	.type	 ReelExpr__Divide,@function
+ReelExpr__Divide:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $48,%esp
+	pushl %edi
+	pushl %esi
+	leal -32(%ebp),%esi
+	pushl %ebx
+	movl 8(%ebp),%edx
+	movl 12(%ebp),%eax
+	movl $0,-48(%ebp)
+	movl $0,-44(%ebp)
+	movl $0,-40(%ebp)
+	movl $0,-36(%ebp)
+	movl $0,-32(%ebp)
+	movl $0,-28(%ebp)
+	movl $0,-24(%ebp)
+	movl $0,-20(%ebp)
+	movl $0,-16(%ebp)
+	movl $0,-12(%ebp)
+	movl $0,-8(%ebp)
+	movl $0,-4(%ebp)
+	pushl %esi
+	leal -48(%ebp),%ebx
+	pushl %ebx
+	pushl %eax
+	pushl %edx
+	call ReelExpr__SplitPair
+	addl $16,%esp
+	testl %eax,%eax
+	je .L39
+	leal -16(%ebp),%edi
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl MI_TFloat+112,%eax
+	call *%eax
+	addl $12,%esp
+	testl %eax,%eax
+	je .L38
+	xorl %eax,%eax
+	movb -16(%ebp),%al
+	pushl %eax
+	pushl %edi
+	call ReelExpr__New
+	movl 16(%ebp),%ecx
+	movl %eax,(%ecx)
+	movl $1,%eax
+.L38:
+.L39:
+	leal -60(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe8:
+	.size	 ReelExpr__Divide,.Lfe8-ReelExpr__Divide
+	.align 16
+	.type	 ReelExpr__Mod,@function
+ReelExpr__Mod:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $48,%esp
+	pushl %edi
+	pushl %esi
+	leal -32(%ebp),%esi
+	pushl %ebx
+	movl 8(%ebp),%edx
+	movl 12(%ebp),%eax
+	movl $0,-48(%ebp)
+	movl $0,-44(%ebp)
+	movl $0,-40(%ebp)
+	movl $0,-36(%ebp)
+	movl $0,-32(%ebp)
+	movl $0,-28(%ebp)
+	movl $0,-24(%ebp)
+	movl $0,-20(%ebp)
+	movl $0,-16(%ebp)
+	movl $0,-12(%ebp)
+	movl $0,-8(%ebp)
+	movl $0,-4(%ebp)
+	pushl %esi
+	leal -48(%ebp),%ebx
+	pushl %ebx
+	pushl %eax
+	pushl %edx
+	call ReelExpr__SplitPair
+	addl $16,%esp
+	testl %eax,%eax
+	je .L43
+	leal -16(%ebp),%edi
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl MI_TFloat+116,%eax
+	call *%eax
+	addl $12,%esp
+	testl %eax,%eax
+	je .L42
+	xorl %eax,%eax
+	movb -16(%ebp),%al
+	pushl %eax
+	pushl %edi
+	call ReelExpr__New
+	movl 16(%ebp),%ecx
+	movl %eax,(%ecx)
+	movl $1,%eax
+.L42:
+.L43:
+	leal -60(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe9:
+	.size	 ReelExpr__Mod,.Lfe9-ReelExpr__Mod
+	.align 16
+	.type	 ReelExpr__Min,@function
+ReelExpr__Min:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $32,%esp
+	pushl %edi
+	pushl %esi
+	leal -16(%ebp),%esi
+	pushl %ebx
+	movl 12(%ebp),%edi
+	movl $0,-32(%ebp)
+	movl $0,-28(%ebp)
+	movl $0,-24(%ebp)
+	movl $0,-20(%ebp)
+	movl $0,-16(%ebp)
+	movl $0,-12(%ebp)
+	movl $0,-8(%ebp)
+	movl $0,-4(%ebp)
+	pushl %esi
+	leal -32(%ebp),%ebx
+	pushl %ebx
+	pushl %edi
+	movl 8(%ebp),%edx
+	pushl %edx
+	call ReelExpr__SplitPair
+	addl $16,%esp
+	testl %eax,%eax
+	je .L48
+	pushl %esi
+	pushl %ebx
+	movl MI_TFloat+124,%eax
+	call *%eax
+	testl %eax,%eax
+	je .L46
+	movl 8(%ebp),%edx
+	movl 16(%ebp),%ecx
+	movl %edx,(%ecx)
+	jmp .L47
+	.align 16
+.L46:
+	movl 16(%ebp),%ecx
+	movl %edi,(%ecx)
+.L47:
+	movl $1,%eax
+.L48:
+	leal -44(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe10:
+	.size	 ReelExpr__Min,.Lfe10-ReelExpr__Min
+	.align 16
+	.type	 ReelExpr__Max,@function
+ReelExpr__Max:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $32,%esp
+	pushl %edi
+	pushl %esi
+	leal -16(%ebp),%esi
+	pushl %ebx
+	movl 12(%ebp),%edi
+	movl $0,-32(%ebp)
+	movl $0,-28(%ebp)
+	movl $0,-24(%ebp)
+	movl $0,-20(%ebp)
+	movl $0,-16(%ebp)
+	movl $0,-12(%ebp)
+	movl $0,-8(%ebp)
+	movl $0,-4(%ebp)
+	pushl %esi
+	leal -32(%ebp),%ebx
+	pushl %ebx
+	pushl %edi
+	movl 8(%ebp),%edx
+	pushl %edx
+	call ReelExpr__SplitPair
+	addl $16,%esp
+	testl %eax,%eax
+	je .L53
+	pushl %esi
+	pushl %ebx
+	movl MI_TFloat+124,%eax
+	call *%eax
+	testl %eax,%eax
+	je .L51
+	movl 16(%ebp),%ecx
+	movl %edi,(%ecx)
+	jmp .L52
+	.align 16
+.L51:
+	movl 16(%ebp),%edx
+	movl 8(%ebp),%ecx
+	movl %ecx,(%edx)
+.L52:
+	movl $1,%eax
+.L53:
+	leal -44(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe11:
+	.size	 ReelExpr__Max,.Lfe11-ReelExpr__Max
+	.align 16
+	.type	 ReelExpr__Negate,@function
+ReelExpr__Negate:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $48,%esp
+	pushl %esi
+	leal -48(%ebp),%eax
+	pushl %ebx
+	movl 8(%ebp),%edx
+	movl 12(%ebp),%esi
+	movl $0,-48(%ebp)
+	movl $0,-44(%ebp)
+	movl $0,-40(%ebp)
+	movl $0,-36(%ebp)
+	movl $0,-32(%ebp)
+	movl $0,-28(%ebp)
+	movl $0,-24(%ebp)
+	movl $0,-20(%ebp)
+	movl $0,-16(%ebp)
+	movl $0,-12(%ebp)
+	movl $0,-8(%ebp)
+	movl $0,-4(%ebp)
+	pushl %eax
+	pushl %edx
+	call ReelExpr__Split
+	addl $8,%esp
+	testl %eax,%eax
+	je .L60
+	movb -48(%ebp),%al
+	testb %al,%al
+	jne .L56
+	movl $MI_TFloat+44,%edx
+	movl MI_TFloat+44,%eax
+	jmp .L61
+	.align 16
+.L56:
+	cmpb $1,%al
+	jne .L58
+	movl $MI_TFloat+60,%edx
+	movl MI_TFloat+60,%eax
+	jmp .L61
+	.align 16
+.L58:
+	movl $MI_TFloat+76,%edx
+	movl MI_TFloat+76,%eax
+.L61:
+	movl %eax,-32(%ebp)
+	movl 4(%edx),%eax
+	movl %eax,-28(%ebp)
+	movl 8(%edx),%eax
+	movl %eax,-24(%ebp)
+	movl 12(%edx),%eax
+	movl %eax,-20(%ebp)
+	leal -16(%ebp),%ebx
+	pushl %ebx
+	leal -48(%ebp),%eax
+	pushl %eax
+	leal -32(%ebp),%eax
+	pushl %eax
+	movl MI_TFloat+104,%eax
+	call *%eax
+	addl $12,%esp
+	testl %eax,%eax
+	je .L59
+	xorl %eax,%eax
+	movb -16(%ebp),%al
+	pushl %eax
+	pushl %ebx
+	call ReelExpr__New
+	movl %eax,(%esi)
+	movl $1,%eax
+.L59:
+.L60:
+	leal -56(%ebp),%esp
+	popl %ebx
+	popl %esi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe12:
+	.size	 ReelExpr__Negate,.Lfe12-ReelExpr__Negate
+	.align 16
+	.type	 ReelExpr__Abs,@function
+ReelExpr__Abs:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $48,%esp
+	pushl %edi
+	pushl %esi
+	leal -48(%ebp),%eax
+	pushl %ebx
+	movl 8(%ebp),%edi
+	movl $0,-48(%ebp)
+	movl $0,-44(%ebp)
+	movl $0,-40(%ebp)
+	movl $0,-36(%ebp)
+	movl $0,-32(%ebp)
+	movl $0,-28(%ebp)
+	movl $0,-24(%ebp)
+	movl $0,-20(%ebp)
+	movl $0,-16(%ebp)
+	movl $0,-12(%ebp)
+	movl $0,-8(%ebp)
+	movl $0,-4(%ebp)
+	pushl %eax
+	pushl %edi
+	call ReelExpr__Split
+	addl $8,%esp
+	testl %eax,%eax
+	je .L69
+	movb -48(%ebp),%al
+	testb %al,%al
+	jne .L64
+	movl $MI_TFloat+44,%edx
+	movl MI_TFloat+44,%eax
+	jmp .L70
+	.align 16
+.L64:
+	cmpb $1,%al
+	jne .L66
+	movl $MI_TFloat+60,%edx
+	movl MI_TFloat+60,%eax
+	jmp .L70
+	.align 16
+.L66:
+	movl $MI_TFloat+76,%edx
+	movl MI_TFloat+76,%eax
+.L70:
+	movl %eax,-32(%ebp)
+	movl 4(%edx),%eax
+	movl %eax,-28(%ebp)
+	movl 8(%edx),%eax
+	movl %eax,-24(%ebp)
+	movl 12(%edx),%eax
+	movl %eax,-20(%ebp)
+	leal -32(%ebp),%esi
+	pushl %esi
+	leal -48(%ebp),%ebx
+	pushl %ebx
+	movl MI_TFloat+124,%eax
+	call *%eax
+	addl $8,%esp
+	testl %eax,%eax
+	jne .L67
+	movl 12(%ebp),%ecx
+	movl %edi,(%ecx)
+	jmp .L71
+	.align 16
+.L67:
+	leal -16(%ebp),%edi
+	pushl %edi
+	pushl %ebx
+	pushl %esi
+	movl MI_TFloat+104,%eax
+	call *%eax
+	addl $12,%esp
+	testl %eax,%eax
+	je .L68
+	xorl %eax,%eax
+	movb -16(%ebp),%al
+	pushl %eax
+	pushl %edi
+	call ReelExpr__New
+	movl 12(%ebp),%ecx
+	movl %eax,(%ecx)
+.L71:
+	movl $1,%eax
+.L68:
+.L69:
+	leal -60(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe13:
+	.size	 ReelExpr__Abs,.Lfe13-ReelExpr__Abs
+	.align 16
+	.type	 ReelExpr__Floor,@function
+ReelExpr__Floor:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $24,%esp
+	pushl %edi
+	pushl %esi
+	leal -24(%ebp),%esi
+	pushl %ebx
+	movl 8(%ebp),%eax
+	movl 12(%ebp),%edi
+	movl $0,-24(%ebp)
+	movl $0,-20(%ebp)
+	movl $0,-16(%ebp)
+	movl $0,-12(%ebp)
+	pushl %esi
+	pushl %eax
+	call ReelExpr__Split
+	addl $8,%esp
+	testl %eax,%eax
+	je .L75
+	leal -8(%ebp),%ebx
+	pushl %ebx
+	pushl %esi
+	movl MI_TFloat+148,%eax
+	call *%eax
+	addl $8,%esp
+	testl %eax,%eax
+	je .L74
+	pushl %ebx
+	movl MI_IntegerExpr+44,%eax
+	call *%eax
+	movl %eax,(%edi)
+	movl $1,%eax
+.L74:
+.L75:
+	leal -36(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe14:
+	.size	 ReelExpr__Floor,.Lfe14-ReelExpr__Floor
+	.align 16
+	.type	 ReelExpr__Ceiling,@function
+ReelExpr__Ceiling:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $24,%esp
+	pushl %edi
+	pushl %esi
+	leal -24(%ebp),%esi
+	pushl %ebx
+	movl 8(%ebp),%eax
+	movl 12(%ebp),%edi
+	movl $0,-24(%ebp)
+	movl $0,-20(%ebp)
+	movl $0,-16(%ebp)
+	movl $0,-12(%ebp)
+	pushl %esi
+	pushl %eax
+	call ReelExpr__Split
+	addl $8,%esp
+	testl %eax,%eax
+	je .L79
+	leal -8(%ebp),%ebx
+	pushl %ebx
+	pushl %esi
+	movl MI_TFloat+152,%eax
+	call *%eax
+	addl $8,%esp
+	testl %eax,%eax
+	je .L78
+	pushl %ebx
+	movl MI_IntegerExpr+44,%eax
+	call *%eax
+	movl %eax,(%edi)
+	movl $1,%eax
+.L78:
+.L79:
+	leal -36(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe15:
+	.size	 ReelExpr__Ceiling,.Lfe15-ReelExpr__Ceiling
+	.align 16
+	.type	 ReelExpr__Trunc,@function
+ReelExpr__Trunc:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $24,%esp
+	pushl %edi
+	pushl %esi
+	leal -24(%ebp),%esi
+	pushl %ebx
+	movl 8(%ebp),%eax
+	movl 12(%ebp),%edi
+	movl $0,-24(%ebp)
+	movl $0,-20(%ebp)
+	movl $0,-16(%ebp)
+	movl $0,-12(%ebp)
+	pushl %esi
+	pushl %eax
+	call ReelExpr__Split
+	addl $8,%esp
+	testl %eax,%eax
+	je .L83
+	leal -8(%ebp),%ebx
+	pushl %ebx
+	pushl %esi
+	movl MI_TFloat+140,%eax
+	call *%eax
+	addl $8,%esp
+	testl %eax,%eax
+	je .L82
+	pushl %ebx
+	movl MI_IntegerExpr+44,%eax
+	call *%eax
+	movl %eax,(%edi)
+	movl $1,%eax
+.L82:
+.L83:
+	leal -36(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe16:
+	.size	 ReelExpr__Trunc,.Lfe16-ReelExpr__Trunc
+	.align 16
+	.type	 ReelExpr__Round,@function
+ReelExpr__Round:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $24,%esp
+	pushl %edi
+	pushl %esi
+	leal -24(%ebp),%esi
+	pushl %ebx
+	movl 8(%ebp),%eax
+	movl 12(%ebp),%edi
+	movl $0,-24(%ebp)
+	movl $0,-20(%ebp)
+	movl $0,-16(%ebp)
+	movl $0,-12(%ebp)
+	pushl %esi
+	pushl %eax
+	call ReelExpr__Split
+	addl $8,%esp
+	testl %eax,%eax
+	je .L87
+	leal -8(%ebp),%ebx
+	pushl %ebx
+	pushl %esi
+	movl MI_TFloat+144,%eax
+	call *%eax
+	addl $8,%esp
+	testl %eax,%eax
+	je .L86
+	pushl %ebx
+	movl MI_IntegerExpr+44,%eax
+	call *%eax
+	movl %eax,(%edi)
+	movl $1,%eax
+.L86:
+.L87:
+	leal -36(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe17:
+	.size	 ReelExpr__Round,.Lfe17-ReelExpr__Round
+	.align 16
+	.type	 ReelExpr__Float,@function
+ReelExpr__Float:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $40,%esp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%edi
+	movl 12(%ebp),%eax
+	movl $0,-32(%ebp)
+	movl $0,-28(%ebp)
+	movl $0,-24(%ebp)
+	movl $0,-20(%ebp)
+	movl $0,-16(%ebp)
+	movl $0,-12(%ebp)
+	movl $0,-8(%ebp)
+	movl $0,-4(%ebp)
+	pushl %eax
+	movl MI_Type+80,%eax
+	xorb %bl,%bl
+	call *%eax
+	addl $4,%esp
+	cmpl %eax,MI_Reel+44
+	je .L90
+	cmpl %eax,MI_LReel+44
+	jne .L91
+	movb $1,%bl
+	jmp .L90
+	.align 16
+.L91:
+	cmpl %eax,MI_EReel+44
+	je .L92
+	xorl %eax,%eax
+	jmp .L98
+	.align 16
+.L92:
+	movb $2,%bl
+.L90:
+	leal -32(%ebp),%esi
+	pushl %esi
+	pushl %edi
+	call ReelExpr__Split
+	addl $8,%esp
+	testl %eax,%eax
+	je .L93
+	leal -16(%ebp),%eax
+	pushl %eax
+	xorl %eax,%eax
+	movb %bl,%al
+	pushl %eax
+	pushl %esi
+	movl MI_TFloat+132,%eax
+	jmp .L99
+	.align 16
+.L93:
+	leal -40(%ebp),%esi
+	pushl %esi
+	pushl %edi
+	movl MI_IntegerExpr+48,%eax
+	call *%eax
+	addl $8,%esp
+	testl %eax,%eax
+	je .L98
+	leal -16(%ebp),%eax
+	pushl %eax
+	xorl %eax,%eax
+	movb %bl,%al
+	pushl %eax
+	pushl %esi
+	movl MI_TFloat+136,%eax
+.L99:
+	call *%eax
+	addl $12,%esp
+	testl %eax,%eax
+	je .L98
+	xorl %eax,%eax
+	movb %bl,%al
+	pushl %eax
+	leal -16(%ebp),%eax
+	pushl %eax
+	call ReelExpr__New
+	movl 16(%ebp),%edx
+	movl %eax,(%edx)
+	movl $1,%eax
+.L98:
+	leal -52(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe18:
+	.size	 ReelExpr__Float,.Lfe18-ReelExpr__Float
+	.align 16
+	.type	 ReelExpr__SplitPair,@function
+ReelExpr__SplitPair:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %ebx
+	movl 8(%ebp),%edx
+	movl 12(%ebp),%ebx
+	movl 16(%ebp),%eax
+	pushl %eax
+	pushl %edx
+	call ReelExpr__Split
+	addl $8,%esp
+	testl %eax,%eax
+	je .L104
+	movl 20(%ebp),%eax
+	pushl %eax
+	pushl %ebx
+	call ReelExpr__Split
+	testl %eax,%eax
+	je .L104
+	movl 16(%ebp),%eax
+	movl 20(%ebp),%edx
+	movb (%eax),%al
+	cmpb %al,(%edx)
+	jne .L103
+	movl $1,%eax
+	jmp .L104
+	.align 16
+.L103:
+	xorl %eax,%eax
+.L104:
+	movl -4(%ebp),%ebx
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe19:
+	.size	 ReelExpr__SplitPair,.Lfe19-ReelExpr__SplitPair
+	.align 16
+	.type	 ReelExpr__Split,@function
+ReelExpr__Split:
+	pushl %ebp
+	movl %esp,%ebp
+	movl 8(%ebp),%ecx
+	testl %ecx,%ecx
+	je .L109
+	movl -4(%ecx),%eax
+	sall $11,%eax
+	movl %eax,%edx
+	shrl $12,%edx
+	cmpl %edx,MM_ReelExpr+316
+	jg .L109
+	movl MM_ReelExpr+312,%eax
+	cmpl %edx,4(%eax)
+	jl .L109
+	movl 12(%ebp),%edx
+	movl 20(%ecx),%eax
+	movl %eax,(%edx)
+	movl 24(%ecx),%eax
+	movl %eax,4(%edx)
+	movl 28(%ecx),%eax
+	movl %eax,8(%edx)
+	movl 32(%ecx),%eax
+	movl %eax,12(%edx)
+	movl $1,%eax
+	jmp .L112
+	.align 16
+.L109:
+	xorl %eax,%eax
+.L112:
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe20:
+	.size	 ReelExpr__Split,.Lfe20-ReelExpr__Split
+	.align 16
+	.type	 ReelExpr__IsZeroes,@function
+ReelExpr__IsZeroes:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%ebx
+	addl $20,%ebx
+	pushl %ebx
+	pushl $MI_TFloat+44
+	movl MI_TFloat+120,%eax
+	movl $1,%esi
+	call *%eax
+	addl $8,%esp
+	testl %eax,%eax
+	jne .L114
+	pushl %ebx
+	pushl $MI_TFloat+60
+	movl MI_TFloat+120,%eax
+	call *%eax
+	addl $8,%esp
+	testl %eax,%eax
+	jne .L114
+	pushl %ebx
+	pushl $MI_TFloat+76
+	movl MI_TFloat+120,%eax
+	call *%eax
+	testl %eax,%eax
+	setne %al
+	movl %eax,%esi
+	andl $255,%esi
+.L114:
+	leal -8(%ebp),%esp
+	movl %esi,%eax
+	popl %ebx
+	popl %esi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe21:
+	.size	 ReelExpr__IsZeroes,.Lfe21-ReelExpr__IsZeroes
+	.align 16
+	.type	 ReelExpr__GenFPLiteral,@function
+ReelExpr__GenFPLiteral:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%ebx
+	xorl %eax,%eax
+	movb 16(%ebx),%al
+	movl 12(%ebp),%esi
+	movl MM_ReelExpr+240(,%eax,4),%eax
+	pushl %eax
+	pushl %esi
+	movl MI_M3Buf+52,%eax
+	call *%eax
+	addl $20,%ebx
+	pushl %ebx
+	pushl %esi
+	movl MI_M3Buf+64,%eax
+	call *%eax
+	pushl $62
+	pushl %esi
+	movl MI_M3Buf+48,%eax
+	call *%eax
+	leal -8(%ebp),%esp
+	popl %ebx
+	popl %esi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe22:
+	.size	 ReelExpr__GenFPLiteral,.Lfe22-ReelExpr__GenFPLiteral
+	.align 16
+	.type	 ReelExpr__GenLiteral,@function
+ReelExpr__GenLiteral:
+	pushl %ebp
+	movl %esp,%ebp
+	movl 12(%ebp),%eax
+	movl 8(%ebp),%edx
+	addl $20,%edx
+	pushl %edx
+	pushl %eax
+	movl MI_CG+280,%eax
+	call *%eax
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe23:
+	.size	 ReelExpr__GenLiteral,.Lfe23-ReelExpr__GenLiteral
+	.align 16
+	.type	 M_ReelExpr_ta745af75_LINK,@function
+M_ReelExpr_ta745af75_LINK:
+	pushl %ebp
+	movl %esp,%ebp
+	movl MM_ReelExpr+312,%eax
+	movl MI_ExprRep+468,%edx
+	movl 52(%eax),%eax
+	movl %ebp,%esp
+	movl %edx,4(%eax)
+	movl MI_ExprRep+472,%edx
+	movl %edx,8(%eax)
+	movl MI_ExprRep+464,%edx
+	movl %edx,36(%eax)
+	movl MI_ExprRep+512,%edx
+	movl %edx,52(%eax)
+	movl MM_ReelExpr+152,%edx
+	movl %edx,56(%eax)
+	movl MI_ExprRep+520,%edx
+	movl %edx,60(%eax)
+	movl %edx,64(%eax)
+	movl MI_ExprRep+524,%edx
+	movl %edx,68(%eax)
+	movl %edx,72(%eax)
+	movl MI_ExprRep+480,%edx
+	movl %edx,16(%eax)
+	movl MM_ReelExpr+148,%edx
+	movl %edx,12(%eax)
+	movl MI_ExprRep+484,%edx
+	movl %edx,20(%eax)
+	movl MI_ExprRep+488,%edx
+	movl %edx,24(%eax)
+	movl %edx,28(%eax)
+	movl MM_ReelExpr+164,%edx
+	movl %edx,32(%eax)
+	movl MM_ReelExpr+168,%edx
+	movl %edx,40(%eax)
+	movl MI_ExprRep+504,%edx
+	movl %edx,44(%eax)
+	movl MM_ReelExpr+172,%edx
+	movl %edx,48(%eax)
+	movl MI_ExprRep+536,%edx
+	movl %edx,76(%eax)
+	popl %ebp
+	ret
+.Lfe24:
+	.size	 M_ReelExpr_ta745af75_LINK,.Lfe24-M_ReelExpr_ta745af75_LINK
+.globl MM_ReelExpr
+.data
+	.align 4
+	.type	 MM_ReelExpr,@object
+	.size	 MM_ReelExpr,940
+MM_ReelExpr:
+	.long MM_ReelExpr+764
+	.long MM_ReelExpr+44
+	.long MM_ReelExpr+312
+	.zero	8
+	.long MM_ReelExpr+484
+	.zero	28
+	.long -1488605323
+.byte 151
+.byte 126
+.byte 110
+.byte 164
+.byte 226
+.byte 209
+.byte 43
+.byte 3
+	.long 1
+	.zero	4
+	.long 20
+	.long 4
+	.zero	4
+	.long 0
+	.zero	12
+	.long MM_ReelExpr+909
+	.zero	4
+	.long MM_ReelExpr+916
+	.zero	4
+	.long M_ReelExpr_ta745af75_LINK
+	.long -350897909
+	.zero	16
+	.long MM_ReelExpr+926
+	.zero	4
+	.long ReelExpr__EqCheck
+	.long ReelExpr__Compile
+	.long ReelExpr__SplitPair
+	.long ReelExpr__Split
+	.long ReelExpr__IsZeroes
+	.long ReelExpr__GenFPLiteral
+	.long ReelExpr__GenLiteral
+	.long ReelExpr__New
+	.long ReelExpr__Compare
+	.long ReelExpr__Add
+	.long ReelExpr__Subtract
+	.long ReelExpr__Multiply
+	.long ReelExpr__Divide
+	.long ReelExpr__Mod
+	.long ReelExpr__Min
+	.long ReelExpr__Max
+	.long ReelExpr__Negate
+	.long ReelExpr__Abs
+	.long ReelExpr__Floor
+	.long ReelExpr__Ceiling
+	.long ReelExpr__Trunc
+	.long ReelExpr__Round
+	.long ReelExpr__Float
+	.long MM_ReelExpr+256
+	.long MM_ReelExpr+276
+	.long MM_ReelExpr+296
+	.long 2
+	.long MM_ReelExpr+264
+	.long 6
+	.ascii	"REAL<"
+	.zero	3
+	.long 2
+	.long MM_ReelExpr+284
+	.long 7
+	.ascii	"LREAL<"
+	.zero	2
+	.long 2
+	.long MM_ReelExpr+304
+	.long 7
+	.ascii	"EREAL<"
+	.zero	6
+	.long -1488605323
+	.ascii	"GenLiteral"
+	.zero	1
+	.ascii	"GenFPLiteral"
+	.zero	1
+	.ascii	"IsZeroes"
+	.zero	1
+	.ascii	"Split"
+	.zero	1
+	.ascii	"SplitPair"
+	.zero	1
+	.ascii	"Float"
+	.zero	1
+	.ascii	"Round"
+	.zero	1
+	.ascii	"Trunc"
+	.zero	1
+	.ascii	"Ceiling"
+	.zero	1
+	.ascii	"Floor"
+	.zero	1
+	.ascii	"Abs"
+	.zero	1
+	.ascii	"Negate"
+	.zero	1
+	.ascii	"Max"
+	.zero	1
+	.ascii	"Min"
+	.zero	1
+	.ascii	"Mod"
+	.zero	1
+	.ascii	"Divide"
+	.zero	1
+	.ascii	"Multiply"
+	.zero	1
+	.ascii	"Subtract"
+	.zero	1
+	.ascii	"Add"
+	.zero	1
+	.ascii	"Compare"
+	.zero	1
+	.ascii	"Compile"
+	.zero	1
+	.ascii	"EqCheck"
+	.zero	1
+	.ascii	"New"
+	.zero	4
+	.long ReelExpr__GenLiteral
+	.long MM_ReelExpr+320
+	.zero	4
+	.long ReelExpr__GenFPLiteral
+	.long MM_ReelExpr+331
+	.zero	4
+	.long ReelExpr__IsZeroes
+	.long MM_ReelExpr+344
+	.zero	4
+	.long ReelExpr__Split
+	.long MM_ReelExpr+353
+	.zero	4
+	.long ReelExpr__SplitPair
+	.long MM_ReelExpr+359
+	.zero	4
+	.long ReelExpr__Float
+	.long MM_ReelExpr+369
+	.long MI_ReelExpr+104
+	.long ReelExpr__Round
+	.long MM_ReelExpr+375
+	.long MI_ReelExpr+100
+	.long ReelExpr__Trunc
+	.long MM_ReelExpr+381
+	.long MI_ReelExpr+96
+	.long ReelExpr__Ceiling
+	.long MM_ReelExpr+387
+	.long MI_ReelExpr+92
+	.long ReelExpr__Floor
+	.long MM_ReelExpr+395
+	.long MI_ReelExpr+88
+	.long ReelExpr__Abs
+	.long MM_ReelExpr+401
+	.long MI_ReelExpr+84
+	.long ReelExpr__Negate
+	.long MM_ReelExpr+405
+	.long MI_ReelExpr+80
+	.long ReelExpr__Max
+	.long MM_ReelExpr+412
+	.long MI_ReelExpr+76
+	.long ReelExpr__Min
+	.long MM_ReelExpr+416
+	.long MI_ReelExpr+72
+	.long ReelExpr__Mod
+	.long MM_ReelExpr+420
+	.long MI_ReelExpr+68
+	.long ReelExpr__Divide
+	.long MM_ReelExpr+424
+	.long MI_ReelExpr+64
+	.long ReelExpr__Multiply
+	.long MM_ReelExpr+431
+	.long MI_ReelExpr+60
+	.long ReelExpr__Subtract
+	.long MM_ReelExpr+440
+	.long MI_ReelExpr+56
+	.long ReelExpr__Add
+	.long MM_ReelExpr+449
+	.long MI_ReelExpr+52
+	.long ReelExpr__Compare
+	.long MM_ReelExpr+453
+	.long MI_ReelExpr+48
+	.long ReelExpr__Compile
+	.long MM_ReelExpr+461
+	.zero	4
+	.long ReelExpr__EqCheck
+	.long MM_ReelExpr+469
+	.zero	4
+	.long ReelExpr__New
+	.long MM_ReelExpr+477
+	.long MI_ReelExpr+44
+	.zero	4
+	.ascii	"/home/ftp/tmp/pm3/tmp/pm3-1.1.15/language/modula3/m3compiler"
+	.ascii	"/m3bootstrap/LINUXLIBC6/pm3-LINUXLIBC6/boot-LINUXLIBC6/m3fro"
+	.ascii	"nt/src/exprs/ReelExpr.m3"
+	.zero	1
+.byte 16
+.byte 36
+.byte 16
+.byte 36
+.byte 14
+.byte 9
+.byte 0
+.byte 6
+.byte 10
+.byte 2
+.byte 5
+.byte 3
+.byte 15
+.byte 3
+.byte 23
+.byte 7
+.byte 6
+	.ascii	"ReelExpr.P"
+	.zero	4
+	.ident	"GCC: (GNU) cygnus-2.7.2-960712"

@@ -1,0 +1,569 @@
+	.file	"DivideExpr.mc"
+	.version	"01.01"
+/ SRC Modula-3 version cygnus-2.7.2-960712 (i486--linuxelf) compiled by GNU C version egcs-2.91.66 19990314/Linux (egcs-1.1.2 release).
+/ options passed:  -fno-strength-reduce -O2
+/ options enabled:  -fdefer-pop -fcse-follow-jumps -fcse-skip-blocks
+/ -fexpensive-optimizations -fthread-jumps -fpeephole -fforce-mem
+/ -ffunction-cse -finline -fkeep-static-consts -fcaller-saves
+/ -fpcc-struct-return -frerun-cse-after-loop -fschedule-insns2 -fcommon
+/ -fverbose-asm -fgnu-linker -m80387 -mhard-float -mno-soft-float -mieee-fp
+/ -mfp-ret-in-387 -mschedule-prologue -mcpu=i486 -march=i486
+
+gcc2_compiled.:
+.text
+	.align 16
+	.type	 DivideExpr__New,@function
+DivideExpr__New:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%ebx
+	movl 12(%ebp),%esi
+	movl MM_DivideExpr+176,%eax
+	pushl %eax
+	movl MI_RTHooks+80,%eax
+	call *%eax
+	movl %eax,%edi
+	pushl %edi
+	movl MI_ExprRep+460,%eax
+	call *%eax
+	movl %ebx,16(%edi)
+	movl %esi,20(%edi)
+	movl $0,28(%edi)
+	leal -12(%ebp),%esp
+	movl %edi,%eax
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe1:
+	.size	 DivideExpr__New,.Lfe1-DivideExpr__New
+	.align 16
+	.type	 DivideExpr__TypeOf,@function
+DivideExpr__TypeOf:
+	pushl %ebp
+	movl %esp,%ebp
+	movl 8(%ebp),%eax
+	movl 16(%eax),%eax
+	pushl %eax
+	movl MI_Expr+152,%eax
+	call *%eax
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe2:
+	.size	 DivideExpr__TypeOf,.Lfe2-DivideExpr__TypeOf
+	.align 16
+	.type	 DivideExpr__Check,@function
+DivideExpr__Check:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $4,%esp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%edi
+	movl $0,-4(%ebp)
+	movl 12(%ebp),%eax
+	pushl %eax
+	movl 16(%edi),%eax
+	pushl %eax
+	movl MI_Expr+156,%eax
+	call *%eax
+	movl 12(%ebp),%eax
+	pushl %eax
+	movl 20(%edi),%eax
+	pushl %eax
+	movl MI_Expr+156,%eax
+	call *%eax
+	movl 16(%edi),%eax
+	pushl %eax
+	movl MI_Expr+152,%eax
+	call *%eax
+	pushl %eax
+	movl MI_Type+80,%eax
+	call *%eax
+	movl %eax,%esi
+	movl 20(%edi),%eax
+	pushl %eax
+	movl MI_Expr+152,%eax
+	call *%eax
+	pushl %eax
+	movl MI_Type+80,%eax
+	call *%eax
+	movl %eax,%ebx
+	addl $32,%esp
+	cmpl %eax,MI_Reel+44
+	jne .L4
+	cmpl %eax,%esi
+	jne .L4
+	movl $0,24(%edi)
+	jmp .L11
+	.align 16
+.L4:
+	cmpl %ebx,MI_LReel+44
+	jne .L6
+	cmpl %ebx,%esi
+	jne .L6
+	movl $1,24(%edi)
+	jmp .L11
+	.align 16
+.L6:
+	cmpl %ebx,MI_EReel+44
+	jne .L7
+	cmpl %ebx,%esi
+	jne .L7
+	movl $2,24(%edi)
+.L11:
+	movl 12(%ebp),%eax
+	incl 16(%eax)
+	jmp .L5
+	.align 16
+.L7:
+	movl MI_ErrType+44,%eax
+	cmpl %eax,%esi
+	je .L8
+	cmpl %eax,%ebx
+	jne .L9
+.L8:
+	movl $0,24(%edi)
+	movl %eax,%esi
+	jmp .L5
+	.align 16
+.L9:
+	leal -4(%ebp),%eax
+	pushl %eax
+	pushl %esi
+	movl MI_SetType+48,%eax
+	call *%eax
+	addl $8,%esp
+	testl %eax,%eax
+	je .L10
+	pushl $0
+	pushl %ebx
+	pushl %esi
+	movl MI_Type+116,%eax
+	call *%eax
+	addl $12,%esp
+	testl %eax,%eax
+	je .L10
+	movl $3,24(%edi)
+	jmp .L5
+	.align 16
+.L10:
+	pushl %ebx
+	pushl %esi
+	pushl $MM_DivideExpr+188
+	movl MI_Expr+248,%eax
+	call *%eax
+	movl %eax,%esi
+	movl $0,24(%edi)
+.L5:
+	leal -16(%ebp),%esp
+	movl %esi,8(%edi)
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe3:
+	.size	 DivideExpr__Check,.Lfe3-DivideExpr__Check
+	.align 16
+	.type	 DivideExpr__Prep,@function
+DivideExpr__Prep:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $20,%esp
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%esi
+	movl $0,-20(%ebp)
+	movl $0,-16(%ebp)
+	movl $0,-12(%ebp)
+	movl $0,-8(%ebp)
+	movl $0,-4(%ebp)
+	movl 16(%esi),%eax
+	pushl %eax
+	movl MI_Expr+200,%eax
+	call *%eax
+	movl 20(%esi),%eax
+	pushl %eax
+	movl MI_Expr+200,%eax
+	call *%eax
+	addl $8,%esp
+	cmpl $3,24(%esi)
+	jne .L12
+	leal -20(%ebp),%eax
+	pushl %eax
+	movl 8(%esi),%eax
+	pushl %eax
+	movl MI_Type+68,%eax
+	call *%eax
+	movl -20(%ebp),%ebx
+	addl $8,%esp
+	cmpl %ebx,MI_Target+96
+	jge .L12
+	testl %ebx,%ebx
+	jge .L15
+	pushl $1585
+	call _m3_fault
+	.align 16
+.L15:
+	pushl $1
+	pushl $14
+	movl MI_Target+100,%eax
+	pushl %eax
+	pushl %ebx
+	movl MI_CG+208,%eax
+	call *%eax
+	movl %eax,%edx
+	movl %edx,28(%esi)
+	movl MI_Target+100,%eax
+	pushl %eax
+	pushl $0
+	pushl %edx
+	movl MI_CG+368,%eax
+	call *%eax
+	movl MI_CG+240,%eax
+	call *%eax
+	movl 16(%esi),%eax
+	pushl %eax
+	movl MI_Expr+204,%eax
+	call *%eax
+	addl $32,%esp
+	movl 20(%esi),%eax
+	pushl %eax
+	movl MI_Expr+204,%eax
+	call *%eax
+	addl $4,%esp
+	pushl %ebx
+	movl MI_CG+532,%eax
+	call *%eax
+.L12:
+	leal -28(%ebp),%esp
+	popl %ebx
+	popl %esi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe4:
+	.size	 DivideExpr__Prep,.Lfe4-DivideExpr__Prep
+	.align 16
+	.type	 DivideExpr__Compile,@function
+DivideExpr__Compile:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $20,%esp
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%esi
+	movl $0,-20(%ebp)
+	movl $0,-16(%ebp)
+	movl $0,-12(%ebp)
+	movl $0,-8(%ebp)
+	movl $0,-4(%ebp)
+	cmpl $3,24(%esi)
+	je .L18
+	movl 16(%esi),%eax
+	pushl %eax
+	movl MI_Expr+204,%eax
+	call *%eax
+	movl 20(%esi),%eax
+	pushl %eax
+	movl MI_Expr+204,%eax
+	call *%eax
+	movl 24(%esi),%eax
+	addl $8,%esp
+	cmpl $2,%eax
+	jbe .L19
+	pushl $1857
+	call _m3_fault
+	.align 16
+.L19:
+	xorl %edx,%edx
+	movb MM_DivideExpr+44(%eax),%dl
+	leal -3(%edx),%eax
+	cmpl $2,%eax
+	jbe .L20
+	pushl $1857
+	call _m3_fault
+	.align 16
+.L20:
+	pushl %edx
+	movl MI_CG+472,%eax
+	jmp .L25
+	.align 16
+.L18:
+	leal -20(%ebp),%eax
+	pushl %eax
+	movl 8(%esi),%eax
+	pushl %eax
+	movl MI_Type+68,%eax
+	call *%eax
+	movl -20(%ebp),%ebx
+	addl $8,%esp
+	cmpl %ebx,MI_Target+96
+	jge .L22
+	movl MI_Target+100,%eax
+	pushl %eax
+	pushl $0
+	movl 28(%esi),%eax
+	pushl %eax
+	movl MI_CG+372,%eax
+	call *%eax
+	movl $0,28(%esi)
+	jmp .L17
+	.align 16
+.L22:
+	movl 16(%esi),%eax
+	pushl %eax
+	movl MI_Expr+204,%eax
+	call *%eax
+	movl 20(%esi),%eax
+	pushl %eax
+	movl MI_Expr+204,%eax
+	call *%eax
+	addl $8,%esp
+	testl %ebx,%ebx
+	jge .L24
+	pushl $2033
+	call _m3_fault
+	.align 16
+.L24:
+	pushl %ebx
+	movl MI_CG+532,%eax
+.L25:
+	call *%eax
+.L17:
+	leal -28(%ebp),%esp
+	popl %ebx
+	popl %esi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe5:
+	.size	 DivideExpr__Compile,.Lfe5-DivideExpr__Compile
+	.align 16
+	.type	 DivideExpr__Fold,@function
+DivideExpr__Fold:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $4,%esp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%ebx
+	movl $0,-4(%ebp)
+	movl 16(%ebx),%eax
+	pushl %eax
+	movl MI_Expr+160,%eax
+	call *%eax
+	movl %eax,%esi
+	movl 20(%ebx),%eax
+	pushl %eax
+	movl MI_Expr+160,%eax
+	movl %esi,%edi
+	call *%eax
+	movl %eax,%esi
+	movl $0,-4(%ebp)
+	addl $8,%esp
+	testl %edi,%edi
+	je .L29
+	testl %esi,%esi
+	je .L29
+	leal -4(%ebp),%ebx
+	pushl %ebx
+	pushl %esi
+	pushl %edi
+	movl MI_ReelExpr+64,%eax
+	call *%eax
+	addl $12,%esp
+	testl %eax,%eax
+	jne .L29
+	pushl %ebx
+	pushl %esi
+	pushl %edi
+	movl MI_SetExpr+68,%eax
+	call *%eax
+.L29:
+	leal -16(%ebp),%esp
+	movl -4(%ebp),%eax
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe6:
+	.size	 DivideExpr__Fold,.Lfe6-DivideExpr__Fold
+	.align 16
+	.type	 M_DivideExpr_tef407f33_LINK,@function
+M_DivideExpr_tef407f33_LINK:
+	pushl %ebp
+	movl %esp,%ebp
+	movl MM_DivideExpr+176,%eax
+	movl %ebp,%esp
+	movl 52(%eax),%edx
+	movl MM_DivideExpr+152,%eax
+	movl %eax,4(%edx)
+	movl MM_DivideExpr+156,%eax
+	movl %eax,8(%edx)
+	movl MI_ExprRep+464,%eax
+	movl %eax,36(%edx)
+	movl MM_DivideExpr+160,%eax
+	movl %eax,52(%edx)
+	movl MM_DivideExpr+164,%eax
+	movl %eax,56(%edx)
+	movl MI_ExprRep+520,%eax
+	movl %eax,60(%edx)
+	movl %eax,64(%edx)
+	movl MI_ExprRep+524,%eax
+	movl %eax,68(%edx)
+	movl %eax,72(%edx)
+	movl MM_DivideExpr+168,%eax
+	movl %eax,16(%edx)
+	movl MI_ExprRep+544,%eax
+	movl %eax,12(%edx)
+	movl MI_ExprRep+484,%eax
+	movl %eax,20(%edx)
+	movl MI_ExprRep+488,%eax
+	movl %eax,24(%edx)
+	movl %eax,28(%edx)
+	movl %eax,32(%edx)
+	movl MI_ExprRep+500,%eax
+	movl %eax,40(%edx)
+	movl MI_ExprRep+504,%eax
+	movl %eax,44(%edx)
+	movl MI_ExprRep+508,%eax
+	movl %eax,48(%edx)
+	movl MI_ExprRep+536,%eax
+	movl %eax,76(%edx)
+	popl %ebp
+	ret
+.Lfe7:
+	.size	 M_DivideExpr_tef407f33_LINK,.Lfe7-M_DivideExpr_tef407f33_LINK
+	.align 16
+	.type	 _m3_fault,@function
+_m3_fault:
+	pushl %ebp
+	movl %esp,%ebp
+	movl 8(%ebp),%eax
+	pushl %eax
+	pushl $MM_DivideExpr
+	movl MI_RTHooks+108,%eax
+	call *%eax
+	.align 16
+.Lfe8:
+	.size	 _m3_fault,.Lfe8-_m3_fault
+.globl MM_DivideExpr
+.data
+	.align 4
+	.type	 MM_DivideExpr,@object
+	.size	 MM_DivideExpr,500
+MM_DivideExpr:
+	.long MM_DivideExpr+312
+	.long MM_DivideExpr+48
+	.long MM_DivideExpr+176
+	.zero	8
+	.long MM_DivideExpr+236
+	.zero	20
+.byte 3
+.byte 4
+.byte 5
+	.zero	9
+	.long -280985805
+.byte 197
+.byte 155
+.byte 157
+.byte 244
+.byte 246
+.byte 228
+.byte 221
+.byte 27
+	.long 1
+	.zero	4
+	.long 4
+	.long 4
+	.zero	4
+	.long 0
+	.zero	12
+	.long MM_DivideExpr+459
+	.long MM_DivideExpr+461
+	.long MM_DivideExpr+463
+	.zero	4
+	.long M_DivideExpr_tef407f33_LINK
+	.long -345747377
+	.zero	12
+	.long MM_DivideExpr+471
+	.long MM_DivideExpr+484
+	.zero	4
+	.long DivideExpr__TypeOf
+	.long DivideExpr__Check
+	.long DivideExpr__Prep
+	.long DivideExpr__Compile
+	.long DivideExpr__Fold
+	.long DivideExpr__New
+	.zero	4
+	.long -280985805
+	.long 2
+	.long MM_DivideExpr+196
+	.long 4
+	.ascii	"'/'"
+	.zero	1
+	.ascii	"Fold"
+	.zero	1
+	.ascii	"Compile"
+	.zero	1
+	.ascii	"Prep"
+	.zero	1
+	.ascii	"Check"
+	.zero	1
+	.ascii	"TypeOf"
+	.zero	1
+	.ascii	"New"
+	.zero	2
+	.long DivideExpr__Fold
+	.long MM_DivideExpr+200
+	.zero	4
+	.long DivideExpr__Compile
+	.long MM_DivideExpr+205
+	.zero	4
+	.long DivideExpr__Prep
+	.long MM_DivideExpr+213
+	.zero	4
+	.long DivideExpr__Check
+	.long MM_DivideExpr+218
+	.zero	4
+	.long DivideExpr__TypeOf
+	.long MM_DivideExpr+224
+	.zero	4
+	.long DivideExpr__New
+	.long MM_DivideExpr+231
+	.long MI_DivideExpr+44
+	.zero	4
+	.ascii	"/home/ftp/tmp/pm3/tmp/pm3-1.1.15/language/modula3/m3compiler"
+	.ascii	"/m3bootstrap/LINUXLIBC6/pm3-LINUXLIBC6/boot-LINUXLIBC6/m3fro"
+	.ascii	"nt/src/exprs/DivideExpr.m3"
+	.zero	1
+.byte 4
+.byte 0
+.byte 4
+.byte 0
+.byte 2
+.byte 10
+.byte 1
+.byte 16
+.byte 121
+.byte 130
+.byte 239
+.byte 251
+	.ascii	"DivideExpr.P"
+	.zero	1
+	.ascii	"DivideExpr.P"
+	.zero	4
+	.ident	"GCC: (GNU) cygnus-2.7.2-960712"

@@ -1,0 +1,3472 @@
+M3RT.m3 85
+M3CG_Wr.m3 12156
+M3CG_Rd.m3 1836
+M3CG_Clean.m3 8957
+M3CG_Check.m3 9253
+M3CG.m3 10340
+M3File.m3 342
+M3Timers.m3 54
+M3ID.m3 714
+M3Buf.m3 813
+M3FP.m3 421
+TFloat.m3 558
+TWord.m3 647
+TInt.m3 923
+TargetMap.m3 210
+Target.m3 717
+CoffTime.m3 85
+M3RT.i3 163
+M3CG_Wr.i3 85
+M3CG_Rd.i3 98
+M3CG_Clean.i3 126
+M3CG_Check.i3 184
+M3CG_Ops.i3 8259
+M3CG.i3 778
+M3File.i3 467
+M3Timers.i3 54
+M3ID.i3 401
+M3Buf.i3 571
+M3FP.i3 593
+TFloat.i3 589
+TWord.i3 582
+TInt.i3 571
+TargetMap.i3 250
+Target.i3 1333
+CoffTime.i3 103
+$ 0
+@M3RT.m3
+AM3RT
+Rad54583c 2 195c2a74 0
+Sa 195c2a74
+Sb 195c2a74
+DM3RT
+CTarget
+CRTHooks
+@M3CG_Wr.m3
+AM3CG_Wr
+Ve745ce5d fbef8279 1 0 0 32
+Ltag 0 32 195c2a74
+Vdd25f2d8 64c4a775 1 0 0 32
+Ltag 0 32 195c2a74
+K69f216ac 128 4
+Lname 0 32 adc6066d
+Lproc 32 32 64c4a775
+Lvar 64 32 fbef8279
+Loffset 96 32 195c2a74
+P7bb459c5 69f216ac
+V510c0439 d04f08c4 8 0 158 256
+Xnext_label M3CG_Wr.next_label
+Xset_error_handler M3CG_Wr.set_error_handler
+Xbegin_unit M3CG_Wr.begin_unit
+Xend_unit M3CG_Wr.end_unit
+Ximport_unit M3CG_Wr.import_unit
+Xexport_unit M3CG_Wr.export_unit
+Xset_source_file M3CG_Wr.set_source_file
+Xset_source_line M3CG_Wr.set_source_line
+Xdeclare_typename M3CG_Wr.declare_typename
+Xdeclare_array M3CG_Wr.declare_array
+Xdeclare_open_array M3CG_Wr.declare_open_array
+Xdeclare_enum M3CG_Wr.declare_enum
+Xdeclare_enum_elt M3CG_Wr.declare_enum_elt
+Xdeclare_packed M3CG_Wr.declare_packed
+Xdeclare_record M3CG_Wr.declare_record
+Xdeclare_field M3CG_Wr.declare_field
+Xdeclare_set M3CG_Wr.declare_set
+Xdeclare_subrange M3CG_Wr.declare_subrange
+Xdeclare_pointer M3CG_Wr.declare_pointer
+Xdeclare_indirect M3CG_Wr.declare_indirect
+Xdeclare_proctype M3CG_Wr.declare_proctype
+Xdeclare_formal M3CG_Wr.declare_formal
+Xdeclare_raises M3CG_Wr.declare_raises
+Xdeclare_object M3CG_Wr.declare_object
+Xdeclare_method M3CG_Wr.declare_method
+Xdeclare_opaque M3CG_Wr.declare_opaque
+Xreveal_opaque M3CG_Wr.reveal_opaque
+Xset_runtime_proc M3CG_Wr.set_runtime_proc
+Xset_runtime_hook M3CG_Wr.set_runtime_hook
+Xget_runtime_hook M3CG_Wr.get_runtime_hook
+Ximport_global M3CG_Wr.import_global
+Xdeclare_segment M3CG_Wr.declare_segment
+Xbind_segment M3CG_Wr.bind_segment
+Xdeclare_global M3CG_Wr.declare_global
+Xdeclare_constant M3CG_Wr.declare_constant
+Xdeclare_local M3CG_Wr.declare_local
+Xdeclare_param M3CG_Wr.declare_param
+Xdeclare_temp M3CG_Wr.declare_temp
+Xfree_temp M3CG_Wr.free_temp
+Xdeclare_exception M3CG_Wr.declare_exception
+Xbegin_init M3CG_Wr.begin_init
+Xend_init M3CG_Wr.end_init
+Xinit_int M3CG_Wr.init_int
+Xinit_proc M3CG_Wr.init_proc
+Xinit_label M3CG_Wr.init_label
+Xinit_var M3CG_Wr.init_var
+Xinit_offset M3CG_Wr.init_offset
+Xinit_chars M3CG_Wr.init_chars
+Xinit_float M3CG_Wr.init_float
+Ximport_procedure M3CG_Wr.import_procedure
+Xdeclare_procedure M3CG_Wr.declare_procedure
+Xbegin_procedure M3CG_Wr.begin_procedure
+Xend_procedure M3CG_Wr.end_procedure
+Xbegin_block M3CG_Wr.begin_block
+Xend_block M3CG_Wr.end_block
+Xnote_procedure_origin M3CG_Wr.note_procedure_origin
+Xset_label M3CG_Wr.set_label
+Xjump M3CG_Wr.jump
+Xif_true M3CG_Wr.if_true
+Xif_false M3CG_Wr.if_false
+Xif_eq M3CG_Wr.if_eq
+Xif_ne M3CG_Wr.if_ne
+Xif_gt M3CG_Wr.if_gt
+Xif_ge M3CG_Wr.if_ge
+Xif_lt M3CG_Wr.if_lt
+Xif_le M3CG_Wr.if_le
+Xcase_jump M3CG_Wr.case_jump
+Xexit_proc M3CG_Wr.exit_proc
+Xload M3CG_Wr.load
+Xstore M3CG_Wr.store
+Xstore_ref M3CG_Wr.store_ref
+Xload_address M3CG_Wr.load_address
+Xload_indirect M3CG_Wr.load_indirect
+Xstore_indirect M3CG_Wr.store_indirect
+Xstore_ref_indirect M3CG_Wr.store_ref_indirect
+Xload_nil M3CG_Wr.load_nil
+Xload_integer M3CG_Wr.load_integer
+Xload_float M3CG_Wr.load_float
+Xeq M3CG_Wr.eq
+Xne M3CG_Wr.ne
+Xgt M3CG_Wr.gt
+Xge M3CG_Wr.ge
+Xlt M3CG_Wr.lt
+Xle M3CG_Wr.le
+Xadd M3CG_Wr.add
+Xsubtract M3CG_Wr.subtract
+Xmultiply M3CG_Wr.multiply
+Xdivide M3CG_Wr.divide
+Xdiv M3CG_Wr.div
+Xmod M3CG_Wr.mod
+Xnegate M3CG_Wr.negate
+Xabs M3CG_Wr.abs
+Xmax M3CG_Wr.max
+Xmin M3CG_Wr.min
+Xround M3CG_Wr.round
+Xtrunc M3CG_Wr.trunc
+Xfloor M3CG_Wr.floor
+Xceiling M3CG_Wr.ceiling
+Xcvt_float M3CG_Wr.cvt_float
+Xset_union M3CG_Wr.set_union
+Xset_difference M3CG_Wr.set_difference
+Xset_intersection M3CG_Wr.set_intersection
+Xset_sym_difference M3CG_Wr.set_sym_difference
+Xset_member M3CG_Wr.set_member
+Xset_eq M3CG_Wr.set_eq
+Xset_ne M3CG_Wr.set_ne
+Xset_gt M3CG_Wr.set_gt
+Xset_ge M3CG_Wr.set_ge
+Xset_lt M3CG_Wr.set_lt
+Xset_le M3CG_Wr.set_le
+Xset_range M3CG_Wr.set_range
+Xset_singleton M3CG_Wr.set_singleton
+Xnot M3CG_Wr.not
+Xand M3CG_Wr.and
+Xor M3CG_Wr.or
+Xxor M3CG_Wr.xor
+Xshift M3CG_Wr.shift
+Xshift_left M3CG_Wr.shift_left
+Xshift_right M3CG_Wr.shift_right
+Xrotate M3CG_Wr.rotate
+Xrotate_left M3CG_Wr.rotate_left
+Xrotate_right M3CG_Wr.rotate_right
+Xextract M3CG_Wr.extract
+Xextract_n M3CG_Wr.extract_n
+Xextract_mn M3CG_Wr.extract_mn
+Xinsert M3CG_Wr.insert
+Xinsert_n M3CG_Wr.insert_n
+Xinsert_mn M3CG_Wr.insert_mn
+Xswap M3CG_Wr.swap
+Xpop M3CG_Wr.pop
+Xcopy M3CG_Wr.copy
+Xcopy_n M3CG_Wr.copy_n
+Xzero M3CG_Wr.zero
+Xzero_n M3CG_Wr.zero_n
+Xloophole M3CG_Wr.loophole
+Xassert_fault M3CG_Wr.assert_fault
+Xnarrow_fault M3CG_Wr.narrow_fault
+Xreturn_fault M3CG_Wr.return_fault
+Xcase_fault M3CG_Wr.case_fault
+Xtypecase_fault M3CG_Wr.typecase_fault
+Xcheck_nil M3CG_Wr.check_nil
+Xcheck_lo M3CG_Wr.check_lo
+Xcheck_hi M3CG_Wr.check_hi
+Xcheck_range M3CG_Wr.check_range
+Xcheck_index M3CG_Wr.check_index
+Xcheck_eq M3CG_Wr.check_eq
+Xadd_offset M3CG_Wr.add_offset
+Xindex_address M3CG_Wr.index_address
+Xstart_call_direct M3CG_Wr.start_call_direct
+Xcall_direct M3CG_Wr.call_direct
+Xstart_call_indirect M3CG_Wr.start_call_indirect
+Xcall_indirect M3CG_Wr.call_indirect
+Xpop_param M3CG_Wr.pop_param
+Xpop_struct M3CG_Wr.pop_struct
+Xpop_static_link M3CG_Wr.pop_static_link
+Xload_procedure M3CG_Wr.load_procedure
+Xload_static_link M3CG_Wr.load_static_link
+Xcomment M3CG_Wr.comment
+Lwr 0 32 62761487
+Lbuf 32 32 c5c06198
+Lbuf_len 64 32 195c2a74
+Lruntime 96 32 5ad3ba2b
+Lnext_label_id 128 32 195c2a74
+Lnext_var 160 32 195c2a74
+Lnext_proc 192 32 195c2a74
+Lnext_scope 224 32 195c2a74
+R7f7f547e 1 00000000 0
+Su 510c0439
+R13e8a59e 2 00000000 0
+Su 510c0439
+Scmd 50f86574
+R5e505fe3 2 00000000 0
+Su 510c0439
+Sn adc6066d
+R1fd70070 2 00000000 0
+Su 510c0439
+Sv fbef8279
+Rcc4c8558 2 00000000 0
+Su 510c0439
+Sp 64c4a775
+R4c91edba 2 00000000 0
+Su 510c0439
+St f279f892
+F602a0f79 f279f892 50f86574 512
+Qb97754ba 4688ab45
+R40e8d8dc 2 00000000 0
+Su 510c0439
+Sf b97754ba
+F0cea6754 31bd17f3 50f86574 96
+N0a5631aa 195c2a74 0 384 16
+F8f42558b 0a5631aa 56e16863 3080
+Rf379c567 2 00000000 0
+Su 510c0439
+Sb 1e59237d
+Fe051cec8 1e59237d 56e16863 16
+R4f491896 2 00000000 0
+Su 510c0439
+Si 195c2a74
+R30898076 2 00000000 0
+Su 510c0439
+St e61d104f
+Qde89d3b9 21762c46
+R97b42506 2 00000000 0
+Su 510c0439
+Si de89d3b9
+N065630aa 195c2a74 0 288 16
+Fe8fc5c74 065630aa 56e16863 2312
+M330ebcd7 56e16863 256
+F264b1550 8d2831d7 56e16863 64
+R26500877 2 00000000 0
+Su 510c0439
+St 50f86574
+R3284dffa 2 00000000 0
+Su 510c0439
+Sc 56e16863
+Re201b068 2 00000000 0
+Su 510c0439
+Stxt 50f86574
+Q7632cb42 89cd34bd
+R9cc963e0 2 00000000 0
+Su 510c0439
+Sbuf 7632cb42
+R87e2cf7f 1 d04f08c4 0
+Soutput 62761487
+R1202819a 2 195c2a74 0
+Su 510c0439
+Sn 195c2a74
+R85b9b776 2 00000000 0
+Su 510c0439
+Sp c5673195
+Re12a7fb8 2 00000000 0
+Su 510c0439
+Soptimize 195c2a74
+Rf1da776a 2 00000000 0
+Su 510c0439
+Sfile 50f86574
+R7f2790d9 2 00000000 0
+Su 510c0439
+Sline 195c2a74
+R50241ba9 3 00000000 0
+Su 510c0439
+St e61d104f
+Sn adc6066d
+Rfd629349 5 00000000 0
+Su 510c0439
+St e61d104f
+Sindex e61d104f
+Selt e61d104f
+Ss 97e237e2
+Re8b86f54 4 00000000 0
+Su 510c0439
+St e61d104f
+Selt e61d104f
+Ss 97e237e2
+R0fa3c2cf 4 00000000 0
+Su 510c0439
+St e61d104f
+Sn_elts 195c2a74
+Ss 97e237e2
+R4aa40d86 4 00000000 0
+Su 510c0439
+St e61d104f
+Ss 97e237e2
+Sbase e61d104f
+R9f78f33d 4 00000000 0
+Su 510c0439
+St e61d104f
+Ss 97e237e2
+Sn_fields 195c2a74
+R690454d0 5 00000000 0
+Su 510c0439
+Sn adc6066d
+So 195c2a74
+Ss 97e237e2
+St e61d104f
+R647f1e12 4 00000000 0
+Su 510c0439
+St e61d104f
+Sdomain e61d104f
+Ss 97e237e2
+Rd18b28e8 6 00000000 0
+Su 510c0439
+St e61d104f
+Sdomain e61d104f
+Smin de89d3b9
+Smax de89d3b9
+Ss 97e237e2
+R6f119fd3 5 00000000 0
+Su 510c0439
+St e61d104f
+Starget e61d104f
+Sbrand 50f86574
+Straced 1e59237d
+R9ad79d0d 3 00000000 0
+Su 510c0439
+St e61d104f
+Starget e61d104f
+R0be84b6d 6 00000000 0
+Su 510c0439
+St e61d104f
+Sn_formals 195c2a74
+Sresult e61d104f
+Sn_raises 195c2a74
+Scc 624c9512
+R4acff860 3 00000000 0
+Su 510c0439
+Sn adc6066d
+St e61d104f
+R96d9b573 8 00000000 0
+Su 510c0439
+St e61d104f
+Ssuper e61d104f
+Sbrand 50f86574
+Straced 1e59237d
+Sn_fields 195c2a74
+Sn_methods 195c2a74
+Sfield_size 97e237e2
+R573acc81 3 00000000 0
+Su 510c0439
+Sn adc6066d
+Ssignature e61d104f
+Rb79e6d46 3 00000000 0
+Su 510c0439
+St e61d104f
+Ssuper e61d104f
+Rf6e7ed6c 3 00000000 0
+Su 510c0439
+Slhs e61d104f
+Srhs e61d104f
+R5a600f2f 6 00000000 0
+Su 510c0439
+Sn adc6066d
+Sarg_type e61d104f
+Sraise_proc 1e59237d
+Sbase fbef8279
+Soffset 195c2a74
+R2cfbb259 2 7bb459c5 0
+Su 510c0439
+Sn adc6066d
+Rb2d6bc04 3 00000000 0
+Su 510c0439
+Sn adc6066d
+Sp 64c4a775
+R86ddd8d9 4 00000000 0
+Su 510c0439
+Sn adc6066d
+Sv fbef8279
+So 195c2a74
+Q9b3b588a 64c4a775
+Q04107d86 fbef8279
+Qe6a3d58b 195c2a74
+Rb5b46995 5 00000000 0
+Su 510c0439
+Sn adc6066d
+Sp 9b3b588a
+Sv 04107d86
+So e6a3d58b
+R08149d30 1 fbef8279 0
+Su 510c0439
+Rcc5df966 6 fbef8279 0
+Su 510c0439
+Sn adc6066d
+Ss 97e237e2
+Sa 97e237e2
+St f279f892
+Sm3t e61d104f
+Rd8a47ce6 3 fbef8279 0
+Su 510c0439
+Sn adc6066d
+Sm3t e61d104f
+Rc8b06e98 7 00000000 0
+Su 510c0439
+Sseg fbef8279
+Ss 97e237e2
+Sa 97e237e2
+St f279f892
+Sexported 1e59237d
+Sinited 1e59237d
+Rff4476e1 8 fbef8279 0
+Su 510c0439
+Sn adc6066d
+Ss 97e237e2
+Sa 97e237e2
+St f279f892
+Sm3t e61d104f
+Sexported 1e59237d
+Sinited 1e59237d
+Rb1ce6d6c 9 fbef8279 0
+Su 510c0439
+Sn adc6066d
+Ss 97e237e2
+Sa 97e237e2
+St f279f892
+Sm3t e61d104f
+Sin_memory 1e59237d
+Sup_level 1e59237d
+Sf 0e5e33aa
+Rfa64ef0c 5 fbef8279 0
+Su 510c0439
+Ss 97e237e2
+Sa 97e237e2
+St f279f892
+Sin_memory 1e59237d
+Rcbd4f9b2 4 00000000 0
+Su 510c0439
+So 195c2a74
+Svalue de89d3b9
+St f279f892
+R2ece0f42 3 00000000 0
+Su 510c0439
+So 195c2a74
+Svalue 64c4a775
+Radcb9295 3 00000000 0
+Su 510c0439
+So 195c2a74
+Svalue 195c2a74
+R781e5ff3 4 00000000 0
+Su 510c0439
+So 195c2a74
+Svalue fbef8279
+Sbias 195c2a74
+Rfd558a6c 3 00000000 0
+Su 510c0439
+So 195c2a74
+Svalue fbef8279
+Rc4d28269 3 00000000 0
+Su 510c0439
+So 195c2a74
+Svalue 50f86574
+R601dd229 3 00000000 0
+Su 510c0439
+So 195c2a74
+Sf b97754ba
+Rdb8f181e 1 64c4a775 0
+Su 510c0439
+R62910871 5 64c4a775 0
+Su 510c0439
+Sn adc6066d
+Sn_params 195c2a74
+Sret_type f279f892
+Scc 624c9512
+R487d2971 8 64c4a775 0
+Su 510c0439
+Sn adc6066d
+Sn_params 195c2a74
+Sreturn_type f279f892
+Slev 195c2a74
+Scc 624c9512
+Sexported 1e59237d
+Sparent 64c4a775
+R8b104550 3 00000000 0
+Su 510c0439
+Sl 195c2a74
+Sbarrier 1e59237d
+R4f491893 2 00000000 0
+Su 510c0439
+Sl 195c2a74
+Re0424407 3 00000000 0
+Su 510c0439
+Sl 195c2a74
+Sf 0e5e33aa
+Rce720ed8 4 00000000 0
+Su 510c0439
+Sl 195c2a74
+St 1c215560
+Sf 0e5e33aa
+Q0bff0c24 f400f3db
+R50a7bcca 2 00000000 0
+Su 510c0439
+Slabels 0bff0c24
+R42e4aab2 4 00000000 0
+Su 510c0439
+Sv fbef8279
+So 195c2a74
+St 0aadf583
+R533e8436 3 00000000 0
+Su 510c0439
+Sv fbef8279
+So 195c2a74
+R9811e6eb 3 00000000 0
+Su 510c0439
+So 195c2a74
+St 0aadf583
+Re8643e29 3 00000000 0
+Su 510c0439
+So 195c2a74
+Svar 1e59237d
+R6dee09bf 2 00000000 0
+Su 510c0439
+St 1c215560
+Rc8f5be03 2 00000000 0
+Su 510c0439
+St 1d215560
+R8eed11e4 2 00000000 0
+Su 510c0439
+St 1f215560
+F16c67751 be2bedc6 50f86574 96
+R73da35ad 4 00000000 0
+Su 510c0439
+St ed6d484f
+Sa be2bedc6
+Sb be2bedc6
+Rbce026dd 3 00000000 0
+Su 510c0439
+St 1d215560
+Sx 1f215560
+Rfd9e7f4f 2 00000000 0
+Su 510c0439
+Ss 97e237e2
+Ra94a00df 2 00000000 0
+Su 510c0439
+Ssign 1e59237d
+R4b6cc2d6 3 00000000 0
+Su 510c0439
+Ssign 1e59237d
+Sn 195c2a74
+R15bd2449 4 00000000 0
+Su 510c0439
+Ssign 1e59237d
+Sm 195c2a74
+Sn 195c2a74
+R4f491891 2 00000000 0
+Su 510c0439
+Sn 195c2a74
+R35fe5c3a 3 00000000 0
+Su 510c0439
+Sm 195c2a74
+Sn 195c2a74
+R31cbb132 3 00000000 0
+Su 510c0439
+Sa f279f892
+Sb f279f892
+Re7577324 3 00000000 0
+Su 510c0439
+St 0aadf583
+Soverlap 1e59237d
+Re44ccfb3 4 00000000 0
+Su 510c0439
+Sn 195c2a74
+St 0aadf583
+Soverlap 1e59237d
+R0f971cdd 2 00000000 0
+Su 510c0439
+St 0aadf583
+R9b55fbaf 3 00000000 0
+Su 510c0439
+Sn 195c2a74
+St 0aadf583
+Rf8a78b09 3 00000000 0
+Su 510c0439
+Sfrom 1c215560
+Stwo 1c215560
+R1929d668 3 00000000 0
+Su 510c0439
+Sa de89d3b9
+Sb de89d3b9
+R9deeddf8 2 00000000 0
+Su 510c0439
+Ssize 195c2a74
+R9a423603 4 00000000 0
+Su 510c0439
+Sp 64c4a775
+Slev 195c2a74
+St f279f892
+Rb598e85d 3 00000000 0
+Su 510c0439
+St f279f892
+Scc 624c9512
+Rcee124e7 3 00000000 0
+Su 510c0439
+Ss 97e237e2
+Sa 97e237e2
+R2cff51e2 3 00000000 0
+Su 510c0439
+Sp 64c4a775
+St f279f892
+R17d34b87 5 00000000 0
+Su 510c0439
+Sa 50f86574
+Sb 50f86574
+Sc 50f86574
+Sd 50f86574
+R00c4da79 3 00000000 0
+Su 510c0439
+St 50f86574
+Swidth e6a3d58b
+DM3CG_Wr
+CTFloat
+CTInt
+CTarget
+CM3CG_Ops
+CM3CG
+CM3ID
+CM3Buf
+CIntRefTbl
+CText
+CWr
+CRTHooks
+Ee745ce5d M3CG_Wr.WrVar
+Edd25f2d8 M3CG_Wr.WrProc
+E7bb459c5 M3CG_Wr.RuntimeHook
+E510c0439 M3CG_Wr.U
+@M3CG_Rd.m3
+AM3CG_Rd
+N4b3873bd 195c2a74 0 4095 16
+F998dd4c6 4b3873bd 56e16863 32768
+Pe0c28f32 998dd4c6
+Ga49eeb22 fbef8279 64
+Pad894714 a49eeb22
+G77056e0c 64c4a775 64
+P27b001c1 77056e0c
+K6c75faaa 288 9
+Lrd 0 32 fa67ef2f
+Lcg 32 32 d04f08c4
+Lch 64 8 56e16863
+Lbuf 96 32 e0c28f32
+Lbuf_len 128 32 97e237e2
+Lbuf_ptr 160 32 97e237e2
+Lvars 192 32 ad894714
+Lprocs 224 32 27b001c1
+Llabels 256 32 217fba22
+Q938a0555 6c75faaa
+R7638067b 1 00000000 0
+Ss 938a0555
+K5c96f2a8 64 2
+Lop 0 32 50f86574
+Lproc 32 32 7638067b
+N0b5b33aa 195c2a74 0 155 8
+Fdadbde5d 0b5b33aa 5c96f2a8 9984
+F9fa60a78 29a4581d 50f86574 512
+R2ed68cf2 4 00000000 0
+Ss 938a0555
+Sa 50f86574
+Sb 50f86574
+Sc 50f86574
+R0d2a5bb1 1 50f86574 0
+Ss 938a0555
+N25ac581d 195c2a74 0 99 8
+F66ac6bf0 25ac581d 56e16863 800
+R752a0c3f 1 adc6066d 0
+Ss 938a0555
+Fa9d8608a 0b5b30aa 56e16863 2048
+Qe6a3d58b 195c2a74
+R2213f66f 2 1e59237d 0
+Ss 938a0555
+Sval e6a3d58b
+Q7632cb42 89cd34bd
+Re52510d6 2 195c2a74 0
+Ss 938a0555
+Sbuf 7632cb42
+R64334b4d 1 195c2a74 0
+Ss 938a0555
+Ra7fa3a7b 1 00000000 0
+Ss 938a0555
+R70a6c7ae 1 00000000 0
+Ss 938a0555
+R248169e4 3 00000000 0
+Ss 938a0555
+Sbuf 7632cb42
+Slen 195c2a74
+R67ebbe7c 1 f279f892 0
+Ss 938a0555
+Rd80396b7 1 1e59237d 0
+Ss 938a0555
+R1bf3d3b0 1 e61d104f 0
+Ss 938a0555
+R34ad53b4 1 fbef8279 0
+Ss 938a0555
+Re736d69a 1 64c4a775 0
+Ss 938a0555
+Rde7cd8a8 1 be2bedc6 0
+Ss 938a0555
+R97951ba3 1 624c9512 0
+Ss 938a0555
+N0f5f37aa 195c2a74 0 511 16
+F91402fba 0f5f37aa 56e16863 4096
+R561c0c99 2 195c2a74 0
+Ss 938a0555
+Sbuf 7632cb42
+R6581bf88 3 00000000 0
+Ss 938a0555
+Sid 195c2a74
+Sv fbef8279
+Rcf47e7a7 3 00000000 0
+Ss 938a0555
+Sid 195c2a74
+Sp 64c4a775
+DM3CG_Rd
+CTFloat
+CTInt
+CTarget
+CM3CG_Ops
+CM3CG
+CM3ID
+CFmt
+CStdio
+CWr
+CConvert
+CThread
+CIntIntTbl
+CRd
+CText
+CRTHooks
+Ee0c28f32 M3CG_Rd.InputBuffer
+E6c75faaa M3CG_Rd.State
+E5c96f2a8 M3CG_Rd.Cmd
+Qde89d3b9 21762c46
+Qb97754ba 4688ab45
+@M3CG_Clean.m3
+AM3CG_Clean
+He17d412c 101 8
+Iload_clean_tmp
+Iset_source_file
+Iset_source_line
+Ifree_temp
+Iset_label
+Ijump
+Iif_true
+Iif_false
+Iif_eq
+Iif_ne
+Iif_gt
+Iif_ge
+Iif_lt
+Iif_le
+Iload
+Istore
+Istore_ref
+Iload_address
+Iload_indirect
+Istore_indirect
+Istore_ref_indirect
+Iload_nil
+Iload_integer
+Iload_float
+Ieq
+Ine
+Igt
+Ige
+Ilt
+Ile
+Iadd
+Isubtract
+Imultiply
+Idivide
+Idiv
+Imod
+Inegate
+Iabs
+Imax
+Imin
+Iround
+Itrunc
+Ifloor
+Iceiling
+Icvt_float
+Iset_union
+Iset_difference
+Iset_intersection
+Iset_sym_difference
+Iset_member
+Iset_eq
+Iset_ne
+Iset_gt
+Iset_ge
+Iset_lt
+Iset_le
+Iset_range
+Iset_singleton
+Inot
+Iand
+Ior
+Ixor
+Ishift
+Ishift_left
+Ishift_right
+Irotate
+Irotate_left
+Irotate_right
+Iextract
+Iextract_n
+Iextract_mn
+Iinsert
+Iinsert_n
+Iinsert_mn
+Iswap
+Ipop
+Icopy_n
+Icopy
+Izero_n
+Izero
+Iloophole
+Icheck_nil
+Icheck_lo
+Icheck_hi
+Icheck_range
+Icheck_index
+Icheck_eq
+Iadd_offset
+Iindex_address
+Istart_call_direct
+Istart_call_indirect
+Ipop_param
+Ipop_struct
+Ipop_static_link
+Ipcall_direct
+Ifcall_direct
+Ipcall_indirect
+Ifcall_indirect
+Iload_procedure
+Iload_static_link
+Icomment
+F76008a32 e17d412c f279f892 808
+F75d87f03 e17d412c 195c2a74 3232
+Kd13aff61 672 18
+Lop 0 8 e17d412c
+Ldepth 32 32 195c2a74
+Lresult 64 8 f279f892
+Ltxt 96 32 50f86574
+Lint 128 32 195c2a74
+Lint2 160 32 195c2a74
+Lvar 192 32 fbef8279
+Lbool 224 8 1e59237d
+Llab 256 32 195c2a74
+Ltype 288 8 f279f892
+Ltype2 296 8 f279f892
+Ltint 320 64 21762c46
+Ltint2 384 64 21762c46
+Lflt 448 128 4688ab45
+Lsign1 576 8 be2bedc6
+Lsign2 584 8 be2bedc6
+Lproc 608 32 64c4a775
+Lcconv 640 32 624c9512
+Gb4ebbc0f d13aff61 64
+P7175312d b4ebbc0f
+R66660523 1 00000000 0
+Sdepth 195c2a74
+R52cd26eb 3 00000000 0
+Sop e17d412c
+Sint 195c2a74
+Stype f279f892
+Qde89d3b9 21762c46
+Qb97754ba 4688ab45
+Re06480a0 16 00000000 0
+Sop e17d412c
+Stxt 50f86574
+Sint 195c2a74
+Sint2 195c2a74
+Svar fbef8279
+Sbool 1e59237d
+Slab 195c2a74
+Stype f279f892
+Stype2 f279f892
+Stint de89d3b9
+Stint2 de89d3b9
+Sflt b97754ba
+Ssign1 be2bedc6
+Ssign2 be2bedc6
+Sproc 64c4a775
+Scconv 624c9512
+V103e376b d04f08c4 5 4 110 128
+Wmake_clean 66660523 M3CG_Clean.Make_clean
+Wflush_buffer 7b78c34f M3CG_Clean.Flush_buffer
+Wstuff 52cd26eb M3CG_Clean.Stuff
+WstuffX e06480a0 M3CG_Clean.StuffX
+Xend_unit M3CG_Clean.end_unit
+Xset_source_file M3CG_Clean.set_source_file
+Xset_source_line M3CG_Clean.set_source_line
+Xfree_temp M3CG_Clean.free_temp
+Xend_procedure M3CG_Clean.end_procedure
+Xbegin_block M3CG_Clean.begin_block
+Xend_block M3CG_Clean.end_block
+Xnote_procedure_origin M3CG_Clean.note_procedure_origin
+Xset_label M3CG_Clean.set_label
+Xjump M3CG_Clean.jump
+Xif_true M3CG_Clean.if_true
+Xif_false M3CG_Clean.if_false
+Xif_eq M3CG_Clean.if_eq
+Xif_ne M3CG_Clean.if_ne
+Xif_gt M3CG_Clean.if_gt
+Xif_ge M3CG_Clean.if_ge
+Xif_lt M3CG_Clean.if_lt
+Xif_le M3CG_Clean.if_le
+Xcase_jump M3CG_Clean.case_jump
+Xexit_proc M3CG_Clean.exit_proc
+Xload M3CG_Clean.load
+Xstore M3CG_Clean.store
+Xstore_ref M3CG_Clean.store_ref
+Xload_address M3CG_Clean.load_address
+Xload_indirect M3CG_Clean.load_indirect
+Xstore_indirect M3CG_Clean.store_indirect
+Xstore_ref_indirect M3CG_Clean.store_ref_indirect
+Xload_nil M3CG_Clean.load_nil
+Xload_integer M3CG_Clean.load_integer
+Xload_float M3CG_Clean.load_float
+Xeq M3CG_Clean.eq
+Xne M3CG_Clean.ne
+Xgt M3CG_Clean.gt
+Xge M3CG_Clean.ge
+Xlt M3CG_Clean.lt
+Xle M3CG_Clean.le
+Xadd M3CG_Clean.add
+Xsubtract M3CG_Clean.subtract
+Xmultiply M3CG_Clean.multiply
+Xdivide M3CG_Clean.divide
+Xdiv M3CG_Clean.div
+Xmod M3CG_Clean.mod
+Xnegate M3CG_Clean.negate
+Xabs M3CG_Clean.abs
+Xmax M3CG_Clean.max
+Xmin M3CG_Clean.min
+Xround M3CG_Clean.round
+Xtrunc M3CG_Clean.trunc
+Xfloor M3CG_Clean.floor
+Xceiling M3CG_Clean.ceiling
+Xcvt_float M3CG_Clean.cvt_float
+Xset_union M3CG_Clean.set_union
+Xset_difference M3CG_Clean.set_difference
+Xset_intersection M3CG_Clean.set_intersection
+Xset_sym_difference M3CG_Clean.set_sym_difference
+Xset_member M3CG_Clean.set_member
+Xset_eq M3CG_Clean.set_eq
+Xset_ne M3CG_Clean.set_ne
+Xset_gt M3CG_Clean.set_gt
+Xset_ge M3CG_Clean.set_ge
+Xset_lt M3CG_Clean.set_lt
+Xset_le M3CG_Clean.set_le
+Xset_range M3CG_Clean.set_range
+Xset_singleton M3CG_Clean.set_singleton
+Xnot M3CG_Clean.not
+Xand M3CG_Clean.and
+Xor M3CG_Clean.or
+Xxor M3CG_Clean.xor
+Xshift M3CG_Clean.shift
+Xshift_left M3CG_Clean.shift_left
+Xshift_right M3CG_Clean.shift_right
+Xrotate M3CG_Clean.rotate
+Xrotate_left M3CG_Clean.rotate_left
+Xrotate_right M3CG_Clean.rotate_right
+Xextract M3CG_Clean.extract
+Xextract_n M3CG_Clean.extract_n
+Xextract_mn M3CG_Clean.extract_mn
+Xinsert M3CG_Clean.insert
+Xinsert_n M3CG_Clean.insert_n
+Xinsert_mn M3CG_Clean.insert_mn
+Xswap M3CG_Clean.swap
+Xpop M3CG_Clean.pop
+Xcopy M3CG_Clean.copy
+Xcopy_n M3CG_Clean.copy_n
+Xzero M3CG_Clean.zero
+Xzero_n M3CG_Clean.zero_n
+Xloophole M3CG_Clean.loophole
+Xassert_fault M3CG_Clean.assert_fault
+Xnarrow_fault M3CG_Clean.narrow_fault
+Xreturn_fault M3CG_Clean.return_fault
+Xcase_fault M3CG_Clean.case_fault
+Xtypecase_fault M3CG_Clean.typecase_fault
+Xcheck_nil M3CG_Clean.check_nil
+Xcheck_lo M3CG_Clean.check_lo
+Xcheck_hi M3CG_Clean.check_hi
+Xcheck_range M3CG_Clean.check_range
+Xcheck_index M3CG_Clean.check_index
+Xcheck_eq M3CG_Clean.check_eq
+Xadd_offset M3CG_Clean.add_offset
+Xindex_address M3CG_Clean.index_address
+Xstart_call_direct M3CG_Clean.start_call_direct
+Xcall_direct M3CG_Clean.call_direct
+Xstart_call_indirect M3CG_Clean.start_call_indirect
+Xcall_indirect M3CG_Clean.call_indirect
+Xpop_param M3CG_Clean.pop_param
+Xpop_struct M3CG_Clean.pop_struct
+Xpop_static_link M3CG_Clean.pop_static_link
+Xload_procedure M3CG_Clean.load_procedure
+Xload_static_link M3CG_Clean.load_static_link
+Xcomment M3CG_Clean.comment
+Lclean_jumps 0 8 1e59237d
+Lclean_stores 8 8 1e59237d
+Lbuffer 32 32 7175312d
+Lnext_buf 64 32 195c2a74
+Lstack_depth 96 32 195c2a74
+R120eee09 2 00000000 0
+Sself 103e376b
+Sdepth 195c2a74
+R14a3d944 3 195c2a74 0
+Sself 103e376b
+Send 195c2a74
+Shgt 195c2a74
+R74930182 1 00000000 0
+Sself 103e376b
+R07d1fb4b 3 00000000 0
+Sself 103e376b
+Sa 195c2a74
+Sb 195c2a74
+R19940bdf 4 00000000 0
+Sself 103e376b
+Sop e17d412c
+Sint 195c2a74
+Stype f279f892
+R25da0367 17 00000000 0
+Sself 103e376b
+Sop e17d412c
+Stxt 50f86574
+Sint 195c2a74
+Sint2 195c2a74
+Svar fbef8279
+Sbool 1e59237d
+Slab 195c2a74
+Stype f279f892
+Stype2 f279f892
+Stint de89d3b9
+Stint2 de89d3b9
+Sflt b97754ba
+Ssign1 be2bedc6
+Ssign2 be2bedc6
+Sproc 64c4a775
+Scconv 624c9512
+R1ba01e68 2 00000000 0
+Sself 103e376b
+Sfile 50f86574
+R955df9db 2 00000000 0
+Sself 103e376b
+Sline 195c2a74
+R8463068c 2 00000000 0
+Sself 103e376b
+Sv fbef8279
+R57f883a4 2 00000000 0
+Sself 103e376b
+Sp 64c4a775
+R3cccf3c3 3 00000000 0
+Sself 103e376b
+Sl 195c2a74
+Sbarrier 1e59237d
+Rd4fd1e6f 2 00000000 0
+Sself 103e376b
+Sl 195c2a74
+Ra305fa8a 3 00000000 0
+Sself 103e376b
+Sl 195c2a74
+Sf 0e5e33aa
+R665dcae7 4 00000000 0
+Sself 103e376b
+Sl 195c2a74
+St 1c215560
+Sf 0e5e33aa
+Q0bff0c24 f400f3db
+R77b26e63 2 00000000 0
+Sself 103e376b
+Slabels 0bff0c24
+Rd725eb46 2 00000000 0
+Sself 103e376b
+St f279f892
+Reacb6e8d 4 00000000 0
+Sself 103e376b
+Sv fbef8279
+So 195c2a74
+St 0aadf583
+R10793abb 3 00000000 0
+Sself 103e376b
+Sv fbef8279
+So 195c2a74
+Rdb565866 3 00000000 0
+Sself 103e376b
+So 195c2a74
+St 0aadf583
+R59db312c 3 00000000 0
+Sself 103e376b
+So 195c2a74
+Svar 1e59237d
+R7dce4c04 2 00000000 0
+Sself 103e376b
+Si de89d3b9
+Raa92b1de 2 00000000 0
+Sself 103e376b
+Sf b97754ba
+F662b8299 31bd17f3 f279f892 24
+Rf65a0f43 2 00000000 0
+Sself 103e376b
+St 1c215560
+R5341b8ff 2 00000000 0
+Sself 103e376b
+St 1d215560
+R15591718 2 00000000 0
+Sself 103e376b
+St 1f215560
+Rdbf5f192 4 00000000 0
+Sself 103e376b
+St ed6d484f
+Sa be2bedc6
+Sb be2bedc6
+Rcdb87e9c 3 00000000 0
+Sself 103e376b
+St 1d215560
+Su 1f215560
+R662a79b3 2 00000000 0
+Sself 103e376b
+Ss 97e237e2
+R433069dd 2 00000000 0
+Sself 103e376b
+Ssign 1e59237d
+Rb5a5a140 3 00000000 0
+Sself 103e376b
+Ssign 1e59237d
+Sn 195c2a74
+R572d4a22 4 00000000 0
+Sself 103e376b
+Ssign 1e59237d
+Sm 195c2a74
+Sn 195c2a74
+Rd4fd1e6d 2 00000000 0
+Sself 103e376b
+Sn 195c2a74
+R76b9e2b7 3 00000000 0
+Sself 103e376b
+Sm 195c2a74
+Sn 195c2a74
+R728c0fbf 3 00000000 0
+Sself 103e376b
+Sa f279f892
+Sb f279f892
+R508bc5b7 3 00000000 0
+Sself 103e376b
+St 0aadf583
+Soverlap 1e59237d
+R35f6b87b 4 00000000 0
+Sself 103e376b
+Sn 195c2a74
+St 0aadf583
+Soverlap 1e59237d
+R94231a21 2 00000000 0
+Sself 103e376b
+St 0aadf583
+Rd8124522 3 00000000 0
+Sself 103e376b
+Sn 195c2a74
+St 0aadf583
+R0731d7e7 3 00000000 0
+Sself 103e376b
+Sfrom 1c215560
+Stwo 1c215560
+Raef560fb 3 00000000 0
+Sself 103e376b
+Sa de89d3b9
+Sb de89d3b9
+Rd4fd1e6a 2 00000000 0
+Sself 103e376b
+Si 195c2a74
+R7794b4fa 2 00000000 0
+Sself 103e376b
+Ssize 195c2a74
+R200ea3f4 4 00000000 0
+Sself 103e376b
+Sp 64c4a775
+Slev 195c2a74
+St f279f892
+Rd43d686f 3 00000000 0
+Sself 103e376b
+St f279f892
+Scc 624c9512
+R8da69a6a 3 00000000 0
+Sself 103e376b
+Ss 97e237e2
+Sa 97e237e2
+R6fb8ef6f 3 00000000 0
+Sself 103e376b
+Sp 64c4a775
+St f279f892
+R0b64ed24 5 00000000 0
+Sself 103e376b
+Sa 50f86574
+Sb 50f86574
+Sc 50f86574
+Sd 50f86574
+DM3CG_Clean
+CM3CG_Ops
+CM3CG
+CTargetMap
+CTFloat
+CTInt
+CTarget
+CRTHooks
+Ee17d412c M3CG_Clean.Op
+Ed13aff61 M3CG_Clean.OpInfo
+E7175312d M3CG_Clean.OpBuffer
+E103e376b M3CG_Clean.U
+Q2ec5009e d13aff61
+@M3CG_Check.m3
+AM3CG_Check
+Hcca25297 14 8
+IAddr
+IWord
+IInt
+IReel
+ILReel
+IXReel
+IVoid
+IIType
+IRType
+IAType
+IAny
+IMissing
+IDontCare
+IMatch
+Ffa2251f8 f279f892 cca25297 128
+F721d93ff cca25297 50f86574 448
+R401f7525 4 00000000 0
+Ss0 cca25297
+Ss1 cca25297
+Ss2 cca25297
+Ss3 cca25297
+N2ca0581d 195c2a74 0 50 8
+Fb2d2072d 2ca0581d f279f892 408
+V1416cba5 d04f08c4 18 4 125 864
+Ws_pop 401f7525 M3CG_Check.Stack_Pop
+Ws_push c17f53c6 M3CG_Check.Stack_Push
+Ws_repush 7b78c34f M3CG_Check.Stack_Repush
+Ws_empty 7b78c34f M3CG_Check.Stack_Empty
+Xset_error_handler M3CG_Check.set_error_handler
+Xbegin_unit M3CG_Check.begin_unit
+Xend_unit M3CG_Check.end_unit
+Xset_source_line M3CG_Check.set_source_line
+Xset_runtime_proc M3CG_Check.set_runtime_proc
+Xset_runtime_hook M3CG_Check.set_runtime_hook
+Xget_runtime_hook M3CG_Check.get_runtime_hook
+Xbind_segment M3CG_Check.bind_segment
+Xdeclare_temp M3CG_Check.declare_temp
+Xfree_temp M3CG_Check.free_temp
+Xbegin_init M3CG_Check.begin_init
+Xend_init M3CG_Check.end_init
+Xinit_int M3CG_Check.init_int
+Xinit_proc M3CG_Check.init_proc
+Xinit_label M3CG_Check.init_label
+Xinit_var M3CG_Check.init_var
+Xinit_offset M3CG_Check.init_offset
+Xinit_chars M3CG_Check.init_chars
+Xinit_float M3CG_Check.init_float
+Xbegin_procedure M3CG_Check.begin_procedure
+Xend_procedure M3CG_Check.end_procedure
+Xbegin_block M3CG_Check.begin_block
+Xend_block M3CG_Check.end_block
+Xnote_procedure_origin M3CG_Check.note_procedure_origin
+Xset_label M3CG_Check.set_label
+Xjump M3CG_Check.jump
+Xif_true M3CG_Check.if_true
+Xif_false M3CG_Check.if_false
+Xif_eq M3CG_Check.if_eq
+Xif_ne M3CG_Check.if_ne
+Xif_gt M3CG_Check.if_gt
+Xif_ge M3CG_Check.if_ge
+Xif_lt M3CG_Check.if_lt
+Xif_le M3CG_Check.if_le
+Xcase_jump M3CG_Check.case_jump
+Xexit_proc M3CG_Check.exit_proc
+Xload M3CG_Check.load
+Xstore M3CG_Check.store
+Xstore_ref M3CG_Check.store_ref
+Xload_address M3CG_Check.load_address
+Xload_indirect M3CG_Check.load_indirect
+Xstore_indirect M3CG_Check.store_indirect
+Xstore_ref_indirect M3CG_Check.store_ref_indirect
+Xload_nil M3CG_Check.load_nil
+Xload_integer M3CG_Check.load_integer
+Xload_float M3CG_Check.load_float
+Xeq M3CG_Check.eq
+Xne M3CG_Check.ne
+Xgt M3CG_Check.gt
+Xge M3CG_Check.ge
+Xlt M3CG_Check.lt
+Xle M3CG_Check.le
+Xadd M3CG_Check.add
+Xsubtract M3CG_Check.subtract
+Xmultiply M3CG_Check.multiply
+Xdivide M3CG_Check.divide
+Xdiv M3CG_Check.div
+Xmod M3CG_Check.mod
+Xnegate M3CG_Check.negate
+Xabs M3CG_Check.abs
+Xmax M3CG_Check.max
+Xmin M3CG_Check.min
+Xround M3CG_Check.round
+Xtrunc M3CG_Check.trunc
+Xfloor M3CG_Check.floor
+Xceiling M3CG_Check.ceiling
+Xcvt_float M3CG_Check.cvt_float
+Xset_union M3CG_Check.set_union
+Xset_difference M3CG_Check.set_difference
+Xset_intersection M3CG_Check.set_intersection
+Xset_sym_difference M3CG_Check.set_sym_difference
+Xset_member M3CG_Check.set_member
+Xset_eq M3CG_Check.set_eq
+Xset_ne M3CG_Check.set_ne
+Xset_gt M3CG_Check.set_gt
+Xset_ge M3CG_Check.set_ge
+Xset_lt M3CG_Check.set_lt
+Xset_le M3CG_Check.set_le
+Xset_range M3CG_Check.set_range
+Xset_singleton M3CG_Check.set_singleton
+Xnot M3CG_Check.not
+Xand M3CG_Check.and
+Xor M3CG_Check.or
+Xxor M3CG_Check.xor
+Xshift M3CG_Check.shift
+Xshift_left M3CG_Check.shift_left
+Xshift_right M3CG_Check.shift_right
+Xrotate M3CG_Check.rotate
+Xrotate_left M3CG_Check.rotate_left
+Xrotate_right M3CG_Check.rotate_right
+Xextract M3CG_Check.extract
+Xextract_n M3CG_Check.extract_n
+Xextract_mn M3CG_Check.extract_mn
+Xinsert M3CG_Check.insert
+Xinsert_n M3CG_Check.insert_n
+Xinsert_mn M3CG_Check.insert_mn
+Xswap M3CG_Check.swap
+Xpop M3CG_Check.pop
+Xcopy M3CG_Check.copy
+Xcopy_n M3CG_Check.copy_n
+Xzero M3CG_Check.zero
+Xzero_n M3CG_Check.zero_n
+Xloophole M3CG_Check.loophole
+Xassert_fault M3CG_Check.assert_fault
+Xnarrow_fault M3CG_Check.narrow_fault
+Xreturn_fault M3CG_Check.return_fault
+Xcase_fault M3CG_Check.case_fault
+Xtypecase_fault M3CG_Check.typecase_fault
+Xcheck_nil M3CG_Check.check_nil
+Xcheck_lo M3CG_Check.check_lo
+Xcheck_hi M3CG_Check.check_hi
+Xcheck_range M3CG_Check.check_range
+Xcheck_index M3CG_Check.check_index
+Xcheck_eq M3CG_Check.check_eq
+Xadd_offset M3CG_Check.add_offset
+Xindex_address M3CG_Check.index_address
+Xstart_call_direct M3CG_Check.start_call_direct
+Xcall_direct M3CG_Check.call_direct
+Xstart_call_indirect M3CG_Check.start_call_indirect
+Xcall_indirect M3CG_Check.call_indirect
+Xpop_param M3CG_Check.pop_param
+Xpop_struct M3CG_Check.pop_struct
+Xpop_static_link M3CG_Check.pop_static_link
+Xload_procedure M3CG_Check.load_procedure
+Xload_static_link M3CG_Check.load_static_link
+Lclean_stores 0 8 1e59237d
+Lclean_jumps 8 8 1e59237d
+Lnested_calls 16 8 1e59237d
+Lnested_procs 24 8 1e59237d
+Lcur_line 32 32 195c2a74
+Lnext_var 64 32 195c2a74
+Lnext_proc 96 32 195c2a74
+Lnext_scope 128 32 195c2a74
+Ln_errors 160 32 195c2a74
+Lproc_count 192 32 195c2a74
+Lblock_count 224 32 195c2a74
+Lcall_count 256 32 195c2a74
+Ltop_of_stack 288 32 195c2a74
+Lin_init 320 32 195c2a74
+Linit_cursor 352 32 195c2a74
+Lnote_error 384 32 c5673195
+Lruntime 416 32 ed1dee3b
+Lstack 448 408 b2d2072d
+N4d3373b8 195c2a74 0 1023 16
+F79a3b0d4 4d3373b8 50f86574 32768
+R3c69ee0f 1 50f86574 0
+Si 195c2a74
+R2e5c5403 4 00000000 0
+Su 1416cba5
+Sa 50f86574
+Sb 50f86574
+Sc 50f86574
+Rcebc1fbc 2 cca25297 0
+Sself 1416cba5
+Sdepth 195c2a74
+Ra692f8c5 3 1e59237d 0
+Sneed cca25297
+Sgot cca25297
+Sprev cca25297
+Refa8d203 2 50f86574 0
+Sa cca25297
+Sprev cca25297
+R1668faf8 5 00000000 0
+Sself 1416cba5
+Sa cca25297
+Sb cca25297
+Sc cca25297
+Sd cca25297
+Rce206425 2 00000000 0
+Sself 1416cba5
+St f279f892
+R16a48e4e 1 00000000 0
+Sself 1416cba5
+Rf90726e5 1 50f86574 0
+Sself 1416cba5
+R07083ee9 2 00000000 0
+Sself 1416cba5
+Sp c5673195
+R94a4c94f 2 00000000 0
+Sself 1416cba5
+Soptimize 195c2a74
+R8c5876b8 2 00000000 0
+Sself 1416cba5
+Sline 195c2a74
+R3b5ce710 3 00000000 0
+Sself 1416cba5
+Sn adc6066d
+Sp 64c4a775
+R1a3086ee 4 00000000 0
+Sself 1416cba5
+Sn adc6066d
+Sv fbef8279
+So 195c2a74
+Q9b3b588a 64c4a775
+Q04107d86 fbef8279
+Qe6a3d58b 195c2a74
+R7cd24167 5 00000000 0
+Sself 1416cba5
+Sn adc6066d
+Sp 9b3b588a
+Sv 04107d86
+So e6a3d58b
+R9d6689ef 2 00000000 0
+Sself 1416cba5
+Sv fbef8279
+Rabe0234f 7 00000000 0
+Sself 1416cba5
+Sseg fbef8279
+Ss 97e237e2
+Sa 97e237e2
+St f279f892
+Sexported 1e59237d
+Sinited 1e59237d
+R55a18901 5 fbef8279 0
+Sself 1416cba5
+Ss 97e237e2
+Sa 97e237e2
+St f279f892
+Sin_memory 1e59237d
+Re9d9b297 3 00000000 0
+Sself 1416cba5
+So 195c2a74
+Ss 97e237e2
+Qde89d3b9 21762c46
+Rb078abd5 4 00000000 0
+Sself 1416cba5
+So 195c2a74
+Svalue de89d3b9
+St f279f892
+R324722d9 3 00000000 0
+Sself 1416cba5
+So 195c2a74
+Svalue 64c4a775
+Rb142bf0e 3 00000000 0
+Sself 1416cba5
+So 195c2a74
+Svalue 195c2a74
+R03b20d94 4 00000000 0
+Sself 1416cba5
+So 195c2a74
+Svalue fbef8279
+Sbias 195c2a74
+Re1dca7f7 3 00000000 0
+Sself 1416cba5
+So 195c2a74
+Svalue fbef8279
+Rd85baff2 3 00000000 0
+Sself 1416cba5
+So 195c2a74
+Svalue 50f86574
+Qb97754ba 4688ab45
+R54195426 3 00000000 0
+Sself 1416cba5
+So 195c2a74
+Sf b97754ba
+R4efd0cc7 2 00000000 0
+Sself 1416cba5
+Sp 64c4a775
+Rcdf8910c 2 00000000 0
+Sself 1416cba5
+Sl 195c2a74
+Rf601165a 3 00000000 0
+Sself 1416cba5
+Sl 195c2a74
+Sbarrier 1e59237d
+R69c81f13 3 00000000 0
+Sself 1416cba5
+Sl 195c2a74
+Sf 0e5e33aa
+R529f50ef 4 00000000 0
+Sself 1416cba5
+Sl 195c2a74
+St 1c215560
+Sf 0e5e33aa
+Q0bff0c24 f400f3db
+R6eb7e100 2 00000000 0
+Sself 1416cba5
+Slabels 0bff0c24
+Rde09f485 4 00000000 0
+Sself 1416cba5
+Sv fbef8279
+So 195c2a74
+St 0aadf583
+Rdab4df22 3 00000000 0
+Sself 1416cba5
+Sv fbef8279
+So 195c2a74
+R119bbdff 3 00000000 0
+Sself 1416cba5
+So 195c2a74
+St 0aadf583
+R9316d4b5 3 00000000 0
+Sself 1416cba5
+So 195c2a74
+Svar 1e59237d
+R64cbc367 2 00000000 0
+Sself 1416cba5
+Si de89d3b9
+Rb3973ebd 2 00000000 0
+Sself 1416cba5
+Sf b97754ba
+F662b8299 31bd17f3 f279f892 24
+R7db18c83 3 00000000 0
+Sself 1416cba5
+Slhs f279f892
+Srhs f279f892
+Ref5f8020 2 00000000 0
+Sself 1416cba5
+St 1c215560
+R4a44379c 2 00000000 0
+Sself 1416cba5
+St 1d215560
+R0c5c987b 2 00000000 0
+Sself 1416cba5
+St 1f215560
+Ref376b9a 4 00000000 0
+Sself 1416cba5
+St ed6d484f
+Sa be2bedc6
+Sb be2bedc6
+R07759b05 3 00000000 0
+Sself 1416cba5
+St 1d215560
+Su 1f215560
+R7f2ff6d0 2 00000000 0
+Sself 1416cba5
+Ss 97e237e2
+R5a35e6be 2 00000000 0
+Sself 1416cba5
+Ssign 1e59237d
+R7f6844d9 3 00000000 0
+Sself 1416cba5
+Ssign 1e59237d
+Sn 195c2a74
+R63efd02a 4 00000000 0
+Sself 1416cba5
+Ssign 1e59237d
+Sm 195c2a74
+Sn 195c2a74
+Rcdf8910e 2 00000000 0
+Sself 1416cba5
+Sn 195c2a74
+Rbc74072e 3 00000000 0
+Sself 1416cba5
+Sm 195c2a74
+Sn 195c2a74
+Rb841ea26 3 00000000 0
+Sself 1416cba5
+Sa f279f892
+Sb f279f892
+R9a46202e 3 00000000 0
+Sself 1416cba5
+St 0aadf583
+Soverlap 1e59237d
+R01342273 4 00000000 0
+Sself 1416cba5
+Sn 195c2a74
+St 0aadf583
+Soverlap 1e59237d
+R8d269542 2 00000000 0
+Sself 1416cba5
+St 0aadf583
+R12dfa0bb 3 00000000 0
+Sself 1416cba5
+Sn 195c2a74
+St 0aadf583
+Rcdfc327e 3 00000000 0
+Sself 1416cba5
+Sfrom 1c215560
+Stwo 1c215560
+R64388562 3 00000000 0
+Sself 1416cba5
+Sa de89d3b9
+Sb de89d3b9
+Rcdf89109 2 00000000 0
+Sself 1416cba5
+Si 195c2a74
+R6e913b99 2 00000000 0
+Sself 1416cba5
+Ssize 195c2a74
+R14cc39fc 4 00000000 0
+Sself 1416cba5
+Sp 64c4a775
+Slev 195c2a74
+St f279f892
+R1ef08df6 3 00000000 0
+Sself 1416cba5
+St f279f892
+Scc 624c9512
+R476b7ff3 3 00000000 0
+Sself 1416cba5
+Ss 97e237e2
+Sa 97e237e2
+Ra5750af6 3 00000000 0
+Sself 1416cba5
+Sp 64c4a775
+St f279f892
+DM3CG_Check
+CTargetMap
+CTarget
+CM3CG_Ops
+CM3CG
+CM3ID
+CIntIntTbl
+CStdio
+CText
+CFmt
+CThread
+CWr
+CRTHooks
+Ecca25297 M3CG_Check.ST
+E1416cba5 M3CG_Check.U
+Q865c4f2b 79a3b0d4
+@M3CG.m3
+AM3CG
+Vb97b7b9b b35dd7e2 0 0 158 0 M3CG.T
+Xnext_label M3CG.next_label
+Xset_error_handler M3CG.set_error_handler
+Xbegin_unit M3CG.begin_unit
+Xend_unit M3CG.end_unit
+Ximport_unit M3CG.import_unit
+Xexport_unit M3CG.export_unit
+Xset_source_file M3CG.set_source_file
+Xset_source_line M3CG.set_source_line
+Xdeclare_typename M3CG.declare_typename
+Xdeclare_array M3CG.declare_array
+Xdeclare_open_array M3CG.declare_open_array
+Xdeclare_enum M3CG.declare_enum
+Xdeclare_enum_elt M3CG.declare_enum_elt
+Xdeclare_packed M3CG.declare_packed
+Xdeclare_record M3CG.declare_record
+Xdeclare_field M3CG.declare_field
+Xdeclare_set M3CG.declare_set
+Xdeclare_subrange M3CG.declare_subrange
+Xdeclare_pointer M3CG.declare_pointer
+Xdeclare_indirect M3CG.declare_indirect
+Xdeclare_proctype M3CG.declare_proctype
+Xdeclare_formal M3CG.declare_formal
+Xdeclare_raises M3CG.declare_raises
+Xdeclare_object M3CG.declare_object
+Xdeclare_method M3CG.declare_method
+Xdeclare_opaque M3CG.declare_opaque
+Xreveal_opaque M3CG.reveal_opaque
+Xdeclare_exception M3CG.declare_exception
+Xset_runtime_proc M3CG.set_runtime_proc
+Xset_runtime_hook M3CG.set_runtime_hook
+Xget_runtime_hook M3CG.get_runtime_hook
+Ximport_global M3CG.import_global
+Xdeclare_segment M3CG.declare_segment
+Xbind_segment M3CG.bind_segment
+Xdeclare_global M3CG.declare_global
+Xdeclare_constant M3CG.declare_constant
+Xdeclare_local M3CG.declare_local
+Xdeclare_param M3CG.declare_param
+Xdeclare_temp M3CG.declare_temp
+Xfree_temp M3CG.free_temp
+Xbegin_init M3CG.begin_init
+Xend_init M3CG.end_init
+Xinit_int M3CG.init_int
+Xinit_proc M3CG.init_proc
+Xinit_label M3CG.init_label
+Xinit_var M3CG.init_var
+Xinit_offset M3CG.init_offset
+Xinit_chars M3CG.init_chars
+Xinit_float M3CG.init_float
+Ximport_procedure M3CG.import_procedure
+Xdeclare_procedure M3CG.declare_procedure
+Xbegin_procedure M3CG.begin_procedure
+Xend_procedure M3CG.end_procedure
+Xbegin_block M3CG.begin_block
+Xend_block M3CG.end_block
+Xnote_procedure_origin M3CG.note_procedure_origin
+Xset_label M3CG.set_label
+Xjump M3CG.jump
+Xif_true M3CG.if_true
+Xif_false M3CG.if_false
+Xif_eq M3CG.if_eq
+Xif_ne M3CG.if_ne
+Xif_gt M3CG.if_gt
+Xif_ge M3CG.if_ge
+Xif_lt M3CG.if_lt
+Xif_le M3CG.if_le
+Xcase_jump M3CG.case_jump
+Xexit_proc M3CG.exit_proc
+Xload M3CG.load
+Xload_address M3CG.load_address
+Xload_indirect M3CG.load_indirect
+Xstore M3CG.store
+Xstore_indirect M3CG.store_indirect
+Xstore_ref M3CG.store_ref
+Xstore_ref_indirect M3CG.store_ref_indirect
+Xload_nil M3CG.load_nil
+Xload_integer M3CG.load_integer
+Xload_float M3CG.load_float
+Xeq M3CG.eq
+Xne M3CG.ne
+Xgt M3CG.gt
+Xge M3CG.ge
+Xlt M3CG.lt
+Xle M3CG.le
+Xadd M3CG.add
+Xsubtract M3CG.subtract
+Xmultiply M3CG.multiply
+Xdivide M3CG.divide
+Xnegate M3CG.negate
+Xabs M3CG.abs
+Xmax M3CG.max
+Xmin M3CG.min
+Xround M3CG.round
+Xtrunc M3CG.trunc
+Xfloor M3CG.floor
+Xceiling M3CG.ceiling
+Xcvt_float M3CG.cvt_float
+Xdiv M3CG.div
+Xmod M3CG.mod
+Xset_union M3CG.set_union
+Xset_difference M3CG.set_difference
+Xset_intersection M3CG.set_intersection
+Xset_sym_difference M3CG.set_sym_difference
+Xset_member M3CG.set_member
+Xset_eq M3CG.set_eq
+Xset_ne M3CG.set_ne
+Xset_lt M3CG.set_lt
+Xset_le M3CG.set_le
+Xset_gt M3CG.set_gt
+Xset_ge M3CG.set_ge
+Xset_range M3CG.set_range
+Xset_singleton M3CG.set_singleton
+Xnot M3CG.not
+Xand M3CG.and
+Xor M3CG.or
+Xxor M3CG.xor
+Xshift M3CG.shift
+Xshift_left M3CG.shift_left
+Xshift_right M3CG.shift_right
+Xrotate M3CG.rotate
+Xrotate_left M3CG.rotate_left
+Xrotate_right M3CG.rotate_right
+Xextract M3CG.extract
+Xextract_n M3CG.extract_n
+Xextract_mn M3CG.extract_mn
+Xinsert M3CG.insert
+Xinsert_n M3CG.insert_n
+Xinsert_mn M3CG.insert_mn
+Xswap M3CG.swap
+Xpop M3CG.pop
+Xcopy_n M3CG.copy_n
+Xcopy M3CG.copy
+Xzero_n M3CG.zero_n
+Xzero M3CG.zero
+Xloophole M3CG.loophole
+Xassert_fault M3CG.assert_fault
+Xnarrow_fault M3CG.narrow_fault
+Xreturn_fault M3CG.return_fault
+Xcase_fault M3CG.case_fault
+Xtypecase_fault M3CG.typecase_fault
+Xcheck_nil M3CG.check_nil
+Xcheck_lo M3CG.check_lo
+Xcheck_hi M3CG.check_hi
+Xcheck_range M3CG.check_range
+Xcheck_index M3CG.check_index
+Xcheck_eq M3CG.check_eq
+Xadd_offset M3CG.add_offset
+Xindex_address M3CG.index_address
+Xstart_call_direct M3CG.start_call_direct
+Xcall_direct M3CG.call_direct
+Xstart_call_indirect M3CG.start_call_indirect
+Xcall_indirect M3CG.call_indirect
+Xpop_param M3CG.pop_param
+Xpop_struct M3CG.pop_struct
+Xpop_static_link M3CG.pop_static_link
+Xload_procedure M3CG.load_procedure
+Xload_static_link M3CG.load_static_link
+Xcomment M3CG.comment
+R1dbc664c 2 195c2a74 0
+Sxx d04f08c4
+Sn 195c2a74
+R80c6d774 2 00000000 0
+Sxx d04f08c4
+Sp c5673195
+Rfb8a4cd3 2 00000000 0
+Sxx d04f08c4
+Soptimize 195c2a74
+Rb79c94bd 1 00000000 0
+Sxx d04f08c4
+R5b2f3fe1 2 00000000 0
+Sxx d04f08c4
+Sn adc6066d
+R12014b6f 2 00000000 0
+Sxx d04f08c4
+Sfile 50f86574
+R9cfcacdc 2 00000000 0
+Sxx d04f08c4
+Sline 195c2a74
+R0d22af92 3 00000000 0
+Sxx d04f08c4
+St e61d104f
+Sn adc6066d
+R66d6be5f 5 00000000 0
+Sxx d04f08c4
+St e61d104f
+Sindex e61d104f
+Selt e61d104f
+Ss 97e237e2
+R93191634 4 00000000 0
+Sxx d04f08c4
+St e61d104f
+Selt e61d104f
+Ss 97e237e2
+R86fa0516 4 00000000 0
+Sxx d04f08c4
+St e61d104f
+Sn_elts 195c2a74
+Ss 97e237e2
+Rdcb7c46c 4 00000000 0
+Sxx d04f08c4
+St e61d104f
+Ss 97e237e2
+Sbase e61d104f
+Rd2484940 4 00000000 0
+Sxx d04f08c4
+St e61d104f
+Ss 97e237e2
+Sn_fields 195c2a74
+R14499df0 5 00000000 0
+Sxx d04f08c4
+Sn adc6066d
+So 195c2a74
+Ss 97e237e2
+St e61d104f
+Red26d9cb 4 00000000 0
+Sxx d04f08c4
+St e61d104f
+Sdomain e61d104f
+Ss 97e237e2
+Qde89d3b9 21762c46
+Rdcdbdabc 6 00000000 0
+Sxx d04f08c4
+St e61d104f
+Sdomain e61d104f
+Smin de89d3b9
+Smax de89d3b9
+Ss 97e237e2
+R07649885 5 00000000 0
+Sxx d04f08c4
+St e61d104f
+Starget e61d104f
+Sbrand 50f86574
+Straced 1e59237d
+R1ab3d5c8 3 00000000 0
+Sxx d04f08c4
+St e61d104f
+Starget e61d104f
+R311d7845 6 00000000 0
+Sxx d04f08c4
+St e61d104f
+Sn_formals 195c2a74
+Sresult e61d104f
+Sn_raises 195c2a74
+Scc 624c9512
+R17c94c5b 3 00000000 0
+Sxx d04f08c4
+Sn adc6066d
+St e61d104f
+Rb0bf00aa 8 00000000 0
+Sxx d04f08c4
+St e61d104f
+Ssuper e61d104f
+Sbrand 50f86574
+Straced 1e59237d
+Sn_fields 195c2a74
+Sn_methods 195c2a74
+Sfield_size 97e237e2
+Ra1541c70 3 00000000 0
+Sxx d04f08c4
+Sn adc6066d
+Ssignature e61d104f
+R434f6f14 3 00000000 0
+Sxx d04f08c4
+St e61d104f
+Ssuper e61d104f
+R0236ef3e 3 00000000 0
+Sxx d04f08c4
+Slhs e61d104f
+Srhs e61d104f
+R044bc9f9 6 00000000 0
+Sxx d04f08c4
+Sn adc6066d
+Sarg_type e61d104f
+Sraise_proc 1e59237d
+Sbase fbef8279
+Soffset 195c2a74
+Refd0083f 3 00000000 0
+Sxx d04f08c4
+Sn adc6066d
+Sp 64c4a775
+R0a90789f 4 00000000 0
+Sxx d04f08c4
+Sn adc6066d
+Sv fbef8279
+So 195c2a74
+Q9b3b588a 64c4a775
+Q04107d86 fbef8279
+Qe6a3d58b 195c2a74
+R505fe105 5 00000000 0
+Sxx d04f08c4
+Sn adc6066d
+Sp 9b3b588a
+Sv 04107d86
+So e6a3d58b
+Rcc17b862 6 fbef8279 0
+Sxx d04f08c4
+Sn adc6066d
+Ss 97e237e2
+Sa 97e237e2
+St f279f892
+Sm3t e61d104f
+R4b3bb64e 3 fbef8279 0
+Sxx d04f08c4
+Sn adc6066d
+Sm3t e61d104f
+R9c9f97f9 7 00000000 0
+Sxx d04f08c4
+Sseg fbef8279
+Ss 97e237e2
+Sa 97e237e2
+St f279f892
+Sexported 1e59237d
+Sinited 1e59237d
+R8d12070c 8 fbef8279 0
+Sxx d04f08c4
+Sn adc6066d
+Ss 97e237e2
+Sa 97e237e2
+St f279f892
+Sm3t e61d104f
+Sexported 1e59237d
+Sinited 1e59237d
+R2acf3950 9 fbef8279 0
+Sxx d04f08c4
+Sn adc6066d
+Ss 97e237e2
+Sa 97e237e2
+St f279f892
+Sm3t e61d104f
+Sin_memory 1e59237d
+Sup_level 1e59237d
+Sf 0e5e33aa
+R63b1293e 5 fbef8279 0
+Sxx d04f08c4
+Ss 97e237e2
+Sa 97e237e2
+St f279f892
+Sin_memory 1e59237d
+R1aa86072 2 00000000 0
+Sxx d04f08c4
+Sv fbef8279
+R86e443cf 4 00000000 0
+Sxx d04f08c4
+So 195c2a74
+Svalue de89d3b9
+St f279f892
+Rda1f0d10 3 00000000 0
+Sxx d04f08c4
+So 195c2a74
+Svalue 64c4a775
+R591a90c7 3 00000000 0
+Sxx d04f08c4
+So 195c2a74
+Svalue 195c2a74
+R352ee58e 4 00000000 0
+Sxx d04f08c4
+So 195c2a74
+Svalue fbef8279
+Sbias 195c2a74
+R0984883e 3 00000000 0
+Sxx d04f08c4
+So 195c2a74
+Svalue fbef8279
+R3003803b 3 00000000 0
+Sxx d04f08c4
+So 195c2a74
+Svalue 50f86574
+Qb97754ba 4688ab45
+R365b13ee 3 00000000 0
+Sxx d04f08c4
+So 195c2a74
+Sf b97754ba
+R0b4fa861 5 64c4a775 0
+Sxx d04f08c4
+Sn adc6066d
+Sn_params 195c2a74
+Sret_type f279f892
+Scc 624c9512
+R369ca83c 8 64c4a775 0
+Sxx d04f08c4
+Sn adc6066d
+Sn_params 195c2a74
+Sreturn_type f279f892
+Slev 195c2a74
+Scc 624c9512
+Sexported 1e59237d
+Sparent 64c4a775
+Rc933e55a 2 00000000 0
+Sxx d04f08c4
+Sp 64c4a775
+R84aea286 3 00000000 0
+Sxx d04f08c4
+Sl 195c2a74
+Sbarrier 1e59237d
+R4a367891 2 00000000 0
+Sxx d04f08c4
+Sl 195c2a74
+Rbd44f03c 3 00000000 0
+Sxx d04f08c4
+Sl 195c2a74
+Sf 0e5e33aa
+R423fae9e 4 00000000 0
+Sxx d04f08c4
+Sl 195c2a74
+St 1c215560
+Sf 0e5e33aa
+Q0bff0c24 f400f3db
+Rf9075b88 2 00000000 0
+Sxx d04f08c4
+Slabels 0bff0c24
+R49ee8db8 2 00000000 0
+Sxx d04f08c4
+St f279f892
+Rcea90af4 4 00000000 0
+Sxx d04f08c4
+Sv fbef8279
+So 195c2a74
+St 0aadf583
+R0e38300d 3 00000000 0
+Sxx d04f08c4
+Sv fbef8279
+So 195c2a74
+Rc51752d0 3 00000000 0
+Sxx d04f08c4
+So 195c2a74
+St 0aadf583
+R03527b16 3 00000000 0
+Sxx d04f08c4
+So 195c2a74
+Svar 1e59237d
+R746f1903 2 00000000 0
+Sxx d04f08c4
+Si de89d3b9
+Ra333e4d9 2 00000000 0
+Sxx d04f08c4
+Sf b97754ba
+R689169bd 2 00000000 0
+Sxx d04f08c4
+St 1c215560
+Rcd8ade01 2 00000000 0
+Sxx d04f08c4
+St 1d215560
+R8b9271e6 2 00000000 0
+Sxx d04f08c4
+St 1f215560
+Rff9795eb 4 00000000 0
+Sxx d04f08c4
+St ed6d484f
+Sa be2bedc6
+Sb be2bedc6
+Rd3f9742a 3 00000000 0
+Sxx d04f08c4
+St 1d215560
+Su 1f215560
+Rf8e11f4d 2 00000000 0
+Sxx d04f08c4
+Ss 97e237e2
+R4a913cda 2 00000000 0
+Sxx d04f08c4
+Ssign 1e59237d
+R1d2a0311 3 00000000 0
+Sxx d04f08c4
+Ssign 1e59237d
+Sn 195c2a74
+R83aeeda3 4 00000000 0
+Sxx d04f08c4
+Ssign 1e59237d
+Sm 195c2a74
+Sn 195c2a74
+R4a367893 2 00000000 0
+Sxx d04f08c4
+Sn 195c2a74
+R68f8e801 3 00000000 0
+Sxx d04f08c4
+Sm 195c2a74
+Sn 195c2a74
+R6ccd0509 3 00000000 0
+Sxx d04f08c4
+Sa f279f892
+Sb f279f892
+Re8e994f2 3 00000000 0
+Sxx d04f08c4
+St 0aadf583
+Soverlap 1e59237d
+R7a7ef6b1 4 00000000 0
+Sxx d04f08c4
+Sn 195c2a74
+St 0aadf583
+Soverlap 1e59237d
+R0ae87cdf 2 00000000 0
+Sxx d04f08c4
+St 0aadf583
+Rc6534f94 3 00000000 0
+Sxx d04f08c4
+Sn 195c2a74
+St 0aadf583
+R78c3c3cc 3 00000000 0
+Sxx d04f08c4
+Sfrom 1c215560
+Stwo 1c215560
+R169731be 3 00000000 0
+Sxx d04f08c4
+Sa de89d3b9
+Sb de89d3b9
+R4a367894 2 00000000 0
+Sxx d04f08c4
+Si 195c2a74
+R7e35e1fd 2 00000000 0
+Sxx d04f08c4
+Ssize 195c2a74
+Re1e34f63 4 00000000 0
+Sxx d04f08c4
+Sp 64c4a775
+Slev 195c2a74
+St f279f892
+Rb744d53e 3 00000000 0
+Sxx d04f08c4
+St f279f892
+Scc 624c9512
+R93e790dc 3 00000000 0
+Sxx d04f08c4
+Ss 97e237e2
+Sa 97e237e2
+R71f9e5d9 3 00000000 0
+Sxx d04f08c4
+Sp 64c4a775
+St f279f892
+R060b58ac 5 00000000 0
+Sxx d04f08c4
+Sa 50f86574
+Sb 50f86574
+Sc 50f86574
+Sd 50f86574
+DM3CG_Ops
+DM3CG
+CTarget
+CRTHooks
+Zd04f08c4 b97b7b9b
+@M3File.m3
+AM3File
+Fcc746f98 05d609d1 0e3fc5cb 134217736
+O59a3a453 cc746f98
+N4b3873bd 195c2a74 0 4095 16
+F87afc26f 4b3873bd 0e3fc5cb 32768
+N4d3373b8 195c2a74 0 1023 16
+F735571e7 4d3373b8 0e3fc5cb 8192
+N8d2831d7 195c2a74 0 7 8
+F386903f9 8d2831d7 0e3fc5cb 64
+DM3File
+CText
+COSError
+CFile
+CFS
+CRTHooks
+Q7632cb42 89cd34bd
+E59a3a453 M3File.BufPtr
+@M3Timers.m3
+AM3Timers
+DM3Timers
+CWr
+CETimer
+CRTHooks
+@M3ID.m3
+AM3ID
+N493972b1 195c2a74 0 8187 16
+F95f6e29e 493972b1 56e16863 65504
+O5457b9b4 95f6e29e
+Kf8573bde 96 3
+Lstart 0 32 17b389fe
+Lhash 32 32 195c2a74
+Ltext 64 32 50f86574
+G09cde5ac f8573bde 64
+P7c54cde5 09cde5ac
+Ge519b4a9 adc6066d 64
+P717b864e e519b4a9
+N0e5e30aa 195c2a74 0 200 8
+F9a141354 0e5e30aa 0b5b30aa 1608
+G222165b6 0b5b30aa 64
+Pcca8d368 222165b6
+R28af3671 2 adc6066d 0
+Sx 50f86574
+Sclass 0b5b30aa
+Q7632cb42 89cd34bd
+R55d920db 2 adc6066d 0
+Sbuf 7632cb42
+Slength 195c2a74
+DM3ID
+CCtypes
+CCstring
+CWord
+CTextF
+CM3Buf
+CRTHooks
+E17b389fe M3ID.StrPtr
+E5457b9b4 M3ID.CharBuffer
+E7c54cde5 M3ID.DescBuffer
+Ef8573bde M3ID.Desc
+E0b5b30aa M3ID.Mark
+Q07a8c421 f8573bde
+Rd4f21c29 2 195c2a74 0
+Sx 195c2a74
+Sy 195c2a74
+@M3Buf.m3
+AM3Buf
+P80cd0cab 80cd0ca8
+N4b3273bb 195c2a74 0 2035 16
+Fab58bdda 4b3273bb 56e16863 16288
+K80cd0ca8 16320 2
+Lnext 0 32 80cd0cab
+Lbuf 32 16288 ab58bdda
+K0be3c700 160 5
+LnFull 0 32 195c2a74
+Lnext 32 32 195c2a74
+Lhead 64 32 80cd0cab
+Ltail 96 32 80cd0cab
+Ldrain 128 32 62761487
+Pa721d285 0be3c700 MBuf.T
+N832831d7 195c2a74 0 9 8
+Fdcee67f3 832831d7 56e16863 80
+N25ac581d 195c2a74 0 99 8
+F66ac6bf0 25ac581d 56e16863 800
+N29a6581d 195c2a74 0 35 8
+F9c3cde05 29a6581d 56e16863 288
+N28a3581d 195c2a74 0 64 8
+F30c654e9 28a3581d 56e16863 520
+N2ba3581d 195c2a74 0 67 8
+F10b9a448 2ba3581d 56e16863 544
+R5c10fbb6 1 00000000 0
+St c5c06198
+DM3Buf
+CM3FP
+CTInt
+CTarget
+CThread
+CConvert
+CWr
+CTextF
+CRTHooks
+Qde89d3b9 21762c46
+Qb97754ba 4688ab45
+Q7632cb42 89cd34bd
+Qd9b99dfd 26466202
+E80cd0cab M3Buf.Chunk
+Zc5c06198 a721d285
+@M3FP.m3
+AM3FP
+N892831d7 195c2a74 0 3 8
+F1291bd69 892831d7 56e16863 32
+F264b1550 8d2831d7 56e16863 64
+F3424c5d9 8d2831d7 8d2831d7 64
+DM3FP
+CWord
+CFingerprint
+CRTHooks
+Qd9b99dfd 26466202
+Q7632cb42 89cd34bd
+Q748d221d 8b72dde2
+E1291bd69 M3FP.NChars
+E264b1550 M3FP.MChars
+Rd4f21c29 2 195c2a74 0
+Sx 195c2a74
+Sy 195c2a74
+Rc52a772e 2 195c2a74 0
+Sx 195c2a74
+Sn 195c2a74
+R86d8c6e1 3 195c2a74 0
+Sx 195c2a74
+Si 97e237e2
+Sn 97e237e2
+@TFloat.m3
+ATFloat
+Qde89d3b9 21762c46
+Qb97754ba 4688ab45
+R6bb426ae 3 1e59237d 0
+SiI de89d3b9
+Sp 31bd17f3
+Sf b97754ba
+R6be396d1 2 1e59237d 0
+Sa b97754ba
+Sr de89d3b9
+N2da6581d 195c2a74 0 31 8
+Fa8e6763c 2da6581d 56e16863 256
+N065c33aa 195c2a74 0 128 8
+Fc4eb7ea9 065c33aa 195c2a74 4128
+O7605aa72 c4eb7ea9
+R75dd0dfd 1 1e59237d 0
+Sf b97754ba
+R865a0f71 1 48e16572 0
+Sf b97754ba
+R4485f5a7 1 94fe32f6 0
+Sf b97754ba
+R616c295a 1 9ee024e3 0
+Sf b97754ba
+DTFloat
+CTarget
+CTargetMap
+CTInt
+CConvert
+CRTHooks
+Q7632cb42 89cd34bd
+E7605aa72 TFloat.ToInts.Ptr
+Q0bff0c24 f400f3db
+@TWord.m3
+ATWord
+Q7632cb42 89cd34bd
+Qde89d3b9 21762c46
+R75da867f 3 1e59237d 0
+Sx 7632cb42
+Sbase 195c2a74
+Sr de89d3b9
+R13e10b2b 3 00000000 0
+Sa de89d3b9
+Sb de89d3b9
+Sr de89d3b9
+R5e715805 3 1e59237d 0
+Snum de89d3b9
+Sden de89d3b9
+Sq de89d3b9
+Rb2e1e76f 3 1e59237d 0
+Snum de89d3b9
+Sden de89d3b9
+Sr de89d3b9
+N8e2831d7 195c2a74 0 4 8
+F7bf92297 8e2831d7 195c2a74 160
+R60723ac7 2 00000000 0
+Sa de89d3b9
+Sr de89d3b9
+R6e724a0c 4 1e59237d 0
+Sx de89d3b9
+SiI de89d3b9
+SnI de89d3b9
+Sr de89d3b9
+R22792e2e 5 1e59237d 0
+Sx de89d3b9
+Sy de89d3b9
+SiI de89d3b9
+SnI de89d3b9
+Sr de89d3b9
+DTWord
+CTarget
+CTInt
+CWord
+CRTHooks
+Rd4f21c29 2 195c2a74 0
+Sx 195c2a74
+Sy 195c2a74
+@TInt.m3
+ATInt
+N832831d7 195c2a74 0 9 8
+Fdcee67f3 832831d7 56e16863 80
+Qde89d3b9 21762c46
+Rdcafe3d8 2 1e59237d 0
+Sx 195c2a74
+Sr de89d3b9
+Qe6a3d58b 195c2a74
+Ra640a1b9 2 1e59237d 0
+Sr de89d3b9
+Sx e6a3d58b
+Q7632cb42 89cd34bd
+R4569baeb 2 1e59237d 0
+Sx 7632cb42
+Sr de89d3b9
+Ra2a3674a 3 1e59237d 0
+Sa de89d3b9
+Sb de89d3b9
+Sr de89d3b9
+Fce08ca25 8d2831d7 573a2ef0 128
+R5e715805 3 1e59237d 0
+Snum de89d3b9
+Sden de89d3b9
+Sq de89d3b9
+Rb2e1e76f 3 1e59237d 0
+Snum de89d3b9
+Sden de89d3b9
+Sr de89d3b9
+R5afb3334 4 1e59237d 0
+Sa de89d3b9
+Sb de89d3b9
+Sq de89d3b9
+Sr de89d3b9
+Rc4907498 2 195c2a74 0
+Sr de89d3b9
+Sbuf 7632cb42
+N28a3581d 195c2a74 0 64 8
+F30c654e9 28a3581d 56e16863 520
+Q7258bba4 8da7445b
+R0a755812 2 195c2a74 0
+Sr de89d3b9
+Sbuf 7258bba4
+DTInt
+CTarget
+CTWord
+CWord
+CRTHooks
+Rd4f21c29 2 195c2a74 0
+Sx 195c2a74
+Sy 195c2a74
+R3ce4d13b 1 195c2a74 0
+Sx 195c2a74
+N2da6581d 195c2a74 0 31 8
+R6fb7d834 2 195c2a74 0
+Sx 195c2a74
+Sn 2da6581d
+@TargetMap.m3
+ATargetMap
+Qe6425348 19bdacb7
+R3c27bb05 2 00000000 0
+Stype f279f892
+Sx e6425348
+Qb8a08d8a 475f7275
+R0536df6f 2 00000000 0
+Stype f279f892
+Sx b8a08d8a
+DTargetMap
+CTarget
+CRTHooks
+Qced20faf 312df050
+@Target.m3
+ATarget
+H901d3c86 32 8
+IAIX386
+IALPHA_OSF
+IAP3000
+IARM
+IBSDI4
+IDS3100
+IFBSD_ALPHA
+IFreeBSD
+IFreeBSD2
+IFreeBSD3
+IFreeBSD4
+IHP300
+IHPPA
+IIBMR2
+IIBMRT
+IIRIX5
+ILINUX
+ILINUXELF
+ILINUXLIBC6
+INEXT
+INT386
+INT386GNU
+IOKI
+ISEQUENT
+ISOLgnu
+ISOLsun
+ISPARC
+ISUN3
+ISUN386
+ITru64v5
+IUMAX
+IVAX
+F4c94fdd0 901d3c86 50f86574 1024
+G07a6a335 624c9512 64
+P5919e388 07a6a335
+Rc1a6c7ea 4 00000000 0
+Sx 195c2a74
+Snm 50f86574
+Sid 195c2a74
+SgnuWin32 1e59237d
+Rfc129c55 3 00000000 0
+Sx 195c2a74
+Snm 50f86574
+Sid 195c2a74
+Qe6425348 19bdacb7
+R37c4123b 2 00000000 0
+Si e6425348
+Smax_align 195c2a74
+Qb8a08d8a 475f7275
+Rdf6f666b 2 00000000 0
+Sf b8a08d8a
+Smax_align 195c2a74
+DTarget
+CM3RT
+CTargetMap
+CText
+CRTHooks
+E901d3c86 Target.Systems
+@CoffTime.m3
+ACoffTime
+DCoffTime
+COSError
+CFS
+CFile
+CUtime
+CTimePosix
+CTime
+CRTHooks
+@M3RT.i3
+BM3RT
+H97662d0b 7 8
+IExcept
+IExceptElse
+IFinally
+IFinallyProc
+IRaises
+IRaisesNone
+ILock
+R7b78c34f 0 00000000 0
+DM3RT
+CRTHooks
+E97662d0b M3RT.HandlerClass
+@M3CG_Wr.i3
+BM3CG_Wr
+R6b285ce3 1 d04f08c4 0
+Swr 62761487
+DM3CG_Wr
+CWr
+CM3CG
+CRTHooks
+@M3CG_Rd.i3
+BM3CG_Rd
+Rce7fb022 2 00000000 0
+Srd fa67ef2f
+Scg d04f08c4
+DM3CG_Rd
+CRd
+CM3CG
+CRTHooks
+@M3CG_Clean.i3
+BM3CG_Clean
+R794d8cb0 3 d04f08c4 0
+Schild d04f08c4
+Sjumps 1e59237d
+Sstores 1e59237d
+DM3CG_Clean
+CM3CG
+CRTHooks
+@M3CG_Check.i3
+BM3CG_Check
+R89fdd55a 5 d04f08c4 0
+Schild d04f08c4
+Sclean_jumps 1e59237d
+Sclean_stores 1e59237d
+Snested_calls 1e59237d
+Snested_procs 1e59237d
+DM3CG_Check
+CM3CG
+CRTHooks
+@M3CG_Ops.i3
+BM3CG_Ops
+Rc5673195 1 00000000 0
+Smsg 50f86574
+R5bd3b7ad 1 195c2a74 0
+Sn 195c2a74
+R0c57090e 1 00000000 0
+Sp c5673195
+Rb24f045b 1 00000000 0
+Soptimize 195c2a74
+Rc9bee185 1 00000000 0
+Sn adc6066d
+R92e77bc2 1 00000000 0
+Sfile 50f86574
+R5df168a6 1 00000000 0
+Sline 195c2a74
+R4c48b1d7 2 00000000 0
+St e61d104f
+Sn adc6066d
+Rf55b5250 4 00000000 0
+St e61d104f
+Sindex e61d104f
+Selt e61d104f
+Ss 97e237e2
+R49da404e 3 00000000 0
+St e61d104f
+Selt e61d104f
+Ss 97e237e2
+R3ed17c04 3 00000000 0
+St e61d104f
+Sn_elts 195c2a74
+Ss 97e237e2
+Ref23874a 3 00000000 0
+St e61d104f
+Ss 97e237e2
+Sbase e61d104f
+Rce80a4bd 3 00000000 0
+St e61d104f
+Ss 97e237e2
+Sn_fields 195c2a74
+Ra64fca66 4 00000000 0
+Sn adc6066d
+So 195c2a74
+Ss 97e237e2
+St e61d104f
+Rae94c27e 3 00000000 0
+St e61d104f
+Sdomain e61d104f
+Ss 97e237e2
+Qde89d3b9 21762c46
+R8a6ced9c 5 00000000 0
+St e61d104f
+Sdomain e61d104f
+Smin de89d3b9
+Smax de89d3b9
+Ss 97e237e2
+Rf8d5a826 4 00000000 0
+St e61d104f
+Starget e61d104f
+Sbrand 50f86574
+Straced 1e59237d
+Rb365e7bd 2 00000000 0
+St e61d104f
+Starget e61d104f
+Rb0807c69 5 00000000 0
+St e61d104f
+Sn_formals 195c2a74
+Sresult e61d104f
+Sn_raises 195c2a74
+Scc 624c9512
+Rd21800ad 2 00000000 0
+Sn adc6066d
+St e61d104f
+R375000ce 7 00000000 0
+St e61d104f
+Ssuper e61d104f
+Sbrand 50f86574
+Straced 1e59237d
+Sn_fields 195c2a74
+Sn_methods 195c2a74
+Sfield_size 97e237e2
+R29896af4 2 00000000 0
+Sn adc6066d
+Ssignature e61d104f
+R87c120f3 2 00000000 0
+St e61d104f
+Ssuper e61d104f
+R037b835a 2 00000000 0
+Slhs e61d104f
+Srhs e61d104f
+R7fd2c3ac 5 00000000 0
+Sn adc6066d
+Sarg_type e61d104f
+Sraise_proc 1e59237d
+Sbase fbef8279
+Soffset 195c2a74
+R2edd0583 2 00000000 0
+Sn adc6066d
+Sp 64c4a775
+Ra8a4c6f3 3 00000000 0
+Sn adc6066d
+Sv fbef8279
+So 195c2a74
+Q9b3b588a 64c4a775
+Q04107d86 fbef8279
+Qe6a3d58b 195c2a74
+R5f988ab2 4 00000000 0
+Sn adc6066d
+Sp 9b3b588a
+Sv 04107d86
+So e6a3d58b
+Raf3fd9c4 5 fbef8279 0
+Sn adc6066d
+Ss 97e237e2
+Sa 97e237e2
+St f279f892
+Sm3t e61d104f
+R79c1e8bc 2 fbef8279 0
+Sn adc6066d
+Sm3t e61d104f
+Rfc459794 6 00000000 0
+Sseg fbef8279
+Ss 97e237e2
+Sa 97e237e2
+St f279f892
+Sexported 1e59237d
+Sinit 1e59237d
+R750b8647 7 fbef8279 0
+Sn adc6066d
+Ss 97e237e2
+Sa 97e237e2
+St f279f892
+Sm3t e61d104f
+Sexported 1e59237d
+Sinit 1e59237d
+Rc0d7f3d6 8 fbef8279 0
+Sn adc6066d
+Ss 97e237e2
+Sa 97e237e2
+St f279f892
+Sm3t e61d104f
+Sin_memory 1e59237d
+Sup_level 1e59237d
+Sf 0e5e33aa
+R87b2f803 4 fbef8279 0
+Ss 97e237e2
+Sa 97e237e2
+St f279f892
+Sin_memory 1e59237d
+R9039be0e 1 00000000 0
+Sv fbef8279
+Rab1887b2 3 00000000 0
+So 195c2a74
+Svalue de89d3b9
+St f279f892
+Ra6a636cd 2 00000000 0
+So 195c2a74
+Svalue 64c4a775
+R25a3ab1a 2 00000000 0
+So 195c2a74
+Svalue 195c2a74
+Rf5807f77 3 00000000 0
+So 195c2a74
+Svalue fbef8279
+Sbias 195c2a74
+Rf9860240 2 00000000 0
+So 195c2a74
+Svar fbef8279
+R4cbabbe6 2 00000000 0
+So 195c2a74
+Svalue 50f86574
+Qb97754ba 4688ab45
+Rb0d57793 2 00000000 0
+So 195c2a74
+Sf b97754ba
+R28c50d8b 4 64c4a775 0
+Sn adc6066d
+Sn_params 195c2a74
+Sreturn f279f892
+Scc 624c9512
+R37b1034f 7 64c4a775 0
+Sn adc6066d
+Sn_params 195c2a74
+Sreturn f279f892
+Slev 195c2a74
+Scc 624c9512
+Sexported 1e59237d
+Sparent 64c4a775
+R45a23b20 1 00000000 0
+Sp 64c4a775
+R7561a353 2 00000000 0
+Sl 195c2a74
+Sbarrier 1e59237d
+Rdaa7a6f7 1 00000000 0
+Sl 195c2a74
+R31a44e90 2 00000000 0
+Sl 195c2a74
+Sf 0e5e33aa
+Rc6aad368 3 00000000 0
+Sl 195c2a74
+St 1c215560
+Sf 0e5e33aa
+Q0bff0c24 f400f3db
+R4d1d86fc 1 00000000 0
+Slabels 0bff0c24
+Rc17f53c6 1 00000000 0
+St f279f892
+R26791849 3 00000000 0
+Sv fbef8279
+So 195c2a74
+St 0aadf583
+R9e3780cf 2 00000000 0
+Sv fbef8279
+So 195c2a74
+R0ec7e6b9 2 00000000 0
+So 195c2a74
+St 0aadf583
+R1528c743 2 00000000 0
+So 195c2a74
+Svar 1e59237d
+Rb41c4ce3 1 00000000 0
+Si de89d3b9
+R6c40b136 1 00000000 0
+Sf b97754ba
+Re000b7c3 1 00000000 0
+St 1c215560
+R451b007f 1 00000000 0
+St 1d215560
+R0303af98 1 00000000 0
+St 1f215560
+R440f7e89 2 00000000 0
+St 1d215560
+Su 1f215560
+R523c3870 3 00000000 0
+St ed6d484f
+Sa be2bedc6
+Sb be2bedc6
+R7770c134 1 00000000 0
+Ss 97e237e2
+Re09425c9 1 00000000 0
+Ssign 1e59237d
+R84c0d5e3 2 00000000 0
+Ssign 1e59237d
+Sn 195c2a74
+R4d6b4427 3 00000000 0
+Ssign 1e59237d
+Sm 195c2a74
+Sn 195c2a74
+Rd8a7a6f7 1 00000000 0
+Sn 195c2a74
+Rafccb844 2 00000000 0
+Sm 195c2a74
+Sn 195c2a74
+R32057f86 2 00000000 0
+Sa f279f892
+Sb f279f892
+Rfc8ae969 2 00000000 0
+St 0aadf583
+Soverlap 1e59237d
+R55dea1f5 3 00000000 0
+Sn 195c2a74
+St 0aadf583
+Soverlap 1e59237d
+R8279a2a1 1 00000000 0
+St 0aadf583
+R03820362 2 00000000 0
+Sn 195c2a74
+St 0aadf583
+R4da0cd85 2 00000000 0
+Sfrom 1c215560
+Stwo 1c215560
+R0fc1ece9 2 00000000 0
+Sa de89d3b9
+Sb de89d3b9
+Rdfa7a6f7 1 00000000 0
+Si 195c2a74
+R09cfb758 1 00000000 0
+Ssize 195c2a74
+R8b7b9ef3 3 00000000 0
+Sp 64c4a775
+Slev 195c2a74
+St f279f892
+Ra737b258 2 00000000 0
+Sp 64c4a775
+St f279f892
+R2a05c35d 2 00000000 0
+St f279f892
+Scc 624c9512
+R0852a162 2 00000000 0
+Ss 97e237e2
+Sa 97e237e2
+R20117ca1 4 00000000 0
+Sa 50f86574
+Sb 50f86574
+Sc 50f86574
+Sd 50f86574
+Vb35dd7e2 9d8fb489 1 158 0 32
+Wnext_label 5bd3b7ad
+Wset_error_handler 0c57090e
+Wbegin_unit b24f045b
+Wend_unit 7b78c34f
+Wimport_unit c9bee185
+Wexport_unit c9bee185
+Wset_source_file 92e77bc2
+Wset_source_line 5df168a6
+Wdeclare_typename 4c48b1d7
+Wdeclare_array f55b5250
+Wdeclare_open_array 49da404e
+Wdeclare_enum 3ed17c04
+Wdeclare_enum_elt c9bee185
+Wdeclare_packed ef23874a
+Wdeclare_record ce80a4bd
+Wdeclare_field a64fca66
+Wdeclare_set ae94c27e
+Wdeclare_subrange 8a6ced9c
+Wdeclare_pointer f8d5a826
+Wdeclare_indirect b365e7bd
+Wdeclare_proctype b0807c69
+Wdeclare_formal d21800ad
+Wdeclare_raises c9bee185
+Wdeclare_object 375000ce
+Wdeclare_method 29896af4
+Wdeclare_opaque 87c120f3
+Wreveal_opaque 037b835a
+Wdeclare_exception 7fd2c3ac
+Wset_runtime_proc 2edd0583
+Wset_runtime_hook a8a4c6f3
+Wget_runtime_hook 5f988ab2
+Wimport_global af3fd9c4
+Wdeclare_segment 79c1e8bc
+Wbind_segment fc459794
+Wdeclare_global 750b8647
+Wdeclare_constant 750b8647
+Wdeclare_local c0d7f3d6
+Wdeclare_param c0d7f3d6
+Wdeclare_temp 87b2f803
+Wfree_temp 9039be0e
+Wbegin_init 9039be0e
+Wend_init 9039be0e
+Winit_int ab1887b2
+Winit_proc a6a636cd
+Winit_label 25a3ab1a
+Winit_var f5807f77
+Winit_offset f9860240
+Winit_chars 4cbabbe6
+Winit_float b0d57793
+Wimport_procedure 28c50d8b
+Wdeclare_procedure 37b1034f
+Wbegin_procedure 45a23b20
+Wend_procedure 45a23b20
+Wbegin_block 7b78c34f
+Wend_block 7b78c34f
+Wnote_procedure_origin 45a23b20
+Wset_label 7561a353
+Wjump daa7a6f7
+Wif_true 31a44e90
+Wif_false 31a44e90
+Wif_eq c6aad368
+Wif_ne c6aad368
+Wif_gt c6aad368
+Wif_ge c6aad368
+Wif_lt c6aad368
+Wif_le c6aad368
+Wcase_jump 4d1d86fc
+Wexit_proc c17f53c6
+Wload 26791849
+Wload_address 9e3780cf
+Wload_indirect 0ec7e6b9
+Wstore 26791849
+Wstore_indirect 0ec7e6b9
+Wstore_ref 9e3780cf
+Wstore_ref_indirect 1528c743
+Wload_nil 7b78c34f
+Wload_integer b41c4ce3
+Wload_float 6c40b136
+Weq e000b7c3
+Wne e000b7c3
+Wgt e000b7c3
+Wge e000b7c3
+Wlt e000b7c3
+Wle e000b7c3
+Wadd 451b007f
+Wsubtract 451b007f
+Wmultiply 451b007f
+Wdivide 0303af98
+Wnegate 451b007f
+Wabs 451b007f
+Wmax e000b7c3
+Wmin e000b7c3
+Wround 0303af98
+Wtrunc 0303af98
+Wfloor 0303af98
+Wceiling 0303af98
+Wcvt_float 440f7e89
+Wdiv 523c3870
+Wmod 523c3870
+Wset_union 7770c134
+Wset_difference 7770c134
+Wset_intersection 7770c134
+Wset_sym_difference 7770c134
+Wset_member 7770c134
+Wset_eq 7770c134
+Wset_ne 7770c134
+Wset_lt 7770c134
+Wset_le 7770c134
+Wset_gt 7770c134
+Wset_ge 7770c134
+Wset_range 7770c134
+Wset_singleton 7770c134
+Wnot 7b78c34f
+Wand 7b78c34f
+Wor 7b78c34f
+Wxor 7b78c34f
+Wshift 7b78c34f
+Wshift_left 7b78c34f
+Wshift_right 7b78c34f
+Wrotate 7b78c34f
+Wrotate_left 7b78c34f
+Wrotate_right 7b78c34f
+Wextract e09425c9
+Wextract_n 84c0d5e3
+Wextract_mn 4d6b4427
+Winsert 7b78c34f
+Winsert_n d8a7a6f7
+Winsert_mn afccb844
+Wswap 32057f86
+Wpop c17f53c6
+Wcopy_n fc8ae969
+Wcopy 55dea1f5
+Wzero_n 8279a2a1
+Wzero 03820362
+Wloophole 4da0cd85
+Wassert_fault 7b78c34f
+Wnarrow_fault 7b78c34f
+Wreturn_fault 7b78c34f
+Wcase_fault 7b78c34f
+Wtypecase_fault 7b78c34f
+Wcheck_nil 7b78c34f
+Wcheck_lo b41c4ce3
+Wcheck_hi b41c4ce3
+Wcheck_range 0fc1ece9
+Wcheck_index 7b78c34f
+Wcheck_eq 7b78c34f
+Wadd_offset dfa7a6f7
+Windex_address 09cfb758
+Wstart_call_direct 8b7b9ef3
+Wcall_direct a737b258
+Wstart_call_indirect 2a05c35d
+Wcall_indirect 2a05c35d
+Wpop_param 8279a2a1
+Wpop_struct 0852a162
+Wpop_static_link 7b78c34f
+Wload_procedure 45a23b20
+Wload_static_link 45a23b20
+Wcomment 20117ca1
+Lchild 0 32 d04f08c4
+DM3CG_Ops
+CM3CG
+CTarget
+CRTHooks
+Ec5673195 M3CG_Ops.ErrorHandler
+Eb35dd7e2 M3CG_Ops.Public
+@M3CG.i3
+BM3CG
+Yd04f08c4 9d8fb489
+N0aadf583 f279f892 0 13 8
+Ned6d484f f279f892 1 2 8
+N1f215560 f279f892 3 5 8
+N1d215560 f279f892 1 5 8
+N1c215560 f279f892 0 5 8
+Hbe2bedc6 3 8
+IPositive
+INegative
+IUnknown
+Vfbef8279 9d8fb489 0 0 0 0 M3CG.Var
+V64c4a775 9d8fb489 0 0 0 0 M3CG.Proc
+N0e5e33aa 195c2a74 0 100 8
+DM3CG
+CM3ID
+CTarget
+CRTHooks
+Ed04f08c4 M3CG.T
+Ef279f892 M3CG.Type
+E0aadf583 M3CG.MType
+Eed6d484f M3CG.IType
+E1f215560 M3CG.RType
+E1d215560 M3CG.AType
+E1c215560 M3CG.ZType
+Ebe2bedc6 M3CG.Sign
+Eadc6066d M3CG.Name
+Efbef8279 M3CG.Var
+E64c4a775 M3CG.Proc
+E195c2a74 M3CG.BitOffset
+E97e237e2 M3CG.BitSize
+E195c2a74 M3CG.ByteOffset
+E97e237e2 M3CG.ByteSize
+E97e237e2 M3CG.Alignment
+E0e5e33aa M3CG.Frequency
+Ee61d104f M3CG.TypeUID
+E195c2a74 M3CG.Label
+E624c9512 M3CG.CallingConvention
+@M3File.i3
+BM3File
+N05d609d1 195c2a74 0 16777216 32
+Q7632cb42 89cd34bd
+Rff6b0fef 3 195c2a74 1
+Sf a62f63c4
+Sbuf 7632cb42
+Slen 05d609d1
+TOSError.E
+R3ae5b031 2 00000000 1
+Ssrc 50f86574
+Sdest 50f86574
+TOSError.E
+R47d82fc3 3 00000000 1
+Ssrc 50f86574
+Sdest 50f86574
+Seol 50f86574
+TOSError.E
+Rf5332152 2 1e59237d 1
+Sa 50f86574
+Sb 50f86574
+TOSError.E
+R8548037c 1 1e59237d 0
+Spath 50f86574
+DM3File
+COSError
+CFile
+CRTHooks
+E89cd34bd M3File.Buffer
+E05d609d1 M3File.BufferLength
+@M3Timers.i3
+BM3Timers
+DM3Timers
+CWr
+CETimer
+CRTHooks
+@M3ID.i3
+BM3ID
+Re13e765f 2 adc6066d 0
+Sx 50f86574
+Sclass 0b5b30aa
+Q7632cb42 89cd34bd
+R455ee11f 2 adc6066d 0
+Sbuf 7632cb42
+Slength 195c2a74
+R67b2916a 1 50f86574 0
+St adc6066d
+R0eab8196 1 195c2a74 0
+St adc6066d
+R95bd6a53 2 00000000 0
+Swr c5c06198
+St adc6066d
+R7b78c34f 0 00000000 0
+Rb29b5c6c 1 1e59237d 0
+St adc6066d
+R0cf692b3 2 1e59237d 0
+Sa adc6066d
+Sb adc6066d
+DM3ID
+CM3Buf
+CRTHooks
+Eadc6066d M3ID.T
+@M3Buf.i3
+BM3Buf
+Yc5c06198 1c1c45e6
+R702c131c 0 c5c06198 0
+R76282d24 2 00000000 0
+St c5c06198
+Sch 56e16863
+Rc799fe81 2 00000000 0
+St c5c06198
+Stxt 50f86574
+R64d0aee0 2 00000000 0
+St c5c06198
+Si 195c2a74
+Qde89d3b9 21762c46
+R2ea1001c 2 00000000 0
+St c5c06198
+Si de89d3b9
+Qb97754ba 4688ab45
+Rf9fdfdc6 2 00000000 0
+St c5c06198
+Sf b97754ba
+Q7632cb42 89cd34bd
+R3a26e589 2 00000000 0
+St c5c06198
+Sx 7632cb42
+R2df57631 1 50f86574 0
+St c5c06198
+Rdb9bbb78 1 00000000 0
+St c5c06198
+Ra0a34ca2 2 00000000 0
+St c5c06198
+Swr 62761487
+DM3Buf
+CM3FP
+CTarget
+CWr
+CRTHooks
+Ec5c06198 M3Buf.T
+@M3FP.i3
+BM3FP
+Nadc6066d 195c2a74 -2147483648 2147483647 32
+Je61d104f 32 adc6066d
+N29a4581d 195c2a74 0 15 8
+F8b72dde2 29a4581d 56e16863 128
+R41b0fbe0 1 00000000 0
+St 50f86574
+Q7632cb42 89cd34bd
+Qd9b99dfd 26466202
+R8a89262f 2 00000000 0
+Sbuf 7632cb42
+St d9b99dfd
+R2a169125 2 00000000 0
+Sa 26466202
+Sb 26466202
+Rcf29154a 2 00000000 0
+Sa d9b99dfd
+Si e61d104f
+R4cb293ff 2 00000000 0
+Sa 195c2a74
+St d9b99dfd
+R3b0de71f 1 195c2a74 0
+St d9b99dfd
+Q748d221d 8b72dde2
+R9fbcdd6f 2 00000000 0
+St d9b99dfd
+Sbuf 748d221d
+DM3FP
+CFingerprint
+CRTHooks
+E26466202 M3FP.T
+Ee61d104f M3FP.Int
+E8b72dde2 M3FP.CharBuf
+@TFloat.i3
+BTFloat
+Q7632cb42 89cd34bd
+Qb97754ba 4688ab45
+R4306b5d3 3 1e59237d 0
+Schars 7632cb42
+Spre 31bd17f3
+Sf b97754ba
+Rce41554d 1 31bd17f3 0
+Sf b97754ba
+Rf8463c6e 3 1e59237d 0
+Sa b97754ba
+Sb b97754ba
+Sf b97754ba
+R80367c75 2 1e59237d 0
+Sa b97754ba
+Sb b97754ba
+Rb4fa4c12 3 1e59237d 0
+Sa b97754ba
+Sp 31bd17f3
+Sf b97754ba
+Qde89d3b9 21762c46
+Re11b6cbd 3 1e59237d 0
+Si de89d3b9
+Sp 31bd17f3
+Sf b97754ba
+Re93ddc17 2 1e59237d 0
+Sa b97754ba
+Si de89d3b9
+Re7064491 2 195c2a74 0
+Sf b97754ba
+Sbuf 7632cb42
+Q0bff0c24 f400f3db
+R44179b78 2 195c2a74 0
+Sf b97754ba
+Sbuf 0bff0c24
+DTFloat
+CTarget
+CRTHooks
+@TWord.i3
+BTWord
+Q7632cb42 89cd34bd
+Qde89d3b9 21762c46
+R87ecf017 3 1e59237d 0
+Schars 7632cb42
+Sbase 195c2a74
+Si de89d3b9
+Rc57d1fd6 3 00000000 0
+Sa de89d3b9
+Sb de89d3b9
+Si de89d3b9
+R2ca95367 3 1e59237d 0
+Sa de89d3b9
+Sb de89d3b9
+Si de89d3b9
+R4abf8f5b 4 00000000 0
+Sx de89d3b9
+Sy de89d3b9
+Sq de89d3b9
+Sr de89d3b9
+R2ffd6b89 2 1e59237d 0
+Sa de89d3b9
+Sb de89d3b9
+R60723adc 2 00000000 0
+Sa de89d3b9
+Si de89d3b9
+R61b00921 4 1e59237d 0
+Sa de89d3b9
+Sb de89d3b9
+Sc de89d3b9
+Si de89d3b9
+Rdba78ab3 5 1e59237d 0
+Sa de89d3b9
+Sb de89d3b9
+Sc de89d3b9
+Sd de89d3b9
+Si de89d3b9
+DTWord
+CTarget
+CRTHooks
+@TInt.i3
+BTInt
+Qde89d3b9 21762c46
+R5e71a91e 2 1e59237d 0
+Sx 195c2a74
+Si de89d3b9
+Qe6a3d58b 195c2a74
+R09f575a9 2 1e59237d 0
+Si de89d3b9
+Sx e6a3d58b
+Q7632cb42 89cd34bd
+R90f251b1 2 1e59237d 0
+Schars 7632cb42
+Si de89d3b9
+R2ca95367 3 1e59237d 0
+Sa de89d3b9
+Sb de89d3b9
+Si de89d3b9
+R2ffd6b89 2 1e59237d 0
+Sa de89d3b9
+Sb de89d3b9
+R9aebaace 2 195c2a74 0
+Si de89d3b9
+Sbuf 7632cb42
+N8d2831d7 195c2a74 0 7 8
+N0b5b30aa 195c2a74 0 255 8
+F8da7445b 8d2831d7 0b5b30aa 64
+Q7258bba4 8da7445b
+R540e8644 2 195c2a74 0
+Si de89d3b9
+Sbuf 7258bba4
+DTInt
+CTarget
+CRTHooks
+E8da7445b TInt.ByteArray
+@TargetMap.i3
+BTargetMap
+Fbbe47846 f279f892 97e237e2 512
+F0aebeab4 f279f892 f279f892 128
+N8d2831d7 195c2a74 0 7 8
+F312df050 8d2831d7 19bdacb7 2304
+F364931a4 31bd17f3 475f7275 1152
+R7b78c34f 0 00000000 0
+DTargetMap
+CTarget
+CRTHooks
+Qced20faf 312df050
+@Target.i3
+BTarget
+R3150cdde 2 1e59237d 0
+Ssystem 50f86574
+Sback_integrated 1e59237d
+Hf279f892 16 8
+IAddr
+IWord
+IInt
+IReel
+ILReel
+IXReel
+IInt_A
+IInt_B
+IInt_C
+IInt_D
+IWord_A
+IWord_B
+IWord_C
+IWord_D
+IStruct
+IVoid
+N892831d7 195c2a74 0 3 8
+Na4b285de 195c2a74 0 65535 16
+J573a2ef0 16 a4b285de
+Ffad2621c 892831d7 573a2ef0 64
+K21762c46 64 1
+Lx 0 64 fad2621c
+K19bdacb7 288 7
+Lcg_type 0 8 f279f892
+Lsize 32 32 97e237e2
+Lalign 64 32 97e237e2
+Lpack 96 32 97e237e2
+Lbytes 128 32 97e237e2
+Lmin 160 64 21762c46
+Lmax 224 64 21762c46
+H31bd17f3 3 8
+IShort
+ILong
+IExtended
+K4688ab45 128 3
+Lpre 0 8 31bd17f3
+Lexponent 32 32 195c2a74
+Lfraction 64 64 9ee024e3
+K475f7275 384 7
+Lcg_type 0 8 f279f892
+Lpre 8 8 31bd17f3
+Lsize 32 32 97e237e2
+Lalign 64 32 97e237e2
+Lbytes 96 32 97e237e2
+Lmin 128 128 4688ab45
+Lmax 256 128 4688ab45
+Fdd8b1dcc 892831d7 97e237e2 128
+Kb017bce0 96 5
+Lname 0 32 50f86574
+Lm3cg_id 32 32 195c2a74
+Largs_left_to_right 64 8 1e59237d
+Lresults_on_left 72 8 1e59237d
+Lstandard_structs 80 8 1e59237d
+P624c9512 b017bce0
+R84361769 1 624c9512 0
+Snm 50f86574
+Rb4b0615c 1 624c9512 0
+Sid 195c2a74
+DTarget
+CRTHooks
+Ef279f892 Target.CGType
+E21762c46 Target.Int
+Efad2621c Target.IChunks
+E573a2ef0 Target.IChunk
+E19bdacb7 Target.Int_type
+E31bd17f3 Target.Precision
+E4688ab45 Target.Float
+E475f7275 Target.Float_type
+E624c9512 Target.CallingConvention
+@CoffTime.i3
+BCoffTime
+Ree9b4e5d 0 195c2a74 0
+R9d5de1c1 1 195c2a74 0
+Sfile 50f86574
+DCoffTime
+CRTHooks

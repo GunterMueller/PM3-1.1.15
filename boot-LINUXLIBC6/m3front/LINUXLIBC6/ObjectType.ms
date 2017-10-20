@@ -1,0 +1,3924 @@
+	.file	"ObjectType.mc"
+	.version	"01.01"
+/ SRC Modula-3 version cygnus-2.7.2-960712 (i486--linuxelf) compiled by GNU C version egcs-2.91.66 19990314/Linux (egcs-1.1.2 release).
+/ options passed:  -fno-strength-reduce -O2
+/ options enabled:  -fdefer-pop -fcse-follow-jumps -fcse-skip-blocks
+/ -fexpensive-optimizations -fthread-jumps -fpeephole -fforce-mem
+/ -ffunction-cse -finline -fkeep-static-consts -fcaller-saves
+/ -fpcc-struct-return -frerun-cse-after-loop -fschedule-insns2 -fcommon
+/ -fverbose-asm -fgnu-linker -m80387 -mhard-float -mno-soft-float -mieee-fp
+/ -mfp-ret-in-387 -mschedule-prologue -mcpu=i486 -march=i486
+
+gcc2_compiled.:
+.text
+	.align 16
+	.type	 ObjectType__Parse,@function
+ObjectType__Parse:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %ebx
+	movl 8(%ebp),%ecx
+	movb 12(%ebp),%dl
+	movl 16(%ebp),%eax
+.L2:
+	pushl $0
+	pushl $0
+	pushl %eax
+	xorl %eax,%eax
+	movb %dl,%al
+	pushl %eax
+	pushl %ecx
+	call ObjectType__New
+	movl %eax,%ecx
+	addl $20,%esp
+	testl %ecx,%ecx
+	je .L3
+	movl -4(%ecx),%eax
+	sall $11,%eax
+	movl %eax,%edx
+	shrl $12,%edx
+	cmpl %edx,MM_ObjectType+296
+	jg .L4
+	movl MM_ObjectType+292,%eax
+	cmpl %edx,4(%eax)
+	jge .L3
+.L4:
+	pushl $1029
+	call _m3_fault
+	.align 16
+.L3:
+	pushl $78
+	movl MI_Scanner+108,%eax
+	movl %ecx,%ebx
+	call *%eax
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $0
+	movl MI_Scope+52,%eax
+	call *%eax
+	movl %eax,%ecx
+	movl %ecx,68(%ebx)
+	movl MI_RecordType+48,%eax
+	call *%eax
+	movl MI_Scope+48,%eax
+	call *%eax
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $0
+	movl MI_Scope+52,%eax
+	call *%eax
+	movl %eax,84(%ebx)
+	addl $36,%esp
+	cmpb $74,MI_Scanner+44
+	jne .L5
+	movl MI_Scanner+104,%eax
+	call *%eax
+	pushl $0
+	pushl %ebx
+	call ObjectType__ParseMethodList
+	movl %eax,%edx
+	movl %edx,88(%ebx)
+	addl $8,%esp
+.L5:
+	cmpb $81,MI_Scanner+44
+	jne .L6
+	movl MI_Scanner+104,%eax
+	call *%eax
+	pushl $1
+	pushl %ebx
+	call ObjectType__ParseMethodList
+	movl %eax,%edx
+	movl %edx,96(%ebx)
+	addl $8,%esp
+.L6:
+	movl MI_Scope+48,%eax
+	call *%eax
+	pushl $58
+	movl MI_Scanner+108,%eax
+	call *%eax
+	movl MI_RefType+48,%eax
+	call *%eax
+	addl $4,%esp
+	cmpb $78,MI_Scanner+44
+	jne .L7
+	movl %ebx,%ecx
+	xorb %dl,%dl
+	jmp .L2
+	.align 16
+.L7:
+	testl %eax,%eax
+	je .L9
+	pushl $MM_ObjectType+304
+	movl MI_Error+44,%eax
+	call *%eax
+.L9:
+	movl %ebx,%eax
+	movl -4(%ebp),%ebx
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe1:
+	.size	 ObjectType__Parse,.Lfe1-ObjectType__Parse
+	.align 16
+	.type	 ObjectType__ParseMethodList,@function
+ObjectType__ParseMethodList:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $24,%esp
+	pushl %ebx
+	movl 8(%ebp),%eax
+	movb 12(%ebp),%bl
+	movl $0,-24(%ebp)
+	movl $0,-20(%ebp)
+	movl $0,-16(%ebp)
+	movl $0,-12(%ebp)
+	movl $0,-8(%ebp)
+	movl $0,-4(%ebp)
+	movl $0,-20(%ebp)
+	movl %eax,-16(%ebp)
+	movb %bl,-4(%ebp)
+	jmp .L11
+	.align 16
+.L12:
+	movl MI_Scanner+48,%eax
+	movl %eax,-24(%ebp)
+	movl MI_Scanner+104,%eax
+	call *%eax
+	movl $0,-12(%ebp)
+	cmpb $17,MI_Scanner+44
+	jne .L13
+	movl MI_Target+752,%eax
+	pushl %eax
+	pushl $0
+	movl MI_ProcType+48,%eax
+	call *%eax
+	movl %eax,-12(%ebp)
+	addl $8,%esp
+.L13:
+	movl $0,-8(%ebp)
+	cmpb $21,MI_Scanner+44
+	jne .L14
+	pushl $MM_ObjectType+332
+	movl MI_Error+44,%eax
+	call *%eax
+	movb $12,MI_Scanner+44
+	addl $4,%esp
+.L14:
+	cmpb $12,MI_Scanner+44
+	jne .L15
+	movl MI_Scanner+104,%eax
+	call *%eax
+	movl MI_Expr+148,%eax
+	call *%eax
+	movl %eax,-8(%ebp)
+.L15:
+	testb %bl,%bl
+	je .L16
+	cmpl $0,-12(%ebp)
+	je .L17
+	pushl $MM_ObjectType+380
+	jmp .L25
+	.align 16
+.L17:
+	cmpl $0,-8(%ebp)
+	jne .L20
+	pushl $MM_ObjectType+428
+	jmp .L25
+	.align 16
+.L16:
+	cmpl $0,-12(%ebp)
+	jne .L20
+	pushl $MM_ObjectType+484
+	movl -24(%ebp),%eax
+	pushl %eax
+	movl MI_Error+52,%eax
+	call *%eax
+	addl $8,%esp
+	cmpl $0,-12(%ebp)
+	jne .L20
+	cmpl $0,-8(%ebp)
+	jne .L20
+	pushl $MM_ObjectType+540
+.L25:
+	movl -24(%ebp),%eax
+	pushl %eax
+	movl MI_Error+52,%eax
+	call *%eax
+	addl $8,%esp
+.L20:
+	leal -24(%ebp),%eax
+	pushl %eax
+	movl MI_Method+44,%eax
+	call *%eax
+	movl MI_Target+60,%eax
+	addl %eax,-20(%ebp)
+	addl $4,%esp
+	cmpb $16,MI_Scanner+44
+	jne .L24
+	movl MI_Scanner+104,%eax
+	call *%eax
+.L11:
+	cmpb $1,MI_Scanner+44
+	je .L12
+.L24:
+	movl -20(%ebp),%eax
+	movl -28(%ebp),%ebx
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe2:
+	.size	 ObjectType__ParseMethodList,.Lfe2-ObjectType__ParseMethodList
+	.align 16
+	.type	 ObjectType__New,@function
+ObjectType__New:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%esi
+	movl 16(%ebp),%edi
+	testl %esi,%esi
+	jne .L27
+	cmpb $0,12(%ebp)
+	je .L28
+	movl MI_ObjectRef+44,%esi
+	jmp .L27
+	.align 16
+.L28:
+	movl MI_ObjectAdr+44,%esi
+.L27:
+	movl MM_ObjectType+292,%eax
+	pushl %eax
+	movl MI_RTHooks+80,%eax
+	call *%eax
+	pushl $8
+	movl %eax,%ebx
+	pushl %ebx
+	movl MI_TypeRep+148,%eax
+	call *%eax
+	movb 12(%ebp),%dl
+	movb %dl,105(%ebx)
+	movl %edi,56(%ebx)
+	movl $0,60(%ebx)
+	movl %esi,64(%ebx)
+	movl 20(%ebp),%edx
+	movl %edx,68(%ebx)
+	movl $-3,72(%ebx)
+	movl $-1,76(%ebx)
+	movl $-1,80(%ebx)
+	movl 24(%ebp),%edx
+	movl %edx,84(%ebx)
+	movl $0,88(%ebx)
+	movl $-3,92(%ebx)
+	movl $0,96(%ebx)
+	movl $0,100(%ebx)
+	movb $0,104(%ebx)
+	movl $0,108(%ebx)
+	leal -12(%ebp),%esp
+	movl %ebx,%eax
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe3:
+	.size	 ObjectType__New,.Lfe3-ObjectType__New
+	.align 16
+	.type	 ObjectType__Is,@function
+ObjectType__Is:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $48,%esp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%esi
+	pushl $48
+	xorl %ebx,%ebx
+	pushl %ebx
+	leal -48(%ebp),%edi
+	pushl %edi
+	call memset
+	addl $12,%esp
+	testl %esi,%esi
+	je .L59
+	cmpb $1,34(%esi)
+	jne .L32
+	pushl %esi
+	movl MI_Type+76,%eax
+	call *%eax
+	movl %eax,%esi
+	addl $4,%esp
+.L32:
+	xorl %eax,%eax
+	movb 34(%esi),%al
+	cmpl $8,%eax
+	je .L60
+	cmpl $9,%eax
+	jne .L59
+	pushl %esi
+	movl MI_OpaqueType+52,%eax
+	call *%eax
+	pushl %eax
+	call ObjectType__Is
+	addl $8,%esp
+	testl %eax,%eax
+	jne .L60
+	pushl %edi
+	pushl %esi
+	movl MI_Revelation+180,%eax
+	call *%eax
+	movl -48(%ebp),%esi
+	decl %esi
+	addl $8,%esp
+	jmp .L36
+	.align 16
+.L37:
+	cmpl $9,%ebx
+	jle .L38
+	pushl $3217
+	call _m3_fault
+	.align 16
+.L38:
+	movl -44(%ebp,%ebx,4),%eax
+	pushl %eax
+	movl MI_Type+76,%eax
+	call *%eax
+	addl $4,%esp
+	testl %eax,%eax
+	je .L39
+	cmpb $8,34(%eax)
+	je .L60
+.L39:
+	incl %ebx
+.L36:
+	cmpl %esi,%ebx
+	jle .L37
+	movl -4(%ebp),%ebx
+	jmp .L41
+	.align 16
+.L42:
+	movl 4(%ebx),%eax
+	pushl %eax
+	movl MI_Type+76,%eax
+	call *%eax
+	addl $4,%esp
+	testl %eax,%eax
+	je .L44
+	cmpb $8,34(%eax)
+	je .L60
+.L44:
+	testl %ebx,%ebx
+	jne .L45
+	pushl $3332
+	call _m3_fault
+	.align 16
+.L45:
+	movl (%ebx),%ebx
+.L41:
+	testl %ebx,%ebx
+	jne .L42
+	movl -48(%ebp),%esi
+	decl %esi
+	jmp .L47
+	.align 16
+.L48:
+	cmpl $9,%ebx
+	jle .L49
+	pushl $3409
+	call _m3_fault
+	.align 16
+.L49:
+	movl -44(%ebp,%ebx,4),%eax
+	pushl %eax
+	call ObjectType__Is
+	addl $4,%esp
+	testl %eax,%eax
+	jne .L60
+	incl %ebx
+.L47:
+	cmpl %esi,%ebx
+	jle .L48
+	movl -4(%ebp),%ebx
+	jmp .L52
+	.align 16
+.L53:
+	movl 4(%ebx),%eax
+	pushl %eax
+	call ObjectType__Is
+	addl $4,%esp
+	testl %eax,%eax
+	je .L56
+.L60:
+	movl $1,%eax
+	jmp .L58
+	.align 16
+.L56:
+	movl (%ebx),%ebx
+.L52:
+	testl %ebx,%ebx
+	jne .L53
+.L59:
+	movl %ebx,%eax
+.L58:
+	leal -60(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe4:
+	.size	 ObjectType__Is,.Lfe4-ObjectType__Is
+	.align 16
+	.type	 ObjectType__IsBranded,@function
+ObjectType__IsBranded:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $20,%esp
+	leal -20(%ebp),%eax
+	movl 8(%ebp),%edx
+	movl $0,-20(%ebp)
+	movl $0,-16(%ebp)
+	movl $0,-12(%ebp)
+	movl $0,-8(%ebp)
+	movl $0,-4(%ebp)
+	pushl %eax
+	pushl %edx
+	movl MI_Type+68,%eax
+	call *%eax
+	movl %eax,%edx
+	addl $8,%esp
+	cmpb $8,-2(%ebp)
+	je .L62
+	xorl %eax,%eax
+	jmp .L71
+	.align 16
+.L62:
+	testl %edx,%edx
+	je .L64
+	movl -4(%edx),%eax
+	sall $11,%eax
+	movl %eax,%ecx
+	shrl $12,%ecx
+	cmpl %ecx,MM_ObjectType+296
+	jg .L65
+	movl MM_ObjectType+292,%eax
+	cmpl %ecx,4(%eax)
+	jge .L64
+.L65:
+	pushl $3717
+	call _m3_fault
+	.align 16
+.L64:
+	cmpl $0,60(%edx)
+	setne %al
+	andl $255,%eax
+.L71:
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe5:
+	.size	 ObjectType__IsBranded,.Lfe5-ObjectType__IsBranded
+	.align 16
+	.type	 ObjectType__Super,@function
+ObjectType__Super:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $20,%esp
+	leal -20(%ebp),%eax
+	movl 8(%ebp),%edx
+	movl $0,-20(%ebp)
+	movl $0,-16(%ebp)
+	movl $0,-12(%ebp)
+	movl $0,-8(%ebp)
+	movl $0,-4(%ebp)
+	pushl %eax
+	pushl %edx
+	movl MI_Type+68,%eax
+	call *%eax
+	movl %eax,%edx
+	addl $8,%esp
+	cmpb $8,-2(%ebp)
+	je .L73
+	xorl %eax,%eax
+	jmp .L76
+	.align 16
+.L73:
+	testl %edx,%edx
+	je .L74
+	movl -4(%edx),%eax
+	sall $11,%eax
+	movl %eax,%ecx
+	shrl $12,%ecx
+	cmpl %ecx,MM_ObjectType+296
+	jg .L75
+	movl MM_ObjectType+292,%eax
+	cmpl %ecx,4(%eax)
+	jge .L74
+.L75:
+	pushl $4053
+	call _m3_fault
+	.align 16
+.L74:
+	movl 64(%edx),%eax
+.L76:
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe6:
+	.size	 ObjectType__Super,.Lfe6-ObjectType__Super
+	.align 16
+	.type	 ObjectType__LookUp,@function
+ObjectType__LookUp:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $68,%esp
+	pushl %edi
+	pushl %esi
+	xorl %eax,%eax
+	pushl %ebx
+	movl %eax,-68(%ebp)
+	movl %eax,-64(%ebp)
+	movl %eax,-60(%ebp)
+	movl %eax,-56(%ebp)
+	movl %eax,-52(%ebp)
+	pushl $48
+	pushl %eax
+	leal -48(%ebp),%eax
+	pushl %eax
+	call memset
+	addl $12,%esp
+.L78:
+	leal -68(%ebp),%eax
+	pushl %eax
+	movl 8(%ebp),%ecx
+	pushl %ecx
+	movl MI_Type+68,%eax
+	call *%eax
+	movl %eax,%ebx
+	movl %ebx,8(%ebp)
+	addl $8,%esp
+	movb -50(%ebp),%al
+	testb %al,%al
+	jne .L79
+	movl 16(%ebp),%eax
+	movl $0,(%eax)
+	movl 20(%ebp),%edx
+	movl MI_ErrType+44,%eax
+	movl %eax,(%edx)
+	jmp .L88
+	.align 16
+.L79:
+	andl $255,%eax
+	cmpl $8,%eax
+	jne .L80
+	testl %ebx,%ebx
+	je .L81
+	movl -4(%ebx),%eax
+	sall $11,%eax
+	movl %eax,%edx
+	shrl $12,%edx
+	cmpl %edx,MM_ObjectType+296
+	jg .L82
+	movl MM_ObjectType+292,%eax
+	cmpl %edx,4(%eax)
+	jge .L81
+.L82:
+	pushl $4325
+	call _m3_fault
+	.align 16
+.L81:
+	movl 8(%ebp),%edi
+	pushl $1
+	movl 12(%ebp),%ecx
+	pushl %ecx
+	movl 8(%ebp),%ecx
+	movl 84(%ecx),%eax
+	pushl %eax
+	movl MI_Scope+76,%eax
+	call *%eax
+	movl %eax,%ebx
+	movl %ebx,%esi
+	addl $12,%esp
+	testl %ebx,%ebx
+	je .L83
+	pushl %ebx
+	movl 8(%ebp),%ecx
+	pushl %ecx
+	call ObjectType__PrimaryMethodDeclaration
+	movl %eax,%ebx
+	movl %ebx,%edi
+	addl $8,%esp
+	testl %ebx,%ebx
+	jne .L85
+	jmp .L103
+	.align 16
+.L83:
+	pushl $1
+	movl 12(%ebp),%ecx
+	pushl %ecx
+	movl 8(%ebp),%ecx
+	movl 68(%ecx),%eax
+	pushl %eax
+	movl MI_Scope+76,%eax
+	call *%eax
+	movl %eax,%ebx
+	movl %ebx,%esi
+	addl $12,%esp
+.L85:
+	testl %esi,%esi
+	je .L86
+	movl 16(%ebp),%eax
+	movl %esi,(%eax)
+	movl 20(%ebp),%eax
+	movl %edi,(%eax)
+.L105:
+	movl $1,%eax
+	jmp .L103
+	.align 16
+.L86:
+	movl 64(%edi),%edi
+	movl %edi,8(%ebp)
+	jmp .L78
+	.align 16
+.L80:
+	cmpl $9,%eax
+	jne .L88
+	pushl %ebx
+	movl MI_Revelation+176,%eax
+	call *%eax
+	movl %eax,%ebx
+	addl $4,%esp
+	testl %ebx,%ebx
+	je .L89
+	movl %ebx,8(%ebp)
+	jmp .L78
+	.align 16
+.L89:
+	leal -48(%ebp),%eax
+	pushl %eax
+	movl 8(%ebp),%ecx
+	pushl %ecx
+	movl MI_Revelation+180,%eax
+	call *%eax
+	movl -48(%ebp),%esi
+	decl %esi
+	addl $8,%esp
+	jmp .L91
+	.align 16
+.L92:
+	cmpl $9,%ebx
+	jle .L93
+	pushl $4753
+	call _m3_fault
+	.align 16
+.L93:
+	movl 20(%ebp),%eax
+	pushl %eax
+	movl 16(%ebp),%eax
+	pushl %eax
+	movl 12(%ebp),%ecx
+	pushl %ecx
+	movl -44(%ebp,%ebx,4),%eax
+	pushl %eax
+	call ObjectType__LookUp
+	addl $16,%esp
+	testl %eax,%eax
+	jne .L105
+	incl %ebx
+.L91:
+	cmpl %esi,%ebx
+	jle .L92
+	jmp .L96
+	.align 16
+.L97:
+	movl 20(%ebp),%eax
+	pushl %eax
+	movl 16(%ebp),%eax
+	pushl %eax
+	movl 12(%ebp),%ecx
+	pushl %ecx
+	movl 4(%edx),%eax
+	pushl %eax
+	call ObjectType__LookUp
+	addl $16,%esp
+	testl %eax,%eax
+	jne .L105
+	movl -4(%ebp),%eax
+	testl %eax,%eax
+	jne .L100
+	pushl $4820
+	call _m3_fault
+	.align 16
+.L100:
+	movl (%eax),%eax
+	movl %eax,-4(%ebp)
+.L96:
+	movl -4(%ebp),%edx
+	testl %edx,%edx
+	jne .L97
+	movl 8(%ebp),%ecx
+	pushl %ecx
+	movl MI_OpaqueType+52,%eax
+	call *%eax
+	movl %eax,%ebx
+	movl %ebx,8(%ebp)
+	addl $4,%esp
+	jmp .L78
+	.align 16
+.L88:
+	xorl %eax,%eax
+.L103:
+	leal -80(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe7:
+	.size	 ObjectType__LookUp,.Lfe7-ObjectType__LookUp
+	.align 16
+	.type	 ObjectType__PrimaryMethodDeclaration,@function
+ObjectType__PrimaryMethodDeclaration:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $32,%esp
+	pushl %esi
+	leal -32(%ebp),%edx
+	pushl %ebx
+	movl 8(%ebp),%esi
+	movl 12(%ebp),%eax
+	movl $0,-32(%ebp)
+	movl $0,-28(%ebp)
+	movl $0,-24(%ebp)
+	movl $0,-20(%ebp)
+	movl $0,-16(%ebp)
+	movl $0,-12(%ebp)
+	movl $0,-8(%ebp)
+	movl $0,-4(%ebp)
+	pushl %edx
+	pushl %eax
+	movl MI_Method+52,%eax
+	call *%eax
+	addl $8,%esp
+	cmpb $0,-12(%ebp)
+	jne .L107
+	movl %esi,%eax
+	jmp .L113
+	.align 16
+.L107:
+	movb 104(%esi),%bl
+	testb %bl,%bl
+	je .L108
+	pushl $MM_ObjectType+604
+	movl MI_Error+44,%eax
+	call *%eax
+	jmp .L109
+	.align 16
+.L108:
+	movb $1,104(%esi)
+	leal -8(%ebp),%eax
+	pushl %eax
+	leal -4(%ebp),%eax
+	pushl %eax
+	movl -32(%ebp),%eax
+	pushl %eax
+	movl 64(%esi),%eax
+	pushl %eax
+	call ObjectType__LookUp
+	addl $16,%esp
+	testl %eax,%eax
+	je .L110
+	movb %bl,104(%esi)
+	movl -8(%ebp),%eax
+	testl %eax,%eax
+	je .L111
+	movl -4(%eax),%eax
+	sall $11,%eax
+	movl %eax,%edx
+	shrl $12,%edx
+	cmpl %edx,MM_ObjectType+296
+	jg .L112
+	movl MM_ObjectType+292,%eax
+	cmpl %edx,4(%eax)
+	jge .L111
+.L112:
+	pushl $5189
+	call _m3_fault
+	.align 16
+.L111:
+	movl -8(%ebp),%eax
+	jmp .L113
+	.align 16
+.L110:
+	movb %bl,104(%esi)
+.L109:
+	xorl %eax,%eax
+.L113:
+	leal -40(%ebp),%esp
+	popl %ebx
+	popl %esi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe8:
+	.size	 ObjectType__PrimaryMethodDeclaration,.Lfe8-ObjectType__PrimaryMethodDeclaration
+	.align 16
+	.type	 ObjectType__Check,@function
+ObjectType__Check:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $88,%esp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	xorl %ebx,%ebx
+	movl %ebx,-76(%ebp)
+	movl %ebx,-72(%ebp)
+	movl %ebx,-68(%ebp)
+	movl %ebx,-64(%ebp)
+	movl %ebx,-60(%ebp)
+	movl %ebx,-56(%ebp)
+	movl %ebx,-52(%ebp)
+	movl %ebx,-48(%ebp)
+	movl %ebx,-20(%ebp)
+	movl %ebx,-16(%ebp)
+	movl %ebx,-12(%ebp)
+	movl %ebx,-8(%ebp)
+	movl %ebx,-4(%ebp)
+	movl %ebx,-44(%ebp)
+	movl %ebx,-40(%ebp)
+	movl %ebx,-36(%ebp)
+	movl %ebx,-32(%ebp)
+	movl %ebx,-28(%ebp)
+	movl %ebx,-24(%ebp)
+	movl 8(%ebp),%ecx
+	movl %ebx,%esi
+	movl 64(%ecx),%ecx
+	movl %ecx,-84(%ebp)
+	testl %ecx,%ecx
+	je .L115
+	leal -20(%ebp),%eax
+	pushl %eax
+	pushl %ecx
+	movl MI_Type+68,%eax
+	call *%eax
+	movl 8(%ebp),%edi
+	movl %eax,-84(%ebp)
+	movl %eax,64(%edi)
+	movl -84(%ebp),%ecx
+	pushl %ecx
+	call ObjectType__Is
+	addl $12,%esp
+	testl %eax,%eax
+	je .L116
+	movb -1(%ebp),%cl
+	andb $1,%cl
+	movb %cl,105(%edi)
+	movl -8(%ebp),%eax
+	leal (%eax,%eax,8),%edx
+	leal (%eax,%edx,4),%esi
+	cmpl %edi,-84(%ebp)
+	jne .L115
+	pushl $MM_ObjectType+604
+	movl MI_Error+44,%eax
+	call *%eax
+	movl %ebx,-84(%ebp)
+	movl %ebx,64(%edi)
+	addl $4,%esp
+	jmp .L115
+	.align 16
+.L116:
+	pushl $MM_ObjectType+644
+	movl MI_Error+44,%eax
+	call *%eax
+	movl 8(%ebp),%edi
+	addl $4,%esp
+	movl %ebx,64(%edi)
+	movb -1(%ebp),%cl
+	andb $1,%cl
+	movb %cl,105(%edi)
+.L115:
+	movl 8(%ebp),%edi
+	movl 56(%edi),%edx
+	testl %edx,%edx
+	je .L119
+	leal -44(%ebp),%eax
+	pushl %eax
+	pushl %edx
+	movl MI_Expr+156,%eax
+	call *%eax
+	movl 56(%edi),%eax
+	pushl %eax
+	movl MI_Expr+160,%eax
+	call *%eax
+	movl %eax,%edx
+	addl $12,%esp
+	testl %edx,%edx
+	jne .L120
+	pushl $MM_ObjectType+692
+	jmp .L137
+	.align 16
+.L120:
+	movl 8(%ebp),%eax
+	addl $60,%eax
+	pushl %eax
+	pushl %edx
+	movl MI_TextExpr+52,%eax
+	call *%eax
+	addl $8,%esp
+	testl %eax,%eax
+	je .L122
+	movl 8(%ebp),%ecx
+	movl 60(%ecx),%eax
+	pushl %eax
+	movl MI_M3String+80,%eax
+	call *%eax
+	movl %eax,%edx
+	leal (%esi,%esi,8),%eax
+	leal (%esi,%eax,4),%eax
+	movl 8(%ebp),%edi
+	leal (%edx,%eax),%esi
+	movl 60(%edi),%eax
+	pushl %eax
+	pushl %edi
+	movl MI_RefType+68,%eax
+	call *%eax
+	addl $12,%esp
+	jmp .L119
+	.align 16
+.L122:
+	pushl $MM_ObjectType+728
+.L137:
+	movl MI_Error+44,%eax
+	call *%eax
+	addl $4,%esp
+.L119:
+	movl 8(%ebp),%ecx
+	movl 68(%ecx),%eax
+	pushl %eax
+	movl MI_Scope+84,%eax
+	call *%eax
+	movl %eax,%ebx
+	movl $0,-80(%ebp)
+	addl $4,%esp
+	jmp .L123
+	.align 16
+.L124:
+	pushl %ebx
+	movl MI_Value+108,%eax
+	call *%eax
+	movl %eax,%edx
+	movl %edx,-88(%ebp)
+	pushl %edx
+	movl MI_M3ID+60,%eax
+	call *%eax
+	movl %eax,%edx
+	leal (%esi,%esi,2),%eax
+	sall $3,%eax
+	subl %esi,%eax
+	leal (%edx,%eax),%esi
+	leal (%esi,%esi,2),%eax
+	sall $3,%eax
+	subl %esi,%eax
+	movl -80(%ebp),%edi
+	leal (%edi,%eax),%esi
+	pushl $1
+	movl -88(%ebp),%ecx
+	pushl %ecx
+	movl 8(%ebp),%edi
+	movl 84(%edi),%eax
+	pushl %eax
+	movl MI_Scope+76,%eax
+	call *%eax
+	movl %eax,%edx
+	addl $20,%esp
+	testl %edx,%edx
+	je .L125
+	pushl $MM_ObjectType+772
+	movl -88(%ebp),%ecx
+	pushl %ecx
+	movl MI_Error+52,%eax
+	call *%eax
+	addl $8,%esp
+.L125:
+	movl 8(%ebx),%ebx
+	incl -80(%ebp)
+.L123:
+	testl %ebx,%ebx
+	jne .L124
+	movl 8(%ebp),%edi
+	movl 84(%edi),%eax
+	pushl %eax
+	movl MI_Scope+84,%eax
+	call *%eax
+	movl %eax,%ebx
+	addl $4,%esp
+	jmp .L127
+	.align 16
+.L128:
+	pushl %ebx
+	movl MI_Value+108,%eax
+	call *%eax
+	movl %eax,%edx
+	pushl %edx
+	movl MI_M3ID+60,%eax
+	call *%eax
+	movl %eax,%edx
+	leal (%esi,%esi,2),%eax
+	sall $3,%eax
+	subl %esi,%eax
+	leal (%edx,%eax),%esi
+	leal (%esi,%esi,2),%eax
+	sall $3,%eax
+	subl %esi,%eax
+	leal 617(%eax),%esi
+	movl 8(%ebx),%ebx
+	addl $8,%esp
+.L127:
+	testl %ebx,%ebx
+	jne .L128
+	movl 8(%ebp),%ecx
+	movl MI_Target+60,%eax
+	movl %eax,16(%ecx)
+	movl %eax,20(%ecx)
+	movl MI_Target+64,%eax
+	movl %eax,24(%ecx)
+	movb $0,33(%ecx)
+	movb $0,32(%ecx)
+	movb $8,34(%ecx)
+	xorl %edx,%edx
+	movb 35(%ecx),%dl
+	andb $254,%dl
+	xorl %eax,%eax
+	movb 105(%ecx),%al
+	andl $1,%eax
+	orl %edx,%eax
+	andl $253,%eax
+	orb $4,%al
+	movb %al,35(%ecx)
+	movl %esi,28(%ecx)
+	incl MI_Type+44
+	orb $16,49(%ecx)
+	movl 84(%ecx),%eax
+	pushl %eax
+	movl MI_Scope+84,%eax
+	call *%eax
+	movl %eax,%ebx
+	addl $4,%esp
+	jmp .L130
+	.align 16
+.L131:
+	leal -68(%ebp),%esi
+	pushl %esi
+	pushl %ebx
+	movl MI_Method+52,%eax
+	call *%eax
+	addl $8,%esp
+	cmpb $0,-48(%ebp)
+	je .L132
+	leal -72(%ebp),%eax
+	pushl %eax
+	leal -76(%ebp),%eax
+	pushl %eax
+	movl -68(%ebp),%eax
+	pushl %eax
+	movl -84(%ebp),%edi
+	pushl %edi
+	call ObjectType__LookUp
+	addl $16,%esp
+	testl %eax,%eax
+	je .L133
+	pushl %esi
+	movl -76(%ebp),%eax
+	pushl %eax
+	movl MI_Method+48,%eax
+	call *%eax
+	addl $8,%esp
+	testl %eax,%eax
+	je .L133
+	movl -76(%ebp),%eax
+	pushl %eax
+	pushl %ebx
+	movl MI_Method+56,%eax
+	jmp .L138
+	.align 16
+.L133:
+	movl 4(%ebx),%eax
+	movl %eax,MI_Scanner+88
+	pushl $MM_ObjectType+820
+	movl -68(%ebp),%eax
+	pushl %eax
+	movl MI_Error+52,%eax
+.L138:
+	call *%eax
+	addl $8,%esp
+.L132:
+	movl 8(%ebx),%ebx
+.L130:
+	testl %ebx,%ebx
+	jne .L131
+	leal -44(%ebp),%ebx
+	pushl %ebx
+	movl 8(%ebp),%ecx
+	movl 68(%ecx),%eax
+	pushl %eax
+	movl MI_Scope+92,%eax
+	call *%eax
+	pushl %ebx
+	movl 8(%ebp),%edi
+	movl 84(%edi),%eax
+	pushl %eax
+	movl MI_Scope+92,%eax
+	call *%eax
+	decl MI_Type+44
+	pushl %edi
+	call ObjectType__GetSizes
+	addl $20,%esp
+	cmpb $0,105(%edi)
+	jne .L114
+	movl MI_Module+68,%eax
+	call *%eax
+	testl %eax,%eax
+	je .L114
+	pushl %edi
+	call ObjectType__CheckTracedFields
+.L114:
+	leal -100(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe9:
+	.size	 ObjectType__Check,.Lfe9-ObjectType__Check
+	.align 16
+	.type	 ObjectType__CheckAlign,@function
+ObjectType__CheckAlign:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $8,%esp
+	movl 12(%ebp),%edx
+.L140:
+	movl $5,-4(%ebp)
+	movl RTThread__handlerStack,%eax
+	movl %eax,-8(%ebp)
+	movl %eax,RTThread__handlerStack
+	pushl %edx
+	movl MI_Target+64,%eax
+	pushl %eax
+	call m3_mod
+	testl %eax,%eax
+	sete %al
+	andl $255,%eax
+.L141:
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe10:
+	.size	 ObjectType__CheckAlign,.Lfe10-ObjectType__CheckAlign
+	.align 16
+	.type	 ObjectType__CheckTracedFields,@function
+ObjectType__CheckTracedFields:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $20,%esp
+	pushl %ebx
+	movl 8(%ebp),%eax
+	movl $0,-20(%ebp)
+	movl $0,-16(%ebp)
+	movl $0,-12(%ebp)
+	movl $0,-8(%ebp)
+	movl $0,-4(%ebp)
+	movl 68(%eax),%eax
+	pushl %eax
+	movl MI_Scope+84,%eax
+	call *%eax
+	movl %eax,%ebx
+	addl $4,%esp
+	jmp .L143
+	.align 16
+.L144:
+	pushl %ebx
+	movl MI_Value+48,%eax
+	call *%eax
+	movl %eax,%edx
+	leal -20(%ebp),%eax
+	pushl %eax
+	pushl %edx
+	movl MI_Type+68,%eax
+	call *%eax
+	addl $12,%esp
+	testb $1,-1(%ebp)
+	je .L145
+	pushl %ebx
+	movl MI_Value+108,%eax
+	call *%eax
+	pushl $MM_ObjectType+868
+	pushl %eax
+	movl MI_Error+52,%eax
+	call *%eax
+	addl $12,%esp
+.L145:
+	movl 8(%ebx),%ebx
+.L143:
+	testl %ebx,%ebx
+	jne .L144
+	movl -24(%ebp),%ebx
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe11:
+	.size	 ObjectType__CheckTracedFields,.Lfe11-ObjectType__CheckTracedFields
+	.align 16
+	.type	 ObjectType__Compiler,@function
+ObjectType__Compiler:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $28,%esp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%esi
+.L148:
+	movl $5,-4(%ebp)
+	movl RTThread__handlerStack,%eax
+	movl %eax,-8(%ebp)
+	leal -8(%ebp),%ecx
+	movl %ecx,RTThread__handlerStack
+	movl $0,-24(%ebp)
+	movl 64(%esi),%eax
+	pushl %eax
+	movl MI_Type+140,%eax
+	call *%eax
+	movl 68(%esi),%eax
+	pushl %eax
+	movl MI_Scope+84,%eax
+	call *%eax
+	movl %eax,%edi
+	movl 84(%esi),%eax
+	pushl %eax
+	movl MI_Scope+84,%eax
+	call *%eax
+	movl %eax,-28(%ebp)
+	movl %edi,%ebx
+	movl -24(%ebp),%ecx
+	movl %ecx,-20(%ebp)
+	addl $12,%esp
+	jmp .L149
+	.align 16
+.L150:
+	incl -20(%ebp)
+	movl 8(%ebx),%ebx
+.L149:
+	testl %ebx,%ebx
+	jne .L150
+	movl 88(%esi),%eax
+	pushl %eax
+	movl MI_Target+60,%eax
+	pushl %eax
+	call m3_div
+	movl %eax,-16(%ebp)
+	movl 96(%esi),%eax
+	pushl %eax
+	movl MI_Target+60,%eax
+	pushl %eax
+	call m3_div
+	movl %eax,-12(%ebp)
+	pushl %ebx
+	movl -28(%ebp),%ecx
+	pushl %ecx
+	call ObjectType__GenMethods
+	pushl %ebx
+	movl -28(%ebp),%ecx
+	pushl %ecx
+	call ObjectType__GenOverrides
+	addl $32,%esp
+	pushl %ebx
+	pushl %edi
+	call ObjectType__GenFields
+	addl $8,%esp
+	movl 60(%esi),%eax
+	testl %eax,%eax
+	je .L152
+	pushl %eax
+	movl MI_M3String+56,%eax
+	call *%eax
+	movl %eax,-24(%ebp)
+	addl $4,%esp
+.L152:
+	pushl %esi
+	movl MI_Type+132,%eax
+	call *%eax
+	movl %eax,%ebx
+	movl 64(%esi),%eax
+	pushl %eax
+	movl MI_Type+132,%eax
+	call *%eax
+	movl %eax,%edx
+	movl 76(%esi),%eax
+	addl $8,%esp
+	testl %eax,%eax
+	jge .L153
+	pushl $7793
+	call _m3_fault
+	.align 16
+.L153:
+	pushl %eax
+	movl -12(%ebp),%ecx
+	pushl %ecx
+	movl -16(%ebp),%ecx
+	pushl %ecx
+	movl -20(%ebp),%ecx
+	pushl %ecx
+	xorl %eax,%eax
+	movb 105(%esi),%al
+	pushl %eax
+	movl -24(%ebp),%ecx
+	pushl %ecx
+	pushl %edx
+	pushl %ebx
+	movl MI_CG+144,%eax
+	call *%eax
+	addl $32,%esp
+	pushl $1
+	movl -28(%ebp),%ecx
+	pushl %ecx
+	call ObjectType__GenMethods
+	pushl $1
+	movl -28(%ebp),%ecx
+	pushl %ecx
+	call ObjectType__GenOverrides
+	pushl $1
+	pushl %edi
+	call ObjectType__GenFields
+.L154:
+	movl -8(%ebp),%eax
+	leal -40(%ebp),%esp
+	movl %eax,RTThread__handlerStack
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe12:
+	.size	 ObjectType__Compiler,.Lfe12-ObjectType__Compiler
+	.align 16
+	.type	 ObjectType__GenFields,@function
+ObjectType__GenFields:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %ebx
+	movl 8(%ebp),%ebx
+	jmp .L156
+	.align 16
+.L157:
+	cmpb $0,12(%ebp)
+	je .L158
+	pushl %ebx
+	movl MI_Field+60,%eax
+	call *%eax
+	addl $4,%esp
+	jmp .L159
+	.align 16
+.L158:
+	pushl %ebx
+	movl MI_Value+48,%eax
+	call *%eax
+	pushl %eax
+	movl MI_Type+140,%eax
+	call *%eax
+	addl $8,%esp
+.L159:
+	movl 8(%ebx),%ebx
+.L156:
+	testl %ebx,%ebx
+	jne .L157
+	movl -4(%ebp),%ebx
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe13:
+	.size	 ObjectType__GenFields,.Lfe13-ObjectType__GenFields
+	.align 16
+	.type	 ObjectType__GenMethods,@function
+ObjectType__GenMethods:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $24,%esp
+	pushl %ebx
+	movl 8(%ebp),%ebx
+	movl $0,-24(%ebp)
+	movl $0,-20(%ebp)
+	movl $0,-16(%ebp)
+	movl $0,-12(%ebp)
+	movl $0,-8(%ebp)
+	movl $0,-4(%ebp)
+	jmp .L162
+	.align 16
+.L163:
+	leal -24(%ebp),%eax
+	pushl %eax
+	pushl %ebx
+	movl MI_Method+52,%eax
+	call *%eax
+	addl $8,%esp
+	cmpb $0,-4(%ebp)
+	jne .L165
+	cmpb $0,12(%ebp)
+	je .L166
+	movl -12(%ebp),%eax
+	pushl %eax
+	movl MI_Type+132,%eax
+	call *%eax
+	movl %eax,%edx
+	movl -8(%ebp),%eax
+	pushl %eax
+	pushl %edx
+	movl -24(%ebp),%eax
+	pushl %eax
+	movl MI_CG+148,%eax
+	call *%eax
+	addl $16,%esp
+	jmp .L165
+	.align 16
+.L166:
+	movl -12(%ebp),%eax
+	pushl %eax
+	movl MI_Type+140,%eax
+	call *%eax
+	addl $4,%esp
+.L165:
+	movl 8(%ebx),%ebx
+.L162:
+	testl %ebx,%ebx
+	jne .L163
+	movl -28(%ebp),%ebx
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe14:
+	.size	 ObjectType__GenMethods,.Lfe14-ObjectType__GenMethods
+	.align 16
+	.type	 ObjectType__GenOverrides,@function
+ObjectType__GenOverrides:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $24,%esp
+	pushl %ebx
+	movl 8(%ebp),%ebx
+	movl $0,-24(%ebp)
+	movl $0,-20(%ebp)
+	movl $0,-16(%ebp)
+	movl $0,-12(%ebp)
+	movl $0,-8(%ebp)
+	movl $0,-4(%ebp)
+	jmp .L169
+	.align 16
+.L170:
+	leal -24(%ebp),%eax
+	pushl %eax
+	pushl %ebx
+	movl MI_Method+52,%eax
+	call *%eax
+	addl $8,%esp
+	cmpb $0,-4(%ebp)
+	je .L171
+	cmpb $0,12(%ebp)
+	je .L171
+	movl -8(%ebp),%eax
+	pushl %eax
+	movl -24(%ebp),%eax
+	pushl %eax
+	movl MI_CG+152,%eax
+	call *%eax
+	addl $8,%esp
+.L171:
+	movl 8(%ebx),%ebx
+.L169:
+	testl %ebx,%ebx
+	jne .L170
+	movl -28(%ebp),%ebx
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe15:
+	.size	 ObjectType__GenOverrides,.Lfe15-ObjectType__GenOverrides
+	.align 16
+	.type	 ObjectType__NoteOffsets,@function
+ObjectType__NoteOffsets:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%edi
+	movl 12(%ebp),%eax
+	pushl %eax
+	call ObjectType__Confirm
+	movl %eax,%ebx
+	movl %ebx,%esi
+	addl $4,%esp
+	testl %ebx,%ebx
+	je .L173
+	movl MI_Module+72,%eax
+	call *%eax
+	testl %eax,%eax
+	sete %al
+	andl $255,%eax
+	pushl %eax
+	pushl %ebx
+	call ObjectType__GetOffsets
+	pushl %edi
+	movl MI_Type+132,%eax
+	call *%eax
+	movl %eax,%edi
+	movl 64(%ebx),%eax
+	pushl %eax
+	movl MI_Type+132,%eax
+	call *%eax
+	movl MI_Host+52,%edx
+	movl %eax,%ecx
+	movl (%edx),%eax
+	movl 40(%eax),%ebx
+	movl 88(%esi),%eax
+	pushl %eax
+	movl 80(%esi),%eax
+	pushl %eax
+	movl 76(%esi),%eax
+	pushl %eax
+	pushl %ecx
+	pushl %edi
+	pushl %edx
+	call *%ebx
+.L173:
+	leal -12(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe16:
+	.size	 ObjectType__NoteOffsets,.Lfe16-ObjectType__NoteOffsets
+	.align 16
+	.type	 ObjectType__NoteRefName,@function
+ObjectType__NoteRefName:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %ebx
+	movl 8(%ebp),%eax
+	movl 12(%ebp),%ebx
+	pushl %eax
+	call ObjectType__Confirm
+	testl %eax,%eax
+	je .L175
+	movl %ebx,108(%eax)
+.L175:
+	movl -4(%ebp),%ebx
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe17:
+	.size	 ObjectType__NoteRefName,.Lfe17-ObjectType__NoteRefName
+	.align 16
+	.type	 ObjectType__InitTypecell,@function
+ObjectType__InitTypecell:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $52,%esp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%ebx
+.L178:
+	movl $5,-12(%ebp)
+	movl RTThread__handlerStack,%eax
+	movl %eax,-16(%ebp)
+	leal -16(%ebp),%ecx
+	movl %ecx,RTThread__handlerStack
+	testl %ebx,%ebx
+	je .L179
+	movl -4(%ebx),%eax
+	sall $11,%eax
+	movl %eax,%edx
+	shrl $12,%edx
+	cmpl %edx,MM_ObjectType+296
+	jg .L180
+	movl MM_ObjectType+292,%eax
+	cmpl %edx,4(%eax)
+	jge .L179
+.L180:
+	pushl $8869
+	call _m3_fault
+	.align 16
+.L179:
+	movl %ebx,%esi
+	movl 68(%esi),%eax
+	pushl %eax
+	movl MI_Scope+84,%eax
+	call *%eax
+	pushl $0
+	movl %eax,%ebx
+	pushl %ebx
+	pushl %esi
+	call ObjectType__GenTypeMap
+	movl %eax,-52(%ebp)
+	pushl $1
+	pushl %ebx
+	pushl %esi
+	call ObjectType__GenTypeMap
+	movl %eax,-48(%ebp)
+	pushl %ebx
+	pushl %esi
+	call ObjectType__GenTypeDesc
+	addl $36,%esp
+	movl %eax,-44(%ebp)
+	pushl %esi
+	call ObjectType__GenInitProc
+	movl %eax,-40(%ebp)
+	pushl %esi
+	call ObjectType__GenLinkProc
+	movl %eax,-36(%ebp)
+	movl $0,-32(%ebp)
+	movl -32(%ebp),%ecx
+	movl %ecx,-28(%ebp)
+	movl MI_Target+96,%edi
+	movl %ecx,-24(%ebp)
+	leal -8(%ebp),%eax
+	pushl %eax
+	pushl %esi
+	movl MI_TypeFP+44,%eax
+	call *%eax
+	movl -24(%ebp),%ecx
+	pushl %ecx
+	movl MI_Module+112,%eax
+	call *%eax
+	movl %eax,-20(%ebp)
+	addl $20,%esp
+	movl 64(%esi),%eax
+	testl %eax,%eax
+	je .L181
+	pushl %eax
+	movl MI_Type+132,%eax
+	call *%eax
+	movl %eax,-28(%ebp)
+	addl $4,%esp
+.L181:
+	movl 60(%esi),%eax
+	testl %eax,%eax
+	je .L182
+	pushl %eax
+	movl MI_M3String+68,%eax
+	call *%eax
+	movl -24(%ebp),%ecx
+	pushl %ecx
+	movl %eax,%edx
+	pushl $MM_ObjectType+928
+	movl MI_Target+604,%eax
+	pushl %eax
+	leal 8(,%edx,8),%eax
+	pushl %eax
+	movl MI_Module+108,%eax
+	call *%eax
+	movl %eax,-32(%ebp)
+	movl 60(%esi),%eax
+	pushl %eax
+	movl -32(%ebp),%ecx
+	pushl %ecx
+	movl MI_M3String+64,%eax
+	call *%eax
+	addl $28,%esp
+.L182:
+	movl 108(%esi),%eax
+	testl %eax,%eax
+	je .L183
+	pushl %eax
+	movl MI_CG+284,%eax
+	call *%eax
+	movl %eax,-24(%ebp)
+	addl $4,%esp
+.L183:
+	pushl %esi
+	movl MI_Type+132,%eax
+	call *%eax
+	addl $4,%esp
+	testl %edi,%edi
+	jge .L184
+	pushl $9297
+	call _m3_fault
+	.align 16
+.L184:
+	pushl %eax
+	pushl %edi
+	movl 12(%ebp),%eax
+	addl MI_M3RT+180,%eax
+	pushl %eax
+	movl MI_CG+256,%eax
+	call *%eax
+	xorl %ebx,%ebx
+	addl $12,%esp
+.L185:
+	xorl %eax,%eax
+	movb -8(%ebx,%ebp),%al
+	pushl %eax
+	pushl $8
+	movl 12(%ebp),%eax
+	addl MI_M3RT+184,%eax
+	leal (%eax,%ebx,8),%eax
+	pushl %eax
+	movl MI_CG+256,%eax
+	call *%eax
+	incl %ebx
+	addl $12,%esp
+	cmpl $7,%ebx
+	jle .L185
+	cmpb $0,105(%esi)
+	je .L188
+	testl %edi,%edi
+	jge .L189
+	pushl $9377
+	call _m3_fault
+	.align 16
+.L189:
+	pushl $1
+	pushl %edi
+	movl 12(%ebp),%eax
+	addl MI_M3RT+188,%eax
+	pushl %eax
+	movl MI_CG+256,%eax
+	call *%eax
+	addl $12,%esp
+.L188:
+	testl %edi,%edi
+	jge .L190
+	pushl $9409
+	call _m3_fault
+	.align 16
+.L190:
+	movl 76(%esi),%eax
+	sarl $3,%eax
+	pushl %eax
+	pushl %edi
+	movl 12(%ebp),%eax
+	addl MI_M3RT+196,%eax
+	pushl %eax
+	movl MI_CG+256,%eax
+	call *%eax
+	addl $12,%esp
+	movl 80(%esi),%eax
+	sarl $3,%eax
+	pushl %eax
+	pushl %edi
+	movl 12(%ebp),%eax
+	addl MI_M3RT+200,%eax
+	pushl %eax
+	movl MI_CG+256,%eax
+	call *%eax
+	addl $12,%esp
+	movl 88(%esi),%eax
+	sarl $3,%eax
+	pushl %eax
+	pushl %edi
+	movl 12(%ebp),%eax
+	addl MI_M3RT+208,%eax
+	pushl %eax
+	movl MI_CG+256,%eax
+	call *%eax
+	addl $12,%esp
+	cmpl $0,-52(%ebp)
+	jle .L193
+	movl -52(%ebp),%ecx
+	pushl %ecx
+	movl -20(%ebp),%ecx
+	pushl %ecx
+	movl 12(%ebp),%eax
+	addl MI_M3RT+224,%eax
+	pushl %eax
+	movl MI_CG+268,%eax
+	call *%eax
+	addl $12,%esp
+.L193:
+	cmpl $0,-48(%ebp)
+	jle .L194
+	movl -48(%ebp),%ecx
+	pushl %ecx
+	movl -20(%ebp),%ecx
+	pushl %ecx
+	movl 12(%ebp),%eax
+	addl MI_M3RT+228,%eax
+	pushl %eax
+	movl MI_CG+268,%eax
+	call *%eax
+	addl $12,%esp
+.L194:
+	cmpl $0,-44(%ebp)
+	jle .L196
+	movl -44(%ebp),%ecx
+	pushl %ecx
+	movl -20(%ebp),%ecx
+	pushl %ecx
+	movl 12(%ebp),%eax
+	addl MI_M3RT+232,%eax
+	pushl %eax
+	movl MI_CG+268,%eax
+	call *%eax
+	addl $12,%esp
+.L196:
+	movl -28(%ebp),%ecx
+	pushl %ecx
+	pushl %edi
+	movl 12(%ebp),%eax
+	addl MI_M3RT+244,%eax
+	pushl %eax
+	movl MI_CG+256,%eax
+	call *%eax
+	addl $12,%esp
+	cmpl $0,-40(%ebp)
+	je .L197
+	movl -40(%ebp),%ecx
+	pushl %ecx
+	movl 12(%ebp),%eax
+	addl MI_M3RT+236,%eax
+	pushl %eax
+	movl MI_CG+260,%eax
+	call *%eax
+	addl $8,%esp
+.L197:
+	cmpl $0,-36(%ebp)
+	je .L198
+	movl -36(%ebp),%ecx
+	pushl %ecx
+	movl 12(%ebp),%eax
+	addl MI_M3RT+240,%eax
+	pushl %eax
+	movl MI_CG+260,%eax
+	call *%eax
+	addl $8,%esp
+.L198:
+	cmpl $0,-32(%ebp)
+	je .L199
+	movl -32(%ebp),%ecx
+	pushl %ecx
+	movl -20(%ebp),%ecx
+	pushl %ecx
+	movl 12(%ebp),%eax
+	addl MI_M3RT+260,%eax
+	pushl %eax
+	movl MI_CG+268,%eax
+	call *%eax
+	addl $12,%esp
+.L199:
+	cmpl $0,108(%esi)
+	je .L200
+	movl -24(%ebp),%ecx
+	pushl %ecx
+	movl -20(%ebp),%ecx
+	pushl %ecx
+	movl 12(%ebp),%eax
+	addl MI_M3RT+264,%eax
+	pushl %eax
+	movl MI_CG+268,%eax
+	call *%eax
+	addl $12,%esp
+.L200:
+	cmpl $0,16(%ebp)
+	je .L201
+	movl 16(%ebp),%ecx
+	pushl %ecx
+	movl -20(%ebp),%ecx
+	pushl %ecx
+	movl 12(%ebp),%eax
+	addl MI_M3RT+268,%eax
+	pushl %eax
+	movl MI_CG+268,%eax
+	call *%eax
+	addl $12,%esp
+.L201:
+	pushl %esi
+	pushl %esi
+	call ObjectType__NoteOffsets
+.L202:
+	movl -16(%ebp),%eax
+	leal -64(%ebp),%esp
+	movl %eax,RTThread__handlerStack
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe18:
+	.size	 ObjectType__InitTypecell,.Lfe18-ObjectType__InitTypecell
+	.align 16
+	.type	 ObjectType__GenTypeMap,@function
+ObjectType__GenTypeMap:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $20,%esp
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%esi
+	movl 12(%ebp),%ebx
+	movl $0,-20(%ebp)
+	movl $0,-16(%ebp)
+	movl $0,-12(%ebp)
+	movl $0,-8(%ebp)
+	movl MI_TipeMap+44,%eax
+	movl $0,-4(%ebp)
+	call *%eax
+	jmp .L204
+	.align 16
+.L205:
+	leal -20(%ebp),%eax
+	pushl %eax
+	pushl %ebx
+	movl MI_Field+56,%eax
+	call *%eax
+	xorl %eax,%eax
+	movb 16(%ebp),%al
+	pushl %eax
+	pushl $-1
+	movl -12(%ebp),%eax
+	pushl %eax
+	movl -8(%ebp),%eax
+	pushl %eax
+	movl MI_Type+160,%eax
+	call *%eax
+	movl 8(%ebx),%ebx
+	addl $24,%esp
+.L204:
+	testl %ebx,%ebx
+	jne .L205
+	pushl %esi
+	movl MI_Type+128,%eax
+	call *%eax
+	pushl %ebx
+	pushl %ebx
+	pushl %eax
+	pushl $MM_ObjectType+948
+	movl MI_TipeMap+48,%eax
+	call *%eax
+	leal -28(%ebp),%esp
+	popl %ebx
+	popl %esi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe19:
+	.size	 ObjectType__GenTypeMap,.Lfe19-ObjectType__GenTypeMap
+	.align 16
+	.type	 ObjectType__GenTypeDesc,@function
+ObjectType__GenTypeDesc:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $20,%esp
+	pushl %edi
+	pushl %esi
+	xorl %esi,%esi
+	pushl %ebx
+	movl 12(%ebp),%edi
+	movl $0,-20(%ebp)
+	movl $0,-16(%ebp)
+	movl $0,-12(%ebp)
+	movl $0,-8(%ebp)
+	movl $0,-4(%ebp)
+	movl 8(%ebp),%edx
+	movl %edi,%ebx
+	cmpb $0,105(%edx)
+	jne .L208
+	movl $-1,%eax
+	jmp .L216
+	.align 16
+.L208:
+	movl MI_TipeDesc+44,%eax
+	call *%eax
+	movl 8(%ebp),%edx
+	pushl %edx
+	pushl $10
+	movl MI_TipeDesc+52,%eax
+	call *%eax
+	addl $8,%esp
+	testl %eax,%eax
+	je .L209
+	jmp .L210
+	.align 16
+.L211:
+	incl %esi
+	movl 8(%ebx),%ebx
+.L210:
+	testl %ebx,%ebx
+	jne .L211
+	pushl %esi
+	movl MI_TipeDesc+60,%eax
+	call *%eax
+	addl $4,%esp
+	jmp .L213
+	.align 16
+.L214:
+	leal -20(%ebp),%eax
+	pushl %eax
+	pushl %edi
+	movl MI_Field+56,%eax
+	call *%eax
+	movl -8(%ebp),%eax
+	pushl %eax
+	movl MI_Type+164,%eax
+	call *%eax
+	movl 8(%edi),%edi
+	addl $12,%esp
+.L213:
+	testl %edi,%edi
+	jne .L214
+.L209:
+	movl 8(%ebp),%edx
+	pushl %edx
+	movl MI_Type+128,%eax
+	call *%eax
+	pushl $0
+	pushl $0
+	pushl %eax
+	pushl $MM_ObjectType+976
+	movl MI_TipeDesc+48,%eax
+	call *%eax
+.L216:
+	leal -32(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe20:
+	.size	 ObjectType__GenTypeDesc,.Lfe20-ObjectType__GenTypeDesc
+	.align 16
+	.type	 ObjectType__GenInitProc,@function
+ObjectType__GenInitProc:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $24,%esp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%edi
+	movl $0,-20(%ebp)
+	movl $0,-16(%ebp)
+	movl $0,-12(%ebp)
+	movl $0,-8(%ebp)
+	movl $0,-4(%ebp)
+	movl 68(%edi),%eax
+	pushl %eax
+	movl MI_Scope+84,%eax
+	call *%eax
+	movl %eax,%ebx
+	addl $4,%esp
+	jmp .L218
+	.align 16
+.L219:
+	leal -20(%ebp),%eax
+	pushl %eax
+	pushl %ebx
+	movl MI_Field+56,%eax
+	call *%eax
+	addl $8,%esp
+	movl -4(%ebp),%eax
+	testl %eax,%eax
+	jne .L220
+	pushl $1
+	movl -8(%ebp),%eax
+	pushl %eax
+	movl MI_Type+156,%eax
+	call *%eax
+	movl %eax,%edx
+	addl $8,%esp
+	testl %edx,%edx
+	je .L223
+	jmp .L225
+	.align 16
+.L220:
+	pushl %eax
+	movl MI_Expr+176,%eax
+	call *%eax
+	addl $4,%esp
+	testl %eax,%eax
+	je .L225
+.L223:
+	movl 8(%ebx),%ebx
+.L218:
+	testl %ebx,%ebx
+	jne .L219
+	movb $1,%cl
+	testb %cl,%cl
+	je .L225
+	movl %ebx,%eax
+	jmp .L237
+	.align 16
+.L225:
+	pushl $0
+	movl MI_Module+96,%eax
+	call *%eax
+	movl %eax,%ebx
+	pushl %edi
+	movl MI_Type+128,%eax
+	call *%eax
+	pushl %eax
+	pushl %ebx
+	movl MI_RTHooks+76,%eax
+	call *%eax
+	pushl $MM_ObjectType+1012
+	pushl %eax
+	movl MI_RTHooks+76,%eax
+	call *%eax
+	pushl $0
+	pushl $0
+	pushl $0
+	movl %eax,%ebx
+	pushl %ebx
+	pushl $-1
+	movl MI_CG+788,%eax
+	call *%eax
+	movl 4(%edi),%eax
+	movl %eax,MI_Scanner+88
+	addl $44,%esp
+	movl 4(%edi),%eax
+	pushl %eax
+	movl MI_CG+72,%eax
+	call *%eax
+	pushl $0
+	pushl %ebx
+	movl MI_M3ID+44,%eax
+	call *%eax
+	pushl $0
+	movl %eax,%edx
+	pushl $0
+	movl MI_Target+752,%eax
+	pushl %eax
+	pushl $0
+	pushl $15
+	pushl $1
+	pushl %edx
+	movl MI_CG+292,%eax
+	call *%eax
+	addl $40,%esp
+	movl %eax,-24(%ebp)
+	pushl %edi
+	movl MI_Type+132,%eax
+	call *%eax
+	pushl $100
+	pushl $0
+	pushl $0
+	movl %eax,%edx
+	pushl %edx
+	pushl $0
+	movl MI_Target+64,%eax
+	pushl %eax
+	movl MI_Target+60,%eax
+	pushl %eax
+	pushl $0
+	movl MI_CG+204,%eax
+	call *%eax
+	movl %eax,%ebx
+	addl $36,%esp
+	movl -24(%ebp),%ecx
+	pushl %ecx
+	movl MI_CG+296,%eax
+	call *%eax
+	pushl $0
+	pushl %ebx
+	movl MI_CG+388,%eax
+	call *%eax
+	movl 72(%edi),%eax
+	addl $12,%esp
+	testl %eax,%eax
+	jl .L226
+	pushl %eax
+	movl MI_CG+708,%eax
+	call *%eax
+	addl $4,%esp
+	jmp .L227
+	.align 16
+.L226:
+	pushl $0
+	movl MI_M3RT+192,%eax
+	pushl %eax
+	pushl %edi
+	movl MI_Type+144,%eax
+	call *%eax
+	pushl $8
+	movl MI_CG+712,%eax
+	call *%eax
+	addl $16,%esp
+.L227:
+	movl MI_CG+220,%eax
+	call *%eax
+	movl %eax,%esi
+	movl 68(%edi),%eax
+	pushl %eax
+	movl MI_Scope+84,%eax
+	call *%eax
+	movl %eax,%ebx
+	addl $4,%esp
+	jmp .L228
+	.align 16
+.L229:
+	leal -20(%ebp),%eax
+	pushl %eax
+	pushl %ebx
+	movl MI_Field+56,%eax
+	call *%eax
+	addl $8,%esp
+	movl -4(%ebp),%eax
+	testl %eax,%eax
+	jne .L230
+	pushl $1
+	movl -8(%ebp),%eax
+	pushl %eax
+	movl MI_Type+156,%eax
+	call *%eax
+	movl %eax,%edx
+	addl $8,%esp
+	testl %edx,%edx
+	jle .L233
+	pushl %esi
+	movl MI_CG+228,%eax
+	call *%eax
+	movl 80(%edi),%eax
+	addl $4,%esp
+	testl %eax,%eax
+	jge .L232
+	pushl $11489
+	call _m3_fault
+	.align 16
+.L232:
+	pushl %eax
+	movl MI_CG+720,%eax
+	call *%eax
+	movl -12(%ebp),%eax
+	pushl %eax
+	movl MI_CG+708,%eax
+	call *%eax
+	pushl $1
+	movl -8(%ebp),%eax
+	pushl %eax
+	movl MI_Type+148,%eax
+	jmp .L238
+	.align 16
+.L230:
+	pushl %eax
+	movl MI_Expr+176,%eax
+	call *%eax
+	addl $4,%esp
+	testl %eax,%eax
+	jne .L233
+	pushl $1
+	movl -4(%ebp),%eax
+	pushl %eax
+	movl -8(%ebp),%eax
+	pushl %eax
+	movl MI_AssignStmt+52,%eax
+	call *%eax
+	pushl %esi
+	movl MI_CG+228,%eax
+	call *%eax
+	movl 80(%edi),%eax
+	addl $16,%esp
+	testl %eax,%eax
+	jge .L235
+	pushl $11601
+	call _m3_fault
+	.align 16
+.L235:
+	pushl %eax
+	movl MI_CG+720,%eax
+	call *%eax
+	movl -12(%ebp),%eax
+	pushl %eax
+	movl MI_CG+708,%eax
+	call *%eax
+	movl -4(%ebp),%eax
+	pushl %eax
+	movl -8(%ebp),%eax
+	pushl %eax
+	movl MI_AssignStmt+56,%eax
+.L238:
+	call *%eax
+	addl $16,%esp
+.L233:
+	movl 8(%ebx),%ebx
+.L228:
+	testl %ebx,%ebx
+	jne .L229
+	pushl %esi
+	movl MI_CG+232,%eax
+	call *%eax
+	pushl $15
+	movl MI_CG+360,%eax
+	call *%eax
+	movl -24(%ebp),%ecx
+	pushl %ecx
+	movl MI_CG+300,%eax
+	call *%eax
+	movl -24(%ebp),%eax
+.L237:
+	leal -36(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe21:
+	.size	 ObjectType__GenInitProc,.Lfe21-ObjectType__GenInitProc
+	.align 16
+	.type	 ObjectType__GenLinkProc,@function
+ObjectType__GenLinkProc:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $40,%esp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%edi
+	movl $0,-32(%ebp)
+	movl $0,-28(%ebp)
+	movl $0,-24(%ebp)
+	movl $0,-20(%ebp)
+	movl $0,-16(%ebp)
+	movl $0,-12(%ebp)
+	movl $0,-8(%ebp)
+	movl $0,-4(%ebp)
+	movl 84(%edi),%eax
+	pushl %eax
+	movl MI_Scope+84,%eax
+	call *%eax
+	movl %eax,%ebx
+	addl $4,%esp
+	jmp .L240
+	.align 16
+.L241:
+	leal -32(%ebp),%eax
+	pushl %eax
+	pushl %ebx
+	movl MI_Method+52,%eax
+	call *%eax
+	addl $8,%esp
+	cmpl $0,-16(%ebp)
+	jne .L244
+	movl 8(%ebx),%ebx
+.L240:
+	testl %ebx,%ebx
+	jne .L241
+	movb $1,%cl
+	testb %cl,%cl
+	je .L244
+	movl %ebx,%eax
+	jmp .L252
+	.align 16
+.L244:
+	pushl $-1
+	pushl $MM_ObjectType+1032
+	pushl %edi
+	movl MI_Type+168,%eax
+	call *%eax
+	pushl $0
+	movl MI_Module+96,%eax
+	call *%eax
+	movl %eax,%ebx
+	pushl %edi
+	movl MI_Type+128,%eax
+	call *%eax
+	pushl %eax
+	pushl %ebx
+	movl MI_RTHooks+76,%eax
+	call *%eax
+	pushl $MM_ObjectType+1072
+	pushl %eax
+	movl MI_RTHooks+76,%eax
+	call *%eax
+	addl $36,%esp
+	pushl $0
+	pushl $0
+	pushl $0
+	movl %eax,%ebx
+	pushl %ebx
+	pushl $-1
+	movl MI_CG+788,%eax
+	call *%eax
+	movl 4(%edi),%eax
+	movl %eax,MI_Scanner+88
+	movl 4(%edi),%eax
+	pushl %eax
+	movl MI_CG+72,%eax
+	call *%eax
+	pushl $0
+	pushl %ebx
+	movl MI_M3ID+44,%eax
+	call *%eax
+	addl $32,%esp
+	pushl $0
+	movl %eax,%edx
+	pushl $0
+	movl MI_Target+752,%eax
+	pushl %eax
+	pushl $0
+	pushl $15
+	pushl $0
+	pushl %edx
+	movl MI_CG+292,%eax
+	call *%eax
+	movl %eax,%esi
+	pushl %esi
+	movl MI_CG+296,%eax
+	call *%eax
+	addl $32,%esp
+	pushl $1
+	movl MI_M3RT+220,%eax
+	pushl %eax
+	pushl %edi
+	movl MI_Type+144,%eax
+	call *%eax
+	movl MI_CG+220,%eax
+	call *%eax
+	movl %eax,-36(%ebp)
+	movl 84(%edi),%eax
+	pushl %eax
+	movl MI_Scope+84,%eax
+	call *%eax
+	movl %eax,%ebx
+	addl $16,%esp
+	jmp .L245
+	.align 16
+.L246:
+	leal -32(%ebp),%eax
+	pushl %eax
+	pushl %ebx
+	movl MI_Method+52,%eax
+	call *%eax
+	addl $8,%esp
+	movl -16(%ebp),%eax
+	testl %eax,%eax
+	je .L247
+	pushl %eax
+	movl MI_Expr+152,%eax
+	call *%eax
+	movl %eax,-40(%ebp)
+	leal -4(%ebp),%eax
+	pushl %eax
+	leal -8(%ebp),%eax
+	pushl %eax
+	movl -32(%ebp),%eax
+	pushl %eax
+	pushl %edi
+	call ObjectType__LookUp
+	addl $20,%esp
+	testb %al,%al
+	jne .L248
+	pushl $12496
+	call _m3_fault
+	.align 16
+.L248:
+	pushl $1
+	movl -16(%ebp),%eax
+	pushl %eax
+	movl -40(%ebp),%ecx
+	pushl %ecx
+	movl MI_AssignStmt+52,%eax
+	call *%eax
+	movl -36(%ebp),%ecx
+	pushl %ecx
+	movl MI_CG+228,%eax
+	call *%eax
+	movl MI_Target+64,%eax
+	pushl %eax
+	movl MI_CG+720,%eax
+	call *%eax
+	movl -28(%ebp),%eax
+	pushl %eax
+	movl MI_CG+708,%eax
+	call *%eax
+	movl -4(%ebp),%eax
+	pushl %eax
+	call ObjectType__MethodOffset
+	movl %eax,%edx
+	addl $28,%esp
+	testl %edx,%edx
+	jl .L249
+	pushl %edx
+	movl MI_CG+708,%eax
+	call *%eax
+	addl $4,%esp
+	jmp .L250
+	.align 16
+.L249:
+	pushl $0
+	movl MI_M3RT+204,%eax
+	pushl %eax
+	movl -4(%ebp),%eax
+	pushl %eax
+	movl MI_Type+144,%eax
+	call *%eax
+	pushl $8
+	movl MI_CG+712,%eax
+	call *%eax
+	addl $16,%esp
+.L250:
+	movl MI_Target+64,%eax
+	pushl %eax
+	movl MI_CG+720,%eax
+	call *%eax
+	movl -16(%ebp),%eax
+	pushl %eax
+	movl -40(%ebp),%ecx
+	pushl %ecx
+	movl MI_AssignStmt+56,%eax
+	call *%eax
+	addl $12,%esp
+.L247:
+	movl 8(%ebx),%ebx
+.L245:
+	testl %ebx,%ebx
+	jne .L246
+	movl -36(%ebp),%ecx
+	pushl %ecx
+	movl MI_CG+232,%eax
+	call *%eax
+	pushl $15
+	movl MI_CG+360,%eax
+	call *%eax
+	pushl %esi
+	movl MI_CG+300,%eax
+	call *%eax
+	movl %esi,%eax
+.L252:
+	leal -52(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe22:
+	.size	 ObjectType__GenLinkProc,.Lfe22-ObjectType__GenLinkProc
+	.align 16
+	.type	 ObjectType__EqualChk,@function
+ObjectType__EqualChk:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 12(%ebp),%ecx
+	testl %ecx,%ecx
+	je .L254
+	movl -4(%ecx),%eax
+	sall $11,%eax
+	movl %eax,%ebx
+	shrl $12,%ebx
+	cmpl %ebx,MM_ObjectType+296
+	jg .L255
+	movl MM_ObjectType+292,%eax
+	cmpl %ebx,4(%eax)
+	jge .L254
+.L255:
+	pushl $12917
+	call _m3_fault
+	.align 16
+.L254:
+	movl %ecx,%edi
+	cmpl $0,8(%ebp)
+	je .L270
+	movl 8(%ebp),%edx
+	movb 105(%edx),%al
+	cmpb %al,105(%edi)
+	jne .L270
+	movl 60(%edi),%eax
+	cmpl %eax,60(%edx)
+	jne .L270
+	movl 16(%ebp),%edx
+	pushl %edx
+	movl 64(%edi),%eax
+	pushl %eax
+	movl 8(%ebp),%edx
+	movl 64(%edx),%eax
+	pushl %eax
+	movl MI_Type+116,%eax
+	call *%eax
+	addl $12,%esp
+	testl %eax,%eax
+	je .L270
+	movl 8(%ebp),%edx
+	movl 68(%edx),%eax
+	pushl %eax
+	movl MI_Scope+84,%eax
+	call *%eax
+	movl %eax,%esi
+	movl 68(%edi),%eax
+	pushl %eax
+	movl MI_Scope+84,%eax
+	call *%eax
+	movl %eax,%ebx
+	addl $8,%esp
+	jmp .L258
+	.align 16
+.L259:
+	movl 16(%ebp),%edx
+	pushl %edx
+	pushl %ebx
+	pushl %esi
+	movl MI_Field+64,%eax
+	call *%eax
+	addl $12,%esp
+	testl %eax,%eax
+	je .L272
+	movl 8(%esi),%esi
+	movl 8(%ebx),%ebx
+.L258:
+	testl %esi,%esi
+	je .L273
+	testl %ebx,%ebx
+	jne .L259
+	jmp .L270
+	.align 16
+.L273:
+	testl %ebx,%ebx
+	jne .L270
+	movl 8(%ebp),%edx
+	movl 84(%edx),%eax
+	pushl %eax
+	movl MI_Scope+84,%eax
+	call *%eax
+	movl %eax,%esi
+	movl 84(%edi),%eax
+	pushl %eax
+	movl MI_Scope+84,%eax
+	call *%eax
+	movl %eax,%ebx
+	addl $8,%esp
+	jmp .L265
+	.align 16
+.L266:
+	movl 16(%ebp),%edx
+	pushl %edx
+	pushl %ebx
+	pushl %esi
+	movl MI_Method+60,%eax
+	call *%eax
+	addl $12,%esp
+	testl %eax,%eax
+	je .L272
+	movl 8(%esi),%esi
+	movl 8(%ebx),%ebx
+.L265:
+	testl %esi,%esi
+	je .L274
+	testl %ebx,%ebx
+	jne .L266
+	jmp .L270
+	.align 16
+.L274:
+	testl %ebx,%ebx
+	je .L271
+.L270:
+	xorl %eax,%eax
+	jmp .L272
+	.align 16
+.L271:
+	movl $1,%eax
+.L272:
+	leal -12(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe23:
+	.size	 ObjectType__EqualChk,.Lfe23-ObjectType__EqualChk
+	.align 16
+	.type	 ObjectType__Subtyper,@function
+ObjectType__Subtyper:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $4,%esp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%esi
+	movl 12(%ebp),%edi
+	movl MI_Reff+44,%eax
+	cmpb $0,105(%esi)
+	jne .L276
+	movl MI_Addr+44,%eax
+.L276:
+	pushl $0
+	pushl %eax
+	pushl %edi
+	movl MI_Type+116,%eax
+	call *%eax
+	movl %eax,%ebx
+	addl $12,%esp
+	testl %ebx,%ebx
+	je .L277
+	movl $1,%eax
+	jmp .L280
+	.align 16
+.L277:
+	movl $1,-4(%ebp)
+	pushl %ebx
+	pushl %edi
+	pushl %esi
+	movl MI_Type+116,%eax
+	call *%eax
+	movl %eax,%ebx
+	addl $12,%esp
+	testl %ebx,%ebx
+	jne .L278
+	movl 64(%esi),%eax
+	testl %eax,%eax
+	je .L279
+	pushl %edi
+	pushl %eax
+	movl MI_Type+120,%eax
+	call *%eax
+	testl %eax,%eax
+	jne .L278
+.L279:
+	movl %ebx,-4(%ebp)
+.L278:
+	movl -4(%ebp),%eax
+.L280:
+	leal -16(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe24:
+	.size	 ObjectType__Subtyper,.Lfe24-ObjectType__Subtyper
+	.align 16
+	.type	 ObjectType__InitCoster,@function
+ObjectType__InitCoster:
+	pushl %ebp
+	movl %esp,%ebp
+	cmpb $0,12(%ebp)
+	jne .L282
+	movl $1,%eax
+	jmp .L283
+	.align 16
+.L282:
+	xorl %eax,%eax
+.L283:
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe25:
+	.size	 ObjectType__InitCoster,.Lfe25-ObjectType__InitCoster
+	.align 16
+	.type	 ObjectType__FPrinter,@function
+ObjectType__FPrinter:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $12,%esp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%edi
+	xorl %ebx,%ebx
+	pushl %ebx
+	movl MI_ObjectRef+44,%eax
+	pushl %eax
+	pushl %edi
+	movl MI_Type+116,%eax
+	call *%eax
+	addl $12,%esp
+	testl %eax,%eax
+	je .L285
+	movl 12(%ebp),%edx
+	movl $MM_ObjectType+1092,(%edx)
+	jmp .L309
+	.align 16
+.L285:
+	pushl %ebx
+	movl MI_ObjectAdr+44,%eax
+	pushl %eax
+	pushl %edi
+	movl MI_Type+116,%eax
+	call *%eax
+	addl $12,%esp
+	testl %eax,%eax
+	je .L287
+	movl 12(%ebp),%edx
+	movl $MM_ObjectType+1116,(%edx)
+.L309:
+	movl 12(%ebp),%eax
+	movl %ebx,8(%eax)
+	jmp .L284
+	.align 16
+.L287:
+	pushl $MM_ObjectType+1140
+	movl 12(%ebp),%eax
+	movl 4(%eax),%eax
+	pushl %eax
+	movl MI_M3Buf+52,%eax
+	call *%eax
+	addl $8,%esp
+	cmpb $0,105(%edi)
+	jne .L288
+	pushl $MM_ObjectType+1160
+	movl 12(%ebp),%eax
+	movl 4(%eax),%eax
+	pushl %eax
+	movl MI_M3Buf+52,%eax
+	call *%eax
+	addl $8,%esp
+.L288:
+	cmpl $0,60(%edi)
+	je .L289
+	pushl $MM_ObjectType+1184
+	movl 12(%ebp),%eax
+	movl 4(%eax),%eax
+	pushl %eax
+	movl MI_M3Buf+52,%eax
+	call *%eax
+	movl 60(%edi),%eax
+	pushl %eax
+	movl MI_M3String+68,%eax
+	call *%eax
+	pushl %eax
+	movl 12(%ebp),%eax
+	movl 4(%eax),%eax
+	pushl %eax
+	movl MI_M3Buf+56,%eax
+	call *%eax
+	pushl $32
+	movl 12(%ebp),%eax
+	movl 4(%eax),%eax
+	pushl %eax
+	movl MI_M3Buf+48,%eax
+	call *%eax
+	movl 60(%edi),%eax
+	pushl %eax
+	movl 12(%ebp),%eax
+	movl 4(%eax),%eax
+	pushl %eax
+	movl MI_M3String+60,%eax
+	call *%eax
+	addl $36,%esp
+.L289:
+	movl 68(%edi),%eax
+	pushl %eax
+	movl MI_Scope+84,%eax
+	movl $1,%esi
+	call *%eax
+	movl %eax,%ebx
+	addl $4,%esp
+	jmp .L290
+	.align 16
+.L291:
+	movl 12(%ebp),%eax
+	pushl %eax
+	pushl %ebx
+	movl MI_Value+120,%eax
+	call *%eax
+	addl %eax,%esi
+	movl 8(%ebx),%ebx
+	addl $8,%esp
+.L290:
+	testl %ebx,%ebx
+	jne .L291
+	movl 84(%edi),%eax
+	pushl %eax
+	movl MI_Scope+84,%eax
+	call *%eax
+	movl %eax,%ebx
+	addl $4,%esp
+	testl %ebx,%ebx
+	je .L293
+	pushl $MM_ObjectType+1204
+	movl 12(%ebp),%eax
+	movl 4(%eax),%eax
+	pushl %eax
+	movl MI_M3Buf+52,%eax
+	call *%eax
+	jmp .L310
+	.align 16
+.L295:
+	movl 12(%ebp),%eax
+	pushl %eax
+	pushl %ebx
+	movl MI_Value+120,%eax
+	call *%eax
+	addl %eax,%esi
+	movl 8(%ebx),%ebx
+.L310:
+	addl $8,%esp
+	testl %ebx,%ebx
+	jne .L295
+.L293:
+	movl 12(%ebp),%edx
+	movl %esi,8(%edx)
+	cmpl $6,%esi
+	jg .L297
+	movl 64(%edi),%eax
+	movl %eax,12(%edx)
+	movl $1,%esi
+	jmp .L298
+	.align 16
+.L297:
+	leal -12(%ebp),%eax
+	leal -4(%ebp),%ecx
+	movl %ecx,-12(%ebp)
+	movl $1,-8(%ebp)
+	movl %esi,-4(%ebp)
+	pushl %eax
+	movl MM_ObjectType+1224,%eax
+	pushl %eax
+	movl MI_RTHooks+84,%eax
+	call *%eax
+	movl %eax,%edx
+	movl 12(%ebp),%eax
+	addl $8,%esp
+	movl %edx,36(%eax)
+	testl %edx,%edx
+	jne .L299
+	pushl $14180
+	call _m3_fault
+	.align 16
+.L299:
+	cmpl $0,4(%edx)
+	jne .L300
+	pushl $14178
+	call _m3_fault
+	.align 16
+.L300:
+	movl (%edx),%edx
+	movl 64(%edi),%eax
+	movl $1,%esi
+	movl %eax,(%edx)
+.L298:
+	movl 68(%edi),%eax
+	pushl %eax
+	movl MI_Scope+84,%eax
+	call *%eax
+	movl %eax,%ebx
+	addl $4,%esp
+	jmp .L301
+	.align 16
+.L302:
+	testl %esi,%esi
+	jge .L303
+	pushl $14225
+	call _m3_fault
+	.align 16
+.L303:
+	pushl %esi
+	movl 12(%ebp),%eax
+	pushl %eax
+	pushl %ebx
+	movl MI_Value+124,%eax
+	call *%eax
+	movl %eax,%esi
+	movl 8(%ebx),%ebx
+	addl $12,%esp
+.L301:
+	testl %ebx,%ebx
+	jne .L302
+	movl 84(%edi),%eax
+	pushl %eax
+	movl MI_Scope+84,%eax
+	call *%eax
+	movl %eax,%ebx
+	addl $4,%esp
+	jmp .L305
+	.align 16
+.L306:
+	testl %esi,%esi
+	jge .L307
+	pushl $14257
+	call _m3_fault
+	.align 16
+.L307:
+	pushl %esi
+	movl 12(%ebp),%eax
+	pushl %eax
+	pushl %ebx
+	movl MI_Value+124,%eax
+	call *%eax
+	movl %eax,%esi
+	movl 8(%ebx),%ebx
+	addl $12,%esp
+.L305:
+	testl %ebx,%ebx
+	jne .L306
+.L284:
+	leal -24(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe26:
+	.size	 ObjectType__FPrinter,.Lfe26-ObjectType__FPrinter
+	.align 16
+	.type	 ObjectType__MethodOffset,@function
+ObjectType__MethodOffset:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %ebx
+	movl 8(%ebp),%eax
+	pushl %eax
+	call ObjectType__Confirm
+	movl %eax,%ebx
+	addl $4,%esp
+	testl %ebx,%ebx
+	je .L312
+	pushl $1
+	pushl %ebx
+	call ObjectType__GetOffsets
+	movl 92(%ebx),%eax
+	jmp .L313
+	.align 16
+.L312:
+	movl $-1,%eax
+.L313:
+	movl -4(%ebp),%ebx
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe27:
+	.size	 ObjectType__MethodOffset,.Lfe27-ObjectType__MethodOffset
+	.align 16
+	.type	 ObjectType__GetFieldOffset,@function
+ObjectType__GetFieldOffset:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%eax
+	movl 12(%ebp),%esi
+	movl 16(%ebp),%edi
+	pushl %eax
+	call ObjectType__Confirm
+	movl %eax,%ebx
+	addl $4,%esp
+	testl %ebx,%ebx
+	jne .L315
+	movl $-1,(%esi)
+	movl $8,(%edi)
+	jmp .L314
+	.align 16
+.L315:
+	pushl $1
+	pushl %ebx
+	call ObjectType__GetOffsets
+	movl 72(%ebx),%eax
+	movl %eax,(%esi)
+	movl 80(%ebx),%eax
+	movl %eax,(%edi)
+.L314:
+	leal -12(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe28:
+	.size	 ObjectType__GetFieldOffset,.Lfe28-ObjectType__GetFieldOffset
+	.align 16
+	.type	 ObjectType__FieldAlignment,@function
+ObjectType__FieldAlignment:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %ebx
+	movl 8(%ebp),%eax
+	pushl %eax
+	call ObjectType__Confirm
+	movl %eax,%ebx
+	addl $4,%esp
+	testl %ebx,%ebx
+	je .L318
+	pushl %ebx
+	call ObjectType__GetSizes
+	movl 80(%ebx),%eax
+	jmp .L319
+	.align 16
+.L318:
+	movl $8,%eax
+.L319:
+	movl -4(%ebp),%ebx
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe29:
+	.size	 ObjectType__FieldAlignment,.Lfe29-ObjectType__FieldAlignment
+	.align 16
+	.type	 ObjectType__GetSizes,@function
+ObjectType__GetSizes:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $4,%esp
+	pushl %ebx
+	movl 8(%ebp),%ebx
+	movb $0,-1(%ebp)
+	cmpl $0,76(%ebx)
+	jge .L320
+	movl 64(%ebx),%eax
+	testl %eax,%eax
+	jne .L322
+	movl %eax,76(%ebx)
+	movl MI_Target+64,%eax
+	movl %eax,80(%ebx)
+	jmp .L320
+	.align 16
+.L322:
+	leal -1(%ebp),%eax
+	pushl %eax
+	leal 80(%ebx),%eax
+	pushl %eax
+	leal 76(%ebx),%eax
+	pushl %eax
+	movl 68(%ebx),%eax
+	pushl %eax
+	movl MI_RecordType+60,%eax
+	call *%eax
+	movl MI_Target+60,%eax
+	pushl %eax
+	movl 76(%ebx),%eax
+	pushl %eax
+	movl MI_RecordType+64,%eax
+	call *%eax
+	movl %eax,76(%ebx)
+.L320:
+	movl -8(%ebp),%ebx
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe30:
+	.size	 ObjectType__GetSizes,.Lfe30-ObjectType__GetSizes
+	.align 16
+	.type	 ObjectType__GetOffsets,@function
+ObjectType__GetOffsets:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $8,%esp
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%esi
+	movl 72(%esi),%eax
+	testl %eax,%eax
+	jge .L324
+	cmpl $-3,%eax
+	je .L327
+	cmpl $-1,%eax
+	je .L324
+	cmpb $0,12(%ebp)
+	je .L324
+.L327:
+	pushl %esi
+	call ObjectType__GetSizes
+	addl $4,%esp
+	cmpl $0,64(%esi)
+	jne .L330
+	movl MI_Target+60,%eax
+	movl %eax,72(%esi)
+	movl MI_Target+96,%eax
+	jmp .L338
+	.align 16
+.L330:
+	cmpb $0,12(%ebp)
+	je .L332
+	movl $-1,72(%esi)
+	movl $-1,92(%esi)
+	jmp .L333
+	.align 16
+.L332:
+	movl $-2,72(%esi)
+	movl $-2,92(%esi)
+.L333:
+	movl 64(%esi),%eax
+	pushl %eax
+	call ObjectType__Confirm
+	movl %eax,%ebx
+	addl $4,%esp
+	testl %ebx,%ebx
+	je .L334
+	xorl %eax,%eax
+	movb 12(%ebp),%al
+	pushl %eax
+	pushl %ebx
+	call ObjectType__GetOffsets
+	movl 72(%ebx),%eax
+	addl $8,%esp
+	testl %eax,%eax
+	jl .L324
+	movl %eax,%edx
+	addl 76(%ebx),%edx
+	movl %edx,72(%esi)
+	movl 80(%esi),%eax
+	pushl %eax
+	pushl %edx
+	movl MI_RecordType+64,%eax
+	call *%eax
+	movl %eax,%edx
+	movl %edx,72(%esi)
+	movl 88(%ebx),%eax
+	addl 92(%ebx),%eax
+	jmp .L338
+	.align 16
+.L334:
+	cmpb $0,12(%ebp)
+	je .L324
+	movl 64(%esi),%eax
+	pushl %eax
+	movl MI_Type+132,%eax
+	call *%eax
+	movl %eax,%edx
+	leal -4(%ebp),%eax
+	pushl %eax
+	leal -8(%ebp),%eax
+	pushl %eax
+	pushl %edx
+	call ObjectType__FindMagic
+	addl $16,%esp
+	testl %eax,%eax
+	je .L324
+	movl 80(%esi),%eax
+	pushl %eax
+	movl -8(%ebp),%eax
+	pushl %eax
+	movl MI_RecordType+64,%eax
+	call *%eax
+	movl %eax,%edx
+	movl %edx,72(%esi)
+	movl -4(%ebp),%eax
+.L338:
+	movl %eax,92(%esi)
+.L324:
+	leal -16(%ebp),%esp
+	popl %ebx
+	popl %esi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe31:
+	.size	 ObjectType__GetOffsets,.Lfe31-ObjectType__GetOffsets
+	.align 16
+	.type	 ObjectType__FindMagic,@function
+ObjectType__FindMagic:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $24,%esp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%ebx
+	movl 12(%ebp),%esi
+	movl 16(%ebp),%edi
+	movl MM_ObjectType+148,%eax
+	testl %eax,%eax
+	jne .L340
+	pushl %eax
+	movl MI_Type+132,%eax
+	call *%eax
+	movl %eax,MM_ObjectType+148
+	movl MI_ObjectRef+44,%eax
+	pushl %eax
+	movl MI_Type+132,%eax
+	call *%eax
+	movl %eax,MM_ObjectType+152
+	movl MI_ObjectAdr+44,%eax
+	pushl %eax
+	movl MI_Type+132,%eax
+	call *%eax
+	movl %eax,MM_ObjectType+156
+	addl $12,%esp
+.L340:
+	cmpl %ebx,MM_ObjectType+148
+	je .L341
+	cmpl %ebx,MM_ObjectType+152
+	je .L341
+	cmpl %ebx,MM_ObjectType+156
+	jne .L342
+.L341:
+	movl MI_Target+60,%eax
+	movl %eax,(%esi)
+	movl MI_Target+96,%eax
+	jmp .L346
+	.align 16
+.L342:
+	movl MI_Host+52,%edx
+	movl (%edx),%eax
+	movl 44(%eax),%ecx
+	leal -12(%ebp),%eax
+	pushl %eax
+	leal -16(%ebp),%eax
+	pushl %eax
+	leal -20(%ebp),%eax
+	pushl %eax
+	leal -24(%ebp),%eax
+	pushl %eax
+	pushl %ebx
+	pushl %edx
+	call *%ecx
+	addl $24,%esp
+	testl %eax,%eax
+	je .L345
+	leal -4(%ebp),%eax
+	pushl %eax
+	leal -8(%ebp),%eax
+	pushl %eax
+	movl -24(%ebp),%eax
+	pushl %eax
+	call ObjectType__FindMagic
+	addl $12,%esp
+	testl %eax,%eax
+	je .L344
+	movl -20(%ebp),%eax
+	addl -8(%ebp),%eax
+	movl %eax,(%esi)
+	movl -16(%ebp),%edx
+	pushl %edx
+	pushl %eax
+	movl MI_RecordType+64,%eax
+	call *%eax
+	movl %eax,(%esi)
+	movl -12(%ebp),%eax
+	addl -4(%ebp),%eax
+.L346:
+	movl %eax,(%edi)
+	movl $1,%eax
+.L344:
+.L345:
+	leal -36(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe32:
+	.size	 ObjectType__FindMagic,.Lfe32-ObjectType__FindMagic
+	.align 16
+	.type	 ObjectType__Confirm,@function
+ObjectType__Confirm:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $20,%esp
+	movl 8(%ebp),%ecx
+	movl $0,-20(%ebp)
+	movl $0,-16(%ebp)
+	movl $0,-12(%ebp)
+	movl $0,-8(%ebp)
+	movl $0,-4(%ebp)
+.L348:
+	leal -20(%ebp),%eax
+	pushl %eax
+	pushl %ecx
+	movl MI_Type+68,%eax
+	call *%eax
+	movl %eax,%ecx
+	xorl %edx,%edx
+	movb -2(%ebp),%dl
+	addl $8,%esp
+	cmpl $8,%edx
+	jne .L349
+	testl %eax,%eax
+	je .L350
+	movl -4(%eax),%eax
+	sall $11,%eax
+	movl %eax,%edx
+	shrl $12,%edx
+	cmpl %edx,MM_ObjectType+296
+	jg .L351
+	movl MM_ObjectType+292,%eax
+	cmpl %edx,4(%eax)
+	jge .L350
+.L351:
+	pushl $16565
+	call _m3_fault
+	.align 16
+.L350:
+	movl %ecx,%eax
+	jmp .L355
+	.align 16
+.L349:
+	cmpl $9,%edx
+	jne .L352
+	pushl %eax
+	movl MI_Revelation+176,%eax
+	call *%eax
+	movl %eax,%ecx
+	addl $4,%esp
+	jmp .L348
+	.align 16
+.L352:
+	xorl %eax,%eax
+.L355:
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe33:
+	.size	 ObjectType__Confirm,.Lfe33-ObjectType__Confirm
+	.align 16
+	.type	 M_ObjectType_t3d255ede_LINK,@function
+M_ObjectType_t3d255ede_LINK:
+	pushl %ebp
+	movl %esp,%ebp
+	movl MM_ObjectType+292,%eax
+	movl %ebp,%esp
+	movl 52(%eax),%edx
+	movl MM_ObjectType+168,%eax
+	movl %eax,4(%edx)
+	movl MM_ObjectType+172,%eax
+	movl %eax,8(%edx)
+	movl MM_ObjectType+212,%eax
+	movl %eax,12(%edx)
+	movl MM_ObjectType+216,%eax
+	movl %eax,16(%edx)
+	movl MM_ObjectType+180,%eax
+	movl %eax,20(%edx)
+	movl MM_ObjectType+220,%eax
+	movl %eax,24(%edx)
+	movl MI_TypeRep+160,%eax
+	movl %eax,28(%edx)
+	movl MI_TypeRep+164,%eax
+	movl %eax,32(%edx)
+	movl MI_TypeRep+168,%eax
+	movl %eax,36(%edx)
+	movl MM_ObjectType+224,%eax
+	movl %eax,40(%edx)
+	popl %ebp
+	ret
+.Lfe34:
+	.size	 M_ObjectType_t3d255ede_LINK,.Lfe34-M_ObjectType_t3d255ede_LINK
+	.align 16
+	.type	 _m3_fault,@function
+_m3_fault:
+	pushl %ebp
+	movl %esp,%ebp
+	movl 8(%ebp),%eax
+	pushl %eax
+	pushl $MM_ObjectType
+	movl MI_RTHooks+108,%eax
+	call *%eax
+	.align 16
+.Lfe35:
+	.size	 _m3_fault,.Lfe35-_m3_fault
+.globl MM_ObjectType
+.data
+	.align 4
+	.type	 MM_ObjectType,@object
+	.size	 MM_ObjectType,2240
+MM_ObjectType:
+	.long MM_ObjectType+1992
+	.long MM_ObjectType+44
+	.long MM_ObjectType+292
+	.zero	8
+	.long MM_ObjectType+1592
+	.zero	28
+	.long 1025859294
+.byte 142
+.byte 228
+.byte 8
+.byte 44
+.byte 80
+.byte 186
+.byte 45
+.byte 17
+	.long 1
+	.zero	4
+	.long 56
+	.long 4
+	.zero	4
+	.long 0
+	.zero	12
+	.long MM_ObjectType+2139
+	.long MM_ObjectType+2156
+	.long MM_ObjectType+2169
+	.zero	4
+	.long M_ObjectType_t3d255ede_LINK
+	.long -2121051098
+	.zero	12
+	.long MM_ObjectType+2211
+	.long MM_ObjectType+2224
+	.zero	16
+	.long ObjectType__ParseMethodList
+	.long ObjectType__PrimaryMethodDeclaration
+	.long ObjectType__Check
+	.long ObjectType__CheckAlign
+	.long ObjectType__CheckTracedFields
+	.long ObjectType__Compiler
+	.long ObjectType__GenFields
+	.long ObjectType__GenMethods
+	.long ObjectType__GenOverrides
+	.long ObjectType__GenTypeMap
+	.long ObjectType__GenTypeDesc
+	.long ObjectType__GenInitProc
+	.long ObjectType__GenLinkProc
+	.long ObjectType__EqualChk
+	.long ObjectType__Subtyper
+	.long ObjectType__InitCoster
+	.long ObjectType__FPrinter
+	.long ObjectType__GetSizes
+	.long ObjectType__GetOffsets
+	.long ObjectType__FindMagic
+	.long ObjectType__Confirm
+	.long ObjectType__Parse
+	.long ObjectType__New
+	.long ObjectType__Is
+	.long ObjectType__IsBranded
+	.long ObjectType__LookUp
+	.long ObjectType__MethodOffset
+	.long ObjectType__GetFieldOffset
+	.long ObjectType__FieldAlignment
+	.long ObjectType__Super
+	.long ObjectType__NoteOffsets
+	.long ObjectType__NoteRefName
+	.long ObjectType__InitTypecell
+	.long MM_ObjectType+1224
+	.long 1025859294
+	.long 2
+	.long MM_ObjectType+312
+	.long 15
+	.ascii	"dangling brand"
+	.zero	2
+	.long 2
+	.long MM_ObjectType+340
+	.long 35
+	.ascii	"default value must begin with ':='"
+	.zero	2
+	.long 2
+	.long MM_ObjectType+388
+	.long 34
+	.ascii	"overrides cannot have a signature"
+	.zero	3
+	.long 2
+	.long MM_ObjectType+436
+	.long 41
+	.ascii	"missing default value in method override"
+	.zero	4
+	.long 2
+	.long MM_ObjectType+492
+	.long 41
+	.ascii	"missing method signature (old override?)"
+	.zero	4
+	.long 2
+	.long MM_ObjectType+548
+	.long 50
+	.ascii	"methods must include a signature or default value"
+	.zero	3
+	.long 2
+	.long MM_ObjectType+612
+	.long 28
+	.ascii	"illegal recursive supertype"
+	.zero	1
+	.long 2
+	.long MM_ObjectType+652
+	.long 34
+	.ascii	"super type must be an object type"
+	.zero	3
+	.long 2
+	.long MM_ObjectType+700
+	.long 24
+	.ascii	"brand is not a constant"
+	.zero	1
+	.long 2
+	.long MM_ObjectType+736
+	.long 29
+	.ascii	"brand is not a TEXT constant"
+	.zero	4
+	.long 2
+	.long MM_ObjectType+780
+	.long 36
+	.ascii	"field and method with the same name"
+	.zero	1
+	.long 2
+	.long MM_ObjectType+828
+	.long 35
+	.ascii	"no method to override in supertype"
+	.zero	2
+	.long 2
+	.long MM_ObjectType+876
+	.long 48
+	.ascii	"unsafe: untraced object contains a traced field"
+	.zero	1
+	.long 2
+	.long MM_ObjectType+936
+	.long 6
+	.ascii	"brand"
+	.zero	3
+	.long 2
+	.long MM_ObjectType+956
+	.long 14
+	.ascii	"type map for "
+	.zero	3
+	.long 2
+	.long MM_ObjectType+984
+	.long 22
+	.ascii	"type description for "
+	.zero	3
+	.long 2
+	.long MM_ObjectType+1020
+	.long 6
+	.ascii	"_INIT"
+	.zero	3
+	.long 2
+	.long MM_ObjectType+1040
+	.long 26
+	.ascii	"link-time setup code for "
+	.zero	3
+	.long 2
+	.long MM_ObjectType+1080
+	.long 6
+	.ascii	"_LINK"
+	.zero	3
+	.long 2
+	.long MM_ObjectType+1100
+	.long 11
+	.ascii	"$objectref"
+	.zero	2
+	.long 2
+	.long MM_ObjectType+1124
+	.long 11
+	.ascii	"$objectadr"
+	.zero	2
+	.long 2
+	.long MM_ObjectType+1148
+	.long 7
+	.ascii	"OBJECT"
+	.zero	2
+	.long 2
+	.long MM_ObjectType+1168
+	.long 10
+	.ascii	"-UNTRACED"
+	.zero	3
+	.long 2
+	.long MM_ObjectType+1192
+	.long 8
+	.ascii	"-BRAND "
+	.zero	1
+	.long 2
+	.long MM_ObjectType+1212
+	.long 9
+	.ascii	" METHODS"
+	.zero	8
+	.long 1942183804
+	.ascii	"Confirm"
+	.zero	1
+	.ascii	"FindMagic"
+	.zero	1
+	.ascii	"GetOffsets"
+	.zero	1
+	.ascii	"GetSizes"
+	.zero	1
+	.ascii	"FieldAlignment"
+	.zero	1
+	.ascii	"GetFieldOffset"
+	.zero	1
+	.ascii	"MethodOffset"
+	.zero	1
+	.ascii	"FPrinter"
+	.zero	1
+	.ascii	"InitCoster"
+	.zero	1
+	.ascii	"Subtyper"
+	.zero	1
+	.ascii	"EqualChk"
+	.zero	1
+	.ascii	"GenLinkProc"
+	.zero	1
+	.ascii	"GenInitProc"
+	.zero	1
+	.ascii	"GenTypeDesc"
+	.zero	1
+	.ascii	"GenTypeMap"
+	.zero	1
+	.ascii	"InitTypecell"
+	.zero	1
+	.ascii	"NoteRefName"
+	.zero	1
+	.ascii	"NoteOffsets"
+	.zero	1
+	.ascii	"GenOverrides"
+	.zero	1
+	.ascii	"GenMethods"
+	.zero	1
+	.ascii	"GenFields"
+	.zero	1
+	.ascii	"Compiler"
+	.zero	1
+	.ascii	"CheckTracedFields"
+	.zero	1
+	.ascii	"CheckAlign"
+	.zero	1
+	.ascii	"Check"
+	.zero	1
+	.ascii	"PrimaryMethodDeclaration"
+	.zero	1
+	.ascii	"LookUp"
+	.zero	1
+	.ascii	"Super"
+	.zero	1
+	.ascii	"IsBranded"
+	.zero	1
+	.ascii	"Is"
+	.zero	1
+	.ascii	"New"
+	.zero	1
+	.ascii	"ParseMethodList"
+	.zero	1
+	.ascii	"Parse"
+	.zero	3
+	.long ObjectType__Confirm
+	.long MM_ObjectType+1232
+	.zero	4
+	.long ObjectType__FindMagic
+	.long MM_ObjectType+1240
+	.zero	4
+	.long ObjectType__GetOffsets
+	.long MM_ObjectType+1250
+	.zero	4
+	.long ObjectType__GetSizes
+	.long MM_ObjectType+1261
+	.zero	4
+	.long ObjectType__FieldAlignment
+	.long MM_ObjectType+1270
+	.long MI_ObjectType+72
+	.long ObjectType__GetFieldOffset
+	.long MM_ObjectType+1285
+	.long MI_ObjectType+68
+	.long ObjectType__MethodOffset
+	.long MM_ObjectType+1300
+	.long MI_ObjectType+64
+	.long ObjectType__FPrinter
+	.long MM_ObjectType+1313
+	.zero	4
+	.long ObjectType__InitCoster
+	.long MM_ObjectType+1322
+	.zero	4
+	.long ObjectType__Subtyper
+	.long MM_ObjectType+1333
+	.zero	4
+	.long ObjectType__EqualChk
+	.long MM_ObjectType+1342
+	.zero	4
+	.long ObjectType__GenLinkProc
+	.long MM_ObjectType+1351
+	.zero	4
+	.long ObjectType__GenInitProc
+	.long MM_ObjectType+1363
+	.zero	4
+	.long ObjectType__GenTypeDesc
+	.long MM_ObjectType+1375
+	.zero	4
+	.long ObjectType__GenTypeMap
+	.long MM_ObjectType+1387
+	.zero	4
+	.long ObjectType__InitTypecell
+	.long MM_ObjectType+1398
+	.long MI_ObjectType+88
+	.long ObjectType__NoteRefName
+	.long MM_ObjectType+1411
+	.long MI_ObjectType+84
+	.long ObjectType__NoteOffsets
+	.long MM_ObjectType+1423
+	.long MI_ObjectType+80
+	.long ObjectType__GenOverrides
+	.long MM_ObjectType+1435
+	.zero	4
+	.long ObjectType__GenMethods
+	.long MM_ObjectType+1448
+	.zero	4
+	.long ObjectType__GenFields
+	.long MM_ObjectType+1459
+	.zero	4
+	.long ObjectType__Compiler
+	.long MM_ObjectType+1469
+	.zero	4
+	.long ObjectType__CheckTracedFields
+	.long MM_ObjectType+1478
+	.zero	4
+	.long ObjectType__CheckAlign
+	.long MM_ObjectType+1496
+	.zero	4
+	.long ObjectType__Check
+	.long MM_ObjectType+1507
+	.zero	4
+	.long ObjectType__PrimaryMethodDeclaration
+	.long MM_ObjectType+1513
+	.zero	4
+	.long ObjectType__LookUp
+	.long MM_ObjectType+1538
+	.long MI_ObjectType+60
+	.long ObjectType__Super
+	.long MM_ObjectType+1545
+	.long MI_ObjectType+76
+	.long ObjectType__IsBranded
+	.long MM_ObjectType+1551
+	.long MI_ObjectType+56
+	.long ObjectType__Is
+	.long MM_ObjectType+1561
+	.long MI_ObjectType+52
+	.long ObjectType__New
+	.long MM_ObjectType+1564
+	.long MI_ObjectType+48
+	.long ObjectType__ParseMethodList
+	.long MM_ObjectType+1568
+	.zero	4
+	.long ObjectType__Parse
+	.long MM_ObjectType+1584
+	.long MI_ObjectType+44
+	.zero	4
+	.ascii	"/home/ftp/tmp/pm3/tmp/pm3-1.1.15/language/modula3/m3compiler"
+	.ascii	"/m3bootstrap/LINUXLIBC6/pm3-LINUXLIBC6/boot-LINUXLIBC6/m3fro"
+	.ascii	"nt/src/types/ObjectType.m3"
+	.zero	1
+.byte 4
+.byte 4
+.byte 4
+.byte 4
+.byte 14
+.byte 14
+.byte 14
+.byte 4
+.byte 14
+.byte 14
+.byte 14
+.byte 4
+.byte 16
+.byte 16
+.byte 35
+.byte 4
+.byte 0
+.byte 4
+.byte 4
+.byte 4
+.byte 4
+.byte 42
+.byte 12
+.byte 4
+.byte 42
+.byte 12
+.byte 4
+.byte 37
+.byte 4
+.byte 0
+.byte 16
+.byte 10
+.byte 15
+.byte 16
+.byte 11
+.byte 185
+.byte 21
+.byte 235
+.byte 16
+.byte 73
+.byte 155
+.byte 79
+.byte 129
+.byte 16
+.byte 38
+.byte 84
+.byte 147
+.byte 129
+.byte 16
+.byte 225
+.byte 46
+.byte 241
+.byte 204
+.byte 7
+.byte 27
+.byte 27
+.byte 26
+.byte 27
+.byte 27
+.byte 27
+.byte 16
+.byte 218
+.byte 241
+.byte 152
+.byte 186
+.byte 2
+.byte 35
+.byte 16
+.byte 116
+.byte 101
+.byte 248
+.byte 80
+	.ascii	"ObjectType.T"
+	.zero	1
+	.ascii	"ObjectType.P"
+	.zero	4
+	.ident	"GCC: (GNU) cygnus-2.7.2-960712"

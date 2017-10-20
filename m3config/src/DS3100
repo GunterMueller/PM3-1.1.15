@@ -1,0 +1,35 @@
+% 
+% Standard configuration file for DECstations running Ultrix.
+%
+
+readonly TARGET = "DS3100"
+
+include("COMMON")
+
+%INSTALL_ROOT = "/usr/local"
+X11ROOT = "/usr/local/lib"
+
+DEBUG_FLAG = "-g2"
+
+readonly PLATFORM_SUPPORTS_MOTIF  = "TRUE"
+
+setDefault("","")
+
+CC = [ "/bin/cc", "-c" ]
+LINK = [ "/bin/cc" ]
+MAKELIB = [ "/bin/ar", "cru" ]
+MAKESHLIB = [ "ld" ]
+RANLIB = [ "/usr/bin/ranlib" ]
+ASM = [ "/bin/as" ]
+FIXOBJ = [ LIB_USE & "/mips-tfile" ]
+
+proc m3_assemble (source, object) is
+  local cmd = [ ASM_CMD, object, source ]
+
+  if Options{"optimization"}[0] cmd += "-O2" end
+  if VERBOSE write(cmd, CR) end
+  local ret = exec (cmd)
+  if not equal(ret, 0) return ret end
+  return exec([FIXOBJ, "-o", object, source])
+end
+

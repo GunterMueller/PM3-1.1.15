@@ -1,0 +1,87 @@
+<HTML>
+<HEAD>
+<TITLE>Modula-3: Text interface</TITLE>
+</HEAD>
+<BODY>
+
+<H1>The Text interface</H1>
+<P>
+
+<PRE>
+INTERFACE Text;
+
+TYPE
+  T = TEXT;
+</PRE>
+<P>A non-nil <TT>TEXT</TT> represents a zero-based sequence of characters.
+<TT>NIL</TT> does not represent any sequence of characters, it will not
+be returned from any procedure in the interface, and it is a checked
+runtime error to pass it to any procedure in the interface.
+
+<PRE>
+PROCEDURE Cat(t, u: T): T;
+</PRE>
+<P>The concatenation of <TT>t</TT> and <TT>u</TT>.
+
+<PRE>
+PROCEDURE Equal(t, u: T): BOOLEAN;
+</PRE>
+<P><TT>TRUE</TT> if <TT>t</TT> and <TT>u</TT> have the same length
+and (case-sensitive) contents. 
+
+<PRE>
+PROCEDURE GetChar(t: T; i: CARDINAL): CHAR;
+</PRE>
+<P>Character <TT>i</TT> of <TT>t</TT>.  A checked runtime error
+if <TT>i &gt;= Length(t)</TT>. 
+
+<PRE>
+PROCEDURE Length(t: T): CARDINAL;
+</PRE>
+<P>The number of characters in <TT>t</TT>. 
+
+<PRE>
+PROCEDURE Empty(t: T): BOOLEAN;
+</PRE>
+<P><TT>TRUE</TT> if <TT>Length(t) = 0</TT>. 
+
+<PRE>
+PROCEDURE Sub(t: T; start, length: CARDINAL): T;
+</PRE>
+<P>Return a subsequence of <TT>t</TT>: empty if <TT>start &gt;= Length(t)</TT> 
+or <TT>length = 0</TT>; otherwise the subsequence ranging from
+<TT>start</TT> to the minimum of <TT>start+length-1</TT> and
+<TT>Length(t)-1</TT>. 
+
+<PRE>
+PROCEDURE SetChars(VAR a: ARRAY OF CHAR; t: T);
+</PRE>
+<P>For each <TT>i</TT> from <TT>0</TT> to <TT>MIN(LAST(a),
+Length(t)-1)</TT>, set <TT>a[i]</TT> to
+<TT>GetChar(t, i)</TT>. 
+
+<PRE>
+PROCEDURE FromChar(ch: CHAR): T;
+</PRE>
+<P>A text containing the single character <TT>ch</TT>. 
+
+<PRE>
+PROCEDURE FromChars(READONLY a: ARRAY OF CHAR): T;
+</PRE>
+<P>A text containing the characters of <TT>a</TT>. 
+
+<PRE>
+PROCEDURE Hash(t: T): INTEGER;
+</PRE>
+<P>Return a hash function of the contents of <TT>t</TT>. 
+
+<PRE>
+END Text.
+</PRE>
+
+<PRE>
+Last modified on Wed Apr  3 09:43:27 PST 1996 by heydon
+     modified on Thu Jun  1 08:12:38 PDT 1995 by kalsow
+</PRE>
+</BODY>
+</HTML>

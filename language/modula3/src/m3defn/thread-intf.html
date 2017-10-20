@@ -1,0 +1,123 @@
+<HTML>
+<HEAD>
+<TITLE>Modula-3: Thread interface</TITLE>
+</HEAD>
+<BODY>
+
+<H1>The Thread interface</H1>
+<P>
+
+If a shared variable is written concurrently by two threads, or written
+by one and read concurrently by another, the effect is to set the
+variable to an implementation-dependent value of its type.
+For example, if one thread writes <TT>a[0]</TT> while another
+concurrently writes <TT>a[1]</TT>, one of the writes might be lost.
+Thus, portable programs must
+use the <TT>Thread</TT> interface to provide mutual exclusion for shared
+variables.
+
+<PRE>
+INTERFACE Thread;
+
+TYPE
+  T &lt;: REFANY;
+  Mutex = MUTEX;
+  Condition &lt;: ROOT;
+  Closure = OBJECT METHODS apply(): REFANY END;
+</PRE>
+<P>A <TT>Thread.T</TT> is a handle on a thread.  A <TT>Mutex</TT> is locked
+by some thread, or unlocked.  A <TT>Condition</TT> is a set of waiting
+threads.  A newly-allocated <TT>Mutex</TT> is unlocked; a newly-allocated
+<TT>Condition</TT> is empty.  It is a checked runtime error to pass the
+<TT>NIL</TT> <TT>Mutex</TT>, <TT>Condition</TT>, or <TT>T</TT> to any
+procedure in this interface.
+
+<PRE>
+PROCEDURE Fork(cl: Closure): T;
+</PRE>
+<P>A handle on a newly-created thread executing <TT>cl.apply()</TT>. 
+
+<PRE>
+PROCEDURE Join(t: T): REFANY;
+</PRE>
+<P>Wait until <TT>t</TT> has terminated and return its result.  It is a
+checked error to call this more than once for any <TT>t</TT>. 
+
+<PRE>
+PROCEDURE Wait(m: Mutex; c: Condition);
+</PRE>
+<P>The calling thread must have <TT>m</TT> locked.  Atomically unlocks 
+<TT>m</TT> and waits on <TT>c</TT>.  Then relocks <TT>m</TT> and returns. 
+
+<PRE>
+PROCEDURE Acquire(m: Mutex);
+</PRE>
+<P>Wait until <TT>m</TT> is unlocked and then lock it. 
+<P>
+
+<PRE>
+PROCEDURE Release(m: Mutex);
+</PRE>
+<P>The calling thread must have <TT>m</TT> locked.  Unlocks <TT>m</TT>. 
+
+<PRE>
+PROCEDURE Broadcast(c: Condition);
+</PRE>
+<P>All threads waiting on <TT>c</TT> become eligible to run.  
+
+<PRE>
+PROCEDURE Signal(c: Condition);
+</PRE>
+<P>One or more threads waiting on <TT>c</TT> become eligible to run. 
+
+<PRE>
+PROCEDURE Self(): T;
+</PRE>
+<P>Return the handle of the calling thread. 
+
+<PRE>
+EXCEPTION Alerted;
+</PRE>
+<P>Used to approximate asynchronous interrupts.
+
+<PRE>
+PROCEDURE Alert(t: T);
+</PRE>
+<P>Mark <TT>t</TT> as an alerted thread. 
+
+<PRE>
+PROCEDURE TestAlert(): BOOLEAN;
+</PRE>
+<P><TT>TRUE</TT> if the calling thread has been marked alerted. 
+
+<PRE>
+PROCEDURE AlertWait(m: Mutex; c: Condition) RAISES {Alerted};
+</PRE>
+<P>Like <TT>Wait</TT>, but if the thread is marked alerted at the time of
+call or sometime during the wait, lock <TT>m</TT> and raise <TT>Alerted</TT>. 
+
+<PRE>
+PROCEDURE AlertJoin(t: T): REFANY RAISES {Alerted};
+</PRE>
+<P>Like <TT>Join</TT>, but if the calling thread is marked alerted at 
+the time of call or sometime during the wait, raise <TT>Alerted</TT>.  
+
+<PRE>
+CONST
+  AtomicSize = ...;
+</PRE>
+<P>An implementation-dependent integer constant: the number of bits in
+a memory-coherent block.  If two components of a record or array fall
+in different blocks, they can be accessed concurrently by different
+threads without locking.
+
+<PRE>
+END Thread.
+</PRE>	
+
+<PRE>
+Last modified on Wed Apr  3 09:38:54 PST 1996 by heydon
+     modified on Thu Jun  1 08:12:48 PDT 1995 by kalsow
+</PRE>
+</BODY>
+</HTML>

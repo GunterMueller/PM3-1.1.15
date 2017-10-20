@@ -1,0 +1,3988 @@
+	.file	"Module.mc"
+	.version	"01.01"
+/ SRC Modula-3 version cygnus-2.7.2-960712 (i486--linuxelf) compiled by GNU C version egcs-2.91.66 19990314/Linux (egcs-1.1.2 release).
+/ options passed:  -fno-strength-reduce -O2
+/ options enabled:  -fdefer-pop -fcse-follow-jumps -fcse-skip-blocks
+/ -fexpensive-optimizations -fthread-jumps -fpeephole -fforce-mem
+/ -ffunction-cse -finline -fkeep-static-consts -fcaller-saves
+/ -fpcc-struct-return -frerun-cse-after-loop -fschedule-insns2 -fcommon
+/ -fverbose-asm -fgnu-linker -m80387 -mhard-float -mno-soft-float -mieee-fp
+/ -mfp-ret-in-387 -mschedule-prologue -mcpu=i486 -march=i486
+
+gcc2_compiled.:
+.text
+	.align 16
+	.type	 Module__Reset,@function
+Module__Reset:
+	pushl %ebp
+	movl %esp,%ebp
+	movl $0,MM_Module+272
+	movl $0,MM_Module+280
+	incl MM_Module+296
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe1:
+	.size	 Module__Reset,.Lfe1-Module__Reset
+	.align 16
+	.type	 Module__Create,@function
+Module__Create:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%ebx
+	movl MM_Module+824,%eax
+	pushl %eax
+	movl MI_RTHooks+80,%eax
+	call *%eax
+	pushl $5
+	pushl %ebx
+	movl %eax,%esi
+	pushl %esi
+	movl MI_ValueRep+148,%eax
+	call *%eax
+	orb $2,30(%esi)
+	movb $1,36(%esi)
+	movb $1,37(%esi)
+	movb $0,38(%esi)
+	movb $0,39(%esi)
+	movl $0,40(%esi)
+	movl $0,44(%esi)
+	movl MI_External+44,%eax
+	call *%eax
+	movl %eax,48(%esi)
+	movl $0,52(%esi)
+	movl $0,56(%esi)
+	movl $0,64(%esi)
+	movl $0,68(%esi)
+	pushl %esi
+	movl MI_Revelation+148,%eax
+	call *%eax
+	movl %eax,60(%esi)
+	movl $0,80(%esi)
+	movl $0,104(%esi)
+	movl MI_Scanner+88,%eax
+	movl %eax,84(%esi)
+	movl $0,88(%esi)
+	movl MM_Module+296,%eax
+	movl %eax,92(%esi)
+	movl $0,96(%esi)
+	movl $0,100(%esi)
+	movl $0,108(%esi)
+	movl $0,112(%esi)
+	movl $0,116(%esi)
+	movb $95,72(%esi)
+	movl $1,%eax
+.L3:
+	movb $48,72(%esi,%eax)
+	incl %eax
+	cmpl $4,%eax
+	jle .L3
+	leal -8(%ebp),%esp
+	movl %esi,%eax
+	popl %ebx
+	popl %esi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe2:
+	.size	 Module__Create,.Lfe2-Module__Create
+	.align 16
+	.type	 Module__Switch,@function
+Module__Switch:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %edi
+	xorl %eax,%eax
+	pushl %esi
+	movl %eax,%esi
+	pushl %ebx
+	movl MM_Module+272,%ebx
+	cmpl $0,8(%ebp)
+	je .L7
+	movl 8(%ebp),%edx
+	movl 112(%edx),%eax
+	movl 116(%edx),%esi
+.L7:
+	pushl %eax
+	movl MI_Type+60,%eax
+	call *%eax
+	movl %eax,%edi
+	pushl %esi
+	movl MI_Value+132,%eax
+	call *%eax
+	testl %ebx,%ebx
+	je .L8
+	movl %edi,112(%ebx)
+	movl %eax,116(%ebx)
+.L8:
+	movl 8(%ebp),%edx
+	movl %edx,MM_Module+272
+	leal -12(%ebp),%esp
+	movl %ebx,%eax
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe3:
+	.size	 Module__Switch,.Lfe3-Module__Switch
+	.align 16
+	.type	 Module__NewDefn,@function
+Module__NewDefn:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $8,%esp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%eax
+	movl 16(%ebp),%esi
+	pushl $0
+	pushl %eax
+	movl MI_M3ID+44,%eax
+	call *%eax
+	pushl %eax
+	call Module__Create
+	movl %eax,%ebx
+	addl $12,%esp
+	cmpl $0,MM_Module+256
+	jne .L10
+	movl 12(%ebx),%eax
+	movl %eax,MM_Module+252
+	movl %ebx,MM_Module+256
+	jmp .L11
+	.align 16
+.L10:
+	movl 12(%ebx),%eax
+	movl %eax,MM_Module+260
+	movl %ebx,MM_Module+264
+.L11:
+	movb 12(%ebp),%dl
+	movb %dl,36(%ebx)
+	pushl %ebx
+	call Module__Switch
+	movl %eax,-8(%ebp)
+	movl 60(%ebx),%eax
+	pushl %eax
+	movl MI_Revelation+152,%eax
+	call *%eax
+	movl %eax,-4(%ebp)
+	movl MI_Scope+44,%eax
+	pushl %eax
+	movl MI_Scope+60,%eax
+	call *%eax
+	pushl $0
+	pushl $1
+	pushl $0
+	movl %eax,%edi
+	pushl $1
+	movl MI_Scope+52,%eax
+	call *%eax
+	movl %eax,52(%ebx)
+	addl $28,%esp
+	testl %esi,%esi
+	je .L12
+	movl %esi,56(%ebx)
+	jmp .L13
+	.align 16
+.L12:
+	pushl %esi
+	pushl $1
+	movl 12(%ebx),%eax
+	pushl %eax
+	pushl $1
+	movl MI_Scope+52,%eax
+	call *%eax
+	movl %eax,56(%ebx)
+	movl MI_Scope+48,%eax
+	call *%eax
+	addl $16,%esp
+.L13:
+	movl MI_Scope+48,%eax
+	call *%eax
+	pushl %edi
+	movl MI_Scope+64,%eax
+	call *%eax
+	movl -4(%ebp),%edx
+	pushl %edx
+	movl MI_Revelation+156,%eax
+	call *%eax
+	pushl %ebx
+	call Module__RecordInterface
+	movl -8(%ebp),%edx
+	pushl %edx
+	call Module__Switch
+	leal -20(%ebp),%esp
+	movl %ebx,%eax
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe4:
+	.size	 Module__NewDefn,.Lfe4-Module__NewDefn
+	.align 16
+	.type	 Module__Parse,@function
+Module__Parse:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $44,%esp
+	pushl %edi
+	leal -12(%ebp),%eax
+	pushl %esi
+	xorl %esi,%esi
+	pushl %ebx
+	movb 8(%ebp),%bl
+	movl %esi,-20(%ebp)
+	movl %esi,-4(%ebp)
+	testb %bl,%bl
+	sete %cl
+	movb %cl,-28(%ebp)
+	pushl %eax
+	leal -8(%ebp),%eax
+	pushl %eax
+	movl MI_Error+80,%eax
+	call *%eax
+	pushl %esi
+	call Module__Create
+	movl %eax,%esi
+	movl 60(%esi),%eax
+	pushl %eax
+	movl MI_Revelation+152,%eax
+	call *%eax
+	movl %eax,-32(%ebp)
+	pushl %esi
+	call Module__Switch
+	movl %eax,-40(%ebp)
+	addl $20,%esp
+	cmpb $37,MI_Scanner+44
+	jne .L15
+	leal -4(%ebp),%eax
+	pushl %eax
+	leal -24(%ebp),%eax
+	pushl %eax
+	movl MI_Decl+48,%eax
+	call *%eax
+	addl $8,%esp
+	movl -24(%ebp),%eax
+	testl %eax,%eax
+	je .L16
+	pushl $MM_Module+836
+	pushl %eax
+	movl MI_Error+52,%eax
+	call *%eax
+	addl $8,%esp
+.L16:
+	movb $1,38(%esi)
+.L15:
+	cmpb $97,MI_Scanner+44
+	jne .L17
+	movb $0,36(%esi)
+	movl MI_Scanner+104,%eax
+	call *%eax
+.L17:
+	cmpb $71,MI_Scanner+44
+	sete %al
+	movb %al,37(%esi)
+	testb %bl,%bl
+	je .L18
+	cmpb $71,MI_Scanner+44
+	jne .L19
+	movl MI_Scanner+104,%eax
+	call *%eax
+	jmp .L20
+	.align 16
+.L19:
+	pushl $MM_Module+880
+	movl MI_Scanner+116,%eax
+	call *%eax
+	addl $4,%esp
+.L20:
+	movb $1,37(%esi)
+	jmp .L21
+	.align 16
+.L18:
+	xorl %eax,%eax
+	movb MI_Scanner+44,%al
+	cmpl $71,%eax
+	je .L22
+	cmpl $76,%eax
+	jne .L23
+.L22:
+	movl MI_Scanner+104,%eax
+	call *%eax
+	jmp .L21
+	.align 16
+.L23:
+	pushl $MM_Module+920
+	movl MI_Scanner+116,%eax
+	call *%eax
+	addl $4,%esp
+.L21:
+	cmpb $0,38(%esi)
+	je .L24
+	cmpb $0,37(%esi)
+	jne .L24
+	pushl $MM_Module+968
+	movl MI_Error+44,%eax
+	call *%eax
+	addl $4,%esp
+.L24:
+	movl MI_Scanner+112,%eax
+	call *%eax
+	movl %eax,-24(%ebp)
+	movl %eax,12(%esi)
+	cmpb $0,37(%esi)
+	je .L25
+	pushl %esi
+	call Module__RecordInterface
+	addl $4,%esp
+	cmpb $0,-28(%ebp)
+	je .L25
+	movl -24(%ebp),%eax
+	pushl %eax
+	call Module__PushInterface
+	incl MM_Module+280
+	addl $4,%esp
+.L25:
+	cmpb $63,MI_Scanner+44
+	jne .L27
+	cmpb $0,37(%esi)
+	je .L28
+	pushl $MM_Module+1016
+	movl MI_Error+44,%eax
+	call *%eax
+	movb $0,37(%esi)
+	addl $4,%esp
+.L28:
+	movl MI_Scanner+104,%eax
+	call *%eax
+	movl MI_Ident+160,%eax
+	call *%eax
+	movl %eax,-36(%ebp)
+	xorl %edi,%edi
+	movl %eax,%ecx
+	decl %ecx
+	movl %ecx,-44(%ebp)
+	jmp .L29
+	.align 16
+.L30:
+	movl MI_Ident+148,%eax
+	testl %eax,%eax
+	jne .L31
+	pushl $3892
+	call _m3_fault
+	.align 16
+.L31:
+	movl %eax,%ebx
+	movl MI_Ident+156,%eax
+	subl -36(%ebp),%eax
+	leal (%edi,%eax),%edx
+	cmpl %edx,4(%ebx)
+	ja .L32
+	pushl $3890
+	call _m3_fault
+	.align 16
+.L32:
+	movl (%ebx),%eax
+	movl (%eax,%edx,4),%eax
+	pushl %eax
+	movl 48(%esi),%eax
+	pushl %eax
+	movl MI_External+48,%eax
+	call *%eax
+	incl %edi
+	addl $8,%esp
+.L29:
+	cmpl %edi,-44(%ebp)
+	jge .L30
+	movl -36(%ebp),%ecx
+	subl %ecx,MI_Ident+156
+	jmp .L34
+	.align 16
+.L27:
+	cmpb $0,37(%esi)
+	jne .L34
+	movl 12(%esi),%eax
+	pushl %eax
+	movl 48(%esi),%eax
+	pushl %eax
+	movl MI_External+48,%eax
+	call *%eax
+	addl $8,%esp
+.L34:
+	xorl %eax,%eax
+	movb MI_Scanner+44,%al
+	cmpl $16,%eax
+	jne .L36
+	movl MI_Scanner+104,%eax
+	call *%eax
+	jmp .L37
+	.align 16
+.L36:
+	cmpl $21,%eax
+	jne .L38
+	movl MI_Scanner+104,%eax
+	call *%eax
+	leal -20(%ebp),%eax
+	pushl %eax
+	pushl %esi
+	call Module__PushGeneric
+	movl %eax,40(%esi)
+	addl $8,%esp
+	jmp .L37
+	.align 16
+.L38:
+	pushl $MM_Module+1072
+	movl MI_Scanner+116,%eax
+	call *%eax
+	addl $4,%esp
+.L37:
+	pushl %esi
+	movl 48(%esi),%eax
+	pushl %eax
+	movl MI_External+56,%eax
+	call *%eax
+	pushl $0
+	pushl $1
+	pushl $0
+	pushl $1
+	movl MI_Scope+52,%eax
+	call *%eax
+	movl %eax,%ebx
+	movl %ebx,52(%esi)
+	pushl %esi
+	movl 48(%esi),%eax
+	pushl %eax
+	movl MI_External+60,%eax
+	call *%eax
+	addl $32,%esp
+	pushl $0
+	pushl $1
+	movl -24(%ebp),%eax
+	pushl %eax
+	pushl $1
+	movl MI_Scope+52,%eax
+	call *%eax
+	movl %eax,56(%esi)
+	addl $16,%esp
+	jmp .L39
+	.align 16
+.L40:
+	leal 80(%esi),%eax
+	pushl %eax
+	pushl $1
+	xorl %eax,%eax
+	movb 37(%esi),%al
+	pushl %eax
+	movl MI_Decl+44,%eax
+	call *%eax
+	addl $12,%esp
+.L39:
+	pushl $MI_Token+60
+	xorl %eax,%eax
+	movb MI_Scanner+44,%al
+	pushl %eax
+	call set_member
+	addl $8,%esp
+	testl %eax,%eax
+	jne .L40
+	movl MI_Scanner+88,%eax
+	movl %eax,84(%esi)
+	cmpb $0,-28(%ebp)
+	je .L42
+	movl MM_Module+1116,%eax
+	pushl %eax
+	movl MI_RTHooks+80,%eax
+	call *%eax
+	movl %eax,%ebx
+	movl %esi,36(%ebx)
+	pushl %esi
+	call Module__Prefix
+	pushl %eax
+	pushl $MM_Module+1128
+	movl MI_RTHooks+76,%eax
+	call *%eax
+	movl %eax,%edx
+	movl %ebx,%eax
+	movl %edx,12(%eax)
+	movl %eax,68(%esi)
+	pushl %eax
+	movl MI_ProcBody+148,%eax
+	call *%eax
+	addl $20,%esp
+.L42:
+	cmpb $0,37(%esi)
+	jne .L43
+	pushl $48
+	movl MI_Scanner+108,%eax
+	call *%eax
+	movl MI_BlockStmt+56,%eax
+	call *%eax
+	movl %eax,108(%esi)
+	movl MI_Stmt+44,%eax
+	call *%eax
+	movl %eax,64(%esi)
+	addl $4,%esp
+.L43:
+	cmpb $0,-28(%ebp)
+	je .L44
+	movl MI_ProcBody+152,%eax
+	call *%eax
+.L44:
+	movl 40(%esi),%eax
+	testl %eax,%eax
+	je .L45
+	pushl %eax
+	call Module__ParseFinalEndID
+	movl MI_Scanner+140,%eax
+	call *%eax
+	addl $4,%esp
+.L45:
+	movl -20(%ebp),%eax
+	pushl %eax
+	movl MI_Host+104,%eax
+	call *%eax
+	movl 12(%esi),%eax
+	pushl %eax
+	call Module__ParseFinalEndID
+	movl MI_Scope+48,%eax
+	call *%eax
+	movl MI_Scope+48,%eax
+	call *%eax
+	movl -32(%ebp),%ecx
+	pushl %ecx
+	movl MI_Revelation+156,%eax
+	call *%eax
+	addl $12,%esp
+	cmpb $0,37(%esi)
+	je .L46
+	cmpb $0,-28(%ebp)
+	je .L46
+	decl MM_Module+280
+.L46:
+	movl -40(%ebp),%ecx
+	pushl %ecx
+	call Module__Switch
+	leal -12(%ebp),%eax
+	pushl %eax
+	leal -16(%ebp),%eax
+	pushl %eax
+	movl MI_Error+80,%eax
+	call *%eax
+	movl -8(%ebp),%eax
+	cmpl %eax,-16(%ebp)
+	jle .L47
+	movb $1,39(%esi)
+.L47:
+	leal -56(%ebp),%esp
+	movl %esi,%eax
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe5:
+	.size	 Module__Parse,.Lfe5-Module__Parse
+	.align 16
+	.type	 Module__PushGeneric,@function
+Module__PushGeneric:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $40,%esp
+	pushl %edi
+	pushl %esi
+	leal -8(%ebp),%eax
+	pushl %ebx
+	movl 12(%ebp),%ebx
+	movl $0,-12(%ebp)
+	movl $0,-40(%ebp)
+	movl -40(%ebp),%edi
+	movl %edi,-4(%ebp)
+	movl MI_Scanner+88,%esi
+	pushl %eax
+	leal -4(%ebp),%eax
+	pushl %eax
+	movl MI_Scanner+124,%eax
+	call *%eax
+	movl MI_Scanner+112,%eax
+	call *%eax
+	movl %eax,-32(%ebp)
+	addl $8,%esp
+	testl %eax,%eax
+	je .L72
+	call Module__ParseGenericArgs
+	movl %eax,-28(%ebp)
+	leal -12(%ebp),%eax
+	pushl %eax
+	pushl $1
+	movl 8(%ebp),%edi
+	xorl %eax,%eax
+	movb 37(%edi),%al
+	pushl %eax
+	movl -32(%ebp),%edi
+	pushl %edi
+	movl MI_Host+100,%eax
+	call *%eax
+	movl %eax,%edx
+	movl %edx,(%ebx)
+	addl $16,%esp
+	testl %edx,%edx
+	jne .L50
+	pushl $MM_Module+1148
+	pushl %edi
+	movl MI_Error+52,%eax
+	call *%eax
+	movl -40(%ebp),%eax
+	jmp .L71
+	.align 16
+.L50:
+	pushl $MM_Module+1184
+	movl -4(%ebp),%eax
+	pushl %eax
+	movl MI_RTHooks+76,%eax
+	call *%eax
+	movl %eax,%edx
+	movl -12(%ebp),%eax
+	pushl %eax
+	pushl %edx
+	movl MI_RTHooks+76,%eax
+	call *%eax
+	movl %eax,%edx
+	movl %edx,-12(%ebp)
+	xorl %eax,%eax
+	movb MI_Scanner+100,%al
+	pushl %eax
+	movl (%ebx),%eax
+	pushl %eax
+	pushl %edx
+	movl MI_Scanner+136,%eax
+	call *%eax
+	movl 8(%ebp),%edi
+	movl -12(%ebp),%eax
+	movl %eax,44(%edi)
+	pushl $67
+	movl MI_Scanner+108,%eax
+	call *%eax
+	addl $32,%esp
+	cmpb $0,37(%edi)
+	je .L51
+	pushl $71
+	jmp .L73
+	.align 16
+.L51:
+	pushl $76
+.L73:
+	movl MI_Scanner+108,%eax
+	call *%eax
+	addl $4,%esp
+	movl MI_Scanner+112,%eax
+	call *%eax
+	movl %eax,%ebx
+	testl %ebx,%ebx
+	je .L53
+	cmpl %ebx,-32(%ebp)
+	je .L53
+	pushl $MM_Module+1204
+	pushl %ebx
+	movl MI_Error+52,%eax
+	call *%eax
+	movl %ebx,-32(%ebp)
+	addl $8,%esp
+.L53:
+	call Module__ParseGenericArgs
+	movl %eax,-20(%ebp)
+	pushl $16
+	movl MI_Scanner+108,%eax
+	call *%eax
+	addl $4,%esp
+	movl -20(%ebp),%edi
+	cmpl %edi,-28(%ebp)
+	je .L55
+	movl MI_Scanner+88,%eax
+	movl %eax,-8(%ebp)
+	movl %esi,MI_Scanner+88
+	pushl $MM_Module+1248
+	movl MI_Error+44,%eax
+	call *%eax
+	movl -8(%ebp),%eax
+	movl %eax,MI_Scanner+88
+	addl $4,%esp
+.L55:
+	movl MI_Ident+156,%edi
+	subl -20(%ebp),%edi
+	movl %edi,-16(%ebp)
+	subl -28(%ebp),%edi
+	movl %edi,-24(%ebp)
+	movl -20(%ebp),%edi
+	cmpl %edi,-28(%ebp)
+	jle .L56
+	movl -28(%ebp),%ebx
+	jmp .L74
+	.align 16
+.L56:
+	movl -20(%ebp),%ebx
+.L74:
+	decl %ebx
+	xorl %esi,%esi
+	movl %ebx,-36(%ebp)
+	jmp .L58
+	.align 16
+.L59:
+	cmpl %esi,-20(%ebp)
+	jle .L60
+	movl MI_Ident+148,%eax
+	testl %eax,%eax
+	jne .L61
+	pushl $6036
+	call _m3_fault
+	.align 16
+.L61:
+	movl %eax,%edx
+	movl -16(%ebp),%ecx
+	addl %esi,%ecx
+	cmpl %ecx,4(%edx)
+	ja .L65
+	pushl $6034
+	call _m3_fault
+	.align 16
+.L60:
+	movl MI_Ident+148,%eax
+	testl %eax,%eax
+	jne .L64
+	pushl $6052
+	call _m3_fault
+	.align 16
+.L64:
+	movl %eax,%edx
+	movl -24(%ebp),%ecx
+	addl %esi,%ecx
+	cmpl %ecx,4(%edx)
+	ja .L65
+	pushl $6050
+	call _m3_fault
+	.align 16
+.L65:
+	movl (%edx),%eax
+	movl (%eax,%ecx,4),%ebx
+	cmpl %esi,-28(%ebp)
+	jle .L66
+	movl MI_Ident+148,%eax
+	testl %eax,%eax
+	jne .L67
+	pushl $6100
+	call _m3_fault
+	.align 16
+.L67:
+	movl %eax,%edx
+	movl -24(%ebp),%ecx
+	addl %esi,%ecx
+	cmpl %ecx,4(%edx)
+	ja .L68
+	pushl $6098
+	call _m3_fault
+	.align 16
+.L68:
+	movl (%edx),%eax
+	movl (%eax,%ecx,4),%eax
+	jmp .L69
+	.align 16
+.L66:
+	movl %ebx,%eax
+.L69:
+	pushl $0
+	pushl %eax
+	call Module__LookUp
+	movl %eax,-40(%ebp)
+	pushl %ebx
+	movl -40(%ebp),%edi
+	pushl %edi
+	movl 8(%ebp),%edi
+	movl 48(%edi),%eax
+	pushl %eax
+	movl MI_External+52,%eax
+	call *%eax
+	incl %esi
+	addl $20,%esp
+.L58:
+	cmpl %esi,-36(%ebp)
+	jge .L59
+	movl -28(%ebp),%eax
+	addl -20(%ebp),%eax
+	subl %eax,MI_Ident+156
+.L72:
+	movl -32(%ebp),%eax
+.L71:
+	leal -52(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe6:
+	.size	 Module__PushGeneric,.Lfe6-Module__PushGeneric
+	.align 16
+	.type	 Module__ParseGenericArgs,@function
+Module__ParseGenericArgs:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %ebx
+	pushl $17
+	movl MI_Scanner+108,%eax
+	xorl %ebx,%ebx
+	call *%eax
+	addl $4,%esp
+	cmpb $1,MI_Scanner+44
+	jne .L76
+	movl MI_Ident+160,%eax
+	call *%eax
+	movl %eax,%ebx
+.L76:
+	pushl $29
+	movl MI_Scanner+108,%eax
+	call *%eax
+	movl %ebx,%eax
+	movl -4(%ebp),%ebx
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe7:
+	.size	 Module__ParseGenericArgs,.Lfe7-Module__ParseGenericArgs
+	.align 16
+	.type	 Module__ParseFinalEndID,@function
+Module__ParseFinalEndID:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %ebx
+	movl 8(%ebp),%ebx
+	pushl $58
+	movl MI_Scanner+108,%eax
+	call *%eax
+	movl MI_Scanner+112,%eax
+	call *%eax
+	addl $4,%esp
+	cmpl %eax,%ebx
+	je .L78
+	pushl $MM_Module+1320
+	pushl %eax
+	movl MI_Error+52,%eax
+	call *%eax
+	addl $8,%esp
+.L78:
+	pushl $14
+	movl MI_Scanner+108,%eax
+	call *%eax
+	addl $4,%esp
+	cmpb $0,MI_Scanner+44
+	je .L77
+	pushl $MM_Module+1380
+	movl MI_Scanner+116,%eax
+	call *%eax
+.L77:
+	movl -4(%ebp),%ebx
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe8:
+	.size	 Module__ParseFinalEndID,.Lfe8-Module__ParseFinalEndID
+	.align 16
+	.type	 Module__PushInterface,@function
+Module__PushInterface:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%esi
+	movl MM_Module+280,%eax
+	cmpl $200,%eax
+	jbe .L81
+	pushl $6737
+	call _m3_fault
+	.align 16
+.L81:
+	movl %esi,L_1(,%eax,4)
+	xorl %ebx,%ebx
+	jmp .L82
+	.align 16
+.L83:
+	incl %ebx
+.L82:
+	cmpl $200,%ebx
+	jbe .L84
+	pushl $6753
+	call _m3_fault
+	.align 16
+.L84:
+	cmpl %esi,L_1(,%ebx,4)
+	jne .L83
+	cmpl %ebx,MM_Module+280
+	jne .L86
+	movl $1,%eax
+	jmp .L92
+	.align 16
+.L86:
+	cmpl $0,MM_Module+284
+	jne .L87
+	movl MI_M3Buf+44,%eax
+	call *%eax
+	movl %eax,MM_Module+284
+.L87:
+	pushl %esi
+	movl MM_Module+284,%eax
+	pushl %eax
+	movl MI_M3ID+64,%eax
+	call *%eax
+	incl %ebx
+	movl MM_Module+280,%esi
+	jmp .L93
+	.align 16
+.L89:
+	pushl $MM_Module+1416
+	movl MM_Module+284,%eax
+	pushl %eax
+	movl MI_M3Buf+52,%eax
+	call *%eax
+	addl $8,%esp
+	cmpl $200,%ebx
+	jbe .L90
+	pushl $6865
+	call _m3_fault
+	.align 16
+.L90:
+	movl L_1(,%ebx,4),%eax
+	pushl %eax
+	movl MM_Module+284,%eax
+	pushl %eax
+	movl MI_M3ID+64,%eax
+	call *%eax
+	incl %ebx
+.L93:
+	addl $8,%esp
+	cmpl %esi,%ebx
+	jle .L89
+	movl MM_Module+284,%eax
+	pushl %eax
+	movl MI_M3Buf+72,%eax
+	call *%eax
+	pushl $MM_Module+1436
+	pushl %eax
+	movl MI_Error+60,%eax
+	call *%eax
+	xorl %eax,%eax
+.L92:
+	leal -8(%ebp),%esp
+	popl %ebx
+	popl %esi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe9:
+	.size	 Module__PushInterface,.Lfe9-Module__PushInterface
+	.align 16
+	.type	 Module__LookUp,@function
+Module__LookUp:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $28,%esp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	xorl %ebx,%ebx
+	movl %ebx,-28(%ebp)
+	movl %ebx,-24(%ebp)
+	movl %ebx,-20(%ebp)
+	movl %ebx,-16(%ebp)
+	movl %ebx,-12(%ebp)
+	movl %ebx,-8(%ebp)
+	movl %ebx,-4(%ebp)
+	cmpb $0,12(%ebp)
+	jne .L95
+	movl 8(%ebp),%ecx
+	pushl %ecx
+	call Module__PushInterface
+	addl $4,%esp
+	testl %eax,%eax
+	je .L106
+.L95:
+	movl MI_Host+52,%eax
+	movl (%eax),%edx
+	movl 8(%ebp),%ecx
+	movl 52(%edx),%edx
+	pushl %ecx
+	pushl %eax
+	call *%edx
+	movl %eax,%edx
+	addl $8,%esp
+	testl %edx,%edx
+	je .L97
+	movl -4(%edx),%eax
+	sall $11,%eax
+	movl %eax,%ebx
+	shrl $12,%ebx
+	cmpl %ebx,MM_Module+828
+	jg .L98
+	movl MM_Module+824,%eax
+	cmpl %ebx,4(%eax)
+	jge .L97
+.L98:
+	pushl $7173
+	call _m3_fault
+	.align 16
+.L97:
+	movl %edx,%ebx
+	testl %ebx,%ebx
+	je .L99
+	cmpb $0,39(%ebx)
+	je .L100
+	pushl $MM_Module+1468
+	movl 8(%ebp),%ecx
+	pushl %ecx
+	movl MI_Error+52,%eax
+	call *%eax
+	addl $8,%esp
+.L100:
+	pushl %ebx
+	call Module__MakeCurrent
+	addl $4,%esp
+	jmp .L101
+	.align 16
+.L99:
+	leal -28(%ebp),%eax
+	pushl %eax
+	pushl %ebx
+	pushl $1
+	movl 8(%ebp),%ecx
+	pushl %ecx
+	movl MI_Host+100,%eax
+	call *%eax
+	movl %eax,%edi
+	addl $16,%esp
+	testl %edi,%edi
+	jne .L102
+	pushl $MM_Module+1516
+	jmp .L108
+	.align 16
+.L102:
+	pushl %ebx
+	pushl %edi
+	movl -28(%ebp),%eax
+	pushl %eax
+	movl MI_Scanner+136,%eax
+	call *%eax
+	incl MM_Module+280
+	pushl $1
+	call Module__Parse
+	movl %eax,%ebx
+	movl MI_Scanner+140,%eax
+	decl MM_Module+280
+	call *%eax
+	pushl %edi
+	movl MI_Host+104,%eax
+	call *%eax
+	xorl %edi,%edi
+	addl $20,%esp
+	testl %ebx,%ebx
+	jne .L103
+	pushl $MM_Module+1556
+	jmp .L108
+	.align 16
+.L103:
+	movl 8(%ebp),%ecx
+	cmpl %ecx,12(%ebx)
+	je .L104
+	movl MI_Scanner+88,%esi
+	movl 4(%ebx),%eax
+	movl %eax,MI_Scanner+88
+	pushl $MM_Module+1604
+	jmp .L109
+	.align 16
+.L104:
+	cmpb $0,37(%ebx)
+	jne .L105
+	movl MI_Scanner+88,%esi
+	movl 4(%ebx),%eax
+	movl %eax,MI_Scanner+88
+	pushl $MM_Module+1652
+	movl 8(%ebp),%ecx
+.L109:
+	pushl %ecx
+	movl MI_Error+52,%eax
+	call *%eax
+	movl %esi,MI_Scanner+88
+	movl %edi,%eax
+	jmp .L107
+	.align 16
+.L105:
+	pushl %ebx
+	call Module__RecordInterface
+	leal -24(%ebp),%eax
+	pushl %eax
+	pushl %ebx
+	movl MI_Value+44,%eax
+	call *%eax
+	addl $12,%esp
+.L101:
+	movl MM_Module+272,%eax
+	testl %eax,%eax
+	je .L106
+	cmpb $0,36(%eax)
+	je .L106
+	cmpb $0,36(%ebx)
+	jne .L106
+	cmpb $0,12(%ebp)
+	jne .L106
+	pushl $MM_Module+1700
+.L108:
+	movl 8(%ebp),%ecx
+	pushl %ecx
+	movl MI_Error+52,%eax
+	call *%eax
+.L106:
+	movl %ebx,%eax
+.L107:
+	leal -40(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe10:
+	.size	 Module__LookUp,.Lfe10-Module__LookUp
+	.align 16
+	.type	 Module__MakeCurrent,@function
+Module__MakeCurrent:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %ebx
+	movl 8(%ebp),%ebx
+	testl %ebx,%ebx
+	je .L110
+	movl MM_Module+296,%eax
+	cmpl %eax,92(%ebx)
+	jge .L110
+	movl %eax,92(%ebx)
+	movl $0,100(%ebx)
+	andb $127,30(%ebx)
+	movb 31(%ebx),%al
+	orb $8,%al
+	andb $239,%al
+	movb %al,31(%ebx)
+	movl 116(%ebx),%eax
+	pushl %eax
+	movl MI_Value+136,%eax
+	call *%eax
+	movl 60(%ebx),%eax
+	pushl %eax
+	movl MI_Revelation+184,%eax
+	call *%eax
+	movl MI_Module+128,%eax
+	pushl %eax
+	movl 48(%ebx),%eax
+	pushl %eax
+	movl MI_External+92,%eax
+	call *%eax
+.L110:
+	movl -4(%ebp),%ebx
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe11:
+	.size	 Module__MakeCurrent,.Lfe11-Module__MakeCurrent
+	.align 16
+	.type	 Module__RecordInterface,@function
+Module__RecordInterface:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %ebx
+	movl 8(%ebp),%ebx
+	testl %ebx,%ebx
+	je .L112
+	movl 12(%ebx),%ecx
+	testl %ecx,%ecx
+	je .L112
+	cmpl %ecx,MM_Module+252
+	jne .L115
+	cmpl %ebx,MM_Module+256
+	jne .L112
+.L115:
+	cmpl %ecx,MM_Module+260
+	jne .L116
+	cmpl %ebx,MM_Module+264
+	jne .L112
+.L116:
+	movl MI_Host+52,%eax
+	movl (%eax),%edx
+	movl 48(%edx),%edx
+	pushl %ebx
+	pushl %ecx
+	pushl %eax
+	call *%edx
+.L112:
+	movl -4(%ebp),%ebx
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe12:
+	.size	 Module__RecordInterface,.Lfe12-Module__RecordInterface
+	.align 16
+	.type	 Module__ImportRevelations,@function
+Module__ImportRevelations:
+	pushl %ebp
+	movl %esp,%ebp
+	movl 8(%ebp),%edx
+	movl 12(%ebp),%eax
+	pushl %eax
+	movl 60(%edx),%eax
+	pushl %eax
+	movl MI_Revelation+164,%eax
+	call *%eax
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe13:
+	.size	 Module__ImportRevelations,.Lfe13-Module__ImportRevelations
+	.align 16
+	.type	 Module__TypeCheckMethod,@function
+Module__TypeCheckMethod:
+	pushl %ebp
+	movl %esp,%ebp
+	movl 8(%ebp),%edx
+	movl 12(%ebp),%eax
+	pushl %eax
+	pushl $0
+	pushl %edx
+	call Module__TypeCheck
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe14:
+	.size	 Module__TypeCheckMethod,.Lfe14-Module__TypeCheckMethod
+	.align 16
+	.type	 Module__TypeCheck,@function
+Module__TypeCheck:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $32,%esp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%ebx
+	movl $0,-28(%ebp)
+	movl -28(%ebp),%edx
+	movl %edx,-20(%ebp)
+	movl %edx,-16(%ebp)
+	xorl %eax,%eax
+	movb 30(%ebx),%al
+	movl %eax,%edi
+	andl $1,%edi
+	jne .L119
+	leal -8(%ebp),%edx
+	movl %edx,-32(%ebp)
+	pushl %edx
+	leal -4(%ebp),%eax
+	pushl %eax
+	movl MI_Error+80,%eax
+	call *%eax
+	pushl %ebx
+	call Module__Switch
+	movl %eax,%esi
+	movl %esi,-28(%ebp)
+	movb MI_Scanner+100,%dl
+	movb %dl,-24(%ebp)
+	movb 12(%ebp),%dl
+	movb %dl,MI_Scanner+100
+	movl 60(%ebx),%eax
+	pushl %eax
+	movl MI_Revelation+152,%eax
+	call *%eax
+	movl %eax,%esi
+	leal -20(%ebp),%eax
+	pushl %eax
+	movl 52(%ebx),%eax
+	pushl %eax
+	call Module__SoftPush
+	movl 16(%ebp),%eax
+	pushl %eax
+	movl 52(%ebx),%eax
+	pushl %eax
+	movl MI_Scope+92,%eax
+	call *%eax
+	addl $32,%esp
+	leal -16(%ebp),%eax
+	pushl %eax
+	movl 56(%ebx),%eax
+	pushl %eax
+	call Module__SoftPush
+	movl 80(%ebx),%eax
+	pushl %eax
+	movl MI_ESet+92,%eax
+	call *%eax
+	pushl $1
+	movl 80(%ebx),%eax
+	pushl %eax
+	pushl %edi
+	movl 16(%ebp),%eax
+	pushl %eax
+	movl MI_ESet+96,%eax
+	call *%eax
+	movl 60(%ebx),%eax
+	pushl %eax
+	movl MI_Revelation+168,%eax
+	call *%eax
+	addl $32,%esp
+	movl 16(%ebp),%eax
+	pushl %eax
+	movl 56(%ebx),%eax
+	pushl %eax
+	movl MI_Scope+92,%eax
+	call *%eax
+	addl $8,%esp
+	cmpb $0,37(%ebx)
+	jne .L121
+	movl 16(%ebp),%eax
+	pushl %eax
+	movl 108(%ebx),%eax
+	pushl %eax
+	movl MI_BlockStmt+60,%eax
+	call *%eax
+	movl 16(%ebp),%eax
+	pushl %eax
+	movl 64(%ebx),%eax
+	pushl %eax
+	movl MI_Stmt+48,%eax
+	call *%eax
+	addl $16,%esp
+.L121:
+	pushl $1
+	movl 80(%ebx),%eax
+	pushl %eax
+	pushl %edi
+	movl 16(%ebp),%eax
+	pushl %eax
+	movl MI_ESet+100,%eax
+	call *%eax
+	movl -16(%ebp),%eax
+	pushl %eax
+	movl 56(%ebx),%eax
+	pushl %eax
+	call Module__SoftPop
+	movl -20(%ebp),%eax
+	pushl %eax
+	movl 52(%ebx),%eax
+	pushl %eax
+	call Module__SoftPop
+	addl $32,%esp
+	pushl %esi
+	movl MI_Revelation+156,%eax
+	call *%eax
+	pushl %ebx
+	call Module__CheckDuplicates
+	addl $8,%esp
+	cmpb $0,12(%ebp)
+	je .L122
+	pushl %ebx
+	call Module__NoteVisibility
+	movl 52(%ebx),%eax
+	pushl %eax
+	movl MI_Scope+96,%eax
+	call *%eax
+	movl 56(%ebx),%eax
+	pushl %eax
+	movl MI_Scope+96,%eax
+	call *%eax
+	addl $12,%esp
+.L122:
+	movl -32(%ebp),%edx
+	pushl %edx
+	leal -12(%ebp),%esi
+	pushl %esi
+	movl MI_Error+80,%eax
+	call *%eax
+	movl -4(%ebp),%eax
+	addl $8,%esp
+	cmpl %eax,-12(%ebp)
+	jle .L123
+	movb $1,39(%ebx)
+.L123:
+	pushl %ebx
+	call Module__SetGlobals
+	movb -24(%ebp),%dl
+	movb %dl,MI_Scanner+100
+	movl -28(%ebp),%edx
+	pushl %edx
+	call Module__Switch
+	movl -32(%ebp),%edx
+	pushl %edx
+	pushl %esi
+	movl MI_Error+80,%eax
+	call *%eax
+	movl -4(%ebp),%eax
+	cmpl %eax,-12(%ebp)
+	jle .L124
+	movb $1,39(%ebx)
+.L124:
+	movl %ebx,%esi
+	andw $61440,28(%esi)
+	orb $1,30(%esi)
+.L119:
+	leal -44(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe15:
+	.size	 Module__TypeCheck,.Lfe15-Module__TypeCheck
+	.align 16
+	.type	 Module__SoftPush,@function
+Module__SoftPush:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %ebx
+	movl 8(%ebp),%eax
+	movl 12(%ebp),%ebx
+	testl %eax,%eax
+	je .L125
+	pushl %eax
+	movl MI_Scope+60,%eax
+	call *%eax
+	movl %eax,(%ebx)
+.L125:
+	movl -4(%ebp),%ebx
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe16:
+	.size	 Module__SoftPush,.Lfe16-Module__SoftPush
+	.align 16
+	.type	 Module__SoftPop,@function
+Module__SoftPop:
+	pushl %ebp
+	movl %esp,%ebp
+	movl 12(%ebp),%eax
+	cmpl $0,8(%ebp)
+	je .L127
+	pushl %eax
+	movl MI_Scope+64,%eax
+	call *%eax
+.L127:
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe17:
+	.size	 Module__SoftPop,.Lfe17-Module__SoftPop
+	.align 16
+	.type	 Module__SetGlobals,@function
+Module__SetGlobals:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%esi
+	movl 56(%esi),%eax
+	pushl %eax
+	movl MI_Scope+84,%eax
+	call *%eax
+	movl %eax,%ebx
+	addl $4,%esp
+	cmpb $0,39(%esi)
+	jne .L129
+	cmpb $0,MI_Host+56
+	jne .L131
+	cmpb $0,MI_Host+73
+	je .L132
+	cmpb $0,MI_Scanner+100
+	je .L132
+.L131:
+	pushl $0
+	pushl $MM_Module+1764
+	movl MI_Target+816,%eax
+	pushl %eax
+	pushl %eax
+	call Module__Out
+	pushl %esi
+	call Module__Prefix
+	pushl $0
+	movl %eax,%edx
+	pushl $0
+	movl MI_Target+816,%eax
+	pushl %eax
+	pushl %edx
+	call Module__Out
+	addl $36,%esp
+.L132:
+	movl 96(%esi),%eax
+	testl %eax,%eax
+	jne .L133
+	pushl %eax
+	pushl $MM_Module+1796
+	movl MI_Target+64,%eax
+	pushl %eax
+	movl MI_M3RT+352,%eax
+	pushl %eax
+	call Module__Allocate
+	addl $16,%esp
+.L133:
+	movl MI_Type+96,%eax
+	call *%eax
+	jmp .L134
+	.align 16
+.L135:
+	movl 4(%ebx),%eax
+	pushl %eax
+	movl MI_Type+100,%eax
+	call *%eax
+	pushl %ebx
+	movl MI_Value+52,%eax
+	call *%eax
+	movl 8(%ebx),%ebx
+	addl $8,%esp
+.L134:
+	testl %ebx,%ebx
+	jne .L135
+	pushl $2147483647
+	movl MI_Type+100,%eax
+	call *%eax
+.L129:
+	leal -8(%ebp),%esp
+	popl %ebx
+	popl %esi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe18:
+	.size	 Module__SetGlobals,.Lfe18-Module__SetGlobals
+	.align 16
+	.type	 Module__Allocate,@function
+Module__Allocate:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $8,%esp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%esi
+	movl 12(%ebp),%ebx
+.L138:
+	movl $5,-4(%ebp)
+	movl RTThread__handlerStack,%eax
+	movl %eax,-8(%ebp)
+	leal -8(%ebp),%edx
+	movl %edx,RTThread__handlerStack
+	movl %ebx,%eax
+	movl $8,%ebx
+	cmpl %ebx,%eax
+	jle .L139
+	movl %eax,%ebx
+.L139:
+	leal 7(%ebx),%eax
+	movl %eax,%ebx
+	andb $248,%bl
+	leal 7(%esi),%eax
+	movl %eax,%esi
+	andl $-8,%esi
+	movl MM_Module+272,%eax
+	movl 96(%eax),%eax
+	addl %ebx,%eax
+	decl %eax
+	pushl %eax
+	pushl %ebx
+	call m3_div
+	movl %eax,%edi
+	imull %ebx,%edi
+	movl MM_Module+272,%eax
+	leal (%esi,%edi),%edx
+	addl $8,%esp
+	movl %edx,96(%eax)
+	cmpb $0,MI_Host+56
+	jne .L141
+	cmpb $0,MI_Host+73
+	je .L142
+	cmpb $0,MI_Scanner+100
+	je .L142
+.L141:
+	pushl $6
+	movl %edi,%eax
+	sarl $3,%eax
+	pushl %eax
+	call Module__OutI
+	pushl $6
+	movl %esi,%eax
+	sarl $3,%eax
+	pushl %eax
+	call Module__OutI
+	pushl $3
+	movl %ebx,%eax
+	sarl $3,%eax
+	pushl %eax
+	call Module__OutI
+	pushl $0
+	pushl $0
+	movl 16(%ebp),%edx
+	pushl %edx
+	pushl $MM_Module+744
+	call Module__Out
+	addl $40,%esp
+	cmpl $0,20(%ebp)
+	je .L143
+	movl 20(%ebp),%edx
+	pushl %edx
+	movl MM_Module+344,%eax
+	pushl %eax
+	movl MI_M3ID+64,%eax
+	call *%eax
+	addl $8,%esp
+.L143:
+	pushl $0
+	pushl $0
+	pushl $0
+	movl MI_Target+816,%eax
+	pushl %eax
+	call Module__Out
+.L142:
+	movl -8(%ebp),%eax
+	movl %eax,RTThread__handlerStack
+	movl %edi,%eax
+.L144:
+	leal -20(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe19:
+	.size	 Module__Allocate,.Lfe19-Module__Allocate
+	.align 16
+	.type	 Module__OutI,@function
+Module__OutI:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%edi
+	movl $10,%ebx
+	movl 12(%ebp),%esi
+	decl %esi
+	cmpl $0,MM_Module+344
+	jne .L147
+	movl MI_M3Buf+44,%eax
+	call *%eax
+	movl %eax,MM_Module+344
+	jmp .L147
+	.align 16
+.L148:
+	decl %esi
+	leal (%ebx,%ebx,4),%eax
+	movl %eax,%ebx
+	addl %eax,%ebx
+.L147:
+	testl %esi,%esi
+	jle .L151
+	cmpl %ebx,%edi
+	jge .L148
+	cmpl $5,%esi
+	jbe .L152
+	pushl $10513
+	call _m3_fault
+	.align 16
+.L152:
+	movl MM_Module+348(,%esi,4),%eax
+	pushl %eax
+	movl MM_Module+344,%eax
+	pushl %eax
+	movl MI_M3Buf+52,%eax
+	call *%eax
+	addl $8,%esp
+.L151:
+	pushl %edi
+	movl MM_Module+344,%eax
+	pushl %eax
+	movl MI_M3Buf+56,%eax
+	call *%eax
+	leal -12(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe20:
+	.size	 Module__OutI,.Lfe20-Module__OutI
+	.align 16
+	.type	 Module__Out,@function
+Module__Out:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%ebx
+	movl 12(%ebp),%esi
+	movl 16(%ebp),%edi
+	cmpl $0,MM_Module+344
+	jne .L154
+	movl MI_M3Buf+44,%eax
+	call *%eax
+	movl %eax,MM_Module+344
+.L154:
+	testl %ebx,%ebx
+	je .L155
+	pushl %ebx
+	movl MM_Module+344,%eax
+	pushl %eax
+	movl MI_M3Buf+52,%eax
+	call *%eax
+	addl $8,%esp
+.L155:
+	testl %esi,%esi
+	je .L156
+	pushl %esi
+	movl MM_Module+344,%eax
+	pushl %eax
+	movl MI_M3Buf+52,%eax
+	call *%eax
+	addl $8,%esp
+.L156:
+	testl %edi,%edi
+	je .L157
+	pushl %edi
+	movl MM_Module+344,%eax
+	pushl %eax
+	movl MI_M3Buf+52,%eax
+	call *%eax
+	addl $8,%esp
+.L157:
+	cmpl $0,20(%ebp)
+	je .L153
+	movl 20(%ebp),%edx
+	pushl %edx
+	movl MM_Module+344,%eax
+	pushl %eax
+	movl MI_M3Buf+52,%eax
+	call *%eax
+.L153:
+	leal -12(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe21:
+	.size	 Module__Out,.Lfe21-Module__Out
+	.align 16
+	.type	 Module__CheckDuplicates,@function
+Module__CheckDuplicates:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $4,%esp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%edi
+	movl MI_Scanner+88,%edx
+	movl MI_M3ID+68,%eax
+	movl %edx,-4(%ebp)
+	call *%eax
+	movl 52(%edi),%eax
+	pushl %eax
+	movl MI_Scope+84,%eax
+	call *%eax
+	movl %eax,%ebx
+	jmp .L171
+	.align 16
+.L161:
+	movl 12(%ebx),%eax
+	pushl %eax
+	movl MI_M3ID+72,%eax
+	call *%eax
+	movl 8(%ebx),%ebx
+.L171:
+	addl $4,%esp
+	testl %ebx,%ebx
+	jne .L161
+	movl 56(%edi),%eax
+	pushl %eax
+	movl MI_Scope+84,%eax
+	call *%eax
+	movl %eax,%ebx
+	addl $4,%esp
+	jmp .L163
+	.align 16
+.L164:
+	movl 12(%ebx),%eax
+	pushl %eax
+	movl MI_M3ID+72,%eax
+	call *%eax
+	addl $4,%esp
+	testl %eax,%eax
+	je .L165
+	pushl $1
+	movl 12(%ebx),%eax
+	pushl %eax
+	movl 52(%edi),%eax
+	pushl %eax
+	movl MI_Scope+76,%eax
+	call *%eax
+	movl %eax,%esi
+	addl $12,%esp
+	testl %esi,%esi
+	je .L165
+	pushl %esi
+	movl MI_External+84,%eax
+	call *%eax
+	addl $4,%esp
+	testl %eax,%eax
+	je .L167
+	pushl %ebx
+	movl MI_Value+80,%eax
+	call *%eax
+	addl $4,%esp
+	cmpl $4,%eax
+	jne .L167
+	pushl %esi
+	movl MI_Value+80,%eax
+	call *%eax
+	addl $4,%esp
+	cmpl $4,%eax
+	je .L168
+.L167:
+	movl 4(%ebx),%eax
+	movl %eax,MI_Scanner+88
+	pushl $MM_Module+1824
+	movl 12(%ebx),%eax
+	pushl %eax
+	movl MI_Error+52,%eax
+	call *%eax
+	addl $8,%esp
+	jmp .L165
+	.align 16
+.L168:
+	pushl %esi
+	pushl %ebx
+	movl MI_Procedure+76,%eax
+	call *%eax
+	pushl %ebx
+	pushl %esi
+	movl MI_External+88,%eax
+	call *%eax
+	addl $16,%esp
+.L165:
+	movl 8(%ebx),%ebx
+.L163:
+	testl %ebx,%ebx
+	jne .L164
+	movl -4(%ebp),%edx
+	leal -16(%ebp),%esp
+	movl %edx,MI_Scanner+88
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe22:
+	.size	 Module__CheckDuplicates,.Lfe22-Module__CheckDuplicates
+.section	.rodata
+	.align 4
+	.type	 L_6.0,@object
+	.size	 L_6.0,40
+L_6.0:
+	.long .L175
+	.long .L175
+	.long .L175
+	.long .L175
+	.long .L176
+	.long .L177
+	.long .L178
+	.long .L178
+	.long .L178
+	.long .L177
+.text
+	.align 16
+	.type	 Module__NoteVisibility,@function
+Module__NoteVisibility:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%esi
+	movl 56(%esi),%eax
+	pushl %eax
+	movl MI_Scope+84,%eax
+	call *%eax
+	movl %eax,%ebx
+	addl $4,%esp
+	jmp .L173
+	.align 16
+.L174:
+	pushl %ebx
+	movl MI_Value+80,%eax
+	call *%eax
+	addl $4,%esp
+	jmp *L_6.0(,%eax,4)
+	.align 16
+.L177:
+	jmp .L179
+	.align 16
+.L175:
+	cmpb $0,37(%esi)
+	je .L179
+	xorl %eax,%eax
+	movb 31(%ebx),%al
+	testb $8,%al
+	je .L181
+	pushl $11536
+	call _m3_fault
+	.align 16
+.L181:
+	orb $48,%al
+	movb %al,31(%ebx)
+	jmp .L179
+	.align 16
+.L176:
+	testb $8,31(%ebx)
+	je .L182
+	pushl $11632
+	call _m3_fault
+	.align 16
+.L182:
+	cmpb $0,37(%esi)
+	je .L179
+	orb $128,30(%ebx)
+	movb 31(%ebx),%al
+	orb $16,%al
+	andl $247,%eax
+	orb $32,%al
+	movb %al,31(%ebx)
+	jmp .L179
+	.align 16
+.L178:
+	pushl $11856
+	call _m3_fault
+	.align 16
+.L179:
+	movl 8(%ebx),%ebx
+.L173:
+	testl %ebx,%ebx
+	jne .L174
+	leal -8(%ebp),%esp
+	popl %ebx
+	popl %esi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe23:
+	.size	 Module__NoteVisibility,.Lfe23-Module__NoteVisibility
+	.align 16
+	.type	 Module__IsSafe,@function
+Module__IsSafe:
+	pushl %ebp
+	movl %esp,%ebp
+	movl $1,%eax
+	movl MM_Module+272,%edx
+	testl %edx,%edx
+	je .L187
+	cmpb $0,36(%edx)
+	setne %al
+	andl $255,%eax
+.L187:
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe24:
+	.size	 Module__IsSafe,.Lfe24-Module__IsSafe
+	.align 16
+	.type	 Module__IsInterface,@function
+Module__IsInterface:
+	pushl %ebp
+	movl %esp,%ebp
+	movl $1,%eax
+	movl MM_Module+272,%edx
+	testl %edx,%edx
+	je .L189
+	cmpb $0,37(%edx)
+	setne %al
+	andl $255,%eax
+.L189:
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe25:
+	.size	 Module__IsInterface,.Lfe25-Module__IsInterface
+	.align 16
+	.type	 Module__IsExternal,@function
+Module__IsExternal:
+	pushl %ebp
+	movl %esp,%ebp
+	xorl %eax,%eax
+	movl MM_Module+272,%edx
+	testl %edx,%edx
+	je .L191
+	cmpb $0,38(%edx)
+	setne %al
+	andl $255,%eax
+.L191:
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe26:
+	.size	 Module__IsExternal,.Lfe26-Module__IsExternal
+	.align 16
+	.type	 Module__GetImports,@function
+Module__GetImports:
+	pushl %ebp
+	movl %esp,%ebp
+	movl 8(%ebp),%eax
+	movl 48(%eax),%eax
+	pushl %eax
+	movl MI_External+72,%eax
+	call *%eax
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe27:
+	.size	 Module__GetImports,.Lfe27-Module__GetImports
+	.align 16
+	.type	 Module__ExportScope,@function
+Module__ExportScope:
+	pushl %ebp
+	movl %esp,%ebp
+	movl 8(%ebp),%eax
+	testl %eax,%eax
+	je .L194
+	movl 56(%eax),%eax
+.L194:
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe28:
+	.size	 Module__ExportScope,.Lfe28-Module__ExportScope
+	.align 16
+	.type	 Module__Compile,@function
+Module__Compile:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $8,%esp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%ebx
+	pushl %ebx
+	call Module__Switch
+	movl %eax,-4(%ebp)
+	movl 4(%ebx),%eax
+	movl %eax,MI_Scanner+88
+	movl 60(%ebx),%eax
+	pushl %eax
+	movl MI_Revelation+152,%eax
+	call *%eax
+	movl %eax,%edi
+	movl 56(%ebx),%eax
+	pushl %eax
+	movl MI_Scope+60,%eax
+	call *%eax
+	movl %eax,-8(%ebp)
+	movl MI_WebInfo+44,%eax
+	call *%eax
+	pushl $0
+	movl MI_CG+56,%eax
+	call *%eax
+	movl 4(%ebx),%eax
+	pushl %eax
+	movl MI_CG+72,%eax
+	call *%eax
+	movl MI_Host+52,%edx
+	movl (%edx),%eax
+	movl 12(%eax),%ecx
+	xorl %eax,%eax
+	movb 37(%ebx),%al
+	pushl %eax
+	movl 12(%ebx),%eax
+	pushl %eax
+	pushl %edx
+	call *%ecx
+	addl $32,%esp
+	pushl %ebx
+	call Module__DeclareGlobalData
+	addl $4,%esp
+	movl 68(%ebx),%eax
+	testl %eax,%eax
+	je .L197
+	pushl %eax
+	call Module__EmitDecl
+	addl $4,%esp
+.L197:
+	movl MI_Type+136,%eax
+	call *%eax
+	cmpb $0,37(%ebx)
+	je .L198
+	pushl %ebx
+	call Module__CompileInterface
+	jmp .L201
+	.align 16
+.L198:
+	pushl %ebx
+	call Module__CompileModule
+.L201:
+	addl $4,%esp
+	movl MM_Module+344,%eax
+	testl %eax,%eax
+	je .L200
+	pushl %eax
+	movl MI_M3Buf+72,%eax
+	call *%eax
+	pushl $0
+	movl %eax,%ecx
+	pushl %ecx
+	movl MI_Target+816,%eax
+	pushl %eax
+	pushl $MM_Module+1856
+	pushl $-1
+	movl MI_CG+788,%eax
+	call *%eax
+	movl $0,MM_Module+344
+	addl $24,%esp
+.L200:
+	movl MI_CG+60,%eax
+	call *%eax
+	movl MI_WebInfo+48,%eax
+	call *%eax
+	movl MI_Host+52,%edx
+	movl %eax,%ecx
+	movl (%edx),%eax
+	movl 64(%eax),%eax
+	pushl %ecx
+	pushl %edx
+	call *%eax
+	movl -8(%ebp),%esi
+	pushl %esi
+	movl MI_Scope+64,%eax
+	call *%eax
+	pushl %edi
+	movl MI_Revelation+156,%eax
+	call *%eax
+	movl -4(%ebp),%esi
+	pushl %esi
+	call Module__Switch
+	leal -20(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe29:
+	.size	 Module__Compile,.Lfe29-Module__Compile
+	.align 16
+	.type	 Module__CompileInterface,@function
+Module__CompileInterface:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $16,%esp
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%esi
+	movl $0,-4(%ebp)
+	movl 12(%esi),%eax
+	pushl %eax
+	movl MI_CG+68,%eax
+	call *%eax
+	movl MI_Host+52,%edx
+	movl (%edx),%eax
+	movl 20(%eax),%ecx
+	pushl $0
+	movl 12(%esi),%eax
+	pushl %eax
+	pushl %edx
+	call *%ecx
+	addl $16,%esp
+	movl 40(%esi),%ebx
+	testl %ebx,%ebx
+	je .L203
+	movl MI_Host+52,%edx
+	movl (%edx),%eax
+	movl 24(%eax),%ecx
+	pushl %ebx
+	pushl %edx
+	call *%ecx
+	addl $8,%esp
+.L203:
+	movl 48(%esi),%eax
+	pushl %eax
+	movl MI_External+64,%eax
+	call *%eax
+	movl 48(%esi),%eax
+	pushl %eax
+	movl MI_External+68,%eax
+	call *%eax
+	movl 52(%esi),%eax
+	pushl %eax
+	movl MI_Scope+100,%eax
+	call *%eax
+	movl 56(%esi),%eax
+	pushl %eax
+	movl MI_Scope+100,%eax
+	call *%eax
+	leal -8(%ebp),%eax
+	pushl %eax
+	leal -12(%ebp),%eax
+	pushl %eax
+	movl 60(%esi),%eax
+	pushl %eax
+	movl MI_Revelation+172,%eax
+	call *%eax
+	leal -4(%ebp),%eax
+	pushl %eax
+	leal -16(%ebp),%eax
+	pushl %eax
+	movl MI_ProcBody+164,%eax
+	call *%eax
+	addl $36,%esp
+	movl 56(%esi),%eax
+	pushl %eax
+	movl MI_Variable+108,%eax
+	call *%eax
+	movl %eax,%edx
+	movl -4(%ebp),%eax
+	pushl %eax
+	movl -8(%ebp),%eax
+	pushl %eax
+	movl -12(%ebp),%eax
+	pushl %eax
+	pushl %edx
+	movl -16(%ebp),%eax
+	pushl %eax
+	pushl %esi
+	call Module__GenLinkerInfo
+	leal -24(%ebp),%esp
+	popl %ebx
+	popl %esi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe30:
+	.size	 Module__CompileInterface,.Lfe30-Module__CompileInterface
+	.align 16
+	.type	 Module__CompileModule,@function
+Module__CompileModule:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $16,%esp
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%ebx
+	movl $0,-4(%ebp)
+	movl 40(%ebx),%ecx
+	testl %ecx,%ecx
+	je .L205
+	movl MI_Host+52,%eax
+	movl (%eax),%edx
+	movl 24(%edx),%edx
+	pushl %ecx
+	pushl %eax
+	call *%edx
+	addl $8,%esp
+.L205:
+	movl 48(%ebx),%eax
+	pushl %eax
+	movl MI_External+64,%eax
+	call *%eax
+	movl 52(%ebx),%eax
+	pushl %eax
+	movl MI_Scope+100,%eax
+	call *%eax
+	movl 56(%ebx),%eax
+	pushl %eax
+	movl MI_Scope+100,%eax
+	call *%eax
+	leal -8(%ebp),%eax
+	pushl %eax
+	leal -12(%ebp),%eax
+	pushl %eax
+	movl 60(%ebx),%eax
+	pushl %eax
+	movl MI_Revelation+172,%eax
+	call *%eax
+	movl MI_Coverage+52,%eax
+	call *%eax
+	leal -4(%ebp),%eax
+	pushl %eax
+	leal -16(%ebp),%eax
+	pushl %eax
+	movl MI_ProcBody+164,%eax
+	call *%eax
+	addl $32,%esp
+	movl 56(%ebx),%eax
+	pushl %eax
+	movl MI_Variable+108,%eax
+	call *%eax
+	movl %eax,%esi
+	movl 48(%ebx),%eax
+	pushl %eax
+	movl MI_External+68,%eax
+	call *%eax
+	movl -4(%ebp),%eax
+	pushl %eax
+	movl -8(%ebp),%eax
+	pushl %eax
+	movl -12(%ebp),%eax
+	pushl %eax
+	pushl %esi
+	movl -16(%ebp),%eax
+	pushl %eax
+	pushl %ebx
+	call Module__GenLinkerInfo
+	leal -24(%ebp),%esp
+	popl %ebx
+	popl %esi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe31:
+	.size	 Module__CompileModule,.Lfe31-Module__CompileModule
+	.align 16
+	.type	 Module__DeclareGlobalData,@function
+Module__DeclareGlobalData:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %ebx
+	movl 8(%ebp),%ebx
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $MM_Module+1880
+	pushl $-1
+	movl MI_CG+788,%eax
+	call *%eax
+	pushl %ebx
+	call Module__Prefix
+	pushl $0
+	pushl %eax
+	movl MI_M3ID+44,%eax
+	call *%eax
+	addl $32,%esp
+	pushl $-1
+	pushl %eax
+	movl MI_CG+184,%eax
+	call *%eax
+	movl %eax,100(%ebx)
+	movl -4(%ebp),%ebx
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe32:
+	.size	 Module__DeclareGlobalData,.Lfe32-Module__DeclareGlobalData
+	.align 16
+	.type	 Module__GlobalData,@function
+Module__GlobalData:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%ebx
+	testl %ebx,%ebx
+	jne .L208
+	movl MM_Module+272,%ebx
+.L208:
+	movl MM_Module+296,%eax
+	cmpl %eax,92(%ebx)
+	jge .L209
+	pushl $14064
+	call _m3_fault
+	.align 16
+.L209:
+	movl 100(%ebx),%esi
+	testl %esi,%esi
+	jne .L210
+	pushl %ebx
+	call Module__Prefix
+	pushl %esi
+	pushl %eax
+	movl MI_M3ID+44,%eax
+	call *%eax
+	movl %eax,%ecx
+	movl 96(%ebx),%edx
+	addl $12,%esp
+	testl %edx,%edx
+	jge .L211
+	pushl $14113
+	call _m3_fault
+	.align 16
+.L211:
+	pushl $-1
+	pushl $14
+	movl MI_Target+64,%eax
+	pushl %eax
+	pushl %edx
+	pushl %ecx
+	movl MI_CG+180,%eax
+	call *%eax
+	movl %eax,100(%ebx)
+.L210:
+	leal -8(%ebp),%esp
+	movl 100(%ebx),%eax
+	popl %ebx
+	popl %esi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe33:
+	.size	 Module__GlobalData,.Lfe33-Module__GlobalData
+	.align 16
+	.type	 Module__NeedMain,@function
+Module__NeedMain:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%esi
+	cmpl $0,64(%esi)
+	jne .L222
+	movl 52(%esi),%eax
+	pushl %eax
+	movl MI_Scope+84,%eax
+	call *%eax
+	movl %eax,%ebx
+	addl $4,%esp
+	jmp .L214
+	.align 16
+.L215:
+	pushl %ebx
+	movl MI_Value+68,%eax
+	call *%eax
+	addl $4,%esp
+	testl %eax,%eax
+	jne .L222
+	movl 8(%ebx),%ebx
+.L214:
+	testl %ebx,%ebx
+	jne .L215
+	movl 56(%esi),%eax
+	pushl %eax
+	movl MI_Scope+84,%eax
+	call *%eax
+	movl %eax,%ebx
+	addl $4,%esp
+	jmp .L218
+	.align 16
+.L219:
+	pushl %ebx
+	movl MI_Value+68,%eax
+	call *%eax
+	addl $4,%esp
+	testl %eax,%eax
+	jne .L222
+	movl 8(%ebx),%ebx
+.L218:
+	testl %ebx,%ebx
+	jne .L219
+	movl 48(%esi),%eax
+	pushl %eax
+	movl MI_External+76,%eax
+	call *%eax
+	testl %eax,%eax
+	je .L223
+.L222:
+	movl $1,%eax
+.L223:
+	leal -8(%ebp),%esp
+	popl %ebx
+	popl %esi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe34:
+	.size	 Module__NeedMain,.Lfe34-Module__NeedMain
+	.align 16
+	.type	 Module__EmitDecl,@function
+Module__EmitDecl:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%edi
+	movl 36(%edi),%ebx
+	movl 16(%edi),%esi
+	testl %esi,%esi
+	jne .L224
+	pushl %ebx
+	call Module__NeedMain
+	addl $4,%esp
+	testl %eax,%eax
+	je .L224
+	movl 84(%ebx),%eax
+	movl %eax,MI_Scanner+88
+	movl 84(%ebx),%eax
+	pushl %eax
+	movl MI_CG+72,%eax
+	call *%eax
+	pushl %esi
+	movl 12(%edi),%eax
+	pushl %eax
+	movl MI_M3ID+44,%eax
+	call *%eax
+	pushl %esi
+	movl %eax,%edx
+	pushl %esi
+	movl MI_Target+752,%eax
+	pushl %eax
+	pushl %esi
+	pushl $15
+	pushl %esi
+	pushl %edx
+	movl MI_CG+292,%eax
+	call *%eax
+	movl %eax,16(%edi)
+.L224:
+	leal -12(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe35:
+	.size	 Module__EmitDecl,.Lfe35-Module__EmitDecl
+	.align 16
+	.type	 Module__EmitBody,@function
+Module__EmitBody:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%esi
+	movl 36(%esi),%ebx
+	cmpl $0,16(%esi)
+	je .L227
+	movl 56(%ebx),%eax
+	pushl %eax
+	movl MI_Scope+60,%eax
+	call *%eax
+	pushl $0
+	movl %eax,%edi
+	pushl $0
+	movl 12(%esi),%eax
+	pushl %eax
+	pushl $MM_Module+1912
+	pushl $-1
+	movl MI_CG+788,%eax
+	call *%eax
+	movl 84(%ebx),%eax
+	movl %eax,MI_Scanner+88
+	movl 84(%ebx),%eax
+	pushl %eax
+	movl MI_CG+72,%eax
+	call *%eax
+	movl 16(%esi),%eax
+	pushl %eax
+	movl MI_CG+296,%eax
+	call *%eax
+	addl $32,%esp
+	movl 52(%ebx),%eax
+	pushl %eax
+	movl MI_Scope+104,%eax
+	call *%eax
+	movl 56(%ebx),%eax
+	pushl %eax
+	movl MI_Scope+104,%eax
+	call *%eax
+	movl 48(%ebx),%eax
+	pushl %eax
+	movl MI_External+80,%eax
+	call *%eax
+	movl 108(%ebx),%eax
+	pushl %eax
+	movl MI_Tracer+152,%eax
+	call *%eax
+	movl 64(%ebx),%eax
+	pushl %eax
+	movl MI_Stmt+52,%eax
+	call *%eax
+	movl 108(%ebx),%eax
+	pushl %eax
+	movl MI_Tracer+156,%eax
+	call *%eax
+	pushl $15
+	movl MI_CG+360,%eax
+	call *%eax
+	movl 16(%esi),%eax
+	pushl %eax
+	movl MI_CG+300,%eax
+	call *%eax
+	addl $32,%esp
+	pushl %edi
+	movl MI_Scope+64,%eax
+	call *%eax
+.L227:
+	leal -12(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe36:
+	.size	 Module__EmitBody,.Lfe36-Module__EmitBody
+	.align 16
+	.type	 Module__GenLinkerInfo,@function
+Module__GenLinkerInfo:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $12,%esp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl $0,-8(%ebp)
+	movl 8(%ebp),%ecx
+	movl MI_Marker+112,%eax
+	movl 100(%ecx),%edi
+	call *%eax
+	movl %eax,%ebx
+	movl 8(%ebp),%ecx
+	movl %ebx,-12(%ebp)
+	movl 4(%ecx),%eax
+	movl %eax,MI_Scanner+88
+	movl 44(%ecx),%eax
+	testl %eax,%eax
+	je .L230
+	pushl %eax
+	movl MI_CG+284,%eax
+	call *%eax
+	movl %eax,%ebx
+	addl $4,%esp
+	jmp .L231
+	.align 16
+.L230:
+	leal -4(%ebp),%eax
+	pushl %eax
+	leal -8(%ebp),%eax
+	pushl %eax
+	movl MI_Scanner+124,%eax
+	call *%eax
+	movl -8(%ebp),%eax
+	pushl %eax
+	movl MI_CG+284,%eax
+	call *%eax
+	movl %eax,%ebx
+	addl $12,%esp
+.L231:
+	pushl %ebx
+	pushl %edi
+	movl MI_M3RT+308,%eax
+	pushl %eax
+	movl MI_CG+268,%eax
+	call *%eax
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $MM_Module+1944
+	pushl %ebx
+	movl MI_CG+788,%eax
+	call *%eax
+	movl MI_Type+172,%eax
+	addl $32,%esp
+	call *%eax
+	movl %eax,%ebx
+	movl MI_Type+176,%eax
+	movl %ebx,%esi
+	call *%eax
+	movl %eax,%ebx
+	testl %esi,%esi
+	je .L232
+	pushl %esi
+	pushl %edi
+	movl MI_M3RT+312,%eax
+	pushl %eax
+	movl MI_CG+268,%eax
+	call *%eax
+	addl $12,%esp
+.L232:
+	testl %ebx,%ebx
+	je .L233
+	pushl %ebx
+	pushl %edi
+	movl MI_M3RT+316,%eax
+	pushl %eax
+	movl MI_CG+268,%eax
+	call *%eax
+	addl $12,%esp
+.L233:
+	cmpl $0,20(%ebp)
+	je .L234
+	movl 20(%ebp),%ecx
+	pushl %ecx
+	pushl %edi
+	movl MI_M3RT+320,%eax
+	pushl %eax
+	movl MI_CG+268,%eax
+	call *%eax
+	addl $12,%esp
+.L234:
+	cmpl $0,24(%ebp)
+	je .L235
+	movl 24(%ebp),%ecx
+	pushl %ecx
+	pushl %edi
+	movl MI_M3RT+324,%eax
+	pushl %eax
+	movl MI_CG+268,%eax
+	call *%eax
+	addl $12,%esp
+.L235:
+	cmpl $0,12(%ebp)
+	je .L236
+	movl 12(%ebp),%ecx
+	pushl %ecx
+	pushl %edi
+	movl MI_M3RT+328,%eax
+	pushl %eax
+	movl MI_CG+268,%eax
+	call *%eax
+	addl $12,%esp
+.L236:
+	cmpl $0,-12(%ebp)
+	je .L237
+	movl -12(%ebp),%ecx
+	pushl %ecx
+	pushl %edi
+	movl MI_M3RT+332,%eax
+	pushl %eax
+	movl MI_CG+268,%eax
+	call *%eax
+	addl $12,%esp
+.L237:
+	cmpl $0,16(%ebp)
+	jle .L238
+	movl 16(%ebp),%ecx
+	pushl %ecx
+	pushl %edi
+	movl MI_M3RT+336,%eax
+	pushl %eax
+	movl MI_CG+268,%eax
+	call *%eax
+	movl 16(%ebp),%ecx
+	pushl %ecx
+	pushl %edi
+	movl MI_M3RT+340,%eax
+	pushl %eax
+	movl MI_CG+268,%eax
+	call *%eax
+	addl $24,%esp
+.L238:
+	cmpl $0,28(%ebp)
+	je .L239
+	pushl $0
+	movl 8(%ebp),%ecx
+	xorl %eax,%eax
+	movb 37(%ecx),%al
+	movl MM_Module+560(,%eax,4),%eax
+	pushl %eax
+	movl MI_M3ID+44,%eax
+	call *%eax
+	movl %eax,%ebx
+	call Module__InitProcType
+	movl %eax,%esi
+	pushl %esi
+	movl MI_Target+60,%eax
+	pushl %eax
+	movl MI_M3RT+344,%eax
+	pushl %eax
+	pushl %ebx
+	movl MI_CG+108,%eax
+	call *%eax
+	movl 28(%ebp),%ecx
+	pushl %ecx
+	movl MI_M3RT+344,%eax
+	pushl %eax
+	movl MI_CG+260,%eax
+	call *%eax
+	addl $32,%esp
+.L239:
+	movl 8(%ebp),%ecx
+	movl 68(%ecx),%eax
+	testl %eax,%eax
+	je .L240
+	cmpl $0,16(%eax)
+	je .L240
+	pushl $0
+	xorl %eax,%eax
+	movb 37(%ecx),%al
+	movl MM_Module+568(,%eax,4),%eax
+	pushl %eax
+	movl MI_M3ID+44,%eax
+	call *%eax
+	movl %eax,%esi
+	call Module__InitProcType
+	movl %eax,%ebx
+	pushl %ebx
+	movl MI_Target+60,%eax
+	pushl %eax
+	movl MI_M3RT+348,%eax
+	pushl %eax
+	pushl %esi
+	movl MI_CG+108,%eax
+	call *%eax
+	movl 8(%ebp),%ecx
+	movl 68(%ecx),%eax
+	movl 16(%eax),%eax
+	pushl %eax
+	movl MI_M3RT+348,%eax
+	pushl %eax
+	movl MI_CG+260,%eax
+	call *%eax
+	addl $32,%esp
+.L240:
+	pushl $0
+	pushl $MM_Module+1968
+	movl MI_Target+64,%eax
+	pushl %eax
+	pushl $0
+	call Module__Allocate
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $MM_Module+1988
+	pushl $-1
+	movl MI_CG+788,%eax
+	call *%eax
+	movl 8(%ebp),%ecx
+	addl $36,%esp
+	movl 96(%ecx),%eax
+	testl %eax,%eax
+	jge .L241
+	pushl $16337
+	call _m3_fault
+	.align 16
+.L241:
+	pushl %eax
+	movl MI_CG+112,%eax
+	call *%eax
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $MM_Module+1880
+	pushl $-1
+	movl MI_CG+788,%eax
+	call *%eax
+	movl 8(%ebp),%ecx
+	addl $24,%esp
+	movl 96(%ecx),%edx
+	testl %edx,%edx
+	jge .L242
+	pushl $16401
+	call _m3_fault
+	.align 16
+.L242:
+	pushl $1
+	pushl $1
+	pushl $14
+	movl MI_CG+44,%eax
+	pushl %eax
+	pushl %edx
+	movl 8(%ebp),%ecx
+	movl 100(%ecx),%eax
+	pushl %eax
+	movl MI_CG+188,%eax
+	call *%eax
+	leal -24(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe37:
+	.size	 Module__GenLinkerInfo,.Lfe37-Module__GenLinkerInfo
+	.align 16
+	.type	 Module__InitProcType,@function
+Module__InitProcType:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $8,%esp
+	pushl %ebx
+	cmpl $0,MM_Module+268
+	jne .L244
+	leal -8(%ebp),%ebx
+	pushl %ebx
+	pushl $MM_Module+2028
+	movl MI_M3FP+60,%eax
+	call *%eax
+	pushl %ebx
+	movl MI_M3FP+80,%eax
+	call *%eax
+	movl %eax,MM_Module+268
+.L244:
+	movl MM_Module+268,%eax
+	movl -12(%ebp),%ebx
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe38:
+	.size	 Module__InitProcType,.Lfe38-Module__InitProcType
+	.align 16
+	.type	 Module__AddFPTag,@function
+Module__AddFPTag:
+	pushl %ebp
+	movl %esp,%ebp
+	movl 8(%ebp),%edx
+	pushl $0
+	pushl $0
+	xorl %eax,%eax
+	movb 37(%edx),%al
+	movl MM_Module+656(,%eax,4),%eax
+	pushl %eax
+	movl 12(%ebp),%eax
+	pushl %eax
+	pushl %edx
+	movl MI_ValueRep+152,%eax
+	call *%eax
+	xorl %eax,%eax
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe39:
+	.size	 Module__AddFPTag,.Lfe39-Module__AddFPTag
+	.align 16
+	.type	 Module__FPType,@function
+Module__FPType:
+	pushl %ebp
+	movl %esp,%ebp
+	xorl %eax,%eax
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe40:
+	.size	 Module__FPType,.Lfe40-Module__FPType
+	.align 16
+	.type	 Module__Current,@function
+Module__Current:
+	pushl %ebp
+	movl %esp,%ebp
+	movl MM_Module+272,%eax
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe41:
+	.size	 Module__Current,.Lfe41-Module__Current
+	.align 16
+	.type	 Module__Name,@function
+Module__Name:
+	pushl %ebp
+	movl %esp,%ebp
+	movl 8(%ebp),%eax
+	testl %eax,%eax
+	jne .L252
+	movl MM_Module+272,%eax
+	testl %eax,%eax
+	je .L250
+.L252:
+	movl 12(%eax),%eax
+.L250:
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe42:
+	.size	 Module__Name,.Lfe42-Module__Name
+	.align 16
+	.type	 Module__Prefix,@function
+Module__Prefix:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %ebx
+	movl 8(%ebp),%ebx
+	testl %ebx,%ebx
+	jne .L255
+	movl MM_Module+272,%ebx
+	testl %ebx,%ebx
+	jne .L255
+	movl $MM_Module+712,%eax
+	jmp .L257
+	.align 16
+.L255:
+	cmpl $0,104(%ebx)
+	jne .L256
+	movl 12(%ebx),%eax
+	pushl %eax
+	movl MI_M3ID+52,%eax
+	call *%eax
+	pushl %eax
+	xorl %eax,%eax
+	movb 37(%ebx),%al
+	movl MM_Module+488(,%eax,4),%eax
+	pushl %eax
+	movl MI_RTHooks+76,%eax
+	call *%eax
+	movl %eax,104(%ebx)
+.L256:
+	movl 104(%ebx),%eax
+.L257:
+	movl -4(%ebp),%ebx
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe43:
+	.size	 Module__Prefix,.Lfe43-Module__Prefix
+	.align 16
+	.type	 Module__CurrentCounter,@function
+Module__CurrentCounter:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $8,%esp
+	movl MM_Module+272,%ecx
+	testl %ecx,%ecx
+	jne .L259
+	pushl $17200
+	call _m3_fault
+	.align 16
+.L259:
+	movl 8(%ebp),%eax
+	movl 72(%ecx),%edx
+	movl %ebp,%esp
+	movl %edx,(%eax)
+	movb 76(%ecx),%dl
+	movb %dl,4(%eax)
+	popl %ebp
+	ret
+.Lfe44:
+	.size	 Module__CurrentCounter,.Lfe44-Module__CurrentCounter
+	.align 16
+	.type	 Module__SetCurrentCounter,@function
+Module__SetCurrentCounter:
+	pushl %ebp
+	movl %esp,%ebp
+	movl MM_Module+272,%edx
+	testl %edx,%edx
+	jne .L261
+	pushl $17296
+	call _m3_fault
+	.align 16
+.L261:
+	movl 8(%ebp),%eax
+	movl %eax,72(%edx)
+	movb 12(%ebp),%al
+	movb %al,76(%edx)
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe45:
+	.size	 Module__SetCurrentCounter,.Lfe45-Module__SetCurrentCounter
+	.align 16
+	.type	 Module__GetTypeInfo,@function
+Module__GetTypeInfo:
+	pushl %ebp
+	movl %esp,%ebp
+	movl 8(%ebp),%eax
+	movl %ebp,%esp
+	popl %ebp
+	movl 112(%eax),%eax
+	ret
+.Lfe46:
+	.size	 Module__GetTypeInfo,.Lfe46-Module__GetTypeInfo
+	.align 16
+	.type	 Module__VisitImports,@function
+Module__VisitImports:
+	pushl %ebp
+	movl %esp,%ebp
+	movl 8(%ebp),%eax
+	cmpl $0,MM_Module+292
+	je .L264
+	pushl $17472
+	call _m3_fault
+	.align 16
+.L264:
+	testl %eax,%eax
+	je .L265
+	cmpl $-1,(%eax)
+	jne .L265
+	pushl $17493
+	call _m3_fault
+	.align 16
+.L265:
+	movl %eax,MM_Module+292
+	incl MM_Module+288
+	movl MM_Module+428,%eax
+	pushl %eax
+	movl MM_Module+272,%eax
+	movl 48(%eax),%eax
+	pushl %eax
+	movl MI_External+92,%eax
+	call *%eax
+	movl $0,MM_Module+292
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe47:
+	.size	 Module__VisitImports,.Lfe47-Module__VisitImports
+	.align 16
+	.type	 Module__InnerVisit,@function
+Module__InnerVisit:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %ebx
+	movl 8(%ebp),%ebx
+	testl %ebx,%ebx
+	je .L267
+	movl MM_Module+288,%eax
+	cmpl %eax,88(%ebx)
+	jge .L267
+	movl %eax,88(%ebx)
+	movl MM_Module+428,%eax
+	pushl %eax
+	movl 48(%ebx),%eax
+	pushl %eax
+	movl MI_External+92,%eax
+	call *%eax
+	pushl %ebx
+	movl MM_Module+292,%eax
+	call *%eax
+.L267:
+	movl -4(%ebp),%ebx
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe48:
+	.size	 Module__InnerVisit,.Lfe48-Module__InnerVisit
+	.align 16
+	.type	 M_Module_t02d55b96_LINK,@function
+M_Module_t02d55b96_LINK:
+	pushl %ebp
+	movl %esp,%ebp
+	movl MM_Module+1116,%eax
+	movl %ebp,%esp
+	movl 52(%eax),%edx
+	movl MM_Module+404,%eax
+	movl %eax,4(%edx)
+	movl MM_Module+408,%eax
+	movl %eax,8(%edx)
+	popl %ebp
+	ret
+.Lfe49:
+	.size	 M_Module_t02d55b96_LINK,.Lfe49-M_Module_t02d55b96_LINK
+	.align 16
+	.type	 M_Module_t977ef05b_LINK,@function
+M_Module_t977ef05b_LINK:
+	pushl %ebp
+	movl %esp,%ebp
+	movl MM_Module+3464,%eax
+	movl %ebp,%esp
+	movl 52(%eax),%edx
+	movl MM_Module+328,%eax
+	movl %eax,4(%edx)
+	movl MI_ValueRep+172,%ecx
+	movl %ecx,8(%edx)
+	movl MI_ValueRep+164,%eax
+	movl %eax,12(%edx)
+	movl MI_ValueRep+168,%eax
+	movl %eax,16(%edx)
+	movl %ecx,20(%edx)
+	movl %eax,24(%edx)
+	movl %ecx,28(%edx)
+	movl %ecx,32(%edx)
+	movl MI_ValueRep+156,%eax
+	movl %eax,36(%edx)
+	movl MI_ValueRep+160,%eax
+	movl %eax,40(%edx)
+	movl MI_ValueRep+180,%eax
+	movl %eax,44(%edx)
+	movl MI_ValueRep+184,%eax
+	movl %eax,48(%edx)
+	movl MM_Module+420,%eax
+	movl %eax,52(%edx)
+	movl MM_Module+424,%eax
+	movl %eax,56(%edx)
+	popl %ebp
+	ret
+.Lfe50:
+	.size	 M_Module_t977ef05b_LINK,.Lfe50-M_Module_t977ef05b_LINK
+	.align 16
+	.type	 _m3_fault,@function
+_m3_fault:
+	pushl %ebp
+	movl %esp,%ebp
+	movl 8(%ebp),%eax
+	pushl %eax
+	pushl $MM_Module
+	movl MI_RTHooks+108,%eax
+	call *%eax
+	.align 16
+.Lfe51:
+	.size	 _m3_fault,.Lfe51-_m3_fault
+.globl MM_Module
+.data
+	.align 4
+	.type	 MM_Module,@object
+	.size	 MM_Module,3492
+MM_Module:
+	.long MM_Module+3170
+	.long MM_Module+44
+	.long MM_Module+824
+	.long MM_Module+812
+	.zero	4
+	.long MM_Module+2576
+	.zero	4
+	.long MM_Module+3156
+	.long MM_Module+3156
+	.zero	16
+	.long -1753288613
+.byte 66
+.byte 253
+.byte 6
+.byte 147
+.byte 25
+.byte 13
+.byte 120
+.byte 4
+	.long 1
+	.zero	4
+	.long 84
+	.long 4
+	.zero	4
+	.long 0
+	.zero	12
+	.long MM_Module+3342
+	.long MM_Module+3370
+	.long MM_Module+3388
+	.zero	4
+	.long M_Module_t977ef05b_LINK
+	.long -105857942
+	.zero	12
+	.long MM_Module+3472
+	.long MM_Module+3481
+	.long MM_Module+148
+	.zero	8
+	.long 47537046
+.byte 220
+.byte 29
+.byte 83
+.byte 4
+.byte 74
+.byte 70
+.byte 134
+.byte 6
+	.long 1
+	.zero	4
+	.long 4
+	.long 4
+	.zero	4
+	.long 0
+	.zero	12
+	.long MM_Module+3314
+	.long MM_Module+3316
+	.long MM_Module+3318
+	.zero	4
+	.long M_Module_t02d55b96_LINK
+	.long 1338658032
+	.zero	16
+	.long MM_Module+3326
+	.zero	28
+	.long L_1
+	.zero	20
+	.long Module__Create
+	.long Module__Switch
+	.long Module__PushGeneric
+	.long Module__ParseGenericArgs
+	.long Module__ParseFinalEndID
+	.long Module__PushInterface
+	.long Module__RecordInterface
+	.long Module__TypeCheckMethod
+	.long Module__SoftPush
+	.long Module__SoftPop
+	.long Module__SetGlobals
+	.zero	4
+	.long MM_Module+712
+	.long MM_Module+728
+	.long MM_Module+744
+	.long MM_Module+760
+	.long MM_Module+776
+	.long MM_Module+796
+	.long Module__OutI
+	.long Module__Out
+	.long Module__CheckDuplicates
+	.long Module__NoteVisibility
+	.long Module__CompileInterface
+	.long Module__CompileModule
+	.long Module__DeclareGlobalData
+	.long Module__NeedMain
+	.long Module__EmitDecl
+	.long Module__EmitBody
+	.long Module__GenLinkerInfo
+	.long Module__InitProcType
+	.long Module__AddFPTag
+	.long Module__FPType
+	.long Module__InnerVisit
+	.long Module__Parse
+	.long Module__NewDefn
+	.long Module__LookUp
+	.long Module__ImportRevelations
+	.long Module__TypeCheck
+	.long Module__Compile
+	.long Module__IsSafe
+	.long Module__IsInterface
+	.long Module__IsExternal
+	.long Module__GetImports
+	.long Module__ExportScope
+	.long Module__Current
+	.long Module__Name
+	.long Module__Prefix
+	.long MM_Module+500
+	.long MM_Module+516
+	.long 2
+	.long MM_Module+508
+	.long 3
+	.ascii	"M_"
+	.zero	2
+	.long 2
+	.long MM_Module+524
+	.long 3
+	.ascii	"I_"
+	.zero	2
+	.long Module__CurrentCounter
+	.long Module__SetCurrentCounter
+	.long Module__Allocate
+	.long Module__GlobalData
+	.long Module__GetTypeInfo
+	.long Module__VisitImports
+	.long Module__Reset
+	.long Module__MakeCurrent
+	.long MM_Module+580
+	.long MM_Module+600
+	.long MM_Module+620
+	.long MM_Module+640
+	.long 2
+	.long MM_Module+588
+	.long 8
+	.ascii	"M3_LINK"
+	.zero	1
+	.long 2
+	.long MM_Module+608
+	.long 8
+	.ascii	"I3_LINK"
+	.zero	1
+	.long 2
+	.long MM_Module+628
+	.long 8
+	.ascii	"M3_MAIN"
+	.zero	1
+	.long 2
+	.long MM_Module+648
+	.long 8
+	.ascii	"I3_MAIN"
+	.zero	1
+	.long MM_Module+668
+	.long MM_Module+688
+	.long 2
+	.long MM_Module+676
+	.long 8
+	.ascii	"MODULE "
+	.zero	1
+	.long 2
+	.long MM_Module+696
+	.long 11
+	.ascii	"INTERFACE "
+	.zero	2
+	.long 2
+	.long MM_Module+720
+	.long 1
+	.zero	4
+	.long 2
+	.long MM_Module+736
+	.long 2
+	.ascii	" "
+	.zero	3
+	.long 2
+	.long MM_Module+752
+	.long 3
+	.ascii	"  "
+	.zero	2
+	.long 2
+	.long MM_Module+768
+	.long 4
+	.ascii	"   "
+	.zero	1
+	.long 2
+	.long MM_Module+784
+	.long 5
+	.ascii	"    "
+	.zero	4
+	.long 2
+	.long MM_Module+804
+	.long 6
+	.ascii	"     "
+	.zero	3
+	.long -1164381734
+	.long -1753288613
+	.zero	4
+	.long MM_Module+1116
+	.long -1164381734
+	.long 2
+	.long MM_Module+844
+	.long 29
+	.ascii	"external module name ignored"
+	.zero	4
+	.long 2
+	.long MM_Module+888
+	.long 26
+	.ascii	"missing INTERFACE keyword"
+	.zero	3
+	.long 2
+	.long MM_Module+928
+	.long 36
+	.ascii	"missing INTERFACE or MODULE keyword"
+	.zero	1
+	.long 2
+	.long MM_Module+976
+	.long 36
+	.ascii	"Only interfaces can be <*EXTERNAL*>"
+	.zero	1
+	.long 2
+	.long MM_Module+1024
+	.long 43
+	.ascii	"EXPORTS clause not allowed in an interface"
+	.zero	2
+	.long 2
+	.long MM_Module+1080
+	.long 33
+	.ascii	"missing ';' or '=', assuming ';'"
+	.zero	4
+	.long MM_Module+3464
+	.long 47537046
+	.long 2
+	.long MM_Module+1136
+	.long 6
+	.ascii	"_INIT"
+	.zero	3
+	.long 2
+	.long MM_Module+1156
+	.long 23
+	.ascii	"unable to find generic"
+	.zero	2
+	.long 2
+	.long MM_Module+1192
+	.long 5
+	.ascii	" => "
+	.zero	4
+	.long 2
+	.long MM_Module+1212
+	.long 31
+	.ascii	"imported module has wrong name"
+	.zero	2
+	.long 2
+	.long MM_Module+1256
+	.long 58
+	.ascii	"number of actuals doesn't match number of generic formals"
+	.zero	3
+	.long 2
+	.long MM_Module+1328
+	.long 45
+	.ascii	"Initial module name doesn't match final name"
+	.zero	4
+	.long 2
+	.long MM_Module+1388
+	.long 21
+	.ascii	"extra tokens ignored"
+	.zero	4
+	.long 2
+	.long MM_Module+1424
+	.long 5
+	.ascii	" -> "
+	.zero	4
+	.long 2
+	.long MM_Module+1444
+	.long 17
+	.ascii	"circular imports"
+	.zero	4
+	.long 2
+	.long MM_Module+1476
+	.long 35
+	.ascii	"imported interface contains errors"
+	.zero	2
+	.long 2
+	.long MM_Module+1524
+	.long 25
+	.ascii	"unable to find interface"
+	.zero	4
+	.long 2
+	.long MM_Module+1564
+	.long 36
+	.ascii	"imported object is not an interface"
+	.zero	1
+	.long 2
+	.long MM_Module+1612
+	.long 34
+	.ascii	"imported interface has wrong name"
+	.zero	3
+	.long 2
+	.long MM_Module+1660
+	.long 34
+	.ascii	"imported unit is not an interface"
+	.zero	3
+	.long 2
+	.long MM_Module+1708
+	.long 51
+	.ascii	"cannot import an unsafe interface in a safe module"
+	.zero	2
+	.long 2
+	.long MM_Module+1772
+	.long 17
+	.ascii	" allocation for "
+	.zero	4
+	.long 2
+	.long MM_Module+1804
+	.long 14
+	.ascii	"*module info*"
+	.zero	3
+	.long 2
+	.long MM_Module+1832
+	.long 17
+	.ascii	"symbol redefined"
+	.zero	4
+	.long 2
+	.long MM_Module+1864
+	.long 9
+	.ascii	"load map"
+	.zero	4
+	.long 2
+	.long MM_Module+1888
+	.long 19
+	.ascii	"module global data"
+	.zero	2
+	.long 2
+	.long MM_Module+1920
+	.long 18
+	.ascii	"module main body "
+	.zero	3
+	.long 2
+	.long MM_Module+1952
+	.long 10
+	.ascii	"file name"
+	.zero	3
+	.long 2
+	.long MM_Module+1976
+	.long 8
+	.ascii	"*TOTAL*"
+	.zero	1
+	.long 2
+	.long MM_Module+1996
+	.long 28
+	.ascii	"global data type descriptor"
+	.zero	1
+	.long 2
+	.long MM_Module+2036
+	.long 7
+	.ascii	"PROC()"
+	.zero	2
+	.ascii	"InnerVisit"
+	.zero	1
+	.ascii	"VisitImports"
+	.zero	1
+	.ascii	"GetTypeInfo"
+	.zero	1
+	.ascii	"SetCurrentCounter"
+	.zero	1
+	.ascii	"CurrentCounter"
+	.zero	1
+	.ascii	"Prefix"
+	.zero	1
+	.ascii	"Name"
+	.zero	1
+	.ascii	"Current"
+	.zero	1
+	.ascii	"FPType"
+	.zero	1
+	.ascii	"AddFPTag"
+	.zero	1
+	.ascii	"InitProcType"
+	.zero	1
+	.ascii	"GenLinkerInfo"
+	.zero	1
+	.ascii	"EmitBody"
+	.zero	1
+	.ascii	"EmitDecl"
+	.zero	1
+	.ascii	"NeedMain"
+	.zero	1
+	.ascii	"GlobalData"
+	.zero	1
+	.ascii	"DeclareGlobalData"
+	.zero	1
+	.ascii	"CompileModule"
+	.zero	1
+	.ascii	"CompileInterface"
+	.zero	1
+	.ascii	"Compile"
+	.zero	1
+	.ascii	"ExportScope"
+	.zero	1
+	.ascii	"GetImports"
+	.zero	1
+	.ascii	"IsExternal"
+	.zero	1
+	.ascii	"IsInterface"
+	.zero	1
+	.ascii	"IsSafe"
+	.zero	1
+	.ascii	"NoteVisibility"
+	.zero	1
+	.ascii	"CheckDuplicates"
+	.zero	1
+	.ascii	"Out"
+	.zero	1
+	.ascii	"OutI"
+	.zero	1
+	.ascii	"Allocate"
+	.zero	1
+	.ascii	"SetGlobals"
+	.zero	1
+	.ascii	"SoftPop"
+	.zero	1
+	.ascii	"SoftPush"
+	.zero	1
+	.ascii	"TypeCheck"
+	.zero	1
+	.ascii	"TypeCheckMethod"
+	.zero	1
+	.ascii	"ImportRevelations"
+	.zero	1
+	.ascii	"RecordInterface"
+	.zero	1
+	.ascii	"MakeCurrent"
+	.zero	1
+	.ascii	"LookUp"
+	.zero	1
+	.ascii	"PushInterface"
+	.zero	1
+	.ascii	"ParseFinalEndID"
+	.zero	1
+	.ascii	"ParseGenericArgs"
+	.zero	1
+	.ascii	"PushGeneric"
+	.zero	1
+	.ascii	"Parse"
+	.zero	1
+	.ascii	"NewDefn"
+	.zero	1
+	.ascii	"Switch"
+	.zero	1
+	.ascii	"Create"
+	.zero	1
+	.ascii	"Reset"
+	.zero	4
+	.long Module__InnerVisit
+	.long MM_Module+2044
+	.zero	4
+	.long Module__VisitImports
+	.long MM_Module+2055
+	.long MI_Module+120
+	.long Module__GetTypeInfo
+	.long MM_Module+2068
+	.long MI_Module+116
+	.long Module__SetCurrentCounter
+	.long MM_Module+2080
+	.long MI_Module+104
+	.long Module__CurrentCounter
+	.long MM_Module+2098
+	.long MI_Module+100
+	.long Module__Prefix
+	.long MM_Module+2113
+	.long MI_Module+96
+	.long Module__Name
+	.long MM_Module+2120
+	.long MI_Module+92
+	.long Module__Current
+	.long MM_Module+2125
+	.long MI_Module+88
+	.long Module__FPType
+	.long MM_Module+2133
+	.zero	4
+	.long Module__AddFPTag
+	.long MM_Module+2140
+	.zero	4
+	.long Module__InitProcType
+	.long MM_Module+2149
+	.zero	4
+	.long Module__GenLinkerInfo
+	.long MM_Module+2162
+	.zero	4
+	.long Module__EmitBody
+	.long MM_Module+2176
+	.zero	4
+	.long Module__EmitDecl
+	.long MM_Module+2185
+	.zero	4
+	.long Module__NeedMain
+	.long MM_Module+2194
+	.zero	4
+	.long Module__GlobalData
+	.long MM_Module+2203
+	.long MI_Module+112
+	.long Module__DeclareGlobalData
+	.long MM_Module+2214
+	.zero	4
+	.long Module__CompileModule
+	.long MM_Module+2232
+	.zero	4
+	.long Module__CompileInterface
+	.long MM_Module+2246
+	.zero	4
+	.long Module__Compile
+	.long MM_Module+2263
+	.long MI_Module+64
+	.long Module__ExportScope
+	.long MM_Module+2271
+	.long MI_Module+84
+	.long Module__GetImports
+	.long MM_Module+2283
+	.long MI_Module+80
+	.long Module__IsExternal
+	.long MM_Module+2294
+	.long MI_Module+76
+	.long Module__IsInterface
+	.long MM_Module+2305
+	.long MI_Module+72
+	.long Module__IsSafe
+	.long MM_Module+2317
+	.long MI_Module+68
+	.long Module__NoteVisibility
+	.long MM_Module+2324
+	.zero	4
+	.long Module__CheckDuplicates
+	.long MM_Module+2339
+	.zero	4
+	.long Module__Out
+	.long MM_Module+2355
+	.zero	4
+	.long Module__OutI
+	.long MM_Module+2359
+	.zero	4
+	.long Module__Allocate
+	.long MM_Module+2364
+	.long MI_Module+108
+	.long Module__SetGlobals
+	.long MM_Module+2373
+	.zero	4
+	.long Module__SoftPop
+	.long MM_Module+2384
+	.zero	4
+	.long Module__SoftPush
+	.long MM_Module+2392
+	.zero	4
+	.long Module__TypeCheck
+	.long MM_Module+2401
+	.long MI_Module+60
+	.long Module__TypeCheckMethod
+	.long MM_Module+2411
+	.zero	4
+	.long Module__ImportRevelations
+	.long MM_Module+2427
+	.long MI_Module+56
+	.long Module__RecordInterface
+	.long MM_Module+2445
+	.zero	4
+	.long Module__MakeCurrent
+	.long MM_Module+2461
+	.long MI_Module+128
+	.long Module__LookUp
+	.long MM_Module+2473
+	.long MI_Module+52
+	.long Module__PushInterface
+	.long MM_Module+2480
+	.zero	4
+	.long Module__ParseFinalEndID
+	.long MM_Module+2494
+	.zero	4
+	.long Module__ParseGenericArgs
+	.long MM_Module+2510
+	.zero	4
+	.long Module__PushGeneric
+	.long MM_Module+2527
+	.zero	4
+	.long Module__Parse
+	.long MM_Module+2539
+	.long MI_Module+44
+	.long Module__NewDefn
+	.long MM_Module+2545
+	.long MI_Module+48
+	.long Module__Switch
+	.long MM_Module+2553
+	.zero	4
+	.long Module__Create
+	.long MM_Module+2560
+	.zero	4
+	.long Module__Reset
+	.long MM_Module+2567
+	.long MI_Module+124
+	.zero	4
+.byte 43
+.byte 0
+.byte 1
+.byte 4
+.byte 37
+.byte 4
+.byte 37
+.byte 4
+.byte 41
+.byte 4
+.byte 42
+.byte 56
+.byte 4
+.byte 0
+	.ascii	"/home/ftp/tmp/pm3/tmp/pm3-1.1.15/language/modula3/m3compiler"
+	.ascii	"/m3bootstrap/LINUXLIBC6/pm3-LINUXLIBC6/boot-LINUXLIBC6/m3fro"
+	.ascii	"nt/src/values/Module.m3"
+	.zero	1
+.byte 4
+.byte 0
+.byte 4
+.byte 0
+.byte 2
+.byte 10
+.byte 1
+.byte 16
+.byte 218
+.byte 241
+.byte 152
+.byte 186
+	.ascii	"Module.InitBody"
+	.zero	1
+.byte 16
+.byte 16
+.byte 16
+.byte 16
+.byte 14
+.byte 4
+.byte 4
+.byte 4
+.byte 4
+.byte 4
+.byte 4
+.byte 4
+.byte 1
+.byte 16
+.byte 26
+.byte 5
+.byte 36
+.byte 4
+.byte 14
+.byte 14
+.byte 14
+.byte 14
+.byte 4
+.byte 4
+.byte 4
+.byte 4
+.byte 4
+.byte 0
+.byte 41
+.byte 4
+.byte 4
+.byte 4
+.byte 4
+.byte 4
+.byte 4
+.byte 4
+.byte 41
+.byte 4
+.byte 42
+.byte 16
+.byte 4
+.byte 4
+.byte 4
+.byte 4
+.byte 4
+.byte 0
+.byte 25
+.byte 10
+.byte 23
+.byte 2
+.byte 23
+.byte 23
+.byte 23
+.byte 19
+.byte 254
+.byte 126
+.byte 16
+.byte 116
+.byte 101
+.byte 248
+.byte 80
+.byte 16
+.byte 132
+.byte 251
+.byte 180
+.byte 6
+.byte 16
+.byte 225
+.byte 46
+.byte 241
+.byte 204
+.byte 30
+.byte 16
+.byte 48
+.byte 113
+.byte 149
+.byte 175
+.byte 16
+.byte 122
+.byte 206
+.byte 27
+.byte 95
+.byte 16
+.byte 150
+.byte 91
+.byte 213
+.byte 2
+.byte 1
+.byte 5
+.byte 4
+.byte 16
+.byte 44
+.byte 196
+.byte 243
+.byte 11
+.byte 7
+.byte 38
+.byte 38
+.byte 38
+.byte 16
+.byte 121
+.byte 130
+.byte 239
+.byte 251
+.byte 28
+.byte 16
+.byte 88
+.byte 162
+.byte 69
+.byte 139
+.byte 16
+.byte 194
+.byte 58
+.byte 134
+.byte 240
+.byte 16
+.byte 106
+.byte 188
+.byte 176
+.byte 249
+	.zero	6
+	.long -1753288613
+	.ascii	"Module.T"
+	.zero	1
+	.ascii	"Module.T"
+	.zero	3
+	.local	L_1
+	.comm	L_1,804,4
+	.ident	"GCC: (GNU) cygnus-2.7.2-960712"

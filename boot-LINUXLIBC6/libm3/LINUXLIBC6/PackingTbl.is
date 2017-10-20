@@ -1,0 +1,105 @@
+	.file	"PackingTbl.ic"
+	.version	"01.01"
+/ SRC Modula-3 version cygnus-2.7.2-960712 (i486--linuxelf) compiled by GNU C version egcs-2.91.66 19990314/Linux (egcs-1.1.2 release).
+/ options passed:  -fno-strength-reduce -O2
+/ options enabled:  -fdefer-pop -fcse-follow-jumps -fcse-skip-blocks
+/ -fexpensive-optimizations -fthread-jumps -fpeephole -fforce-mem
+/ -ffunction-cse -finline -fkeep-static-consts -fcaller-saves
+/ -fpcc-struct-return -frerun-cse-after-loop -fschedule-insns2 -fcommon
+/ -fverbose-asm -fgnu-linker -m80387 -mhard-float -mno-soft-float -mieee-fp
+/ -mfp-ret-in-387 -mschedule-prologue -mcpu=i486 -march=i486
+
+gcc2_compiled.:
+.globl MI_PackingTbl
+.data
+	.align 4
+	.type	 MI_PackingTbl,@object
+	.size	 MI_PackingTbl,556
+MI_PackingTbl:
+	.long MI_PackingTbl+356
+	.long MI_PackingTbl+44
+	.zero	44
+	.long 580007533
+.byte 71
+.byte 81
+.byte 188
+.byte 53
+.byte 42
+.byte 103
+.byte 46
+.byte 23
+	.long 1
+	.zero	4
+	.long 0
+	.long 1
+	.zero	4
+	.long 20
+	.zero	20
+	.long MI_PackingTbl+539
+	.zero	8
+	.long -1651526519
+	.zero	16
+	.long MI_PackingTbl+542
+	.long MI_PackingTbl+148
+	.zero	8
+	.long 903172682
+.byte 70
+.byte 140
+.byte 34
+.byte 33
+.byte 12
+.byte 222
+.byte 247
+.byte 20
+	.long 1
+	.zero	4
+	.long 0
+	.long 1
+	.zero	4
+	.long 4
+	.zero	20
+	.long MI_PackingTbl+516
+	.zero	8
+	.long -1651526519
+	.zero	16
+	.long MI_PackingTbl+519
+	.long MI_PackingTbl+252
+	.zero	8
+	.long -1912246636
+.byte 14
+.byte 63
+.byte 86
+.byte 141
+.byte 154
+.byte 81
+.byte 83
+.byte 3
+	.long 1
+	.zero	4
+	.long 0
+	.long 1
+	.zero	4
+	.long 12
+	.zero	20
+	.long MI_PackingTbl+513
+	.zero	8
+	.long 580007533
+	.zero	24
+	.ascii	"PackingTbl.i3 => /home/ftp/tmp/pm3/tmp/pm3-1.1.15/language/m"
+	.ascii	"odula3/m3compiler/m3bootstrap/LINUXLIBC6/pm3-LINUXLIBC6/boot"
+	.ascii	"-LINUXLIBC6/libm3/src/table/Table.ig"
+	.zero	1
+.byte 1
+.byte 10
+.byte 0
+.byte 1
+.byte 10
+.byte 0
+	.ascii	"PackingTbl.Iterator"
+	.zero	1
+.byte 1
+.byte 10
+.byte 0
+	.ascii	"PackingTbl.T"
+	.zero	2
+	.ident	"GCC: (GNU) cygnus-2.7.2-960712"

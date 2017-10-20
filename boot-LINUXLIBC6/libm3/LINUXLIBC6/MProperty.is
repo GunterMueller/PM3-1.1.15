@@ -1,0 +1,64 @@
+	.file	"MProperty.ic"
+	.version	"01.01"
+/ SRC Modula-3 version cygnus-2.7.2-960712 (i486--linuxelf) compiled by GNU C version egcs-2.91.66 19990314/Linux (egcs-1.1.2 release).
+/ options passed:  -fno-strength-reduce -O2
+/ options enabled:  -fdefer-pop -fcse-follow-jumps -fcse-skip-blocks
+/ -fexpensive-optimizations -fthread-jumps -fpeephole -fforce-mem
+/ -ffunction-cse -finline -fkeep-static-consts -fcaller-saves
+/ -fpcc-struct-return -frerun-cse-after-loop -fschedule-insns2 -fcommon
+/ -fverbose-asm -fgnu-linker -m80387 -mhard-float -mno-soft-float -mieee-fp
+/ -mfp-ret-in-387 -mschedule-prologue -mcpu=i486 -march=i486
+
+gcc2_compiled.:
+.globl MI_MProperty
+.data
+	.align 4
+	.type	 MI_MProperty,@object
+	.size	 MI_MProperty,332
+MI_MProperty:
+	.long MI_MProperty+152
+	.long MI_MProperty+44
+	.zero	44
+	.long 715753818
+.byte 130
+.byte 202
+.byte 253
+.byte 59
+.byte 216
+.byte 67
+.byte 84
+.byte 17
+	.long 1
+	.zero	4
+	.long 4
+	.long 4
+	.zero	4
+	.long 0
+	.zero	12
+	.long MI_MProperty+299
+	.long MI_MProperty+301
+	.long MI_MProperty+303
+	.zero	8
+	.long -1941146044
+	.zero	16
+	.long MI_MProperty+311
+	.zero	8
+	.ascii	"/home/ftp/tmp/pm3/tmp/pm3-1.1.15/language/modula3/m3compiler"
+	.ascii	"/m3bootstrap/LINUXLIBC6/pm3-LINUXLIBC6/boot-LINUXLIBC6/libm3"
+	.ascii	"/src/property/MProperty.i3"
+	.zero	1
+.byte 4
+.byte 0
+.byte 4
+.byte 0
+.byte 2
+.byte 10
+.byte 1
+.byte 16
+.byte 117
+.byte 244
+.byte 65
+.byte 21
+	.ascii	"MProperty.Set_public"
+	.zero	1
+	.ident	"GCC: (GNU) cygnus-2.7.2-960712"

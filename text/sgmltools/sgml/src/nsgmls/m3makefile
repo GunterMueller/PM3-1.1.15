@@ -1,0 +1,23 @@
+
+import_lib("sp","/usr/local/lib")
+
+import_lib("g++","/usr/lib")
+
+import_lib("stdc++","/usr/lib")
+
+readonly proc cxx_source(x) is
+  local fn = x & ".cxx"
+  local file = x & NAMING_CONVENTIONS[13]
+  local ret = 0
+  local cmd = ["g++", "-g", "-c", "-I../src/nsgmls/include", path_of(fn)]
+  if VERBOSE write(cmd) end
+  ret = exec(cmd)
+  import_obj(file)
+end
+
+cxx_source("m3sgml")
+
+interface("NSGMLS")
+
+implementation("SGML")
+

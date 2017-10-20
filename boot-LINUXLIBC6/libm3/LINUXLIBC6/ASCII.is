@@ -1,0 +1,66 @@
+	.file	"ASCII.ic"
+	.version	"01.01"
+/ SRC Modula-3 version cygnus-2.7.2-960712 (i486--linuxelf) compiled by GNU C version egcs-2.91.66 19990314/Linux (egcs-1.1.2 release).
+/ options passed:  -fno-strength-reduce -O2
+/ options enabled:  -fdefer-pop -fcse-follow-jumps -fcse-skip-blocks
+/ -fexpensive-optimizations -fthread-jumps -fpeephole -fforce-mem
+/ -ffunction-cse -finline -fkeep-static-consts -fcaller-saves
+/ -fpcc-struct-return -frerun-cse-after-loop -fschedule-insns2 -fcommon
+/ -fverbose-asm -fgnu-linker -m80387 -mhard-float -mno-soft-float -mieee-fp
+/ -mfp-ret-in-387 -mschedule-prologue -mcpu=i486 -march=i486
+
+gcc2_compiled.:
+.globl MI_ASCII
+.data
+	.align 4
+	.type	 MI_ASCII,@object
+	.size	 MI_ASCII,1304
+MI_ASCII:
+	.long MI_ASCII+1164
+	.zero	40
+	.long -1
+	.long -1
+	.long -1
+	.long -1
+	.long -1
+	.long -1
+	.long -1
+	.long -1
+	.long -1
+	.long -1
+	.long -1
+	.long -1
+	.zero	16
+	.long -1
+	.zero	8
+	.long -2147483648
+	.zero	16
+	.long 13824
+	.long 1
+	.zero	28
+	.long 67043328
+	.zero	32
+	.long 134217726
+	.zero	32
+	.long 134217726
+	.zero	24
+	.long 134217726
+	.long 134217726
+	.zero	20
+	.long 67043328
+	.long 134217726
+	.long 134217726
+	.zero	20
+	.long -1
+	.long -1
+	.long 2147483647
+	.zero	20
+	.long -67043329
+	.long -134217727
+	.long 2013265921
+	.zero	784
+	.ascii	"/home/ftp/tmp/pm3/tmp/pm3-1.1.15/language/modula3/m3compiler"
+	.ascii	"/m3bootstrap/LINUXLIBC6/pm3-LINUXLIBC6/boot-LINUXLIBC6/libm3"
+	.ascii	"/src/types/ASCII.i3"
+	.zero	1
+	.ident	"GCC: (GNU) cygnus-2.7.2-960712"

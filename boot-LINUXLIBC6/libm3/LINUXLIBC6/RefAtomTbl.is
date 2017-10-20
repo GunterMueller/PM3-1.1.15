@@ -1,0 +1,105 @@
+	.file	"RefAtomTbl.ic"
+	.version	"01.01"
+/ SRC Modula-3 version cygnus-2.7.2-960712 (i486--linuxelf) compiled by GNU C version egcs-2.91.66 19990314/Linux (egcs-1.1.2 release).
+/ options passed:  -fno-strength-reduce -O2
+/ options enabled:  -fdefer-pop -fcse-follow-jumps -fcse-skip-blocks
+/ -fexpensive-optimizations -fthread-jumps -fpeephole -fforce-mem
+/ -ffunction-cse -finline -fkeep-static-consts -fcaller-saves
+/ -fpcc-struct-return -frerun-cse-after-loop -fschedule-insns2 -fcommon
+/ -fverbose-asm -fgnu-linker -m80387 -mhard-float -mno-soft-float -mieee-fp
+/ -mfp-ret-in-387 -mschedule-prologue -mcpu=i486 -march=i486
+
+gcc2_compiled.:
+.globl MI_RefAtomTbl
+.data
+	.align 4
+	.type	 MI_RefAtomTbl,@object
+	.size	 MI_RefAtomTbl,556
+MI_RefAtomTbl:
+	.long MI_RefAtomTbl+356
+	.long MI_RefAtomTbl+44
+	.zero	44
+	.long 538244005
+.byte 141
+.byte 130
+.byte 61
+.byte 56
+.byte 40
+.byte 113
+.byte 41
+.byte 24
+	.long 1
+	.zero	4
+	.long 0
+	.long 1
+	.zero	4
+	.long 20
+	.zero	20
+	.long MI_RefAtomTbl+539
+	.zero	8
+	.long -1651526519
+	.zero	16
+	.long MI_RefAtomTbl+542
+	.long MI_RefAtomTbl+148
+	.zero	8
+	.long -1502191488
+.byte 162
+.byte 189
+.byte 166
+.byte 164
+.byte 34
+.byte 221
+.byte 208
+.byte 2
+	.long 1
+	.zero	4
+	.long 0
+	.long 1
+	.zero	4
+	.long 4
+	.zero	20
+	.long MI_RefAtomTbl+516
+	.zero	8
+	.long -1651526519
+	.zero	16
+	.long MI_RefAtomTbl+519
+	.long MI_RefAtomTbl+252
+	.zero	8
+	.long -373677929
+.byte 178
+.byte 205
+.byte 231
+.byte 232
+.byte 37
+.byte 237
+.byte 93
+.byte 1
+	.long 1
+	.zero	4
+	.long 0
+	.long 1
+	.zero	4
+	.long 12
+	.zero	20
+	.long MI_RefAtomTbl+513
+	.zero	8
+	.long 538244005
+	.zero	24
+	.ascii	"RefAtomTbl.i3 => /home/ftp/tmp/pm3/tmp/pm3-1.1.15/language/m"
+	.ascii	"odula3/m3compiler/m3bootstrap/LINUXLIBC6/pm3-LINUXLIBC6/boot"
+	.ascii	"-LINUXLIBC6/libm3/src/table/Table.ig"
+	.zero	1
+.byte 1
+.byte 10
+.byte 0
+.byte 1
+.byte 10
+.byte 0
+	.ascii	"RefAtomTbl.Iterator"
+	.zero	1
+.byte 1
+.byte 10
+.byte 0
+	.ascii	"RefAtomTbl.T"
+	.zero	2
+	.ident	"GCC: (GNU) cygnus-2.7.2-960712"

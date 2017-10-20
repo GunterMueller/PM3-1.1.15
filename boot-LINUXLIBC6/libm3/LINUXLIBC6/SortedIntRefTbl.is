@@ -1,0 +1,105 @@
+	.file	"SortedIntRefTbl.ic"
+	.version	"01.01"
+/ SRC Modula-3 version cygnus-2.7.2-960712 (i486--linuxelf) compiled by GNU C version egcs-2.91.66 19990314/Linux (egcs-1.1.2 release).
+/ options passed:  -fno-strength-reduce -O2
+/ options enabled:  -fdefer-pop -fcse-follow-jumps -fcse-skip-blocks
+/ -fexpensive-optimizations -fthread-jumps -fpeephole -fforce-mem
+/ -ffunction-cse -finline -fkeep-static-consts -fcaller-saves
+/ -fpcc-struct-return -frerun-cse-after-loop -fschedule-insns2 -fcommon
+/ -fverbose-asm -fgnu-linker -m80387 -mhard-float -mno-soft-float -mieee-fp
+/ -mfp-ret-in-387 -mschedule-prologue -mcpu=i486 -march=i486
+
+gcc2_compiled.:
+.globl MI_SortedIntRefTbl
+.data
+	.align 4
+	.type	 MI_SortedIntRefTbl,@object
+	.size	 MI_SortedIntRefTbl,584
+MI_SortedIntRefTbl:
+	.long MI_SortedIntRefTbl+356
+	.long MI_SortedIntRefTbl+44
+	.zero	44
+	.long 1122159852
+.byte 120
+.byte 187
+.byte 128
+.byte 91
+.byte 148
+.byte 119
+.byte 98
+.byte 25
+	.long 1
+	.zero	4
+	.long 0
+	.long 1
+	.zero	4
+	.long 4
+	.zero	20
+	.long MI_SortedIntRefTbl+561
+	.zero	8
+	.long 1523825195
+	.zero	16
+	.long MI_SortedIntRefTbl+564
+	.long MI_SortedIntRefTbl+148
+	.zero	8
+	.long -371037785
+.byte 168
+.byte 138
+.byte 235
+.byte 247
+.byte 15
+.byte 227
+.byte 9
+.byte 30
+	.long 1
+	.zero	4
+	.long 0
+	.long 1
+	.zero	4
+	.long 4
+	.zero	20
+	.long MI_SortedIntRefTbl+533
+	.zero	8
+	.long 2032361058
+	.zero	16
+	.long MI_SortedIntRefTbl+536
+	.long MI_SortedIntRefTbl+252
+	.zero	8
+	.long -727665837
+.byte 5
+.byte 34
+.byte 2
+.byte 217
+.byte 86
+.byte 145
+.byte 162
+.byte 13
+	.long 1
+	.zero	4
+	.long 0
+	.long 1
+	.zero	4
+	.long 8
+	.zero	20
+	.long MI_SortedIntRefTbl+530
+	.zero	8
+	.long 1122159852
+	.zero	24
+	.ascii	"SortedIntRefTbl.i3 => /home/ftp/tmp/pm3/tmp/pm3-1.1.15/langu"
+	.ascii	"age/modula3/m3compiler/m3bootstrap/LINUXLIBC6/pm3-LINUXLIBC6"
+	.ascii	"/boot-LINUXLIBC6/libm3/src/sortedtable/SortedTable.ig"
+	.zero	1
+.byte 1
+.byte 10
+.byte 0
+.byte 1
+.byte 10
+.byte 0
+	.ascii	"SortedIntRefTbl.Iterator"
+	.zero	1
+.byte 1
+.byte 10
+.byte 0
+	.ascii	"SortedIntRefTbl.T"
+	.zero	3
+	.ident	"GCC: (GNU) cygnus-2.7.2-960712"

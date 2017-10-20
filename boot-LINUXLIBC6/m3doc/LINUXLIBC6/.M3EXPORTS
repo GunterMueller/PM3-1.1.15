@@ -1,0 +1,2 @@
+% exports of m3doc
+_import_template("m3doc.tmpl", "m3doc", "src")

@@ -1,0 +1,4 @@
+make_dir("/usr/local/pm3/lib/m3/pkg/m3doc/LINUXLIBC6")
+install_file(".M3EXPORTS", "/usr/local/pm3/lib/m3/pkg/m3doc/LINUXLIBC6", "0644")
+make_dir("/usr/local/pm3/lib/m3/pkg/m3doc/src")
+install_file("/home/ftp/tmp/pm3/tmp/pm3-1.1.15/language/modula3/m3compiler/m3bootstrap/LINUXLIBC6/pm3-LINUXLIBC6/boot-LINUXLIBC6/m3doc/src/m3doc.tmpl", "/usr/local/pm3/lib/m3/pkg/m3doc/src", "0644")

@@ -1,0 +1,62 @@
+% Copyright (C) 1994, Digital Equipment Corporation
+% All rights reserved.
+% See the file COPYRIGHT for a full description.
+%
+% Last modified on Thu Aug 22 23:06:34 PDT 1996 by najork
+%      modified on Fri Nov  4 16:40:29 PST 1994 by kalsow
+
+readonly proc WindowsResource (file) is
+  local src = path_of (file & ".rc")
+  local res = file & ".res"
+  local obj = file & ".obj"
+
+  if defined ("_all")
+    if stale (obj, src)
+      local ret = 0
+      local cmd = [ "rc", "-DWIN32", "-i", path_of(""), "-fo", res, src ]
+      write (cmd)
+      ret = exec (cmd)
+      if not equal(ret, 0) error ("command failed with error code: ", ret) end
+      cmd = [ "cvtres", "-i386", res, "-o", obj ]
+      write (cmd)
+      ret = exec (cmd)
+      if not equal(ret, 0) error ("command failed with error code: ", ret) end
+    end
+  end
+  COMPILE_SOURCES += obj
+  pgm_object (obj, "")
+  deriveds ("", [res, obj])
+end
+
+%-------------------------------------------------------
+
+m3_option ("-gui")
+m3_option ("-times")
+% m3_option ("-commands")
+% m3_option ("-verbose")
+
+import ("libm3")
+
+if not equal (OS_TYPE, "WIN32")
+  %--- hack to get Win32 interfaces while compiling on Unix
+  override ("winlib", WDROOT)
+  import ("winlib")
+end
+
+WindowsResource ("SilRes")
+module ("SilError")
+module ("SilHelp")
+module ("SilRd")
+module ("SilWr")
+module ("SilFont")
+module ("SilObject")
+module ("SilPen")
+module ("SilLine")
+module ("SilArc")
+module ("SilBox")
+module ("SilMacro")
+module ("SilString")
+module ("SilWindow")
+
+implementation ("Main")
+Program ("Sil")

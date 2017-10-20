@@ -1,0 +1,275 @@
+	.file	"M3Driver.ic"
+	.version	"01.01"
+/ SRC Modula-3 version cygnus-2.7.2-960712 (i486--linuxelf) compiled by GNU C version egcs-2.91.66 19990314/Linux (egcs-1.1.2 release).
+/ options passed:  -fno-strength-reduce -O2
+/ options enabled:  -fdefer-pop -fcse-follow-jumps -fcse-skip-blocks
+/ -fexpensive-optimizations -fthread-jumps -fpeephole -fforce-mem
+/ -ffunction-cse -finline -fkeep-static-consts -fcaller-saves
+/ -fpcc-struct-return -frerun-cse-after-loop -fschedule-insns2 -fcommon
+/ -fverbose-asm -fgnu-linker -m80387 -mhard-float -mno-soft-float -mieee-fp
+/ -mfp-ret-in-387 -mschedule-prologue -mcpu=i486 -march=i486
+
+gcc2_compiled.:
+.text
+	.align 16
+	.type	 I_M3Driver_taa8341fa_INIT,@function
+I_M3Driver_taa8341fa_INIT:
+	pushl %ebp
+	movl MI_M3Driver+716,%eax
+	movl %esp,%ebp
+	movl 24(%eax),%eax
+	addl 8(%ebp),%eax
+	movl %ebp,%esp
+	movb $1,8(%eax)
+	movl $3,36(%eax)
+	movb $1,51(%eax)
+	popl %ebp
+	ret
+.Lfe1:
+	.size	 I_M3Driver_taa8341fa_INIT,.Lfe1-I_M3Driver_taa8341fa_INIT
+.globl MI_M3Driver
+.data
+	.align 4
+	.type	 MI_M3Driver,@object
+	.size	 MI_M3Driver,808
+MI_M3Driver:
+	.long MI_M3Driver+454
+	.long MI_M3Driver+92
+	.long MI_M3Driver+716
+	.zero	32
+	.long MI_M3Driver+48
+	.ascii	"M3Driver.M3Error"
+	.zero	4
+	.long MI_M3Driver+72
+	.ascii	"M3Driver.Error"
+	.zero	14
+	.long 1892539806
+.byte 141
+.byte 3
+.byte 241
+.byte 125
+.byte 19
+.byte 222
+.byte 60
+.byte 13
+	.long 1
+	.zero	4
+	.long 108
+	.long 4
+	.zero	20
+	.long MI_M3Driver+743
+	.long MI_M3Driver+756
+	.long MI_M3Driver+764
+	.zero	28
+	.long MI_M3Driver+782
+	.long MI_M3Driver+204
+	.zero	16
+	.long -1434238470
+.byte 226
+.byte 240
+.byte 243
+.byte 177
+.byte 24
+.byte 177
+.byte 112
+.byte 27
+	.long 1
+	.zero	4
+	.long 56
+	.long 4
+	.zero	4
+	.long 20
+	.zero	12
+	.long MI_M3Driver+628
+	.long MI_M3Driver+661
+	.long MI_M3Driver+672
+	.long I_M3Driver_taa8341fa_INIT
+	.zero	4
+	.long -1651526519
+	.zero	16
+	.long MI_M3Driver+724
+	.long MI_M3Driver+328
+	.zero	28
+	.long -244065135
+.byte 124
+.byte 141
+.byte 14
+.byte 238
+.byte 237
+.byte 81
+.byte 125
+.byte 31
+	.long 1
+	.zero	4
+	.long 8
+	.long 4
+	.zero	8
+	.long 1
+	.long 4
+	.zero	4
+	.long MI_M3Driver+594
+	.long MI_M3Driver+599
+	.long MI_M3Driver+604
+	.zero	28
+	.long MI_M3Driver+612
+	.zero	4
+	.long MI_M3Driver+436
+	.ascii	"M3Driver.InterErr"
+	.zero	1
+	.ascii	"/home/ftp/tmp/pm3/tmp/pm3-1.1.15/language/modula3/m3compiler"
+	.ascii	"/m3bootstrap/LINUXLIBC6/pm3-LINUXLIBC6/boot-LINUXLIBC6/m3dri"
+	.ascii	"ver/src/M3Driver.i3"
+	.zero	1
+.byte 24
+.byte 1
+.byte 4
+.byte 0
+.byte 0
+.byte 24
+.byte 1
+.byte 4
+.byte 0
+.byte 0
+.byte 2
+.byte 11
+.byte 1
+.byte 16
+.byte 116
+.byte 101
+.byte 248
+.byte 80
+	.ascii	"M3Driver.OptArr"
+	.zero	1
+.byte 16
+.byte 16
+.byte 16
+.byte 16
+.byte 16
+.byte 16
+.byte 16
+.byte 16
+.byte 16
+.byte 16
+.byte 16
+.byte 16
+.byte 16
+.byte 16
+.byte 35
+.byte 4
+.byte 4
+.byte 16
+.byte 36
+.byte 4
+.byte 14
+.byte 14
+.byte 4
+.byte 16
+.byte 16
+.byte 16
+.byte 16
+.byte 16
+.byte 16
+.byte 16
+.byte 16
+.byte 4
+.byte 0
+.byte 42
+.byte 16
+.byte 4
+.byte 4
+.byte 37
+.byte 4
+.byte 41
+.byte 4
+.byte 41
+.byte 4
+.byte 0
+.byte 31
+.byte 10
+.byte 30
+.byte 2
+.byte 23
+.byte 23
+.byte 23
+.byte 23
+.byte 23
+.byte 23
+.byte 23
+.byte 23
+.byte 23
+.byte 23
+.byte 23
+.byte 23
+.byte 23
+.byte 16
+.byte 116
+.byte 101
+.byte 248
+.byte 80
+.byte 37
+.byte 23
+.byte 37
+.byte 7
+.byte 41
+.byte 37
+.byte 23
+.byte 23
+.byte 23
+.byte 5
+.byte 2
+.byte 23
+.byte 23
+.byte 23
+.byte 5
+.byte 2
+.byte 16
+.byte 145
+.byte 220
+.byte 115
+.byte 241
+	.zero	5
+	.long -1434238470
+	.ascii	"M3Driver.Interface"
+	.zero	1
+.byte 1
+.byte 4
+.byte 26
+.byte 22
+.byte 4
+.byte 4
+.byte 4
+.byte 16
+.byte 16
+.byte 16
+.byte 16
+.byte 16
+.byte 0
+.byte 1
+.byte 4
+.byte 26
+.byte 22
+.byte 4
+.byte 4
+.byte 4
+.byte 0
+.byte 11
+.byte 15
+.byte 9
+.byte 1
+.byte 22
+.byte 16
+.byte 116
+.byte 101
+.byte 248
+.byte 80
+.byte 24
+.byte 24
+.byte 24
+.byte 4
+.byte 28
+.byte 28
+.byte 2
+.byte 31
+	.ascii	"M3Driver.NamingConvention"
+	.zero	1
+	.ident	"GCC: (GNU) cygnus-2.7.2-960712"

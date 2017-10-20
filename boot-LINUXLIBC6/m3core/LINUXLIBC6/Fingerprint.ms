@@ -1,0 +1,621 @@
+	.file	"Fingerprint.mc"
+	.version	"01.01"
+/ SRC Modula-3 version cygnus-2.7.2-960712 (i486--linuxelf) compiled by GNU C version egcs-2.91.66 19990314/Linux (egcs-1.1.2 release).
+/ options passed:  -fno-strength-reduce -O2
+/ options enabled:  -fdefer-pop -fcse-follow-jumps -fcse-skip-blocks
+/ -fexpensive-optimizations -fthread-jumps -fpeephole -fforce-mem
+/ -ffunction-cse -finline -fkeep-static-consts -fcaller-saves
+/ -fpcc-struct-return -frerun-cse-after-loop -fschedule-insns2 -fcommon
+/ -fverbose-asm -fgnu-linker -m80387 -mhard-float -mno-soft-float -mieee-fp
+/ -mfp-ret-in-387 -mschedule-prologue -mcpu=i486 -march=i486
+
+gcc2_compiled.:
+.text
+	.align 16
+	.type	 Fingerprint__FromText,@function
+Fingerprint__FromText:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $24,%esp
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%esi
+	pushl %esi
+	movl MI_Text+56,%eax
+	call *%eax
+	addl $4,%esp
+	testl %esi,%esi
+	jne .L2
+	pushl $356
+	call _m3_fault
+	.align 16
+.L2:
+	cmpl $0,4(%esi)
+	jne .L3
+	pushl $354
+	call _m3_fault
+	.align 16
+.L3:
+	leal -8(%ebp),%ebx
+	pushl %ebx
+	pushl %eax
+	movl (%esi),%eax
+	pushl %eax
+	pushl $MI_Poly+52
+	movl MI_Poly+84,%eax
+	call *%eax
+	leal -16(%ebp),%eax
+	pushl %eax
+	pushl %ebx
+	movl MI_Poly+88,%eax
+	call *%eax
+	movl 12(%ebp),%edx
+	movl -16(%ebp),%eax
+	leal -32(%ebp),%esp
+	movl %eax,(%edx)
+	movl -12(%ebp),%eax
+	movl %eax,4(%edx)
+	popl %ebx
+	popl %esi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe1:
+	.size	 Fingerprint__FromText,.Lfe1-Fingerprint__FromText
+	.align 16
+	.type	 Fingerprint__FromChars,@function
+Fingerprint__FromChars:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $32,%esp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%eax
+	movl 4(%eax),%esi
+	testl %esi,%esi
+	jg .L5
+	movl 12(%ebp),%edx
+	movl 16(%ebp),%ecx
+	movl (%edx),%eax
+	movl %eax,(%ecx)
+	movl 4(%edx),%eax
+	movl %eax,4(%ecx)
+	jmp .L4
+	.align 16
+.L5:
+	leal -16(%ebp),%edi
+	pushl %edi
+	movl 12(%ebp),%eax
+	pushl %eax
+	movl MI_Poly+92,%eax
+	call *%eax
+	movl 8(%ebp),%eax
+	addl $8,%esp
+	cmpl $0,4(%eax)
+	jne .L6
+	pushl $514
+	call _m3_fault
+	.align 16
+.L6:
+	leal -8(%ebp),%ebx
+	pushl %ebx
+	pushl %esi
+	movl (%eax),%eax
+	pushl %eax
+	pushl %edi
+	movl MI_Poly+84,%eax
+	call *%eax
+	leal -24(%ebp),%eax
+	pushl %eax
+	pushl %ebx
+	movl MI_Poly+88,%eax
+	call *%eax
+	movl 16(%ebp),%edx
+	movl -24(%ebp),%eax
+	movl %eax,(%edx)
+	movl -20(%ebp),%eax
+	movl %eax,4(%edx)
+.L4:
+	leal -44(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe2:
+	.size	 Fingerprint__FromChars,.Lfe2-Fingerprint__FromChars
+	.align 16
+	.type	 Fingerprint__Combine,@function
+Fingerprint__Combine:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $48,%esp
+	pushl %ebx
+	movl 8(%ebp),%edx
+	movl (%edx),%eax
+	movl %eax,-24(%ebp)
+	movl 4(%edx),%eax
+	movl 12(%ebp),%edx
+	movl %eax,-20(%ebp)
+	movl (%edx),%eax
+	movl %eax,-16(%ebp)
+	movl 4(%edx),%eax
+	movl %eax,-12(%ebp)
+	leal -40(%ebp),%eax
+	pushl %eax
+	pushl $16
+	leal -24(%ebp),%eax
+	pushl %eax
+	pushl $MI_Poly+52
+	movl MI_Poly+84,%eax
+	call *%eax
+	movl -40(%ebp),%edx
+	leal 0(,%edx,8),%eax
+	subl %edx,%eax
+	sall $6,%eax
+	subl %edx,%eax
+	sall $5,%eax
+	subl %edx,%eax
+	sall $3,%eax
+	subl %edx,%eax
+	sall $4,%eax
+	subl %edx,%eax
+	sall $3,%eax
+	subl %eax,%edx
+	imull $-192467440,-36(%ebp),%eax
+	addl %eax,%edx
+	pushl %edx
+	call Fingerprint__Fix32
+	movl %eax,-32(%ebp)
+	movl -40(%ebp),%eax
+	leal (%eax,%eax,2),%edx
+	sall $5,%edx
+	subl %eax,%edx
+	leal (%eax,%edx,8),%edx
+	leal (%eax,%edx,4),%edx
+	movl %edx,%eax
+	sall $7,%eax
+	addl %eax,%edx
+	movl %edx,%eax
+	sall $13,%eax
+	addl %eax,%edx
+	movl -36(%ebp),%ebx
+	movl %ebx,%eax
+	sall $12,%eax
+	subl %ebx,%eax
+	leal (%ebx,%eax,8),%eax
+	leal 0(,%eax,4),%ecx
+	subl %eax,%ecx
+	leal (%ebx,%ecx,8),%ecx
+	movl %ecx,%eax
+	sall $8,%eax
+	subl %ecx,%eax
+	subl %edx,%eax
+	pushl %eax
+	call Fingerprint__Fix32
+	movl %eax,-28(%ebp)
+	leal -8(%ebp),%eax
+	pushl %eax
+	leal -32(%ebp),%eax
+	pushl %eax
+	movl MI_Poly+88,%eax
+	call *%eax
+	xorl %edx,%edx
+.L8:
+	xorl %eax,%eax
+	movb -8(%edx,%ebp),%al
+	movb MM_Fingerprint+44(%eax),%al
+	movb %al,-8(%edx,%ebp)
+	incl %edx
+	cmpl $7,%edx
+	jle .L8
+	movl 16(%ebp),%eax
+	movl -8(%ebp),%edx
+	movl %edx,(%eax)
+	movl -4(%ebp),%edx
+	movl %edx,4(%eax)
+	movl -52(%ebp),%ebx
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe3:
+	.size	 Fingerprint__Combine,.Lfe3-Fingerprint__Combine
+	.align 16
+	.type	 Fingerprint__Fix32,@function
+Fingerprint__Fix32:
+	pushl %ebp
+	movl %esp,%ebp
+	movl 8(%ebp),%eax
+	testl %eax,%eax
+	jge .L12
+	orl $-2147483648,%eax
+.L12:
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe4:
+	.size	 Fingerprint__Fix32,.Lfe4-Fingerprint__Fix32
+	.align 16
+	.type	 Fingerprint__Equal,@function
+Fingerprint__Equal:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %ebx
+	movl 12(%ebp),%edx
+	movl 8(%ebp),%ecx
+	movl (%edx),%eax
+	cmpl %eax,(%ecx)
+	sete %bl
+	movl 4(%edx),%eax
+	cmpl %eax,4(%ecx)
+	sete %al
+	andl %ebx,%eax
+	andl $1,%eax
+	movl -4(%ebp),%ebx
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe5:
+	.size	 Fingerprint__Equal,.Lfe5-Fingerprint__Equal
+	.align 16
+	.type	 Fingerprint__Hash,@function
+Fingerprint__Hash:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $8,%esp
+	leal -8(%ebp),%eax
+	pushl %eax
+	movl 8(%ebp),%eax
+	pushl %eax
+	movl MI_Poly+92,%eax
+	call *%eax
+	movl -8(%ebp),%eax
+	xorl -4(%ebp),%eax
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe6:
+	.size	 Fingerprint__Hash,.Lfe6-Fingerprint__Hash
+	.align 16
+	.type	 _INITM_Fingerprint,@function
+_INITM_Fingerprint:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl $MI_Fingerprint+60
+	pushl $MI_Poly+52
+	movl MI_Poly+88,%eax
+	call *%eax
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe7:
+	.size	 _INITM_Fingerprint,.Lfe7-_INITM_Fingerprint
+	.align 16
+	.type	 _m3_fault,@function
+_m3_fault:
+	pushl %ebp
+	movl %esp,%ebp
+	movl 8(%ebp),%eax
+	pushl %eax
+	pushl $MM_Fingerprint
+	movl MI_RTHooks+108,%eax
+	call *%eax
+	.align 16
+.Lfe8:
+	.size	 _m3_fault,.Lfe8-_m3_fault
+.globl MM_Fingerprint
+.data
+	.align 4
+	.type	 MM_Fingerprint,@object
+	.size	 MM_Fingerprint,632
+MM_Fingerprint:
+	.long MM_Fingerprint+476
+	.zero	16
+	.long MM_Fingerprint+388
+	.zero	16
+	.long _INITM_Fingerprint
+.byte 255
+.byte 254
+.byte 252
+.byte 251
+.byte 250
+.byte 248
+.byte 240
+.byte 245
+.byte 246
+.byte 238
+.byte 237
+.byte 244
+.byte 7
+.byte 189
+.byte 214
+.byte 236
+.byte 235
+.byte 20
+.byte 33
+.byte 8
+.byte 227
+.byte 14
+.byte 233
+.byte 178
+.byte 172
+.byte 60
+.byte 229
+.byte 133
+.byte 152
+.byte 19
+.byte 210
+.byte 203
+.byte 221
+.byte 208
+.byte 76
+.byte 18
+.byte 13
+.byte 199
+.byte 113
+.byte 62
+.byte 40
+.byte 190
+.byte 213
+.byte 194
+.byte 43
+.byte 181
+.byte 21
+.byte 15
+.byte 201
+.byte 162
+.byte 90
+.byte 186
+.byte 71
+.byte 117
+.byte 107
+.byte 70
+.byte 191
+.byte 5
+.byte 173
+.byte 44
+.byte 39
+.byte 12
+.byte 174
+.byte 183
+.byte 99
+.byte 11
+.byte 176
+.byte 163
+.byte 161
+.byte 72
+.byte 86
+.byte 105
+.byte 2
+.byte 83
+.byte 42
+.byte 52
+.byte 179
+.byte 135
+.byte 103
+.byte 110
+.byte 151
+.byte 58
+.byte 108
+.byte 96
+.byte 166
+.byte 25
+.byte 115
+.byte 66
+.byte 142
+.byte 10
+.byte 141
+.byte 48
+.byte 104
+.byte 34
+.byte 159
+.byte 120
+.byte 22
+.byte 140
+.byte 64
+.byte 82
+.byte 78
+.byte 68
+.byte 207
+.byte 125
+.byte 123
+.byte 150
+.byte 144
+.byte 138
+.byte 128
+.byte 139
+.byte 136
+.byte 114
+.byte 119
+.byte 53
+.byte 148
+.byte 185
+.byte 41
+.byte 124
+.byte 216
+.byte 143
+.byte 49
+.byte 92
+.byte 98
+.byte 51
+.byte 112
+.byte 73
+.byte 50
+.byte 63
+.byte 16
+.byte 46
+.byte 158
+.byte 126
+.byte 206
+.byte 122
+.byte 94
+.byte 132
+.byte 88
+.byte 184
+.byte 28
+.byte 84
+.byte 127
+.byte 156
+.byte 167
+.byte 223
+.byte 118
+.byte 89
+.byte 116
+.byte 17
+.byte 111
+.byte 121
+.byte 109
+.byte 77
+.byte 146
+.byte 61
+.byte 224
+.byte 101
+.byte 81
+.byte 218
+.byte 97
+.byte 188
+.byte 243
+.byte 155
+.byte 57
+.byte 102
+.byte 54
+.byte 129
+.byte 93
+.byte 192
+.byte 153
+.byte 106
+.byte 36
+.byte 145
+.byte 79
+.byte 31
+.byte 137
+.byte 26
+.byte 67
+.byte 85
+.byte 175
+.byte 80
+.byte 168
+.byte 65
+.byte 91
+.byte 1
+.byte 147
+.byte 149
+.byte 6
+.byte 29
+.byte 37
+.byte 69
+.byte 182
+.byte 165
+.byte 4
+.byte 74
+.byte 55
+.byte 47
+.byte 171
+.byte 169
+.byte 75
+.byte 134
+.byte 193
+.byte 195
+.byte 198
+.byte 131
+.byte 38
+.byte 180
+.byte 56
+.byte 196
+.byte 23
+.byte 154
+.byte 177
+.byte 200
+.byte 205
+.byte 27
+.byte 209
+.byte 95
+.byte 204
+.byte 160
+.byte 3
+.byte 30
+.byte 157
+.byte 32
+.byte 9
+.byte 212
+.byte 211
+.byte 45
+.byte 202
+.byte 170
+.byte 0
+.byte 219
+.byte 187
+.byte 87
+.byte 35
+.byte 100
+.byte 217
+.byte 232
+.byte 164
+.byte 228
+.byte 220
+.byte 197
+.byte 231
+.byte 215
+.byte 226
+.byte 130
+.byte 225
+.byte 234
+.byte 241
+.byte 239
+.byte 59
+.byte 230
+.byte 247
+.byte 24
+.byte 249
+.byte 242
+.byte 222
+.byte 253
+	.long Fingerprint__Fix32
+	.long Fingerprint__FromText
+	.long Fingerprint__Combine
+	.long Fingerprint__FromChars
+	.long Fingerprint__Equal
+	.long Fingerprint__Hash
+	.ascii	"_INITM_Fingerprint"
+	.zero	1
+	.ascii	"Hash"
+	.zero	1
+	.ascii	"Equal"
+	.zero	1
+	.ascii	"Fix32"
+	.zero	1
+	.ascii	"Combine"
+	.zero	1
+	.ascii	"FromChars"
+	.zero	1
+	.ascii	"FromText"
+	.zero	2
+	.long _INITM_Fingerprint
+	.long MM_Fingerprint+324
+	.zero	4
+	.long Fingerprint__Hash
+	.long MM_Fingerprint+343
+	.long MI_Fingerprint+76
+	.long Fingerprint__Equal
+	.long MM_Fingerprint+348
+	.long MI_Fingerprint+72
+	.long Fingerprint__Fix32
+	.long MM_Fingerprint+354
+	.zero	4
+	.long Fingerprint__Combine
+	.long MM_Fingerprint+360
+	.long MI_Fingerprint+48
+	.long Fingerprint__FromChars
+	.long MM_Fingerprint+368
+	.long MI_Fingerprint+68
+	.long Fingerprint__FromText
+	.long MM_Fingerprint+378
+	.long MI_Fingerprint+44
+	.zero	4
+	.ascii	"/home/ftp/tmp/pm3/tmp/pm3-1.1.15/language/modula3/m3compiler"
+	.ascii	"/m3bootstrap/LINUXLIBC6/pm3-LINUXLIBC6/boot-LINUXLIBC6/m3cor"
+	.ascii	"e/src/fingerprint/Fingerprint.m3"
+	.zero	4
+	.ident	"GCC: (GNU) cygnus-2.7.2-960712"

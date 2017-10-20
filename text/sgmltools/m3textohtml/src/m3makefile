@@ -1,0 +1,11 @@
+
+import("libm3")
+import("m3doc")
+
+HtmlFile("index")
+HtmlTextFile("conversion.txt")
+HtmlTextFile("modBsFiles2.txt")
+
+implementation ("Main")
+
+Program ("m3textohtml")

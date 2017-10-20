@@ -1,0 +1,42 @@
+%
+% Standard configuration file for Silicon Graphics machine
+% (MIPS1 or MIPS2 architecture) running Irix 5.2.
+%
+
+readonly TARGET = "IRIX5"
+
+include("COMMON")
+
+%INSTALL_ROOT = "/usr/local"
+
+PLATFORM_SUPPORTS_MOTIF  = "TRUE"
+PLATFORM_SUPPORTS_SHARED_LIB = "TRUE"
+
+CC = [ "/bin/cc", "-Dvfork=fork", "-cckr" ]
+LINK = [ "/bin/cc" ]
+MAKELIB = [ "/bin/ar", "cru" ]
+MAKESHLIB = ["ld", "-shared", "-ignore_unresolved"]
+ASM = [ "gas" ]
+
+DYNAMIC_FLAG = "-call_shared"
+STATIC_FLAG = "-Wl,-B,static"
+
+setDefault("","")
+
+proc m3_make_shared_lib (lib, objects, imported_libs) is
+  local lib_a    = format ("lib%s.a", lib)
+  local lib_so   = format ("lib%s.so", lib)
+  local cmd = [MAKESHLIB_CMD, "-o", lib_so, "-all", lib_a, "-none", 
+      imported_libs, "-lm -lc"]
+  if VERBOSE write(cmd, CR) end
+  return exec (cmd)
+end
+
+proc m3_assemble (source, object) is
+  local cmd = [ ASM_CMD, object, source ]
+
+  if Options{"optimization"}[0] cmd += "-O2" end
+  if VERBOSE write(cmd, CR) end
+  return exec (cmd)
+end
+

@@ -1,0 +1,1023 @@
+MxIO.m3 285
+MxVSSet.m3 382
+MxSet.m3 242
+MxMap.m3 236
+MxRep.m3 179
+MxVS.m3 147
+MxGenCG.m3 1288
+MxGenC.m3 524
+MxGenRep.m3 249
+MxCheck.m3 1407
+MxMerge.m3 1866
+MxOut.m3 704
+MxIn.m3 1727
+Mx.m3 47
+MxIO.i3 394
+MxSet.i3 246
+MxRep.i3 761
+MxMap.i3 588
+MxVSSet.i3 310
+MxVS.i3 263
+MxGenCG.i3 188
+MxGenC.i3 186
+MxGenRep.i3 1566
+MxGen.i3 132
+MxCheck.i3 102
+MxMerge.i3 117
+MxOut.i3 97
+MxIn.i3 138
+Mx.i3 1751
+$ 0
+@MxIO.m3
+AMxIO
+R3ba526c7 3 00000000 0
+Swr c5c06198
+Sxx e61d104f
+Sch 50f86574
+F264b1550 8d2831d7 56e16863 64
+DMxIO
+CMx
+CM3Buf
+CM3FP
+CWord
+CRTHooks
+Qd9b99dfd 26466202
+Rd4f21c29 2 195c2a74 0
+Sx 195c2a74
+Sy 195c2a74
+N2da6581d 195c2a74 0 31 8
+R6fb7d834 2 195c2a74 0
+Sx 195c2a74
+Sn 2da6581d
+@MxVSSet.m3
+AMxVSSet
+K50a2db63 64 2
+Ln_used 0 32 195c2a74
+Ldata 32 32 217fba22
+P64b6f273 50a2db63 MxVSMap.T
+R90a1e21f 1 fe022925 0
+SinitialSize 97e237e2
+Rf8fcb892 2 195c2a74 0
+St fe022925
+Skey 195c2a74
+R2e90c991 2 00000000 0
+St fe022925
+Skey 195c2a74
+Rc3c010bd 1 00000000 0
+St fe022925
+DMxVSSet
+CMxVS
+CWord
+CRTHooks
+Zfe022925 64b6f273
+Rd4f21c29 2 195c2a74 0
+Sx 195c2a74
+Sy 195c2a74
+@MxSet.m3
+AMxSet
+K99286d63 32 1
+Lelts 0 32 1e0fe6c4
+Pc966d145 99286d63 LinkSet
+K7bf89eac 96 3
+Lname 0 32 adc6066d
+Lintf 32 32 3482c7b2
+Limpl 64 32 3482c7b2
+P054ca779 7bf89eac
+DMxSet
+CMxMap
+CMx
+CRTHooks
+E054ca779 MxSet.Pair
+Z421b2f05 c966d145
+@MxMap.m3
+AMxMap
+Ke6e2d421 64 2
+Ln_used 0 32 195c2a74
+Ldata 32 32 007d5adb
+Pee8bee3b e6e2d421 MxMap.T
+R3711da12 1 1e0fe6c4 0
+SinitialSize 97e237e2
+R647028b0 1 00000000 0
+St 1e0fe6c4
+DMxMap
+CRTHooks
+Z1e0fe6c4 ee8bee3b
+Qb924d57f 46db2a80
+@MxRep.m3
+AMxRep
+Ff4851952 1e59237d 50f86574 64
+DMxRep
+CMxVSSet
+CMxVS
+CMxSet
+CMxMap
+CMx
+CM3ID
+CRTHooks
+Qcb7d384d 3482c7b2
+Qe6a3d58b 195c2a74
+Q37674ae3 c898b51c
+Q275de99f d8a21660
+@MxVS.m3
+AMxVS
+G2d094136 02255e0a 64
+Pa1f05938 2d094136
+DMxVS
+CWord
+CRTHooks
+Qfddaa1f5 02255e0a
+Ea1f05938 MxVS.InfoBuffer
+E217fba22 MxVS.HashTable
+@MxGenCG.m3
+AMxGenCG
+Kc66d0606 32 1
+Lsize 0 32 195c2a74
+K1b5c6fb8 64 2
+Lid 0 32 adc6066d
+Lvar 32 32 fbef8279
+Gb221dcce 1b5c6fb8 64
+P58e9af3e b221dcce
+Kc25ac107 64 2
+Lid 0 32 adc6066d
+Lproc 32 32 64c4a775
+V08b9d91e ed5a8a24 19 0 1 992 MxGenCG.T
+XgenerateMain MxGenCG.GenerateMain
+Lcg 0 32 d04f08c4
+Lmodule_type 32 32 c66d0606
+Llink_info_type 64 32 c66d0606
+Llinker_type 96 32 c66d0606
+Lmodules_var 128 64 1b5c6fb8
+Lm3_link_info_var 192 64 1b5c6fb8
+Lnext_unit 256 32 195c2a74
+Lunit_vars 288 32 58e9af3e
+Lmain_proc 320 64 c25ac107
+LMI_RTLinker_var 384 64 1b5c6fb8
+LMM_RTLinker_var 448 64 1b5c6fb8
+Largv_var 512 64 1b5c6fb8
+Largc_var 576 64 1b5c6fb8
+Lenvp_var 640 64 1b5c6fb8
+Llinker_var 704 64 1b5c6fb8
+Lself_var 768 64 1b5c6fb8
+Lprev_var 832 64 1b5c6fb8
+Lmode_var 896 64 1b5c6fb8
+Ltc_words 960 32 195c2a74
+R94c39297 1 00000000 0
+Ss ab8481f4
+Q547b7e0b ab8481f4
+Rae5e65b7 1 00000000 0
+Ss 547b7e0b
+R2260f56f 2 00000000 0
+Ss 547b7e0b
+Su 3482c7b2
+Ra9475f12 3 00000000 0
+Ss 547b7e0b
+Sui f088e00f
+Sothers f088e00f
+R4d1ceff9 3 00000000 0
+Ss 547b7e0b
+Sv f088e00f
+Sw f088e00f
+DMxGenCG
+CMxGenRep
+CTInt
+CText
+CM3CG_Ops
+CM3CG
+CTarget
+CM3RT
+CM3ID
+CMxMap
+CMxRep
+CMx
+CStdio
+CRTHooks
+Eab8481f4 MxGenCG.State
+Ec66d0606 MxGenCG.TypeInfo
+E1b5c6fb8 MxGenCG.VarInfo
+Ec25ac107 MxGenCG.ProcInfo
+Zab8481f4 08b9d91e
+@MxGenC.m3
+AMxGenC
+Vf01be9a8 ed5a8a24 0 0 1 0 MxGenC.T
+XgenerateMain MxGenC.GenerateMain
+R38d80106 1 00000000 0
+Ss 89bf494c
+Q7640b6b3 89bf494c
+R0245f626 1 00000000 0
+Ss 7640b6b3
+R94a7226b 2 00000000 0
+Ss 7640b6b3
+Sall_ui f088e00f
+R0be603b6 2 00000000 0
+Ss 7640b6b3
+Su 3482c7b2
+Rf2d9b308 3 00000000 0
+Ss 7640b6b3
+Sui f088e00f
+Sothers f088e00f
+R168203e3 3 00000000 0
+Ss 7640b6b3
+Sv f088e00f
+Sw f088e00f
+DMxGenC
+CMxGenRep
+CTarget
+CM3RT
+CM3ID
+CMxMap
+CMxRep
+CMx
+CStdio
+CFmt
+CWr
+CRTHooks
+E89bf494c MxGenC.State
+Z89bf494c f01be9a8
+@MxGenRep.m3
+AMxGenRep
+V3d48379b 99ebabb1 0 0 0 0 MxGenRep.Common
+R14742e73 1 50f86574 0
+St e61d104f
+DMxGenRep
+CMxMap
+CM3ID
+CMxRep
+CMx
+CThread
+CFmt
+CIntArraySort
+CWr
+CIntRefTbl
+CRTHooks
+Q5239f992 adc6066d
+Eed5a8a24 MxGenRep.State
+Zed5a8a24 3d48379b
+@MxCheck.m3
+AMxCheck
+K30131773 160 5
+Lnext 0 32 30131770
+Ltype 32 32 30695296
+Lt_unit 64 32 3482c7b2
+Lreveal 96 32 d8a21660
+Lr_unit 128 32 3482c7b2
+P30131770 30131773
+K41871cb0 96 3
+Limport_name 0 32 adc6066d
+Limporter 32 32 3482c7b2
+Lnext 64 32 41871cb3
+P41871cb3 41871cb0
+K3d273b2a 352 8
+Lbase 0 32 5f276392
+Lerrors 32 32 62761487
+Lfailed 64 8 1e59237d
+Lopaques 96 32 1e0fe6c4
+Lall_opaques 128 32 30131770
+Limport_err 160 32 41871cb3
+Lerr_width 192 32 195c2a74
+Lbad_vs 224 128 02255e0a
+Qc2d8c4d5 3d273b2a
+R4c5fee60 2 00000000 0
+Ss c2d8c4d5
+Su 3482c7b2
+Recc13767 3 00000000 0
+Ss c2d8c4d5
+Sbase 5f276392
+Serrors 62761487
+R825ac7c7 1 00000000 0
+Ss c2d8c4d5
+Qe1c743cc 1e38bc33
+R0fad4895 3 00000000 0
+Ss c2d8c4d5
+Su 3482c7b2
+Sn e1c743cc
+R3d1f59e2 2 00000000 0
+Ss c2d8c4d5
+Serr 41871cb3
+Ff4851952 1e59237d 50f86574 64
+R96af26eb 3 00000000 0
+Ss c2d8c4d5
+Su 3482c7b2
+Sz e1c743cc
+Rc25196b3 3 00000000 0
+Ss c2d8c4d5
+Svs 195c2a74
+Smsg 50f86574
+Qfddaa1f5 02255e0a
+Rb6c26eeb 4 1e59237d 0
+Ss c2d8c4d5
+Su 3482c7b2
+Sz e1c743cc
+Sbad fddaa1f5
+R5d6a63f2 2 00000000 0
+Ss c2d8c4d5
+Sp 4c5fee60
+Rfbdcbaa8 2 50f86574 0
+Ss c2d8c4d5
+St e61d104f
+Rf296b49b 5 00000000 0
+Ss c2d8c4d5
+Sa 50f86574
+Sb 50f86574
+Sc 50f86574
+Sd 50f86574
+DMxCheck
+CMxVSSet
+CMxVS
+CMxSet
+CM3ID
+CMxMap
+CMxRep
+CMx
+CWord
+CThread
+CWr
+CFmt
+CText
+CRTHooks
+E3d273b2a MxCheck.State
+E4c5fee60 MxCheck.UnitProc
+E41871cb3 MxCheck.ImportError
+E30131770 MxCheck.OpaqueInfo
+@MxMerge.m3
+AMxMerge
+Keacce1dc 160 5
+Lunit 0 32 3482c7b2
+Lbase 32 32 5f276392
+Lerrs 64 32 62761487
+Lerr_buf 96 32 c5c06198
+Lfailed 128 8 1e59237d
+Q15331e23 eacce1dc
+R76a08862 2 b845e085 0
+Ss 15331e23
+Sux b845e085
+R35750052 2 00000000 0
+Ss 15331e23
+Su 3482c7b2
+Rc4cdfb6d 3 b845e085 0
+Ss 15331e23
+Su 3482c7b2
+Sv 3482c7b2
+Qe1c743cc 1e38bc33
+R4513305f 5 00000000 0
+Ss 15331e23
+Su 3482c7b2
+Sz e1c743cc
+Sexport 1e59237d
+Simplement 1e59237d
+R150b781c 3 00000000 0
+Ss 15331e23
+Sclient 3482c7b2
+Sz e1c743cc
+R49ed6558 4 00000000 0
+Ss 15331e23
+Sz e1c743cc
+Sexport 1e59237d
+Simplement 1e59237d
+Re19827fc 3 00000000 0
+Ss 15331e23
+Svs 195c2a74
+Sclient 3482c7b2
+Rcf53057c 2 1e59237d 0
+Ss 15331e23
+Svs 195c2a74
+Rc9f6fce0 3 1e59237d 0
+Ss 15331e23
+Su 3482c7b2
+Svs 195c2a74
+R03ac57c6 4 1e59237d 0
+Ss 15331e23
+Su 3482c7b2
+Svs1 195c2a74
+Svs2 195c2a74
+Reffdb71e 1 00000000 0
+Sx 3482c7b2
+R847abd05 3 1e59237d 0
+Sx 3482c7b2
+Sz e1c743cc
+Svs 195c2a74
+Rd6c64adc 2 00000000 0
+Ss 15331e23
+Sr d8a21660
+R9bb1c31a 3 00000000 0
+Ss 15331e23
+Sr d8a21660
+Sclient 3482c7b2
+R6e23be6b 2 1e59237d 0
+Ss 15331e23
+Sr d8a21660
+Ff4851952 1e59237d 50f86574 64
+R76a5a47a 2 00000000 0
+Ss 15331e23
+Sz e1c743cc
+R9db436bc 2 00000000 0
+Ss 15331e23
+So c898b51c
+R5be79342 3 00000000 0
+Ss 15331e23
+So c898b51c
+Sclient 3482c7b2
+R53f1aaae 2 1e59237d 0
+Ss 15331e23
+So c898b51c
+R4d7bfbce 4 1e59237d 0
+Ss 15331e23
+Su 3482c7b2
+So1 c898b51c
+So2 c898b51c
+R35d0b5b9 3 1e59237d 0
+Sx 3482c7b2
+So1 c898b51c
+So2 c898b51c
+R7e587091 2 b845e085 0
+Ss 15331e23
+Sui b845e085
+R852110d5 2 1e59237d 0
+Ss 15331e23
+Su 3482c7b2
+R142f11b6 2 00000000 0
+Ss 15331e23
+Sx 195c2a74
+Qd9b99dfd 26466202
+R9893606f 2 00000000 0
+Ss 15331e23
+Sx d9b99dfd
+R26ab3fac 5 00000000 0
+Ss 15331e23
+Sa 50f86574
+Sb 50f86574
+Sc 50f86574
+Sd 50f86574
+DMxMerge
+CMxIO
+CMxVSSet
+CMxSet
+CMxVS
+CMxMap
+CMxRep
+CMx
+CM3Buf
+CM3FP
+CM3ID
+CFmt
+CWr
+CText
+CRTHooks
+Eeacce1dc MxMerge.State
+@MxOut.m3
+AMxOut
+K5666fa18 192 6
+Lwr 0 32 62761487
+Lbuf 32 32 c5c06198
+LnameMap 64 32 ed1dee3b
+Lnext_name 96 32 195c2a74
+LvsMap 128 32 ed1dee3b
+Lnext_vs 160 32 195c2a74
+Qa99905e7 5666fa18
+R1fd44f42 2 00000000 0
+Ss a99905e7
+Su 3482c7b2
+Ff4851952 1e59237d 50f86574 64
+Qe1c743cc 1e38bc33
+R8b06ec60 4 00000000 0
+Ss a99905e7
+Su 3482c7b2
+Sx e1c743cc
+Stag 50f86574
+R51945488 2 00000000 0
+Ss a99905e7
+So 30695296
+R753253d3 3 00000000 0
+Ss a99905e7
+Sobj c898b51c
+Sexport 1e59237d
+Rfc6705cc 2 00000000 0
+Ss a99905e7
+Sr d8a21660
+R1ba42448 2 195c2a74 0
+Ss a99905e7
+Svs 195c2a74
+Rcb600031 2 195c2a74 0
+Ss a99905e7
+Snm adc6066d
+DMxOut
+CMxIO
+CMxVS
+CMx
+CTarget
+CM3ID
+CM3Buf
+CIntIntTbl
+CWr
+CRTHooks
+E5666fa18 MxOut.State
+@MxIn.m3
+AMxIn
+Ge519b4a9 adc6066d 64
+P717b864e e519b4a9
+N463373b8 195c2a74 0 1028 16
+F1f8df9a6 463373b8 56e16863 8232
+K82d0974f 8608 12
+Lcmd 0 8 56e16863
+Linput 32 32 a62f63c4
+Lerrors 64 32 62761487
+LnErrors 96 32 195c2a74
+Lunits 128 32 b845e085
+Lcur_file 160 32 12bc0c0b
+Lcur_unit 192 32 3482c7b2
+LnameMap 224 32 717b864e
+LvsMap 256 32 217fba22
+Lbuf_ptr 288 32 97e237e2
+Lbuf_len 320 32 97e237e2
+Lbuf 352 8232 1f8df9a6
+Q7d2f68b0 82d0974f
+R0f90374b 1 1e59237d 1
+Ss 7d2f68b0
+TOSError.E
+N2aa4581d 195c2a74 0 16 8
+Fecb66af6 56e16863 2aa4581d 2048
+Fb4fe8aad 56e16863 0f90374b 8192
+Rca49feaf 1 50f86574 0
+Sargs ad398276
+Rd1a65485 1 00000000 2
+Ss 7d2f68b0
+TMxIn.SyntaxError
+TOSError.E
+Ra9ee7f10 2 00000000 2
+Ss 7d2f68b0
+Sch 56e16863
+TMxIn.SyntaxError
+TOSError.E
+Rbd1346b0 1 1e59237d 0
+Ss 7d2f68b0
+R6e60a205 1 00000000 0
+Ss 7d2f68b0
+Qe1c743cc 1e38bc33
+R96473e5f 3 00000000 0
+Su 3482c7b2
+Sx e1c743cc
+Si 195c2a74
+R0cc8786e 2 adc6066d 1
+Ss 7d2f68b0
+Sterm 56e16863
+TOSError.E
+Re24ce70a 2 195c2a74 1
+Ss 7d2f68b0
+Sterm 56e16863
+TOSError.E
+R7f0ec777 2 e61d104f 1
+Ss 7d2f68b0
+Sterm 56e16863
+TOSError.E
+Qd9b99dfd 26466202
+Rf971a0af 3 00000000 1
+Ss 7d2f68b0
+Sx d9b99dfd
+Sterm 56e16863
+TOSError.E
+R64fbaa8c 1 56e16863 1
+Ss 7d2f68b0
+TOSError.E
+Rd8b0c782 1 00000000 1
+Ss 7d2f68b0
+TOSError.E
+R4470c2b3 5 00000000 0
+Ss 7d2f68b0
+Sa 50f86574
+Sb 50f86574
+Sc 50f86574
+Sd 50f86574
+DMxIn
+COSError
+CMxVS
+CM3File
+CM3FP
+CM3ID
+CMxRep
+CMx
+CAtomList
+CAtom
+CThread
+CWord
+CFmt
+CWr
+CFile
+CText
+CRTHooks
+E82d0974f MxIn.State
+E217fba22 MxIn.VSMap
+E717b864e MxIn.NameMap
+E0f90374b MxIn.CmdProc
+Q4b017552 b4fe8aad
+Rd4f21c29 2 195c2a74 0
+Sx 195c2a74
+Sy 195c2a74
+R3ce4d13b 1 195c2a74 0
+Sx 195c2a74
+N2da6581d 195c2a74 0 31 8
+R6fb7d834 2 195c2a74 0
+Sx 195c2a74
+Sn 2da6581d
+@Mx.m3
+AMx
+DMx
+CMxVSSet
+CMxMap
+CMxRep
+CRTHooks
+@MxIO.i3
+BMxIO
+R2d84e953 6 00000000 0
+Swr c5c06198
+Sa 50f86574
+Sb 50f86574
+Sc 50f86574
+Sd 50f86574
+Se 50f86574
+R9e9f80e4 2 00000000 0
+Swr c5c06198
+Sch 56e16863
+Rea4e2487 3 00000000 0
+Swr c5c06198
+Si 195c2a74
+Sch 50f86574
+Qd9b99dfd 26466202
+Rce8cc856 3 00000000 0
+Swr c5c06198
+Sx d9b99dfd
+Sch 50f86574
+Ra09cde4f 3 00000000 0
+Swr c5c06198
+Sx e61d104f
+Sch 50f86574
+DMxIO
+CMx
+CM3Buf
+CM3FP
+CRTHooks
+@MxSet.i3
+BMxSet
+Y421b2f05 1c1c45e6
+R39c9e182 0 421b2f05 0
+R64c933cc 2 00000000 0
+St 421b2f05
+Se 3482c7b2
+R59027a8f 2 1e59237d 0
+St 421b2f05
+Se 3482c7b2
+Rce514c31 1 b845e085 0
+St 421b2f05
+DMxSet
+CMx
+CRTHooks
+E421b2f05 MxSet.T
+E3482c7b2 MxSet.Elt
+@MxRep.i3
+BMxRep
+K7ec6c3de 224 7
+Linterfaces 0 32 1e0fe6c4
+Lmodules 32 32 1e0fe6c4
+Lvirtuals 64 32 1e0fe6c4
+Lclients 96 32 1e0fe6c4
+Lvs_exports 128 32 fe022925
+Lvs_impls 160 32 fe022925
+Lexported_types 192 32 1e0fe6c4
+P237b01bb 7ec6c3de Mx.LinkSet 1.0
+R1e15c49b 1 50f86574 0
+Su 3482c7b2
+Rd54b4d9f 3 3482c7b2 0
+Sx 5f276392
+Snm adc6066d
+Sclient 3482c7b2
+Qcb7d384d 3482c7b2
+Qe6a3d58b 195c2a74
+R2269db41 5 00000000 0
+Sx 5f276392
+Sset fe022925
+Svs 195c2a74
+Sunit cb7d384d
+Sstamp e6a3d58b
+Q37674ae3 c898b51c
+Rd91d0a9a 4 00000000 0
+Sx 5f276392
+So c898b51c
+Sunit cb7d384d
+Sobject 37674ae3
+Q275de99f d8a21660
+R1143bc5a 4 00000000 0
+Sx 5f276392
+Sr d8a21660
+Sunit cb7d384d
+Srev 275de99f
+DMxRep
+CMxVS
+CMxVSSet
+CMxMap
+CMx
+CRTHooks
+E7ec6c3de MxRep.LinkRec
+Z5f276392 237b01bb
+@MxMap.i3
+BMxMap
+Y1e0fe6c4 1c1c45e6
+R01966f73 1 1e0fe6c4 0
+SinitalSize 97e237e2
+R758cb362 2 1c1c45e6 0
+St 1e0fe6c4
+Sk 195c2a74
+R7b5a1d11 2 195c2a74 0
+St 1e0fe6c4
+Sk 195c2a74
+Rd1dc3b94 2 1c1c45e6 0
+St 1e0fe6c4
+Sindex 195c2a74
+R0498f347 3 00000000 0
+St 1e0fe6c4
+Sk 195c2a74
+Sv 1c1c45e6
+Ra0c44a24 2 00000000 0
+St 1e0fe6c4
+Sk 195c2a74
+K46db2a80 64 2
+Lkey 0 32 195c2a74
+Lvalue 32 32 1c1c45e6
+G93193849 46db2a80 64
+P007d5adb 93193849
+R5f8b7848 1 007d5adb 0
+St 1e0fe6c4
+DMxMap
+CRTHooks
+E1e0fe6c4 MxMap.T
+E195c2a74 MxMap.Key
+E1c1c45e6 MxMap.Value
+E46db2a80 MxMap.Binding
+E007d5adb MxMap.Contents
+@MxVSSet.i3
+BMxVSSet
+Yfe022925 1c1c45e6
+Ra626577e 1 fe022925 0
+SinitalSize 97e237e2
+R655498a0 2 195c2a74 0
+St fe022925
+Selt 195c2a74
+R8e86ccdb 2 00000000 0
+St fe022925
+Selt 195c2a74
+Rf71be148 1 217fba22 0
+St fe022925
+DMxVSSet
+CMxVS
+CRTHooks
+Efe022925 MxVSSet.T
+E195c2a74 MxVSSet.Elt
+E217fba22 MxVSSet.Contents
+@MxVS.i3
+BMxVS
+K02255e0a 128 3
+Lsource 0 32 adc6066d
+Lsymbol 32 32 adc6066d
+Lstamp 64 64 26466202
+Qfddaa1f5 02255e0a
+R27b6a0e2 2 00000000 0
+St 195c2a74
+Si fddaa1f5
+R1ee0b9ef 1 195c2a74 0
+Si fddaa1f5
+DMxVS
+CM3FP
+CM3ID
+CRTHooks
+E195c2a74 MxVS.T
+E02255e0a MxVS.Info
+@MxGenCG.i3
+BMxGenCG
+Yab8481f4 ed5a8a24
+R22420e5f 4 ab8481f4 0
+Sbase 5f276392
+Scg d04f08c4
+Sverbose 1e59237d
+SwindowsGUI 1e59237d
+DMxGenCG
+CMx
+CM3CG
+CMxGenRep
+CRTHooks
+Eab8481f4 MxGenCG.T
+@MxGenC.i3
+BMxGenC
+Y89bf494c ed5a8a24
+Rcb3b6641 4 89bf494c 0
+Sbase 5f276392
+Soutput 62761487
+Sverbose 1e59237d
+SwindowsGUI 1e59237d
+DMxGenC
+CMxGenRep
+CWr
+CMx
+CRTHooks
+E89bf494c MxGenC.T
+@MxGenRep.i3
+BMxGenRep
+Kf088e00e 64 2
+Lui 0 32 f088e00f
+Lnext 32 32 f088e00d
+Pf088e00d f088e00e
+Kf088e008 256 9
+Lunit 0 32 3482c7b2
+Lnext 32 32 f088e00f
+Limports 64 32 f088e00d
+Lexporters 96 32 f088e00d
+Ldfs_id 128 32 195c2a74
+Llow_link 160 32 195c2a74
+Lprev_stack 192 32 f088e00f
+Linit_started 224 8 1e59237d
+Lstacked 232 8 1e59237d
+Pf088e00f f088e008
+K30131773 160 5
+Lnext 0 32 30131770
+Ltype 32 32 30695296
+Lt_unit 64 32 3482c7b2
+Lreveal 96 32 d8a21660
+Lr_unit 128 32 3482c7b2
+P30131770 30131773
+V99ebabb1 533e0f45 15 0 0 416
+Lbase 0 32 5f276392
+Lerrors 32 32 62761487
+Loutput 64 32 62761487
+Lfailed 96 8 1e59237d
+Lverbose 104 8 1e59237d
+Lgui 112 8 1e59237d
+Ln_modules 128 32 195c2a74
+Ldfs_count 160 32 195c2a74
+Linit_stack 192 32 f088e00f
+Ln_opaques 224 32 195c2a74
+Lopaques 256 32 5ad3ba2b
+Lall_opaques 288 32 30131770
+Lbuiltin_name 320 32 adc6066d
+Lbuiltin_unit 352 32 3482c7b2
+Leol 384 32 50f86574
+Yed5a8a24 99ebabb1
+Ff4851952 1e59237d 50f86574 64
+Rfcfbfde3 2 00000000 0
+Ss ed5a8a24
+Su 3482c7b2
+R7f33a140 1 00000000 0
+Ss ed5a8a24
+Gd2b10d42 f088e00f 64
+Pbfb84510 d2b10d42
+Q5239f992 adc6066d
+R8632e718 3 f088e00f 0
+Ss ed5a8a24
+Sintfs bfb84510
+Sname 5239f992
+R84fd696c 2 00000000 0
+Ss ed5a8a24
+Sp fcfbfde3
+Rf547ab8a 5 00000000 0
+Ss ed5a8a24
+Sa 50f86574
+Sb 50f86574
+Sc 50f86574
+Sd 50f86574
+R40378b45 2 f088e00f 0
+Sall_ui f088e00f
+Sn_units 195c2a74
+DMxGenRep
+CIntRefTbl
+CWr
+CMx
+CMxGen
+CRTHooks
+Eed5a8a24 MxGenRep.Common
+E99ebabb1 MxGenRep.Public
+Ef088e00f MxGenRep.UnitInfo
+Ef088e00d MxGenRep.UnitInfoList
+Efcfbfde3 MxGenRep.UnitProc
+E30131770 MxGenRep.OpaqueInfo
+@MxGen.i3
+BMxGen
+R7b78c34f 0 00000000 0
+V533e0f45 9d8fb489 0 1 0 0 MxGen.T
+WgenerateMain 7b78c34f
+DMxGen
+CRTHooks
+E533e0f45 MxGen.T
+@MxCheck.i3
+BMxCheck
+R7e9e7960 2 1e59237d 0
+Sbase 5f276392
+Serrors 62761487
+DMxCheck
+CMx
+CWr
+CRTHooks
+@MxMerge.i3
+BMxMerge
+R78dbf992 3 b845e085 0
+Sunit 3482c7b2
+Sbase 5f276392
+Serrors 62761487
+DMxMerge
+CMx
+CWr
+CRTHooks
+@MxOut.i3
+BMxOut
+R81801dac 2 00000000 0
+Sunits b845e085
+Soutput 62761487
+DMxOut
+CMx
+CWr
+CRTHooks
+@MxIn.i3
+BMxIn
+Rfbd314cd 4 b845e085 0
+Sinput a62f63c4
+Sfilename 50f86574
+Simported 1e59237d
+Serrors 62761487
+DMxIn
+CMx
+CWr
+CFile
+CRTHooks
+@Mx.i3
+BMx
+Y5f276392 1c1c45e6
+R9db2149d 0 5f276392 0
+K04a46ed2 64 2
+Lname 0 32 50f86574
+Limported 32 8 1e59237d
+P12bc0c0b 04a46ed2
+K1e38bc33 64 2
+Lstart 0 32 97e237e2
+Lcnt 32 32 97e237e2
+K30695295 96 3
+Lnext 0 32 30695296
+Ltype 32 32 e61d104f
+Lsuper_type 64 32 e61d104f
+P30695296 30695295
+Kc898b51f 256 9
+Lnext 0 32 c898b51c
+Lsource 32 32 adc6066d
+Ltype 64 32 e61d104f
+Lsuper_type 96 32 e61d104f
+Ldata_size 128 32 195c2a74
+Ldata_align 160 32 195c2a74
+Lmethod_size 192 32 195c2a74
+Lexport 224 8 1e59237d
+Lfrom_module 232 8 1e59237d
+Pc898b51c c898b51f
+Kd8a21663 160 6
+Lsource 0 32 adc6066d
+Llhs 32 32 e61d104f
+Lrhs 64 32 e61d104f
+Lnext 96 32 d8a21660
+Lpartial 128 8 1e59237d
+Lexport 136 8 1e59237d
+Pd8a21660 d8a21663
+K72694e9f 1024 21
+Lname 0 32 adc6066d
+Lfile 32 32 12bc0c0b
+Linterface 64 8 1e59237d
+Lvirtual 72 8 1e59237d
+Lexported_units 96 64 1e38bc33
+Limported_units 160 64 1e38bc33
+Limported_generics 224 64 1e38bc33
+Lused_interfaces 288 64 1e38bc33
+Lused_modules 352 64 1e38bc33
+Limport_def_syms 416 64 1e38bc33
+Limport_use_syms 480 64 1e38bc33
+Lexport_def_syms 544 64 1e38bc33
+Lexport_use_syms 608 64 1e38bc33
+Limported_types 672 64 1e38bc33
+Lexported_types 736 64 1e38bc33
+Lwishes 800 64 1e38bc33
+Lopaques 864 32 30695296
+Limported_objects 896 32 c898b51c
+Lexported_objects 928 32 c898b51c
+Lrevelations 960 32 d8a21660
+Linfo 992 32 217fba22
+P3482c7b2 72694e9f
+Kb845e086 64 2
+Lunit 0 32 3482c7b2
+Lnext 32 32 b845e085
+Pb845e085 b845e086
+Rd1a38ef2 1 b845e085 0
+Sbase 5f276392
+DMx
+CM3ID
+CRTHooks
+E5f276392 Mx.LinkSet
+Eadc6066d Mx.Name
+Eb845e085 Mx.UnitList
+Ee61d104f Mx.Int32
+Ee61d104f Mx.TypeName
+E1e38bc33 Mx.InfoList
+E217fba22 Mx.InfoVec
+E12bc0c0b Mx.File
+E3482c7b2 Mx.Unit
+Ed8a21660 Mx.Revelation
+Ec898b51c Mx.ObjectType
+E30695296 Mx.OpaqueType

@@ -1,0 +1,250 @@
+	.file	"RTMapOp.ic"
+	.version	"01.01"
+/ SRC Modula-3 version cygnus-2.7.2-960712 (i486--linuxelf) compiled by GNU C version egcs-2.91.66 19990314/Linux (egcs-1.1.2 release).
+/ options passed:  -fno-strength-reduce -O2
+/ options enabled:  -fdefer-pop -fcse-follow-jumps -fcse-skip-blocks
+/ -fexpensive-optimizations -fthread-jumps -fpeephole -fforce-mem
+/ -ffunction-cse -finline -fkeep-static-consts -fcaller-saves
+/ -fpcc-struct-return -frerun-cse-after-loop -fschedule-insns2 -fcommon
+/ -fverbose-asm -fgnu-linker -m80387 -mhard-float -mno-soft-float -mieee-fp
+/ -mfp-ret-in-387 -mschedule-prologue -mcpu=i486 -march=i486
+
+gcc2_compiled.:
+.globl MI_RTMapOp
+.data
+	.align 4
+	.type	 MI_RTMapOp,@object
+	.size	 MI_RTMapOp,904
+MI_RTMapOp:
+	.long MI_RTMapOp+712
+	.long MI_RTMapOp+44
+	.zero	44
+	.long 160538455
+.byte 6
+.byte 153
+.byte 194
+.byte 6
+.byte 81
+.byte 6
+.byte 83
+.byte 15
+	.zero	8
+	.long 1
+	.long 1
+	.zero	20
+	.long MI_RTMapOp+890
+	.zero	36
+	.long MI_RTMapOp+892
+	.long MI_RTMapOp+148
+	.zero	8
+	.long 690206623
+.byte 228
+.byte 52
+.byte 218
+.byte 38
+.byte 123
+.byte 131
+.byte 249
+.byte 15
+	.zero	8
+	.long 4
+	.long 4
+	.zero	20
+	.long MI_RTMapOp+877
+	.zero	36
+	.long MI_RTMapOp+879
+	.long MI_RTMapOp+252
+	.zero	8
+	.long -1357738594
+.byte 116
+.byte 1
+.byte 9
+.byte 175
+.byte 234
+.byte 140
+.byte 27
+.byte 0
+	.zero	8
+	.long 1
+	.long 1
+	.zero	20
+	.long MI_RTMapOp+864
+	.zero	36
+	.long MI_RTMapOp+866
+	.zero	4
+.byte 2
+.byte 2
+.byte 2
+.byte 2
+.byte 0
+.byte 1
+.byte 2
+.byte 3
+.byte 4
+.byte 5
+.byte 14
+.byte 15
+.byte 6
+.byte 7
+.byte 8
+.byte 9
+.byte 10
+.byte 11
+.byte 12
+.byte 13
+.byte 16
+.byte 16
+.byte 16
+.byte 16
+.byte 2
+.byte 2
+.byte 2
+.byte 2
+.byte 2
+.byte 2
+.byte 2
+.byte 2
+.byte 2
+.byte 2
+.byte 2
+.byte 2
+.byte 2
+.byte 2
+.byte 2
+.byte 2
+.byte 2
+.byte 2
+.byte 2
+.byte 2
+.byte 2
+.byte 2
+.byte 2
+.byte 2
+.byte 2
+.byte 2
+.byte 2
+.byte 2
+.byte 2
+.byte 2
+.byte 2
+.byte 2
+.byte 2
+.byte 2
+.byte 0
+.byte 0
+.byte 0
+.byte 0
+.byte 0
+.byte 0
+.byte 0
+.byte 0
+.byte 0
+.byte 0
+.byte 2
+.byte 2
+.byte 0
+.byte 0
+.byte 0
+.byte 0
+.byte 0
+.byte 0
+.byte 0
+.byte 0
+.byte 1
+.byte 2
+.byte 3
+.byte 4
+.byte 1
+.byte 2
+.byte 1
+.byte 2
+.byte 3
+.byte 4
+.byte 5
+.byte 6
+.byte 7
+.byte 8
+.byte 0
+.byte 0
+.byte 0
+.byte 0
+.byte 0
+.byte 0
+.byte 0
+.byte 0
+.byte 1
+.byte 2
+.byte 3
+.byte 4
+.byte 5
+.byte 6
+.byte 7
+.byte 8
+.byte 1
+.byte 2
+.byte 3
+.byte 4
+.byte 5
+.byte 6
+.byte 7
+.byte 8
+	.long 0
+	.long 0
+	.long 0
+	.long 0
+	.long 4
+	.long 4
+	.long 4
+	.long 4
+	.long 8
+	.long 8
+	.long 0
+	.long 0
+	.long 1
+	.long 2
+	.long 4
+	.long 8
+	.long 1
+	.long 2
+	.long 4
+	.long 8
+	.long 0
+	.long 0
+	.long 0
+	.long 0
+	.long 0
+	.long 0
+	.long 0
+	.long 0
+	.long 0
+	.long 0
+	.long 0
+	.long 0
+	.long 0
+	.long 0
+	.long 1
+	.long 2
+	.long 3
+	.long 4
+	.long 5
+	.long 6
+	.long 7
+	.long 8
+	.zero	72
+	.ascii	"/home/ftp/tmp/pm3/tmp/pm3-1.1.15/language/modula3/m3compiler"
+	.ascii	"/m3bootstrap/LINUXLIBC6/pm3-LINUXLIBC6/boot-LINUXLIBC6/m3cor"
+	.ascii	"e/src/runtime/common/RTMapOp.i3"
+	.zero	1
+.byte 16
+.byte 0
+	.ascii	"RTMapOp.PC"
+	.zero	1
+.byte 5
+.byte 0
+	.ascii	"RTMapOp.AP"
+	.zero	1
+.byte 16
+.byte 0
+	.ascii	"RTMapOp.BP"
+	.zero	2
+	.ident	"GCC: (GNU) cygnus-2.7.2-960712"

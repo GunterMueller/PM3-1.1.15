@@ -1,0 +1,212 @@
+	.file	"ValueRep.ic"
+	.version	"01.01"
+/ SRC Modula-3 version cygnus-2.7.2-960712 (i486--linuxelf) compiled by GNU C version egcs-2.91.66 19990314/Linux (egcs-1.1.2 release).
+/ options passed:  -fno-strength-reduce -O2
+/ options enabled:  -fdefer-pop -fcse-follow-jumps -fcse-skip-blocks
+/ -fexpensive-optimizations -fthread-jumps -fpeephole -fforce-mem
+/ -ffunction-cse -finline -fkeep-static-consts -fcaller-saves
+/ -fpcc-struct-return -frerun-cse-after-loop -fschedule-insns2 -fcommon
+/ -fverbose-asm -fgnu-linker -m80387 -mhard-float -mno-soft-float -mieee-fp
+/ -mfp-ret-in-387 -mschedule-prologue -mcpu=i486 -march=i486
+
+gcc2_compiled.:
+.text
+	.align 16
+	.type	 I_ValueRep_t2bdf63b0_LINK,@function
+I_ValueRep_t2bdf63b0_LINK:
+	pushl %ebp
+	movl %esp,%ebp
+	movl MI_ValueRep+468,%eax
+	movl MI_ValueRep+172,%ecx
+	movl 52(%eax),%eax
+	movl %ebp,%esp
+	movl %ecx,8(%eax)
+	movl MI_ValueRep+164,%edx
+	movl %edx,12(%eax)
+	movl MI_ValueRep+168,%edx
+	movl %edx,16(%eax)
+	movl %ecx,20(%eax)
+	movl %edx,24(%eax)
+	movl %ecx,28(%eax)
+	movl %ecx,32(%eax)
+	movl MI_ValueRep+156,%edx
+	movl %edx,36(%eax)
+	movl MI_ValueRep+160,%edx
+	movl %edx,40(%eax)
+	movl %edx,44(%eax)
+	movl MI_ValueRep+184,%edx
+	movl %edx,48(%eax)
+	popl %ebp
+	ret
+.Lfe1:
+	.size	 I_ValueRep_t2bdf63b0_LINK,.Lfe1-I_ValueRep_t2bdf63b0_LINK
+.globl MI_ValueRep
+.data
+	.align 4
+	.type	 MI_ValueRep,@object
+	.size	 MI_ValueRep,496
+MI_ValueRep:
+	.long MI_ValueRep+200
+	.long MI_ValueRep+44
+	.long MI_ValueRep+468
+	.long MI_ValueRep+188
+	.zero	36
+	.long 736060336
+.byte 192
+.byte 220
+.byte 167
+.byte 55
+.byte 112
+.byte 191
+.byte 120
+.byte 28
+	.long 1
+	.zero	4
+	.long 24
+	.long 4
+	.zero	4
+	.long 56
+	.zero	12
+	.long MI_ValueRep+346
+	.long MI_ValueRep+412
+	.long MI_ValueRep+416
+	.zero	4
+	.long I_ValueRep_t2bdf63b0_LINK
+	.long -105857943
+	.zero	12
+	.long MI_ValueRep+476
+	.long MI_ValueRep+484
+	.zero	44
+	.long -105857942
+	.long 736060336
+	.zero	4
+	.ascii	"/home/ftp/tmp/pm3/tmp/pm3-1.1.15/language/modula3/m3compiler"
+	.ascii	"/m3bootstrap/LINUXLIBC6/pm3-LINUXLIBC6/boot-LINUXLIBC6/m3fro"
+	.ascii	"nt/src/values/ValueRep.i3"
+	.zero	1
+.byte 14
+.byte 14
+.byte 4
+.byte 4
+.byte 10
+.byte 0
+.byte 12
+.byte 34
+.byte 11
+.byte 4
+.byte 4
+.byte 34
+.byte 11
+.byte 0
+.byte 1
+.byte 11
+.byte 1
+.byte 1
+.byte 11
+.byte 2
+.byte 1
+.byte 11
+.byte 3
+.byte 1
+.byte 11
+.byte 4
+.byte 1
+.byte 11
+.byte 5
+.byte 1
+.byte 11
+.byte 6
+.byte 1
+.byte 11
+.byte 7
+.byte 1
+.byte 34
+.byte 11
+.byte 0
+.byte 1
+.byte 11
+.byte 1
+.byte 1
+.byte 11
+.byte 2
+.byte 1
+.byte 11
+.byte 3
+.byte 1
+.byte 11
+.byte 4
+.byte 1
+.byte 11
+.byte 5
+.byte 1
+.byte 11
+.byte 6
+.byte 1
+.byte 11
+.byte 7
+.byte 1
+.byte 34
+.byte 11
+.byte 0
+.byte 1
+.byte 0
+.byte 41
+.byte 4
+.byte 4
+.byte 0
+.byte 27
+.byte 10
+.byte 23
+.byte 19
+.byte 254
+.byte 126
+.byte 23
+.byte 16
+.byte 225
+.byte 46
+.byte 241
+.byte 204
+.byte 16
+.byte 106
+.byte 188
+.byte 176
+.byte 249
+.byte 12
+.byte 12
+.byte 19
+.byte 194
+.byte 0
+.byte 8
+.byte 66
+.byte 255
+.byte 7
+.byte 12
+.byte 4
+.byte 5
+.byte 10
+.byte 12
+.byte 1
+.byte 2
+.byte 31
+.byte 31
+.byte 31
+.byte 31
+.byte 31
+.byte 31
+.byte 31
+.byte 31
+.byte 31
+.byte 31
+.byte 31
+.byte 31
+.byte 31
+.byte 31
+.byte 31
+.byte 31
+	.zero	7
+	.long 736060336
+	.ascii	"Value.T"
+	.zero	1
+	.ascii	"M3.Value"
+	.zero	4
+	.ident	"GCC: (GNU) cygnus-2.7.2-960712"

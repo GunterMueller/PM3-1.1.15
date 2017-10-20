@@ -1,0 +1,994 @@
+	.file	"M3Compiler.mc"
+	.version	"01.01"
+/ SRC Modula-3 version cygnus-2.7.2-960712 (i486--linuxelf) compiled by GNU C version egcs-2.91.66 19990314/Linux (egcs-1.1.2 release).
+/ options passed:  -fno-strength-reduce -O2
+/ options enabled:  -fdefer-pop -fcse-follow-jumps -fcse-skip-blocks
+/ -fexpensive-optimizations -fthread-jumps -fpeephole -fforce-mem
+/ -ffunction-cse -finline -fkeep-static-consts -fcaller-saves
+/ -fpcc-struct-return -frerun-cse-after-loop -fschedule-insns2 -fcommon
+/ -fverbose-asm -fgnu-linker -m80387 -mhard-float -mno-soft-float -mieee-fp
+/ -mfp-ret-in-387 -mschedule-prologue -mcpu=i486 -march=i486
+
+gcc2_compiled.:
+.text
+	.align 16
+	.type	 M3Compiler__ParseImports,@function
+M3Compiler__ParseImports:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $12,%esp
+	pushl %ebx
+	movl 12(%ebp),%ebx
+	movl MM_M3Compiler+44,%eax
+	movl %eax,-4(%ebp)
+	pushl %eax
+	movl MI_RTHooks+68,%eax
+	call *%eax
+	addl $4,%esp
+.L2:
+	movl $6,-8(%ebp)
+	movl RTThread__handlerStack,%eax
+	movl %eax,-12(%ebp)
+	leal -12(%ebp),%ecx
+	movl %ecx,RTThread__handlerStack
+	movl 8(%ebp),%eax
+	movl %ebx,MI_Host+52
+	movl 4(%eax),%edx
+	movl %edx,MI_Host+48
+	movl (%eax),%eax
+	movl %eax,MI_Host+44
+	pushl $1
+	pushl %edx
+	pushl %eax
+	movl MI_Scanner+136,%eax
+	call *%eax
+	movl MI_M3Header+44,%eax
+	call *%eax
+	movl %eax,%ebx
+	movl MI_Scanner+140,%eax
+	call *%eax
+	movl -12(%ebp),%eax
+	movl %eax,RTThread__handlerStack
+	movl -4(%ebp),%eax
+	pushl %eax
+	movl MI_RTHooks+72,%eax
+	call *%eax
+	movl %ebx,%eax
+.L3:
+	movl -16(%ebp),%ebx
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe1:
+	.size	 M3Compiler__ParseImports,.Lfe1-M3Compiler__ParseImports
+	.align 16
+	.type	 M3Compiler__Compile,@function
+M3Compiler__Compile:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $20,%esp
+	pushl %ebx
+	movl 12(%ebp),%ebx
+	movl MM_M3Compiler+44,%eax
+	movl %eax,-4(%ebp)
+	pushl %eax
+	movl MI_RTHooks+68,%eax
+	call *%eax
+	addl $4,%esp
+.L5:
+	movl $6,-8(%ebp)
+	movl RTThread__handlerStack,%eax
+	movl %eax,-12(%ebp)
+	leal -12(%ebp),%ecx
+	movl MI_Time+44,%eax
+	movl %ecx,RTThread__handlerStack
+	call *%eax
+	fstpl -20(%ebp)
+	movl 8(%ebp),%edx
+	movl %ebx,MI_Host+52
+	movl 4(%edx),%eax
+	movl %eax,MI_Host+48
+	movl (%edx),%eax
+	movl %eax,MI_Host+44
+	movl 16(%ebp),%eax
+	pushl %eax
+	movl MI_Host+96,%eax
+	call *%eax
+	movl %eax,%ebx
+	addl $4,%esp
+	testl %ebx,%ebx
+	jne .L6
+	movl -12(%ebp),%eax
+	movl %eax,RTThread__handlerStack
+	movl -4(%ebp),%eax
+	pushl %eax
+	movl MI_RTHooks+72,%eax
+	call *%eax
+	movl %ebx,%eax
+	jmp .L11
+	.align 16
+.L6:
+	movb MI_Host+76,%al
+	testb %al,%al
+	jne .L7
+	movb %al,MI_Target+805
+.L7:
+	cmpl $0,MM_M3Compiler+48
+	jne .L8
+	call M3Compiler__Initialize
+.L8:
+	call M3Compiler__Reset
+	call M3Compiler__DoCompile
+	call M3Compiler__Finalize
+	movl %eax,%ebx
+	cmpb $0,MI_Host+92
+	je .L10
+	movl MI_Time+44,%eax
+	call *%eax
+	subl $8,%esp
+	fstpl (%esp)
+	pushl -16(%ebp)
+	pushl -20(%ebp)
+	call M3Compiler__DumpStats
+	addl $16,%esp
+.L10:
+	movl -12(%ebp),%eax
+	movl %eax,RTThread__handlerStack
+	movl -4(%ebp),%eax
+	pushl %eax
+	movl MI_RTHooks+72,%eax
+	call *%eax
+	xorl %eax,%eax
+	movb %bl,%al
+.L11:
+	movl -24(%ebp),%ebx
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe2:
+	.size	 M3Compiler__Compile,.Lfe2-M3Compiler__Compile
+	.align 16
+	.type	 M3Compiler__Initialize,@function
+M3Compiler__Initialize:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %ebx
+	movl MI_Type+48,%eax
+	call *%eax
+	movl MI_TypeFP+60,%eax
+	call *%eax
+	xorl %eax,%eax
+	movb MI_Host+70,%al
+	pushl %eax
+	pushl $0
+	movl $MM_M3Compiler+100,%ebx
+	pushl %ebx
+	movl MI_Scanner+136,%eax
+	call *%eax
+	movl MI_Scope+44,%eax
+	pushl %eax
+	pushl $1
+	pushl %ebx
+	movl MI_Module+48,%eax
+	call *%eax
+	movl %eax,MM_M3Compiler+48
+	movl MI_BuiltinTypes+44,%eax
+	call *%eax
+	movl MI_BuiltinOps+44,%eax
+	call *%eax
+	movl MI_Scanner+140,%eax
+	call *%eax
+	xorl %eax,%eax
+	movb MI_Host+70,%al
+	pushl %eax
+	pushl $0
+	pushl $MM_M3Compiler+124
+	movl MI_Scanner+136,%eax
+	call *%eax
+	movl MI_WordModule+48,%eax
+	addl $36,%esp
+	call *%eax
+	movl MI_Scanner+140,%eax
+	call *%eax
+	movl -4(%ebp),%ebx
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe3:
+	.size	 M3Compiler__Initialize,.Lfe3-M3Compiler__Initialize
+	.align 16
+	.type	 M3Compiler__Reset,@function
+M3Compiler__Reset:
+	pushl %ebp
+	movl MI_M3String+88,%eax
+	movl %esp,%ebp
+	call *%eax
+	movl MI_Scanner+148,%eax
+	call *%eax
+	movl MI_Scope+136,%eax
+	call *%eax
+	movl MI_Coverage+64,%eax
+	call *%eax
+	movl MI_Error+84,%eax
+	call *%eax
+	movl MI_Marker+140,%eax
+	call *%eax
+	movl MI_ESet+128,%eax
+	call *%eax
+	movl MI_ProcBody+168,%eax
+	call *%eax
+	movl MI_Runtime+56,%eax
+	call *%eax
+	movl MI_TipeDesc+68,%eax
+	call *%eax
+	movl MI_Tracer+164,%eax
+	call *%eax
+	movl MI_Type+52,%eax
+	call *%eax
+	movl MI_TypeFP+64,%eax
+	call *%eax
+	movl MI_RefType+80,%eax
+	call *%eax
+	movl MI_Value+128,%eax
+	call *%eax
+	movl MI_Module+124,%eax
+	call *%eax
+	movl MI_Ident+164,%eax
+	call *%eax
+	movl MI_TextExpr+56,%eax
+	call *%eax
+	movl MI_Procedure+100,%eax
+	call *%eax
+	movl MI_SetExpr+84,%eax
+	call *%eax
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe4:
+	.size	 M3Compiler__Reset,.Lfe4-M3Compiler__Reset
+	.align 16
+	.type	 M3Compiler__DoCompile,@function
+M3Compiler__DoCompile:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $24,%esp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	xorl %ebx,%ebx
+	movl %ebx,-24(%ebp)
+	movl %ebx,-20(%ebp)
+	movl %ebx,-16(%ebp)
+	movl %ebx,-12(%ebp)
+	movl %ebx,-8(%ebp)
+	movl %ebx,-4(%ebp)
+	pushl $1
+	movl MI_Host+48,%eax
+	pushl %eax
+	movl MI_Host+44,%eax
+	pushl %eax
+	movl MI_Scanner+136,%eax
+	call *%eax
+	pushl $MM_M3Compiler+144
+	call M3Compiler__StartPhase
+	call M3Compiler__CheckBuiltins
+	pushl $MM_M3Compiler+180
+	call M3Compiler__StartPhase
+	pushl %ebx
+	movl MI_Module+44,%eax
+	call *%eax
+	movl %eax,%ebx
+	pushl %ebx
+	movl MI_Module+92,%eax
+	call *%eax
+	movl %eax,%edi
+	movl MI_Host+44,%eax
+	pushl %eax
+	movl MI_Pathname+100,%eax
+	call *%eax
+	addl $32,%esp
+	pushl $0
+	pushl %eax
+	movl MI_M3ID+44,%eax
+	call *%eax
+	addl $8,%esp
+	cmpl %eax,%edi
+	je .L15
+	movl MI_Host+44,%eax
+	pushl %eax
+	movl MI_Pathname+88,%eax
+	call *%eax
+	pushl %eax
+	pushl $MM_M3Compiler+200
+	movl MI_RTHooks+76,%eax
+	call *%eax
+	pushl $MM_M3Compiler+224
+	pushl %eax
+	movl MI_RTHooks+76,%eax
+	call *%eax
+	movl %eax,%esi
+	pushl %edi
+	movl MI_M3ID+52,%eax
+	call *%eax
+	pushl %eax
+	pushl %esi
+	movl MI_RTHooks+76,%eax
+	call *%eax
+	addl $32,%esp
+	pushl $MM_M3Compiler+268
+	pushl %eax
+	movl MI_RTHooks+76,%eax
+	call *%eax
+	pushl %eax
+	pushl $2
+	movl MI_Error+64,%eax
+	call *%eax
+	addl $16,%esp
+.L15:
+	call M3Compiler__Failed
+	testl %eax,%eax
+	jne .L14
+	pushl $MM_M3Compiler+284
+	call M3Compiler__StartPhase
+	leal -24(%ebp),%eax
+	pushl %eax
+	pushl $1
+	pushl %ebx
+	movl MI_Module+60,%eax
+	call *%eax
+	call M3Compiler__Failed
+	addl $16,%esp
+	testl %eax,%eax
+	jne .L14
+	pushl $MM_M3Compiler+312
+	call M3Compiler__StartPhase
+	movl MI_CG+48,%eax
+	call *%eax
+	call M3Compiler__Failed
+	addl $4,%esp
+	testl %eax,%eax
+	jne .L14
+	cmpb $0,MI_Host+70
+	je .L19
+	movl MM_M3Compiler+48,%eax
+	pushl %eax
+	movl MI_Module+128,%eax
+	call *%eax
+	movl MI_WordModule+44,%eax
+	pushl %eax
+	movl MI_Module+128,%eax
+	call *%eax
+	movl MM_M3Compiler+48,%eax
+	pushl %eax
+	movl MI_Module+64,%eax
+	call *%eax
+	movl MI_WordModule+44,%eax
+	pushl %eax
+	movl MI_Module+64,%eax
+	call *%eax
+	addl $16,%esp
+	jmp .L20
+	.align 16
+.L19:
+	pushl %ebx
+	movl MI_Module+64,%eax
+	call *%eax
+	addl $4,%esp
+.L20:
+	call M3Compiler__Failed
+.L14:
+	leal -36(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe5:
+	.size	 M3Compiler__DoCompile,.Lfe5-M3Compiler__DoCompile
+	.align 16
+	.type	 M3Compiler__CheckBuiltins,@function
+M3Compiler__CheckBuiltins:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $24,%esp
+	pushl %ebx
+	movl $0,-24(%ebp)
+	movl $0,-20(%ebp)
+	movl $0,-16(%ebp)
+	movl $0,-12(%ebp)
+	movl $0,-8(%ebp)
+	movl $0,-4(%ebp)
+	leal -24(%ebp),%ebx
+	pushl %ebx
+	movl MM_M3Compiler+48,%eax
+	pushl %eax
+	movl MI_Value+44,%eax
+	call *%eax
+	pushl %ebx
+	movl MI_WordModule+44,%eax
+	pushl %eax
+	movl MI_Value+44,%eax
+	call *%eax
+	movl -28(%ebp),%ebx
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe6:
+	.size	 M3Compiler__CheckBuiltins,.Lfe6-M3Compiler__CheckBuiltins
+	.align 16
+	.type	 M3Compiler__StartPhase,@function
+M3Compiler__StartPhase:
+	pushl %ebp
+	movl %esp,%ebp
+	movl 8(%ebp),%eax
+	cmpb $0,MI_Host+56
+	je .L23
+	pushl $MM_M3Compiler+340
+	pushl %eax
+	movl MI_RTHooks+76,%eax
+	call *%eax
+	movl MI_Host+52,%edx
+	movl %eax,%ecx
+	movl (%edx),%eax
+	movl 4(%eax),%eax
+	pushl %ecx
+	pushl $0
+	pushl $0
+	pushl %edx
+	call *%eax
+.L23:
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe7:
+	.size	 M3Compiler__StartPhase,.Lfe7-M3Compiler__StartPhase
+	.align 16
+	.type	 M3Compiler__Failed,@function
+M3Compiler__Failed:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $8,%esp
+	leal -4(%ebp),%eax
+	pushl %eax
+	leal -8(%ebp),%eax
+	pushl %eax
+	movl MI_Error+80,%eax
+	call *%eax
+	cmpl $0,-8(%ebp)
+	setg %al
+	andl $255,%eax
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe8:
+	.size	 M3Compiler__Failed,.Lfe8-M3Compiler__Failed
+.section	.rodata
+	.align 4
+.LC0:
+	.long 0xa0b5ed8d,0x3eb0c6f7
+.text
+	.align 16
+	.type	 M3Compiler__DumpStats,@function
+M3Compiler__DumpStats:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $16,%esp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+.L27:
+	movl $5,-4(%ebp)
+	movl RTThread__handlerStack,%eax
+	movl %eax,-8(%ebp)
+	leal -8(%ebp),%ebx
+	movl MI_TextWr+148,%eax
+	movl %ebx,RTThread__handlerStack
+	call *%eax
+	fldl 16(%ebp)
+	fsubl 8(%ebp)
+	movl %eax,%ecx
+	movl %ecx,%edi
+	fldl .LC0
+	fxch %st(1)
+	fstl -16(%ebp)
+	fcomp %st(1)
+	fnstsw %ax
+	andb $69,%ah
+	decb %ah
+	cmpb $64,%ah
+	jae .L31
+	fstpl -16(%ebp)
+	jmp .L28
+	.align 16
+.L31:
+	fstp %st(0)
+.L28:
+	fildl MI_Scanner+92
+	fldl -16(%ebp)
+	fdivrp %st,%st(1)
+	pushl $MM_M3Compiler+356
+	pushl %ecx
+	movl MI_Wr+68,%eax
+	subl $8,%esp
+	fstpl (%esp)
+	popl %ebx
+	popl %esi
+	call *%eax
+	pushl $10
+	movl MI_Scanner+92,%eax
+	pushl %eax
+	movl MI_Fmt+52,%eax
+	call *%eax
+	movl %eax,%ecx
+	pushl %ecx
+	pushl %edi
+	movl MI_Wr+68,%eax
+	call *%eax
+	pushl $MM_M3Compiler+372
+	pushl %edi
+	movl MI_Wr+68,%eax
+	call *%eax
+	addl $32,%esp
+	pushl $10
+	movl MI_Scanner+96,%eax
+	pushl %eax
+	movl MI_Fmt+52,%eax
+	call *%eax
+	movl %eax,%ecx
+	pushl %ecx
+	pushl %edi
+	movl MI_Wr+68,%eax
+	call *%eax
+	pushl $MM_M3Compiler+396
+	pushl %edi
+	movl MI_Wr+68,%eax
+	call *%eax
+	pushl $0
+	pushl $2
+	pushl $1
+	pushl -12(%ebp)
+	pushl -16(%ebp)
+	movl MI_Fmt+64,%eax
+	call *%eax
+	addl $44,%esp
+	movl %eax,%ecx
+	pushl %ecx
+	pushl %edi
+	movl MI_Wr+68,%eax
+	call *%eax
+	pushl $MM_M3Compiler+428
+	pushl %edi
+	movl MI_Wr+68,%eax
+	call *%eax
+	pushl $0
+	pushl $1
+	pushl $1
+	pushl %esi
+	pushl %ebx
+	movl MI_Fmt+64,%eax
+	call *%eax
+	addl $36,%esp
+	movl %eax,%ecx
+	pushl %ecx
+	pushl %edi
+	movl MI_Wr+68,%eax
+	call *%eax
+	pushl $MM_M3Compiler+452
+	pushl %edi
+	movl MI_Wr+68,%eax
+	call *%eax
+	pushl %edi
+	movl MI_TextWr+152,%eax
+	call *%eax
+	movl MI_Host+52,%edx
+	movl %eax,%ecx
+	movl (%edx),%eax
+	movl 4(%eax),%eax
+	pushl %ecx
+	pushl $0
+	pushl $0
+	pushl %edx
+	call *%eax
+.L30:
+	movl -8(%ebp),%eax
+	leal -28(%ebp),%esp
+	movl %eax,RTThread__handlerStack
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe9:
+	.size	 M3Compiler__DumpStats,.Lfe9-M3Compiler__DumpStats
+	.align 16
+	.type	 M3Compiler__Finalize,@function
+M3Compiler__Finalize:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $16,%esp
+	pushl %esi
+	pushl %ebx
+.L33:
+	movl $5,-12(%ebp)
+	movl RTThread__handlerStack,%eax
+	movl %eax,-16(%ebp)
+	leal -16(%ebp),%esi
+	movl MI_Scanner+140,%eax
+	movl %esi,RTThread__handlerStack
+	call *%eax
+	leal -4(%ebp),%eax
+	pushl %eax
+	leal -8(%ebp),%eax
+	pushl %eax
+	movl MI_Error+80,%eax
+	call *%eax
+	movl -4(%ebp),%eax
+	addl -8(%ebp),%eax
+	addl $8,%esp
+	testl %eax,%eax
+	jle .L34
+	movl MI_TextWr+148,%eax
+	call *%eax
+	movl %eax,%ecx
+	movl %ecx,%ebx
+	movl -8(%ebp),%eax
+	testl %eax,%eax
+	jle .L35
+	pushl $10
+	pushl %eax
+	movl MI_Fmt+52,%eax
+	call *%eax
+	movl %eax,%ecx
+	pushl %ecx
+	pushl %ebx
+	movl MI_Wr+68,%eax
+	call *%eax
+	pushl $MM_M3Compiler+484
+	pushl %ebx
+	movl MI_Wr+68,%eax
+	call *%eax
+	addl $24,%esp
+	cmpl $1,-8(%ebp)
+	jle .L35
+	pushl $MM_M3Compiler+504
+	pushl %ebx
+	movl MI_Wr+68,%eax
+	call *%eax
+	addl $8,%esp
+.L35:
+	cmpl $0,-4(%ebp)
+	jle .L37
+	cmpl $0,-8(%ebp)
+	jle .L38
+	pushl $MM_M3Compiler+520
+	pushl %ebx
+	movl MI_Wr+68,%eax
+	call *%eax
+	addl $8,%esp
+.L38:
+	pushl $10
+	movl -4(%ebp),%eax
+	pushl %eax
+	movl MI_Fmt+52,%eax
+	call *%eax
+	movl %eax,%ecx
+	pushl %ecx
+	pushl %ebx
+	movl MI_Wr+68,%eax
+	call *%eax
+	pushl $MM_M3Compiler+540
+	pushl %ebx
+	movl MI_Wr+68,%eax
+	call *%eax
+	addl $24,%esp
+	cmpl $1,-4(%ebp)
+	jle .L37
+	pushl $MM_M3Compiler+504
+	pushl %ebx
+	movl MI_Wr+68,%eax
+	call *%eax
+	addl $8,%esp
+.L37:
+	pushl $MM_M3Compiler+564
+	pushl %ebx
+	movl MI_Wr+68,%eax
+	call *%eax
+	pushl %ebx
+	movl MI_TextWr+152,%eax
+	call *%eax
+	movl MI_Host+52,%edx
+	movl %eax,%ecx
+	movl (%edx),%eax
+	movl 4(%eax),%eax
+	pushl %ecx
+	pushl $0
+	pushl $0
+	pushl %edx
+	call *%eax
+.L34:
+	movl -16(%ebp),%eax
+	movl %eax,RTThread__handlerStack
+	cmpl $0,-8(%ebp)
+	setle %al
+	andl $255,%eax
+.L40:
+	leal -24(%ebp),%esp
+	popl %ebx
+	popl %esi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe10:
+	.size	 M3Compiler__Finalize,.Lfe10-M3Compiler__Finalize
+	.align 16
+	.type	 M3Compiler__GetImports,@function
+M3Compiler__GetImports:
+	pushl %ebp
+	movl %esp,%ebp
+	movl 8(%ebp),%ecx
+	testl %ecx,%ecx
+	je .L42
+	movl -4(%ecx),%eax
+	sall $11,%eax
+	movl %eax,%edx
+	shrl $12,%edx
+	cmpl %edx,MM_M3Compiler+592
+	jg .L43
+	movl MM_M3Compiler+588,%eax
+	cmpl %edx,4(%eax)
+	jge .L42
+.L43:
+	pushl $3685
+	call _m3_fault
+	.align 16
+.L42:
+	pushl %ecx
+	movl MI_Module+80,%eax
+	call *%eax
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe11:
+	.size	 M3Compiler__GetImports,.Lfe11-M3Compiler__GetImports
+	.align 16
+	.type	 _INITM_M3Compiler,@function
+_INITM_M3Compiler:
+	pushl %ebp
+	movl %esp,%ebp
+	movl $0,MM_M3Compiler+44
+	movl MM_M3Compiler+596,%eax
+	pushl %eax
+	movl MI_RTHooks+80,%eax
+	call *%eax
+	movl %eax,MM_M3Compiler+44
+	movl MI_M3String+84,%eax
+	call *%eax
+	movl MI_Token+128,%eax
+	call *%eax
+	movl MI_Scanner+144,%eax
+	call *%eax
+	movl MI_Scope+132,%eax
+	call *%eax
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe12:
+	.size	 _INITM_M3Compiler,.Lfe12-_INITM_M3Compiler
+	.align 16
+	.type	 _m3_fault,@function
+_m3_fault:
+	pushl %ebp
+	movl %esp,%ebp
+	movl 8(%ebp),%eax
+	pushl %eax
+	pushl $MM_M3Compiler
+	movl MI_RTHooks+108,%eax
+	call *%eax
+	.align 16
+.Lfe13:
+	.size	 _m3_fault,.Lfe13-_m3_fault
+.globl MM_M3Compiler
+.data
+	.align 4
+	.type	 MM_M3Compiler,@object
+	.size	 MM_M3Compiler,1032
+MM_M3Compiler:
+	.long MM_M3Compiler+885
+	.zero	4
+	.long MM_M3Compiler+588
+	.zero	8
+	.long MM_M3Compiler+732
+	.zero	4
+	.long MM_M3Compiler+880
+	.long MM_M3Compiler+880
+	.zero	4
+	.long _INITM_M3Compiler
+	.zero	8
+	.long M3Compiler__Initialize
+	.long M3Compiler__Reset
+	.long M3Compiler__DoCompile
+	.long M3Compiler__CheckBuiltins
+	.long M3Compiler__StartPhase
+	.long M3Compiler__Failed
+	.long M3Compiler__DumpStats
+	.long M3Compiler__Finalize
+	.long M3Compiler__ParseImports
+	.long M3Compiler__Compile
+	.long M3Compiler__GetImports
+	.long 2
+	.long MM_M3Compiler+108
+	.long 11
+	.ascii	"M3_BUILTIN"
+	.zero	2
+	.long 2
+	.long MM_M3Compiler+132
+	.long 8
+	.ascii	"Word.i3"
+	.zero	1
+	.long 2
+	.long MM_M3Compiler+152
+	.long 22
+	.ascii	"initializing builtins"
+	.zero	3
+	.long 2
+	.long MM_M3Compiler+188
+	.long 8
+	.ascii	"parsing"
+	.zero	1
+	.long 2
+	.long MM_M3Compiler+208
+	.long 12
+	.ascii	"file name ("
+	.zero	1
+	.long 2
+	.long MM_M3Compiler+232
+	.long 30
+	.ascii	") doesn't match module name ("
+	.zero	3
+	.long 2
+	.long MM_M3Compiler+276
+	.long 2
+	.ascii	")"
+	.zero	3
+	.long 2
+	.long MM_M3Compiler+292
+	.long 14
+	.ascii	"type checking"
+	.zero	3
+	.long 2
+	.long MM_M3Compiler+320
+	.long 14
+	.ascii	"emitting code"
+	.zero	3
+	.long 2
+	.long MM_M3Compiler+348
+	.long 4
+	.ascii	"..."
+	.zero	1
+	.long 2
+	.long MM_M3Compiler+364
+	.long 3
+	.ascii	"  "
+	.zero	2
+	.long 2
+	.long MM_M3Compiler+380
+	.long 9
+	.ascii	" lines ("
+	.zero	4
+	.long 2
+	.long MM_M3Compiler+404
+	.long 18
+	.ascii	" files) scanned, "
+	.zero	3
+	.long 2
+	.long MM_M3Compiler+436
+	.long 11
+	.ascii	" seconds, "
+	.zero	2
+	.long 2
+	.long MM_M3Compiler+460
+	.long 17
+	.ascii	" lines / second."
+	.zero	4
+	.long 2
+	.long MM_M3Compiler+492
+	.long 7
+	.ascii	" error"
+	.zero	2
+	.long 2
+	.long MM_M3Compiler+512
+	.long 2
+	.ascii	"s"
+	.zero	3
+	.long 2
+	.long MM_M3Compiler+528
+	.long 6
+	.ascii	" and "
+	.zero	3
+	.long 2
+	.long MM_M3Compiler+548
+	.long 9
+	.ascii	" warning"
+	.zero	4
+	.long 2
+	.long MM_M3Compiler+572
+	.long 13
+	.ascii	" encountered"
+	.zero	4
+	.long MM_M3Compiler+596
+	.long -1164381734
+	.zero	4
+	.long 356643957
+	.ascii	"_INITM_M3Compiler"
+	.zero	1
+	.ascii	"GetImports"
+	.zero	1
+	.ascii	"Finalize"
+	.zero	1
+	.ascii	"DumpStats"
+	.zero	1
+	.ascii	"Failed"
+	.zero	1
+	.ascii	"StartPhase"
+	.zero	1
+	.ascii	"CheckBuiltins"
+	.zero	1
+	.ascii	"DoCompile"
+	.zero	1
+	.ascii	"Reset"
+	.zero	1
+	.ascii	"Initialize"
+	.zero	1
+	.ascii	"Compile"
+	.zero	1
+	.ascii	"ParseImports"
+	.zero	1
+	.long _INITM_M3Compiler
+	.long MM_M3Compiler+604
+	.zero	4
+	.long M3Compiler__GetImports
+	.long MM_M3Compiler+622
+	.long MI_M3Compiler+288
+	.long M3Compiler__Finalize
+	.long MM_M3Compiler+633
+	.zero	4
+	.long M3Compiler__DumpStats
+	.long MM_M3Compiler+642
+	.zero	4
+	.long M3Compiler__Failed
+	.long MM_M3Compiler+652
+	.zero	4
+	.long M3Compiler__StartPhase
+	.long MM_M3Compiler+659
+	.zero	4
+	.long M3Compiler__CheckBuiltins
+	.long MM_M3Compiler+670
+	.zero	4
+	.long M3Compiler__DoCompile
+	.long MM_M3Compiler+684
+	.zero	4
+	.long M3Compiler__Reset
+	.long MM_M3Compiler+694
+	.zero	4
+	.long M3Compiler__Initialize
+	.long MM_M3Compiler+700
+	.zero	4
+	.long M3Compiler__Compile
+	.long MM_M3Compiler+711
+	.long MI_M3Compiler+284
+	.long M3Compiler__ParseImports
+	.long MM_M3Compiler+719
+	.long MI_M3Compiler+72
+	.zero	4
+.byte 42
+.byte 44
+.byte 4
+.byte 4
+.byte 0
+	.ascii	"/home/ftp/tmp/pm3/tmp/pm3-1.1.15/language/modula3/m3compiler"
+	.ascii	"/m3bootstrap/LINUXLIBC6/pm3-LINUXLIBC6/boot-LINUXLIBC6/m3fro"
+	.ascii	"nt/src/misc/M3Compiler.m3"
+	.zero	2
+	.ident	"GCC: (GNU) cygnus-2.7.2-960712"

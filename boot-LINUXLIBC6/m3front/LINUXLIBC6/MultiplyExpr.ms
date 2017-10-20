@@ -1,0 +1,588 @@
+	.file	"MultiplyExpr.mc"
+	.version	"01.01"
+/ SRC Modula-3 version cygnus-2.7.2-960712 (i486--linuxelf) compiled by GNU C version egcs-2.91.66 19990314/Linux (egcs-1.1.2 release).
+/ options passed:  -fno-strength-reduce -O2
+/ options enabled:  -fdefer-pop -fcse-follow-jumps -fcse-skip-blocks
+/ -fexpensive-optimizations -fthread-jumps -fpeephole -fforce-mem
+/ -ffunction-cse -finline -fkeep-static-consts -fcaller-saves
+/ -fpcc-struct-return -frerun-cse-after-loop -fschedule-insns2 -fcommon
+/ -fverbose-asm -fgnu-linker -m80387 -mhard-float -mno-soft-float -mieee-fp
+/ -mfp-ret-in-387 -mschedule-prologue -mcpu=i486 -march=i486
+
+gcc2_compiled.:
+.text
+	.align 16
+	.type	 MultiplyExpr__New,@function
+MultiplyExpr__New:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%ebx
+	movl 12(%ebp),%esi
+	movl MM_MultiplyExpr+176,%eax
+	pushl %eax
+	movl MI_RTHooks+80,%eax
+	call *%eax
+	movl %eax,%edi
+	pushl %edi
+	movl MI_ExprRep+460,%eax
+	call *%eax
+	movl %ebx,16(%edi)
+	movl %esi,20(%edi)
+	movl $0,28(%edi)
+	leal -12(%ebp),%esp
+	movl %edi,%eax
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe1:
+	.size	 MultiplyExpr__New,.Lfe1-MultiplyExpr__New
+	.align 16
+	.type	 MultiplyExpr__TypeOf,@function
+MultiplyExpr__TypeOf:
+	pushl %ebp
+	movl %esp,%ebp
+	movl 8(%ebp),%eax
+	movl 16(%eax),%eax
+	pushl %eax
+	movl MI_Expr+152,%eax
+	call *%eax
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe2:
+	.size	 MultiplyExpr__TypeOf,.Lfe2-MultiplyExpr__TypeOf
+	.align 16
+	.type	 MultiplyExpr__Check,@function
+MultiplyExpr__Check:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $4,%esp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%edi
+	movl $0,-4(%ebp)
+	movl 12(%ebp),%eax
+	pushl %eax
+	movl 16(%edi),%eax
+	pushl %eax
+	movl MI_Expr+156,%eax
+	call *%eax
+	movl 12(%ebp),%eax
+	pushl %eax
+	movl 20(%edi),%eax
+	pushl %eax
+	movl MI_Expr+156,%eax
+	call *%eax
+	movl 16(%edi),%eax
+	pushl %eax
+	movl MI_Expr+152,%eax
+	call *%eax
+	pushl %eax
+	movl MI_Type+80,%eax
+	call *%eax
+	movl %eax,%esi
+	movl 20(%edi),%eax
+	pushl %eax
+	movl MI_Expr+152,%eax
+	call *%eax
+	pushl %eax
+	movl MI_Type+80,%eax
+	call *%eax
+	movl %eax,%ebx
+	addl $32,%esp
+	cmpl %eax,MI_Int+44
+	jne .L4
+	cmpl %eax,%esi
+	jne .L4
+	movl $0,24(%edi)
+	movl 12(%ebp),%eax
+	incl 12(%eax)
+	jmp .L5
+	.align 16
+.L4:
+	cmpl %ebx,MI_Reel+44
+	jne .L6
+	cmpl %ebx,%esi
+	jne .L6
+	movl $1,24(%edi)
+	jmp .L12
+	.align 16
+.L6:
+	cmpl %ebx,MI_LReel+44
+	jne .L7
+	cmpl %ebx,%esi
+	jne .L7
+	movl $2,24(%edi)
+	jmp .L12
+	.align 16
+.L7:
+	cmpl %ebx,MI_EReel+44
+	jne .L8
+	cmpl %ebx,%esi
+	jne .L8
+	movl $3,24(%edi)
+.L12:
+	movl 12(%ebp),%eax
+	incl 16(%eax)
+	jmp .L5
+	.align 16
+.L8:
+	movl MI_ErrType+44,%eax
+	cmpl %eax,%esi
+	je .L9
+	cmpl %eax,%ebx
+	jne .L10
+.L9:
+	movl $0,24(%edi)
+	movl %eax,%esi
+	jmp .L5
+	.align 16
+.L10:
+	leal -4(%ebp),%eax
+	pushl %eax
+	pushl %esi
+	movl MI_SetType+48,%eax
+	call *%eax
+	addl $8,%esp
+	testl %eax,%eax
+	je .L11
+	pushl $0
+	pushl %ebx
+	pushl %esi
+	movl MI_Type+116,%eax
+	call *%eax
+	addl $12,%esp
+	testl %eax,%eax
+	je .L11
+	movl $4,24(%edi)
+	jmp .L5
+	.align 16
+.L11:
+	pushl %ebx
+	pushl %esi
+	pushl $MM_MultiplyExpr+188
+	movl MI_Expr+248,%eax
+	call *%eax
+	movl %eax,%esi
+	movl $0,24(%edi)
+.L5:
+	leal -16(%ebp),%esp
+	movl %esi,8(%edi)
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe3:
+	.size	 MultiplyExpr__Check,.Lfe3-MultiplyExpr__Check
+	.align 16
+	.type	 MultiplyExpr__Prep,@function
+MultiplyExpr__Prep:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $20,%esp
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%esi
+	movl $0,-20(%ebp)
+	movl $0,-16(%ebp)
+	movl $0,-12(%ebp)
+	movl $0,-8(%ebp)
+	movl $0,-4(%ebp)
+	movl 16(%esi),%eax
+	pushl %eax
+	movl MI_Expr+200,%eax
+	call *%eax
+	movl 20(%esi),%eax
+	pushl %eax
+	movl MI_Expr+200,%eax
+	call *%eax
+	addl $8,%esp
+	cmpl $4,24(%esi)
+	jne .L13
+	leal -20(%ebp),%eax
+	pushl %eax
+	movl 8(%esi),%eax
+	pushl %eax
+	movl MI_Type+68,%eax
+	call *%eax
+	movl -20(%ebp),%ebx
+	addl $8,%esp
+	cmpl %ebx,MI_Target+96
+	jge .L13
+	testl %ebx,%ebx
+	jge .L16
+	pushl $1633
+	call _m3_fault
+	.align 16
+.L16:
+	pushl $1
+	pushl $14
+	movl MI_Target+100,%eax
+	pushl %eax
+	pushl %ebx
+	movl MI_CG+208,%eax
+	call *%eax
+	movl %eax,%edx
+	movl %edx,28(%esi)
+	movl MI_Target+100,%eax
+	pushl %eax
+	pushl $0
+	pushl %edx
+	movl MI_CG+368,%eax
+	call *%eax
+	movl MI_CG+240,%eax
+	call *%eax
+	movl 16(%esi),%eax
+	pushl %eax
+	movl MI_Expr+204,%eax
+	call *%eax
+	addl $32,%esp
+	movl 20(%esi),%eax
+	pushl %eax
+	movl MI_Expr+204,%eax
+	call *%eax
+	addl $4,%esp
+	pushl %ebx
+	movl MI_CG+528,%eax
+	call *%eax
+.L13:
+	leal -28(%ebp),%esp
+	popl %ebx
+	popl %esi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe4:
+	.size	 MultiplyExpr__Prep,.Lfe4-MultiplyExpr__Prep
+	.align 16
+	.type	 MultiplyExpr__Compile,@function
+MultiplyExpr__Compile:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $20,%esp
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%esi
+	movl $0,-20(%ebp)
+	movl $0,-16(%ebp)
+	movl $0,-12(%ebp)
+	movl $0,-8(%ebp)
+	movl $0,-4(%ebp)
+	cmpl $4,24(%esi)
+	je .L19
+	movl 16(%esi),%eax
+	pushl %eax
+	movl MI_Expr+204,%eax
+	call *%eax
+	movl 20(%esi),%eax
+	pushl %eax
+	movl MI_Expr+204,%eax
+	call *%eax
+	movl 24(%esi),%eax
+	addl $8,%esp
+	cmpl $3,%eax
+	jbe .L20
+	pushl $1905
+	call _m3_fault
+	.align 16
+.L20:
+	xorl %edx,%edx
+	movb MM_MultiplyExpr+44(%eax),%dl
+	leal -1(%edx),%eax
+	cmpl $4,%eax
+	jbe .L21
+	pushl $1905
+	call _m3_fault
+	.align 16
+.L21:
+	pushl %edx
+	movl MI_CG+468,%eax
+	jmp .L26
+	.align 16
+.L19:
+	leal -20(%ebp),%eax
+	pushl %eax
+	movl 8(%esi),%eax
+	pushl %eax
+	movl MI_Type+68,%eax
+	call *%eax
+	movl -20(%ebp),%ebx
+	addl $8,%esp
+	cmpl %ebx,MI_Target+96
+	jge .L23
+	movl MI_Target+100,%eax
+	pushl %eax
+	pushl $0
+	movl 28(%esi),%eax
+	pushl %eax
+	movl MI_CG+372,%eax
+	call *%eax
+	movl $0,28(%esi)
+	jmp .L18
+	.align 16
+.L23:
+	movl 16(%esi),%eax
+	pushl %eax
+	movl MI_Expr+204,%eax
+	call *%eax
+	movl 20(%esi),%eax
+	pushl %eax
+	movl MI_Expr+204,%eax
+	call *%eax
+	addl $8,%esp
+	testl %ebx,%ebx
+	jge .L25
+	pushl $2065
+	call _m3_fault
+	.align 16
+.L25:
+	pushl %ebx
+	movl MI_CG+528,%eax
+.L26:
+	call *%eax
+.L18:
+	leal -28(%ebp),%esp
+	popl %ebx
+	popl %esi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe5:
+	.size	 MultiplyExpr__Compile,.Lfe5-MultiplyExpr__Compile
+	.align 16
+	.type	 MultiplyExpr__Fold,@function
+MultiplyExpr__Fold:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $4,%esp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%ebx
+	movl $0,-4(%ebp)
+	movl 16(%ebx),%eax
+	pushl %eax
+	movl MI_Expr+160,%eax
+	call *%eax
+	movl %eax,%esi
+	movl 20(%ebx),%eax
+	pushl %eax
+	movl MI_Expr+160,%eax
+	movl %esi,%edi
+	call *%eax
+	movl %eax,%esi
+	movl $0,-4(%ebp)
+	addl $8,%esp
+	testl %edi,%edi
+	je .L30
+	testl %esi,%esi
+	je .L30
+	leal -4(%ebp),%ebx
+	pushl %ebx
+	pushl %esi
+	pushl %edi
+	movl MI_IntegerExpr+64,%eax
+	call *%eax
+	addl $12,%esp
+	testl %eax,%eax
+	jne .L30
+	pushl %ebx
+	pushl %esi
+	pushl %edi
+	movl MI_ReelExpr+60,%eax
+	call *%eax
+	addl $12,%esp
+	testl %eax,%eax
+	jne .L30
+	pushl %ebx
+	pushl %esi
+	pushl %edi
+	movl MI_SetExpr+60,%eax
+	call *%eax
+.L30:
+	leal -16(%ebp),%esp
+	movl -4(%ebp),%eax
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe6:
+	.size	 MultiplyExpr__Fold,.Lfe6-MultiplyExpr__Fold
+	.align 16
+	.type	 M_MultiplyExpr_t42a2d7ac_LINK,@function
+M_MultiplyExpr_t42a2d7ac_LINK:
+	pushl %ebp
+	movl %esp,%ebp
+	movl MM_MultiplyExpr+176,%eax
+	movl %ebp,%esp
+	movl 52(%eax),%edx
+	movl MM_MultiplyExpr+152,%eax
+	movl %eax,4(%edx)
+	movl MM_MultiplyExpr+156,%eax
+	movl %eax,8(%edx)
+	movl MI_ExprRep+464,%eax
+	movl %eax,36(%edx)
+	movl MM_MultiplyExpr+160,%eax
+	movl %eax,52(%edx)
+	movl MM_MultiplyExpr+164,%eax
+	movl %eax,56(%edx)
+	movl MI_ExprRep+520,%eax
+	movl %eax,60(%edx)
+	movl %eax,64(%edx)
+	movl MI_ExprRep+524,%eax
+	movl %eax,68(%edx)
+	movl %eax,72(%edx)
+	movl MM_MultiplyExpr+168,%eax
+	movl %eax,16(%edx)
+	movl MI_ExprRep+544,%eax
+	movl %eax,12(%edx)
+	movl MI_ExprRep+484,%eax
+	movl %eax,20(%edx)
+	movl MI_ExprRep+488,%eax
+	movl %eax,24(%edx)
+	movl %eax,28(%edx)
+	movl %eax,32(%edx)
+	movl MI_ExprRep+500,%eax
+	movl %eax,40(%edx)
+	movl MI_ExprRep+504,%eax
+	movl %eax,44(%edx)
+	movl MI_ExprRep+508,%eax
+	movl %eax,48(%edx)
+	movl MI_ExprRep+536,%eax
+	movl %eax,76(%edx)
+	popl %ebp
+	ret
+.Lfe7:
+	.size	 M_MultiplyExpr_t42a2d7ac_LINK,.Lfe7-M_MultiplyExpr_t42a2d7ac_LINK
+	.align 16
+	.type	 _m3_fault,@function
+_m3_fault:
+	pushl %ebp
+	movl %esp,%ebp
+	movl 8(%ebp),%eax
+	pushl %eax
+	pushl $MM_MultiplyExpr
+	movl MI_RTHooks+108,%eax
+	call *%eax
+	.align 16
+.Lfe8:
+	.size	 _m3_fault,.Lfe8-_m3_fault
+.globl MM_MultiplyExpr
+.data
+	.align 4
+	.type	 MM_MultiplyExpr,@object
+	.size	 MM_MultiplyExpr,504
+MM_MultiplyExpr:
+	.long MM_MultiplyExpr+312
+	.long MM_MultiplyExpr+48
+	.long MM_MultiplyExpr+176
+	.zero	8
+	.long MM_MultiplyExpr+236
+	.zero	20
+.byte 2
+.byte 3
+.byte 4
+.byte 5
+	.zero	8
+	.long 1117968300
+.byte 32
+.byte 62
+.byte 140
+.byte 70
+.byte 140
+.byte 233
+.byte 46
+.byte 4
+	.long 1
+	.zero	4
+	.long 4
+	.long 4
+	.zero	4
+	.long 0
+	.zero	12
+	.long MM_MultiplyExpr+461
+	.long MM_MultiplyExpr+463
+	.long MM_MultiplyExpr+465
+	.zero	4
+	.long M_MultiplyExpr_t42a2d7ac_LINK
+	.long -345747377
+	.zero	12
+	.long MM_MultiplyExpr+473
+	.long MM_MultiplyExpr+488
+	.zero	4
+	.long MultiplyExpr__TypeOf
+	.long MultiplyExpr__Check
+	.long MultiplyExpr__Prep
+	.long MultiplyExpr__Compile
+	.long MultiplyExpr__Fold
+	.long MultiplyExpr__New
+	.zero	4
+	.long 1117968300
+	.long 2
+	.long MM_MultiplyExpr+196
+	.long 4
+	.ascii	"'*'"
+	.zero	1
+	.ascii	"Fold"
+	.zero	1
+	.ascii	"Compile"
+	.zero	1
+	.ascii	"Prep"
+	.zero	1
+	.ascii	"Check"
+	.zero	1
+	.ascii	"TypeOf"
+	.zero	1
+	.ascii	"New"
+	.zero	2
+	.long MultiplyExpr__Fold
+	.long MM_MultiplyExpr+200
+	.zero	4
+	.long MultiplyExpr__Compile
+	.long MM_MultiplyExpr+205
+	.zero	4
+	.long MultiplyExpr__Prep
+	.long MM_MultiplyExpr+213
+	.zero	4
+	.long MultiplyExpr__Check
+	.long MM_MultiplyExpr+218
+	.zero	4
+	.long MultiplyExpr__TypeOf
+	.long MM_MultiplyExpr+224
+	.zero	4
+	.long MultiplyExpr__New
+	.long MM_MultiplyExpr+231
+	.long MI_MultiplyExpr+44
+	.zero	4
+	.ascii	"/home/ftp/tmp/pm3/tmp/pm3-1.1.15/language/modula3/m3compiler"
+	.ascii	"/m3bootstrap/LINUXLIBC6/pm3-LINUXLIBC6/boot-LINUXLIBC6/m3fro"
+	.ascii	"nt/src/exprs/MultiplyExpr.m3"
+	.zero	1
+.byte 4
+.byte 0
+.byte 4
+.byte 0
+.byte 2
+.byte 10
+.byte 1
+.byte 16
+.byte 121
+.byte 130
+.byte 239
+.byte 251
+	.ascii	"MultiplyExpr.T"
+	.zero	1
+	.ascii	"MultiplyExpr.P"
+	.zero	2
+	.ident	"GCC: (GNU) cygnus-2.7.2-960712"

@@ -1,0 +1,595 @@
+Mon Apr 27 10:43:04 1998  Jason Molenda  (crash@bugshack.cygnus.com)
+
+	* gdb_string.h (strdup): Don't specify arguments in prototype.
+
+Fri Apr 24 16:08:34 1998  Jason Molenda  (crash@bugshack.cygnus.com)
+
+	* Makefile.in (VERSION): Bump to version 4.17.
+
+Thu Apr 23 16:37:20 1998  Jason Molenda  (crash@bugshack.cygnus.com)
+
+	* README:  Minor changes for 4.17 release.
+
+Thu Apr 23 12:52:21 1998  Philippe De Muyter  <phdm@macqel.be>
+
+        * configure.in (strerror): Check if function must be declared.
+        * acconfig.h (NEED_DECLARATION_STRERROR): New define slot.
+        * gdb_string.h (strerror): Function declaration issued if
+        NEED_DECLARATION_STRERROR.
+        * configure, config.in : Files regenerated.
+
+Thu Apr 23 12:27:43 1998  Philippe De Muyter  <phdm@macqel.be>
+
+        * symfile.c (simple_overlay_update_1): Do not prefix array address
+        by `&'.
+        * bcache.h (BCACHE_DATA_ALIGNMENT): Ditto.
+        * tracepoint.c (encode_actions): Ditto.
+        * language.c, complaints.c, utils.c (varargs.h): Do not include that
+        file here, it is already included indirectly by defs.h.
+        * dbxread.c (dbx_symfile_init, process_one_symbol): Cast xmalloc return
+        value to the appropriate pointer type.
+        * utils.c (floatformat_from_doublest): Ditto.
+        * tracepoint.c (read_actions, _initialize_tracepoint): Ditto.
+        (add_memrange): Likewise with xrealloc return value.
+        * stabsread.c (ref_add): Ditto.
+        * coffread.c (coff_symfile_init): Likewise for xmmalloc return value.
+        * elfread.c (elf_symfile_read): Ditto.
+        * os9kread.c (os9k_symfile_init): Ditto.
+
+Mon Apr 20 16:43:12 1998  Jason Molenda  (crash@bugshack.cygnus.com)
+
+	* Makefile.in (VERSION): To 4.16.98.
+
+Mon Apr 20 15:35:03 1998  Philippe De Muyter  <phdm@macqel.be>
+
+        * coffread.c (decode_base_type): Treat a long field with size greater
+        than TARGET_LONG_BIT as long long.
+        * values.c (value_from_longest): Print code value in error message.
+
+Mon Apr 20 15:32:21 1998   Mark Kettenis  <kettenis@phys.uva.nl>
+
+        * gdb/gdb_string.h (strdup): Declare only if not defined as a
+        macro.
+
+Mon Apr 20 14:12:30 1998 Peter Schauer (pes@regent.e-technik.tu-muenchen.de)
+
+        * infrun.c (wait_for_inferior): Don't add signalled processes
+        as new threads.
+        * procfs.c (wait_fd): Note if LWP has exited.
+        (procfs_wait): use GETPID to get process ID.
+
+Thu Apr 16 14:28:50 1998  J. Kean Johnston  <jkj@sco.com>
+
+	* configure.host, configure.tgt: Recognise SVR5 and UnixWare 7.
+	Added new target-specific support for SCO Open Server 5.
+	* procfs.c: Added replacement macros for LWP stuff.  Fixed support 
+	for UnixWare / SVR4.2MP targets and any targets which use
+	multi-file /proc entries.  Fixed support for hardware watchpoints.
+	* solib.c: SCO needs some of the same code as SunOS. Change
+	preprocessor conditionals.
+
+	* config/i386/i386sco5.mt: New file.
+	* config/i386/i386sco5.mh (NATDEPFILES): add i386v-nat.o.
+	* config/i386/tm-i386sco5.h: New file.
+	* config/i386/nm-i386v42mp.h 
+	(TARGET_HAS_HARDWARE_WATCHPOINTS): define.  
+	Add other macros for hardware assisted watchpoints.
+	* config/i386/nm-i386sco5.h: Correct attributions.
+	(TARGET_HAS_HARDWARE_WATCHPOINTS): define.
+	* config/i386/nm-linux.h (target_remote_watchpoint): Pass
+	'type' through to i386_insert_watchpoint.
+
+Mon Apr 13 09:54:08 1998  Keith Seitz  <keiths@andros.cygnus.com>
+
+        * config/sparc/tm-sun4os4.h (IS_STATIC_TRANSFORM_NAME): Add missing
+        definition.
+
+Fri Apr 10 22:44:34 1998  Jason Molenda  (crash@bugshack.cygnus.com)
+
+	* Makefile.in (VERSION): Bump to 4.16.97.1 for a quick 
+	snapshot release.
+
+Fri Apr 10 22:36:28 1998  Peter Schauer (pes@regent.e-technik.tu-muenchen.de)
+
+        Update support for x86 Solaris 2.
+        * config/i386/tm-i386sol2.h, nm-i386sol2.h:  New configuration
+        files for x86 Solaris 2.                                              
+        * config/i386/i386sol2.mt, i386sol2.mh:  Use them.                    
+        * config/sparc/tm-sun4sol2.h (PROCFS_GET_CARRY):  New macro, extract  
+        carry flag from a given regset.                                     
+        (IS_STATIC_TRANSFORM_NAME):  New macro, check if a symbol name      
+        is a SunPro transformed name.                                 
+        * i386-tdep.c (sunpro_static_transform_name):  New function to
+        extract the source name from a SunPro transformed name.           
+        * inferior.h (procfs_first_available, procfs_get_pid_fd):        
+        Add prototypes.                                          
+        * infrun.c (wait_for_inferior):  Handle breakpoint hit in
+        signal handler without intervening stop in sigtramp.     
+        * procfs.c (procfs_lwp_creation_handler):  Use PROCFS_GET_CARRY
+        instead of direct access to the status register.               
+        (procfs_get_pid_fd):  New function, returns procfs fd for a given pid.
+        * sol-thread.c (ps_lgetLDT):  New function, returns LDT for a given   
+        lwpid.                                                                
+        (sol_find_new_threads):  Handle failed libthread_db initialization 
+        gracefully.                                                       
+        * stabsread.c (define_symbol):  Use IS_STATIC_TRANSFORM_NAME      
+        to check for a SunPro transformed symbol name.              
+
+Thu Apr  9 12:47:41 1998  Frank Ch. Eigler  <fche@cygnus.com>
+
+        * sol-thread.c (sol_thread_store_registers): Save & restore new
+        value of single updated register to prevent accidental clobbering.
+
+Wed Apr  8 19:21:42 1998  Jason Molenda  (crash@bugshack.cygnus.com)
+
+        * top.c (print_gdb_version): Print 1998 now.
+
+Wed Apr  8 16:47:33 1998  Jason Molenda  (crash@bugshack.cygnus.com)
+
+        * solib.c (solib_create_inferior_hook): Remove Ulrich Drepper's
+        patch of March 23 1998.
+        * breakpoint.c (breakpoint_re_set_one): Remove Ulrich Drepper's
+        patch of March 23 1998.
+
+Thu Apr  2 17:00:53 1998  Jason Molenda  (crash@bugshack.cygnus.com)
+
+	* Makefile.in (VERSION): Bump to 4.16.97.
+
+Wed Apr  1 16:30:49 1998  Ian Dall  <Ian.Dall@dsto.defence.gov.au>
+
+        * ns32k-tdep.c (flip_bytes, ns32k_localcount,
+        ns32k_get_enter_addr, sign_extend): Restore functions mysteriously
+        deleted.
+
+        * ns32knbsd-nat.c: New (?) file to support fetching and storing
+        registers on NetBSD hosts.
+
+        * nbsd.mh (NATDEPFILES): put ns32knbsd-nat.o instead of
+        ns32k-nat.o
+
+        * ns32km3-nat.c (reg_offset): Get order of floating point
+        registers correct. Add extra 32382 register offsets.
+        (REG_ADDRESS): define to point at correct part of thread
+        state. Use calls to "warning" instead of "message".
+
+        * tm-nbsd.h, tm-ns32km3.h (REGISTER_NAMES, NUM_REGS,
+        REGISTER_BYTES, REGISTER_BYTE): redefine allowing for 32382
+        fpu registers.
+
+Wed Apr  1 13:43:07 1998  Philippe De Muyter  <phdm@macqel.be>
+
+	* NEWS: m68k-motorola-sysv host support added.
+	* coffread.c (coff_start_symtab): Accept the filename as an argument,
+	set it here.  Callers updated.
+
+Sat Mar 28 15:19:48 1998  Stan Shebs  <shebs@andros.cygnus.com>
+
+	* NEWS: Update for 4.17 release.
+
+Mon Mar 23 18:10:57 1998  Ulrich Drepper  (drepper@cygnus.com)
+
+        * solib.c (solib_create_inferior_hook):  Rewrite previous
+        change to check the type of file via BFD.
+
+Mon Mar 23 17:01:46 1998  Peter Schauer (pes@regent.e-technik.tu-muenchen.de)
+
+	* breakpoint.c (insert_breakpoints): Disable a breakpoint if it is
+	unsettable, don't delete it.
+
+Mon Mar 23 13:52:28 1998  Ulrich Drepper  (drepper@cygnus.com)
+
+	* breakpoint.c (breakpoint_re_set_one): Treat bp_shlib_events
+	like bp_breakpoints.
+	* solib.c (solib_create_inferior_hook): Relocate section addresses 
+	if the alleged start address doesn't agree with the PC.
+
+Wed Mar 18 12:50:17 1998  Jeff Law  (law@cygnus.com)
+
+	* stabsread.c (define_symbol): Don't look for ',' as a LRS
+	indicator.
+
+Fri Mar 13 16:45:25 1998  Jason Molenda  (crash@bugshack.cygnus.com)
+
+	* Makefile.in (VERSION): Changed to 4.16.86.
+
+Fri Mar 13 15:43:53 1998  Peter Schauer  (pes@regent.e-technik.tu-muenchen.de)
+
+        * config/mips/xm-mips.h (CC_HAS_LONG_LONG):  Undefine for Ultrix
+        when compiling with native cc, the compiler has broken long long
+        support.
+
+Fri Mar 13 14:37:02 1998  Peter Schauer  (pes@regent.e-technik.tu-muenchen.de)
+
+        * config/m68k/xm-sun3os4.h:  Remove malloc declarations, they
+        are handled via autoconf now.
+        * remote.c (remote_ops, extended_remote_ops):  Replace static
+        forward declaration by moving the static definition to the top of
+        the file, for old K&R compilers.
+        * tracepoint.c (collect_symbol, trace_start_command):
+        Replace ANSI string concatenation with K&R compatible simple string.
+
+Tue Mar  3 14:37:02 1998  Peter Schauer  (pes@regent.e-technik.tu-muenchen.de)
+
+        * alpha-nat.c (fetch_osf_core_registers):  Renamed from
+        fetch_aout_core_registers.
+        (alpha_osf_core_fns):  Renamed from alpha_aout_core_fns, change
+        flavour to bfd_target_unknown_flavour for OSF core files.
+
+Mon Mar  2 16:51:44 1998  Jason Molenda  (crash@bugshack.cygnus.com)
+
+	* Makefile.in (YYFILES): Remove in maintainer-clean, not distclean.
+
+Mon Mar  2 16:47:11 1998  Philippe De Muyter  <phdm@macqel.be>
+
+        * Makefile.in (distclean): Add `rm $(YYFILES)'.
+
+Mon Mar  2 16:45:48 1998  Philippe De Muyter  <phdm@macqel.be>
+
+	* coffread.c (coff_read_enum_type): Set TYPE_FLAG_UNSIGNED if enum
+	is unsigned.
+
+Mon Mar  2 15:32:50 1998  Andrew Cagney  <cagney@b1.cygnus.com>
+
+	* config/i386/fbsd.mh (XDEPFILES): Add ser-tcp.o.
+	* config/i386/nbsd.mh (XDEPFILES): Add ser-tcp.o.
+
+Sun Mar  2 15:16:13 1998 Richard Henderson  <rth@cygnus.com>
+
+        * configure.host, configure.tgt: Add sparc-linux.
+        * sparc-nat.c: Include <asm/reg.h> not <machine/reg.h> for Linux.
+        * config/sparc/*linux*: New files.
+
+Tue Feb 17 14:28:33 1998  Peter Schauer <pes@regent.e-technik.tu-muenchen.de>
+
+	* acconfig.h: FORCE_MMCHECK changed to MMCHECK_FORCE.
+	* configure.in: Ditto.
+	* configure: Regenerated.
+
+Tue Feb 17 14:07:34 1998  Peter Schauer <pes@regent.e-technik.tu-muenchen.de>
+
+	* gdbtypes.c (check_typedef): Do not try to resolve the length of      
+	a type which has TYPE_FLAG_TARGET_STUB set, if the target type has      
+	set TYPE_FLAG_TARGET_STUB as well.
+
+Mon Feb 10 15:35:38 1998  Ian Lance Taylor  <ian@cygnus.com>
+
+        * Makefile.in (init.c): Ignore errors when making init.c.  Seems
+        necessary to work around bug in Solaris make.
+
+Tue Feb 10 12:17:13 1998  Fred Fish  <fnf@cygnus.com>  
+ 
+        * symtab.c (decode_line_1): Revert change that mistakenly
+        removed assignment of sals[0].pc field.
+
+Mon Feb  9 00:37:47 1998  Philippe De Muyter  <phdm@macqel.be>
+
+        * m68k/tm-delta68.h (EXTRACT_RETURN_VALUE): Type argument for
+        `REGISTER_CONVERT_TO_VIRTUAL is `TYPE', not
+        `REGISTER_VIRTUAL_TYPE (FP0_REGNUM)';
+        (STORE_RETURN_VALUE): Ditto, and offset for `write_register_bytes'
+        is `REGISTER_BYTE (FP0_REGNUM)', not `FP0_REGNUM'.
+        (FRAME_NUM_ARGS): New macro.
+        * m68k/tm-news.h (EXTRACT_RETURN_VALUE, STORE_RETURN_VALUE): Ditto.
+        * delta68-nat.c (clear_insn_cache): New function, forgotten in previous
+        patch.
+
+Sun Feb  6 02:44:28 1997  Philippe De Muyter  <phdm@macqel.be>
+
+        * m68k/tm-delta68.h (CPLUS_MARKER): Macro deleted.
+        (EXTRACT_STRUCT_VALUE_ADDRESS): Macro defined.
+        (EXTRACT_RETURN_VALUE, STORE_RETURN_VALUE): Macros modified
+        because floating-point values return via %fp0.
+        (CLEAR_INSN_CACHE): New macro.
+        * m68k/tm-m68k.h (REGISTER_CONVERT_TO_VIRTUAL): Macro fixed
+        to use DOUBLEST.
+        (REGISTER_CONVERT_TO_RAW): Ditto.
+        * infptrace.c (child_xfer_memory): If CLEAR_INSN_CACHE is defined,
+        call it after having written in child process's memory.
+        * inflow.c (PROCESS_GROUP_TYPE): Macro defined if HAVE_TERMIO.
+        (gdb_has_a_terminal, terminal_ours_1): Functions fixed for HAVE_TERMIO.
+
+Thu Feb  5 15:55:31 1998  C. M. Heard (heard@vvnet.com)
+
+	* top.c (do_nothing): Remove signal handler after signal is caught.
+
+Wed Feb  4 17:40:21 1998  Jason Molenda  (crash@bugshack.cygnus.com)
+
+	* Makefile.in (SFILES): add tracepoint.c.
+	(LINTFILES): add @CONFIG_SRCS@.
+	(SOURCES): Ditto.
+	* configure.in (CONFIG_SRCS): Mirror use of CONFIG_OBS.
+	* configure: Regenerated.
+
+Mon Feb  2 19:56:02 1998  Jason Molenda  (crash@bugshack.cygnus.com)
+
+	* Makefile.in (VERSION): Bump to 4.16.85.
+
+Tue Feb  3 16:12:32 1998  Gordon W. Ross (gwr@mc.com)
+
+	* infptrace.c (child_resume): Don't try to step if 
+	NO_SINGLE_STEP is defined.
+
+Mon Feb  2 19:06:13 1998  Jason Molenda  (crash@bugshack.cygnus.com)
+
+	* Makefile.in (VERSION): Bump to 4.16.2.
+
+Mon Feb  2 17:18:25 1998  Richard Henderson  <rth@cygnus.com>
+
+        * alpha-nat.c (fetch_aout_core_registers): Rename from
+        fetch_core_registers.
+        (fetch_elf_core_registers): New function.
+        (supply_gregset): Use ALPHA_REGSET_BASE.
+        (supply_fpregset): Likewise.
+        (fill_fpregset): Likewise.
+        (alpha_aout_core_fns): Rename from alpha_core_fns.
+        (alpha_elf_core_fns): New.
+        * config/alpha/alpha-linux.mh (NATDEPFILES): solib.o not osfsolib.o.
+        Disable MMALLOC.
+        * config/alpha/nm-linux.h (SVR4_SHARED_LIBS): Define if ELF.
+	(TARGET_ELF64): Likewise.
+        (ALPHA_REGSET_BASE): New.
+        * config/alpha/nm-osf.h (ALPHA_REGSET_BASE): New.
+        * config/alpha/tm-alphalinux.h: Include tm-sysv4.h.
+
+        * solib.c (elf_locate_base): Add TARGET_ELF64 support.
+        (info_sharedlibary_command): Likewise.
+
+        * configure.host: Match alpha*.
+        * configure.tgt: Likewise.
+
+Fri Jan 30 15:11:38 1998  David Taylor  <taylor@texas.cygnus.com>
+
+	Changes by <Peter.Schauer@Regent.E-Technik.TU-Muenchen.DE>
+	* infrun.c (IN_SOLIB_DYNSYM_RESOLVE_CODE): new macro for detecting
+ 	whether we are in the dynamic symbol resolution code 
+	(wait_for_inferior): invoke it.
+	* solib.c (in_svr4_dynsym_resolve_code): new function
+	(enable_break): record start and end of the dynamic linker
+	text and plt sections for use in in_svr4_dynsym_resolve_code.
+	* solib.h (IN_SOLIB_DYNSYM_RESOLVE_CODE): add svr4 definition;
+	(in_svr4_dynsym_resolve_code): declare it.
+	* config/nm-gnu.h (solib.h): move inclusion to after definition
+	of SVR4_SHARED_LIBS.
+	* config/nm-sysv4.h (solib.h): ditto.
+	* config/i386/nm-i386sco5.h (solib.h): ditto.
+	* config/i386/nm-linux.h (solib.h): ditto.
+	* config/mips/nm-irix5.h (IN_SOLIB_DYNSYM_RESOLVE_CODE): undefine.
+
+Thu Jan 29 19:39:31 1998  Stan Shebs  <shebs@andros.cygnus.com>
+
+	* coffread.c (coff_symtab_read) [SEM]: Remove code, macro can
+	never be defined.
+	* dbxread.c (process_one_symbol) [BLOCK_ADDRESS_ABSOLUTE]:
+	Remove, no longer needed.
+	* hppa-tdep.c (N_SET_MAGIC): Remove, no longer used.
+	* config/pa/xm-hppab.h (SEEK_SET, SEEK_CUR, SEEK_END): Ditto.
+	* config/mips/tm-mipsm3.h (NUMERIC_REG_NAMES): Ditto.
+	* config/mips/mipsm3.mt (TDEPFILES): Remove mipsread.o.
+
+Wed Jan 28 14:46:52 1998  Stan Shebs  <shebs@andros.cygnus.com>
+
+	Suggested by Chris Walter <walter@budoe.bu.edu>:
+	* dwarfread.c (set_cu_language): Recognize Fortran.
+	* dwarf2read.c (set_cu_language): Ditto.
+	(read_array_type): Fix language test.
+
+Wed Jan 28 12:51:08 1998  Michael Snyder  (msnyder@cleaver.cygnus.com)
+ 
+        * blockframe.c (generic_frame_chain_valid): A frame pointer may
+        be valid if it is equal to the frame pointer of its caller (ie.
+        not necessarily strictly INNER_THAN).  Allows frameless functions.
+ 
+Wed Jan 28 11:23:25 1998  Mark Alexander  <marka@cygnus.com>
+
+	* monitor.c (monitor_vsprintf): New function to handle
+	printing of large addresses using %A format specifier.
+	(monitor_printf_noecho, monitor_printf): Use monitor_vsprintf
+	instead of vsprintf.
+	* dve3900-rom.c (_initialize_r3900_rom): Use %A instead of %Lx
+	to print addresses.
+
+Tue Jan 27 16:14:23 1998  Jason Molenda  (crash@bugshack.cygnus.com)
+
+	* configure.in (CONFIG_LDFLAGS): Only add -export-dynamic
+	when using GNU ld.
+
+Mon Jan 26 19:07:46 1998  Jason Molenda  (crash@bugshack.cygnus.com)
+
+	* config/alpha/tm-alphalinux.h (alpha_linux_sigtramp_offset):
+	Add closing parenthesis.  From HJ Lu.
+
+Mon Jan 26 17:54:45 1998  Mark Alexander  <marka@cygnus.com>
+
+	* dve3900-rom.c: Improve performance by using memory commands
+	that print less fluff.  Minor cosmetic changes.
+	Eliminate compiler warnings.
+
+Sat Jan 24 23:44:43 1998  Martin M. Hunt  <hunt@cygnus.com>
+
+	* breakpoint.c (enable_breakpoint): Preserve breakpoint
+	disposition when enabling a breakpoint.
+
+	* symtab.c (find_pc_sect_line): If no symbol information
+	is found, return correct pc anyway.
+
+Fri Jan 23 17:26:22 1998  Stan Shebs  <shebs@andros.cygnus.com>
+
+	* configure.host (i[3456]86-*-osf1mk*, mips-*-mach3*,
+	ns32k-*-mach3*): Fix file names.
+	(i[3456]86-*-os9k, m88*-*-mach3*, w65-*-*): Remove config
+	recognition, no source files for these.
+	* configure.tgt (powerpc-*-aix4*): Remove config, now identical
+	to powerpc-*-aix*.
+	* config/powerpc/{aix4.mh,aix4.mt,tm-ppc-aix4.h}: Remove files,
+	no longer needed.
+
+Fri Jan 23 16:49:41 1998  Mark Alexander  <marka@cygnus.com>
+
+	* monitor.c (monitor_write, monitor_readchar): New functions.
+	* monitor.h (monitor_write, monitor_readchar): Declare.
+	* dve3900-rom.c: Add support for fast loading on ethernet connections.
+
+Fri Jan 23 07:47:06 1998  Fred Fish  <fnf@cygnus.com>
+
+	* config/d10v/tm-d10v.h (CALL_DUMMY): Define as "{ 0 }".
+	(TARGET_READ_FP): Define to d10v_read_fp rather than d10v_read_sp.
+	(TARGET_WRITE_FP): Define to d10v_write_fp rather than d10v_write_sp.
+	(d10v_write_fp, d10v_read_fp): Add prototypes.
+	* symtab.c (decode_line_1): Remove assignment of sals[0].pc field.
+	* symfile.c (simple_overlay_update, simple_overlay_update_1):
+	Ignore the size of overlay sections.  This check is redundant anyway.
+	* printcmd.c (print_frame_args): Ditto.
+	* valops.c (value_fetch_lazy): Ditto.
+	* values.c (unpack_long): Ditto.
+	* d10v-tdep.c (d10v_frame_chain, d10v_frame_find_saved_regs,
+	d10v_init_extra_frame_info): Fix some minor bugs so the finish command
+ 	works properly.
+	(show_regs): Change num1 and num2 types from "long long" to "LONGEST".
+	(d10v_read_fp, d10v_write_fp): New functions.
+	(d10v_push_arguments): Remove unneeded assigns to "val" and "contents".
+	(d10v_push_arguments): Fix for pointers and structs.
+	(d10v_extract_return_value): Fix for pointers and chars.
+
+Tue Jan 20 18:53:18 1998  Stan Shebs  <shebs@andros.cygnus.com>
+
+	* configure.tgt (i386-*-mach*, m88*-*-mach3*): Remove config
+	recognition, no source files for these (note that the i386 Mach
+	config is for pre-Mach 3).
+	(mips*-*-mach3*, ns32k-*-mach3*): Fix file names.
+	* config/mips/mipsel64.mt: Remove, never referenced.
+
+Mon Jan 19 14:01:28 1998  Stan Shebs  <shebs@andros.cygnus.com>
+
+	* top.c (print_gdb_version): Restore to original message.
+
+Mon Jan 19 13:34:40 1998  Ian Lance Taylor  <ian@cygnus.com>
+
+	From cgf@bbc.com (Chris Faylor):
+	* win32-nat.c (child_mourn_inferior): Call ContinueDebugEvent to
+	let the child exit.
+	(child_kill_inferior): Respond to all debug events as the child is
+	terminating.
+
+	* Makefile.in (all): Change gdb dependency to gdb$(EXEEXT).
+	(uninstall): Add $(EXEEXT) to file name to remove.
+	(gdb$(EXEEXT)): Rename target from plain gdb.
+	(gdb1$(EXEEXT)): Rename target from plain gdb1.
+	(clean, mostlyclean): Add $(EXEEXT) to binary names to remove.
+
+1998-01-16  Felix Lee  <flee@cygnus.com>
+
+	* top.c (print_gdb_version): delete stutter.
+
+Thu Jan 15 12:29:13 1998  Nick Clifton  <nickc@cygnus.com>
+
+	* remote-rdi.c (arm_rdi_open): Patch from Tony.Thompson@arm.com
+	to prevent spurous error messages on non-ICE targets.
+
+Wed Jan 14 19:27:02 1998  Stan Shebs  <shebs@andros.cygnus.com>
+
+	* config/mips/{r3900.mt,r3900l.mt,tm-r3900.h,tm-r3900l.h}:
+	Remove, no longer used.
+
+Tue Jan 13 16:38:48 1998  Fred Fish  <fnf@cygnus.com>
+
+	* configure.in (--with-mmalloc): Add new configure arg to use the
+	mmalloc package.  Default is to not use it.
+	(START_INFERIOR_TRAPS_EXPECTED): Define to the integer 2, not
+	the string "2".
+	* acconfig.h (USE_MMALLOC, FORCE_MMCHECK): Add #undef.
+	* configure: Regenerated.
+	* config.in: Regenerated.
+	* Makefile.in (MMALLOC_DIR, MMALLOC_SRC): Remove.
+	(MMALLOC): Set using configure.
+	(MMALLOC_CFLAGS): Set using configure.
+
+	* config/i386/tm-linux.h (sys_quotactl): Define to 1 rather
+	than just defining it.
+	* mpw-make.sed: Undefine USE_MMALLOC rather than defining NO_MMALLOC.
+	* utils.c (NO_MMALLOC): Use USE_MMALLOC instead.
+	* objfiles.c: ditto.
+	* defs.h: ditto.
+
+	* config/sparc/sun4os4.mh (MMALLOC_CFLAGS): Remove.
+	* config/m68k/sun3os4.mh (MMALLOC_CFLAGS): Remove.
+	* config/i386/cygwin32.mh (MMALLOC_CFLAGS): Remove.
+	* config/alpha/alpha-osf3.mh (MMALLOC_CFLAGS): Remove.
+	* config/alpha/alpha-osf2.mh (MMALLOC_CFLAGS): Remove.
+	* gdbserver/Makefile.in (MMALLOC_*): Remove.
+	* config/rs6000/rs6000.mh (MMALLOC, MMALLOC_CFLAGS): Remove.
+	* config/rs6000/aix4.mh (MMALLOC, MMALLOC_CFLAGS): Remove.
+	* config/powerpc/aix4.mh (MMALLOC, MMALLOC_CFLAGS): Remove.
+	* config/powerpc/aix.mh (MMALLOC, MMALLOC_CFLAGS): Remove.
+	* config/ns32k/ns32km3.mh (MMALLOC, MMALLOC_CFLAGS): Remove.
+	* config/mips/mipsm3.mh (MMALLOC, MMALLOC_CFLAGS): Remove.
+	* config/mips/decstation.mh (MMALLOC, MMALLOC_CFLAGS): Remove.
+	* config/m88k/cxux.mh (MMALLOC, MMALLOC_CFLAGS): Remove.
+	* config/i386/xm-windows.h (NO_MMALLOC, NO_MMCHECK): Remove.
+	* config/i386/i386mk.mh (MMALLOC, MMALLOC_CFLAGS): Remove.
+	* config/i386/i386m3.mh (MMALLOC, MMALLOC_CFLAGS): Remove.
+	* config/i386/i386gnu.mh (MMALLOC, MMALLOC_CFLAGS): Remove.
+	* config/alpha/alpha-osf1.mh (MMALLOC, MMALLOC_CFLAGS): Remove.
+	* config/alpha/alpha-linux.mh (MMALLOC, MMALLOC_CFLAGS): Remove.
+
+Mon Jan 12 11:46:51 1998  Michael Snyder  (msnyder@cleaver.cygnus.com)
+
+	* config/m68k/tm-m68k.h (REGISTER_VIRTUAL_TYPE): make A0 thru A7
+	default to void pointer type (so that their default radix is hex).
+
+	* symtab.c: move rbreak_command from no_class to class_breakpoint
+	so it will be listed under "help breakpoints".
+
+Sat Jan 10 14:58:04 1998  Stan Shebs  <shebs@andros.cygnus.com>
+
+	* rdi-share/hostchan.c: Remove gettimeofday declaration.
+
+Thu Jan  8 11:03:59 1998  Nick Clifton  <nickc@cygnus.com>
+
+	* remote-rdp.c: Applied patches submitted by Tony.Thompson@arm.com
+ 	to implement the Angel remote debugging interface.
+
+	* Makefile.in: Add build rules for remote-rdi.c and
+	rdi-share/libangsd.a.
+	
+	* configure.tgt: Updated from source on branch.
+	* config/arm/tm-arm.h: Updated from source on branch.
+	* arm-tdep.c: Updated from source on branch.
+
+	* rdi-share: New directory, RDI library contributed by ARM.
+
+Mon Jan  5 20:21:59 1998  Mark Alexander  <marka@cygnus.com>
+
+	* monitor.h (MO_PRINT_PROGRAM_OUTPUT): Define.
+	* monitor.c (monitor_wait): Echo program output.
+	* dve3900-rom.c (_initialize_r3900_rom): Remove MO_HANDLE_NL flag,
+	add MO_PRINT_PROGRAM_OUTPUT flag.
+
+Mon Jan  5 18:21:11 1998  David Taylor  <taylor@texas.cygnus.com>
+
+	* top.h (HAVE_SIGSETJMP): define SIGJMP_BUF, SIGSETJMP, and
+	SIGLONGJMP appropriately based on whether HAVE_SIGSETJMP is
+	defined.
+	* top.c (return_to_top_level, catch_errors): use the new macros
+	* main.c (SET_TOP_LEVEL): ditto.
+	* config/xm-sysv4.h (HAVE_SIGSETJMP): Define.
+
+Fri Jan  2 18:48:58 1998  Mark Alexander  <marka@cygnus.com>
+
+	* configure.in: Double up brackets in shell case pattern.
+
+Fri Jan  2 17:06:05 1998  Michael Snyder  (msnyder@cleaver.cygnus.com)
+
+        * tracepoint.c (finish_tfind_command): improved algorithm for
+        deciding when we've "stepped" into a new stack frame.
+        (map_args_over_tracepoints): loop over tracepoint list "safely", 
+	since list elements may be deleted during loop.
+	(read_actions): add actions to history list.
+
+For older changes see ChangeLog-97
+
+Local Variables:
+mode: indented-text
+left-margin: 8
+fill-column: 74
+version-control: never
+End:

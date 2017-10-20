@@ -1,0 +1,3 @@
+#!/bin/sh
+echo -n 'g'
+cat > m3heap.trace

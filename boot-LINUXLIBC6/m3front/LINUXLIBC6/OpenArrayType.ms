@@ -1,0 +1,1289 @@
+	.file	"OpenArrayType.mc"
+	.version	"01.01"
+/ SRC Modula-3 version cygnus-2.7.2-960712 (i486--linuxelf) compiled by GNU C version egcs-2.91.66 19990314/Linux (egcs-1.1.2 release).
+/ options passed:  -fno-strength-reduce -O2
+/ options enabled:  -fdefer-pop -fcse-follow-jumps -fcse-skip-blocks
+/ -fexpensive-optimizations -fthread-jumps -fpeephole -fforce-mem
+/ -ffunction-cse -finline -fkeep-static-consts -fcaller-saves
+/ -fpcc-struct-return -frerun-cse-after-loop -fschedule-insns2 -fcommon
+/ -fverbose-asm -fgnu-linker -m80387 -mhard-float -mno-soft-float -mieee-fp
+/ -mfp-ret-in-387 -mschedule-prologue -mcpu=i486 -march=i486
+
+gcc2_compiled.:
+.text
+	.align 16
+	.type	 OpenArrayType__New,@function
+OpenArrayType__New:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%ebx
+	movl MM_OpenArrayType+224,%eax
+	pushl %eax
+	movl MI_RTHooks+80,%eax
+	call *%eax
+	pushl $10
+	movl %eax,%esi
+	pushl %esi
+	movl MI_TypeRep+148,%eax
+	call *%eax
+	movl %ebx,56(%esi)
+	movl $0,60(%esi)
+	movl $-1,64(%esi)
+	movl $0,72(%esi)
+	leal -8(%ebp),%esp
+	movl %esi,%eax
+	popl %ebx
+	popl %esi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe1:
+	.size	 OpenArrayType__New,.Lfe1-OpenArrayType__New
+	.align 16
+	.type	 OpenArrayType__Is,@function
+OpenArrayType__Is:
+	pushl %ebp
+	movl %esp,%ebp
+	movl 8(%ebp),%eax
+	pushl %eax
+	call OpenArrayType__Reduce
+	testl %eax,%eax
+	setne %al
+	andl $255,%eax
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe2:
+	.size	 OpenArrayType__Is,.Lfe2-OpenArrayType__Is
+	.align 16
+	.type	 OpenArrayType__Split,@function
+OpenArrayType__Split:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %ebx
+	movl 8(%ebp),%eax
+	movl 12(%ebp),%ebx
+	pushl %eax
+	call OpenArrayType__Reduce
+	testl %eax,%eax
+	je .L4
+	movl 56(%eax),%eax
+	movl %eax,(%ebx)
+	movl $1,%eax
+.L4:
+	movl -4(%ebp),%ebx
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe3:
+	.size	 OpenArrayType__Split,.Lfe3-OpenArrayType__Split
+	.align 16
+	.type	 OpenArrayType__EltPack,@function
+OpenArrayType__EltPack:
+	pushl %ebp
+	movl %esp,%ebp
+	movl 8(%ebp),%eax
+	pushl %eax
+	call OpenArrayType__Reduce
+	movl %eax,%edx
+	testl %eax,%eax
+	je .L8
+	movl 72(%edx),%eax
+.L8:
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe4:
+	.size	 OpenArrayType__EltPack,.Lfe4-OpenArrayType__EltPack
+	.align 16
+	.type	 OpenArrayType__EltAlign,@function
+OpenArrayType__EltAlign:
+	pushl %ebp
+	movl %esp,%ebp
+	movl 8(%ebp),%eax
+	pushl %eax
+	call OpenArrayType__Reduce
+	testl %eax,%eax
+	jne .L10
+	movl $8,%eax
+	jmp .L11
+	.align 16
+.L10:
+	movl 68(%eax),%eax
+.L11:
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe5:
+	.size	 OpenArrayType__EltAlign,.Lfe5-OpenArrayType__EltAlign
+	.align 16
+	.type	 OpenArrayType__OpenDepth,@function
+OpenArrayType__OpenDepth:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%eax
+	pushl %eax
+	call OpenArrayType__Reduce
+	movl %eax,%ebx
+	movl %ebx,%esi
+	addl $4,%esp
+	testl %ebx,%ebx
+	je .L15
+	cmpl $0,64(%ebx)
+	jg .L14
+	movl 56(%ebx),%eax
+	pushl %eax
+	call OpenArrayType__OpenDepth
+	incl %eax
+	movl %eax,64(%ebx)
+.L14:
+	movl 64(%esi),%eax
+.L15:
+	leal -8(%ebp),%esp
+	popl %ebx
+	popl %esi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe6:
+	.size	 OpenArrayType__OpenDepth,.Lfe6-OpenArrayType__OpenDepth
+	.align 16
+	.type	 OpenArrayType__OpenType,@function
+OpenArrayType__OpenType:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%esi
+	pushl %esi
+	call OpenArrayType__Reduce
+	movl %eax,%ebx
+	addl $4,%esp
+	testl %ebx,%ebx
+	jne .L17
+	movl %esi,%eax
+	jmp .L19
+	.align 16
+.L17:
+	cmpl $0,60(%ebx)
+	jne .L18
+	movl 56(%ebx),%eax
+	pushl %eax
+	call OpenArrayType__OpenType
+	movl %eax,60(%ebx)
+.L18:
+	movl 60(%ebx),%eax
+.L19:
+	leal -8(%ebp),%esp
+	popl %ebx
+	popl %esi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe7:
+	.size	 OpenArrayType__OpenType,.Lfe7-OpenArrayType__OpenType
+	.align 16
+	.type	 OpenArrayType__Check,@function
+OpenArrayType__Check:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $36,%esp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%esi
+.L21:
+	movl $5,-28(%ebp)
+	movl RTThread__handlerStack,%eax
+	movl %eax,-32(%ebp)
+	leal -32(%ebp),%edi
+	movl %edi,RTThread__handlerStack
+	xorl %eax,%eax
+	movl %eax,-24(%ebp)
+	movl %eax,-20(%ebp)
+	movl %eax,-16(%ebp)
+	movl %eax,-12(%ebp)
+	movl %eax,-8(%ebp)
+	movl %eax,-4(%ebp)
+	movl MI_Target+64,%eax
+	movl MI_Target+100,%edx
+	cmpl %edx,%eax
+	jle .L22
+	movl %eax,%edx
+.L22:
+	movl $8,%ecx
+	movl MI_Target+776,%eax
+	cmpl %eax,%ecx
+	jle .L24
+	movl %ecx,%eax
+.L24:
+	movl %edx,-36(%ebp)
+	cmpl %edx,%eax
+	jle .L26
+	movl %eax,-36(%ebp)
+.L26:
+	movl 56(%esi),%eax
+	pushl %eax
+	movl MI_Type+64,%eax
+	call *%eax
+	movl %eax,%edx
+	movl %edx,56(%esi)
+	pushl %esi
+	call OpenArrayType__OpenType
+	movl %eax,%edx
+	leal -20(%ebp),%eax
+	pushl %eax
+	pushl %edx
+	movl MI_Type+68,%eax
+	call *%eax
+	movl %eax,%edx
+	movl -12(%ebp),%ebx
+	movl %ebx,68(%esi)
+	addl $16,%esp
+	cmpb $11,-2(%ebp)
+	jne .L28
+	leal -24(%ebp),%eax
+	pushl %eax
+	leal 72(%esi),%eax
+	pushl %eax
+	pushl %edx
+	movl MI_PackedType+52,%eax
+	call *%eax
+	addl $12,%esp
+	jmp .L29
+	.align 16
+.L28:
+	movl -20(%ebp),%eax
+	addl %ebx,%eax
+	decl %eax
+	pushl %eax
+	pushl %ebx
+	call m3_div
+	imull %ebx,%eax
+	movl %eax,72(%esi)
+	addl $8,%esp
+.L29:
+	movl %ebx,%eax
+	movl -36(%ebp),%ebx
+	cmpl %ebx,%eax
+	jle .L30
+	movl %eax,%ebx
+.L30:
+	testb $7,72(%esi)
+	je .L32
+	pushl $MM_OpenArrayType+236
+	jmp .L37
+	.align 16
+.L32:
+	pushl %ebx
+	pushl %esi
+	movl MI_Type+72,%eax
+	call *%eax
+	addl $8,%esp
+	testl %eax,%eax
+	jne .L33
+	pushl $MM_OpenArrayType+316
+.L37:
+	movl MI_Error+44,%eax
+	call *%eax
+	addl $4,%esp
+.L33:
+	movl $-1,16(%esi)
+	movl $-1,20(%esi)
+	movl %ebx,24(%esi)
+	movb $0,33(%esi)
+	movb $0,32(%esi)
+	movb $10,34(%esi)
+	xorl %eax,%eax
+	movb 35(%esi),%al
+	andb $254,%al
+	xorl %edx,%edx
+	movb -1(%ebp),%dl
+	andl $1,%edx
+	orl %edx,%eax
+	movb %al,35(%esi)
+	andl $253,%eax
+	xorl %edx,%edx
+	movb -1(%ebp),%dl
+	andl $2,%edx
+	orl %eax,%edx
+	movb %dl,35(%esi)
+	xorl %eax,%eax
+	testb $4,-1(%ebp)
+	je .L35
+	movl -20(%ebp),%eax
+	cmpl %eax,72(%esi)
+	setle %al
+	andl $255,%eax
+.L35:
+	andl $251,%edx
+	andl $1,%eax
+	sall $2,%eax
+	orb %dl,%al
+	movb %al,35(%esi)
+	pushl %esi
+	call OpenArrayType__OpenDepth
+	leal (%eax,%eax,2),%ecx
+	sall $3,%ecx
+	subl %eax,%ecx
+	movl 72(%esi),%eax
+	leal (%eax,%eax,8),%edx
+	leal (%eax,%edx,4),%edx
+	addl %edx,%ecx
+	movl %ecx,28(%esi)
+.L36:
+	movl -32(%ebp),%eax
+	leal -48(%ebp),%esp
+	movl %eax,RTThread__handlerStack
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe8:
+	.size	 OpenArrayType__Check,.Lfe8-OpenArrayType__Check
+	.align 16
+	.type	 OpenArrayType__CheckAlign,@function
+OpenArrayType__CheckAlign:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $8,%esp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 12(%ebp),%edx
+.L39:
+	movl $5,-4(%ebp)
+	movl RTThread__handlerStack,%eax
+	movl %eax,-8(%ebp)
+	leal -8(%ebp),%ecx
+	movl %ecx,RTThread__handlerStack
+	pushl %edx
+	movl MI_Target+96,%eax
+	pushl %eax
+	call m3_mod
+	movl %eax,%esi
+	movl %esi,%ebx
+	movl 8(%ebp),%ecx
+	pushl %ecx
+	call OpenArrayType__OpenType
+	movl %eax,%edi
+	addl $12,%esp
+.L40:
+	pushl %ebx
+	pushl %edi
+	movl MI_Type+72,%eax
+	call *%eax
+	movl %eax,%edx
+	addl $8,%esp
+	testl %edx,%edx
+	jne .L41
+	movl -8(%ebp),%eax
+	movl %eax,RTThread__handlerStack
+	movl %edx,%eax
+	jmp .L38
+	.align 16
+.L41:
+	movl 8(%ebp),%ecx
+	movl 72(%ecx),%eax
+	addl %ebx,%eax
+	pushl %eax
+	movl MI_Target+96,%eax
+	pushl %eax
+	call m3_mod
+	movl %eax,%ebx
+	addl $8,%esp
+	cmpl %esi,%ebx
+	jne .L40
+	movl -8(%ebp),%eax
+	movl %eax,RTThread__handlerStack
+	movl $1,%eax
+.L43:
+.L38:
+	leal -20(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe9:
+	.size	 OpenArrayType__CheckAlign,.Lfe9-OpenArrayType__CheckAlign
+	.align 16
+	.type	 OpenArrayType__DeclareTemp,@function
+OpenArrayType__DeclareTemp:
+	pushl %ebp
+	movl %esp,%ebp
+	movl 8(%ebp),%eax
+	pushl %eax
+	call OpenArrayType__Reduce
+	pushl %eax
+	call OpenArrayType__OpenDepth
+	imull MI_Target+104,%eax
+	addl MI_Target+68,%eax
+	movl %eax,%edx
+	addl $8,%esp
+	testl %edx,%edx
+	jge .L45
+	pushl $2385
+	call _m3_fault
+	.align 16
+.L45:
+	pushl $1
+	pushl $14
+	movl MI_Target+64,%eax
+	pushl %eax
+	pushl %edx
+	movl MI_CG+208,%eax
+	call *%eax
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe10:
+	.size	 OpenArrayType__DeclareTemp,.Lfe10-OpenArrayType__DeclareTemp
+	.align 16
+	.type	 OpenArrayType__Compiler,@function
+OpenArrayType__Compiler:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%ebx
+	pushl %ebx
+	call OpenArrayType__OpenDepth
+	movl %eax,%esi
+	imull MI_Target+104,%eax
+	movl %eax,%edi
+	addl MI_Target+68,%edi
+	movl 56(%ebx),%eax
+	pushl %eax
+	movl MI_Type+140,%eax
+	call *%eax
+	pushl %ebx
+	movl MI_Type+132,%eax
+	call *%eax
+	movl %eax,%esi
+	movl 56(%ebx),%eax
+	pushl %eax
+	movl MI_Type+132,%eax
+	call *%eax
+	addl $16,%esp
+	testl %edi,%edi
+	jge .L47
+	pushl $2513
+	call _m3_fault
+	.align 16
+.L47:
+	pushl %edi
+	pushl %eax
+	pushl %esi
+	movl MI_CG+84,%eax
+	call *%eax
+	leal -12(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe11:
+	.size	 OpenArrayType__Compiler,.Lfe11-OpenArrayType__Compiler
+	.align 16
+	.type	 OpenArrayType__EqualChk,@function
+OpenArrayType__EqualChk:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 12(%ebp),%edi
+	testl %edi,%edi
+	je .L49
+	movl -4(%edi),%eax
+	sall $11,%eax
+	movl %eax,%ebx
+	shrl $12,%ebx
+	cmpl %ebx,MM_OpenArrayType+228
+	jg .L50
+	movl MM_OpenArrayType+224,%eax
+	cmpl %ebx,4(%eax)
+	jge .L49
+.L50:
+	pushl $2581
+	call _m3_fault
+	.align 16
+.L49:
+	xorl %ebx,%ebx
+	movl 8(%ebp),%edx
+	pushl %edx
+	call OpenArrayType__OpenDepth
+	movl %eax,%esi
+	pushl %edi
+	call OpenArrayType__OpenDepth
+	addl $8,%esp
+	cmpl %eax,%esi
+	jne .L51
+	movl 16(%ebp),%edx
+	pushl %edx
+	movl 56(%edi),%eax
+	pushl %eax
+	movl 8(%ebp),%edx
+	movl 56(%edx),%eax
+	pushl %eax
+	movl MI_Type+116,%eax
+	call *%eax
+	testl %eax,%eax
+	setne %al
+	xorl %ebx,%ebx
+	movb %al,%bl
+.L51:
+	leal -12(%ebp),%esp
+	movl %ebx,%eax
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe12:
+	.size	 OpenArrayType__EqualChk,.Lfe12-OpenArrayType__EqualChk
+	.align 16
+	.type	 OpenArrayType__Subtyper,@function
+OpenArrayType__Subtyper:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $32,%esp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	xorl %ebx,%ebx
+	movl %ebx,-16(%ebp)
+	movl %ebx,-12(%ebp)
+	movl %ebx,-8(%ebp)
+	movl %ebx,-4(%ebp)
+	movl 8(%ebp),%ebx
+.L53:
+	pushl %ebx
+	call OpenArrayType__Reduce
+	movl %eax,%esi
+	movl 12(%ebp),%edx
+	pushl %edx
+	call OpenArrayType__Reduce
+	movl %eax,%edi
+	addl $8,%esp
+	testl %esi,%esi
+	je .L57
+	testl %edi,%edi
+	je .L57
+	movl 56(%esi),%ebx
+	movl 56(%edi),%edi
+	movl %edi,12(%ebp)
+	jmp .L53
+	.align 16
+.L57:
+	movl 12(%ebp),%edx
+	pushl %edx
+	call OpenArrayType__Reduce
+	movl %eax,%edi
+	addl $4,%esp
+	testl %edi,%edi
+	je .L61
+	leal -12(%ebp),%eax
+	pushl %eax
+	leal -16(%ebp),%eax
+	pushl %eax
+	pushl %ebx
+	movl MI_ArrayType+52,%eax
+	call *%eax
+	addl $12,%esp
+	testl %eax,%eax
+	je .L61
+	movl -12(%ebp),%ebx
+	movl 56(%edi),%edi
+	movl %edi,12(%ebp)
+	jmp .L57
+	.align 16
+.L62:
+	leal -24(%ebp),%esi
+	pushl %esi
+	movl -16(%ebp),%eax
+	pushl %eax
+	movl MI_Type+108,%eax
+	call *%eax
+	leal -32(%ebp),%ebx
+	pushl %ebx
+	movl -8(%ebp),%eax
+	pushl %eax
+	movl MI_Type+108,%eax
+	call *%eax
+	pushl %ebx
+	pushl %esi
+	movl MI_TInt+100,%eax
+	call *%eax
+	addl $24,%esp
+	testl %eax,%eax
+	je .L66
+	movl -12(%ebp),%ebx
+	movl -4(%ebp),%edx
+	movl %edx,12(%ebp)
+.L61:
+	leal -12(%ebp),%eax
+	pushl %eax
+	leal -16(%ebp),%eax
+	pushl %eax
+	pushl %ebx
+	movl MI_ArrayType+52,%eax
+	call *%eax
+	addl $12,%esp
+	testl %eax,%eax
+	je .L65
+	leal -4(%ebp),%eax
+	pushl %eax
+	leal -8(%ebp),%eax
+	pushl %eax
+	movl 12(%ebp),%edx
+	pushl %edx
+	movl MI_ArrayType+52,%eax
+	call *%eax
+	addl $12,%esp
+	testl %eax,%eax
+	jne .L62
+.L65:
+	pushl $0
+	movl 12(%ebp),%edx
+	pushl %edx
+	pushl %ebx
+	movl MI_Type+116,%eax
+	call *%eax
+.L66:
+	leal -44(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe13:
+	.size	 OpenArrayType__Subtyper,.Lfe13-OpenArrayType__Subtyper
+	.align 16
+	.type	 OpenArrayType__Reduce,@function
+OpenArrayType__Reduce:
+	pushl %ebp
+	movl %esp,%ebp
+	movl 8(%ebp),%edx
+	testl %edx,%edx
+	je .L71
+	cmpb $1,34(%edx)
+	jne .L69
+	pushl %edx
+	movl MI_Type+76,%eax
+	call *%eax
+	movl %eax,%edx
+	addl $4,%esp
+.L69:
+	cmpb $10,34(%edx)
+	je .L70
+	xorl %eax,%eax
+	jmp .L73
+	.align 16
+.L70:
+	testl %edx,%edx
+	je .L71
+	movl -4(%edx),%eax
+	sall $11,%eax
+	movl %eax,%ecx
+	shrl $12,%ecx
+	cmpl %ecx,MM_OpenArrayType+228
+	jg .L72
+	movl MM_OpenArrayType+224,%eax
+	cmpl %ecx,4(%eax)
+	jge .L71
+.L72:
+	pushl $3301
+	call _m3_fault
+	.align 16
+.L71:
+	movl %edx,%eax
+.L73:
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe14:
+	.size	 OpenArrayType__Reduce,.Lfe14-OpenArrayType__Reduce
+	.align 16
+	.type	 OpenArrayType__InitCoster,@function
+OpenArrayType__InitCoster:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $28,%esp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%edx
+	xorl %eax,%eax
+	movb 12(%ebp),%al
+	pushl %eax
+	movl 56(%edx),%eax
+	pushl %eax
+	movl MI_Type+156,%eax
+	call *%eax
+	leal -20(%ebp),%edi
+	pushl %edi
+	pushl %eax
+	movl MI_TInt+68,%eax
+	call *%eax
+	addl $16,%esp
+	testl %eax,%eax
+	je .L75
+	leal -28(%ebp),%ebx
+	pushl %ebx
+	pushl $20
+	movl MI_TInt+68,%eax
+	call *%eax
+	addl $8,%esp
+	testl %eax,%eax
+	je .L75
+	leal -12(%ebp),%esi
+	pushl %esi
+	pushl %ebx
+	pushl %edi
+	movl MI_TInt+88,%eax
+	call *%eax
+	addl $12,%esp
+	testl %eax,%eax
+	je .L75
+	leal -4(%ebp),%eax
+	pushl %eax
+	pushl %esi
+	movl MI_TInt+72,%eax
+	call *%eax
+	testl %eax,%eax
+	je .L75
+	movl -4(%ebp),%eax
+	jmp .L76
+	.align 16
+.L75:
+	movl $2147483647,%eax
+.L76:
+	leal -40(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe15:
+	.size	 OpenArrayType__InitCoster,.Lfe15-OpenArrayType__InitCoster
+	.align 16
+	.type	 OpenArrayType__GenInit,@function
+OpenArrayType__GenInit:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $12,%esp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%edx
+	pushl %edx
+	call OpenArrayType__OpenDepth
+	movl %eax,%esi
+	movl 8(%ebp),%edx
+	pushl %edx
+	call OpenArrayType__OpenType
+	movl %eax,-12(%ebp)
+	movl MI_CG+220,%eax
+	call *%eax
+	movl %eax,-4(%ebp)
+	xorl %ebx,%ebx
+	decl %esi
+	addl $8,%esp
+	jmp .L78
+	.align 16
+.L79:
+	movl -4(%ebp),%edx
+	pushl %edx
+	movl MI_CG+228,%eax
+	call *%eax
+	pushl %ebx
+	movl MI_CG+772,%eax
+	call *%eax
+	addl $8,%esp
+	testl %ebx,%ebx
+	je .L80
+	pushl $1
+	movl MI_CG+468,%eax
+	call *%eax
+	addl $4,%esp
+.L80:
+	incl %ebx
+.L78:
+	cmpl %esi,%ebx
+	jle .L79
+	movl MI_CG+220,%eax
+	call *%eax
+	movl %eax,-8(%ebp)
+	movl -4(%ebp),%edx
+	pushl %edx
+	movl MI_CG+228,%eax
+	call *%eax
+	movl 8(%ebp),%edx
+	pushl %edx
+	movl MI_ArrayType+60,%eax
+	call *%eax
+	movl %eax,%esi
+	addl $8,%esp
+	testl %esi,%esi
+	jge .L82
+	pushl $3841
+	call _m3_fault
+	.align 16
+.L82:
+	pushl %esi
+	movl MI_CG+768,%eax
+	call *%eax
+	movl -4(%ebp),%edx
+	pushl %edx
+	movl MI_CG+232,%eax
+	call *%eax
+	movl MI_CG+220,%eax
+	call *%eax
+	movl %eax,-4(%ebp)
+	pushl $MI_TInt+44
+	movl MI_CG+428,%eax
+	call *%eax
+	movl MI_CG+224,%eax
+	call *%eax
+	movl %eax,%edi
+	pushl $2
+	movl MI_CG+52,%eax
+	call *%eax
+	movl %eax,%esi
+	leal 1(%esi),%ebx
+	pushl %ebx
+	movl MI_CG+320,%eax
+	call *%eax
+	pushl $0
+	pushl %esi
+	movl MI_CG+316,%eax
+	call *%eax
+	movl -4(%ebp),%edx
+	pushl %edx
+	movl MI_CG+228,%eax
+	call *%eax
+	addl $32,%esp
+	pushl %edi
+	movl MI_CG+228,%eax
+	call *%eax
+	movl 8(%ebp),%edx
+	movl 72(%edx),%eax
+	pushl %eax
+	movl MI_CG+712,%eax
+	call *%eax
+	xorl %eax,%eax
+	movb 12(%ebp),%al
+	pushl %eax
+	movl -12(%ebp),%edx
+	pushl %edx
+	movl MI_Type+148,%eax
+	call *%eax
+	pushl %edi
+	movl MI_CG+228,%eax
+	call *%eax
+	pushl $MI_TInt+52
+	movl MI_CG+428,%eax
+	call *%eax
+	pushl $2
+	movl MI_CG+460,%eax
+	call *%eax
+	pushl %edi
+	movl MI_CG+236,%eax
+	call *%eax
+	addl $32,%esp
+	pushl $0
+	pushl %ebx
+	movl MI_CG+316,%eax
+	call *%eax
+	pushl %edi
+	movl MI_CG+228,%eax
+	call *%eax
+	movl -8(%ebp),%edx
+	pushl %edx
+	movl MI_CG+228,%eax
+	call *%eax
+	pushl $80
+	pushl $2
+	pushl %esi
+	movl MI_CG+348,%eax
+	call *%eax
+	pushl %edi
+	movl MI_CG+232,%eax
+	call *%eax
+	addl $32,%esp
+	movl -8(%ebp),%edx
+	pushl %edx
+	movl MI_CG+232,%eax
+	call *%eax
+	movl -4(%ebp),%edx
+	pushl %edx
+	movl MI_CG+232,%eax
+	call *%eax
+	leal -24(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe16:
+	.size	 OpenArrayType__GenInit,.Lfe16-OpenArrayType__GenInit
+	.align 16
+	.type	 OpenArrayType__GenMap,@function
+OpenArrayType__GenMap:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%ebx
+	movl 12(%ebp),%esi
+	pushl %ebx
+	call OpenArrayType__OpenDepth
+	movl %eax,%edi
+	pushl %edi
+	pushl $24
+	pushl %esi
+	movl MI_TipeMap+52,%eax
+	call *%eax
+	movl MI_TipeMap+56,%eax
+	call *%eax
+	movl %eax,%edi
+	pushl %ebx
+	call OpenArrayType__OpenType
+	movl %eax,%edx
+	xorl %eax,%eax
+	movb 20(%ebp),%al
+	pushl %eax
+	movl 72(%ebx),%eax
+	pushl %eax
+	pushl %edi
+	pushl %edx
+	movl MI_Type+160,%eax
+	call *%eax
+	addl $36,%esp
+	pushl $0
+	pushl $0
+	movl 72(%ebx),%eax
+	addl %edi,%eax
+	pushl %eax
+	movl MI_TipeMap+52,%eax
+	call *%eax
+	leal -12(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe17:
+	.size	 OpenArrayType__GenMap,.Lfe17-OpenArrayType__GenMap
+	.align 16
+	.type	 OpenArrayType__GenDesc,@function
+OpenArrayType__GenDesc:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %ebx
+	movl 8(%ebp),%ebx
+	pushl %ebx
+	pushl $11
+	movl MI_TipeDesc+52,%eax
+	call *%eax
+	addl $8,%esp
+	testl %eax,%eax
+	je .L84
+	pushl %ebx
+	call OpenArrayType__OpenDepth
+	pushl %eax
+	movl MI_TipeDesc+60,%eax
+	call *%eax
+	pushl %ebx
+	call OpenArrayType__OpenType
+	pushl %eax
+	movl MI_Type+164,%eax
+	call *%eax
+.L84:
+	movl -4(%ebp),%ebx
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe18:
+	.size	 OpenArrayType__GenDesc,.Lfe18-OpenArrayType__GenDesc
+	.align 16
+	.type	 OpenArrayType__FPrinter,@function
+OpenArrayType__FPrinter:
+	pushl %ebp
+	movl %esp,%ebp
+	movl 12(%ebp),%eax
+	movl 8(%ebp),%ecx
+	movl $MM_OpenArrayType+416,(%eax)
+	movl 12(%ebp),%edx
+	movl %ebp,%esp
+	movl $1,8(%edx)
+	movl 56(%ecx),%eax
+	movl %eax,12(%edx)
+	popl %ebp
+	ret
+.Lfe19:
+	.size	 OpenArrayType__FPrinter,.Lfe19-OpenArrayType__FPrinter
+	.align 16
+	.type	 M_OpenArrayType_t1ae16778_LINK,@function
+M_OpenArrayType_t1ae16778_LINK:
+	pushl %ebp
+	movl %esp,%ebp
+	movl MM_OpenArrayType+224,%eax
+	movl %ebp,%esp
+	movl 52(%eax),%edx
+	movl MM_OpenArrayType+148,%eax
+	movl %eax,4(%edx)
+	movl MM_OpenArrayType+152,%eax
+	movl %eax,8(%edx)
+	movl MM_OpenArrayType+160,%eax
+	movl %eax,12(%edx)
+	movl MM_OpenArrayType+164,%eax
+	movl %eax,16(%edx)
+	movl MM_OpenArrayType+156,%eax
+	movl %eax,20(%edx)
+	movl MM_OpenArrayType+172,%eax
+	movl %eax,24(%edx)
+	movl MM_OpenArrayType+176,%eax
+	movl %eax,28(%edx)
+	movl MM_OpenArrayType+180,%eax
+	movl %eax,32(%edx)
+	movl MM_OpenArrayType+184,%eax
+	movl %eax,36(%edx)
+	movl MM_OpenArrayType+188,%eax
+	movl %eax,40(%edx)
+	popl %ebp
+	ret
+.Lfe20:
+	.size	 M_OpenArrayType_t1ae16778_LINK,.Lfe20-M_OpenArrayType_t1ae16778_LINK
+	.align 16
+	.type	 _m3_fault,@function
+_m3_fault:
+	pushl %ebp
+	movl %esp,%ebp
+	movl 8(%ebp),%eax
+	pushl %eax
+	pushl $MM_OpenArrayType
+	movl MI_RTHooks+108,%eax
+	call *%eax
+	.align 16
+.Lfe21:
+	.size	 _m3_fault,.Lfe21-_m3_fault
+.globl MM_OpenArrayType
+.data
+	.align 4
+	.type	 MM_OpenArrayType,@object
+	.size	 MM_OpenArrayType,1028
+MM_OpenArrayType:
+	.long MM_OpenArrayType+824
+	.long MM_OpenArrayType+44
+	.long MM_OpenArrayType+224
+	.zero	8
+	.long MM_OpenArrayType+592
+	.zero	28
+	.long 450979704
+.byte 18
+.byte 181
+.byte 108
+.byte 18
+.byte 106
+.byte 210
+.byte 141
+.byte 8
+	.long 1
+	.zero	4
+	.long 20
+	.long 4
+	.zero	4
+	.long 0
+	.zero	12
+	.long MM_OpenArrayType+974
+	.long MM_OpenArrayType+980
+	.long MM_OpenArrayType+983
+	.zero	4
+	.long M_OpenArrayType_t1ae16778_LINK
+	.long -2121051098
+	.zero	12
+	.long MM_OpenArrayType+995
+	.long MM_OpenArrayType+1011
+	.zero	4
+	.long OpenArrayType__Check
+	.long OpenArrayType__CheckAlign
+	.long OpenArrayType__Compiler
+	.long OpenArrayType__EqualChk
+	.long OpenArrayType__Subtyper
+	.long OpenArrayType__Reduce
+	.long OpenArrayType__InitCoster
+	.long OpenArrayType__GenInit
+	.long OpenArrayType__GenMap
+	.long OpenArrayType__GenDesc
+	.long OpenArrayType__FPrinter
+	.long OpenArrayType__New
+	.long OpenArrayType__Is
+	.long OpenArrayType__Split
+	.long OpenArrayType__EltPack
+	.long OpenArrayType__EltAlign
+	.long OpenArrayType__OpenDepth
+	.long OpenArrayType__OpenType
+	.long OpenArrayType__DeclareTemp
+	.zero	4
+	.long 450979704
+	.long 2
+	.long MM_OpenArrayType+244
+	.long 67
+	.ascii	"SRC Modula-3 restriction: open array elements must be byte-a"
+	.ascii	"ligned"
+	.zero	2
+	.long 2
+	.long MM_OpenArrayType+324
+	.long 88
+	.ascii	"SRC Modula-3 restriction: scalars in packed array elements c"
+	.ascii	"annot cross word boundaries"
+	.zero	1
+	.long 2
+	.long MM_OpenArrayType+424
+	.long 10
+	.ascii	"OPENARRAY"
+	.zero	3
+	.ascii	"FPrinter"
+	.zero	1
+	.ascii	"GenDesc"
+	.zero	1
+	.ascii	"GenMap"
+	.zero	1
+	.ascii	"GenInit"
+	.zero	1
+	.ascii	"InitCoster"
+	.zero	1
+	.ascii	"Reduce"
+	.zero	1
+	.ascii	"Subtyper"
+	.zero	1
+	.ascii	"EqualChk"
+	.zero	1
+	.ascii	"Compiler"
+	.zero	1
+	.ascii	"DeclareTemp"
+	.zero	1
+	.ascii	"CheckAlign"
+	.zero	1
+	.ascii	"Check"
+	.zero	1
+	.ascii	"OpenType"
+	.zero	1
+	.ascii	"OpenDepth"
+	.zero	1
+	.ascii	"EltAlign"
+	.zero	1
+	.ascii	"EltPack"
+	.zero	1
+	.ascii	"Split"
+	.zero	1
+	.ascii	"Is"
+	.zero	1
+	.ascii	"New"
+	.zero	2
+	.long OpenArrayType__FPrinter
+	.long MM_OpenArrayType+436
+	.zero	4
+	.long OpenArrayType__GenDesc
+	.long MM_OpenArrayType+445
+	.zero	4
+	.long OpenArrayType__GenMap
+	.long MM_OpenArrayType+453
+	.zero	4
+	.long OpenArrayType__GenInit
+	.long MM_OpenArrayType+460
+	.zero	4
+	.long OpenArrayType__InitCoster
+	.long MM_OpenArrayType+468
+	.zero	4
+	.long OpenArrayType__Reduce
+	.long MM_OpenArrayType+479
+	.zero	4
+	.long OpenArrayType__Subtyper
+	.long MM_OpenArrayType+486
+	.zero	4
+	.long OpenArrayType__EqualChk
+	.long MM_OpenArrayType+495
+	.zero	4
+	.long OpenArrayType__Compiler
+	.long MM_OpenArrayType+504
+	.zero	4
+	.long OpenArrayType__DeclareTemp
+	.long MM_OpenArrayType+513
+	.long MI_OpenArrayType+72
+	.long OpenArrayType__CheckAlign
+	.long MM_OpenArrayType+525
+	.zero	4
+	.long OpenArrayType__Check
+	.long MM_OpenArrayType+536
+	.zero	4
+	.long OpenArrayType__OpenType
+	.long MM_OpenArrayType+542
+	.long MI_OpenArrayType+68
+	.long OpenArrayType__OpenDepth
+	.long MM_OpenArrayType+551
+	.long MI_OpenArrayType+64
+	.long OpenArrayType__EltAlign
+	.long MM_OpenArrayType+561
+	.long MI_OpenArrayType+60
+	.long OpenArrayType__EltPack
+	.long MM_OpenArrayType+570
+	.long MI_OpenArrayType+56
+	.long OpenArrayType__Split
+	.long MM_OpenArrayType+578
+	.long MI_OpenArrayType+52
+	.long OpenArrayType__Is
+	.long MM_OpenArrayType+584
+	.long MI_OpenArrayType+48
+	.long OpenArrayType__New
+	.long MM_OpenArrayType+587
+	.long MI_OpenArrayType+44
+	.zero	4
+	.ascii	"/home/ftp/tmp/pm3/tmp/pm3-1.1.15/language/modula3/m3compiler"
+	.ascii	"/m3bootstrap/LINUXLIBC6/pm3-LINUXLIBC6/boot-LINUXLIBC6/m3fro"
+	.ascii	"nt/src/types/OpenArrayType.m3"
+	.zero	1
+.byte 4
+.byte 4
+.byte 14
+.byte 14
+.byte 14
+.byte 0
+.byte 4
+.byte 4
+.byte 0
+.byte 6
+.byte 10
+.byte 5
+.byte 16
+.byte 38
+.byte 84
+.byte 147
+.byte 129
+.byte 23
+.byte 7
+.byte 25
+.byte 25
+	.ascii	"OpenArrayType.P"
+	.zero	1
+	.ascii	"OpenArrayType.P"
+	.zero	2
+	.ident	"GCC: (GNU) cygnus-2.7.2-960712"

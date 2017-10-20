@@ -1,0 +1,23 @@
+% Copyright (C) 1994, Digital Equipment Corporation
+% All rights reserved.
+% See the file COPYRIGHT for a full description.
+%
+% Last modified on Wed Dec 14 14:42:15 PST 1994 by kalsow 
+%      modified on Mon Sep 26 14:44:07 PDT 1994 by isard 
+
+import ("libm3")
+import ("m3middle")
+import ("m3objfile")
+
+if equal(TARGET,"LINUXELF") or equal(TARGET,"LINUXLIBC6")
+  include_dir("linux")
+else 
+  if equal(TARGET,"NT386")
+    include_dir("nt")
+  end
+end
+
+module    ("Wrx86")
+
+Library ("m3back")
+

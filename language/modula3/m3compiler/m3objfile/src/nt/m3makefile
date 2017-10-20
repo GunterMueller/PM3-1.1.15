@@ -1,0 +1,10 @@
+% Copyright (C) 1994, Digital Equipment Corporation
+% All rights reserved.
+% See the file COPYRIGHT for a full description.
+%
+% Last modified on Tue Nov 22 07:56:33 PST 1994 by kalsow
+
+Module ("Coff")
+Module ("M3ObjFile")
+Module ("MasmObjFile")
+Module ("NTObjFile")

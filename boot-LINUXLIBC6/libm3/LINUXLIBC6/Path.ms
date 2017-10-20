@@ -1,0 +1,2479 @@
+	.file	"Path.mc"
+	.version	"01.01"
+/ SRC Modula-3 version cygnus-2.7.2-960712 (i486--linuxelf) compiled by GNU C version egcs-2.91.66 19990314/Linux (egcs-1.1.2 release).
+/ options passed:  -fno-strength-reduce -O2
+/ options enabled:  -fdefer-pop -fcse-follow-jumps -fcse-skip-blocks
+/ -fexpensive-optimizations -fthread-jumps -fpeephole -fforce-mem
+/ -ffunction-cse -finline -fkeep-static-consts -fcaller-saves
+/ -fpcc-struct-return -frerun-cse-after-loop -fschedule-insns2 -fcommon
+/ -fverbose-asm -fgnu-linker -m80387 -mhard-float -mno-soft-float -mieee-fp
+/ -mfp-ret-in-387 -mschedule-prologue -mcpu=i486 -march=i486
+
+gcc2_compiled.:
+.text
+	.align 16
+	.type	 PathPrivate__Freeze,@function
+PathPrivate__Freeze:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %ebx
+	movl 8(%ebp),%edx
+	xorl %ebx,%ebx
+	movl 4(%edx),%eax
+	testl %eax,%eax
+	je .L5
+	cmpl $0,4(%eax)
+	jne .L4
+	pushl $402
+	call _m3_fault
+	.align 16
+.L4:
+	movl (%eax),%ebx
+	movl 8(%edx),%ecx
+	cmpl %ebx,%ecx
+	je .L5
+	movl %ebx,%eax
+	subl %ecx,%eax
+	addl %eax,%ecx
+	movl %ecx,8(%edx)
+	addl %eax,16(%edx)
+	addl %eax,12(%edx)
+	addl %eax,20(%edx)
+.L5:
+	movl %ebx,%eax
+	movl -4(%ebp),%ebx
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe1:
+	.size	 PathPrivate__Freeze,.Lfe1-PathPrivate__Freeze
+	.align 16
+	.type	 PathPrivate__Thaw,@function
+PathPrivate__Thaw:
+	pushl %ebp
+	movl %esp,%ebp
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe2:
+	.size	 PathPrivate__Thaw,.Lfe2-PathPrivate__Thaw
+	.align 16
+	.type	 Path__ReAllocate,@function
+Path__ReAllocate:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $24,%esp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%edi
+	cmpl $0,4(%edi)
+	jne .L9
+	leal -12(%ebp),%eax
+	leal -4(%ebp),%edi
+	movl %edi,-12(%ebp)
+	movl $1,-8(%ebp)
+	movl $32,-4(%ebp)
+	pushl %eax
+	movl MM_Path+492,%eax
+	pushl %eax
+	movl MI_RTHooks+84,%eax
+	call *%eax
+	movl %eax,%ebx
+	addl $8,%esp
+	testl %ebx,%ebx
+	jne .L10
+	pushl $708
+	call _m3_fault
+	.align 16
+.L10:
+	cmpl $0,4(%ebx)
+	jne .L11
+	pushl $706
+	call _m3_fault
+	.align 16
+.L11:
+	movl 8(%ebp),%edi
+	movl (%ebx),%esi
+	movl %esi,8(%edi)
+	movl %esi,12(%edi)
+	movl %esi,16(%edi)
+	jmp .L12
+	.align 16
+.L9:
+	leal -12(%ebp),%edx
+	leal -4(%ebp),%edi
+	movl %edi,-12(%ebp)
+	movl 8(%ebp),%edi
+	movl $1,-8(%ebp)
+	movl 4(%edi),%eax
+	testl %eax,%eax
+	jne .L13
+	pushl $788
+	call _m3_fault
+	.align 16
+.L13:
+	movl 4(%eax),%eax
+	addl %eax,%eax
+	movl %eax,-4(%ebp)
+	pushl %edx
+	movl MM_Path+492,%eax
+	pushl %eax
+	movl MI_RTHooks+84,%eax
+	call *%eax
+	movl %eax,%ebx
+	addl $8,%esp
+	testl %ebx,%ebx
+	jne .L14
+	pushl $804
+	call _m3_fault
+	.align 16
+.L14:
+	cmpl $0,4(%ebx)
+	jne .L15
+	pushl $802
+	call _m3_fault
+	.align 16
+.L15:
+	movl 8(%ebp),%edi
+	movl (%ebx),%esi
+	movl 4(%edi),%eax
+	testl %eax,%eax
+	jne .L17
+	pushl $820
+	call _m3_fault
+	.align 16
+.L17:
+	movl 4(%eax),%ecx
+	movl %ecx,-16(%ebp)
+	movl %ecx,%eax
+	subl 4(%ebx),%eax
+	testl %eax,%eax
+	jle .L18
+	pushl $817
+	call _m3_fault
+	.align 16
+.L18:
+	movl (%ebx),%edi
+	movl %edi,-24(%ebp)
+	movl %edi,-20(%ebp)
+	movl 8(%ebp),%edi
+	movl 4(%edi),%eax
+	testl %eax,%eax
+	jne .L19
+	pushl $820
+	call _m3_fault
+	.align 16
+.L19:
+	movl %eax,%edx
+	cmpl %ecx,4(%edx)
+	je .L20
+	pushl $819
+	call _m3_fault
+	.align 16
+.L20:
+	leal 0(,%ecx,4),%eax
+	pushl %eax
+	movl (%edx),%eax
+	pushl %eax
+	movl -24(%ebp),%edi
+	pushl %edi
+	call memmove
+	movl %esi,%eax
+	movl 8(%ebp),%edi
+	movl 8(%ebp),%edx
+	addl $12,%esp
+	subl 8(%edi),%eax
+	movl %esi,8(%edx)
+	addl %eax,12(%edx)
+	addl %eax,16(%edx)
+.L12:
+	movl 8(%ebp),%edx
+	testl %ebx,%ebx
+	jne .L21
+	pushl $932
+	call _m3_fault
+	.align 16
+.L21:
+	movl 4(%ebx),%edi
+	leal 0(,%edi,4),%eax
+	addl %esi,%eax
+	movl %eax,20(%edx)
+	movl 12(%ebp),%edi
+	leal -36(%ebp),%esp
+	movl %esi,(%edi)
+	movl %ebx,4(%edx)
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe3:
+	.size	 Path__ReAllocate,.Lfe3-Path__ReAllocate
+	.align 16
+	.type	 Path__Reset,@function
+Path__Reset:
+	pushl %ebp
+	movl %esp,%ebp
+	movl 8(%ebp),%eax
+	movl %ebp,%esp
+	movl 8(%eax),%edx
+	movl %edx,12(%eax)
+	movl 8(%eax),%edx
+	movl %edx,16(%eax)
+	movl $0,24(%eax)
+	popl %ebp
+	ret
+.Lfe4:
+	.size	 Path__Reset,.Lfe4-Path__Reset
+	.align 16
+	.type	 Path__MoveTo,@function
+Path__MoveTo:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $4,%esp
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%ebx
+	pushl %ebx
+	call PathPrivate__Freeze
+	movl %eax,%edx
+	movl %edx,-4(%ebp)
+	movl 12(%ebx),%eax
+	movl 20(%ebx),%esi
+	subl %eax,%esi
+	movl %esi,%eax
+	addl $4,%esp
+	cmpl $11,%eax
+	jg .L24
+	leal -4(%ebp),%eax
+	pushl %eax
+	pushl %ebx
+	call Path__ReAllocate
+	addl $8,%esp
+.L24:
+	movl 12(%ebx),%ecx
+	testl %ecx,%ecx
+	jne .L25
+	pushl $1252
+	call _m3_fault
+	.align 16
+.L25:
+	movl $2,(%ecx)
+	movl 12(%ebp),%edx
+	movl (%edx),%eax
+	movl %eax,4(%ecx)
+	movl 4(%edx),%eax
+	movl %ebx,%edx
+	movl %eax,8(%ecx)
+	movl 12(%edx),%eax
+	movl %eax,16(%edx)
+	addl $12,12(%edx)
+	movl -4(%ebp),%eax
+	pushl %eax
+	call PathPrivate__Thaw
+	leal -12(%ebp),%esp
+	popl %ebx
+	popl %esi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe5:
+	.size	 Path__MoveTo,.Lfe5-Path__MoveTo
+	.align 16
+	.type	 Path__LineTo,@function
+Path__LineTo:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $12,%esp
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%ebx
+.L28:
+	movl $5,-8(%ebp)
+	movl RTThread__handlerStack,%eax
+	movl %eax,-12(%ebp)
+	leal -12(%ebp),%esi
+	movl %esi,RTThread__handlerStack
+	pushl %ebx
+	call PathPrivate__Freeze
+	movl %eax,-4(%ebp)
+	movl 12(%ebx),%eax
+	addl $4,%esp
+	cmpl %eax,16(%ebx)
+	jne .L29
+	pushl $MM_Path+504
+	pushl $MM_Path+48
+	movl MI_RTHooks+52,%eax
+	call *%eax
+	addl $8,%esp
+.L29:
+	movl 12(%ebx),%eax
+	movl 20(%ebx),%esi
+	subl %eax,%esi
+	movl %esi,%eax
+	cmpl $11,%eax
+	jg .L30
+	leal -4(%ebp),%eax
+	pushl %eax
+	pushl %ebx
+	call Path__ReAllocate
+	addl $8,%esp
+.L30:
+	movl 12(%ebx),%ecx
+	testl %ecx,%ecx
+	jne .L31
+	pushl $1524
+	call _m3_fault
+	.align 16
+.L31:
+	movl $1,(%ecx)
+	movl 12(%ebp),%edx
+	movl (%edx),%eax
+	movl %eax,4(%ecx)
+	movl 4(%edx),%eax
+	movl %eax,8(%ecx)
+	addl $12,12(%ebx)
+	movl -4(%ebp),%eax
+	pushl %eax
+	call PathPrivate__Thaw
+.L33:
+	movl -12(%ebp),%eax
+	leal -20(%ebp),%esp
+	movl %eax,RTThread__handlerStack
+	popl %ebx
+	popl %esi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe6:
+	.size	 Path__LineTo,.Lfe6-Path__LineTo
+	.align 16
+	.type	 Path__Close,@function
+Path__Close:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $12,%esp
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%ebx
+.L35:
+	movl $5,-8(%ebp)
+	movl RTThread__handlerStack,%eax
+	movl %eax,-12(%ebp)
+	leal -12(%ebp),%esi
+	movl %esi,RTThread__handlerStack
+	pushl %ebx
+	call PathPrivate__Freeze
+	movl %eax,%edx
+	movl %edx,-4(%ebp)
+	movl 12(%ebx),%eax
+	addl $4,%esp
+	cmpl %eax,16(%ebx)
+	jne .L36
+	pushl $MM_Path+548
+	pushl $MM_Path+48
+	movl MI_RTHooks+52,%eax
+	call *%eax
+	addl $8,%esp
+.L36:
+	movl 12(%ebx),%eax
+	movl 20(%ebx),%esi
+	subl %eax,%esi
+	movl %esi,%eax
+	cmpl $11,%eax
+	jg .L37
+	leal -4(%ebp),%eax
+	pushl %eax
+	pushl %ebx
+	call Path__ReAllocate
+	addl $8,%esp
+.L37:
+	movl 12(%ebx),%ecx
+	testl %ecx,%ecx
+	jne .L38
+	pushl $1748
+	call _m3_fault
+	.align 16
+.L38:
+	movl $3,(%ecx)
+	movl 16(%ebx),%edx
+	testl %edx,%edx
+	jne .L40
+	pushl $1764
+	call _m3_fault
+	.align 16
+.L40:
+	movl 4(%edx),%eax
+	movl %eax,4(%ecx)
+	movl 8(%edx),%eax
+	movl %ebx,%edx
+	movl %eax,8(%ecx)
+	movl 12(%edx),%eax
+	addl $12,%eax
+	movl %eax,12(%edx)
+	movl %eax,16(%edx)
+	movl -4(%ebp),%eax
+	pushl %eax
+	call PathPrivate__Thaw
+.L41:
+	movl -12(%ebp),%eax
+	leal -20(%ebp),%esp
+	movl %eax,RTThread__handlerStack
+	popl %ebx
+	popl %esi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe7:
+	.size	 Path__Close,.Lfe7-Path__Close
+	.align 16
+	.type	 Path__CurveTo,@function
+Path__CurveTo:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $12,%esp
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%ebx
+.L43:
+	movl $5,-8(%ebp)
+	movl RTThread__handlerStack,%eax
+	movl %eax,-12(%ebp)
+	leal -12(%ebp),%esi
+	movl %esi,RTThread__handlerStack
+	pushl %ebx
+	call PathPrivate__Freeze
+	movl %eax,-4(%ebp)
+	movl 12(%ebx),%eax
+	addl $4,%esp
+	cmpl %eax,16(%ebx)
+	jne .L44
+	pushl $MM_Path+588
+	pushl $MM_Path+48
+	movl MI_RTHooks+52,%eax
+	call *%eax
+	addl $8,%esp
+.L44:
+	movl 12(%ebx),%eax
+	movl 20(%ebx),%esi
+	subl %eax,%esi
+	movl %esi,%eax
+	cmpl $27,%eax
+	jg .L45
+	leal -4(%ebp),%eax
+	pushl %eax
+	pushl %ebx
+	call Path__ReAllocate
+	addl $8,%esp
+.L45:
+	movl 12(%ebx),%ecx
+	testl %ecx,%ecx
+	jne .L46
+	pushl $1988
+	call _m3_fault
+	.align 16
+.L46:
+	movl $0,(%ecx)
+	movl 12(%ebp),%edx
+	movl (%edx),%eax
+	movl %eax,4(%ecx)
+	movl 4(%edx),%eax
+	movl %eax,8(%ecx)
+	movl 16(%ebp),%edx
+	movl (%edx),%eax
+	movl %eax,12(%ecx)
+	movl 4(%edx),%eax
+	movl %eax,16(%ecx)
+	movl 20(%ebp),%edx
+	movl (%edx),%eax
+	movl %eax,20(%ecx)
+	movl 4(%edx),%eax
+	movl %eax,24(%ecx)
+	movl %ebx,%eax
+	addl $28,12(%eax)
+	incl 24(%eax)
+	movl -4(%ebp),%eax
+	pushl %eax
+	call PathPrivate__Thaw
+.L50:
+	movl -12(%ebp),%eax
+	leal -20(%ebp),%esp
+	movl %eax,RTThread__handlerStack
+	popl %ebx
+	popl %esi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe8:
+	.size	 Path__CurveTo,.Lfe8-Path__CurveTo
+	.align 16
+	.type	 Path__Map,@function
+Path__Map:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $12,%esp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%edi
+	movl 12(%ebp),%esi
+	pushl %edi
+	call PathPrivate__Freeze
+	movl %eax,-12(%ebp)
+	movl 8(%edi),%ebx
+	addl $4,%esp
+	jmp .L52
+	.align 16
+.L53:
+	testl %ebx,%ebx
+	jne .L54
+	pushl $2212
+	call _m3_fault
+	.align 16
+.L54:
+	movl (%ebx),%eax
+	testl %eax,%eax
+	jle .L55
+	cmpl $1,%eax
+	jle .L56
+	cmpl $2,%eax
+	jle .L57
+	cmpl $3,%eax
+	jle .L58
+.L57:
+	movl (%esi),%eax
+	movl 4(%eax),%edx
+	leal 4(%ebx),%eax
+	pushl %eax
+	pushl %esi
+	call *%edx
+	addl $8,%esp
+	jmp .L72
+	.align 16
+.L56:
+	movl (%esi),%eax
+	movl 8(%eax),%edx
+	leal 4(%ebx),%eax
+	pushl %eax
+	leal -8(%ebp),%eax
+	pushl %eax
+	pushl %esi
+	call *%edx
+	addl $12,%esp
+.L72:
+	movl 4(%ebx),%eax
+	movl %eax,-8(%ebp)
+	movl 8(%ebx),%eax
+	movl %eax,-4(%ebp)
+	addl $12,%ebx
+	jmp .L52
+	.align 16
+.L55:
+	movl (%esi),%eax
+	movl 16(%eax),%edx
+	leal 20(%ebx),%eax
+	pushl %eax
+	leal 12(%ebx),%eax
+	pushl %eax
+	leal 4(%ebx),%eax
+	pushl %eax
+	leal -8(%ebp),%eax
+	pushl %eax
+	pushl %esi
+	call *%edx
+	addl $20,%esp
+	movl 20(%ebx),%eax
+	movl %eax,-8(%ebp)
+	movl 24(%ebx),%eax
+	movl %eax,-4(%ebp)
+	addl $28,%ebx
+	jmp .L52
+	.align 16
+.L58:
+	movl (%esi),%eax
+	movl 12(%eax),%edx
+	leal 4(%ebx),%eax
+	pushl %eax
+	leal -8(%ebp),%eax
+	pushl %eax
+	pushl %esi
+	call *%edx
+	addl $12,%ebx
+	addl $12,%esp
+.L52:
+	movl 12(%edi),%eax
+	cmpl %ebx,%eax
+	ja .L53
+	je .L71
+	pushl $0
+	pushl $MI_Path+76
+	movl MI_RTHooks+52,%eax
+	call *%eax
+	addl $8,%esp
+.L71:
+	movl -12(%ebp),%ecx
+	pushl %ecx
+	call PathPrivate__Thaw
+	leal -24(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe9:
+	.size	 Path__Map,.Lfe9-Path__Map
+	.align 16
+	.type	 Path__Translate,@function
+Path__Translate:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%ebx
+	pushl %ebx
+	call PathPrivate__Freeze
+	movl %eax,%esi
+	movl %esi,%edi
+	pushl %ebx
+	call Path__Copy
+	movl %eax,%esi
+	movl 12(%ebp),%eax
+	pushl %eax
+	pushl %esi
+	call Path__DTranslate
+	pushl %edi
+	call PathPrivate__Thaw
+	leal -12(%ebp),%esp
+	movl %esi,%eax
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe10:
+	.size	 Path__Translate,.Lfe10-Path__Translate
+	.align 16
+	.type	 Path__DTranslate,@function
+Path__DTranslate:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%esi
+	movl 8(%esi),%ebx
+	jmp .L75
+	.align 16
+.L76:
+	testl %ebx,%ebx
+	jne .L77
+	pushl $2724
+	call _m3_fault
+	.align 16
+.L77:
+	cmpl $0,(%ebx)
+	jle .L84
+	leal 4(%ebx),%eax
+	pushl %eax
+	movl 12(%ebp),%edx
+	pushl %edx
+	pushl %eax
+	movl MI_Point+68,%eax
+	call *%eax
+	addl $12,%ebx
+	jmp .L92
+	.align 16
+.L84:
+	leal 4(%ebx),%edx
+	pushl %edx
+	movl 12(%ebp),%eax
+	pushl %eax
+	pushl %edx
+	movl MI_Point+68,%eax
+	call *%eax
+	addl $12,%esp
+	leal 12(%ebx),%edx
+	pushl %edx
+	movl 12(%ebp),%eax
+	pushl %eax
+	pushl %edx
+	movl MI_Point+68,%eax
+	call *%eax
+	addl $12,%esp
+	leal 20(%ebx),%edx
+	pushl %edx
+	movl 12(%ebp),%eax
+	pushl %eax
+	pushl %edx
+	movl MI_Point+68,%eax
+	call *%eax
+	addl $28,%ebx
+.L92:
+	addl $12,%esp
+.L75:
+	movl 12(%esi),%eax
+	cmpl %ebx,%eax
+	ja .L76
+	je .L74
+	pushl $0
+	pushl $MI_Path+76
+	movl MI_RTHooks+52,%eax
+	call *%eax
+.L74:
+	leal -8(%ebp),%esp
+	popl %ebx
+	popl %esi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe11:
+	.size	 Path__DTranslate,.Lfe11-Path__DTranslate
+	.align 16
+	.type	 Path__IsClosed,@function
+Path__IsClosed:
+	pushl %ebp
+	movl %esp,%ebp
+	movl 8(%ebp),%eax
+	movl %ebp,%esp
+	popl %ebp
+	movl 12(%eax),%edx
+	cmpl %edx,16(%eax)
+	sete %al
+	andl $255,%eax
+	ret
+.Lfe12:
+	.size	 Path__IsClosed,.Lfe12-Path__IsClosed
+	.align 16
+	.type	 Path__IsEmpty,@function
+Path__IsEmpty:
+	pushl %ebp
+	movl %esp,%ebp
+	movl 8(%ebp),%eax
+	movl %ebp,%esp
+	popl %ebp
+	movl 8(%eax),%edx
+	cmpl %edx,12(%eax)
+	sete %al
+	andl $255,%eax
+	ret
+.Lfe13:
+	.size	 Path__IsEmpty,.Lfe13-Path__IsEmpty
+	.align 16
+	.type	 Path__CurrentPoint,@function
+Path__CurrentPoint:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $24,%esp
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%ebx
+.L96:
+	movl $5,-20(%ebp)
+	movl RTThread__handlerStack,%eax
+	movl %eax,-24(%ebp)
+	leal -24(%ebp),%ecx
+	movl %ecx,RTThread__handlerStack
+	pushl %ebx
+	call PathPrivate__Freeze
+	movl %eax,%esi
+	movl 16(%ebx),%eax
+	addl $4,%esp
+	cmpl %eax,12(%ebx)
+	jne .L97
+	pushl $MM_Path+632
+	pushl $MM_Path+48
+	movl MI_RTHooks+52,%eax
+	call *%eax
+	addl $8,%esp
+.L97:
+	movl 12(%ebx),%eax
+	leal -8(%eax),%edx
+	testl %edx,%edx
+	jne .L98
+	pushl $3220
+	call _m3_fault
+	.align 16
+.L98:
+	movl -8(%eax),%eax
+	movl %eax,-8(%ebp)
+	movl 4(%edx),%eax
+	movl %eax,-4(%ebp)
+	pushl %esi
+	call PathPrivate__Thaw
+	movl 12(%ebp),%edx
+	movl -8(%ebp),%eax
+	movl %eax,(%edx)
+	movl -4(%ebp),%eax
+	movl %eax,4(%edx)
+	movl -24(%ebp),%eax
+	movl %eax,RTThread__handlerStack
+.L99:
+	leal -32(%ebp),%esp
+	popl %ebx
+	popl %esi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe14:
+	.size	 Path__CurrentPoint,.Lfe14-Path__CurrentPoint
+	.align 16
+	.type	 Path__Copy,@function
+Path__Copy:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $52,%esp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+.L101:
+	movl $5,-4(%ebp)
+	movl RTThread__handlerStack,%eax
+	movl %eax,-8(%ebp)
+	leal -8(%ebp),%ecx
+	movl 8(%ebp),%edi
+	movl %ecx,RTThread__handlerStack
+	movl 8(%edi),%eax
+	cmpl %eax,12(%edi)
+	je .L102
+	pushl %edi
+	call PathPrivate__Freeze
+	movl %eax,%ebx
+	movl %ebx,-40(%ebp)
+	movl 8(%edi),%eax
+	movl 12(%edi),%ecx
+	subl %eax,%ecx
+	movl %ecx,%eax
+	movl %eax,%esi
+	sarl $2,%esi
+	movl %esi,-52(%ebp)
+	movl MM_Path+656,%eax
+	pushl %eax
+	movl MI_RTHooks+80,%eax
+	call *%eax
+	movl %eax,%ebx
+	leal -12(%ebp),%edi
+	movl %edi,-20(%ebp)
+	movl $1,-16(%ebp)
+	movl $32,%eax
+	addl $8,%esp
+	cmpl %esi,%eax
+	jle .L103
+	movl %eax,-12(%ebp)
+	jmp .L104
+	.align 16
+.L103:
+	movl %esi,-12(%ebp)
+.L104:
+	leal -20(%ebp),%eax
+	pushl %eax
+	movl MM_Path+492,%eax
+	pushl %eax
+	movl MI_RTHooks+84,%eax
+	call *%eax
+	movl %eax,%edx
+	movl %edx,4(%ebx)
+	movl %ebx,%esi
+	pushl %ebx
+	call PathPrivate__Freeze
+	movl %eax,-44(%ebp)
+	movl 4(%ebx),%eax
+	addl $12,%esp
+	testl %eax,%eax
+	jne .L105
+	pushl $3524
+	call _m3_fault
+	.align 16
+.L105:
+	movl %eax,%edx
+	cmpl $0,4(%edx)
+	jne .L106
+	pushl $3522
+	call _m3_fault
+	.align 16
+.L106:
+	movl (%edx),%eax
+	movl %eax,8(%ebx)
+	movl 8(%ebp),%ecx
+	cmpl $0,4(%ecx)
+	je .L107
+	movl 4(%ebx),%eax
+	testl %eax,%eax
+	jne .L108
+	pushl $3556
+	call _m3_fault
+	.align 16
+.L108:
+	movl %eax,%edx
+	cmpl $0,-52(%ebp)
+	jge .L109
+	pushl $3553
+	call _m3_fault
+	.align 16
+.L109:
+	movl -52(%ebp),%edi
+	movl %edi,-24(%ebp)
+	movl -52(%ebp),%eax
+	subl 4(%edx),%eax
+	testl %eax,%eax
+	jle .L110
+	pushl $3553
+	call _m3_fault
+	.align 16
+.L110:
+	movl (%edx),%ebx
+	movl 8(%ebp),%ecx
+	movl %ebx,-28(%ebp)
+	movl 4(%ecx),%eax
+	testl %eax,%eax
+	jne .L111
+	pushl $3556
+	call _m3_fault
+	.align 16
+.L111:
+	movl %eax,%edx
+	movl -52(%ebp),%edi
+	movl %edi,-32(%ebp)
+	movl -52(%ebp),%eax
+	subl 4(%edx),%eax
+	testl %eax,%eax
+	jle .L113
+	pushl $3553
+	call _m3_fault
+	.align 16
+.L113:
+	movl (%edx),%edx
+	movl %edx,-36(%ebp)
+	movl -52(%ebp),%ecx
+	leal 0(,%ecx,4),%eax
+	pushl %eax
+	pushl %edx
+	pushl %ebx
+	call memmove
+	addl $12,%esp
+	jmp .L115
+	.align 16
+.L107:
+	movl 8(%ebp),%edi
+	movl %eax,%edx
+	movl $1,%ebx
+	movl -52(%ebp),%ecx
+	movl 8(%edi),%edi
+	movl %edi,-48(%ebp)
+	movl %ecx,-52(%ebp)
+	jmp .L116
+	.align 16
+.L117:
+	testl %edx,%edx
+	jne .L118
+	pushl $3684
+	call _m3_fault
+	.align 16
+.L118:
+	cmpl $0,-48(%ebp)
+	jne .L119
+	pushl $3684
+	call _m3_fault
+	.align 16
+.L119:
+	movl -48(%ebp),%edi
+	incl %ebx
+	movl (%edi),%eax
+	movl %eax,(%edx)
+	addl $4,%edi
+	movl %edi,-48(%ebp)
+	addl $4,%edx
+.L116:
+	cmpl %ebx,-52(%ebp)
+	jge .L117
+.L115:
+	movl 8(%ebp),%ecx
+	movl 8(%esi),%edi
+	movl 8(%ecx),%eax
+	subl %eax,%edi
+	movl %edi,%eax
+	movl 12(%ecx),%ecx
+	addl %eax,%ecx
+	movl %ecx,12(%esi)
+	movl 8(%ebp),%edi
+	addl 16(%edi),%eax
+	movl %eax,16(%esi)
+	movl 4(%esi),%eax
+	testl %eax,%eax
+	jne .L121
+	pushl $3844
+	call _m3_fault
+	.align 16
+.L121:
+	movl 4(%eax),%eax
+	sall $2,%eax
+	addl 8(%esi),%eax
+	movl %eax,20(%esi)
+	movl 8(%ebp),%ecx
+	movl 24(%ecx),%eax
+	movl %eax,24(%esi)
+	movl -40(%ebp),%edi
+	pushl %edi
+	call PathPrivate__Thaw
+	movl -44(%ebp),%ecx
+	pushl %ecx
+	call PathPrivate__Thaw
+	movl -8(%ebp),%eax
+	movl %eax,RTThread__handlerStack
+	movl %esi,%eax
+	jmp .L100
+	.align 16
+.L102:
+	movl MM_Path+656,%eax
+	pushl %eax
+	movl MI_RTHooks+80,%eax
+	call *%eax
+	movl %eax,%ebx
+	movl -8(%ebp),%eax
+	movl %eax,RTThread__handlerStack
+	movl %ebx,%eax
+.L122:
+.L100:
+	leal -64(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe15:
+	.size	 Path__Copy,.Lfe15-Path__Copy
+	.align 16
+	.type	 Path__Flatten,@function
+Path__Flatten:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%esi
+	cmpl $0,24(%esi)
+	je .L124
+	movl MM_Path+664,%eax
+	pushl %eax
+	movl MI_RTHooks+80,%eax
+	call *%eax
+	movl %eax,%ebx
+	movl MM_Path+656,%eax
+	pushl %eax
+	movl MI_RTHooks+80,%eax
+	call *%eax
+	movl %eax,4(%ebx)
+	pushl %ebx
+	pushl %esi
+	call Path__Map
+	movl 4(%ebx),%eax
+	jmp .L125
+	.align 16
+.L124:
+	movl %esi,%eax
+.L125:
+	leal -8(%ebp),%esp
+	popl %ebx
+	popl %esi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe16:
+	.size	 Path__Flatten,.Lfe16-Path__Flatten
+	.align 16
+	.type	 Path__FlatLine,@function
+Path__FlatLine:
+	pushl %ebp
+	movl %esp,%ebp
+	movl 8(%ebp),%eax
+	movl 16(%ebp),%edx
+	pushl %edx
+	movl 4(%eax),%eax
+	pushl %eax
+	call Path__LineTo
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe17:
+	.size	 Path__FlatLine,.Lfe17-Path__FlatLine
+	.align 16
+	.type	 Path__FlatClose,@function
+Path__FlatClose:
+	pushl %ebp
+	movl %esp,%ebp
+	movl 8(%ebp),%eax
+	movl 4(%eax),%eax
+	pushl %eax
+	call Path__Close
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe18:
+	.size	 Path__FlatClose,.Lfe18-Path__FlatClose
+	.align 16
+	.type	 Path__FlatMove,@function
+Path__FlatMove:
+	pushl %ebp
+	movl %esp,%ebp
+	movl 8(%ebp),%eax
+	movl 12(%ebp),%edx
+	pushl %edx
+	movl 4(%eax),%eax
+	pushl %eax
+	call Path__MoveTo
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe19:
+	.size	 Path__FlatMove,.Lfe19-Path__FlatMove
+	.align 16
+	.type	 Path__FlatCurve,@function
+Path__FlatCurve:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %ebx
+	movl 24(%ebp),%edx
+	movl 8(%ebp),%ecx
+	movl 4(%edx),%ebx
+	leal 0(,%ebx,4),%eax
+	pushl %eax
+	movl (%edx),%edx
+	leal 0(,%edx,4),%eax
+	pushl %eax
+	movl 20(%ebp),%edx
+	movl 4(%edx),%ebx
+	leal 0(,%ebx,4),%eax
+	pushl %eax
+	movl (%edx),%edx
+	leal 0(,%edx,4),%eax
+	pushl %eax
+	movl 16(%ebp),%edx
+	movl 4(%edx),%ebx
+	leal 0(,%ebx,4),%eax
+	pushl %eax
+	movl (%edx),%edx
+	leal 0(,%edx,4),%eax
+	pushl %eax
+	movl 12(%ebp),%edx
+	movl 4(%edx),%ebx
+	leal 0(,%ebx,4),%eax
+	pushl %eax
+	movl (%edx),%edx
+	leal 0(,%edx,4),%eax
+	pushl %eax
+	pushl %ecx
+	call Path__NonMonotonicFlatCurve
+	movl -4(%ebp),%ebx
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe20:
+	.size	 Path__FlatCurve,.Lfe20-Path__FlatCurve
+	.align 16
+	.type	 Path__NonMonotonicFlatCurve,@function
+Path__NonMonotonicFlatCurve:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $720,%esp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 20(%ebp),%edx
+	movl 24(%ebp),%ecx
+	movl 28(%ebp),%esi
+	movl 32(%ebp),%ebx
+.L131:
+	movl $5,-676(%ebp)
+	movl RTThread__handlerStack,%eax
+	movl %eax,-680(%ebp)
+	leal -680(%ebp),%edi
+	movl %edi,RTThread__handlerStack
+	movl $0,-716(%ebp)
+.L132:
+	cmpl %edx,12(%ebp)
+	jg .L146
+	cmpl %esi,%edx
+	jg .L133
+	cmpl %esi,36(%ebp)
+	jge .L134
+.L133:
+	cmpl %edx,12(%ebp)
+	jl .L135
+.L146:
+	cmpl %esi,%edx
+	jl .L135
+	cmpl %esi,36(%ebp)
+	jg .L135
+.L134:
+	cmpl %ecx,16(%ebp)
+	jg .L147
+	cmpl %ebx,%ecx
+	jg .L136
+	cmpl %ebx,40(%ebp)
+	jge .L137
+.L136:
+	cmpl %ecx,16(%ebp)
+	jl .L135
+.L147:
+	cmpl %ebx,%ecx
+	jl .L135
+	cmpl %ebx,40(%ebp)
+	jg .L135
+.L137:
+	movl 40(%ebp),%edi
+	pushl %edi
+	movl 36(%ebp),%edi
+	pushl %edi
+	pushl %ebx
+	pushl %esi
+	pushl %ecx
+	pushl %edx
+	movl 16(%ebp),%edi
+	pushl %edi
+	movl 12(%ebp),%edi
+	pushl %edi
+	movl 8(%ebp),%edi
+	pushl %edi
+	call Path__MonotonicFlatCurve
+	addl $36,%esp
+	cmpl $0,-716(%ebp)
+	jne .L138
+	movl -680(%ebp),%eax
+	movl %eax,RTThread__handlerStack
+	jmp .L130
+	.align 16
+.L138:
+	decl -716(%ebp)
+	cmpl $20,-716(%ebp)
+	jbe .L139
+	pushl $4945
+	call _m3_fault
+	.align 16
+.L139:
+	movl -716(%ebp),%eax
+	sall $5,%eax
+	leal -672(%eax,%ebp),%eax
+	movl %eax,-684(%ebp)
+	movl (%eax),%edi
+	movl %edi,12(%ebp)
+	movl 4(%eax),%edi
+	movl %edi,16(%ebp)
+	movl 8(%eax),%edx
+	movl 12(%eax),%ecx
+	movl 16(%eax),%esi
+	movl 20(%eax),%ebx
+	movl 24(%eax),%edi
+	movl %edi,36(%ebp)
+	movl 28(%eax),%eax
+	movl %eax,40(%ebp)
+	jmp .L132
+	.align 16
+.L135:
+	movl 12(%ebp),%eax
+	addl %edx,%eax
+	sarl $1,%eax
+	movl %eax,-712(%ebp)
+	movl 16(%ebp),%eax
+	addl %ecx,%eax
+	sarl $1,%eax
+	movl %eax,-708(%ebp)
+	addl %esi,%edx
+	sarl $1,%edx
+	addl %ebx,%ecx
+	sarl $1,%ecx
+	movl 36(%ebp),%edi
+	leal (%edi,%esi),%eax
+	sarl $1,%eax
+	movl %eax,-704(%ebp)
+	movl 40(%ebp),%edi
+	leal (%edi,%ebx),%eax
+	sarl $1,%eax
+	movl %eax,-700(%ebp)
+	movl -712(%ebp),%eax
+	addl %edx,%eax
+	sarl $1,%eax
+	movl %eax,-696(%ebp)
+	movl -708(%ebp),%eax
+	addl %ecx,%eax
+	sarl $1,%eax
+	movl %eax,-692(%ebp)
+	addl -704(%ebp),%edx
+	movl %edx,%esi
+	sarl $1,%esi
+	addl -700(%ebp),%ecx
+	movl %ecx,%ebx
+	sarl $1,%ebx
+	movl -696(%ebp),%eax
+	addl %esi,%eax
+	sarl $1,%eax
+	movl %eax,-688(%ebp)
+	movl -692(%ebp),%eax
+	addl %ebx,%eax
+	sarl $1,%eax
+	movl %eax,-720(%ebp)
+	cmpl $21,-716(%ebp)
+	jne .L141
+	pushl %eax
+	movl -688(%ebp),%edi
+	pushl %edi
+	movl -692(%ebp),%edi
+	pushl %edi
+	movl -696(%ebp),%edi
+	pushl %edi
+	movl -708(%ebp),%edi
+	pushl %edi
+	movl -712(%ebp),%edi
+	pushl %edi
+	movl 16(%ebp),%edi
+	pushl %edi
+	movl 12(%ebp),%edi
+	pushl %edi
+	movl 8(%ebp),%edi
+	pushl %edi
+	call Path__NonMonotonicFlatCurve
+	movl -688(%ebp),%edi
+	movl %edi,12(%ebp)
+	movl -720(%ebp),%edi
+	movl %edi,16(%ebp)
+	movl %esi,%edx
+	movl %ebx,%ecx
+	movl -704(%ebp),%esi
+	movl -700(%ebp),%ebx
+	addl $36,%esp
+	jmp .L132
+	.align 16
+.L141:
+	cmpl $20,-716(%ebp)
+	jbe .L143
+	pushl $5265
+	call _m3_fault
+	.align 16
+.L143:
+	movl -716(%ebp),%eax
+	sall $5,%eax
+	leal -672(%eax,%ebp),%eax
+	movl %eax,-684(%ebp)
+	movl -688(%ebp),%edi
+	movl %edi,(%eax)
+	movl -684(%ebp),%eax
+	movl -720(%ebp),%edi
+	movl %edi,4(%eax)
+	movl %esi,8(%eax)
+	movl %ebx,12(%eax)
+	movl -704(%ebp),%edi
+	movl %edi,16(%eax)
+	movl -700(%ebp),%edi
+	movl %edi,20(%eax)
+	movl 36(%ebp),%edi
+	movl %edi,24(%eax)
+	movl 40(%ebp),%edi
+	movl %edi,28(%eax)
+	incl -716(%ebp)
+	movl -712(%ebp),%edx
+	movl -708(%ebp),%ecx
+	movl -696(%ebp),%esi
+	movl -692(%ebp),%ebx
+	movl -688(%ebp),%edi
+	movl %edi,36(%ebp)
+	movl -720(%ebp),%edi
+	movl %edi,40(%ebp)
+	jmp .L132
+	.align 16
+.L145:
+.L130:
+	leal -732(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe21:
+	.size	 Path__NonMonotonicFlatCurve,.Lfe21-Path__NonMonotonicFlatCurve
+	.align 16
+	.type	 Path__MonotonicFlatCurve,@function
+Path__MonotonicFlatCurve:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $728,%esp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+.L149:
+	movl $5,-676(%ebp)
+	movl RTThread__handlerStack,%eax
+	movl %eax,-680(%ebp)
+	leal -680(%ebp),%ecx
+	movl %ecx,RTThread__handlerStack
+	movl 8(%ebp),%ecx
+	movl $0,-724(%ebp)
+	movl 4(%ecx),%ecx
+	movl %ecx,-720(%ebp)
+.L150:
+	movl 20(%ebp),%ecx
+	subl 12(%ebp),%ecx
+	movl %ecx,-716(%ebp)
+	movl 24(%ebp),%ecx
+	subl 16(%ebp),%ecx
+	movl %ecx,-712(%ebp)
+	movl 28(%ebp),%edi
+	subl 12(%ebp),%edi
+	movl 32(%ebp),%ecx
+	subl 16(%ebp),%ecx
+	movl %ecx,-728(%ebp)
+	movl 36(%ebp),%ebx
+	subl 12(%ebp),%ebx
+	movl 40(%ebp),%esi
+	subl 16(%ebp),%esi
+	movl -716(%ebp),%edx
+	imull %esi,%edx
+	movl -712(%ebp),%eax
+	imull %ebx,%eax
+	subl %eax,%edx
+	movl %edx,-708(%ebp)
+	movl %edi,%edx
+	imull %esi,%edx
+	movl %ecx,%eax
+	imull %ebx,%eax
+	subl %eax,%edx
+	movl %ebx,%edi
+	testl %ebx,%ebx
+	jge .L151
+	negl %edi
+.L151:
+	movl %esi,%eax
+	testl %esi,%esi
+	jge .L152
+	negl %eax
+.L152:
+	addl %eax,%edi
+	movl -708(%ebp),%eax
+	testl %eax,%eax
+	jge .L154
+	negl %eax
+.L154:
+	cmpl %edi,%eax
+	jg .L153
+	movl %edx,%eax
+	testl %edx,%edx
+	jge .L155
+	negl %eax
+.L155:
+	cmpl %edi,%eax
+	jg .L153
+	movl 36(%ebp),%ecx
+	sarl $2,%ecx
+	movl %ecx,-688(%ebp)
+	movl 40(%ebp),%ecx
+	sarl $2,%ecx
+	movl %ecx,-684(%ebp)
+	leal -688(%ebp),%eax
+	pushl %eax
+	movl -720(%ebp),%ecx
+	pushl %ecx
+	call Path__LineTo
+	addl $8,%esp
+	cmpl $0,-724(%ebp)
+	jne .L156
+	movl -680(%ebp),%eax
+	movl %eax,RTThread__handlerStack
+	jmp .L148
+	.align 16
+.L156:
+	decl -724(%ebp)
+	cmpl $20,-724(%ebp)
+	jbe .L157
+	pushl $5825
+	call _m3_fault
+	.align 16
+.L157:
+	movl -724(%ebp),%eax
+	sall $5,%eax
+	leal -672(%eax,%ebp),%eax
+	movl %eax,-692(%ebp)
+	movl (%eax),%ecx
+	movl %ecx,12(%ebp)
+	movl 4(%eax),%ecx
+	movl %ecx,16(%ebp)
+	movl 8(%eax),%ecx
+	movl %ecx,20(%ebp)
+	movl 12(%eax),%ecx
+	movl %ecx,24(%ebp)
+	movl 16(%eax),%ecx
+	movl %ecx,28(%ebp)
+	movl 20(%eax),%ecx
+	movl %ecx,32(%ebp)
+	movl 24(%eax),%ecx
+	movl %ecx,36(%ebp)
+	movl 28(%eax),%eax
+	movl %eax,40(%ebp)
+	jmp .L150
+	.align 16
+.L153:
+	movl 12(%ebp),%eax
+	addl 20(%ebp),%eax
+	sarl $1,%eax
+	movl %eax,-716(%ebp)
+	movl 16(%ebp),%eax
+	addl 24(%ebp),%eax
+	sarl $1,%eax
+	movl %eax,-712(%ebp)
+	movl 20(%ebp),%eax
+	addl 28(%ebp),%eax
+	movl %eax,%edi
+	sarl $1,%edi
+	movl 24(%ebp),%eax
+	addl 32(%ebp),%eax
+	sarl $1,%eax
+	movl %eax,-728(%ebp)
+	movl 28(%ebp),%eax
+	addl 36(%ebp),%eax
+	movl %eax,%ebx
+	sarl $1,%ebx
+	movl 32(%ebp),%eax
+	addl 40(%ebp),%eax
+	movl %eax,%esi
+	sarl $1,%esi
+	movl -716(%ebp),%eax
+	addl %edi,%eax
+	sarl $1,%eax
+	movl %eax,-708(%ebp)
+	movl -712(%ebp),%eax
+	addl -728(%ebp),%eax
+	movl %eax,%edx
+	sarl $1,%edx
+	leal (%ebx,%edi),%eax
+	movl %eax,%edi
+	sarl $1,%edi
+	movl -728(%ebp),%eax
+	addl %esi,%eax
+	sarl $1,%eax
+	movl %eax,-704(%ebp)
+	movl -708(%ebp),%eax
+	addl %edi,%eax
+	sarl $1,%eax
+	movl %eax,-700(%ebp)
+	movl -704(%ebp),%ecx
+	leal (%ecx,%edx),%eax
+	sarl $1,%eax
+	movl %eax,-696(%ebp)
+	cmpl $21,-724(%ebp)
+	jne .L159
+	pushl %eax
+	movl -700(%ebp),%ecx
+	pushl %ecx
+	pushl %edx
+	movl -708(%ebp),%ecx
+	pushl %ecx
+	movl -712(%ebp),%ecx
+	pushl %ecx
+	movl -716(%ebp),%ecx
+	pushl %ecx
+	movl 16(%ebp),%ecx
+	pushl %ecx
+	movl 12(%ebp),%ecx
+	pushl %ecx
+	movl 8(%ebp),%ecx
+	pushl %ecx
+	call Path__MonotonicFlatCurve
+	movl -700(%ebp),%ecx
+	movl %ecx,12(%ebp)
+	movl -696(%ebp),%ecx
+	movl %ecx,16(%ebp)
+	movl %edi,20(%ebp)
+	movl -704(%ebp),%ecx
+	movl %ecx,24(%ebp)
+	movl %ebx,28(%ebp)
+	movl %esi,32(%ebp)
+	addl $36,%esp
+	jmp .L150
+	.align 16
+.L159:
+	cmpl $20,-724(%ebp)
+	jbe .L161
+	pushl $6145
+	call _m3_fault
+	.align 16
+.L161:
+	movl -724(%ebp),%eax
+	sall $5,%eax
+	leal -672(%eax,%ebp),%eax
+	movl %eax,-692(%ebp)
+	movl -700(%ebp),%ecx
+	movl %ecx,(%eax)
+	movl -692(%ebp),%eax
+	movl -696(%ebp),%ecx
+	movl %ecx,4(%eax)
+	movl %edi,8(%eax)
+	movl -704(%ebp),%ecx
+	movl %ecx,12(%eax)
+	movl %ebx,16(%eax)
+	movl %esi,20(%eax)
+	movl 36(%ebp),%ecx
+	movl %ecx,24(%eax)
+	movl 40(%ebp),%ecx
+	movl %ecx,28(%eax)
+	incl -724(%ebp)
+	movl -716(%ebp),%ecx
+	movl %ecx,20(%ebp)
+	movl -712(%ebp),%ecx
+	movl %ecx,24(%ebp)
+	movl -708(%ebp),%ecx
+	movl %ecx,28(%ebp)
+	movl %edx,32(%ebp)
+	movl -700(%ebp),%ecx
+	movl %ecx,36(%ebp)
+	movl -696(%ebp),%ecx
+	movl %ecx,40(%ebp)
+	jmp .L150
+	.align 16
+.L163:
+.L148:
+	leal -740(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe22:
+	.size	 Path__MonotonicFlatCurve,.Lfe22-Path__MonotonicFlatCurve
+	.align 16
+	.type	 Path__BBMove,@function
+Path__BBMove:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $4,%esp
+	pushl %ebx
+	movl 8(%ebp),%eax
+	addl $4,%eax
+	movl %eax,-4(%ebp)
+	pushl %eax
+	movl MI_Rect+244,%eax
+	call *%eax
+	addl $4,%esp
+	testl %eax,%eax
+	je .L165
+	movl -4(%ebp),%eax
+	pushl %eax
+	movl 12(%ebp),%eax
+	pushl %eax
+	movl MI_Rect+84,%eax
+	call *%eax
+	jmp .L164
+	.align 16
+.L165:
+	movl -4(%ebp),%ecx
+	movl 12(%ebp),%eax
+	movl (%ecx),%edx
+	movl (%eax),%eax
+	cmpl %edx,%eax
+	jle .L167
+	movl %edx,%eax
+.L167:
+	movl %eax,(%ecx)
+	movl 12(%ebp),%ebx
+	movl -4(%ebp),%edx
+	movl (%ebx),%ecx
+	incl %ecx
+	movl 4(%edx),%eax
+	cmpl %ecx,%eax
+	jge .L168
+	movl %ecx,%eax
+.L168:
+	movl %eax,4(%edx)
+	movl 8(%edx),%ecx
+	movl 4(%ebx),%eax
+	cmpl %ecx,%eax
+	jle .L169
+	movl %ecx,%eax
+.L169:
+	movl %eax,8(%edx)
+	movl 4(%ebx),%ecx
+	incl %ecx
+	movl 12(%edx),%eax
+	cmpl %ecx,%eax
+	jge .L170
+	movl %ecx,%eax
+.L170:
+	movl %eax,12(%edx)
+.L164:
+	movl -8(%ebp),%ebx
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe23:
+	.size	 Path__BBMove,.Lfe23-Path__BBMove
+	.align 16
+	.type	 Path__BBClose,@function
+Path__BBClose:
+	pushl %ebp
+	movl %esp,%ebp
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe24:
+	.size	 Path__BBClose,.Lfe24-Path__BBClose
+	.align 16
+	.type	 Path__BBLine,@function
+Path__BBLine:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $4,%esp
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%esi
+	leal 4(%esi),%edx
+	movl %edx,-4(%ebp)
+	movl 16(%ebp),%ebx
+	movl 4(%esi),%ecx
+	movl (%ebx),%eax
+	cmpl %ecx,%eax
+	jle .L173
+	movl %ecx,%eax
+.L173:
+	movl %eax,4(%esi)
+	movl (%ebx),%ecx
+	incl %ecx
+	movl 4(%edx),%eax
+	cmpl %ecx,%eax
+	jge .L174
+	movl %ecx,%eax
+.L174:
+	movl %eax,4(%edx)
+	movl 8(%edx),%ecx
+	movl 4(%ebx),%eax
+	cmpl %ecx,%eax
+	jle .L175
+	movl %ecx,%eax
+.L175:
+	movl %eax,8(%edx)
+	movl 4(%ebx),%ecx
+	incl %ecx
+	movl 12(%edx),%eax
+	cmpl %ecx,%eax
+	jge .L176
+	movl %ecx,%eax
+.L176:
+	leal -12(%ebp),%esp
+	movl %eax,12(%edx)
+	popl %ebx
+	popl %esi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe25:
+	.size	 Path__BBLine,.Lfe25-Path__BBLine
+	.align 16
+	.type	 Path__BBCurve,@function
+Path__BBCurve:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $100,%esp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+.L178:
+	movl $5,-20(%ebp)
+	movl RTThread__handlerStack,%eax
+	movl %eax,-24(%ebp)
+	leal -24(%ebp),%ecx
+	movl %ecx,RTThread__handlerStack
+	leal -16(%ebp),%ebx
+	pushl %ebx
+	movl 24(%ebp),%eax
+	pushl %eax
+	movl 12(%ebp),%eax
+	pushl %eax
+	call Path__RectHull
+	pushl %ebx
+	movl 16(%ebp),%eax
+	pushl %eax
+	movl MI_Rect+248,%eax
+	call *%eax
+	addl $20,%esp
+	testl %eax,%eax
+	je .L179
+	pushl %ebx
+	movl 20(%ebp),%eax
+	pushl %eax
+	movl MI_Rect+248,%eax
+	call *%eax
+	addl $8,%esp
+	testl %eax,%eax
+	je .L179
+	movl 8(%ebp),%eax
+	addl $4,%eax
+	pushl %eax
+	pushl %ebx
+	pushl %eax
+	movl MI_Rect+216,%eax
+	call *%eax
+	jmp .L181
+	.align 16
+.L179:
+	movl 12(%ebp),%ecx
+	movl 16(%ebp),%eax
+	movl %ecx,-60(%ebp)
+	movl (%eax),%ecx
+	movl %ecx,-64(%ebp)
+	movl -60(%ebp),%ecx
+	movl -64(%ebp),%edx
+	addl (%ecx),%edx
+	addl %edx,%edx
+	movl %edx,-40(%ebp)
+	movl 4(%eax),%ebx
+	movl 4(%ecx),%eax
+	addl %ebx,%eax
+	addl %eax,%eax
+	movl %eax,-44(%ebp)
+	movl 20(%ebp),%eax
+	movl -64(%ebp),%ecx
+	movl (%eax),%edx
+	addl %edx,%ecx
+	addl %ecx,%ecx
+	movl %ecx,-48(%ebp)
+	movl 4(%eax),%eax
+	movl %eax,-72(%ebp)
+	addl %eax,%ebx
+	addl %ebx,%ebx
+	movl 24(%ebp),%eax
+	movl -72(%ebp),%ecx
+	addl (%eax),%edx
+	addl %edx,%edx
+	movl %edx,-52(%ebp)
+	addl 4(%eax),%ecx
+	addl %ecx,%ecx
+	movl %ecx,-56(%ebp)
+	movl -40(%ebp),%ecx
+	addl -48(%ebp),%ecx
+	movl %ecx,-80(%ebp)
+	sarl $1,%ecx
+	movl %ecx,-100(%ebp)
+	movl -44(%ebp),%ecx
+	addl %ebx,%ecx
+	movl %ecx,-84(%ebp)
+	movl %ecx,%esi
+	sarl $1,%esi
+	movl -48(%ebp),%ecx
+	addl %edx,%ecx
+	movl %ecx,-88(%ebp)
+	movl %ecx,%edx
+	sarl $1,%edx
+	addl -56(%ebp),%ebx
+	movl %ebx,%eax
+	sarl $1,%eax
+	addl -100(%ebp),%edx
+	movl %edx,-92(%ebp)
+	addl %eax,%esi
+	movl %esi,-96(%ebp)
+	movl 8(%ebp),%eax
+	addl $4,%eax
+	movl %eax,-28(%ebp)
+	movl -60(%ebp),%ecx
+	pushl %ecx
+	pushl %eax
+	call Path__JoinPoint
+	movl -40(%ebp),%ecx
+	sarl $2,%ecx
+	movl %ecx,-36(%ebp)
+	movl -44(%ebp),%ecx
+	sarl $2,%ecx
+	movl %ecx,-32(%ebp)
+	leal -36(%ebp),%edi
+	pushl %edi
+	movl -28(%ebp),%eax
+	pushl %eax
+	call Path__JoinPoint
+	movl -80(%ebp),%ecx
+	sarl $3,%ecx
+	movl %ecx,-36(%ebp)
+	movl -84(%ebp),%ecx
+	sarl $3,%ecx
+	movl %ecx,-32(%ebp)
+	pushl %edi
+	movl -28(%ebp),%eax
+	pushl %eax
+	call Path__JoinPoint
+	movl -92(%ebp),%ecx
+	sarl $3,%ecx
+	movl %ecx,-36(%ebp)
+	movl -96(%ebp),%ecx
+	sarl $3,%ecx
+	movl %ecx,-32(%ebp)
+	pushl %edi
+	movl -28(%ebp),%eax
+	pushl %eax
+	call Path__JoinPoint
+	movl -88(%ebp),%ecx
+	sarl $3,%ecx
+	movl %ecx,-36(%ebp)
+	sarl $3,%ebx
+	addl $32,%esp
+	movl %ebx,-32(%ebp)
+	pushl %edi
+	movl -28(%ebp),%eax
+	pushl %eax
+	call Path__JoinPoint
+	movl -52(%ebp),%ecx
+	sarl $2,%ecx
+	movl %ecx,-36(%ebp)
+	movl -56(%ebp),%ecx
+	sarl $2,%ecx
+	movl %ecx,-32(%ebp)
+	pushl %edi
+	movl -28(%ebp),%eax
+	pushl %eax
+	call Path__JoinPoint
+	movl 24(%ebp),%eax
+	pushl %eax
+	movl -28(%ebp),%eax
+	pushl %eax
+	call Path__JoinPoint
+.L181:
+	movl -24(%ebp),%eax
+	leal -112(%ebp),%esp
+	movl %eax,RTThread__handlerStack
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe26:
+	.size	 Path__BBCurve,.Lfe26-Path__BBCurve
+	.align 16
+	.type	 Path__RectHull,@function
+Path__RectHull:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $32,%esp
+	pushl %ebx
+	movl 8(%ebp),%ecx
+	movl 12(%ebp),%ebx
+	movl (%ecx),%edx
+	movl (%ebx),%eax
+	cmpl %edx,%eax
+	jle .L183
+	movl %edx,%eax
+.L183:
+	movl %eax,-32(%ebp)
+	movl (%ebx),%edx
+	movl (%ecx),%eax
+	cmpl %edx,%eax
+	jle .L184
+	incl %eax
+	movl %eax,-28(%ebp)
+	jmp .L185
+	.align 16
+.L184:
+	incl %edx
+	movl %edx,-28(%ebp)
+.L185:
+	movl 8(%ebp),%ecx
+	movl 12(%ebp),%ebx
+	movl 4(%ecx),%edx
+	movl 4(%ebx),%eax
+	cmpl %edx,%eax
+	jle .L186
+	movl %edx,%eax
+.L186:
+	movl %eax,-24(%ebp)
+	movl 4(%ebx),%edx
+	movl 4(%ecx),%eax
+	cmpl %edx,%eax
+	jle .L187
+	incl %eax
+	movl %eax,-20(%ebp)
+	jmp .L188
+	.align 16
+.L187:
+	incl %edx
+	movl %edx,-20(%ebp)
+.L188:
+	movl 16(%ebp),%edx
+	movl -32(%ebp),%eax
+	movl %eax,(%edx)
+	movl -28(%ebp),%eax
+	movl %eax,4(%edx)
+	movl -24(%ebp),%eax
+	movl %eax,8(%edx)
+	movl -20(%ebp),%eax
+	movl %eax,12(%edx)
+	movl -36(%ebp),%ebx
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe27:
+	.size	 Path__RectHull,.Lfe27-Path__RectHull
+	.align 16
+	.type	 Path__JoinPoint,@function
+Path__JoinPoint:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %ebx
+	movl 8(%ebp),%ecx
+	movl 12(%ebp),%eax
+	movl (%ecx),%edx
+	movl (%eax),%eax
+	cmpl %edx,%eax
+	jle .L190
+	movl %edx,%eax
+.L190:
+	movl %eax,(%ecx)
+	movl 12(%ebp),%ebx
+	movl 8(%ebp),%edx
+	movl (%ebx),%ecx
+	incl %ecx
+	movl 4(%edx),%eax
+	cmpl %ecx,%eax
+	jge .L191
+	movl %ecx,%eax
+.L191:
+	movl %eax,4(%edx)
+	movl 8(%edx),%ecx
+	movl 4(%ebx),%eax
+	cmpl %ecx,%eax
+	jle .L192
+	movl %ecx,%eax
+.L192:
+	movl %eax,8(%edx)
+	movl 4(%ebx),%ecx
+	incl %ecx
+	movl 12(%edx),%eax
+	cmpl %ecx,%eax
+	jge .L193
+	movl %ecx,%eax
+.L193:
+	movl %eax,12(%edx)
+	movl -4(%ebp),%ebx
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe28:
+	.size	 Path__JoinPoint,.Lfe28-Path__JoinPoint
+	.align 16
+	.type	 Path__BoundingBox,@function
+Path__BoundingBox:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $16,%esp
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%ebx
+	movl MM_Path+672,%eax
+	pushl %eax
+	movl MI_RTHooks+80,%eax
+	call *%eax
+	movl %eax,%esi
+	movl $MI_Rect+44,%edx
+	movl MI_Rect+44,%eax
+	movl %eax,4(%esi)
+	movl 4(%edx),%eax
+	movl %eax,8(%esi)
+	movl 8(%edx),%eax
+	movl %eax,12(%esi)
+	movl 12(%edx),%eax
+	movl %eax,16(%esi)
+	pushl %esi
+	pushl %ebx
+	call Path__Map
+	movl 12(%ebp),%edx
+	movl 4(%esi),%eax
+	leal -24(%ebp),%esp
+	movl %eax,(%edx)
+	movl 8(%esi),%eax
+	movl %eax,4(%edx)
+	movl 12(%esi),%eax
+	movl %eax,8(%edx)
+	movl 16(%esi),%eax
+	movl %eax,12(%edx)
+	popl %ebx
+	popl %esi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe29:
+	.size	 Path__BoundingBox,.Lfe29-Path__BoundingBox
+	.align 16
+	.type	 M_Path_t163caa81_LINK,@function
+M_Path_t163caa81_LINK:
+	pushl %ebp
+	movl %esp,%ebp
+	movl MM_Path+672,%eax
+	movl %ebp,%esp
+	movl 52(%eax),%edx
+	movl MM_Path+408,%eax
+	movl %eax,4(%edx)
+	movl MM_Path+416,%eax
+	movl %eax,8(%edx)
+	movl MM_Path+412,%eax
+	movl %eax,12(%edx)
+	movl MM_Path+420,%eax
+	movl %eax,16(%edx)
+	popl %ebp
+	ret
+.Lfe30:
+	.size	 M_Path_t163caa81_LINK,.Lfe30-M_Path_t163caa81_LINK
+	.align 16
+	.type	 M_Path_t5ec21a6a_LINK,@function
+M_Path_t5ec21a6a_LINK:
+	pushl %ebp
+	movl %esp,%ebp
+	movl MM_Path+664,%eax
+	movl %ebp,%esp
+	movl 52(%eax),%edx
+	movl MM_Path+280,%eax
+	movl %eax,8(%edx)
+	movl MM_Path+288,%eax
+	movl %eax,4(%edx)
+	movl MM_Path+284,%eax
+	movl %eax,12(%edx)
+	movl MM_Path+292,%eax
+	movl %eax,16(%edx)
+	popl %ebp
+	ret
+.Lfe31:
+	.size	 M_Path_t5ec21a6a_LINK,.Lfe31-M_Path_t5ec21a6a_LINK
+	.align 16
+	.type	 _m3_fault,@function
+_m3_fault:
+	pushl %ebp
+	movl %esp,%ebp
+	movl 8(%ebp),%eax
+	pushl %eax
+	pushl $MM_Path
+	movl MI_RTHooks+108,%eax
+	call *%eax
+	.align 16
+.Lfe32:
+	.size	 _m3_fault,.Lfe32-_m3_fault
+.globl MM_Path
+.data
+	.align 4
+	.type	 MM_Path,@object
+	.size	 MM_Path,1500
+MM_Path:
+	.long MM_Path+1300
+	.long MM_Path+72
+	.long MM_Path+492
+	.zero	8
+	.long MM_Path+948
+	.zero	20
+	.long Path__ReAllocate
+	.long MM_Path+52
+	.ascii	"Path.FatalError"
+	.zero	1
+	.long Path__DTranslate
+	.zero	8
+	.long -134749282
+.byte 0
+.byte 243
+.byte 146
+.byte 237
+.byte 158
+.byte 16
+.byte 101
+.byte 26
+	.zero	8
+	.long 8
+	.long 4
+	.zero	20
+	.long MM_Path+1496
+	.zero	40
+	.long MM_Path+176
+	.zero	8
+	.long 1589779050
+.byte 164
+.byte 73
+.byte 181
+.byte 95
+.byte 206
+.byte 83
+.byte 119
+.byte 1
+	.long 1
+	.zero	4
+	.long 4
+	.long 4
+	.zero	4
+	.long 0
+	.zero	12
+	.long MM_Path+1471
+	.long MM_Path+1473
+	.long MM_Path+1475
+	.zero	4
+	.long M_Path_t5ec21a6a_LINK
+	.long -731545482
+	.zero	16
+	.long MM_Path+1483
+	.long MM_Path+304
+	.long Path__FlatLine
+	.long Path__FlatClose
+	.long Path__FlatMove
+	.long Path__FlatCurve
+	.long Path__NonMonotonicFlatCurve
+	.long Path__MonotonicFlatCurve
+	.zero	8
+	.long 373074561
+.byte 65
+.byte 174
+.byte 170
+.byte 21
+.byte 192
+.byte 4
+.byte 150
+.byte 3
+	.long 1
+	.zero	4
+	.long 16
+	.long 4
+	.zero	4
+	.long 0
+	.zero	12
+	.long MM_Path+1442
+	.zero	4
+	.long MM_Path+1447
+	.zero	4
+	.long M_Path_t163caa81_LINK
+	.long -731545482
+	.zero	16
+	.long MM_Path+1456
+	.zero	4
+	.long Path__BBMove
+	.long Path__BBClose
+	.long Path__BBLine
+	.long Path__BBCurve
+	.long Path__RectHull
+	.long Path__JoinPoint
+	.long PathPrivate__Freeze
+	.long PathPrivate__Thaw
+	.long Path__Reset
+	.long Path__MoveTo
+	.long Path__LineTo
+	.long Path__CurveTo
+	.long Path__Close
+	.long Path__IsEmpty
+	.long Path__IsClosed
+	.long Path__CurrentPoint
+	.long Path__Translate
+	.long Path__Map
+	.long Path__Copy
+	.long Path__Flatten
+	.long Path__BoundingBox
+	.long MM_Path+656
+	.long 562018850
+	.long 2
+	.long MM_Path+512
+	.long 29
+	.ascii	"LineTo with no current point"
+	.zero	4
+	.long 2
+	.long MM_Path+556
+	.long 28
+	.ascii	"Close with no current point"
+	.zero	1
+	.long 2
+	.long MM_Path+596
+	.long 30
+	.ascii	"CurveTo with no current point"
+	.zero	3
+	.long 2
+	.long MM_Path+640
+	.long 16
+	.ascii	"No currentpoint"
+	.zero	1
+	.long MM_Path+664
+	.long -878987541
+	.long MM_Path+672
+	.long 1589779050
+	.zero	4
+	.long 373074561
+	.ascii	"BoundingBox"
+	.zero	1
+	.ascii	"JoinPoint"
+	.zero	1
+	.ascii	"RectHull"
+	.zero	1
+	.ascii	"BBCurve"
+	.zero	1
+	.ascii	"BBLine"
+	.zero	1
+	.ascii	"BBClose"
+	.zero	1
+	.ascii	"BBMove"
+	.zero	1
+	.ascii	"MonotonicFlatCurve"
+	.zero	1
+	.ascii	"NonMonotonicFlatCurve"
+	.zero	1
+	.ascii	"FlatCurve"
+	.zero	1
+	.ascii	"FlatMove"
+	.zero	1
+	.ascii	"FlatClose"
+	.zero	1
+	.ascii	"FlatLine"
+	.zero	1
+	.ascii	"Flatten"
+	.zero	1
+	.ascii	"Copy"
+	.zero	1
+	.ascii	"CurrentPoint"
+	.zero	1
+	.ascii	"IsEmpty"
+	.zero	1
+	.ascii	"IsClosed"
+	.zero	1
+	.ascii	"DTranslate"
+	.zero	1
+	.ascii	"Translate"
+	.zero	1
+	.ascii	"Map"
+	.zero	1
+	.ascii	"CurveTo"
+	.zero	1
+	.ascii	"Close"
+	.zero	1
+	.ascii	"LineTo"
+	.zero	1
+	.ascii	"MoveTo"
+	.zero	1
+	.ascii	"Reset"
+	.zero	1
+	.ascii	"ReAllocate"
+	.zero	1
+	.ascii	"Thaw"
+	.zero	1
+	.ascii	"Freeze"
+	.zero	4
+	.long Path__BoundingBox
+	.long MM_Path+680
+	.long MI_Path+216
+	.long Path__JoinPoint
+	.long MM_Path+692
+	.zero	4
+	.long Path__RectHull
+	.long MM_Path+702
+	.zero	4
+	.long Path__BBCurve
+	.long MM_Path+711
+	.zero	4
+	.long Path__BBLine
+	.long MM_Path+719
+	.zero	4
+	.long Path__BBClose
+	.long MM_Path+726
+	.zero	4
+	.long Path__BBMove
+	.long MM_Path+734
+	.zero	4
+	.long Path__MonotonicFlatCurve
+	.long MM_Path+741
+	.zero	4
+	.long Path__NonMonotonicFlatCurve
+	.long MM_Path+760
+	.zero	4
+	.long Path__FlatCurve
+	.long MM_Path+782
+	.zero	4
+	.long Path__FlatMove
+	.long MM_Path+792
+	.zero	4
+	.long Path__FlatClose
+	.long MM_Path+801
+	.zero	4
+	.long Path__FlatLine
+	.long MM_Path+811
+	.zero	4
+	.long Path__Flatten
+	.long MM_Path+820
+	.long MI_Path+212
+	.long Path__Copy
+	.long MM_Path+828
+	.long MI_Path+208
+	.long Path__CurrentPoint
+	.long MM_Path+833
+	.long MI_Path+72
+	.long Path__IsEmpty
+	.long MM_Path+846
+	.long MI_Path+64
+	.long Path__IsClosed
+	.long MM_Path+854
+	.long MI_Path+68
+	.long Path__DTranslate
+	.long MM_Path+863
+	.zero	4
+	.long Path__Translate
+	.long MM_Path+874
+	.long MI_Path+96
+	.long Path__Map
+	.long MM_Path+884
+	.long MI_Path+204
+	.long Path__CurveTo
+	.long MM_Path+888
+	.long MI_Path+56
+	.long Path__Close
+	.long MM_Path+896
+	.long MI_Path+60
+	.long Path__LineTo
+	.long MM_Path+902
+	.long MI_Path+52
+	.long Path__MoveTo
+	.long MM_Path+909
+	.long MI_Path+48
+	.long Path__Reset
+	.long MM_Path+916
+	.long MI_Path+44
+	.long Path__ReAllocate
+	.long MM_Path+922
+	.zero	4
+	.long PathPrivate__Thaw
+	.long MM_Path+933
+	.long MI_PathPrivate+152
+	.long PathPrivate__Freeze
+	.long MM_Path+938
+	.long MI_PathPrivate+148
+	.zero	4
+	.ascii	"/home/ftp/tmp/pm3/tmp/pm3-1.1.15/language/modula3/m3compiler"
+	.ascii	"/m3bootstrap/LINUXLIBC6/pm3-LINUXLIBC6/boot-LINUXLIBC6/libm3"
+	.ascii	"/src/geometry/Path.m3"
+	.zero	1
+.byte 14
+.byte 14
+.byte 14
+.byte 14
+.byte 0
+.byte 6
+.byte 10
+.byte 1
+.byte 15
+.byte 4
+.byte 7
+.byte 24
+.byte 24
+.byte 24
+	.ascii	"Path.BBClosure"
+	.zero	1
+.byte 4
+.byte 0
+.byte 4
+.byte 0
+.byte 2
+.byte 10
+.byte 1
+.byte 16
+.byte 235
+.byte 182
+.byte 155
+.byte 203
+	.ascii	"Path.FlatMap"
+	.zero	1
+.byte 14
+.byte 14
+.byte 0
+	.zero	1
+	.ident	"GCC: (GNU) cygnus-2.7.2-960712"

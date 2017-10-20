@@ -1,0 +1,139 @@
+	.file	"FmtTime.ic"
+	.version	"01.01"
+/ SRC Modula-3 version cygnus-2.7.2-960712 (i486--linuxelf) compiled by GNU C version egcs-2.91.66 19990314/Linux (egcs-1.1.2 release).
+/ options passed:  -fno-strength-reduce -O2
+/ options enabled:  -fdefer-pop -fcse-follow-jumps -fcse-skip-blocks
+/ -fexpensive-optimizations -fthread-jumps -fpeephole -fforce-mem
+/ -ffunction-cse -finline -fkeep-static-consts -fcaller-saves
+/ -fpcc-struct-return -frerun-cse-after-loop -fschedule-insns2 -fcommon
+/ -fverbose-asm -fgnu-linker -m80387 -mhard-float -mno-soft-float -mieee-fp
+/ -mfp-ret-in-387 -mschedule-prologue -mcpu=i486 -march=i486
+
+gcc2_compiled.:
+.globl MI_FmtTime
+.data
+	.align 4
+	.type	 MI_FmtTime,@object
+	.size	 MI_FmtTime,592
+MI_FmtTime:
+	.long MI_FmtTime+440
+	.zero	56
+	.long MI_FmtTime+140
+	.long MI_FmtTime+156
+	.long MI_FmtTime+172
+	.long MI_FmtTime+188
+	.long MI_FmtTime+204
+	.long MI_FmtTime+220
+	.long MI_FmtTime+236
+	.long MI_FmtTime+252
+	.long MI_FmtTime+268
+	.long MI_FmtTime+284
+	.long MI_FmtTime+300
+	.long MI_FmtTime+316
+	.long MI_FmtTime+332
+	.long MI_FmtTime+348
+	.long MI_FmtTime+364
+	.long MI_FmtTime+380
+	.long MI_FmtTime+396
+	.long MI_FmtTime+412
+	.long MI_FmtTime+428
+	.long 2
+	.long MI_FmtTime+148
+	.long 4
+	.ascii	"Jan"
+	.zero	1
+	.long 2
+	.long MI_FmtTime+164
+	.long 4
+	.ascii	"Feb"
+	.zero	1
+	.long 2
+	.long MI_FmtTime+180
+	.long 4
+	.ascii	"Mar"
+	.zero	1
+	.long 2
+	.long MI_FmtTime+196
+	.long 4
+	.ascii	"Apr"
+	.zero	1
+	.long 2
+	.long MI_FmtTime+212
+	.long 4
+	.ascii	"May"
+	.zero	1
+	.long 2
+	.long MI_FmtTime+228
+	.long 4
+	.ascii	"Jun"
+	.zero	1
+	.long 2
+	.long MI_FmtTime+244
+	.long 4
+	.ascii	"Jul"
+	.zero	1
+	.long 2
+	.long MI_FmtTime+260
+	.long 4
+	.ascii	"Aug"
+	.zero	1
+	.long 2
+	.long MI_FmtTime+276
+	.long 4
+	.ascii	"Sep"
+	.zero	1
+	.long 2
+	.long MI_FmtTime+292
+	.long 4
+	.ascii	"Oct"
+	.zero	1
+	.long 2
+	.long MI_FmtTime+308
+	.long 4
+	.ascii	"Nov"
+	.zero	1
+	.long 2
+	.long MI_FmtTime+324
+	.long 4
+	.ascii	"Dec"
+	.zero	1
+	.long 2
+	.long MI_FmtTime+340
+	.long 4
+	.ascii	"Sun"
+	.zero	1
+	.long 2
+	.long MI_FmtTime+356
+	.long 4
+	.ascii	"Mon"
+	.zero	1
+	.long 2
+	.long MI_FmtTime+372
+	.long 4
+	.ascii	"Tue"
+	.zero	1
+	.long 2
+	.long MI_FmtTime+388
+	.long 4
+	.ascii	"Wed"
+	.zero	1
+	.long 2
+	.long MI_FmtTime+404
+	.long 4
+	.ascii	"Thu"
+	.zero	1
+	.long 2
+	.long MI_FmtTime+420
+	.long 4
+	.ascii	"Fri"
+	.zero	1
+	.long 2
+	.long MI_FmtTime+436
+	.long 4
+	.ascii	"Sat"
+	.zero	1
+	.ascii	"/home/ftp/tmp/pm3/tmp/pm3-1.1.15/language/modula3/m3compiler"
+	.ascii	"/m3bootstrap/LINUXLIBC6/pm3-LINUXLIBC6/boot-LINUXLIBC6/m3cor"
+	.ascii	"e/src/time/Common/FmtTime.i3"
+	.zero	4
+	.ident	"GCC: (GNU) cygnus-2.7.2-960712"

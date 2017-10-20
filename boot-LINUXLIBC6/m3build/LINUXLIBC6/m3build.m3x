@@ -1,0 +1,206 @@
+M3 v4.2
+N0 Main
+
+M0 1 17 0 2 1 0 43 0 0 32 0 0
+A0
+N1 Quake
+B1
+N2 BldQuake
+B2
+N3 M3File
+B3
+N4 Pathname
+B4
+N5 Params
+B5
+N6 Thread
+B6
+N7 ASCII
+B7
+N8 Process
+B8
+N9 Env
+B9
+N10 OSError
+B10
+N11 FS
+B11
+N12 Wr
+B12
+N13 Stdio
+B13
+N14 M3Config
+B14
+N15 TextList
+B15
+N16 Text
+B16
+N17 RTHooks
+B17
+N18 QMachRep
+C18
+N19 QMachine
+C19
+D19
+N20 Error
+V0 1 20 661c62d7d56d1bac
+i0
+N21 stdout
+V1 13 21 8d6db1d8112c6904
+i1
+N22 PutText
+V2 12 22 76d5556a4fea2594
+i2
+N23 Exit
+V3 8 23 bf2fe304c2d57489
+i3
+N24 Count
+V4 5 24 de090da99b8ba3e3
+i4
+N25 Get
+V5 5 25 6a5f036f569e526a
+i5
+N26 ReportFault
+V6 17 26 0d3292e6ba1d83b9
+i6
+N27 Equal
+V7 16 27 a3f490929d6abc3e
+i7
+N28 Cons
+V8 15 28 f260f2cedcb354ef
+i8
+N29 Sub
+V9 16 29 c6e6b7b6d0436390
+i9
+N30 GetChar
+V10 16 30 f06eedec333c566f
+i10
+N31 ReverseD
+V11 15 31 16e53efab2307119
+i11
+N32 FindChar
+V12 16 32 ce16f32d627d0653
+i12
+N33 Allocate
+V13 17 33 3dcfa7ba250fc60e
+i13
+N34 E
+V14 10 34 cf6675a7480ffceb
+i14
+N35 SetWorkingDirectory
+V15 8 35 f78de475c29fefca
+i15
+N36 CreateDirectory
+V16 11 36 72f02299ecce268a
+i16
+N37 GetWorkingDirectory
+V17 8 37 af73aaa6a3470c6f
+i17
+N38 Last
+V18 4 38 981918e1297e3587
+i18
+N39 Prefix
+V19 4 39 0d066cb2f3e6d317
+i19
+N40 IsDirectory
+V20 3 40 4c70156af810e3ef
+i20
+N41 Length
+V21 16 41 608b1b6f5a0d5db7
+i21
+N42 Upper
+V22 7 42 f0839f4004981a66
+i22
+N43 Concat
+V23 17 43 a7c87e88a25211fd
+i23
+N44 IsReadable
+V24 3 44 862974d195f890c4
+i24
+N45 List1
+V25 15 45 78cfef188fc295a9
+i25
+N46 AppendD
+V26 15 46 41cb3670ad1d403a
+i26
+N47 Define
+V27 1 47 4f0d266d3f38f00b
+i27
+N48 RunSourceFile
+V28 1 48 ca48f810effe9bf6
+i28
+N49 Done
+V29 1 49 ab78983657fd38f2
+i29
+V30 9 25 f77747ca73aa7292
+i30
+N50 Absolute
+V31 4 50 f73e3e22356959a3
+i31
+N51 T
+V32 2 51 d12c9eaf8ae4d890
+i32
+N52 Machine
+V33 1 52 f31fa7dcdaea10a3
+i33
+N53 Alerted
+V34 6 53 3ae605d9dcac0a20
+i34
+N54 Failure
+V35 12 54 96bc0ebc7fd3bf50
+i35
+N55 M3_VERSION
+V36 14 55 25620b6ab150b70f
+i36
+N56 M3_VERSION_DATE
+V37 14 56 9ec32e96234ee839
+i37
+N57 OS_TYPE
+V38 14 57 a32aa2a3cc6bc700
+i38
+N58 BUILD_DIR
+V39 14 58 c49c761d423efd3d
+i39
+N59 PATH_SEP
+V40 14 59 1292bc2cb79f4b31
+i40
+N60 PKG_USE
+V41 14 60 81c4a191bb337c00
+i41
+V42 15 51 a4983949916dcd79
+i42
+tde95f194
+t7b78c34f
+t23199190
+t62761487
+te3446bb9
+t1bee6e85
+t69c9f5bb
+teae22395
+ta6a06b63
+tc9d11604
+tba99f00f
+t9ddc8045
+ta5d24926
+t296ef740
+t6b313d3e
+t7cfe252f
+tad398276
+t977bb8b0
+ta01f0b92
+t930de6cf
+t56bf7384
+t8548037c
+t6c104196
+tb5ffafe5
+t97f166d3
+tf6ed7cb5
+taf216346
+t6df44563
+tb07c8fa2
+t2d80a266
+t1e89577b
+t8396be82
+o19 0d2c6864 9d8fb489 0 8 352
+o18 3d1e3efd 0d2c6864 1088 32 0
+p19 23199190 3d1e3efd 0 8 0

@@ -1,0 +1,6911 @@
+	.file	"M3CG_Clean.mc"
+	.version	"01.01"
+/ SRC Modula-3 version cygnus-2.7.2-960712 (i486--linuxelf) compiled by GNU C version egcs-2.91.66 19990314/Linux (egcs-1.1.2 release).
+/ options passed:  -fno-strength-reduce -O2
+/ options enabled:  -fdefer-pop -fcse-follow-jumps -fcse-skip-blocks
+/ -fexpensive-optimizations -fthread-jumps -fpeephole -fforce-mem
+/ -ffunction-cse -finline -fkeep-static-consts -fcaller-saves
+/ -fpcc-struct-return -frerun-cse-after-loop -fschedule-insns2 -fcommon
+/ -fverbose-asm -fgnu-linker -m80387 -mhard-float -mno-soft-float -mieee-fp
+/ -mfp-ret-in-387 -mschedule-prologue -mcpu=i486 -march=i486
+
+gcc2_compiled.:
+.text
+	.align 16
+	.type	 M3CG_Clean__Make_clean,@function
+M3CG_Clean__Make_clean:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%esi
+	movl 12(%ebp),%ebx
+	movl 20(%esi),%eax
+	subl %ebx,%eax
+	pushl %eax
+	movl 16(%esi),%eax
+	decl %eax
+	pushl %eax
+	pushl %esi
+	call M3CG_Clean__DoClean
+	movl %eax,%edx
+	movl 16(%esi),%eax
+	pushl %eax
+	pushl %edx
+	pushl %esi
+	call M3CG_Clean__DoFlush
+	movl 20(%esi),%eax
+	subl %ebx,%eax
+	jns .L2
+	xorl %eax,%eax
+.L2:
+	movl %eax,16(%esi)
+	leal -8(%ebp),%esp
+	movl %eax,20(%esi)
+	popl %ebx
+	popl %esi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe1:
+	.size	 M3CG_Clean__Make_clean,.Lfe1-M3CG_Clean__Make_clean
+	.align 16
+	.type	 M3CG_Clean__DoClean,@function
+M3CG_Clean__DoClean:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $16,%esp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 12(%ebp),%esi
+.L4:
+	testl %esi,%esi
+	jl .L23
+	movl 8(%ebp),%ecx
+	movl 12(%ecx),%eax
+	testl %eax,%eax
+	jne .L7
+	pushl $8292
+	call _m3_fault
+	.align 16
+.L7:
+	movl %eax,%ebx
+	cmpl %esi,4(%ebx)
+	ja .L8
+	pushl $8290
+	call _m3_fault
+	.align 16
+.L8:
+	leal (%esi,%esi,4),%eax
+	leal (%esi,%eax,4),%eax
+	leal 0(,%eax,4),%edi
+	movl (%ebx),%edx
+	addl %edi,%edx
+	movl %edx,-4(%ebp)
+	movl 16(%ebp),%ecx
+	cmpl %ecx,4(%edx)
+	jg .L9
+	cmpb $15,8(%edx)
+	jne .L6
+.L9:
+	decl %esi
+	jmp .L4
+	.align 16
+.L6:
+	testl %esi,%esi
+	jge .L10
+.L23:
+	xorl %eax,%eax
+	jmp .L22
+	.align 16
+.L10:
+	cmpl $0,16(%ebp)
+	jg .L11
+	leal 1(%esi),%eax
+	pushl %eax
+	pushl $0
+	movl 8(%ebp),%ecx
+	pushl %ecx
+	call M3CG_Clean__DoFlush
+	jmp .L12
+	.align 16
+.L11:
+	movl 16(%ebp),%ebx
+	decl %ebx
+	pushl %ebx
+	leal -1(%esi),%eax
+	pushl %eax
+	movl 8(%ebp),%ecx
+	pushl %ecx
+	call M3CG_Clean__DoClean
+	movl %eax,-16(%ebp)
+	addl $12,%esp
+	cmpl %esi,%eax
+	jne .L13
+	cmpl %esi,%ebx
+	jne .L13
+	movl 8(%ebp),%ecx
+	movl 12(%ecx),%eax
+	testl %eax,%eax
+	jne .L14
+	pushl $8516
+	call _m3_fault
+	.align 16
+.L14:
+	movl %eax,%edx
+	cmpl %esi,4(%edx)
+	ja .L15
+	pushl $8514
+	call _m3_fault
+	.align 16
+.L15:
+	movl (%edx),%eax
+	cmpb $0,(%eax,%edi)
+	je .L12
+.L13:
+	leal 1(%esi),%eax
+	pushl %eax
+	movl -16(%ebp),%ecx
+	pushl %ecx
+	movl 8(%ebp),%ecx
+	pushl %ecx
+	call M3CG_Clean__DoFlush
+	movl 8(%ebp),%ecx
+	addl $12,%esp
+	movl 12(%ecx),%eax
+	testl %eax,%eax
+	jne .L17
+	pushl $8564
+	call _m3_fault
+	.align 16
+.L17:
+	movl %eax,%edx
+	cmpl %esi,4(%edx)
+	ja .L18
+	pushl $8562
+	call _m3_fault
+	.align 16
+.L18:
+	leal (%esi,%esi,4),%eax
+	leal (%esi,%eax,4),%eax
+	sall $2,%eax
+	addl (%edx),%eax
+	movl 8(%ebp),%ecx
+	movb 8(%eax),%al
+	movb %al,-12(%ebp)
+	movl 4(%ecx),%edx
+	movl (%edx),%eax
+	movl 156(%eax),%ebx
+	pushl $0
+	movzbl -12(%ebp),%edi
+	xorl %eax,%eax
+	movb MI_TargetMap+300(%edi),%al
+	pushl %eax
+	movl MI_TargetMap+44(,%edi,4),%eax
+	pushl %eax
+	movl MI_TargetMap+236(,%edi,4),%eax
+	pushl %eax
+	pushl %edx
+	call *%ebx
+	movl %eax,%edx
+	movl 8(%ebp),%ecx
+	movl %edx,-8(%ebp)
+	movl 4(%ecx),%edx
+	movl (%edx),%eax
+	addl $20,%esp
+	movl 288(%eax),%ebx
+	cmpl $13,%edi
+	jle .L19
+	pushl $8641
+	call _m3_fault
+	.align 16
+.L19:
+	pushl %edi
+	pushl $0
+	movl -8(%ebp),%ecx
+	pushl %ecx
+	pushl %edx
+	call *%ebx
+	movl 8(%ebp),%ecx
+	addl $16,%esp
+	movl 12(%ecx),%eax
+	testl %eax,%eax
+	jne .L20
+	pushl $8660
+	call _m3_fault
+	.align 16
+.L20:
+	movl %eax,%ebx
+	movl 16(%ebp),%edx
+	decl %edx
+	cmpl %edx,4(%ebx)
+	ja .L21
+	pushl $8658
+	call _m3_fault
+	.align 16
+.L21:
+	leal (%edx,%edx,4),%eax
+	leal (%edx,%eax,4),%eax
+	movl (%ebx),%edx
+	leal (%edx,%eax,4),%edx
+	movl %edx,-4(%ebp)
+	movb $0,(%edx)
+	movl -4(%ebp),%edx
+	movl -8(%ebp),%ecx
+	movl %ecx,24(%edx)
+	movl 16(%ebp),%ecx
+	movl %ecx,4(%edx)
+	movb -12(%ebp),%cl
+	movb %cl,8(%edx)
+.L12:
+	leal 1(%esi),%eax
+.L22:
+	leal -28(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe2:
+	.size	 M3CG_Clean__DoClean,.Lfe2-M3CG_Clean__DoClean
+	.align 16
+	.type	 M3CG_Clean__Flush_buffer,@function
+M3CG_Clean__Flush_buffer:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %ebx
+	movl 8(%ebp),%ebx
+	movl 16(%ebx),%eax
+	pushl %eax
+	pushl $0
+	pushl %ebx
+	call M3CG_Clean__DoFlush
+	movl $0,16(%ebx)
+	movl $0,20(%ebx)
+	movl -4(%ebp),%ebx
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe3:
+	.size	 M3CG_Clean__Flush_buffer,.Lfe3-M3CG_Clean__Flush_buffer
+.section	.rodata
+	.align 4
+	.type	 L_2.0,@object
+	.size	 L_2.0,404
+L_2.0:
+	.long .L30
+	.long .L31
+	.long .L32
+	.long .L33
+	.long .L34
+	.long .L35
+	.long .L36
+	.long .L37
+	.long .L38
+	.long .L39
+	.long .L40
+	.long .L41
+	.long .L42
+	.long .L43
+	.long .L44
+	.long .L45
+	.long .L46
+	.long .L47
+	.long .L48
+	.long .L49
+	.long .L50
+	.long .L51
+	.long .L52
+	.long .L53
+	.long .L54
+	.long .L55
+	.long .L56
+	.long .L57
+	.long .L58
+	.long .L59
+	.long .L60
+	.long .L61
+	.long .L62
+	.long .L63
+	.long .L64
+	.long .L65
+	.long .L66
+	.long .L67
+	.long .L68
+	.long .L69
+	.long .L70
+	.long .L71
+	.long .L72
+	.long .L73
+	.long .L74
+	.long .L75
+	.long .L76
+	.long .L77
+	.long .L78
+	.long .L79
+	.long .L80
+	.long .L81
+	.long .L82
+	.long .L83
+	.long .L84
+	.long .L85
+	.long .L86
+	.long .L87
+	.long .L88
+	.long .L89
+	.long .L90
+	.long .L91
+	.long .L92
+	.long .L93
+	.long .L94
+	.long .L95
+	.long .L96
+	.long .L97
+	.long .L98
+	.long .L99
+	.long .L100
+	.long .L101
+	.long .L102
+	.long .L103
+	.long .L104
+	.long .L105
+	.long .L106
+	.long .L107
+	.long .L108
+	.long .L109
+	.long .L110
+	.long .L111
+	.long .L112
+	.long .L113
+	.long .L114
+	.long .L115
+	.long .L116
+	.long .L117
+	.long .L118
+	.long .L119
+	.long .L120
+	.long .L121
+	.long .L122
+	.long .L123
+	.long .L124
+	.long .L125
+	.long .L126
+	.long .L127
+	.long .L128
+	.long .L129
+	.long .L130
+.text
+	.align 16
+	.type	 M3CG_Clean__DoFlush,@function
+M3CG_Clean__DoFlush:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $12,%esp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%edi
+	movl 4(%edi),%esi
+	movl 12(%ebp),%edi
+	movl %edi,-12(%ebp)
+	movl 16(%ebp),%edi
+	decl %edi
+	movl %edi,-8(%ebp)
+	jmp .L26
+	.align 16
+.L27:
+	movl 8(%ebp),%edi
+	movl 12(%edi),%edx
+	testl %edx,%edx
+	jne .L28
+	pushl $9028
+	call _m3_fault
+	.align 16
+.L28:
+	movl -12(%ebp),%edi
+	cmpl %edi,4(%edx)
+	ja .L29
+	pushl $9026
+	call _m3_fault
+	.align 16
+.L29:
+	movl -12(%ebp),%edi
+	leal (%edi,%edi,4),%eax
+	leal (%edi,%eax,4),%eax
+	movl (%edx),%edx
+	leal (%edx,%eax,4),%ebx
+	movl %ebx,-4(%ebp)
+	xorl %eax,%eax
+	movb (%ebx),%al
+	jmp *L_2.0(,%eax,4)
+	.align 16
+.L30:
+	movl (%esi),%eax
+	movl -4(%ebp),%edx
+	movl 276(%eax),%ebx
+	xorl %eax,%eax
+	movb 36(%edx),%al
+	cmpl $13,%eax
+	jle .L131
+	pushl $9073
+	call _m3_fault
+	.align 16
+.L131:
+	pushl %eax
+	pushl $0
+	movl 24(%edx),%eax
+	pushl %eax
+	pushl %esi
+	call *%ebx
+	movl (%esi),%eax
+	movl 160(%eax),%ebx
+	movl -4(%ebp),%eax
+	movl 24(%eax),%eax
+	pushl %eax
+	pushl %esi
+	call *%ebx
+	addl $24,%esp
+	jmp .L132
+	.align 16
+.L31:
+	movl (%esi),%eax
+	movl 28(%eax),%ebx
+	movl -4(%ebp),%eax
+	movl 12(%eax),%eax
+	jmp .L197
+	.align 16
+.L32:
+	movl (%esi),%eax
+	movl 32(%eax),%ebx
+	movl -4(%ebp),%eax
+	movl 16(%eax),%eax
+	jmp .L197
+	.align 16
+.L33:
+	movl (%esi),%eax
+	movl 160(%eax),%ebx
+	movl -4(%ebp),%eax
+	movl 24(%eax),%eax
+	jmp .L197
+	.align 16
+.L34:
+	movl (%esi),%eax
+	movl -4(%ebp),%edx
+	movl 228(%eax),%ebx
+	xorl %eax,%eax
+	movb 28(%edx),%al
+	pushl %eax
+	movl 32(%edx),%eax
+	jmp .L198
+	.align 16
+.L35:
+	movl (%esi),%eax
+	movl 232(%eax),%ebx
+	movl -4(%ebp),%eax
+	movl 32(%eax),%eax
+	jmp .L197
+	.align 16
+.L36:
+	movl (%esi),%eax
+	movl -4(%ebp),%edx
+	movl 236(%eax),%ebx
+	movl 16(%edx),%eax
+	cmpl $100,%eax
+	jbe .L133
+	pushl $9185
+	call _m3_fault
+	.align 16
+.L133:
+	pushl %eax
+	movl 32(%edx),%eax
+	jmp .L198
+	.align 16
+.L37:
+	movl (%esi),%eax
+	movl -4(%ebp),%edx
+	movl 240(%eax),%ebx
+	movl 16(%edx),%eax
+	cmpl $100,%eax
+	jbe .L134
+	pushl $9201
+	call _m3_fault
+	.align 16
+.L134:
+	pushl %eax
+	movl 32(%edx),%eax
+	jmp .L198
+	.align 16
+.L38:
+	movl (%esi),%eax
+	movl -4(%ebp),%edx
+	movl 244(%eax),%ebx
+	xorl %ecx,%ecx
+	movb 36(%edx),%cl
+	cmpl $5,%ecx
+	jle .L135
+	pushl $9217
+	call _m3_fault
+	.align 16
+.L135:
+	movl 16(%edx),%eax
+	cmpl $100,%eax
+	jbe .L136
+	pushl $9217
+	call _m3_fault
+	.align 16
+.L136:
+	pushl %eax
+	pushl %ecx
+	movl 32(%edx),%eax
+	jmp .L199
+	.align 16
+.L39:
+	movl (%esi),%eax
+	movl -4(%ebp),%edx
+	movl 248(%eax),%ebx
+	xorl %ecx,%ecx
+	movb 36(%edx),%cl
+	cmpl $5,%ecx
+	jle .L137
+	pushl $9233
+	call _m3_fault
+	.align 16
+.L137:
+	movl 16(%edx),%eax
+	cmpl $100,%eax
+	jbe .L138
+	pushl $9233
+	call _m3_fault
+	.align 16
+.L138:
+	pushl %eax
+	pushl %ecx
+	movl 32(%edx),%eax
+	jmp .L199
+	.align 16
+.L40:
+	movl (%esi),%eax
+	movl -4(%ebp),%edx
+	movl 252(%eax),%ebx
+	xorl %ecx,%ecx
+	movb 36(%edx),%cl
+	cmpl $5,%ecx
+	jle .L139
+	pushl $9249
+	call _m3_fault
+	.align 16
+.L139:
+	movl 16(%edx),%eax
+	cmpl $100,%eax
+	jbe .L140
+	pushl $9249
+	call _m3_fault
+	.align 16
+.L140:
+	pushl %eax
+	pushl %ecx
+	movl 32(%edx),%eax
+	jmp .L199
+	.align 16
+.L41:
+	movl (%esi),%eax
+	movl -4(%ebp),%edx
+	movl 256(%eax),%ebx
+	xorl %ecx,%ecx
+	movb 36(%edx),%cl
+	cmpl $5,%ecx
+	jle .L141
+	pushl $9265
+	call _m3_fault
+	.align 16
+.L141:
+	movl 16(%edx),%eax
+	cmpl $100,%eax
+	jbe .L142
+	pushl $9265
+	call _m3_fault
+	.align 16
+.L142:
+	pushl %eax
+	pushl %ecx
+	movl 32(%edx),%eax
+	jmp .L199
+	.align 16
+.L42:
+	movl (%esi),%eax
+	movl -4(%ebp),%edx
+	movl 260(%eax),%ebx
+	xorl %ecx,%ecx
+	movb 36(%edx),%cl
+	cmpl $5,%ecx
+	jle .L143
+	pushl $9281
+	call _m3_fault
+	.align 16
+.L143:
+	movl 16(%edx),%eax
+	cmpl $100,%eax
+	jbe .L144
+	pushl $9281
+	call _m3_fault
+	.align 16
+.L144:
+	pushl %eax
+	pushl %ecx
+	movl 32(%edx),%eax
+	jmp .L199
+	.align 16
+.L43:
+	movl (%esi),%eax
+	movl -4(%ebp),%edx
+	movl 264(%eax),%ebx
+	xorl %ecx,%ecx
+	movb 36(%edx),%cl
+	cmpl $5,%ecx
+	jle .L145
+	pushl $9297
+	call _m3_fault
+	.align 16
+.L145:
+	movl 16(%edx),%eax
+	cmpl $100,%eax
+	jbe .L146
+	pushl $9297
+	call _m3_fault
+	.align 16
+.L146:
+	pushl %eax
+	pushl %ecx
+	movl 32(%edx),%eax
+	jmp .L199
+	.align 16
+.L44:
+	movl (%esi),%eax
+	movl -4(%ebp),%edx
+	movl 276(%eax),%ebx
+	xorl %eax,%eax
+	movb 36(%edx),%al
+	cmpl $13,%eax
+	jle .L147
+	pushl $9313
+	call _m3_fault
+	.align 16
+.L147:
+	pushl %eax
+	movl 16(%edx),%eax
+	pushl %eax
+	movl 24(%edx),%eax
+	jmp .L199
+	.align 16
+.L45:
+	movl (%esi),%eax
+	movl -4(%ebp),%edx
+	movl 288(%eax),%ebx
+	xorl %eax,%eax
+	movb 36(%edx),%al
+	cmpl $13,%eax
+	jle .L148
+	pushl $9329
+	call _m3_fault
+	.align 16
+.L148:
+	pushl %eax
+	movl 16(%edx),%eax
+	pushl %eax
+	movl 24(%edx),%eax
+	jmp .L199
+	.align 16
+.L46:
+	movl (%esi),%eax
+	movl -4(%ebp),%edx
+	movl 296(%eax),%ebx
+	movl 16(%edx),%eax
+	pushl %eax
+	movl 24(%edx),%eax
+	jmp .L198
+	.align 16
+.L47:
+	movl (%esi),%eax
+	movl -4(%ebp),%edx
+	movl 280(%eax),%ebx
+	movl 16(%edx),%eax
+	pushl %eax
+	movl 24(%edx),%eax
+	jmp .L198
+	.align 16
+.L48:
+	movl (%esi),%eax
+	movl -4(%ebp),%edx
+	movl 284(%eax),%ebx
+	xorl %eax,%eax
+	movb 36(%edx),%al
+	cmpl $13,%eax
+	jle .L149
+	pushl $9377
+	call _m3_fault
+	.align 16
+.L149:
+	pushl %eax
+	movl 16(%edx),%eax
+	jmp .L198
+	.align 16
+.L49:
+	movl (%esi),%eax
+	movl -4(%ebp),%edx
+	movl 292(%eax),%ebx
+	xorl %eax,%eax
+	movb 36(%edx),%al
+	cmpl $13,%eax
+	jle .L150
+	pushl $9393
+	call _m3_fault
+	.align 16
+.L150:
+	pushl %eax
+	movl 16(%edx),%eax
+	jmp .L198
+	.align 16
+.L50:
+	movl (%esi),%eax
+	movl -4(%ebp),%edx
+	movl 300(%eax),%ebx
+	xorl %eax,%eax
+	movb 28(%edx),%al
+	pushl %eax
+	movl 16(%edx),%eax
+	jmp .L198
+	.align 16
+.L51:
+	movl (%esi),%eax
+	movl 304(%eax),%ebx
+	jmp .L200
+	.align 16
+.L52:
+	movl (%esi),%eax
+	movl 308(%eax),%ebx
+	movl -4(%ebp),%eax
+	addl $40,%eax
+	jmp .L197
+	.align 16
+.L53:
+	movl (%esi),%eax
+	movl 312(%eax),%ebx
+	movl -4(%ebp),%eax
+	addl $56,%eax
+	jmp .L197
+	.align 16
+.L54:
+	movl (%esi),%eax
+	movl 316(%eax),%ebx
+	movl -4(%ebp),%eax
+	movb 36(%eax),%al
+	andl $255,%eax
+	cmpl $5,%eax
+	jle .L197
+	pushl $9473
+	call _m3_fault
+	.align 16
+.L55:
+	movl (%esi),%eax
+	movl 320(%eax),%ebx
+	movl -4(%ebp),%eax
+	movb 36(%eax),%al
+	andl $255,%eax
+	cmpl $5,%eax
+	jle .L197
+	pushl $9489
+	call _m3_fault
+	.align 16
+.L56:
+	movl (%esi),%eax
+	movl 324(%eax),%ebx
+	movl -4(%ebp),%eax
+	movb 36(%eax),%al
+	andl $255,%eax
+	cmpl $5,%eax
+	jle .L197
+	pushl $9505
+	call _m3_fault
+	.align 16
+.L57:
+	movl (%esi),%eax
+	movl 328(%eax),%ebx
+	movl -4(%ebp),%eax
+	movb 36(%eax),%al
+	andl $255,%eax
+	cmpl $5,%eax
+	jle .L197
+	pushl $9521
+	call _m3_fault
+	.align 16
+.L58:
+	movl (%esi),%eax
+	movl 332(%eax),%ebx
+	movl -4(%ebp),%eax
+	movb 36(%eax),%al
+	andl $255,%eax
+	cmpl $5,%eax
+	jle .L197
+	pushl $9537
+	call _m3_fault
+	.align 16
+.L59:
+	movl (%esi),%eax
+	movl 336(%eax),%ebx
+	movl -4(%ebp),%eax
+	movb 36(%eax),%al
+	andl $255,%eax
+	cmpl $5,%eax
+	jle .L197
+	pushl $9553
+	call _m3_fault
+	.align 16
+.L60:
+	movl (%esi),%eax
+	movl 340(%eax),%ebx
+	movl -4(%ebp),%eax
+	xorl %edx,%edx
+	movb 36(%eax),%dl
+	leal -1(%edx),%eax
+	cmpl $4,%eax
+	jbe .L157
+	pushl $9569
+	call _m3_fault
+	.align 16
+.L157:
+	pushl %edx
+	jmp .L201
+	.align 16
+.L61:
+	movl (%esi),%eax
+	movl 344(%eax),%ebx
+	movl -4(%ebp),%eax
+	xorl %edx,%edx
+	movb 36(%eax),%dl
+	leal -1(%edx),%eax
+	cmpl $4,%eax
+	jbe .L158
+	pushl $9585
+	call _m3_fault
+	.align 16
+.L158:
+	pushl %edx
+	jmp .L201
+	.align 16
+.L62:
+	movl (%esi),%eax
+	movl 348(%eax),%ebx
+	movl -4(%ebp),%eax
+	xorl %edx,%edx
+	movb 36(%eax),%dl
+	leal -1(%edx),%eax
+	cmpl $4,%eax
+	jbe .L159
+	pushl $9601
+	call _m3_fault
+	.align 16
+.L159:
+	pushl %edx
+	jmp .L201
+	.align 16
+.L63:
+	movl (%esi),%eax
+	movl 352(%eax),%ebx
+	movl -4(%ebp),%eax
+	xorl %edx,%edx
+	movb 36(%eax),%dl
+	leal -3(%edx),%eax
+	cmpl $2,%eax
+	jbe .L160
+	pushl $9617
+	call _m3_fault
+	.align 16
+.L160:
+	pushl %edx
+	jmp .L201
+	.align 16
+.L64:
+	movl (%esi),%eax
+	movl -4(%ebp),%edx
+	movl 392(%eax),%ebx
+	xorl %ecx,%ecx
+	movb 36(%edx),%cl
+	leal -1(%ecx),%eax
+	cmpl $1,%eax
+	jbe .L161
+	pushl $9633
+	call _m3_fault
+	.align 16
+.L161:
+	xorl %eax,%eax
+	movb 73(%edx),%al
+	pushl %eax
+	xorl %eax,%eax
+	movb 72(%edx),%al
+	pushl %eax
+	pushl %ecx
+	jmp .L202
+	.align 16
+.L65:
+	movl (%esi),%eax
+	movl -4(%ebp),%edx
+	movl 396(%eax),%ebx
+	xorl %ecx,%ecx
+	movb 36(%edx),%cl
+	leal -1(%ecx),%eax
+	cmpl $1,%eax
+	jbe .L162
+	pushl $9649
+	call _m3_fault
+	.align 16
+.L162:
+	xorl %eax,%eax
+	movb 73(%edx),%al
+	pushl %eax
+	xorl %eax,%eax
+	movb 72(%edx),%al
+	pushl %eax
+	pushl %ecx
+	jmp .L202
+	.align 16
+.L66:
+	movl (%esi),%eax
+	movl 356(%eax),%ebx
+	movl -4(%ebp),%eax
+	xorl %edx,%edx
+	movb 36(%eax),%dl
+	leal -1(%edx),%eax
+	cmpl $4,%eax
+	jbe .L163
+	pushl $9665
+	call _m3_fault
+	.align 16
+.L163:
+	pushl %edx
+	jmp .L201
+	.align 16
+.L67:
+	movl (%esi),%eax
+	movl 360(%eax),%ebx
+	movl -4(%ebp),%eax
+	xorl %edx,%edx
+	movb 36(%eax),%dl
+	leal -1(%edx),%eax
+	cmpl $4,%eax
+	jbe .L164
+	pushl $9681
+	call _m3_fault
+	.align 16
+.L164:
+	pushl %edx
+	jmp .L201
+	.align 16
+.L68:
+	movl (%esi),%eax
+	movl 364(%eax),%ebx
+	movl -4(%ebp),%eax
+	movb 36(%eax),%al
+	andl $255,%eax
+	cmpl $5,%eax
+	jle .L197
+	pushl $9697
+	call _m3_fault
+	.align 16
+.L69:
+	movl (%esi),%eax
+	movl 368(%eax),%ebx
+	movl -4(%ebp),%eax
+	movb 36(%eax),%al
+	andl $255,%eax
+	cmpl $5,%eax
+	jle .L197
+	pushl $9713
+	call _m3_fault
+	.align 16
+.L70:
+	movl (%esi),%eax
+	movl 372(%eax),%ebx
+	movl -4(%ebp),%eax
+	xorl %edx,%edx
+	movb 36(%eax),%dl
+	leal -3(%edx),%eax
+	cmpl $2,%eax
+	jbe .L167
+	pushl $9729
+	call _m3_fault
+	.align 16
+.L167:
+	pushl %edx
+	jmp .L201
+	.align 16
+.L71:
+	movl (%esi),%eax
+	movl 376(%eax),%ebx
+	movl -4(%ebp),%eax
+	xorl %edx,%edx
+	movb 36(%eax),%dl
+	leal -3(%edx),%eax
+	cmpl $2,%eax
+	jbe .L168
+	pushl $9745
+	call _m3_fault
+	.align 16
+.L168:
+	pushl %edx
+	jmp .L201
+	.align 16
+.L72:
+	movl (%esi),%eax
+	movl 380(%eax),%ebx
+	movl -4(%ebp),%eax
+	xorl %edx,%edx
+	movb 36(%eax),%dl
+	leal -3(%edx),%eax
+	cmpl $2,%eax
+	jbe .L169
+	pushl $9761
+	call _m3_fault
+	.align 16
+.L169:
+	pushl %edx
+	jmp .L201
+	.align 16
+.L73:
+	movl (%esi),%eax
+	movl 384(%eax),%ebx
+	movl -4(%ebp),%eax
+	xorl %edx,%edx
+	movb 36(%eax),%dl
+	leal -3(%edx),%eax
+	cmpl $2,%eax
+	jbe .L170
+	pushl $9777
+	call _m3_fault
+	.align 16
+.L170:
+	pushl %edx
+	jmp .L201
+	.align 16
+.L74:
+	movl (%esi),%eax
+	movl -4(%ebp),%edx
+	movl 388(%eax),%ebx
+	xorl %ecx,%ecx
+	movb 37(%edx),%cl
+	leal -1(%ecx),%eax
+	cmpl $4,%eax
+	jbe .L171
+	pushl $9793
+	call _m3_fault
+	.align 16
+.L171:
+	movb 36(%edx),%dl
+	andl $255,%edx
+	leal -3(%edx),%eax
+	cmpl $2,%eax
+	jbe .L172
+	pushl $9793
+	call _m3_fault
+	.align 16
+.L172:
+	pushl %edx
+	pushl %ecx
+	jmp .L203
+	.align 16
+.L75:
+	movl (%esi),%eax
+	movl 400(%eax),%ebx
+	movl -4(%ebp),%eax
+	movl 16(%eax),%eax
+	testl %eax,%eax
+	jge .L197
+	pushl $9809
+	call _m3_fault
+	.align 16
+.L76:
+	movl (%esi),%eax
+	movl 404(%eax),%ebx
+	movl -4(%ebp),%eax
+	movl 16(%eax),%eax
+	testl %eax,%eax
+	jge .L197
+	pushl $9825
+	call _m3_fault
+	.align 16
+.L77:
+	movl (%esi),%eax
+	movl 408(%eax),%ebx
+	movl -4(%ebp),%eax
+	movl 16(%eax),%eax
+	testl %eax,%eax
+	jge .L197
+	pushl $9841
+	call _m3_fault
+	.align 16
+.L78:
+	movl (%esi),%eax
+	movl 412(%eax),%ebx
+	movl -4(%ebp),%eax
+	movl 16(%eax),%eax
+	testl %eax,%eax
+	jge .L197
+	pushl $9857
+	call _m3_fault
+	.align 16
+.L79:
+	movl (%esi),%eax
+	movl 416(%eax),%ebx
+	movl -4(%ebp),%eax
+	movl 16(%eax),%eax
+	testl %eax,%eax
+	jge .L197
+	pushl $9873
+	call _m3_fault
+	.align 16
+.L80:
+	movl (%esi),%eax
+	movl 420(%eax),%ebx
+	movl -4(%ebp),%eax
+	movl 16(%eax),%eax
+	testl %eax,%eax
+	jge .L197
+	pushl $9889
+	call _m3_fault
+	.align 16
+.L81:
+	movl (%esi),%eax
+	movl 424(%eax),%ebx
+	movl -4(%ebp),%eax
+	movl 16(%eax),%eax
+	testl %eax,%eax
+	jge .L197
+	pushl $9905
+	call _m3_fault
+	.align 16
+.L82:
+	movl (%esi),%eax
+	movl 436(%eax),%ebx
+	movl -4(%ebp),%eax
+	movl 16(%eax),%eax
+	testl %eax,%eax
+	jge .L197
+	pushl $9921
+	call _m3_fault
+	.align 16
+.L83:
+	movl (%esi),%eax
+	movl 440(%eax),%ebx
+	movl -4(%ebp),%eax
+	movl 16(%eax),%eax
+	testl %eax,%eax
+	jge .L197
+	pushl $9937
+	call _m3_fault
+	.align 16
+.L84:
+	movl (%esi),%eax
+	movl 428(%eax),%ebx
+	movl -4(%ebp),%eax
+	movl 16(%eax),%eax
+	testl %eax,%eax
+	jge .L197
+	pushl $9953
+	call _m3_fault
+	.align 16
+.L85:
+	movl (%esi),%eax
+	movl 432(%eax),%ebx
+	movl -4(%ebp),%eax
+	movl 16(%eax),%eax
+	testl %eax,%eax
+	jge .L197
+	pushl $9969
+	call _m3_fault
+	.align 16
+.L86:
+	movl (%esi),%eax
+	movl 444(%eax),%ebx
+	movl -4(%ebp),%eax
+	movl 16(%eax),%eax
+	testl %eax,%eax
+	jge .L197
+	pushl $9985
+	call _m3_fault
+	.align 16
+.L87:
+	movl (%esi),%eax
+	movl 448(%eax),%ebx
+	movl -4(%ebp),%eax
+	movl 16(%eax),%eax
+	testl %eax,%eax
+	jge .L197
+	pushl $10001
+	call _m3_fault
+	.align 16
+.L88:
+	movl (%esi),%eax
+	movl 452(%eax),%ebx
+	jmp .L200
+	.align 16
+.L89:
+	movl (%esi),%eax
+	movl 456(%eax),%ebx
+	jmp .L200
+	.align 16
+.L90:
+	movl (%esi),%eax
+	movl 460(%eax),%ebx
+	jmp .L200
+	.align 16
+.L91:
+	movl (%esi),%eax
+	movl 464(%eax),%ebx
+	jmp .L200
+	.align 16
+.L92:
+	movl (%esi),%eax
+	movl 468(%eax),%ebx
+	jmp .L200
+	.align 16
+.L93:
+	movl (%esi),%eax
+	movl 472(%eax),%ebx
+	jmp .L200
+	.align 16
+.L94:
+	movl (%esi),%eax
+	movl 476(%eax),%ebx
+	jmp .L200
+	.align 16
+.L95:
+	movl (%esi),%eax
+	movl 480(%eax),%ebx
+	jmp .L200
+	.align 16
+.L96:
+	movl (%esi),%eax
+	movl 484(%eax),%ebx
+	jmp .L200
+	.align 16
+.L97:
+	movl (%esi),%eax
+	movl 488(%eax),%ebx
+	jmp .L200
+	.align 16
+.L98:
+	movl (%esi),%eax
+	movl 492(%eax),%ebx
+	movl -4(%ebp),%eax
+	movb 28(%eax),%al
+	andl $255,%eax
+	jmp .L197
+	.align 16
+.L99:
+	movl (%esi),%eax
+	movl -4(%ebp),%edx
+	movl 496(%eax),%ebx
+	movl 16(%edx),%eax
+	pushl %eax
+	xorl %eax,%eax
+	movb 28(%edx),%al
+	jmp .L198
+	.align 16
+.L100:
+	movl (%esi),%eax
+	movl -4(%ebp),%edx
+	movl 500(%eax),%ebx
+	movl 20(%edx),%eax
+	pushl %eax
+	movl 16(%edx),%eax
+	pushl %eax
+	xorl %eax,%eax
+	movb 28(%edx),%al
+	jmp .L199
+	.align 16
+.L101:
+	movl (%esi),%eax
+	movl 504(%eax),%ebx
+	jmp .L200
+	.align 16
+.L102:
+	movl (%esi),%eax
+	movl 508(%eax),%ebx
+	movl -4(%ebp),%eax
+	movl 16(%eax),%eax
+	jmp .L197
+	.align 16
+.L103:
+	movl (%esi),%eax
+	movl -4(%ebp),%edx
+	movl 512(%eax),%ebx
+	movl 20(%edx),%eax
+	pushl %eax
+	movl 16(%edx),%eax
+	jmp .L198
+	.align 16
+.L104:
+	movl (%esi),%eax
+	movl -4(%ebp),%edx
+	movl 516(%eax),%ebx
+	xorl %eax,%eax
+	movb 37(%edx),%al
+	jmp .L204
+	.align 16
+.L105:
+	movl (%esi),%eax
+	movl 520(%eax),%ebx
+	movl -4(%ebp),%eax
+	movb 36(%eax),%al
+	andl $255,%eax
+	jmp .L197
+	.align 16
+.L106:
+	movl (%esi),%eax
+	movl 524(%eax),%ebx
+	movl -4(%ebp),%eax
+	xorl %edx,%edx
+	movb 36(%eax),%dl
+	cmpl $13,%edx
+	jle .L186
+	pushl $10305
+	call _m3_fault
+	.align 16
+.L186:
+	movb 28(%eax),%al
+	andl $255,%eax
+	pushl %eax
+	pushl %edx
+	jmp .L203
+	.align 16
+.L107:
+	movl (%esi),%eax
+	movl -4(%ebp),%edx
+	movl 528(%eax),%ebx
+	xorl %ecx,%ecx
+	movb 36(%edx),%cl
+	cmpl $13,%ecx
+	jle .L187
+	pushl $10321
+	call _m3_fault
+	.align 16
+.L187:
+	xorl %eax,%eax
+	movb 28(%edx),%al
+	pushl %eax
+	pushl %ecx
+	movl 16(%edx),%eax
+	jmp .L199
+	.align 16
+.L108:
+	movl (%esi),%eax
+	movl 532(%eax),%ebx
+	movl -4(%ebp),%eax
+	movb 36(%eax),%al
+	andl $255,%eax
+	cmpl $13,%eax
+	jle .L197
+	pushl $10337
+	call _m3_fault
+	.align 16
+.L109:
+	movl (%esi),%eax
+	movl -4(%ebp),%edx
+	movl 536(%eax),%ebx
+	xorl %eax,%eax
+	movb 36(%edx),%al
+	cmpl $13,%eax
+	jle .L189
+	pushl $10353
+	call _m3_fault
+	.align 16
+.L189:
+	pushl %eax
+	movl 16(%edx),%eax
+	jmp .L198
+	.align 16
+.L110:
+	movl (%esi),%eax
+	movl 540(%eax),%ebx
+	movl -4(%ebp),%eax
+	xorl %edx,%edx
+	movb 37(%eax),%dl
+	cmpl $5,%edx
+	jle .L190
+	pushl $10369
+	call _m3_fault
+	.align 16
+.L190:
+	movb 36(%eax),%al
+	andl $255,%eax
+	cmpl $5,%eax
+	jle .L191
+	pushl $10369
+	call _m3_fault
+	.align 16
+.L191:
+	pushl %eax
+	pushl %edx
+	jmp .L203
+	.align 16
+.L111:
+	movl (%esi),%eax
+	movl 564(%eax),%ebx
+	jmp .L200
+	.align 16
+.L112:
+	movl (%esi),%eax
+	movl 568(%eax),%ebx
+	movl -4(%ebp),%eax
+	addl $40,%eax
+	jmp .L197
+	.align 16
+.L113:
+	movl (%esi),%eax
+	movl 572(%eax),%ebx
+	movl -4(%ebp),%eax
+	addl $40,%eax
+	jmp .L197
+	.align 16
+.L114:
+	movl (%esi),%eax
+	movl 576(%eax),%ebx
+	movl -4(%ebp),%eax
+	leal 48(%eax),%edx
+	pushl %edx
+	addl $40,%eax
+	jmp .L198
+	.align 16
+.L115:
+	movl (%esi),%eax
+	movl 580(%eax),%ebx
+	jmp .L200
+	.align 16
+.L116:
+	movl (%esi),%eax
+	movl 584(%eax),%ebx
+	jmp .L200
+	.align 16
+.L117:
+	movl (%esi),%eax
+	movl 588(%eax),%ebx
+	movl -4(%ebp),%eax
+	movl 16(%eax),%eax
+	jmp .L197
+	.align 16
+.L118:
+	movl (%esi),%eax
+	movl 592(%eax),%ebx
+	movl -4(%ebp),%eax
+	movl 16(%eax),%eax
+	jmp .L197
+	.align 16
+.L119:
+	movl (%esi),%eax
+	movl -4(%ebp),%edx
+	movl 596(%eax),%ebx
+	xorl %eax,%eax
+	movb 36(%edx),%al
+	pushl %eax
+	movl 16(%edx),%eax
+	pushl %eax
+	movl 76(%edx),%eax
+.L199:
+	pushl %eax
+.L202:
+	pushl %esi
+	call *%ebx
+	addl $16,%esp
+	jmp .L132
+	.align 16
+.L120:
+	movl (%esi),%eax
+	movl -4(%ebp),%edx
+	movl 604(%eax),%ebx
+	jmp .L205
+	.align 16
+.L121:
+	movl (%esi),%eax
+	movl 612(%eax),%ebx
+	movl -4(%ebp),%eax
+	movb 36(%eax),%al
+	andl $255,%eax
+	cmpl $13,%eax
+	jle .L197
+	pushl $10545
+	call _m3_fault
+	.align 16
+.L122:
+	movl (%esi),%eax
+	movl 616(%eax),%ebx
+	movl -4(%ebp),%eax
+	movl 16(%eax),%edx
+	testl %edx,%edx
+	jge .L193
+	pushl $10561
+	call _m3_fault
+	.align 16
+.L193:
+	movl 20(%eax),%eax
+	testl %eax,%eax
+	jge .L194
+	pushl $10561
+	call _m3_fault
+	.align 16
+.L194:
+	pushl %eax
+	pushl %edx
+	jmp .L203
+	.align 16
+.L123:
+	movl (%esi),%eax
+	movl 620(%eax),%ebx
+.L200:
+	pushl %esi
+	call *%ebx
+	addl $4,%esp
+	jmp .L132
+	.align 16
+.L124:
+	movl (%esi),%eax
+	movl 600(%eax),%ebx
+	pushl $15
+	movl -4(%ebp),%eax
+	movl 76(%eax),%eax
+	jmp .L198
+	.align 16
+.L125:
+	movl (%esi),%eax
+	movl -4(%ebp),%edx
+	movl 600(%eax),%ebx
+	xorl %eax,%eax
+	movb 36(%edx),%al
+	pushl %eax
+	movl 76(%edx),%eax
+	jmp .L198
+	.align 16
+.L126:
+	movl (%esi),%eax
+	movl 608(%eax),%ebx
+	movl -4(%ebp),%eax
+	movl 80(%eax),%eax
+	pushl %eax
+	pushl $15
+	jmp .L203
+	.align 16
+.L127:
+	movl (%esi),%eax
+	movl -4(%ebp),%edx
+	movl 608(%eax),%ebx
+.L205:
+	movl 80(%edx),%eax
+.L204:
+	pushl %eax
+	xorl %eax,%eax
+	movb 36(%edx),%al
+.L198:
+	pushl %eax
+.L203:
+	pushl %esi
+	call *%ebx
+	addl $12,%esp
+	jmp .L132
+	.align 16
+.L128:
+	movl (%esi),%eax
+	movl 624(%eax),%ebx
+	jmp .L206
+	.align 16
+.L129:
+	movl (%esi),%eax
+	movl 628(%eax),%ebx
+.L206:
+	movl -4(%ebp),%eax
+	movl 76(%eax),%eax
+.L197:
+	pushl %eax
+.L201:
+	pushl %esi
+	call *%ebx
+	addl $8,%esp
+	jmp .L132
+	.align 16
+.L130:
+	movl (%esi),%eax
+	movl 632(%eax),%ebx
+	pushl $0
+	pushl $0
+	pushl $0
+	movl -4(%ebp),%eax
+	movl 12(%eax),%eax
+	pushl %eax
+	pushl %esi
+	call *%ebx
+	addl $20,%esp
+.L132:
+	incl -12(%ebp)
+.L26:
+	movl -8(%ebp),%edi
+	cmpl %edi,-12(%ebp)
+	jle .L27
+	leal -24(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe4:
+	.size	 M3CG_Clean__DoFlush,.Lfe4-M3CG_Clean__DoFlush
+	.align 16
+	.type	 M3CG_Clean__Stuff,@function
+M3CG_Clean__Stuff:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $8,%esp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%esi
+	movl 16(%ebp),%edi
+	movl 12(%esi),%eax
+	testl %eax,%eax
+	jne .L208
+	pushl $10820
+	call _m3_fault
+	.align 16
+.L208:
+	movl 4(%eax),%eax
+	cmpl %eax,16(%esi)
+	jl .L209
+	pushl %esi
+	call M3CG_Clean__ExpandBuffer
+	addl $4,%esp
+.L209:
+	movl 12(%esi),%ecx
+	testl %ecx,%ecx
+	jne .L210
+	pushl $10836
+	call _m3_fault
+	.align 16
+.L210:
+	movl 16(%esi),%eax
+	cmpl %eax,4(%ecx)
+	ja .L211
+	pushl $10834
+	call _m3_fault
+	.align 16
+.L211:
+	leal (%eax,%eax,4),%edx
+	leal (%eax,%edx,4),%edx
+	sall $2,%edx
+	movl (%ecx),%ecx
+	leal (%edx,%ecx),%ebx
+	movl %ebx,-4(%ebp)
+	xorl %ebx,%ebx
+	movb 12(%ebp),%bl
+	movl %ebx,-8(%ebp)
+	addl %edx,%ecx
+	movl MM_M3CG_Clean+148(,%ebx,4),%eax
+	addl 20(%esi),%eax
+	movl %eax,20(%esi)
+	movl %eax,4(%ecx)
+	movb 12(%ebp),%bl
+	movb %bl,(%ecx)
+	movl -4(%ebp),%eax
+	movl %edi,16(%eax)
+	movb 20(%ebp),%bl
+	movb %bl,36(%eax)
+	movl -8(%ebp),%ebx
+	movb MM_M3CG_Clean+44(%ebx),%dl
+	cmpb $15,%dl
+	jne .L212
+	movl -4(%ebp),%eax
+	movb 20(%ebp),%bl
+	movb %bl,8(%eax)
+	jmp .L213
+	.align 16
+.L212:
+	movl -4(%ebp),%eax
+	movb %dl,8(%eax)
+.L213:
+	cmpl $0,20(%esi)
+	jne .L207
+	pushl %esi
+	call M3CG_Clean__Flush_buffer
+.L207:
+	leal -20(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe5:
+	.size	 M3CG_Clean__Stuff,.Lfe5-M3CG_Clean__Stuff
+	.align 16
+	.type	 M3CG_Clean__StuffX,@function
+M3CG_Clean__StuffX:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $8,%esp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%esi
+	movl 16(%ebp),%edi
+	movl 12(%esi),%eax
+	testl %eax,%eax
+	jne .L216
+	pushl $11364
+	call _m3_fault
+	.align 16
+.L216:
+	movl 4(%eax),%eax
+	cmpl %eax,16(%esi)
+	jl .L217
+	pushl %esi
+	call M3CG_Clean__ExpandBuffer
+	addl $4,%esp
+.L217:
+	movl 12(%esi),%ecx
+	testl %ecx,%ecx
+	jne .L218
+	pushl $11380
+	call _m3_fault
+	.align 16
+.L218:
+	movl 16(%esi),%eax
+	cmpl %eax,4(%ecx)
+	ja .L219
+	pushl $11378
+	call _m3_fault
+	.align 16
+.L219:
+	leal (%eax,%eax,4),%edx
+	leal (%eax,%edx,4),%edx
+	sall $2,%edx
+	movl (%ecx),%ecx
+	leal (%edx,%ecx),%ebx
+	movl %ebx,-4(%ebp)
+	xorl %ebx,%ebx
+	movb 12(%ebp),%bl
+	movl %ebx,-8(%ebp)
+	addl %edx,%ecx
+	movl MM_M3CG_Clean+148(,%ebx,4),%eax
+	addl 20(%esi),%eax
+	movl %eax,20(%esi)
+	movl %eax,4(%ecx)
+	movb 12(%ebp),%bl
+	movb %bl,(%ecx)
+	movl -4(%ebp),%eax
+	movl %edi,12(%eax)
+	movl 20(%ebp),%ebx
+	movl %ebx,16(%eax)
+	movl 24(%ebp),%ebx
+	movl %ebx,20(%eax)
+	movl 28(%ebp),%ebx
+	movl %ebx,24(%eax)
+	movb 32(%ebp),%bl
+	movb %bl,28(%eax)
+	movl -4(%ebp),%eax
+	movl 36(%ebp),%ebx
+	movl %ebx,32(%eax)
+	movb 40(%ebp),%bl
+	movb %bl,36(%eax)
+	movl -4(%ebp),%eax
+	movb 44(%ebp),%bl
+	movb %bl,37(%eax)
+	movl 48(%ebp),%ecx
+	movl -4(%ebp),%edx
+	movl (%ecx),%eax
+	movl %eax,40(%edx)
+	movl 4(%ecx),%eax
+	movl %eax,44(%edx)
+	movl 52(%ebp),%ecx
+	movl (%ecx),%eax
+	movl %eax,48(%edx)
+	movl 4(%ecx),%eax
+	movl %eax,52(%edx)
+	movl 56(%ebp),%ecx
+	movl (%ecx),%eax
+	movl %eax,56(%edx)
+	movl 4(%ecx),%eax
+	movl %eax,60(%edx)
+	movl 8(%ecx),%eax
+	movl %eax,64(%edx)
+	movl 12(%ecx),%eax
+	movl %eax,68(%edx)
+	movb 60(%ebp),%bl
+	movb %bl,72(%edx)
+	movl -4(%ebp),%eax
+	movb 64(%ebp),%bl
+	movb %bl,73(%eax)
+	movl -4(%ebp),%eax
+	movl 68(%ebp),%ebx
+	movl %ebx,76(%eax)
+	movl 72(%ebp),%ebx
+	movl %ebx,80(%eax)
+	movl -8(%ebp),%ebx
+	movb MM_M3CG_Clean+44(%ebx),%dl
+	cmpb $15,%dl
+	jne .L220
+	movb 40(%ebp),%bl
+	movb %bl,8(%eax)
+	jmp .L221
+	.align 16
+.L220:
+	movb %dl,8(%eax)
+.L221:
+	cmpl $0,20(%esi)
+	jne .L215
+	pushl %esi
+	call M3CG_Clean__Flush_buffer
+.L215:
+	leal -20(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe6:
+	.size	 M3CG_Clean__StuffX,.Lfe6-M3CG_Clean__StuffX
+	.align 16
+	.type	 M3CG_Clean__ExpandBuffer,@function
+M3CG_Clean__ExpandBuffer:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $24,%esp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%edi
+	movl 12(%edi),%eax
+	testl %eax,%eax
+	jne .L224
+	pushl $11828
+	call _m3_fault
+	.align 16
+.L224:
+	movl 4(%eax),%ebx
+	leal -12(%ebp),%eax
+	leal -4(%ebp),%ecx
+	movl %ecx,-12(%ebp)
+	movl $1,-8(%ebp)
+	movl %ebx,%ecx
+	addl %ebx,%ecx
+	movl %ecx,-4(%ebp)
+	pushl %eax
+	movl MM_M3CG_Clean+1236,%eax
+	pushl %eax
+	movl MI_RTHooks+84,%eax
+	call *%eax
+	movl %eax,%esi
+	addl $8,%esp
+	testl %esi,%esi
+	jne .L225
+	pushl $11860
+	call _m3_fault
+	.align 16
+.L225:
+	movl %ebx,-16(%ebp)
+	movl %ebx,%eax
+	subl 4(%esi),%eax
+	testl %eax,%eax
+	jle .L226
+	pushl $11857
+	call _m3_fault
+	.align 16
+.L226:
+	movl (%esi),%ecx
+	movl %ecx,-24(%ebp)
+	movl %ecx,-20(%ebp)
+	movl 12(%edi),%edx
+	testl %edx,%edx
+	jne .L227
+	pushl $11860
+	call _m3_fault
+	.align 16
+.L227:
+	cmpl %ebx,4(%edx)
+	je .L228
+	pushl $11859
+	call _m3_fault
+	.align 16
+.L228:
+	leal (%ebx,%ebx,4),%eax
+	leal (%ebx,%eax,4),%eax
+	sall $2,%eax
+	pushl %eax
+	movl (%edx),%eax
+	pushl %eax
+	movl -24(%ebp),%ecx
+	pushl %ecx
+	call memmove
+	leal -36(%ebp),%esp
+	movl %esi,12(%edi)
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe7:
+	.size	 M3CG_Clean__ExpandBuffer,.Lfe7-M3CG_Clean__ExpandBuffer
+	.align 16
+	.type	 M3CG_Clean__New,@function
+M3CG_Clean__New:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $12,%esp
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%ebx
+	movl MM_M3CG_Clean+1244,%eax
+	pushl %eax
+	movl MI_RTHooks+80,%eax
+	call *%eax
+	movl %eax,%esi
+	leal -12(%ebp),%eax
+	leal -4(%ebp),%edx
+	movl %ebx,4(%esi)
+	movl %edx,-12(%ebp)
+	movl $1,-8(%ebp)
+	movl $100,-4(%ebp)
+	pushl %eax
+	movl MM_M3CG_Clean+1236,%eax
+	pushl %eax
+	movl MI_RTHooks+84,%eax
+	call *%eax
+	movl %eax,12(%esi)
+	movb 12(%ebp),%dl
+	movb %dl,8(%esi)
+	movb 16(%ebp),%dl
+	movb %dl,9(%esi)
+	leal -20(%ebp),%esp
+	movl %esi,%eax
+	popl %ebx
+	popl %esi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe8:
+	.size	 M3CG_Clean__New,.Lfe8-M3CG_Clean__New
+	.align 16
+	.type	 M3CG_Clean__end_unit,@function
+M3CG_Clean__end_unit:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%ebx
+	movl (%ebx),%eax
+	movl 640(%eax),%esi
+	pushl %ebx
+	call *%esi
+	movl 4(%ebx),%esi
+	movl (%esi),%eax
+	movl 16(%eax),%eax
+	pushl %esi
+	call *%eax
+	leal -8(%ebp),%esp
+	popl %ebx
+	popl %esi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe9:
+	.size	 M3CG_Clean__end_unit,.Lfe9-M3CG_Clean__end_unit
+	.align 16
+	.type	 M3CG_Clean__set_source_file,@function
+M3CG_Clean__set_source_file:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %ebx
+	movl 8(%ebp),%edx
+	movl (%edx),%eax
+	movl 12(%ebp),%ecx
+	movl 648(%eax),%ebx
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $MI_TFloat+44
+	movl $MI_TInt+44,%eax
+	pushl %eax
+	pushl %eax
+	pushl $15
+	pushl $15
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl %ecx
+	pushl $1
+	pushl %edx
+	call *%ebx
+	movl -4(%ebp),%ebx
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe10:
+	.size	 M3CG_Clean__set_source_file,.Lfe10-M3CG_Clean__set_source_file
+	.align 16
+	.type	 M3CG_Clean__set_source_line,@function
+M3CG_Clean__set_source_line:
+	pushl %ebp
+	movl %esp,%ebp
+	movl 8(%ebp),%ecx
+	movl (%ecx),%eax
+	movl 12(%ebp),%edx
+	movl 644(%eax),%eax
+	pushl $15
+	pushl %edx
+	pushl $2
+	pushl %ecx
+	call *%eax
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe11:
+	.size	 M3CG_Clean__set_source_line,.Lfe11-M3CG_Clean__set_source_line
+	.align 16
+	.type	 M3CG_Clean__free_temp,@function
+M3CG_Clean__free_temp:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %ebx
+	movl 8(%ebp),%edx
+	movl (%edx),%eax
+	movl 12(%ebp),%ecx
+	movl 648(%eax),%ebx
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $MI_TFloat+44
+	movl $MI_TInt+44,%eax
+	pushl %eax
+	pushl %eax
+	pushl $15
+	pushl $15
+	pushl $0
+	pushl $0
+	pushl %ecx
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $3
+	pushl %edx
+	call *%ebx
+	movl -4(%ebp),%ebx
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe12:
+	.size	 M3CG_Clean__free_temp,.Lfe12-M3CG_Clean__free_temp
+	.align 16
+	.type	 M3CG_Clean__end_procedure,@function
+M3CG_Clean__end_procedure:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%ebx
+	movl (%ebx),%eax
+	movl 12(%ebp),%esi
+	movl 640(%eax),%edi
+	pushl %ebx
+	call *%edi
+	movl 4(%ebx),%edi
+	movl (%edi),%eax
+	movl 212(%eax),%eax
+	pushl %esi
+	pushl %edi
+	call *%eax
+	leal -12(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe13:
+	.size	 M3CG_Clean__end_procedure,.Lfe13-M3CG_Clean__end_procedure
+	.align 16
+	.type	 M3CG_Clean__begin_block,@function
+M3CG_Clean__begin_block:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%ebx
+	movl (%ebx),%eax
+	movl 636(%eax),%esi
+	pushl $0
+	pushl %ebx
+	call *%esi
+	movl 4(%ebx),%esi
+	movl (%esi),%eax
+	movl 216(%eax),%eax
+	pushl %esi
+	call *%eax
+	leal -8(%ebp),%esp
+	popl %ebx
+	popl %esi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe14:
+	.size	 M3CG_Clean__begin_block,.Lfe14-M3CG_Clean__begin_block
+	.align 16
+	.type	 M3CG_Clean__end_block,@function
+M3CG_Clean__end_block:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%ebx
+	movl (%ebx),%eax
+	movl 636(%eax),%esi
+	pushl $0
+	pushl %ebx
+	call *%esi
+	movl 4(%ebx),%esi
+	movl (%esi),%eax
+	movl 220(%eax),%eax
+	pushl %esi
+	call *%eax
+	leal -8(%ebp),%esp
+	popl %ebx
+	popl %esi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe15:
+	.size	 M3CG_Clean__end_block,.Lfe15-M3CG_Clean__end_block
+	.align 16
+	.type	 M3CG_Clean__note_procedure_origin,@function
+M3CG_Clean__note_procedure_origin:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%ebx
+	movl (%ebx),%eax
+	movl 12(%ebp),%esi
+	movl 636(%eax),%edi
+	pushl $0
+	pushl %ebx
+	call *%edi
+	movl 4(%ebx),%edi
+	movl (%edi),%eax
+	movl 224(%eax),%eax
+	pushl %esi
+	pushl %edi
+	call *%eax
+	leal -12(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe16:
+	.size	 M3CG_Clean__note_procedure_origin,.Lfe16-M3CG_Clean__note_procedure_origin
+	.align 16
+	.type	 M3CG_Clean__set_label,@function
+M3CG_Clean__set_label:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%esi
+	movl 12(%ebp),%edi
+	cmpb $0,8(%esi)
+	je .L239
+	movl (%esi),%eax
+	movl 636(%eax),%ebx
+	pushl $0
+	pushl %esi
+	call *%ebx
+	movl 4(%esi),%ebx
+	movl (%ebx),%eax
+	movl 228(%eax),%edx
+	xorl %eax,%eax
+	movb 16(%ebp),%al
+	pushl %eax
+	pushl %edi
+	pushl %ebx
+	call *%edx
+	jmp .L238
+	.align 16
+.L239:
+	movl (%esi),%eax
+	movl 648(%eax),%edx
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $MI_TFloat+44
+	movl $MI_TInt+44,%eax
+	pushl %eax
+	pushl %eax
+	pushl $15
+	pushl $15
+	pushl %edi
+	xorl %eax,%eax
+	movb 16(%ebp),%al
+	pushl %eax
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $4
+	pushl %esi
+	call *%edx
+.L238:
+	leal -12(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe17:
+	.size	 M3CG_Clean__set_label,.Lfe17-M3CG_Clean__set_label
+	.align 16
+	.type	 M3CG_Clean__jump,@function
+M3CG_Clean__jump:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%esi
+	movl 12(%ebp),%edi
+	cmpb $0,8(%esi)
+	je .L242
+	movl (%esi),%eax
+	movl 636(%eax),%ebx
+	pushl $0
+	pushl %esi
+	call *%ebx
+	movl 4(%esi),%ebx
+	movl (%ebx),%eax
+	movl 232(%eax),%edx
+	pushl %edi
+	pushl %ebx
+	call *%edx
+	jmp .L241
+	.align 16
+.L242:
+	movl (%esi),%eax
+	movl 648(%eax),%edx
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $MI_TFloat+44
+	movl $MI_TInt+44,%eax
+	pushl %eax
+	pushl %eax
+	pushl $15
+	pushl $15
+	pushl %edi
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $5
+	pushl %esi
+	call *%edx
+.L241:
+	leal -12(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe18:
+	.size	 M3CG_Clean__jump,.Lfe18-M3CG_Clean__jump
+	.align 16
+	.type	 M3CG_Clean__if_true,@function
+M3CG_Clean__if_true:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%esi
+	movl 12(%ebp),%edi
+	cmpb $0,8(%esi)
+	je .L245
+	movl (%esi),%eax
+	movl 636(%eax),%ebx
+	pushl $1
+	pushl %esi
+	call *%ebx
+	movl 4(%esi),%ebx
+	movl (%ebx),%eax
+	movl 236(%eax),%edx
+	xorl %eax,%eax
+	movb 16(%ebp),%al
+	pushl %eax
+	pushl %edi
+	pushl %ebx
+	call *%edx
+	jmp .L244
+	.align 16
+.L245:
+	movl (%esi),%eax
+	movl 648(%eax),%edx
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $MI_TFloat+44
+	movl $MI_TInt+44,%eax
+	pushl %eax
+	pushl %eax
+	pushl $15
+	pushl $15
+	pushl %edi
+	pushl $0
+	pushl $0
+	pushl $0
+	xorl %eax,%eax
+	movb 16(%ebp),%al
+	pushl %eax
+	pushl $0
+	pushl $6
+	pushl %esi
+	call *%edx
+.L244:
+	leal -12(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe19:
+	.size	 M3CG_Clean__if_true,.Lfe19-M3CG_Clean__if_true
+	.align 16
+	.type	 M3CG_Clean__if_false,@function
+M3CG_Clean__if_false:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%esi
+	movl 12(%ebp),%edi
+	cmpb $0,8(%esi)
+	je .L248
+	movl (%esi),%eax
+	movl 636(%eax),%ebx
+	pushl $1
+	pushl %esi
+	call *%ebx
+	movl 4(%esi),%ebx
+	movl (%ebx),%eax
+	movl 240(%eax),%edx
+	xorl %eax,%eax
+	movb 16(%ebp),%al
+	pushl %eax
+	pushl %edi
+	pushl %ebx
+	call *%edx
+	jmp .L247
+	.align 16
+.L248:
+	movl (%esi),%eax
+	movl 648(%eax),%edx
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $MI_TFloat+44
+	movl $MI_TInt+44,%eax
+	pushl %eax
+	pushl %eax
+	pushl $15
+	pushl $15
+	pushl %edi
+	pushl $0
+	pushl $0
+	pushl $0
+	xorl %eax,%eax
+	movb 16(%ebp),%al
+	pushl %eax
+	pushl $0
+	pushl $7
+	pushl %esi
+	call *%edx
+.L247:
+	leal -12(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe20:
+	.size	 M3CG_Clean__if_false,.Lfe20-M3CG_Clean__if_false
+	.align 16
+	.type	 M3CG_Clean__if_eq,@function
+M3CG_Clean__if_eq:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%esi
+	movl 12(%ebp),%edi
+	cmpb $0,8(%esi)
+	je .L251
+	movl (%esi),%eax
+	movl 636(%eax),%ebx
+	pushl $2
+	pushl %esi
+	call *%ebx
+	movl 4(%esi),%ebx
+	movl (%ebx),%eax
+	movl 244(%eax),%edx
+	xorl %eax,%eax
+	movb 20(%ebp),%al
+	pushl %eax
+	xorl %eax,%eax
+	movb 16(%ebp),%al
+	pushl %eax
+	pushl %edi
+	pushl %ebx
+	call *%edx
+	jmp .L250
+	.align 16
+.L251:
+	movl (%esi),%eax
+	movl 648(%eax),%edx
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $MI_TFloat+44
+	movl $MI_TInt+44,%eax
+	pushl %eax
+	pushl %eax
+	pushl $15
+	xorl %eax,%eax
+	movb 16(%ebp),%al
+	pushl %eax
+	pushl %edi
+	pushl $0
+	pushl $0
+	pushl $0
+	xorl %eax,%eax
+	movb 20(%ebp),%al
+	pushl %eax
+	pushl $0
+	pushl $8
+	pushl %esi
+	call *%edx
+.L250:
+	leal -12(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe21:
+	.size	 M3CG_Clean__if_eq,.Lfe21-M3CG_Clean__if_eq
+	.align 16
+	.type	 M3CG_Clean__if_ne,@function
+M3CG_Clean__if_ne:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%esi
+	movl 12(%ebp),%edi
+	cmpb $0,8(%esi)
+	je .L254
+	movl (%esi),%eax
+	movl 636(%eax),%ebx
+	pushl $2
+	pushl %esi
+	call *%ebx
+	movl 4(%esi),%ebx
+	movl (%ebx),%eax
+	movl 248(%eax),%edx
+	xorl %eax,%eax
+	movb 20(%ebp),%al
+	pushl %eax
+	xorl %eax,%eax
+	movb 16(%ebp),%al
+	pushl %eax
+	pushl %edi
+	pushl %ebx
+	call *%edx
+	jmp .L253
+	.align 16
+.L254:
+	movl (%esi),%eax
+	movl 648(%eax),%edx
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $MI_TFloat+44
+	movl $MI_TInt+44,%eax
+	pushl %eax
+	pushl %eax
+	pushl $15
+	xorl %eax,%eax
+	movb 16(%ebp),%al
+	pushl %eax
+	pushl %edi
+	pushl $0
+	pushl $0
+	pushl $0
+	xorl %eax,%eax
+	movb 20(%ebp),%al
+	pushl %eax
+	pushl $0
+	pushl $9
+	pushl %esi
+	call *%edx
+.L253:
+	leal -12(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe22:
+	.size	 M3CG_Clean__if_ne,.Lfe22-M3CG_Clean__if_ne
+	.align 16
+	.type	 M3CG_Clean__if_gt,@function
+M3CG_Clean__if_gt:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%esi
+	movl 12(%ebp),%edi
+	cmpb $0,8(%esi)
+	je .L257
+	movl (%esi),%eax
+	movl 636(%eax),%ebx
+	pushl $2
+	pushl %esi
+	call *%ebx
+	movl 4(%esi),%ebx
+	movl (%ebx),%eax
+	movl 252(%eax),%edx
+	xorl %eax,%eax
+	movb 20(%ebp),%al
+	pushl %eax
+	xorl %eax,%eax
+	movb 16(%ebp),%al
+	pushl %eax
+	pushl %edi
+	pushl %ebx
+	call *%edx
+	jmp .L256
+	.align 16
+.L257:
+	movl (%esi),%eax
+	movl 648(%eax),%edx
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $MI_TFloat+44
+	movl $MI_TInt+44,%eax
+	pushl %eax
+	pushl %eax
+	pushl $15
+	xorl %eax,%eax
+	movb 16(%ebp),%al
+	pushl %eax
+	pushl %edi
+	pushl $0
+	pushl $0
+	pushl $0
+	xorl %eax,%eax
+	movb 20(%ebp),%al
+	pushl %eax
+	pushl $0
+	pushl $10
+	pushl %esi
+	call *%edx
+.L256:
+	leal -12(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe23:
+	.size	 M3CG_Clean__if_gt,.Lfe23-M3CG_Clean__if_gt
+	.align 16
+	.type	 M3CG_Clean__if_ge,@function
+M3CG_Clean__if_ge:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%esi
+	movl 12(%ebp),%edi
+	cmpb $0,8(%esi)
+	je .L260
+	movl (%esi),%eax
+	movl 636(%eax),%ebx
+	pushl $2
+	pushl %esi
+	call *%ebx
+	movl 4(%esi),%ebx
+	movl (%ebx),%eax
+	movl 256(%eax),%edx
+	xorl %eax,%eax
+	movb 20(%ebp),%al
+	pushl %eax
+	xorl %eax,%eax
+	movb 16(%ebp),%al
+	pushl %eax
+	pushl %edi
+	pushl %ebx
+	call *%edx
+	jmp .L259
+	.align 16
+.L260:
+	movl (%esi),%eax
+	movl 648(%eax),%edx
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $MI_TFloat+44
+	movl $MI_TInt+44,%eax
+	pushl %eax
+	pushl %eax
+	pushl $15
+	xorl %eax,%eax
+	movb 16(%ebp),%al
+	pushl %eax
+	pushl %edi
+	pushl $0
+	pushl $0
+	pushl $0
+	xorl %eax,%eax
+	movb 20(%ebp),%al
+	pushl %eax
+	pushl $0
+	pushl $11
+	pushl %esi
+	call *%edx
+.L259:
+	leal -12(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe24:
+	.size	 M3CG_Clean__if_ge,.Lfe24-M3CG_Clean__if_ge
+	.align 16
+	.type	 M3CG_Clean__if_lt,@function
+M3CG_Clean__if_lt:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%esi
+	movl 12(%ebp),%edi
+	cmpb $0,8(%esi)
+	je .L263
+	movl (%esi),%eax
+	movl 636(%eax),%ebx
+	pushl $2
+	pushl %esi
+	call *%ebx
+	movl 4(%esi),%ebx
+	movl (%ebx),%eax
+	movl 260(%eax),%edx
+	xorl %eax,%eax
+	movb 20(%ebp),%al
+	pushl %eax
+	xorl %eax,%eax
+	movb 16(%ebp),%al
+	pushl %eax
+	pushl %edi
+	pushl %ebx
+	call *%edx
+	jmp .L262
+	.align 16
+.L263:
+	movl (%esi),%eax
+	movl 648(%eax),%edx
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $MI_TFloat+44
+	movl $MI_TInt+44,%eax
+	pushl %eax
+	pushl %eax
+	pushl $15
+	xorl %eax,%eax
+	movb 16(%ebp),%al
+	pushl %eax
+	pushl %edi
+	pushl $0
+	pushl $0
+	pushl $0
+	xorl %eax,%eax
+	movb 20(%ebp),%al
+	pushl %eax
+	pushl $0
+	pushl $12
+	pushl %esi
+	call *%edx
+.L262:
+	leal -12(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe25:
+	.size	 M3CG_Clean__if_lt,.Lfe25-M3CG_Clean__if_lt
+	.align 16
+	.type	 M3CG_Clean__if_le,@function
+M3CG_Clean__if_le:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%esi
+	movl 12(%ebp),%edi
+	cmpb $0,8(%esi)
+	je .L266
+	movl (%esi),%eax
+	movl 636(%eax),%ebx
+	pushl $2
+	pushl %esi
+	call *%ebx
+	movl 4(%esi),%ebx
+	movl (%ebx),%eax
+	movl 264(%eax),%edx
+	xorl %eax,%eax
+	movb 20(%ebp),%al
+	pushl %eax
+	xorl %eax,%eax
+	movb 16(%ebp),%al
+	pushl %eax
+	pushl %edi
+	pushl %ebx
+	call *%edx
+	jmp .L265
+	.align 16
+.L266:
+	movl (%esi),%eax
+	movl 648(%eax),%edx
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $MI_TFloat+44
+	movl $MI_TInt+44,%eax
+	pushl %eax
+	pushl %eax
+	pushl $15
+	xorl %eax,%eax
+	movb 16(%ebp),%al
+	pushl %eax
+	pushl %edi
+	pushl $0
+	pushl $0
+	pushl $0
+	xorl %eax,%eax
+	movb 20(%ebp),%al
+	pushl %eax
+	pushl $0
+	pushl $13
+	pushl %esi
+	call *%edx
+.L265:
+	leal -12(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe26:
+	.size	 M3CG_Clean__if_le,.Lfe26-M3CG_Clean__if_le
+	.align 16
+	.type	 M3CG_Clean__case_jump,@function
+M3CG_Clean__case_jump:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%ebx
+	movl (%ebx),%eax
+	movl 640(%eax),%esi
+	pushl %ebx
+	call *%esi
+	movl 4(%ebx),%esi
+	movl (%esi),%eax
+	movl 268(%eax),%edx
+	movl 12(%ebp),%eax
+	pushl %eax
+	pushl %esi
+	call *%edx
+	leal -8(%ebp),%esp
+	popl %ebx
+	popl %esi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe27:
+	.size	 M3CG_Clean__case_jump,.Lfe27-M3CG_Clean__case_jump
+	.align 16
+	.type	 M3CG_Clean__exit_proc,@function
+M3CG_Clean__exit_proc:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%ebx
+	movl (%ebx),%eax
+	movl 640(%eax),%esi
+	pushl %ebx
+	call *%esi
+	movl 4(%ebx),%esi
+	movl (%esi),%eax
+	movl 272(%eax),%edx
+	xorl %eax,%eax
+	movb 12(%ebp),%al
+	pushl %eax
+	pushl %esi
+	call *%edx
+	leal -8(%ebp),%esp
+	popl %ebx
+	popl %esi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe28:
+	.size	 M3CG_Clean__exit_proc,.Lfe28-M3CG_Clean__exit_proc
+	.align 16
+	.type	 M3CG_Clean__load,@function
+M3CG_Clean__load:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%edx
+	movl 12(%ebp),%ecx
+	movl (%edx),%eax
+	movl 16(%ebp),%ebx
+	movl 648(%eax),%esi
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $MI_TFloat+44
+	movl $MI_TInt+44,%eax
+	pushl %eax
+	pushl %eax
+	pushl $15
+	xorl %eax,%eax
+	movb 20(%ebp),%al
+	pushl %eax
+	pushl $0
+	pushl $0
+	pushl %ecx
+	pushl $0
+	pushl %ebx
+	pushl $0
+	pushl $14
+	pushl %edx
+	call *%esi
+	leal -8(%ebp),%esp
+	popl %ebx
+	popl %esi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe29:
+	.size	 M3CG_Clean__load,.Lfe29-M3CG_Clean__load
+	.align 16
+	.type	 M3CG_Clean__store,@function
+M3CG_Clean__store:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%esi
+	movl 12(%ebp),%edi
+	cmpb $0,9(%esi)
+	je .L272
+	movl (%esi),%eax
+	movl 636(%eax),%ebx
+	pushl $1
+	pushl %esi
+	call *%ebx
+	movl 4(%esi),%ebx
+	movl (%ebx),%eax
+	movl 288(%eax),%edx
+	xorl %eax,%eax
+	movb 20(%ebp),%al
+	pushl %eax
+	movl 16(%ebp),%ecx
+	pushl %ecx
+	pushl %edi
+	pushl %ebx
+	call *%edx
+	jmp .L271
+	.align 16
+.L272:
+	movl (%esi),%eax
+	movl 648(%eax),%edx
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $MI_TFloat+44
+	movl $MI_TInt+44,%eax
+	pushl %eax
+	pushl %eax
+	pushl $15
+	xorl %eax,%eax
+	movb 20(%ebp),%al
+	pushl %eax
+	pushl $0
+	pushl $0
+	pushl %edi
+	pushl $0
+	movl 16(%ebp),%ecx
+	pushl %ecx
+	pushl $0
+	pushl $15
+	pushl %esi
+	call *%edx
+.L271:
+	leal -12(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe30:
+	.size	 M3CG_Clean__store,.Lfe30-M3CG_Clean__store
+	.align 16
+	.type	 M3CG_Clean__store_ref,@function
+M3CG_Clean__store_ref:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%esi
+	movl 12(%ebp),%edi
+	cmpb $0,9(%esi)
+	je .L275
+	movl (%esi),%eax
+	movl 636(%eax),%ebx
+	pushl $1
+	pushl %esi
+	call *%ebx
+	movl 4(%esi),%ebx
+	movl (%ebx),%eax
+	movl 16(%ebp),%ecx
+	movl 296(%eax),%edx
+	pushl %ecx
+	pushl %edi
+	pushl %ebx
+	call *%edx
+	jmp .L274
+	.align 16
+.L275:
+	movl (%esi),%eax
+	movl 648(%eax),%edx
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $MI_TFloat+44
+	movl $MI_TInt+44,%eax
+	pushl %eax
+	pushl %eax
+	pushl $15
+	pushl $15
+	pushl $0
+	pushl $0
+	pushl %edi
+	pushl $0
+	movl 16(%ebp),%ecx
+	pushl %ecx
+	pushl $0
+	pushl $16
+	pushl %esi
+	call *%edx
+.L274:
+	leal -12(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe31:
+	.size	 M3CG_Clean__store_ref,.Lfe31-M3CG_Clean__store_ref
+	.align 16
+	.type	 M3CG_Clean__load_address,@function
+M3CG_Clean__load_address:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%edx
+	movl 12(%ebp),%ecx
+	movl (%edx),%eax
+	movl 16(%ebp),%ebx
+	movl 648(%eax),%esi
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $MI_TFloat+44
+	movl $MI_TInt+44,%eax
+	pushl %eax
+	pushl %eax
+	pushl $15
+	pushl $15
+	pushl $0
+	pushl $0
+	pushl %ecx
+	pushl $0
+	pushl %ebx
+	pushl $0
+	pushl $17
+	pushl %edx
+	call *%esi
+	leal -8(%ebp),%esp
+	popl %ebx
+	popl %esi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe32:
+	.size	 M3CG_Clean__load_address,.Lfe32-M3CG_Clean__load_address
+	.align 16
+	.type	 M3CG_Clean__load_indirect,@function
+M3CG_Clean__load_indirect:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %ebx
+	movl 8(%ebp),%ecx
+	movl (%ecx),%eax
+	movl 12(%ebp),%edx
+	movl 644(%eax),%ebx
+	xorl %eax,%eax
+	movb 16(%ebp),%al
+	pushl %eax
+	pushl %edx
+	pushl $18
+	pushl %ecx
+	call *%ebx
+	movl -4(%ebp),%ebx
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe33:
+	.size	 M3CG_Clean__load_indirect,.Lfe33-M3CG_Clean__load_indirect
+	.align 16
+	.type	 M3CG_Clean__store_indirect,@function
+M3CG_Clean__store_indirect:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%esi
+	movl 12(%ebp),%edi
+	cmpb $0,9(%esi)
+	je .L280
+	movl (%esi),%eax
+	movl 636(%eax),%ebx
+	pushl $2
+	pushl %esi
+	call *%ebx
+	movl 4(%esi),%ebx
+	movl (%ebx),%eax
+	movl 292(%eax),%edx
+	xorl %eax,%eax
+	movb 16(%ebp),%al
+	pushl %eax
+	pushl %edi
+	pushl %ebx
+	call *%edx
+	jmp .L279
+	.align 16
+.L280:
+	movl (%esi),%eax
+	movl 644(%eax),%edx
+	xorl %eax,%eax
+	movb 16(%ebp),%al
+	pushl %eax
+	pushl %edi
+	pushl $19
+	pushl %esi
+	call *%edx
+.L279:
+	leal -12(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe34:
+	.size	 M3CG_Clean__store_indirect,.Lfe34-M3CG_Clean__store_indirect
+	.align 16
+	.type	 M3CG_Clean__store_ref_indirect,@function
+M3CG_Clean__store_ref_indirect:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%esi
+	movl 12(%ebp),%edi
+	cmpb $0,9(%esi)
+	je .L283
+	movl (%esi),%eax
+	movl 636(%eax),%ebx
+	pushl $2
+	pushl %esi
+	call *%ebx
+	movl 4(%esi),%ebx
+	movl (%ebx),%eax
+	movl 300(%eax),%edx
+	xorl %eax,%eax
+	movb 16(%ebp),%al
+	pushl %eax
+	pushl %edi
+	pushl %ebx
+	call *%edx
+	jmp .L282
+	.align 16
+.L283:
+	movl (%esi),%eax
+	movl 648(%eax),%edx
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $MI_TFloat+44
+	movl $MI_TInt+44,%eax
+	pushl %eax
+	pushl %eax
+	pushl $15
+	pushl $15
+	pushl $0
+	xorl %eax,%eax
+	movb 16(%ebp),%al
+	pushl %eax
+	pushl $0
+	pushl $0
+	pushl %edi
+	pushl $0
+	pushl $20
+	pushl %esi
+	call *%edx
+.L282:
+	leal -12(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe35:
+	.size	 M3CG_Clean__store_ref_indirect,.Lfe35-M3CG_Clean__store_ref_indirect
+	.align 16
+	.type	 M3CG_Clean__load_nil,@function
+M3CG_Clean__load_nil:
+	pushl %ebp
+	movl %esp,%ebp
+	movl 8(%ebp),%eax
+	movl (%eax),%edx
+	movl 644(%edx),%edx
+	pushl $15
+	pushl $0
+	pushl $21
+	pushl %eax
+	call *%edx
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe36:
+	.size	 M3CG_Clean__load_nil,.Lfe36-M3CG_Clean__load_nil
+	.align 16
+	.type	 M3CG_Clean__load_integer,@function
+M3CG_Clean__load_integer:
+	pushl %ebp
+	movl %esp,%ebp
+	movl 8(%ebp),%edx
+	movl (%edx),%eax
+	movl 648(%eax),%ecx
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $MI_TFloat+44
+	pushl $MI_TInt+44
+	movl 12(%ebp),%eax
+	pushl %eax
+	pushl $15
+	pushl $15
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $22
+	pushl %edx
+	call *%ecx
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe37:
+	.size	 M3CG_Clean__load_integer,.Lfe37-M3CG_Clean__load_integer
+	.align 16
+	.type	 M3CG_Clean__load_float,@function
+M3CG_Clean__load_float:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %ebx
+	movl 8(%ebp),%ecx
+	movl (%ecx),%eax
+	movl 648(%eax),%ebx
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $0
+	movl 12(%ebp),%edx
+	pushl %edx
+	movl $MI_TInt+44,%eax
+	pushl %eax
+	pushl %eax
+	pushl $15
+	xorl %eax,%eax
+	movb (%edx),%al
+	movb MM_M3CG_Clean+1232(%eax),%al
+	andl $255,%eax
+	pushl %eax
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $23
+	pushl %ecx
+	call *%ebx
+	movl -4(%ebp),%ebx
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe38:
+	.size	 M3CG_Clean__load_float,.Lfe38-M3CG_Clean__load_float
+	.align 16
+	.type	 M3CG_Clean__eq,@function
+M3CG_Clean__eq:
+	pushl %ebp
+	movl %esp,%ebp
+	movl 8(%ebp),%edx
+	movl (%edx),%eax
+	movl 644(%eax),%ecx
+	xorl %eax,%eax
+	movb 12(%ebp),%al
+	pushl %eax
+	pushl $0
+	pushl $24
+	pushl %edx
+	call *%ecx
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe39:
+	.size	 M3CG_Clean__eq,.Lfe39-M3CG_Clean__eq
+	.align 16
+	.type	 M3CG_Clean__ne,@function
+M3CG_Clean__ne:
+	pushl %ebp
+	movl %esp,%ebp
+	movl 8(%ebp),%edx
+	movl (%edx),%eax
+	movl 644(%eax),%ecx
+	xorl %eax,%eax
+	movb 12(%ebp),%al
+	pushl %eax
+	pushl $0
+	pushl $25
+	pushl %edx
+	call *%ecx
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe40:
+	.size	 M3CG_Clean__ne,.Lfe40-M3CG_Clean__ne
+	.align 16
+	.type	 M3CG_Clean__gt,@function
+M3CG_Clean__gt:
+	pushl %ebp
+	movl %esp,%ebp
+	movl 8(%ebp),%edx
+	movl (%edx),%eax
+	movl 644(%eax),%ecx
+	xorl %eax,%eax
+	movb 12(%ebp),%al
+	pushl %eax
+	pushl $0
+	pushl $26
+	pushl %edx
+	call *%ecx
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe41:
+	.size	 M3CG_Clean__gt,.Lfe41-M3CG_Clean__gt
+	.align 16
+	.type	 M3CG_Clean__ge,@function
+M3CG_Clean__ge:
+	pushl %ebp
+	movl %esp,%ebp
+	movl 8(%ebp),%edx
+	movl (%edx),%eax
+	movl 644(%eax),%ecx
+	xorl %eax,%eax
+	movb 12(%ebp),%al
+	pushl %eax
+	pushl $0
+	pushl $27
+	pushl %edx
+	call *%ecx
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe42:
+	.size	 M3CG_Clean__ge,.Lfe42-M3CG_Clean__ge
+	.align 16
+	.type	 M3CG_Clean__lt,@function
+M3CG_Clean__lt:
+	pushl %ebp
+	movl %esp,%ebp
+	movl 8(%ebp),%edx
+	movl (%edx),%eax
+	movl 644(%eax),%ecx
+	xorl %eax,%eax
+	movb 12(%ebp),%al
+	pushl %eax
+	pushl $0
+	pushl $28
+	pushl %edx
+	call *%ecx
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe43:
+	.size	 M3CG_Clean__lt,.Lfe43-M3CG_Clean__lt
+	.align 16
+	.type	 M3CG_Clean__le,@function
+M3CG_Clean__le:
+	pushl %ebp
+	movl %esp,%ebp
+	movl 8(%ebp),%edx
+	movl (%edx),%eax
+	movl 644(%eax),%ecx
+	xorl %eax,%eax
+	movb 12(%ebp),%al
+	pushl %eax
+	pushl $0
+	pushl $29
+	pushl %edx
+	call *%ecx
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe44:
+	.size	 M3CG_Clean__le,.Lfe44-M3CG_Clean__le
+	.align 16
+	.type	 M3CG_Clean__add,@function
+M3CG_Clean__add:
+	pushl %ebp
+	movl %esp,%ebp
+	movl 8(%ebp),%edx
+	movl (%edx),%eax
+	movl 644(%eax),%ecx
+	xorl %eax,%eax
+	movb 12(%ebp),%al
+	pushl %eax
+	pushl $0
+	pushl $30
+	pushl %edx
+	call *%ecx
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe45:
+	.size	 M3CG_Clean__add,.Lfe45-M3CG_Clean__add
+	.align 16
+	.type	 M3CG_Clean__subtract,@function
+M3CG_Clean__subtract:
+	pushl %ebp
+	movl %esp,%ebp
+	movl 8(%ebp),%edx
+	movl (%edx),%eax
+	movl 644(%eax),%ecx
+	xorl %eax,%eax
+	movb 12(%ebp),%al
+	pushl %eax
+	pushl $0
+	pushl $31
+	pushl %edx
+	call *%ecx
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe46:
+	.size	 M3CG_Clean__subtract,.Lfe46-M3CG_Clean__subtract
+	.align 16
+	.type	 M3CG_Clean__multiply,@function
+M3CG_Clean__multiply:
+	pushl %ebp
+	movl %esp,%ebp
+	movl 8(%ebp),%edx
+	movl (%edx),%eax
+	movl 644(%eax),%ecx
+	xorl %eax,%eax
+	movb 12(%ebp),%al
+	pushl %eax
+	pushl $0
+	pushl $32
+	pushl %edx
+	call *%ecx
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe47:
+	.size	 M3CG_Clean__multiply,.Lfe47-M3CG_Clean__multiply
+	.align 16
+	.type	 M3CG_Clean__divide,@function
+M3CG_Clean__divide:
+	pushl %ebp
+	movl %esp,%ebp
+	movl 8(%ebp),%edx
+	movl (%edx),%eax
+	movl 644(%eax),%ecx
+	xorl %eax,%eax
+	movb 12(%ebp),%al
+	pushl %eax
+	pushl $0
+	pushl $33
+	pushl %edx
+	call *%ecx
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe48:
+	.size	 M3CG_Clean__divide,.Lfe48-M3CG_Clean__divide
+	.align 16
+	.type	 M3CG_Clean__div,@function
+M3CG_Clean__div:
+	pushl %ebp
+	movl %esp,%ebp
+	movl 8(%ebp),%edx
+	movl (%edx),%eax
+	movl 648(%eax),%ecx
+	pushl $0
+	pushl $0
+	xorl %eax,%eax
+	movb 20(%ebp),%al
+	pushl %eax
+	xorl %eax,%eax
+	movb 16(%ebp),%al
+	pushl %eax
+	pushl $MI_TFloat+44
+	movl $MI_TInt+44,%eax
+	pushl %eax
+	pushl %eax
+	pushl $15
+	xorl %eax,%eax
+	movb 12(%ebp),%al
+	pushl %eax
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $34
+	pushl %edx
+	call *%ecx
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe49:
+	.size	 M3CG_Clean__div,.Lfe49-M3CG_Clean__div
+	.align 16
+	.type	 M3CG_Clean__mod,@function
+M3CG_Clean__mod:
+	pushl %ebp
+	movl %esp,%ebp
+	movl 8(%ebp),%edx
+	movl (%edx),%eax
+	movl 648(%eax),%ecx
+	pushl $0
+	pushl $0
+	xorl %eax,%eax
+	movb 20(%ebp),%al
+	pushl %eax
+	xorl %eax,%eax
+	movb 16(%ebp),%al
+	pushl %eax
+	pushl $MI_TFloat+44
+	movl $MI_TInt+44,%eax
+	pushl %eax
+	pushl %eax
+	pushl $15
+	xorl %eax,%eax
+	movb 12(%ebp),%al
+	pushl %eax
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $35
+	pushl %edx
+	call *%ecx
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe50:
+	.size	 M3CG_Clean__mod,.Lfe50-M3CG_Clean__mod
+	.align 16
+	.type	 M3CG_Clean__negate,@function
+M3CG_Clean__negate:
+	pushl %ebp
+	movl %esp,%ebp
+	movl 8(%ebp),%edx
+	movl (%edx),%eax
+	movl 644(%eax),%ecx
+	xorl %eax,%eax
+	movb 12(%ebp),%al
+	pushl %eax
+	pushl $0
+	pushl $36
+	pushl %edx
+	call *%ecx
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe51:
+	.size	 M3CG_Clean__negate,.Lfe51-M3CG_Clean__negate
+	.align 16
+	.type	 M3CG_Clean__abs,@function
+M3CG_Clean__abs:
+	pushl %ebp
+	movl %esp,%ebp
+	movl 8(%ebp),%edx
+	movl (%edx),%eax
+	movl 644(%eax),%ecx
+	xorl %eax,%eax
+	movb 12(%ebp),%al
+	pushl %eax
+	pushl $0
+	pushl $37
+	pushl %edx
+	call *%ecx
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe52:
+	.size	 M3CG_Clean__abs,.Lfe52-M3CG_Clean__abs
+	.align 16
+	.type	 M3CG_Clean__max,@function
+M3CG_Clean__max:
+	pushl %ebp
+	movl %esp,%ebp
+	movl 8(%ebp),%edx
+	movl (%edx),%eax
+	movl 644(%eax),%ecx
+	xorl %eax,%eax
+	movb 12(%ebp),%al
+	pushl %eax
+	pushl $0
+	pushl $38
+	pushl %edx
+	call *%ecx
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe53:
+	.size	 M3CG_Clean__max,.Lfe53-M3CG_Clean__max
+	.align 16
+	.type	 M3CG_Clean__min,@function
+M3CG_Clean__min:
+	pushl %ebp
+	movl %esp,%ebp
+	movl 8(%ebp),%edx
+	movl (%edx),%eax
+	movl 644(%eax),%ecx
+	xorl %eax,%eax
+	movb 12(%ebp),%al
+	pushl %eax
+	pushl $0
+	pushl $39
+	pushl %edx
+	call *%ecx
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe54:
+	.size	 M3CG_Clean__min,.Lfe54-M3CG_Clean__min
+	.align 16
+	.type	 M3CG_Clean__round,@function
+M3CG_Clean__round:
+	pushl %ebp
+	movl %esp,%ebp
+	movl 8(%ebp),%edx
+	movl (%edx),%eax
+	movl 644(%eax),%ecx
+	xorl %eax,%eax
+	movb 12(%ebp),%al
+	pushl %eax
+	pushl $0
+	pushl $40
+	pushl %edx
+	call *%ecx
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe55:
+	.size	 M3CG_Clean__round,.Lfe55-M3CG_Clean__round
+	.align 16
+	.type	 M3CG_Clean__trunc,@function
+M3CG_Clean__trunc:
+	pushl %ebp
+	movl %esp,%ebp
+	movl 8(%ebp),%edx
+	movl (%edx),%eax
+	movl 644(%eax),%ecx
+	xorl %eax,%eax
+	movb 12(%ebp),%al
+	pushl %eax
+	pushl $0
+	pushl $41
+	pushl %edx
+	call *%ecx
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe56:
+	.size	 M3CG_Clean__trunc,.Lfe56-M3CG_Clean__trunc
+	.align 16
+	.type	 M3CG_Clean__floor,@function
+M3CG_Clean__floor:
+	pushl %ebp
+	movl %esp,%ebp
+	movl 8(%ebp),%edx
+	movl (%edx),%eax
+	movl 644(%eax),%ecx
+	xorl %eax,%eax
+	movb 12(%ebp),%al
+	pushl %eax
+	pushl $0
+	pushl $42
+	pushl %edx
+	call *%ecx
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe57:
+	.size	 M3CG_Clean__floor,.Lfe57-M3CG_Clean__floor
+	.align 16
+	.type	 M3CG_Clean__ceiling,@function
+M3CG_Clean__ceiling:
+	pushl %ebp
+	movl %esp,%ebp
+	movl 8(%ebp),%edx
+	movl (%edx),%eax
+	movl 644(%eax),%ecx
+	xorl %eax,%eax
+	movb 12(%ebp),%al
+	pushl %eax
+	pushl $0
+	pushl $43
+	pushl %edx
+	call *%ecx
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe58:
+	.size	 M3CG_Clean__ceiling,.Lfe58-M3CG_Clean__ceiling
+	.align 16
+	.type	 M3CG_Clean__cvt_float,@function
+M3CG_Clean__cvt_float:
+	pushl %ebp
+	movl %esp,%ebp
+	movl 8(%ebp),%edx
+	movl (%edx),%eax
+	movl 648(%eax),%ecx
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $MI_TFloat+44
+	movl $MI_TInt+44,%eax
+	pushl %eax
+	pushl %eax
+	xorl %eax,%eax
+	movb 12(%ebp),%al
+	pushl %eax
+	xorl %eax,%eax
+	movb 16(%ebp),%al
+	pushl %eax
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $44
+	pushl %edx
+	call *%ecx
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe59:
+	.size	 M3CG_Clean__cvt_float,.Lfe59-M3CG_Clean__cvt_float
+	.align 16
+	.type	 M3CG_Clean__set_union,@function
+M3CG_Clean__set_union:
+	pushl %ebp
+	movl %esp,%ebp
+	movl 8(%ebp),%ecx
+	movl (%ecx),%eax
+	movl 12(%ebp),%edx
+	movl 644(%eax),%eax
+	pushl $15
+	pushl %edx
+	pushl $45
+	pushl %ecx
+	call *%eax
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe60:
+	.size	 M3CG_Clean__set_union,.Lfe60-M3CG_Clean__set_union
+	.align 16
+	.type	 M3CG_Clean__set_difference,@function
+M3CG_Clean__set_difference:
+	pushl %ebp
+	movl %esp,%ebp
+	movl 8(%ebp),%ecx
+	movl (%ecx),%eax
+	movl 12(%ebp),%edx
+	movl 644(%eax),%eax
+	pushl $15
+	pushl %edx
+	pushl $46
+	pushl %ecx
+	call *%eax
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe61:
+	.size	 M3CG_Clean__set_difference,.Lfe61-M3CG_Clean__set_difference
+	.align 16
+	.type	 M3CG_Clean__set_intersection,@function
+M3CG_Clean__set_intersection:
+	pushl %ebp
+	movl %esp,%ebp
+	movl 8(%ebp),%ecx
+	movl (%ecx),%eax
+	movl 12(%ebp),%edx
+	movl 644(%eax),%eax
+	pushl $15
+	pushl %edx
+	pushl $47
+	pushl %ecx
+	call *%eax
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe62:
+	.size	 M3CG_Clean__set_intersection,.Lfe62-M3CG_Clean__set_intersection
+	.align 16
+	.type	 M3CG_Clean__set_sym_difference,@function
+M3CG_Clean__set_sym_difference:
+	pushl %ebp
+	movl %esp,%ebp
+	movl 8(%ebp),%ecx
+	movl (%ecx),%eax
+	movl 12(%ebp),%edx
+	movl 644(%eax),%eax
+	pushl $15
+	pushl %edx
+	pushl $48
+	pushl %ecx
+	call *%eax
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe63:
+	.size	 M3CG_Clean__set_sym_difference,.Lfe63-M3CG_Clean__set_sym_difference
+	.align 16
+	.type	 M3CG_Clean__set_member,@function
+M3CG_Clean__set_member:
+	pushl %ebp
+	movl %esp,%ebp
+	movl 8(%ebp),%ecx
+	movl (%ecx),%eax
+	movl 12(%ebp),%edx
+	movl 644(%eax),%eax
+	pushl $15
+	pushl %edx
+	pushl $49
+	pushl %ecx
+	call *%eax
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe64:
+	.size	 M3CG_Clean__set_member,.Lfe64-M3CG_Clean__set_member
+	.align 16
+	.type	 M3CG_Clean__set_eq,@function
+M3CG_Clean__set_eq:
+	pushl %ebp
+	movl %esp,%ebp
+	movl 8(%ebp),%ecx
+	movl (%ecx),%eax
+	movl 12(%ebp),%edx
+	movl 644(%eax),%eax
+	pushl $15
+	pushl %edx
+	pushl $50
+	pushl %ecx
+	call *%eax
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe65:
+	.size	 M3CG_Clean__set_eq,.Lfe65-M3CG_Clean__set_eq
+	.align 16
+	.type	 M3CG_Clean__set_ne,@function
+M3CG_Clean__set_ne:
+	pushl %ebp
+	movl %esp,%ebp
+	movl 8(%ebp),%ecx
+	movl (%ecx),%eax
+	movl 12(%ebp),%edx
+	movl 644(%eax),%eax
+	pushl $15
+	pushl %edx
+	pushl $51
+	pushl %ecx
+	call *%eax
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe66:
+	.size	 M3CG_Clean__set_ne,.Lfe66-M3CG_Clean__set_ne
+	.align 16
+	.type	 M3CG_Clean__set_gt,@function
+M3CG_Clean__set_gt:
+	pushl %ebp
+	movl %esp,%ebp
+	movl 8(%ebp),%ecx
+	movl (%ecx),%eax
+	movl 12(%ebp),%edx
+	movl 644(%eax),%eax
+	pushl $15
+	pushl %edx
+	pushl $52
+	pushl %ecx
+	call *%eax
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe67:
+	.size	 M3CG_Clean__set_gt,.Lfe67-M3CG_Clean__set_gt
+	.align 16
+	.type	 M3CG_Clean__set_ge,@function
+M3CG_Clean__set_ge:
+	pushl %ebp
+	movl %esp,%ebp
+	movl 8(%ebp),%ecx
+	movl (%ecx),%eax
+	movl 12(%ebp),%edx
+	movl 644(%eax),%eax
+	pushl $15
+	pushl %edx
+	pushl $53
+	pushl %ecx
+	call *%eax
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe68:
+	.size	 M3CG_Clean__set_ge,.Lfe68-M3CG_Clean__set_ge
+	.align 16
+	.type	 M3CG_Clean__set_lt,@function
+M3CG_Clean__set_lt:
+	pushl %ebp
+	movl %esp,%ebp
+	movl 8(%ebp),%ecx
+	movl (%ecx),%eax
+	movl 12(%ebp),%edx
+	movl 644(%eax),%eax
+	pushl $15
+	pushl %edx
+	pushl $54
+	pushl %ecx
+	call *%eax
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe69:
+	.size	 M3CG_Clean__set_lt,.Lfe69-M3CG_Clean__set_lt
+	.align 16
+	.type	 M3CG_Clean__set_le,@function
+M3CG_Clean__set_le:
+	pushl %ebp
+	movl %esp,%ebp
+	movl 8(%ebp),%ecx
+	movl (%ecx),%eax
+	movl 12(%ebp),%edx
+	movl 644(%eax),%eax
+	pushl $15
+	pushl %edx
+	pushl $55
+	pushl %ecx
+	call *%eax
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe70:
+	.size	 M3CG_Clean__set_le,.Lfe70-M3CG_Clean__set_le
+	.align 16
+	.type	 M3CG_Clean__set_range,@function
+M3CG_Clean__set_range:
+	pushl %ebp
+	movl %esp,%ebp
+	movl 8(%ebp),%ecx
+	movl (%ecx),%eax
+	movl 12(%ebp),%edx
+	movl 644(%eax),%eax
+	pushl $15
+	pushl %edx
+	pushl $56
+	pushl %ecx
+	call *%eax
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe71:
+	.size	 M3CG_Clean__set_range,.Lfe71-M3CG_Clean__set_range
+	.align 16
+	.type	 M3CG_Clean__set_singleton,@function
+M3CG_Clean__set_singleton:
+	pushl %ebp
+	movl %esp,%ebp
+	movl 8(%ebp),%ecx
+	movl (%ecx),%eax
+	movl 12(%ebp),%edx
+	movl 644(%eax),%eax
+	pushl $15
+	pushl %edx
+	pushl $57
+	pushl %ecx
+	call *%eax
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe72:
+	.size	 M3CG_Clean__set_singleton,.Lfe72-M3CG_Clean__set_singleton
+	.align 16
+	.type	 M3CG_Clean__not,@function
+M3CG_Clean__not:
+	pushl %ebp
+	movl %esp,%ebp
+	movl 8(%ebp),%eax
+	movl (%eax),%edx
+	movl 644(%edx),%edx
+	pushl $15
+	pushl $0
+	pushl $58
+	pushl %eax
+	call *%edx
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe73:
+	.size	 M3CG_Clean__not,.Lfe73-M3CG_Clean__not
+	.align 16
+	.type	 M3CG_Clean__and,@function
+M3CG_Clean__and:
+	pushl %ebp
+	movl %esp,%ebp
+	movl 8(%ebp),%eax
+	movl (%eax),%edx
+	movl 644(%edx),%edx
+	pushl $15
+	pushl $0
+	pushl $59
+	pushl %eax
+	call *%edx
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe74:
+	.size	 M3CG_Clean__and,.Lfe74-M3CG_Clean__and
+	.align 16
+	.type	 M3CG_Clean__or,@function
+M3CG_Clean__or:
+	pushl %ebp
+	movl %esp,%ebp
+	movl 8(%ebp),%eax
+	movl (%eax),%edx
+	movl 644(%edx),%edx
+	pushl $15
+	pushl $0
+	pushl $60
+	pushl %eax
+	call *%edx
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe75:
+	.size	 M3CG_Clean__or,.Lfe75-M3CG_Clean__or
+	.align 16
+	.type	 M3CG_Clean__xor,@function
+M3CG_Clean__xor:
+	pushl %ebp
+	movl %esp,%ebp
+	movl 8(%ebp),%eax
+	movl (%eax),%edx
+	movl 644(%edx),%edx
+	pushl $15
+	pushl $0
+	pushl $61
+	pushl %eax
+	call *%edx
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe76:
+	.size	 M3CG_Clean__xor,.Lfe76-M3CG_Clean__xor
+	.align 16
+	.type	 M3CG_Clean__shift,@function
+M3CG_Clean__shift:
+	pushl %ebp
+	movl %esp,%ebp
+	movl 8(%ebp),%eax
+	movl (%eax),%edx
+	movl 644(%edx),%edx
+	pushl $15
+	pushl $0
+	pushl $62
+	pushl %eax
+	call *%edx
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe77:
+	.size	 M3CG_Clean__shift,.Lfe77-M3CG_Clean__shift
+	.align 16
+	.type	 M3CG_Clean__shift_left,@function
+M3CG_Clean__shift_left:
+	pushl %ebp
+	movl %esp,%ebp
+	movl 8(%ebp),%eax
+	movl (%eax),%edx
+	movl 644(%edx),%edx
+	pushl $15
+	pushl $0
+	pushl $63
+	pushl %eax
+	call *%edx
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe78:
+	.size	 M3CG_Clean__shift_left,.Lfe78-M3CG_Clean__shift_left
+	.align 16
+	.type	 M3CG_Clean__shift_right,@function
+M3CG_Clean__shift_right:
+	pushl %ebp
+	movl %esp,%ebp
+	movl 8(%ebp),%eax
+	movl (%eax),%edx
+	movl 644(%edx),%edx
+	pushl $15
+	pushl $0
+	pushl $64
+	pushl %eax
+	call *%edx
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe79:
+	.size	 M3CG_Clean__shift_right,.Lfe79-M3CG_Clean__shift_right
+	.align 16
+	.type	 M3CG_Clean__rotate,@function
+M3CG_Clean__rotate:
+	pushl %ebp
+	movl %esp,%ebp
+	movl 8(%ebp),%eax
+	movl (%eax),%edx
+	movl 644(%edx),%edx
+	pushl $15
+	pushl $0
+	pushl $65
+	pushl %eax
+	call *%edx
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe80:
+	.size	 M3CG_Clean__rotate,.Lfe80-M3CG_Clean__rotate
+	.align 16
+	.type	 M3CG_Clean__rotate_left,@function
+M3CG_Clean__rotate_left:
+	pushl %ebp
+	movl %esp,%ebp
+	movl 8(%ebp),%eax
+	movl (%eax),%edx
+	movl 644(%edx),%edx
+	pushl $15
+	pushl $0
+	pushl $66
+	pushl %eax
+	call *%edx
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe81:
+	.size	 M3CG_Clean__rotate_left,.Lfe81-M3CG_Clean__rotate_left
+	.align 16
+	.type	 M3CG_Clean__rotate_right,@function
+M3CG_Clean__rotate_right:
+	pushl %ebp
+	movl %esp,%ebp
+	movl 8(%ebp),%eax
+	movl (%eax),%edx
+	movl 644(%edx),%edx
+	pushl $15
+	pushl $0
+	pushl $67
+	pushl %eax
+	call *%edx
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe82:
+	.size	 M3CG_Clean__rotate_right,.Lfe82-M3CG_Clean__rotate_right
+	.align 16
+	.type	 M3CG_Clean__extract,@function
+M3CG_Clean__extract:
+	pushl %ebp
+	movl %esp,%ebp
+	movl 8(%ebp),%edx
+	movl (%edx),%eax
+	movl 648(%eax),%ecx
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $MI_TFloat+44
+	movl $MI_TInt+44,%eax
+	pushl %eax
+	pushl %eax
+	pushl $15
+	pushl $15
+	pushl $0
+	xorl %eax,%eax
+	movb 12(%ebp),%al
+	pushl %eax
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $68
+	pushl %edx
+	call *%ecx
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe83:
+	.size	 M3CG_Clean__extract,.Lfe83-M3CG_Clean__extract
+	.align 16
+	.type	 M3CG_Clean__extract_n,@function
+M3CG_Clean__extract_n:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %ebx
+	movl 8(%ebp),%edx
+	movl (%edx),%eax
+	movl 16(%ebp),%ecx
+	movl 648(%eax),%ebx
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $MI_TFloat+44
+	movl $MI_TInt+44,%eax
+	pushl %eax
+	pushl %eax
+	pushl $15
+	pushl $15
+	pushl $0
+	xorl %eax,%eax
+	movb 12(%ebp),%al
+	pushl %eax
+	pushl $0
+	pushl $0
+	pushl %ecx
+	pushl $0
+	pushl $69
+	pushl %edx
+	call *%ebx
+	movl -4(%ebp),%ebx
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe84:
+	.size	 M3CG_Clean__extract_n,.Lfe84-M3CG_Clean__extract_n
+	.align 16
+	.type	 M3CG_Clean__extract_mn,@function
+M3CG_Clean__extract_mn:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%edx
+	movl 16(%ebp),%ebx
+	movl (%edx),%eax
+	movl 20(%ebp),%ecx
+	movl 648(%eax),%esi
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $MI_TFloat+44
+	movl $MI_TInt+44,%eax
+	pushl %eax
+	pushl %eax
+	pushl $15
+	pushl $15
+	pushl $0
+	xorl %eax,%eax
+	movb 12(%ebp),%al
+	pushl %eax
+	pushl $0
+	pushl %ecx
+	pushl %ebx
+	pushl $0
+	pushl $70
+	pushl %edx
+	call *%esi
+	leal -8(%ebp),%esp
+	popl %ebx
+	popl %esi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe85:
+	.size	 M3CG_Clean__extract_mn,.Lfe85-M3CG_Clean__extract_mn
+	.align 16
+	.type	 M3CG_Clean__insert,@function
+M3CG_Clean__insert:
+	pushl %ebp
+	movl %esp,%ebp
+	movl 8(%ebp),%eax
+	movl (%eax),%edx
+	movl 644(%edx),%edx
+	pushl $15
+	pushl $0
+	pushl $71
+	pushl %eax
+	call *%edx
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe86:
+	.size	 M3CG_Clean__insert,.Lfe86-M3CG_Clean__insert
+	.align 16
+	.type	 M3CG_Clean__insert_n,@function
+M3CG_Clean__insert_n:
+	pushl %ebp
+	movl %esp,%ebp
+	movl 8(%ebp),%ecx
+	movl (%ecx),%eax
+	movl 12(%ebp),%edx
+	movl 644(%eax),%eax
+	pushl $15
+	pushl %edx
+	pushl $72
+	pushl %ecx
+	call *%eax
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe87:
+	.size	 M3CG_Clean__insert_n,.Lfe87-M3CG_Clean__insert_n
+	.align 16
+	.type	 M3CG_Clean__insert_mn,@function
+M3CG_Clean__insert_mn:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%edx
+	movl 12(%ebp),%ebx
+	movl (%edx),%eax
+	movl 16(%ebp),%ecx
+	movl 648(%eax),%esi
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $MI_TFloat+44
+	movl $MI_TInt+44,%eax
+	pushl %eax
+	pushl %eax
+	pushl $15
+	pushl $15
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl %ecx
+	pushl %ebx
+	pushl $0
+	pushl $73
+	pushl %edx
+	call *%esi
+	leal -8(%ebp),%esp
+	popl %ebx
+	popl %esi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe88:
+	.size	 M3CG_Clean__insert_mn,.Lfe88-M3CG_Clean__insert_mn
+	.align 16
+	.type	 M3CG_Clean__swap,@function
+M3CG_Clean__swap:
+	pushl %ebp
+	movl %esp,%ebp
+	movl 8(%ebp),%edx
+	movl (%edx),%eax
+	movl 648(%eax),%ecx
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $MI_TFloat+44
+	movl $MI_TInt+44,%eax
+	pushl %eax
+	pushl %eax
+	xorl %eax,%eax
+	movb 16(%ebp),%al
+	pushl %eax
+	xorl %eax,%eax
+	movb 12(%ebp),%al
+	pushl %eax
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $74
+	pushl %edx
+	call *%ecx
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe89:
+	.size	 M3CG_Clean__swap,.Lfe89-M3CG_Clean__swap
+	.align 16
+	.type	 M3CG_Clean__pop,@function
+M3CG_Clean__pop:
+	pushl %ebp
+	movl %esp,%ebp
+	movl 8(%ebp),%edx
+	movl (%edx),%eax
+	movl 644(%eax),%ecx
+	xorl %eax,%eax
+	movb 12(%ebp),%al
+	pushl %eax
+	pushl $0
+	pushl $75
+	pushl %edx
+	call *%ecx
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe90:
+	.size	 M3CG_Clean__pop,.Lfe90-M3CG_Clean__pop
+	.align 16
+	.type	 M3CG_Clean__copy_n,@function
+M3CG_Clean__copy_n:
+	pushl %ebp
+	movl %esp,%ebp
+	movl 8(%ebp),%edx
+	movl (%edx),%eax
+	movl 648(%eax),%ecx
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $MI_TFloat+44
+	movl $MI_TInt+44,%eax
+	pushl %eax
+	pushl %eax
+	pushl $15
+	xorl %eax,%eax
+	movb 12(%ebp),%al
+	pushl %eax
+	pushl $0
+	xorl %eax,%eax
+	movb 16(%ebp),%al
+	pushl %eax
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $76
+	pushl %edx
+	call *%ecx
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe91:
+	.size	 M3CG_Clean__copy_n,.Lfe91-M3CG_Clean__copy_n
+	.align 16
+	.type	 M3CG_Clean__copy,@function
+M3CG_Clean__copy:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %ebx
+	movl 8(%ebp),%edx
+	movl (%edx),%eax
+	movl 12(%ebp),%ecx
+	movl 648(%eax),%ebx
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $MI_TFloat+44
+	movl $MI_TInt+44,%eax
+	pushl %eax
+	pushl %eax
+	pushl $15
+	xorl %eax,%eax
+	movb 16(%ebp),%al
+	pushl %eax
+	pushl $0
+	xorl %eax,%eax
+	movb 20(%ebp),%al
+	pushl %eax
+	pushl $0
+	pushl $0
+	pushl %ecx
+	pushl $0
+	pushl $77
+	pushl %edx
+	call *%ebx
+	movl -4(%ebp),%ebx
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe92:
+	.size	 M3CG_Clean__copy,.Lfe92-M3CG_Clean__copy
+	.align 16
+	.type	 M3CG_Clean__zero_n,@function
+M3CG_Clean__zero_n:
+	pushl %ebp
+	movl %esp,%ebp
+	movl 8(%ebp),%edx
+	movl (%edx),%eax
+	movl 644(%eax),%ecx
+	xorl %eax,%eax
+	movb 12(%ebp),%al
+	pushl %eax
+	pushl $0
+	pushl $78
+	pushl %edx
+	call *%ecx
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe93:
+	.size	 M3CG_Clean__zero_n,.Lfe93-M3CG_Clean__zero_n
+	.align 16
+	.type	 M3CG_Clean__zero,@function
+M3CG_Clean__zero:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %ebx
+	movl 8(%ebp),%ecx
+	movl (%ecx),%eax
+	movl 12(%ebp),%edx
+	movl 644(%eax),%ebx
+	xorl %eax,%eax
+	movb 16(%ebp),%al
+	pushl %eax
+	pushl %edx
+	pushl $79
+	pushl %ecx
+	call *%ebx
+	movl -4(%ebp),%ebx
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe94:
+	.size	 M3CG_Clean__zero,.Lfe94-M3CG_Clean__zero
+	.align 16
+	.type	 M3CG_Clean__loophole,@function
+M3CG_Clean__loophole:
+	pushl %ebp
+	movl %esp,%ebp
+	movl 8(%ebp),%edx
+	movl (%edx),%eax
+	movl 648(%eax),%ecx
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $MI_TFloat+44
+	movl $MI_TInt+44,%eax
+	pushl %eax
+	pushl %eax
+	xorl %eax,%eax
+	movb 12(%ebp),%al
+	pushl %eax
+	xorl %eax,%eax
+	movb 16(%ebp),%al
+	pushl %eax
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $80
+	pushl %edx
+	call *%ecx
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe95:
+	.size	 M3CG_Clean__loophole,.Lfe95-M3CG_Clean__loophole
+	.align 16
+	.type	 M3CG_Clean__assert_fault,@function
+M3CG_Clean__assert_fault:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%ebx
+	movl (%ebx),%eax
+	movl 640(%eax),%esi
+	pushl %ebx
+	call *%esi
+	movl 4(%ebx),%esi
+	movl (%esi),%eax
+	movl 544(%eax),%eax
+	pushl %esi
+	call *%eax
+	leal -8(%ebp),%esp
+	popl %ebx
+	popl %esi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe96:
+	.size	 M3CG_Clean__assert_fault,.Lfe96-M3CG_Clean__assert_fault
+	.align 16
+	.type	 M3CG_Clean__narrow_fault,@function
+M3CG_Clean__narrow_fault:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%ebx
+	movl (%ebx),%eax
+	movl 640(%eax),%esi
+	pushl %ebx
+	call *%esi
+	movl 4(%ebx),%esi
+	movl (%esi),%eax
+	movl 548(%eax),%eax
+	pushl %esi
+	call *%eax
+	leal -8(%ebp),%esp
+	popl %ebx
+	popl %esi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe97:
+	.size	 M3CG_Clean__narrow_fault,.Lfe97-M3CG_Clean__narrow_fault
+	.align 16
+	.type	 M3CG_Clean__return_fault,@function
+M3CG_Clean__return_fault:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%ebx
+	movl (%ebx),%eax
+	movl 640(%eax),%esi
+	pushl %ebx
+	call *%esi
+	movl 4(%ebx),%esi
+	movl (%esi),%eax
+	movl 552(%eax),%eax
+	pushl %esi
+	call *%eax
+	leal -8(%ebp),%esp
+	popl %ebx
+	popl %esi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe98:
+	.size	 M3CG_Clean__return_fault,.Lfe98-M3CG_Clean__return_fault
+	.align 16
+	.type	 M3CG_Clean__case_fault,@function
+M3CG_Clean__case_fault:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%ebx
+	movl (%ebx),%eax
+	movl 640(%eax),%esi
+	pushl %ebx
+	call *%esi
+	movl 4(%ebx),%esi
+	movl (%esi),%eax
+	movl 556(%eax),%eax
+	pushl %esi
+	call *%eax
+	leal -8(%ebp),%esp
+	popl %ebx
+	popl %esi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe99:
+	.size	 M3CG_Clean__case_fault,.Lfe99-M3CG_Clean__case_fault
+	.align 16
+	.type	 M3CG_Clean__typecase_fault,@function
+M3CG_Clean__typecase_fault:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%ebx
+	movl (%ebx),%eax
+	movl 640(%eax),%esi
+	pushl %ebx
+	call *%esi
+	movl 4(%ebx),%esi
+	movl (%esi),%eax
+	movl 560(%eax),%eax
+	pushl %esi
+	call *%eax
+	leal -8(%ebp),%esp
+	popl %ebx
+	popl %esi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe100:
+	.size	 M3CG_Clean__typecase_fault,.Lfe100-M3CG_Clean__typecase_fault
+	.align 16
+	.type	 M3CG_Clean__check_nil,@function
+M3CG_Clean__check_nil:
+	pushl %ebp
+	movl %esp,%ebp
+	movl 8(%ebp),%eax
+	movl (%eax),%edx
+	movl 644(%edx),%edx
+	pushl $15
+	pushl $0
+	pushl $81
+	pushl %eax
+	call *%edx
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe101:
+	.size	 M3CG_Clean__check_nil,.Lfe101-M3CG_Clean__check_nil
+	.align 16
+	.type	 M3CG_Clean__check_lo,@function
+M3CG_Clean__check_lo:
+	pushl %ebp
+	movl %esp,%ebp
+	movl 8(%ebp),%edx
+	movl (%edx),%eax
+	movl 648(%eax),%ecx
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $MI_TFloat+44
+	pushl $MI_TInt+44
+	movl 12(%ebp),%eax
+	pushl %eax
+	pushl $15
+	pushl $15
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $82
+	pushl %edx
+	call *%ecx
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe102:
+	.size	 M3CG_Clean__check_lo,.Lfe102-M3CG_Clean__check_lo
+	.align 16
+	.type	 M3CG_Clean__check_hi,@function
+M3CG_Clean__check_hi:
+	pushl %ebp
+	movl %esp,%ebp
+	movl 8(%ebp),%edx
+	movl (%edx),%eax
+	movl 648(%eax),%ecx
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $MI_TFloat+44
+	pushl $MI_TInt+44
+	movl 12(%ebp),%eax
+	pushl %eax
+	pushl $15
+	pushl $15
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $83
+	pushl %edx
+	call *%ecx
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe103:
+	.size	 M3CG_Clean__check_hi,.Lfe103-M3CG_Clean__check_hi
+	.align 16
+	.type	 M3CG_Clean__check_range,@function
+M3CG_Clean__check_range:
+	pushl %ebp
+	movl %esp,%ebp
+	movl 8(%ebp),%edx
+	movl (%edx),%eax
+	movl 648(%eax),%ecx
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $MI_TFloat+44
+	movl 16(%ebp),%eax
+	pushl %eax
+	movl 12(%ebp),%eax
+	pushl %eax
+	pushl $15
+	pushl $15
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $84
+	pushl %edx
+	call *%ecx
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe104:
+	.size	 M3CG_Clean__check_range,.Lfe104-M3CG_Clean__check_range
+	.align 16
+	.type	 M3CG_Clean__check_index,@function
+M3CG_Clean__check_index:
+	pushl %ebp
+	movl %esp,%ebp
+	movl 8(%ebp),%eax
+	movl (%eax),%edx
+	movl 644(%edx),%edx
+	pushl $15
+	pushl $0
+	pushl $85
+	pushl %eax
+	call *%edx
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe105:
+	.size	 M3CG_Clean__check_index,.Lfe105-M3CG_Clean__check_index
+	.align 16
+	.type	 M3CG_Clean__check_eq,@function
+M3CG_Clean__check_eq:
+	pushl %ebp
+	movl %esp,%ebp
+	movl 8(%ebp),%eax
+	movl (%eax),%edx
+	movl 644(%edx),%edx
+	pushl $15
+	pushl $0
+	pushl $86
+	pushl %eax
+	call *%edx
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe106:
+	.size	 M3CG_Clean__check_eq,.Lfe106-M3CG_Clean__check_eq
+	.align 16
+	.type	 M3CG_Clean__add_offset,@function
+M3CG_Clean__add_offset:
+	pushl %ebp
+	movl %esp,%ebp
+	movl 8(%ebp),%ecx
+	movl (%ecx),%eax
+	movl 12(%ebp),%edx
+	movl 644(%eax),%eax
+	pushl $15
+	pushl %edx
+	pushl $87
+	pushl %ecx
+	call *%eax
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe107:
+	.size	 M3CG_Clean__add_offset,.Lfe107-M3CG_Clean__add_offset
+	.align 16
+	.type	 M3CG_Clean__index_address,@function
+M3CG_Clean__index_address:
+	pushl %ebp
+	movl %esp,%ebp
+	movl 8(%ebp),%ecx
+	movl (%ecx),%eax
+	movl 12(%ebp),%edx
+	movl 644(%eax),%eax
+	pushl $15
+	pushl %edx
+	pushl $88
+	pushl %ecx
+	call *%eax
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe108:
+	.size	 M3CG_Clean__index_address,.Lfe108-M3CG_Clean__index_address
+	.align 16
+	.type	 M3CG_Clean__start_call_direct,@function
+M3CG_Clean__start_call_direct:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%esi
+	movl 12(%ebp),%edi
+	cmpb $0,8(%esi)
+	je .L359
+	movl (%esi),%eax
+	movl 636(%eax),%ebx
+	pushl $0
+	pushl %esi
+	call *%ebx
+	movl 4(%esi),%ebx
+	movl (%ebx),%eax
+	movl 596(%eax),%edx
+	xorl %eax,%eax
+	movb 20(%ebp),%al
+	pushl %eax
+	movl 16(%ebp),%ecx
+	pushl %ecx
+	pushl %edi
+	pushl %ebx
+	call *%edx
+	jmp .L358
+	.align 16
+.L359:
+	movl (%esi),%eax
+	movl 648(%eax),%edx
+	pushl $0
+	pushl %edi
+	pushl $0
+	pushl $0
+	pushl $MI_TFloat+44
+	movl $MI_TInt+44,%eax
+	pushl %eax
+	pushl %eax
+	pushl $15
+	xorl %eax,%eax
+	movb 20(%ebp),%al
+	pushl %eax
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $0
+	movl 16(%ebp),%ecx
+	pushl %ecx
+	pushl $0
+	pushl $89
+	pushl %esi
+	call *%edx
+.L358:
+	leal -12(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe109:
+	.size	 M3CG_Clean__start_call_direct,.Lfe109-M3CG_Clean__start_call_direct
+	.align 16
+	.type	 M3CG_Clean__start_call_indirect,@function
+M3CG_Clean__start_call_indirect:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%esi
+	movl 16(%ebp),%edi
+	cmpb $0,8(%esi)
+	je .L362
+	movl (%esi),%eax
+	movl 636(%eax),%ebx
+	pushl $0
+	pushl %esi
+	call *%ebx
+	movl 4(%esi),%ebx
+	movl (%ebx),%eax
+	movl 604(%eax),%edx
+	pushl %edi
+	xorl %eax,%eax
+	movb 12(%ebp),%al
+	pushl %eax
+	pushl %ebx
+	call *%edx
+	jmp .L361
+	.align 16
+.L362:
+	movl (%esi),%eax
+	movl 648(%eax),%edx
+	pushl %edi
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $MI_TFloat+44
+	movl $MI_TInt+44,%eax
+	pushl %eax
+	pushl %eax
+	pushl $15
+	xorl %eax,%eax
+	movb 12(%ebp),%al
+	pushl %eax
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $90
+	pushl %esi
+	call *%edx
+.L361:
+	leal -12(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe110:
+	.size	 M3CG_Clean__start_call_indirect,.Lfe110-M3CG_Clean__start_call_indirect
+	.align 16
+	.type	 M3CG_Clean__pop_param,@function
+M3CG_Clean__pop_param:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%esi
+	cmpb $0,9(%esi)
+	je .L365
+	movl (%esi),%eax
+	movl 636(%eax),%ebx
+	pushl $1
+	pushl %esi
+	call *%ebx
+	movl 4(%esi),%ebx
+	movl (%ebx),%eax
+	movl 612(%eax),%edx
+	xorl %eax,%eax
+	movb 12(%ebp),%al
+	pushl %eax
+	pushl %ebx
+	call *%edx
+	jmp .L364
+	.align 16
+.L365:
+	movl (%esi),%eax
+	movl 644(%eax),%edx
+	xorl %eax,%eax
+	movb 12(%ebp),%al
+	pushl %eax
+	pushl $0
+	pushl $91
+	pushl %esi
+	call *%edx
+.L364:
+	leal -8(%ebp),%esp
+	popl %ebx
+	popl %esi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe111:
+	.size	 M3CG_Clean__pop_param,.Lfe111-M3CG_Clean__pop_param
+	.align 16
+	.type	 M3CG_Clean__pop_struct,@function
+M3CG_Clean__pop_struct:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%esi
+	movl 16(%ebp),%edi
+	cmpb $0,9(%esi)
+	je .L368
+	movl (%esi),%eax
+	movl 636(%eax),%ebx
+	pushl $1
+	pushl %esi
+	call *%ebx
+	movl 4(%esi),%ebx
+	movl (%ebx),%eax
+	movl 616(%eax),%edx
+	pushl %edi
+	movl 12(%ebp),%ecx
+	pushl %ecx
+	pushl %ebx
+	call *%edx
+	jmp .L367
+	.align 16
+.L368:
+	movl (%esi),%eax
+	movl 648(%eax),%edx
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $MI_TFloat+44
+	movl $MI_TInt+44,%eax
+	pushl %eax
+	pushl %eax
+	pushl $15
+	pushl $15
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl %edi
+	movl 12(%ebp),%ecx
+	pushl %ecx
+	pushl $0
+	pushl $92
+	pushl %esi
+	call *%edx
+.L367:
+	leal -12(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe112:
+	.size	 M3CG_Clean__pop_struct,.Lfe112-M3CG_Clean__pop_struct
+	.align 16
+	.type	 M3CG_Clean__pop_static_link,@function
+M3CG_Clean__pop_static_link:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%esi
+	cmpb $0,9(%esi)
+	je .L371
+	movl (%esi),%eax
+	movl 636(%eax),%ebx
+	pushl $1
+	pushl %esi
+	call *%ebx
+	movl 4(%esi),%ebx
+	movl (%ebx),%eax
+	movl 620(%eax),%eax
+	pushl %ebx
+	call *%eax
+	jmp .L370
+	.align 16
+.L371:
+	movl (%esi),%eax
+	movl 644(%eax),%eax
+	pushl $15
+	pushl $0
+	pushl $93
+	pushl %esi
+	call *%eax
+.L370:
+	leal -8(%ebp),%esp
+	popl %ebx
+	popl %esi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe113:
+	.size	 M3CG_Clean__pop_static_link,.Lfe113-M3CG_Clean__pop_static_link
+	.align 16
+	.type	 M3CG_Clean__call_direct,@function
+M3CG_Clean__call_direct:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%esi
+	movl 12(%ebp),%edi
+	cmpb $0,8(%esi)
+	je .L374
+	movl (%esi),%eax
+	movl 636(%eax),%ebx
+	pushl $0
+	pushl %esi
+	call *%ebx
+	movl 4(%esi),%ebx
+	movl (%ebx),%eax
+	movl 600(%eax),%ecx
+	xorl %eax,%eax
+	movb 16(%ebp),%al
+	pushl %eax
+	pushl %edi
+	pushl %ebx
+	call *%ecx
+	jmp .L373
+	.align 16
+.L374:
+	xorl %ebx,%ebx
+	movb 16(%ebp),%bl
+	cmpl $15,%ebx
+	jne .L376
+	movl (%esi),%eax
+	movl 648(%eax),%ecx
+	pushl $0
+	pushl %edi
+	pushl $0
+	pushl $0
+	pushl $MI_TFloat+44
+	movl $MI_TInt+44,%eax
+	pushl %eax
+	pushl %eax
+	pushl %ebx
+	pushl %ebx
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $94
+	jmp .L377
+	.align 16
+.L376:
+	movl (%esi),%eax
+	movl 648(%eax),%ecx
+	pushl $0
+	pushl %edi
+	pushl $0
+	pushl $0
+	pushl $MI_TFloat+44
+	movl $MI_TInt+44,%eax
+	pushl %eax
+	pushl %eax
+	pushl $15
+	pushl %ebx
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $95
+.L377:
+	pushl %esi
+	call *%ecx
+.L373:
+	leal -12(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe114:
+	.size	 M3CG_Clean__call_direct,.Lfe114-M3CG_Clean__call_direct
+	.align 16
+	.type	 M3CG_Clean__call_indirect,@function
+M3CG_Clean__call_indirect:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%esi
+	movl 16(%ebp),%edi
+	cmpb $0,8(%esi)
+	je .L379
+	movl (%esi),%eax
+	movl 636(%eax),%ebx
+	pushl $0
+	pushl %esi
+	call *%ebx
+	movl 4(%esi),%ebx
+	movl (%ebx),%eax
+	movl 608(%eax),%ecx
+	pushl %edi
+	xorl %eax,%eax
+	movb 12(%ebp),%al
+	pushl %eax
+	pushl %ebx
+	call *%ecx
+	jmp .L378
+	.align 16
+.L379:
+	xorl %ebx,%ebx
+	movb 12(%ebp),%bl
+	cmpl $15,%ebx
+	jne .L381
+	movl (%esi),%eax
+	movl 648(%eax),%ecx
+	pushl %edi
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $MI_TFloat+44
+	movl $MI_TInt+44,%eax
+	pushl %eax
+	pushl %eax
+	pushl %ebx
+	pushl %ebx
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $96
+	jmp .L382
+	.align 16
+.L381:
+	movl (%esi),%eax
+	movl 648(%eax),%ecx
+	pushl %edi
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $MI_TFloat+44
+	movl $MI_TInt+44,%eax
+	pushl %eax
+	pushl %eax
+	pushl $15
+	pushl %ebx
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $97
+.L382:
+	pushl %esi
+	call *%ecx
+.L378:
+	leal -12(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe115:
+	.size	 M3CG_Clean__call_indirect,.Lfe115-M3CG_Clean__call_indirect
+	.align 16
+	.type	 M3CG_Clean__load_procedure,@function
+M3CG_Clean__load_procedure:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %ebx
+	movl 8(%ebp),%ecx
+	movl (%ecx),%eax
+	movl 12(%ebp),%edx
+	movl 648(%eax),%ebx
+	pushl $0
+	pushl %edx
+	pushl $0
+	pushl $0
+	pushl $MI_TFloat+44
+	movl $MI_TInt+44,%eax
+	pushl %eax
+	pushl %eax
+	pushl $15
+	pushl $15
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $98
+	pushl %ecx
+	call *%ebx
+	movl -4(%ebp),%ebx
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe116:
+	.size	 M3CG_Clean__load_procedure,.Lfe116-M3CG_Clean__load_procedure
+	.align 16
+	.type	 M3CG_Clean__load_static_link,@function
+M3CG_Clean__load_static_link:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %ebx
+	movl 8(%ebp),%ecx
+	movl (%ecx),%eax
+	movl 12(%ebp),%edx
+	movl 648(%eax),%ebx
+	pushl $0
+	pushl %edx
+	pushl $0
+	pushl $0
+	pushl $MI_TFloat+44
+	movl $MI_TInt+44,%eax
+	pushl %eax
+	pushl %eax
+	pushl $15
+	pushl $15
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $99
+	pushl %ecx
+	call *%ebx
+	movl -4(%ebp),%ebx
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe117:
+	.size	 M3CG_Clean__load_static_link,.Lfe117-M3CG_Clean__load_static_link
+	.align 16
+	.type	 M3CG_Clean__comment,@function
+M3CG_Clean__comment:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %edi
+	pushl %esi
+	movl $MM_M3CG_Clean+1256,%ecx
+	pushl %ebx
+	movl 12(%ebp),%eax
+	movl 20(%ebp),%esi
+	movl 24(%ebp),%edi
+	testl %eax,%eax
+	je .L386
+	pushl %eax
+	pushl %ecx
+	movl MI_RTHooks+76,%eax
+	call *%eax
+	movl %eax,%edx
+	movl %edx,%ecx
+	addl $8,%esp
+.L386:
+	cmpl $0,16(%ebp)
+	je .L387
+	movl 16(%ebp),%ebx
+	pushl %ebx
+	pushl %ecx
+	movl MI_RTHooks+76,%eax
+	call *%eax
+	movl %eax,%edx
+	movl %edx,%ecx
+	addl $8,%esp
+.L387:
+	testl %esi,%esi
+	je .L388
+	pushl %esi
+	pushl %ecx
+	movl MI_RTHooks+76,%eax
+	call *%eax
+	movl %eax,%edx
+	movl %edx,%ecx
+	addl $8,%esp
+.L388:
+	testl %edi,%edi
+	je .L389
+	pushl %edi
+	pushl %ecx
+	movl MI_RTHooks+76,%eax
+	call *%eax
+	movl %eax,%edx
+	movl %edx,%ecx
+	addl $8,%esp
+.L389:
+	movl 8(%ebp),%ebx
+	movl (%ebx),%eax
+	movl 648(%eax),%edx
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $MI_TFloat+44
+	movl $MI_TInt+44,%eax
+	pushl %eax
+	pushl %eax
+	pushl $15
+	pushl $15
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl %ecx
+	pushl $100
+	pushl %ebx
+	call *%edx
+	leal -12(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe118:
+	.size	 M3CG_Clean__comment,.Lfe118-M3CG_Clean__comment
+	.align 16
+	.type	 M_M3CG_Clean_t103e376b_LINK,@function
+M_M3CG_Clean_t103e376b_LINK:
+	pushl %ebp
+	movl %esp,%ebp
+	movl MM_M3CG_Clean+1244,%eax
+	movl MM_M3CG_Clean+760,%edx
+	movl 52(%eax),%eax
+	movl %ebp,%esp
+	movl %edx,636(%eax)
+	movl MM_M3CG_Clean+768,%edx
+	movl %edx,640(%eax)
+	movl MM_M3CG_Clean+776,%edx
+	movl %edx,644(%eax)
+	movl MM_M3CG_Clean+780,%edx
+	movl %edx,648(%eax)
+	movl MM_M3CG_Clean+788,%edx
+	movl %edx,16(%eax)
+	movl MM_M3CG_Clean+792,%edx
+	movl %edx,28(%eax)
+	movl MM_M3CG_Clean+796,%edx
+	movl %edx,32(%eax)
+	movl MM_M3CG_Clean+800,%edx
+	movl %edx,160(%eax)
+	movl MM_M3CG_Clean+804,%edx
+	movl %edx,212(%eax)
+	movl MM_M3CG_Clean+808,%edx
+	movl %edx,216(%eax)
+	movl MM_M3CG_Clean+812,%edx
+	movl %edx,220(%eax)
+	movl MM_M3CG_Clean+816,%edx
+	movl %edx,224(%eax)
+	movl MM_M3CG_Clean+820,%edx
+	movl %edx,228(%eax)
+	movl MM_M3CG_Clean+824,%edx
+	movl %edx,232(%eax)
+	movl MM_M3CG_Clean+828,%edx
+	movl %edx,236(%eax)
+	movl MM_M3CG_Clean+832,%edx
+	movl %edx,240(%eax)
+	movl MM_M3CG_Clean+836,%edx
+	movl %edx,244(%eax)
+	movl MM_M3CG_Clean+840,%edx
+	movl %edx,248(%eax)
+	movl MM_M3CG_Clean+844,%edx
+	movl %edx,252(%eax)
+	movl MM_M3CG_Clean+848,%edx
+	movl %edx,256(%eax)
+	movl MM_M3CG_Clean+852,%edx
+	movl %edx,260(%eax)
+	movl MM_M3CG_Clean+856,%edx
+	movl %edx,264(%eax)
+	movl MM_M3CG_Clean+860,%edx
+	movl %edx,268(%eax)
+	movl MM_M3CG_Clean+864,%edx
+	movl %edx,272(%eax)
+	movl MM_M3CG_Clean+868,%edx
+	movl %edx,276(%eax)
+	movl MM_M3CG_Clean+872,%edx
+	movl %edx,288(%eax)
+	movl MM_M3CG_Clean+876,%edx
+	movl %edx,296(%eax)
+	movl MM_M3CG_Clean+880,%edx
+	movl %edx,280(%eax)
+	movl MM_M3CG_Clean+884,%edx
+	movl %edx,284(%eax)
+	movl MM_M3CG_Clean+888,%edx
+	movl %edx,292(%eax)
+	movl MM_M3CG_Clean+892,%edx
+	movl %edx,300(%eax)
+	movl MM_M3CG_Clean+896,%edx
+	movl %edx,304(%eax)
+	movl MM_M3CG_Clean+900,%edx
+	movl %edx,308(%eax)
+	movl MM_M3CG_Clean+904,%edx
+	movl %edx,312(%eax)
+	movl MM_M3CG_Clean+908,%edx
+	movl %edx,316(%eax)
+	movl MM_M3CG_Clean+912,%edx
+	movl %edx,320(%eax)
+	movl MM_M3CG_Clean+916,%edx
+	movl %edx,324(%eax)
+	movl MM_M3CG_Clean+920,%edx
+	movl %edx,328(%eax)
+	movl MM_M3CG_Clean+924,%edx
+	movl %edx,332(%eax)
+	movl MM_M3CG_Clean+928,%edx
+	movl %edx,336(%eax)
+	movl MM_M3CG_Clean+932,%edx
+	movl %edx,340(%eax)
+	movl MM_M3CG_Clean+936,%edx
+	movl %edx,344(%eax)
+	movl MM_M3CG_Clean+940,%edx
+	movl %edx,348(%eax)
+	movl MM_M3CG_Clean+944,%edx
+	movl %edx,352(%eax)
+	movl MM_M3CG_Clean+948,%edx
+	movl %edx,392(%eax)
+	movl MM_M3CG_Clean+952,%edx
+	movl %edx,396(%eax)
+	movl MM_M3CG_Clean+956,%edx
+	movl %edx,356(%eax)
+	movl MM_M3CG_Clean+960,%edx
+	movl %edx,360(%eax)
+	movl MM_M3CG_Clean+964,%edx
+	movl %edx,364(%eax)
+	movl MM_M3CG_Clean+968,%edx
+	movl %edx,368(%eax)
+	movl MM_M3CG_Clean+972,%edx
+	movl %edx,372(%eax)
+	movl MM_M3CG_Clean+976,%edx
+	movl %edx,376(%eax)
+	movl MM_M3CG_Clean+980,%edx
+	movl %edx,380(%eax)
+	movl MM_M3CG_Clean+984,%edx
+	movl %edx,384(%eax)
+	movl MM_M3CG_Clean+988,%edx
+	movl %edx,388(%eax)
+	movl MM_M3CG_Clean+992,%edx
+	movl %edx,400(%eax)
+	movl MM_M3CG_Clean+996,%edx
+	movl %edx,404(%eax)
+	movl MM_M3CG_Clean+1000,%edx
+	movl %edx,408(%eax)
+	movl MM_M3CG_Clean+1004,%edx
+	movl %edx,412(%eax)
+	movl MM_M3CG_Clean+1008,%edx
+	movl %edx,416(%eax)
+	movl MM_M3CG_Clean+1012,%edx
+	movl %edx,420(%eax)
+	movl MM_M3CG_Clean+1016,%edx
+	movl %edx,424(%eax)
+	movl MM_M3CG_Clean+1020,%edx
+	movl %edx,436(%eax)
+	movl MM_M3CG_Clean+1024,%edx
+	movl %edx,440(%eax)
+	movl MM_M3CG_Clean+1028,%edx
+	movl %edx,428(%eax)
+	movl MM_M3CG_Clean+1032,%edx
+	movl %edx,432(%eax)
+	movl MM_M3CG_Clean+1036,%edx
+	movl %edx,444(%eax)
+	movl MM_M3CG_Clean+1040,%edx
+	movl %edx,448(%eax)
+	movl MM_M3CG_Clean+1044,%edx
+	movl %edx,452(%eax)
+	movl MM_M3CG_Clean+1048,%edx
+	movl %edx,456(%eax)
+	movl MM_M3CG_Clean+1052,%edx
+	movl %edx,460(%eax)
+	movl MM_M3CG_Clean+1056,%edx
+	movl %edx,464(%eax)
+	movl MM_M3CG_Clean+1060,%edx
+	movl %edx,468(%eax)
+	movl MM_M3CG_Clean+1064,%edx
+	movl %edx,472(%eax)
+	movl MM_M3CG_Clean+1068,%edx
+	movl %edx,476(%eax)
+	movl MM_M3CG_Clean+1072,%edx
+	movl %edx,480(%eax)
+	movl MM_M3CG_Clean+1076,%edx
+	movl %edx,484(%eax)
+	movl MM_M3CG_Clean+1080,%edx
+	movl %edx,488(%eax)
+	movl MM_M3CG_Clean+1084,%edx
+	movl %edx,492(%eax)
+	movl MM_M3CG_Clean+1088,%edx
+	movl %edx,496(%eax)
+	movl MM_M3CG_Clean+1092,%edx
+	movl %edx,500(%eax)
+	movl MM_M3CG_Clean+1096,%edx
+	movl %edx,504(%eax)
+	movl MM_M3CG_Clean+1100,%edx
+	movl %edx,508(%eax)
+	movl MM_M3CG_Clean+1104,%edx
+	movl %edx,512(%eax)
+	movl MM_M3CG_Clean+1108,%edx
+	movl %edx,516(%eax)
+	movl MM_M3CG_Clean+1112,%edx
+	movl %edx,520(%eax)
+	movl MM_M3CG_Clean+1120,%edx
+	movl %edx,528(%eax)
+	movl MM_M3CG_Clean+1116,%edx
+	movl %edx,524(%eax)
+	movl MM_M3CG_Clean+1128,%edx
+	movl %edx,536(%eax)
+	movl MM_M3CG_Clean+1124,%edx
+	movl %edx,532(%eax)
+	movl MM_M3CG_Clean+1132,%edx
+	movl %edx,540(%eax)
+	movl MM_M3CG_Clean+1136,%edx
+	movl %edx,544(%eax)
+	movl MM_M3CG_Clean+1140,%edx
+	movl %edx,548(%eax)
+	movl MM_M3CG_Clean+1144,%edx
+	movl %edx,552(%eax)
+	movl MM_M3CG_Clean+1148,%edx
+	movl %edx,556(%eax)
+	movl MM_M3CG_Clean+1152,%edx
+	movl %edx,560(%eax)
+	movl MM_M3CG_Clean+1156,%edx
+	movl %edx,564(%eax)
+	movl MM_M3CG_Clean+1160,%edx
+	movl %edx,568(%eax)
+	movl MM_M3CG_Clean+1164,%edx
+	movl %edx,572(%eax)
+	movl MM_M3CG_Clean+1168,%edx
+	movl %edx,576(%eax)
+	movl MM_M3CG_Clean+1172,%edx
+	movl %edx,580(%eax)
+	movl MM_M3CG_Clean+1176,%edx
+	movl %edx,584(%eax)
+	movl MM_M3CG_Clean+1180,%edx
+	movl %edx,588(%eax)
+	movl MM_M3CG_Clean+1184,%edx
+	movl %edx,592(%eax)
+	movl MM_M3CG_Clean+1188,%edx
+	movl %edx,596(%eax)
+	movl MM_M3CG_Clean+1208,%edx
+	movl %edx,600(%eax)
+	movl MM_M3CG_Clean+1192,%edx
+	movl %edx,604(%eax)
+	movl MM_M3CG_Clean+1212,%edx
+	movl %edx,608(%eax)
+	movl MM_M3CG_Clean+1196,%edx
+	movl %edx,612(%eax)
+	movl MM_M3CG_Clean+1200,%edx
+	movl %edx,616(%eax)
+	movl MM_M3CG_Clean+1204,%edx
+	movl %edx,620(%eax)
+	movl MM_M3CG_Clean+1216,%edx
+	movl %edx,624(%eax)
+	movl MM_M3CG_Clean+1220,%edx
+	movl %edx,628(%eax)
+	movl MM_M3CG_Clean+1224,%edx
+	movl %edx,632(%eax)
+	popl %ebp
+	ret
+.Lfe119:
+	.size	 M_M3CG_Clean_t103e376b_LINK,.Lfe119-M_M3CG_Clean_t103e376b_LINK
+	.align 16
+	.type	 _m3_fault,@function
+_m3_fault:
+	pushl %ebp
+	movl %esp,%ebp
+	movl 8(%ebp),%eax
+	pushl %eax
+	pushl $MM_M3CG_Clean
+	movl MI_RTHooks+108,%eax
+	call *%eax
+	.align 16
+.Lfe120:
+	.size	 _m3_fault,.Lfe120-_m3_fault
+.globl MM_M3CG_Clean
+.data
+	.align 4
+	.type	 MM_M3CG_Clean,@object
+	.size	 MM_M3CG_Clean,4088
+MM_M3CG_Clean:
+	.long MM_M3CG_Clean+3784
+	.long MM_M3CG_Clean+552
+	.long MM_M3CG_Clean+1236
+	.zero	8
+	.long MM_M3CG_Clean+2364
+	.zero	20
+.byte 15
+.byte 15
+.byte 15
+.byte 15
+.byte 15
+.byte 15
+.byte 15
+.byte 15
+.byte 15
+.byte 15
+.byte 15
+.byte 15
+.byte 15
+.byte 15
+.byte 15
+.byte 15
+.byte 15
+.byte 0
+.byte 15
+.byte 15
+.byte 15
+.byte 0
+.byte 2
+.byte 15
+.byte 2
+.byte 2
+.byte 2
+.byte 2
+.byte 2
+.byte 2
+.byte 15
+.byte 15
+.byte 15
+.byte 15
+.byte 2
+.byte 2
+.byte 15
+.byte 15
+.byte 15
+.byte 15
+.byte 2
+.byte 2
+.byte 2
+.byte 2
+.byte 15
+.byte 15
+.byte 15
+.byte 15
+.byte 15
+.byte 2
+.byte 2
+.byte 2
+.byte 2
+.byte 2
+.byte 2
+.byte 2
+.byte 15
+.byte 15
+.byte 2
+.byte 2
+.byte 2
+.byte 2
+.byte 2
+.byte 2
+.byte 2
+.byte 2
+.byte 2
+.byte 2
+.byte 2
+.byte 2
+.byte 2
+.byte 2
+.byte 2
+.byte 2
+.byte 15
+.byte 15
+.byte 15
+.byte 15
+.byte 15
+.byte 15
+.byte 15
+.byte 0
+.byte 2
+.byte 2
+.byte 2
+.byte 2
+.byte 15
+.byte 0
+.byte 0
+.byte 15
+.byte 15
+.byte 15
+.byte 15
+.byte 15
+.byte 15
+.byte 15
+.byte 15
+.byte 15
+.byte 0
+.byte 0
+.byte 15
+	.zero	3
+	.long 1
+	.long 0
+	.long 0
+	.long 0
+	.long 0
+	.long 0
+	.long -1
+	.long -1
+	.long -2
+	.long -2
+	.long -2
+	.long -2
+	.long -2
+	.long -2
+	.long 1
+	.long -1
+	.long -1
+	.long 1
+	.long 0
+	.long -2
+	.long -2
+	.long 1
+	.long 1
+	.long 1
+	.long -1
+	.long -1
+	.long -1
+	.long -1
+	.long -1
+	.long -1
+	.long -1
+	.long -1
+	.long -1
+	.long -1
+	.long -1
+	.long -1
+	.long 0
+	.long 0
+	.long -1
+	.long -1
+	.long 0
+	.long 0
+	.long 0
+	.long 0
+	.long 0
+	.long -3
+	.long -3
+	.long -3
+	.long -3
+	.long -1
+	.long -1
+	.long -1
+	.long -1
+	.long -1
+	.long -1
+	.long -1
+	.long -3
+	.long -2
+	.long 0
+	.long -1
+	.long -1
+	.long -1
+	.long -1
+	.long -1
+	.long -1
+	.long -1
+	.long -1
+	.long -1
+	.long -2
+	.long -1
+	.long 0
+	.long -3
+	.long -2
+	.long -1
+	.long 0
+	.long -1
+	.long -3
+	.long -2
+	.long -2
+	.long -1
+	.long 0
+	.long 0
+	.long 0
+	.long 0
+	.long 0
+	.long -1
+	.long -2
+	.long 0
+	.long -1
+	.long 0
+	.long 0
+	.long -1
+	.long -1
+	.long -1
+	.long 0
+	.long 1
+	.long 0
+	.long 1
+	.long 1
+	.long 1
+	.zero	12
+	.long 1903505709
+.byte 93
+.byte 48
+.byte 204
+.byte 101
+.byte 112
+.byte 1
+.byte 185
+.byte 20
+	.long 1
+	.zero	4
+	.long 8
+	.long 4
+	.zero	8
+	.long 1
+	.long 84
+	.zero	4
+	.long MM_M3CG_Clean+3961
+	.long MM_M3CG_Clean+3997
+	.long MM_M3CG_Clean+4010
+	.zero	28
+	.long MM_M3CG_Clean+4068
+	.long MM_M3CG_Clean+656
+	.zero	8
+	.long 272512875
+.byte 172
+.byte 83
+.byte 75
+.byte 16
+.byte 199
+.byte 100
+.byte 117
+.byte 0
+	.long 1
+	.zero	4
+	.long 16
+	.long 4
+	.zero	4
+	.long 16
+	.zero	12
+	.long MM_M3CG_Clean+3926
+	.long MM_M3CG_Clean+3933
+	.long MM_M3CG_Clean+3936
+	.zero	4
+	.long M_M3CG_Clean_t103e376b_LINK
+	.long -800126780
+	.zero	16
+	.long MM_M3CG_Clean+3948
+	.zero	4
+	.long M3CG_Clean__Make_clean
+	.long M3CG_Clean__DoClean
+	.long M3CG_Clean__Flush_buffer
+	.long M3CG_Clean__DoFlush
+	.long M3CG_Clean__Stuff
+	.long M3CG_Clean__StuffX
+	.long M3CG_Clean__ExpandBuffer
+	.long M3CG_Clean__end_unit
+	.long M3CG_Clean__set_source_file
+	.long M3CG_Clean__set_source_line
+	.long M3CG_Clean__free_temp
+	.long M3CG_Clean__end_procedure
+	.long M3CG_Clean__begin_block
+	.long M3CG_Clean__end_block
+	.long M3CG_Clean__note_procedure_origin
+	.long M3CG_Clean__set_label
+	.long M3CG_Clean__jump
+	.long M3CG_Clean__if_true
+	.long M3CG_Clean__if_false
+	.long M3CG_Clean__if_eq
+	.long M3CG_Clean__if_ne
+	.long M3CG_Clean__if_gt
+	.long M3CG_Clean__if_ge
+	.long M3CG_Clean__if_lt
+	.long M3CG_Clean__if_le
+	.long M3CG_Clean__case_jump
+	.long M3CG_Clean__exit_proc
+	.long M3CG_Clean__load
+	.long M3CG_Clean__store
+	.long M3CG_Clean__store_ref
+	.long M3CG_Clean__load_address
+	.long M3CG_Clean__load_indirect
+	.long M3CG_Clean__store_indirect
+	.long M3CG_Clean__store_ref_indirect
+	.long M3CG_Clean__load_nil
+	.long M3CG_Clean__load_integer
+	.long M3CG_Clean__load_float
+	.long M3CG_Clean__eq
+	.long M3CG_Clean__ne
+	.long M3CG_Clean__gt
+	.long M3CG_Clean__ge
+	.long M3CG_Clean__lt
+	.long M3CG_Clean__le
+	.long M3CG_Clean__add
+	.long M3CG_Clean__subtract
+	.long M3CG_Clean__multiply
+	.long M3CG_Clean__divide
+	.long M3CG_Clean__div
+	.long M3CG_Clean__mod
+	.long M3CG_Clean__negate
+	.long M3CG_Clean__abs
+	.long M3CG_Clean__max
+	.long M3CG_Clean__min
+	.long M3CG_Clean__round
+	.long M3CG_Clean__trunc
+	.long M3CG_Clean__floor
+	.long M3CG_Clean__ceiling
+	.long M3CG_Clean__cvt_float
+	.long M3CG_Clean__set_union
+	.long M3CG_Clean__set_difference
+	.long M3CG_Clean__set_intersection
+	.long M3CG_Clean__set_sym_difference
+	.long M3CG_Clean__set_member
+	.long M3CG_Clean__set_eq
+	.long M3CG_Clean__set_ne
+	.long M3CG_Clean__set_gt
+	.long M3CG_Clean__set_ge
+	.long M3CG_Clean__set_lt
+	.long M3CG_Clean__set_le
+	.long M3CG_Clean__set_range
+	.long M3CG_Clean__set_singleton
+	.long M3CG_Clean__not
+	.long M3CG_Clean__and
+	.long M3CG_Clean__or
+	.long M3CG_Clean__xor
+	.long M3CG_Clean__shift
+	.long M3CG_Clean__shift_left
+	.long M3CG_Clean__shift_right
+	.long M3CG_Clean__rotate
+	.long M3CG_Clean__rotate_left
+	.long M3CG_Clean__rotate_right
+	.long M3CG_Clean__extract
+	.long M3CG_Clean__extract_n
+	.long M3CG_Clean__extract_mn
+	.long M3CG_Clean__insert
+	.long M3CG_Clean__insert_n
+	.long M3CG_Clean__insert_mn
+	.long M3CG_Clean__swap
+	.long M3CG_Clean__pop
+	.long M3CG_Clean__copy_n
+	.long M3CG_Clean__copy
+	.long M3CG_Clean__zero_n
+	.long M3CG_Clean__zero
+	.long M3CG_Clean__loophole
+	.long M3CG_Clean__assert_fault
+	.long M3CG_Clean__narrow_fault
+	.long M3CG_Clean__return_fault
+	.long M3CG_Clean__case_fault
+	.long M3CG_Clean__typecase_fault
+	.long M3CG_Clean__check_nil
+	.long M3CG_Clean__check_lo
+	.long M3CG_Clean__check_hi
+	.long M3CG_Clean__check_range
+	.long M3CG_Clean__check_index
+	.long M3CG_Clean__check_eq
+	.long M3CG_Clean__add_offset
+	.long M3CG_Clean__index_address
+	.long M3CG_Clean__start_call_direct
+	.long M3CG_Clean__start_call_indirect
+	.long M3CG_Clean__pop_param
+	.long M3CG_Clean__pop_struct
+	.long M3CG_Clean__pop_static_link
+	.long M3CG_Clean__call_direct
+	.long M3CG_Clean__call_indirect
+	.long M3CG_Clean__load_procedure
+	.long M3CG_Clean__load_static_link
+	.long M3CG_Clean__comment
+	.long M3CG_Clean__New
+.byte 3
+.byte 4
+.byte 5
+	.zero	1
+	.long MM_M3CG_Clean+1244
+	.long 1903505709
+	.zero	4
+	.long 272512875
+	.long 2
+	.long MM_M3CG_Clean+1264
+	.long 1
+	.zero	4
+	.ascii	"comment"
+	.zero	1
+	.ascii	"load_static_link"
+	.zero	1
+	.ascii	"load_procedure"
+	.zero	1
+	.ascii	"call_indirect"
+	.zero	1
+	.ascii	"call_direct"
+	.zero	1
+	.ascii	"pop_static_link"
+	.zero	1
+	.ascii	"pop_struct"
+	.zero	1
+	.ascii	"pop_param"
+	.zero	1
+	.ascii	"start_call_indirect"
+	.zero	1
+	.ascii	"start_call_direct"
+	.zero	1
+	.ascii	"index_address"
+	.zero	1
+	.ascii	"add_offset"
+	.zero	1
+	.ascii	"check_eq"
+	.zero	1
+	.ascii	"check_index"
+	.zero	1
+	.ascii	"check_range"
+	.zero	1
+	.ascii	"check_hi"
+	.zero	1
+	.ascii	"check_lo"
+	.zero	1
+	.ascii	"check_nil"
+	.zero	1
+	.ascii	"typecase_fault"
+	.zero	1
+	.ascii	"case_fault"
+	.zero	1
+	.ascii	"return_fault"
+	.zero	1
+	.ascii	"narrow_fault"
+	.zero	1
+	.ascii	"assert_fault"
+	.zero	1
+	.ascii	"loophole"
+	.zero	1
+	.ascii	"zero"
+	.zero	1
+	.ascii	"zero_n"
+	.zero	1
+	.ascii	"copy"
+	.zero	1
+	.ascii	"copy_n"
+	.zero	1
+	.ascii	"pop"
+	.zero	1
+	.ascii	"swap"
+	.zero	1
+	.ascii	"insert_mn"
+	.zero	1
+	.ascii	"insert_n"
+	.zero	1
+	.ascii	"insert"
+	.zero	1
+	.ascii	"extract_mn"
+	.zero	1
+	.ascii	"extract_n"
+	.zero	1
+	.ascii	"extract"
+	.zero	1
+	.ascii	"rotate_right"
+	.zero	1
+	.ascii	"rotate_left"
+	.zero	1
+	.ascii	"rotate"
+	.zero	1
+	.ascii	"shift_right"
+	.zero	1
+	.ascii	"shift_left"
+	.zero	1
+	.ascii	"shift"
+	.zero	1
+	.ascii	"xor"
+	.zero	1
+	.ascii	"or"
+	.zero	1
+	.ascii	"and"
+	.zero	1
+	.ascii	"not"
+	.zero	1
+	.ascii	"set_singleton"
+	.zero	1
+	.ascii	"set_range"
+	.zero	1
+	.ascii	"set_le"
+	.zero	1
+	.ascii	"set_lt"
+	.zero	1
+	.ascii	"set_ge"
+	.zero	1
+	.ascii	"set_gt"
+	.zero	1
+	.ascii	"set_ne"
+	.zero	1
+	.ascii	"set_eq"
+	.zero	1
+	.ascii	"set_member"
+	.zero	1
+	.ascii	"set_sym_difference"
+	.zero	1
+	.ascii	"set_intersection"
+	.zero	1
+	.ascii	"set_difference"
+	.zero	1
+	.ascii	"set_union"
+	.zero	1
+	.ascii	"cvt_float"
+	.zero	1
+	.ascii	"ceiling"
+	.zero	1
+	.ascii	"floor"
+	.zero	1
+	.ascii	"trunc"
+	.zero	1
+	.ascii	"round"
+	.zero	1
+	.ascii	"min"
+	.zero	1
+	.ascii	"max"
+	.zero	1
+	.ascii	"abs"
+	.zero	1
+	.ascii	"negate"
+	.zero	1
+	.ascii	"mod"
+	.zero	1
+	.ascii	"div"
+	.zero	1
+	.ascii	"divide"
+	.zero	1
+	.ascii	"multiply"
+	.zero	1
+	.ascii	"subtract"
+	.zero	1
+	.ascii	"add"
+	.zero	1
+	.ascii	"le"
+	.zero	1
+	.ascii	"lt"
+	.zero	1
+	.ascii	"ge"
+	.zero	1
+	.ascii	"gt"
+	.zero	1
+	.ascii	"ne"
+	.zero	1
+	.ascii	"eq"
+	.zero	1
+	.ascii	"load_float"
+	.zero	1
+	.ascii	"load_integer"
+	.zero	1
+	.ascii	"load_nil"
+	.zero	1
+	.ascii	"store_ref_indirect"
+	.zero	1
+	.ascii	"store_indirect"
+	.zero	1
+	.ascii	"load_indirect"
+	.zero	1
+	.ascii	"load_address"
+	.zero	1
+	.ascii	"store_ref"
+	.zero	1
+	.ascii	"store"
+	.zero	1
+	.ascii	"load"
+	.zero	1
+	.ascii	"exit_proc"
+	.zero	1
+	.ascii	"case_jump"
+	.zero	1
+	.ascii	"if_le"
+	.zero	1
+	.ascii	"if_lt"
+	.zero	1
+	.ascii	"if_ge"
+	.zero	1
+	.ascii	"if_gt"
+	.zero	1
+	.ascii	"if_ne"
+	.zero	1
+	.ascii	"if_eq"
+	.zero	1
+	.ascii	"if_false"
+	.zero	1
+	.ascii	"if_true"
+	.zero	1
+	.ascii	"jump"
+	.zero	1
+	.ascii	"set_label"
+	.zero	1
+	.ascii	"note_procedure_origin"
+	.zero	1
+	.ascii	"end_block"
+	.zero	1
+	.ascii	"begin_block"
+	.zero	1
+	.ascii	"end_procedure"
+	.zero	1
+	.ascii	"free_temp"
+	.zero	1
+	.ascii	"set_source_line"
+	.zero	1
+	.ascii	"set_source_file"
+	.zero	1
+	.ascii	"end_unit"
+	.zero	1
+	.ascii	"New"
+	.zero	1
+	.ascii	"ExpandBuffer"
+	.zero	1
+	.ascii	"StuffX"
+	.zero	1
+	.ascii	"Stuff"
+	.zero	1
+	.ascii	"DoFlush"
+	.zero	1
+	.ascii	"Flush_buffer"
+	.zero	1
+	.ascii	"DoClean"
+	.zero	1
+	.ascii	"Make_clean"
+	.zero	2
+	.long M3CG_Clean__comment
+	.long MM_M3CG_Clean+1268
+	.zero	4
+	.long M3CG_Clean__load_static_link
+	.long MM_M3CG_Clean+1276
+	.zero	4
+	.long M3CG_Clean__load_procedure
+	.long MM_M3CG_Clean+1293
+	.zero	4
+	.long M3CG_Clean__call_indirect
+	.long MM_M3CG_Clean+1308
+	.zero	4
+	.long M3CG_Clean__call_direct
+	.long MM_M3CG_Clean+1322
+	.zero	4
+	.long M3CG_Clean__pop_static_link
+	.long MM_M3CG_Clean+1334
+	.zero	4
+	.long M3CG_Clean__pop_struct
+	.long MM_M3CG_Clean+1350
+	.zero	4
+	.long M3CG_Clean__pop_param
+	.long MM_M3CG_Clean+1361
+	.zero	4
+	.long M3CG_Clean__start_call_indirect
+	.long MM_M3CG_Clean+1371
+	.zero	4
+	.long M3CG_Clean__start_call_direct
+	.long MM_M3CG_Clean+1391
+	.zero	4
+	.long M3CG_Clean__index_address
+	.long MM_M3CG_Clean+1409
+	.zero	4
+	.long M3CG_Clean__add_offset
+	.long MM_M3CG_Clean+1423
+	.zero	4
+	.long M3CG_Clean__check_eq
+	.long MM_M3CG_Clean+1434
+	.zero	4
+	.long M3CG_Clean__check_index
+	.long MM_M3CG_Clean+1443
+	.zero	4
+	.long M3CG_Clean__check_range
+	.long MM_M3CG_Clean+1455
+	.zero	4
+	.long M3CG_Clean__check_hi
+	.long MM_M3CG_Clean+1467
+	.zero	4
+	.long M3CG_Clean__check_lo
+	.long MM_M3CG_Clean+1476
+	.zero	4
+	.long M3CG_Clean__check_nil
+	.long MM_M3CG_Clean+1485
+	.zero	4
+	.long M3CG_Clean__typecase_fault
+	.long MM_M3CG_Clean+1495
+	.zero	4
+	.long M3CG_Clean__case_fault
+	.long MM_M3CG_Clean+1510
+	.zero	4
+	.long M3CG_Clean__return_fault
+	.long MM_M3CG_Clean+1521
+	.zero	4
+	.long M3CG_Clean__narrow_fault
+	.long MM_M3CG_Clean+1534
+	.zero	4
+	.long M3CG_Clean__assert_fault
+	.long MM_M3CG_Clean+1547
+	.zero	4
+	.long M3CG_Clean__loophole
+	.long MM_M3CG_Clean+1560
+	.zero	4
+	.long M3CG_Clean__zero
+	.long MM_M3CG_Clean+1569
+	.zero	4
+	.long M3CG_Clean__zero_n
+	.long MM_M3CG_Clean+1574
+	.zero	4
+	.long M3CG_Clean__copy
+	.long MM_M3CG_Clean+1581
+	.zero	4
+	.long M3CG_Clean__copy_n
+	.long MM_M3CG_Clean+1586
+	.zero	4
+	.long M3CG_Clean__pop
+	.long MM_M3CG_Clean+1593
+	.zero	4
+	.long M3CG_Clean__swap
+	.long MM_M3CG_Clean+1597
+	.zero	4
+	.long M3CG_Clean__insert_mn
+	.long MM_M3CG_Clean+1602
+	.zero	4
+	.long M3CG_Clean__insert_n
+	.long MM_M3CG_Clean+1612
+	.zero	4
+	.long M3CG_Clean__insert
+	.long MM_M3CG_Clean+1621
+	.zero	4
+	.long M3CG_Clean__extract_mn
+	.long MM_M3CG_Clean+1628
+	.zero	4
+	.long M3CG_Clean__extract_n
+	.long MM_M3CG_Clean+1639
+	.zero	4
+	.long M3CG_Clean__extract
+	.long MM_M3CG_Clean+1649
+	.zero	4
+	.long M3CG_Clean__rotate_right
+	.long MM_M3CG_Clean+1657
+	.zero	4
+	.long M3CG_Clean__rotate_left
+	.long MM_M3CG_Clean+1670
+	.zero	4
+	.long M3CG_Clean__rotate
+	.long MM_M3CG_Clean+1682
+	.zero	4
+	.long M3CG_Clean__shift_right
+	.long MM_M3CG_Clean+1689
+	.zero	4
+	.long M3CG_Clean__shift_left
+	.long MM_M3CG_Clean+1701
+	.zero	4
+	.long M3CG_Clean__shift
+	.long MM_M3CG_Clean+1712
+	.zero	4
+	.long M3CG_Clean__xor
+	.long MM_M3CG_Clean+1718
+	.zero	4
+	.long M3CG_Clean__or
+	.long MM_M3CG_Clean+1722
+	.zero	4
+	.long M3CG_Clean__and
+	.long MM_M3CG_Clean+1725
+	.zero	4
+	.long M3CG_Clean__not
+	.long MM_M3CG_Clean+1729
+	.zero	4
+	.long M3CG_Clean__set_singleton
+	.long MM_M3CG_Clean+1733
+	.zero	4
+	.long M3CG_Clean__set_range
+	.long MM_M3CG_Clean+1747
+	.zero	4
+	.long M3CG_Clean__set_le
+	.long MM_M3CG_Clean+1757
+	.zero	4
+	.long M3CG_Clean__set_lt
+	.long MM_M3CG_Clean+1764
+	.zero	4
+	.long M3CG_Clean__set_ge
+	.long MM_M3CG_Clean+1771
+	.zero	4
+	.long M3CG_Clean__set_gt
+	.long MM_M3CG_Clean+1778
+	.zero	4
+	.long M3CG_Clean__set_ne
+	.long MM_M3CG_Clean+1785
+	.zero	4
+	.long M3CG_Clean__set_eq
+	.long MM_M3CG_Clean+1792
+	.zero	4
+	.long M3CG_Clean__set_member
+	.long MM_M3CG_Clean+1799
+	.zero	4
+	.long M3CG_Clean__set_sym_difference
+	.long MM_M3CG_Clean+1810
+	.zero	4
+	.long M3CG_Clean__set_intersection
+	.long MM_M3CG_Clean+1829
+	.zero	4
+	.long M3CG_Clean__set_difference
+	.long MM_M3CG_Clean+1846
+	.zero	4
+	.long M3CG_Clean__set_union
+	.long MM_M3CG_Clean+1861
+	.zero	4
+	.long M3CG_Clean__cvt_float
+	.long MM_M3CG_Clean+1871
+	.zero	4
+	.long M3CG_Clean__ceiling
+	.long MM_M3CG_Clean+1881
+	.zero	4
+	.long M3CG_Clean__floor
+	.long MM_M3CG_Clean+1889
+	.zero	4
+	.long M3CG_Clean__trunc
+	.long MM_M3CG_Clean+1895
+	.zero	4
+	.long M3CG_Clean__round
+	.long MM_M3CG_Clean+1901
+	.zero	4
+	.long M3CG_Clean__min
+	.long MM_M3CG_Clean+1907
+	.zero	4
+	.long M3CG_Clean__max
+	.long MM_M3CG_Clean+1911
+	.zero	4
+	.long M3CG_Clean__abs
+	.long MM_M3CG_Clean+1915
+	.zero	4
+	.long M3CG_Clean__negate
+	.long MM_M3CG_Clean+1919
+	.zero	4
+	.long M3CG_Clean__mod
+	.long MM_M3CG_Clean+1926
+	.zero	4
+	.long M3CG_Clean__div
+	.long MM_M3CG_Clean+1930
+	.zero	4
+	.long M3CG_Clean__divide
+	.long MM_M3CG_Clean+1934
+	.zero	4
+	.long M3CG_Clean__multiply
+	.long MM_M3CG_Clean+1941
+	.zero	4
+	.long M3CG_Clean__subtract
+	.long MM_M3CG_Clean+1950
+	.zero	4
+	.long M3CG_Clean__add
+	.long MM_M3CG_Clean+1959
+	.zero	4
+	.long M3CG_Clean__le
+	.long MM_M3CG_Clean+1963
+	.zero	4
+	.long M3CG_Clean__lt
+	.long MM_M3CG_Clean+1966
+	.zero	4
+	.long M3CG_Clean__ge
+	.long MM_M3CG_Clean+1969
+	.zero	4
+	.long M3CG_Clean__gt
+	.long MM_M3CG_Clean+1972
+	.zero	4
+	.long M3CG_Clean__ne
+	.long MM_M3CG_Clean+1975
+	.zero	4
+	.long M3CG_Clean__eq
+	.long MM_M3CG_Clean+1978
+	.zero	4
+	.long M3CG_Clean__load_float
+	.long MM_M3CG_Clean+1981
+	.zero	4
+	.long M3CG_Clean__load_integer
+	.long MM_M3CG_Clean+1992
+	.zero	4
+	.long M3CG_Clean__load_nil
+	.long MM_M3CG_Clean+2005
+	.zero	4
+	.long M3CG_Clean__store_ref_indirect
+	.long MM_M3CG_Clean+2014
+	.zero	4
+	.long M3CG_Clean__store_indirect
+	.long MM_M3CG_Clean+2033
+	.zero	4
+	.long M3CG_Clean__load_indirect
+	.long MM_M3CG_Clean+2048
+	.zero	4
+	.long M3CG_Clean__load_address
+	.long MM_M3CG_Clean+2062
+	.zero	4
+	.long M3CG_Clean__store_ref
+	.long MM_M3CG_Clean+2075
+	.zero	4
+	.long M3CG_Clean__store
+	.long MM_M3CG_Clean+2085
+	.zero	4
+	.long M3CG_Clean__load
+	.long MM_M3CG_Clean+2091
+	.zero	4
+	.long M3CG_Clean__exit_proc
+	.long MM_M3CG_Clean+2096
+	.zero	4
+	.long M3CG_Clean__case_jump
+	.long MM_M3CG_Clean+2106
+	.zero	4
+	.long M3CG_Clean__if_le
+	.long MM_M3CG_Clean+2116
+	.zero	4
+	.long M3CG_Clean__if_lt
+	.long MM_M3CG_Clean+2122
+	.zero	4
+	.long M3CG_Clean__if_ge
+	.long MM_M3CG_Clean+2128
+	.zero	4
+	.long M3CG_Clean__if_gt
+	.long MM_M3CG_Clean+2134
+	.zero	4
+	.long M3CG_Clean__if_ne
+	.long MM_M3CG_Clean+2140
+	.zero	4
+	.long M3CG_Clean__if_eq
+	.long MM_M3CG_Clean+2146
+	.zero	4
+	.long M3CG_Clean__if_false
+	.long MM_M3CG_Clean+2152
+	.zero	4
+	.long M3CG_Clean__if_true
+	.long MM_M3CG_Clean+2161
+	.zero	4
+	.long M3CG_Clean__jump
+	.long MM_M3CG_Clean+2169
+	.zero	4
+	.long M3CG_Clean__set_label
+	.long MM_M3CG_Clean+2174
+	.zero	4
+	.long M3CG_Clean__note_procedure_origin
+	.long MM_M3CG_Clean+2184
+	.zero	4
+	.long M3CG_Clean__end_block
+	.long MM_M3CG_Clean+2206
+	.zero	4
+	.long M3CG_Clean__begin_block
+	.long MM_M3CG_Clean+2216
+	.zero	4
+	.long M3CG_Clean__end_procedure
+	.long MM_M3CG_Clean+2228
+	.zero	4
+	.long M3CG_Clean__free_temp
+	.long MM_M3CG_Clean+2242
+	.zero	4
+	.long M3CG_Clean__set_source_line
+	.long MM_M3CG_Clean+2252
+	.zero	4
+	.long M3CG_Clean__set_source_file
+	.long MM_M3CG_Clean+2268
+	.zero	4
+	.long M3CG_Clean__end_unit
+	.long MM_M3CG_Clean+2284
+	.zero	4
+	.long M3CG_Clean__New
+	.long MM_M3CG_Clean+2293
+	.long MI_M3CG_Clean+44
+	.long M3CG_Clean__ExpandBuffer
+	.long MM_M3CG_Clean+2297
+	.zero	4
+	.long M3CG_Clean__StuffX
+	.long MM_M3CG_Clean+2310
+	.zero	4
+	.long M3CG_Clean__Stuff
+	.long MM_M3CG_Clean+2317
+	.zero	4
+	.long M3CG_Clean__DoFlush
+	.long MM_M3CG_Clean+2323
+	.zero	4
+	.long M3CG_Clean__Flush_buffer
+	.long MM_M3CG_Clean+2331
+	.zero	4
+	.long M3CG_Clean__DoClean
+	.long MM_M3CG_Clean+2344
+	.zero	4
+	.long M3CG_Clean__Make_clean
+	.long MM_M3CG_Clean+2352
+	.zero	8
+	.ascii	"/home/ftp/tmp/pm3/tmp/pm3-1.1.15/language/modula3/m3compiler"
+	.ascii	"/m3bootstrap/LINUXLIBC6/pm3-LINUXLIBC6/boot-LINUXLIBC6/m3mid"
+	.ascii	"dle/src/M3CG_Clean.m3"
+	.zero	1
+.byte 16
+.byte 16
+.byte 35
+.byte 4
+.byte 14
+.byte 14
+.byte 0
+.byte 37
+.byte 4
+.byte 0
+.byte 6
+.byte 10
+.byte 5
+.byte 2
+.byte 23
+.byte 16
+.byte 45
+.byte 49
+.byte 117
+.byte 113
+.byte 7
+.byte 26
+	.ascii	"M3CG_Clean.U"
+	.zero	1
+.byte 24
+.byte 1
+.byte 16
+.byte 36
+.byte 14
+.byte 16
+.byte 36
+.byte 4
+.byte 14
+.byte 14
+.byte 4
+.byte 16
+.byte 36
+.byte 14
+.byte 16
+.byte 16
+.byte 35
+.byte 1
+.byte 17
+.byte 26
+.byte 4
+.byte 1
+.byte 17
+.byte 26
+.byte 4
+.byte 16
+.byte 36
+.byte 14
+.byte 9
+.byte 16
+.byte 16
+.byte 35
+.byte 4
+.byte 4
+.byte 0
+.byte 0
+.byte 24
+.byte 1
+.byte 42
+.byte 12
+.byte 4
+.byte 41
+.byte 4
+.byte 42
+.byte 48
+.byte 4
+.byte 4
+.byte 0
+.byte 0
+.byte 26
+.byte 11
+.byte 1
+.byte 15
+.byte 18
+.byte 5
+.byte 65
+.byte 101
+.byte 7
+.byte 5
+.byte 16
+.byte 16
+.byte 116
+.byte 101
+.byte 248
+.byte 80
+.byte 25
+.byte 25
+.byte 16
+.byte 121
+.byte 130
+.byte 239
+.byte 251
+.byte 2
+.byte 25
+.byte 26
+.byte 26
+.byte 15
+.byte 1
+.byte 1
+.byte 4
+.byte 12
+.byte 16
+.byte 19
+.byte 0
+.byte 66
+.byte 255
+.byte 255
+.byte 35
+.byte 15
+.byte 3
+.byte 5
+.byte 3
+.byte 25
+.byte 6
+.byte 5
+.byte 3
+.byte 44
+.byte 16
+.byte 117
+.byte 167
+.byte 196
+.byte 100
+.byte 16
+.byte 18
+.byte 149
+.byte 76
+.byte 98
+	.ascii	"M3CG_Clean.OpBuffer"
+	.zero	1
+	.ident	"GCC: (GNU) cygnus-2.7.2-960712"

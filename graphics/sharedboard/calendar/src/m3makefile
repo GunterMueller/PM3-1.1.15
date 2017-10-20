@@ -1,0 +1,15 @@
+% Copyright (C) 1995, Digital Equipment Corporation
+% All rights reserved.
+% See the file COPYRIGHT for a full description.
+%
+import ("ui")
+import ("netobj")
+override ("board", path_of(".." & SL & ".."))
+import ("board")
+
+sequence ("Item", "Item")
+
+implementation ("Calendar")
+program ("calendar")
+
+

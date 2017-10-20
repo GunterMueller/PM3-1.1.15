@@ -1,0 +1,105 @@
+	.file	"SortedRefRefTbl.ic"
+	.version	"01.01"
+/ SRC Modula-3 version cygnus-2.7.2-960712 (i486--linuxelf) compiled by GNU C version egcs-2.91.66 19990314/Linux (egcs-1.1.2 release).
+/ options passed:  -fno-strength-reduce -O2
+/ options enabled:  -fdefer-pop -fcse-follow-jumps -fcse-skip-blocks
+/ -fexpensive-optimizations -fthread-jumps -fpeephole -fforce-mem
+/ -ffunction-cse -finline -fkeep-static-consts -fcaller-saves
+/ -fpcc-struct-return -frerun-cse-after-loop -fschedule-insns2 -fcommon
+/ -fverbose-asm -fgnu-linker -m80387 -mhard-float -mno-soft-float -mieee-fp
+/ -mfp-ret-in-387 -mschedule-prologue -mcpu=i486 -march=i486
+
+gcc2_compiled.:
+.globl MI_SortedRefRefTbl
+.data
+	.align 4
+	.type	 MI_SortedRefRefTbl,@object
+	.size	 MI_SortedRefRefTbl,584
+MI_SortedRefRefTbl:
+	.long MI_SortedRefRefTbl+356
+	.long MI_SortedRefRefTbl+44
+	.zero	44
+	.long -27470449
+.byte 149
+.byte 197
+.byte 98
+.byte 255
+.byte 26
+.byte 16
+.byte 62
+.byte 1
+	.long 1
+	.zero	4
+	.long 0
+	.long 1
+	.zero	4
+	.long 4
+	.zero	20
+	.long MI_SortedRefRefTbl+561
+	.zero	8
+	.long 489180014
+	.zero	16
+	.long MI_SortedRefRefTbl+564
+	.long MI_SortedRefRefTbl+148
+	.zero	8
+	.long -1878445666
+.byte 250
+.byte 114
+.byte 244
+.byte 157
+.byte 100
+.byte 67
+.byte 253
+.byte 13
+	.long 1
+	.zero	4
+	.long 0
+	.long 1
+	.zero	4
+	.long 4
+	.zero	20
+	.long MI_SortedRefRefTbl+533
+	.zero	8
+	.long -490687494
+	.zero	16
+	.long MI_SortedRefRefTbl+536
+	.long MI_SortedRefRefTbl+252
+	.zero	8
+	.long -409095635
+.byte 196
+.byte 232
+.byte 83
+.byte 247
+.byte 233
+.byte 90
+.byte 206
+.byte 16
+	.long 1
+	.zero	4
+	.long 0
+	.long 1
+	.zero	4
+	.long 8
+	.zero	20
+	.long MI_SortedRefRefTbl+530
+	.zero	8
+	.long -27470449
+	.zero	24
+	.ascii	"SortedRefRefTbl.i3 => /home/ftp/tmp/pm3/tmp/pm3-1.1.15/langu"
+	.ascii	"age/modula3/m3compiler/m3bootstrap/LINUXLIBC6/pm3-LINUXLIBC6"
+	.ascii	"/boot-LINUXLIBC6/libm3/src/sortedtable/SortedTable.ig"
+	.zero	1
+.byte 1
+.byte 10
+.byte 0
+.byte 1
+.byte 10
+.byte 0
+	.ascii	"SortedRefRefTbl.Iterator"
+	.zero	1
+.byte 1
+.byte 10
+.byte 0
+	.ascii	"SortedRefRefTbl.T"
+	.zero	3
+	.ident	"GCC: (GNU) cygnus-2.7.2-960712"

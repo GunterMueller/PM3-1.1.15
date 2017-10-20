@@ -1,0 +1,111 @@
+
+readonly TARGET = "NT386GNU"
+
+include("COMMON")
+
+PLATFORM_SUPPORTS_OPENGL = "TRUE"
+PLATFORM_SUPPORTS_LATEX = ""
+
+% A first attempt at shared library support is included in this file.
+% It is not functional due to lack of NT platform/cygwin32 knowkledge
+% but may be quite easy to get in shape for someone familiar with these.
+%
+%PLATFORM_SUPPORTS_SHARED_LIB = "T"
+%PIC_FLAG = ""
+%BPIC_FLAG = ""
+%option("static_lib","")
+
+CYGNUS_LIB_DIR = "/cygnus/cygwin-b20/H-i586-cygwin32/i586-cygwin32/lib"
+
+INSTALL_ROOT = "c:\\usr\\pm3"
+
+LINK_suffix = [ "-luser32", "-lgdi32", "-ladvapi32", "-lnetapi32", "-lm" ]
+
+proc setNTLinkSuffix() is
+  if OPTION_GUI
+    LINK_suffix += [ "-mwindows", "-lcomctl32", "-lcomdlg32", "-lkernel32", 
+        "-e_mainCRTStartup" ]
+  end
+end
+
+add_m3_hook(setNTLinkSuffix)
+
+setDefault("","")
+
+readonly proc import_OpenGL() is
+  import_lib ("opengl32", CYGNUS_LIB_DIR)
+  import_lib ("glu32",    CYGNUS_LIB_DIR)
+end
+
+readonly proc import_TCP() is
+  import_lib("wsock32", CYGNUS_LIB_DIR)
+end
+
+proc install_file (src, dest, mode) is
+  Note_install (src, dest)
+  local ret = exec (["install", "-c", "-m", mode, w2p(src), w2p(dest)])
+  if not equal(ret, 0) error("install failed with error code: ", ret) end
+end
+
+proc m3_make_shared_lib (lib, objects, imported_libs) is
+  local llib = "lib" & lib
+
+  > llib & ".c" in
+    write("#include <windows.h>",CR,CR,
+        "int WINAPI",CR,
+        llib & "_init(HANDLE h, DWORD reason, void *foo)",CR,
+        "{",CR,
+        "  return 1;",CR,
+        "}",CR)
+  end
+
+  local cmd = ["gcc", "-c", llib & ".c"]
+
+  if VERBOSE write(cmd,CR) end
+  local ret = exec(cmd)
+  if not equal(ret,0) return ret end
+
+  cmd = ["gcc","-s","-Wl,--base-file," & llib & ".base",
+      "-o", llib & ".dll", objects, llib & ".o", 
+      "-Wl,-e,_" & llib & "_init@12"]
+
+  if VERBOSE write(cmd,CR) end
+  ret = exec(cmd)
+  if not equal(ret,0) return ret end
+
+  cmd = ["dlltool", "--base-file", llib & ".base", "--def", llib & ".def",
+      "--output-exp", llib & ".exp", "--dllname", llib & ".dll"]
+
+  if VERBOSE write(cmd,CR) end
+  ret = exec(cmd)
+  if not equal(ret,0) return ret end
+
+  cmd = ["gcc", "-s", "-Wl,--base-file," & llib & ".base," & llib & ".exp",
+      "-o", llib & ".dll", objects, llib & ".o", 
+      "-Wl,-e,_" & llib & "_init@12"]
+
+  if VERBOSE write(cmd,CR) end
+  ret = exec(cmd)
+  if not equal(ret,0) return ret end
+
+  cmd = ["dlltool", "--base-file", llib & ".base", "--def", llib & ".def",
+      "--output-exp", llib & ".exp", "--dllname", llib & ".dll"]
+
+  if VERBOSE write(cmd,CR) end
+  ret = exec(cmd)
+  if not equal(ret,0) return ret end
+
+  cmd = ["gcc", "-Wl," & llib & ".exp", "-o", llib & ".dll", objects, 
+      llib & ".o", "-Wl,-e,_" & llib & "_init@12"]
+
+  if VERBOSE write(cmd,CR) end
+  ret = exec(cmd)
+  if not equal(ret,0) return ret end
+
+  cmd = ["dlltool", "--def", llib & ".def", "--dllname", llib & ".dll",
+      "--output-lib", llib & ".a"]
+
+  if VERBOSE write(cmd, CR) end
+  return exec(cmd)
+end
+

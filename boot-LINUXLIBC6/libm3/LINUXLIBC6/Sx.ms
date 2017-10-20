@@ -1,0 +1,3458 @@
+	.file	"Sx.mc"
+	.version	"01.01"
+/ SRC Modula-3 version cygnus-2.7.2-960712 (i486--linuxelf) compiled by GNU C version egcs-2.91.66 19990314/Linux (egcs-1.1.2 release).
+/ options passed:  -fno-strength-reduce -O2
+/ options enabled:  -fdefer-pop -fcse-follow-jumps -fcse-skip-blocks
+/ -fexpensive-optimizations -fthread-jumps -fpeephole -fforce-mem
+/ -ffunction-cse -finline -fkeep-static-consts -fcaller-saves
+/ -fpcc-struct-return -frerun-cse-after-loop -fschedule-insns2 -fcommon
+/ -fverbose-asm -fgnu-linker -m80387 -mhard-float -mno-soft-float -mieee-fp
+/ -mfp-ret-in-387 -mschedule-prologue -mcpu=i486 -march=i486
+
+gcc2_compiled.:
+.text
+	.align 16
+	.type	 Sx__FromInt,@function
+Sx__FromInt:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %ebx
+	movl 8(%ebp),%ebx
+	cmpl $-100,%ebx
+	jl .L2
+	cmpl $100,%ebx
+	jg .L2
+	leal 100(%ebx),%edx
+	cmpl $200,%edx
+	jbe .L3
+	pushl $705
+	call _m3_fault
+	.align 16
+.L3:
+	movl $L_1,%eax
+	movl (%eax,%edx,4),%eax
+	jmp .L5
+	.align 16
+.L2:
+	movl MM_Sx+840,%eax
+	pushl %eax
+	movl MI_RTHooks+80,%eax
+	call *%eax
+	addl $4,%esp
+	testl %eax,%eax
+	jne .L4
+	pushl $772
+	call _m3_fault
+	.align 16
+.L4:
+	movl %ebx,(%eax)
+.L5:
+	movl -4(%ebp),%ebx
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe1:
+	.size	 Sx__FromInt,.Lfe1-Sx__FromInt
+	.align 16
+	.type	 Sx__FromChar,@function
+Sx__FromChar:
+	pushl %ebp
+	movl %esp,%ebp
+	movl $L_2,%eax
+	xorl %edx,%edx
+	movb 8(%ebp),%dl
+	movl %ebp,%esp
+	popl %ebp
+	movl (%eax,%edx,4),%eax
+	ret
+.Lfe2:
+	.size	 Sx__FromChar,.Lfe2-Sx__FromChar
+	.align 16
+	.type	 Sx__FromBool,@function
+Sx__FromBool:
+	pushl %ebp
+	movl %esp,%ebp
+	cmpb $0,8(%ebp)
+	jne .L8
+	movl MI_Sx+424,%eax
+	jmp .L9
+	.align 16
+.L8:
+	movl MI_Sx+420,%eax
+.L9:
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe3:
+	.size	 Sx__FromBool,.Lfe3-Sx__FromBool
+.section	.rodata
+	.align 4
+.LC0:
+	.long 0xbf800000
+.text
+	.align 16
+	.type	 Sx__FromReal,@function
+Sx__FromReal:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $20,%esp
+	flds 8(%ebp)
+.L11:
+	movl $5,-4(%ebp)
+	movl RTThread__handlerStack,%edx
+	movl %edx,-8(%ebp)
+	leal -8(%ebp),%ecx
+	movl %ecx,RTThread__handlerStack
+	flds .LC0
+	fucomp %st(1)
+	fnstsw %ax
+	andb $68,%ah
+	xorb $64,%ah
+	jne .L12
+	fstp %st(0)
+	movl %edx,RTThread__handlerStack
+	movl MM_Sx+240,%eax
+	jmp .L10
+	.align 16
+.L12:
+	fldz
+	fucomp %st(1)
+	fnstsw %ax
+	andb $68,%ah
+	xorb $64,%ah
+	jne .L13
+	fstp %st(0)
+	movl %edx,RTThread__handlerStack
+	movl MM_Sx+244,%eax
+	jmp .L10
+	.align 16
+.L13:
+	fld1
+	fucomp %st(1)
+	fnstsw %ax
+	andb $68,%ah
+	xorb $64,%ah
+	jne .L14
+	fstp %st(0)
+	movl %edx,RTThread__handlerStack
+	movl MM_Sx+248,%eax
+	jmp .L10
+	.align 16
+.L14:
+	movl MM_Sx+848,%eax
+	pushl %eax
+	movl MI_RTHooks+80,%eax
+	fstpt -20(%ebp)
+	call *%eax
+	movl %eax,%edx
+	addl $4,%esp
+	fldt -20(%ebp)
+	testl %edx,%edx
+	jne .L15
+	fstp %st(0)
+	pushl $1252
+	call _m3_fault
+	.align 16
+.L15:
+	fstps (%edx)
+	movl -8(%ebp),%eax
+	movl %eax,RTThread__handlerStack
+	movl %edx,%eax
+.L16:
+.L10:
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe4:
+	.size	 Sx__FromReal,.Lfe4-Sx__FromReal
+.section	.rodata
+	.align 4
+.LC1:
+	.long 0x0,0xbff00000
+.text
+	.align 16
+	.type	 Sx__FromLongReal,@function
+Sx__FromLongReal:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $20,%esp
+	fldl 8(%ebp)
+.L18:
+	movl $5,-4(%ebp)
+	movl RTThread__handlerStack,%edx
+	movl %edx,-8(%ebp)
+	leal -8(%ebp),%ecx
+	movl %ecx,RTThread__handlerStack
+	fldl .LC1
+	fucomp %st(1)
+	fnstsw %ax
+	andb $68,%ah
+	xorb $64,%ah
+	jne .L19
+	fstp %st(0)
+	movl %edx,RTThread__handlerStack
+	movl MM_Sx+252,%eax
+	jmp .L17
+	.align 16
+.L19:
+	fldz
+	fucomp %st(1)
+	fnstsw %ax
+	andb $68,%ah
+	xorb $64,%ah
+	jne .L20
+	fstp %st(0)
+	movl %edx,RTThread__handlerStack
+	movl MM_Sx+256,%eax
+	jmp .L17
+	.align 16
+.L20:
+	fld1
+	fucomp %st(1)
+	fnstsw %ax
+	andb $68,%ah
+	xorb $64,%ah
+	jne .L21
+	fstp %st(0)
+	movl %edx,RTThread__handlerStack
+	movl MM_Sx+260,%eax
+	jmp .L17
+	.align 16
+.L21:
+	movl MM_Sx+856,%eax
+	pushl %eax
+	movl MI_RTHooks+80,%eax
+	fstpt -20(%ebp)
+	call *%eax
+	movl %eax,%edx
+	addl $4,%esp
+	fldt -20(%ebp)
+	testl %edx,%edx
+	jne .L22
+	fstp %st(0)
+	pushl $1540
+	call _m3_fault
+	.align 16
+.L22:
+	fstpl (%edx)
+	movl -8(%ebp),%eax
+	movl %eax,RTThread__handlerStack
+	movl %edx,%eax
+.L23:
+.L17:
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe5:
+	.size	 Sx__FromLongReal,.Lfe5-Sx__FromLongReal
+.section	.rodata
+	.align 4
+.LC2:
+	.long 0x0,0xbff00000
+.text
+	.align 16
+	.type	 Sx__FromExtended,@function
+Sx__FromExtended:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $20,%esp
+	fldl 8(%ebp)
+.L25:
+	movl $5,-4(%ebp)
+	movl RTThread__handlerStack,%edx
+	movl %edx,-8(%ebp)
+	leal -8(%ebp),%ecx
+	movl %ecx,RTThread__handlerStack
+	fldl .LC2
+	fucomp %st(1)
+	fnstsw %ax
+	andb $68,%ah
+	xorb $64,%ah
+	jne .L26
+	fstp %st(0)
+	movl %edx,RTThread__handlerStack
+	movl MM_Sx+264,%eax
+	jmp .L24
+	.align 16
+.L26:
+	fldz
+	fucomp %st(1)
+	fnstsw %ax
+	andb $68,%ah
+	xorb $64,%ah
+	jne .L27
+	fstp %st(0)
+	movl %edx,RTThread__handlerStack
+	movl MM_Sx+268,%eax
+	jmp .L24
+	.align 16
+.L27:
+	fld1
+	fucomp %st(1)
+	fnstsw %ax
+	andb $68,%ah
+	xorb $64,%ah
+	jne .L28
+	fstp %st(0)
+	movl %edx,RTThread__handlerStack
+	movl MM_Sx+272,%eax
+	jmp .L24
+	.align 16
+.L28:
+	movl MM_Sx+864,%eax
+	pushl %eax
+	movl MI_RTHooks+80,%eax
+	fstpt -20(%ebp)
+	call *%eax
+	movl %eax,%edx
+	addl $4,%esp
+	fldt -20(%ebp)
+	testl %edx,%edx
+	jne .L29
+	fstp %st(0)
+	pushl $1828
+	call _m3_fault
+	.align 16
+.L29:
+	fstpl (%edx)
+	movl -8(%ebp),%eax
+	movl %eax,RTThread__handlerStack
+	movl %edx,%eax
+.L30:
+.L24:
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe6:
+	.size	 Sx__FromExtended,.Lfe6-Sx__FromExtended
+	.align 16
+	.type	 Sx__Read,@function
+Sx__Read:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $200,%esp
+	pushl %esi
+	pushl %ebx
+	movl 12(%ebp),%ecx
+	movl %ecx,-196(%ebp)
+	testl %ecx,%ecx
+	jne .L33
+	movl MM_Sx+484,%ecx
+	movl %ecx,-196(%ebp)
+.L33:
+	movl $MM_Sx+872,-172(%ebp)
+	movl $0,-176(%ebp)
+	movl RTThread__handlerStack,%eax
+	movl %eax,-180(%ebp)
+	leal -180(%ebp),%ecx
+	movl %ecx,RTThread__handlerStack
+	leal -160(%ebp),%eax
+	pushl %eax
+	call _setjmp
+	addl $4,%esp
+	testl %eax,%eax
+	jne .L34
+.L36:
+	pushl $MM_Sx+140
+	movl 8(%ebp),%ecx
+	pushl %ecx
+	movl MI_Lex+128,%eax
+	call *%eax
+	movl 8(%ebp),%ecx
+	pushl %ecx
+	movl MI_Rd+80,%eax
+	call *%eax
+	movb %al,-200(%ebp)
+	addl $12,%esp
+	cmpb $59,%al
+	jne .L38
+.L39:
+	movl 8(%ebp),%ecx
+	pushl %ecx
+	movl MI_Rd+80,%eax
+	call *%eax
+	movb %al,-200(%ebp)
+	addl $4,%esp
+	cmpb $10,%al
+	jne .L39
+	jmp .L36
+	.align 16
+.L38:
+	movl -196(%ebp),%ecx
+	movl %ecx,-184(%ebp)
+	pushl %ecx
+	movl MI_RTHooks+68,%eax
+	xorl %esi,%esi
+	call *%eax
+	addl $4,%esp
+.L41:
+	movl $6,-188(%ebp)
+	movl RTThread__handlerStack,%eax
+	movl %eax,-192(%ebp)
+	leal -192(%ebp),%ecx
+	movl %ecx,RTThread__handlerStack
+	movl -196(%ebp),%eax
+	addl $12,%eax
+	pushl %eax
+	xorl %ebx,%ebx
+	movb -200(%ebp),%bl
+	pushl %ebx
+	call set_member
+	addl $8,%esp
+	testl %eax,%eax
+	je .L44
+	pushl %ebx
+	movl -196(%ebp),%ecx
+	pushl %ecx
+	call Sx__Syn
+	addl $8,%esp
+	testl %eax,%eax
+	jne .L43
+	pushl $2564
+	call _m3_fault
+	.align 16
+.L43:
+	movl 4(%eax),%esi
+.L44:
+	movl -192(%ebp),%eax
+	movl %eax,RTThread__handlerStack
+	movl -184(%ebp),%eax
+	pushl %eax
+	movl MI_RTHooks+72,%eax
+	call *%eax
+	addl $4,%esp
+	testl %esi,%esi
+	je .L45
+	movl (%esi),%eax
+	movl 12(%ebp),%ecx
+	movl 4(%eax),%eax
+	pushl %ecx
+	movl 8(%ebp),%ecx
+	pushl %ecx
+	pushl %esi
+	call *%eax
+	movl %eax,%ebx
+	movl %ebx,%esi
+	addl $12,%esp
+	testl %ebx,%ebx
+	je .L36
+	cmpl $0,8(%ebx)
+	jne .L48
+	movl -180(%ebp),%eax
+	movl %eax,RTThread__handlerStack
+	movl 4(%ebx),%eax
+	jmp .L31
+	.align 16
+.L48:
+	xorl %eax,%eax
+	movb -200(%ebp),%al
+	pushl %eax
+	movl MI_Text+72,%eax
+	call *%eax
+	movl %eax,%ebx
+	pushl %esi
+	movl MI_RefList+168,%eax
+	call *%eax
+	pushl $10
+	pushl %eax
+	movl MI_Fmt+52,%eax
+	call *%eax
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl %eax
+	pushl %ebx
+	pushl $MM_Sx+884
+	movl MI_Fmt+76,%eax
+	call *%eax
+	addl $40,%esp
+	movl %eax,%edx
+	pushl %edx
+	pushl $MI_Sx+44
+	movl MI_RTHooks+52,%eax
+	call *%eax
+	addl $8,%esp
+	jmp .L36
+	.align 16
+.L45:
+	movl 12(%ebp),%ecx
+	pushl %ecx
+	xorl %eax,%eax
+	movb -200(%ebp),%al
+	pushl %eax
+	movl 8(%ebp),%ecx
+	pushl %ecx
+	call Sx__ReadToken
+	movl %eax,%edx
+	movl -180(%ebp),%eax
+	movl %eax,RTThread__handlerStack
+	movl %edx,%eax
+	jmp .L31
+	.align 16
+.L34:
+	movl -164(%ebp),%eax
+	pushl %eax
+	movl MI_RdUtils+56,%eax
+	call *%eax
+	movl %eax,%edx
+	pushl %edx
+	pushl $MI_Sx+44
+	movl MI_RTHooks+52,%eax
+	call *%eax
+.L31:
+	leal -208(%ebp),%esp
+	popl %ebx
+	popl %esi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe7:
+	.size	 Sx__Read,.Lfe7-Sx__Read
+	.align 16
+	.type	 Sx__ReadDelimitedList,@function
+Sx__ReadDelimitedList:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $208,%esp
+	pushl %esi
+	pushl %ebx
+	movl 16(%ebp),%ecx
+	movl %ecx,-204(%ebp)
+	movl $0,-200(%ebp)
+	testl %ecx,%ecx
+	jne .L55
+	movl MM_Sx+484,%ecx
+	movl %ecx,-204(%ebp)
+.L55:
+	movl $MM_Sx+932,-172(%ebp)
+	movl $0,-176(%ebp)
+	movl RTThread__handlerStack,%eax
+	movl %eax,-180(%ebp)
+	leal -180(%ebp),%ecx
+	movl %ecx,RTThread__handlerStack
+	leal -160(%ebp),%eax
+	pushl %eax
+	call _setjmp
+	addl $4,%esp
+	testl %eax,%eax
+	jne .L56
+.L58:
+	pushl $MM_Sx+140
+	movl 8(%ebp),%ecx
+	pushl %ecx
+	movl MI_Lex+128,%eax
+	call *%eax
+	movl 8(%ebp),%ecx
+	pushl %ecx
+	movl MI_Rd+80,%eax
+	call *%eax
+	movb %al,-208(%ebp)
+	addl $12,%esp
+	cmpb $59,%al
+	jne .L60
+.L61:
+	movl 8(%ebp),%ecx
+	pushl %ecx
+	movl MI_Rd+80,%eax
+	call *%eax
+	movb %al,-208(%ebp)
+	addl $4,%esp
+	cmpb $10,%al
+	jne .L61
+	jmp .L58
+	.align 16
+.L60:
+	movl -204(%ebp),%ecx
+	movl %ecx,-184(%ebp)
+	pushl %ecx
+	movl MI_RTHooks+68,%eax
+	xorl %esi,%esi
+	call *%eax
+	addl $4,%esp
+.L63:
+	movl $6,-188(%ebp)
+	movl RTThread__handlerStack,%eax
+	movl %eax,-192(%ebp)
+	leal -192(%ebp),%ecx
+	movl %ecx,RTThread__handlerStack
+	movl -204(%ebp),%eax
+	addl $12,%eax
+	pushl %eax
+	xorl %ebx,%ebx
+	movb -208(%ebp),%bl
+	pushl %ebx
+	call set_member
+	addl $8,%esp
+	testl %eax,%eax
+	je .L66
+	pushl %ebx
+	movl -204(%ebp),%ecx
+	pushl %ecx
+	call Sx__Syn
+	addl $8,%esp
+	testl %eax,%eax
+	jne .L65
+	pushl $3204
+	call _m3_fault
+	.align 16
+.L65:
+	movl 4(%eax),%esi
+.L66:
+	movl -192(%ebp),%eax
+	movl %eax,RTThread__handlerStack
+	movl -184(%ebp),%eax
+	pushl %eax
+	movl MI_RTHooks+72,%eax
+	call *%eax
+	addl $4,%esp
+	testl %esi,%esi
+	je .L67
+	movl (%esi),%eax
+	movl 16(%ebp),%ecx
+	movl 4(%eax),%eax
+	pushl %ecx
+	movl 8(%ebp),%ecx
+	pushl %ecx
+	pushl %esi
+	call *%eax
+	movl %eax,%edx
+	movl %edx,%ebx
+	addl $12,%esp
+	jmp .L68
+	.align 16
+.L69:
+	movl -200(%ebp),%ecx
+	pushl %ecx
+	leal 4(%ebx),%eax
+	pushl %eax
+	movl MI_RefList+148,%eax
+	call *%eax
+	movl %eax,-200(%ebp)
+	movl 8(%ebx),%ebx
+	addl $8,%esp
+.L68:
+	testl %ebx,%ebx
+	jne .L69
+	jmp .L58
+	.align 16
+.L67:
+	xorl %eax,%eax
+	movb -208(%ebp),%al
+	movb -208(%ebp),%cl
+	cmpb %cl,12(%ebp)
+	jne .L72
+	movl -200(%ebp),%ecx
+	pushl %ecx
+	movl MI_RefList+192,%eax
+	call *%eax
+	movl %eax,%edx
+	movl -180(%ebp),%eax
+	movl %eax,RTThread__handlerStack
+	movl %edx,%eax
+	jmp .L53
+	.align 16
+.L72:
+	movl 16(%ebp),%ecx
+	pushl %ecx
+	pushl %eax
+	movl 8(%ebp),%ecx
+	pushl %ecx
+	call Sx__ReadToken
+	movl %eax,%edx
+	movl %edx,-196(%ebp)
+	movl -200(%ebp),%ecx
+	pushl %ecx
+	leal -196(%ebp),%eax
+	pushl %eax
+	movl MI_RefList+148,%eax
+	call *%eax
+	movl %eax,-200(%ebp)
+	addl $20,%esp
+	jmp .L58
+	.align 16
+.L56:
+	cmpl $MI_Rd+44,-168(%ebp)
+	jne .L74
+	pushl $MM_Sx+948
+	pushl $MI_Sx+44
+	movl MI_RTHooks+52,%eax
+	call *%eax
+	addl $8,%esp
+.L74:
+	movl -164(%ebp),%eax
+	pushl %eax
+	movl MI_RdUtils+56,%eax
+	call *%eax
+	pushl %eax
+	pushl $MI_Sx+44
+	movl MI_RTHooks+52,%eax
+	call *%eax
+.L53:
+	leal -216(%ebp),%esp
+	popl %ebx
+	popl %esi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe8:
+	.size	 Sx__ReadDelimitedList,.Lfe8-Sx__ReadDelimitedList
+	.align 16
+	.type	 Sx__ReadToken,@function
+Sx__ReadToken:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%edi
+	movl 16(%ebp),%eax
+	xorl %ebx,%ebx
+	movb 12(%ebp),%bl
+	cmpl $34,%ebx
+	jne .L78
+	pushl %ebx
+	pushl %edi
+	call Sx__ReadDelimitedText
+	movl %eax,%ebx
+	jmp .L77
+	.align 16
+.L78:
+	cmpl $39,%ebx
+	jne .L79
+	pushl %edi
+	call Sx__ReadCharLiteral
+	pushl %eax
+	call Sx__FromChar
+	movl %eax,%ebx
+	jmp .L77
+	.align 16
+.L79:
+	cmpl $40,%ebx
+	jne .L80
+	pushl %eax
+	pushl $41
+	pushl %edi
+	call Sx__ReadDelimitedList
+	movl %eax,%ebx
+	jmp .L77
+	.align 16
+.L80:
+	cmpl $124,%ebx
+	jne .L81
+	pushl %ebx
+	pushl %edi
+	call Sx__ReadDelimitedText
+	movl %eax,%ebx
+	pushl %ebx
+	jmp .L90
+	.align 16
+.L81:
+	pushl $MM_Sx+76
+	pushl %ebx
+	call set_member
+	addl $8,%esp
+	testl %eax,%eax
+	je .L82
+	pushl $MM_Sx+520
+	jmp .L91
+	.align 16
+.L82:
+	cmpl $43,%ebx
+	je .L83
+	cmpl $45,%ebx
+	je .L83
+	cmpl $46,%ebx
+	jne .L84
+.L83:
+	pushl %edi
+	movl MI_Rd+84,%eax
+	call *%eax
+	addl $4,%esp
+	testl %eax,%eax
+	je .L85
+	xorl %eax,%eax
+	movb 12(%ebp),%al
+	pushl %eax
+	movl MI_Text+72,%eax
+	call *%eax
+	pushl %eax
+	movl MI_Atom+44,%eax
+	call *%eax
+	movl %eax,%ebx
+	jmp .L77
+	.align 16
+.L85:
+	pushl %edi
+	movl MI_Rd+80,%eax
+	call *%eax
+	pushl $MM_Sx+44
+	movl %eax,%esi
+	andl $255,%esi
+	pushl %esi
+	call set_member
+	addl $12,%esp
+	testl %eax,%eax
+	je .L86
+	xorl %eax,%eax
+	movb 12(%ebp),%al
+	pushl %eax
+	pushl %esi
+	pushl %edi
+	call Sx__ReadNumber
+	movl %eax,%ebx
+	jmp .L77
+	.align 16
+.L86:
+	pushl $MM_Sx+488
+	pushl %esi
+	call set_member
+	addl $8,%esp
+	testl %eax,%eax
+	je .L87
+	xorl %eax,%eax
+	movb 12(%ebp),%al
+	pushl %eax
+	movl MI_Text+72,%eax
+	call *%eax
+	movl %eax,%ebx
+	pushl %esi
+	movl MI_Text+72,%eax
+	call *%eax
+	pushl %eax
+	pushl %ebx
+	movl MI_RTHooks+76,%eax
+	call *%eax
+	pushl $MM_Sx+488
+	movl %eax,%ebx
+	pushl %edi
+	movl MI_Lex+124,%eax
+	call *%eax
+	pushl %eax
+	pushl %ebx
+	movl MI_RTHooks+76,%eax
+	call *%eax
+	addl $32,%esp
+	jmp .L92
+	.align 16
+.L87:
+	pushl %edi
+	movl MI_Rd+88,%eax
+	call *%eax
+	xorl %eax,%eax
+	movb 12(%ebp),%al
+	pushl %eax
+	movl MI_Text+72,%eax
+	call *%eax
+.L92:
+	pushl %eax
+.L90:
+	movl MI_Atom+44,%eax
+	call *%eax
+	jmp .L77
+	.align 16
+.L84:
+	pushl $MM_Sx+44
+	pushl %ebx
+	call set_member
+	addl $8,%esp
+	testl %eax,%eax
+	je .L88
+	pushl %ebx
+	pushl %ebx
+	pushl %edi
+	call Sx__ReadNumber
+	jmp .L77
+	.align 16
+.L88:
+	pushl $MM_Sx+488
+	pushl %ebx
+	call set_member
+	movl %eax,%esi
+	addl $8,%esp
+	testl %esi,%esi
+	je .L89
+	pushl $MM_Sx+488
+.L91:
+	pushl %ebx
+	pushl %edi
+	call Sx__ReadAtom
+	jmp .L77
+	.align 16
+.L89:
+	pushl %ebx
+	movl MI_Text+72,%eax
+	call *%eax
+	pushl %esi
+	pushl %esi
+	pushl %esi
+	pushl %esi
+	pushl %eax
+	pushl $MM_Sx+996
+	movl MI_Fmt+76,%eax
+	call *%eax
+	movl %eax,%ebx
+	pushl %ebx
+	pushl $MI_Sx+44
+	movl MI_RTHooks+52,%eax
+	call *%eax
+.L77:
+	leal -12(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe9:
+	.size	 Sx__ReadToken,.Lfe9-Sx__ReadToken
+	.align 16
+	.type	 Sx__ReadAtom,@function
+Sx__ReadAtom:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%ebx
+	xorl %eax,%eax
+	movb 12(%ebp),%al
+	pushl %eax
+	movl MI_Text+72,%eax
+	call *%eax
+	movl %eax,%esi
+	movl 16(%ebp),%eax
+	pushl %eax
+	pushl %ebx
+	movl MI_Lex+124,%eax
+	call *%eax
+	pushl %eax
+	pushl %esi
+	movl MI_RTHooks+76,%eax
+	call *%eax
+	pushl %eax
+	movl MI_Atom+44,%eax
+	call *%eax
+	leal -8(%ebp),%esp
+	popl %ebx
+	popl %esi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe10:
+	.size	 Sx__ReadAtom,.Lfe10-Sx__ReadAtom
+	.align 16
+	.type	 Sx__Init,@function
+Sx__Init:
+	pushl %ebp
+	movl %esp,%ebp
+	movl 8(%ebp),%ecx
+	testl %ecx,%ecx
+	jne .L95
+	pushl $4836
+	call _m3_fault
+	.align 16
+.L95:
+	movl MM_Sx+1024,%edx
+	movl 24(%edx),%eax
+	movl $0,16(%eax,%ecx)
+	movl 24(%edx),%eax
+	movl $0,12(%eax,%ecx)
+	movl 24(%edx),%eax
+	movl %ebp,%esp
+	movb $0,20(%eax,%ecx)
+	movl %ecx,%eax
+	popl %ebp
+	ret
+.Lfe11:
+	.size	 Sx__Init,.Lfe11-Sx__Init
+	.align 16
+	.type	 Sx__Seek,@function
+Sx__Seek:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %ebx
+	movl 8(%ebp),%ecx
+	movl 12(%ebp),%ebx
+	testl %ecx,%ecx
+	jne .L99
+	pushl $4996
+	call _m3_fault
+	.align 16
+.L99:
+	movl MM_Sx+1024,%eax
+	movl 24(%eax),%edx
+	movl %ebx,16(%edx,%ecx)
+	movl 24(%eax),%eax
+	cmpl %ebx,12(%eax,%ecx)
+	jg .L101
+	movl $2,%eax
+	jmp .L102
+	.align 16
+.L101:
+	xorl %eax,%eax
+.L102:
+	movl -4(%ebp),%ebx
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe12:
+	.size	 Sx__Seek,.Lfe12-Sx__Seek
+	.align 16
+	.type	 Sx__Length,@function
+Sx__Length:
+	pushl %ebp
+	movl %esp,%ebp
+	movl 8(%ebp),%eax
+	movl %eax,%edx
+	testl %edx,%edx
+	jne .L104
+	pushl $5156
+	call _m3_fault
+	.align 16
+.L104:
+	movl MM_Sx+1024,%eax
+	movl %ebp,%esp
+	movl 24(%eax),%eax
+	popl %ebp
+	movl 12(%eax,%edx),%eax
+	ret
+.Lfe13:
+	.size	 Sx__Length,.Lfe13-Sx__Length
+	.align 16
+	.type	 Sx__Close,@function
+Sx__Close:
+	pushl %ebp
+	movl %esp,%ebp
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe14:
+	.size	 Sx__Close,.Lfe14-Sx__Close
+	.align 16
+	.type	 Sx__PutChar,@function
+Sx__PutChar:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %ebx
+	movl 8(%ebp),%ebx
+	testl %ebx,%ebx
+	jne .L107
+	pushl $5316
+	call _m3_fault
+	.align 16
+.L107:
+	movl MM_Sx+1024,%eax
+	movl 24(%eax),%eax
+	cmpl $3999,12(%eax,%ebx)
+	jle .L109
+	pushl $MM_Sx+1036
+	pushl $MI_Sx+44
+	movl MI_RTHooks+52,%eax
+	call *%eax
+	addl $8,%esp
+.L109:
+	movl MM_Sx+1024,%eax
+	movl 24(%eax),%edx
+	movl (%edx,%ebx),%eax
+	testl %eax,%eax
+	jne .L110
+	pushl $5364
+	call _m3_fault
+	.align 16
+.L110:
+	movl 12(%edx,%ebx),%edx
+	cmpl %edx,4(%eax)
+	ja .L112
+	pushl $5362
+	call _m3_fault
+	.align 16
+.L112:
+	movl (%eax),%eax
+	movb 12(%ebp),%cl
+	movb %cl,(%edx,%eax)
+	movl MM_Sx+1024,%eax
+	addl 24(%eax),%ebx
+	movl %ebx,%eax
+	incl 12(%eax)
+	movl -4(%ebp),%ebx
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe15:
+	.size	 Sx__PutChar,.Lfe15-Sx__PutChar
+	.align 16
+	.type	 Sx__ReadNumber__scanExp.1,@function
+Sx__ReadNumber__scanExp.1:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $4,%esp
+	pushl %esi
+	pushl %ebx
+	movl %ecx,-4(%ebp)
+	movl -4(%ebp),%ebx
+	movl MM_Sx+1084,%eax
+	movl -4(%ebx),%ecx
+	movl 36(%eax),%eax
+	movl (%ecx),%edx
+	movl 4(%eax,%edx),%edx
+	movl -8(%ebx),%eax
+	movb 4(%eax),%al
+	andl $255,%eax
+	pushl %eax
+	pushl %ecx
+	call *%edx
+	movl -8(%ebx),%eax
+	movl (%eax),%eax
+	pushl %eax
+	movl MI_Rd+80,%eax
+	call *%eax
+	movl %eax,%edx
+	movl -8(%ebx),%eax
+	movb %dl,4(%eax)
+	movl -8(%ebx),%eax
+	addl $12,%esp
+	movzbl 4(%eax),%esi
+	cmpl $43,%esi
+	je .L116
+	cmpl $45,%esi
+	jne .L117
+.L116:
+	movl -4(%ebx),%ecx
+	movl MM_Sx+1084,%eax
+	movl (%ecx),%edx
+	movl 36(%eax),%eax
+	movl 4(%eax,%edx),%edx
+	pushl %esi
+	pushl %ecx
+	call *%edx
+	movl -8(%ebx),%eax
+	movl (%eax),%eax
+	pushl %eax
+	movl MI_Rd+80,%eax
+	call *%eax
+	movl %eax,%edx
+	movl -8(%ebx),%eax
+	addl $12,%esp
+	movb %dl,4(%eax)
+.L117:
+	pushl $MM_Sx+44
+	movl -8(%ebx),%eax
+	movb 4(%eax),%al
+	andl $255,%eax
+	pushl %eax
+	call set_member
+	addl $8,%esp
+	testl %eax,%eax
+	jne .L119
+	pushl $MM_Sx+1096
+	pushl $MI_Sx+44
+	movl MI_RTHooks+52,%eax
+	call *%eax
+	addl $8,%esp
+.L119:
+	movl -4(%ebx),%ecx
+	movl MM_Sx+1084,%eax
+	movl (%ecx),%edx
+	movl 36(%eax),%eax
+	movl 4(%eax,%edx),%edx
+	movl -8(%ebx),%eax
+	movb 4(%eax),%al
+	andl $255,%eax
+	pushl %eax
+	pushl %ecx
+	call *%edx
+	movl -8(%ebx),%eax
+	movl (%eax),%eax
+	pushl %eax
+	movl MI_Rd+80,%eax
+	call *%eax
+	movl %eax,%edx
+	movl -8(%ebx),%eax
+	movb %dl,4(%eax)
+	pushl $MM_Sx+44
+	movl -8(%ebx),%eax
+	movb 4(%eax),%al
+	andl $255,%eax
+	pushl %eax
+	call set_member
+	addl $20,%esp
+	testl %eax,%eax
+	jne .L119
+	movl -8(%ebx),%eax
+	movl (%eax),%eax
+	pushl %eax
+	movl MI_Rd+88,%eax
+	call *%eax
+	leal -12(%ebp),%esp
+	movl -4(%ebx),%eax
+	popl %ebx
+	popl %esi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe16:
+	.size	 Sx__ReadNumber__scanExp.1,.Lfe16-Sx__ReadNumber__scanExp.1
+	.align 16
+	.type	 Sx__ReadNumber__scanFloat.2,@function
+Sx__ReadNumber__scanFloat.2:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $4,%esp
+	pushl %ebx
+	movl %ecx,-4(%ebp)
+	movl -4(%ebp),%ebx
+	movl -8(%ebx),%eax
+	xorl %edx,%edx
+	movb 4(%eax),%dl
+	cmpl $101,%edx
+	je .L122
+	cmpl $69,%edx
+	jne .L123
+.L122:
+	movl %ebx,%ecx
+	call Sx__ReadNumber__scanExp.1
+	jmp .L129
+	.align 16
+.L123:
+	cmpl $100,%edx
+	je .L124
+	cmpl $68,%edx
+	jne .L125
+.L124:
+	movl %ebx,%ecx
+	call Sx__ReadNumber__scanExp.1
+	pushl %eax
+	movl MI_Lex+152,%eax
+	call *%eax
+	subl $8,%esp
+	fstpl (%esp)
+	call Sx__FromLongReal
+	jmp .L128
+	.align 16
+.L125:
+	cmpl $120,%edx
+	je .L126
+	cmpl $88,%edx
+	jne .L127
+.L126:
+	movl %ebx,%ecx
+	call Sx__ReadNumber__scanExp.1
+	pushl %eax
+	movl MI_Lex+156,%eax
+	call *%eax
+	subl $8,%esp
+	fstpl (%esp)
+	call Sx__FromExtended
+	jmp .L128
+	.align 16
+.L127:
+	movl (%eax),%eax
+	pushl %eax
+	movl MI_Rd+88,%eax
+	call *%eax
+	movl -4(%ebx),%eax
+.L129:
+	pushl %eax
+	movl MI_Lex+148,%eax
+	call *%eax
+	subl $4,%esp
+	fstps (%esp)
+	call Sx__FromReal
+.L128:
+	movl -8(%ebp),%ebx
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe17:
+	.size	 Sx__ReadNumber__scanFloat.2,.Lfe17-Sx__ReadNumber__scanFloat.2
+	.align 16
+	.type	 Sx__ReadNumber,@function
+Sx__ReadNumber:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $200,%esp
+	pushl %esi
+	pushl %ebx
+	leal 8(%ebp),%ebx
+	movl %ebx,-8(%ebp)
+	movl $0,-4(%ebp)
+	movl MM_Sx+664,%eax
+	movl %eax,-4(%ebp)
+.L130:
+	movl $MM_Sx+1124,-180(%ebp)
+	movl $0,-184(%ebp)
+	movl RTThread__handlerStack,%eax
+	movl %eax,-188(%ebp)
+	leal -188(%ebp),%ebx
+	movl %ebx,RTThread__handlerStack
+	leal -168(%ebp),%eax
+	pushl %eax
+	call _setjmp
+	addl $4,%esp
+	testl %eax,%eax
+	jne .L131
+	movl -4(%ebp),%edx
+	testl %edx,%edx
+	jne .L132
+	pushl $5924
+	call _m3_fault
+	.align 16
+.L132:
+	movl MM_Sx+1084,%eax
+	movl 24(%eax),%eax
+	movl (%eax,%edx),%eax
+	movl %eax,-192(%ebp)
+	pushl %eax
+	movl MI_RTHooks+68,%eax
+	call *%eax
+	addl $4,%esp
+.L133:
+	movl $6,-196(%ebp)
+	movl RTThread__handlerStack,%eax
+	movl %eax,-200(%ebp)
+	leal -200(%ebp),%ebx
+	movl %ebx,RTThread__handlerStack
+	movl MM_Sx+1084,%eax
+	movl -4(%ebp),%edx
+	movl 36(%eax),%eax
+	addl (%edx),%eax
+	movl (%eax),%eax
+	pushl %edx
+	call *%eax
+	pushl $MM_Sx+44
+	movzbl 16(%ebp),%esi
+	pushl %esi
+	call set_member
+	addl $12,%esp
+	testl %eax,%eax
+	jne .L135
+	movl MM_Sx+1084,%eax
+	movl -4(%ebp),%edx
+	movl 36(%eax),%eax
+	addl (%edx),%eax
+	movl 4(%eax),%ecx
+	pushl %esi
+	pushl %edx
+	call *%ecx
+	addl $8,%esp
+.L135:
+	movl MM_Sx+1084,%eax
+	movl -4(%ebp),%edx
+	movl 36(%eax),%eax
+	addl (%edx),%eax
+	movl 4(%eax),%ecx
+	xorl %eax,%eax
+	movb 12(%ebp),%al
+	pushl %eax
+	pushl %edx
+	call *%ecx
+	movl 8(%ebp),%eax
+	pushl %eax
+	movl MI_Rd+80,%eax
+	call *%eax
+	movb %al,12(%ebp)
+	pushl $MM_Sx+44
+	xorl %eax,%eax
+	movb 12(%ebp),%al
+	pushl %eax
+	call set_member
+	addl $20,%esp
+	testl %eax,%eax
+	jne .L135
+	cmpb $46,16(%ebp)
+	jne .L137
+	movl %ebp,%ecx
+	call Sx__ReadNumber__scanFloat.2
+	jmp .L148
+	.align 16
+.L137:
+	movzbl 12(%ebp),%esi
+	cmpl $95,%esi
+	jne .L138
+	movl MM_Sx+1084,%eax
+	movl -4(%ebp),%edx
+	movl 36(%eax),%eax
+	addl (%edx),%eax
+	movl 4(%eax),%ecx
+	pushl %esi
+	pushl %edx
+	call *%ecx
+	movl 8(%ebp),%eax
+	pushl %eax
+	movl MI_Rd+80,%eax
+	call *%eax
+	movb %al,12(%ebp)
+	pushl $MM_Sx+764
+	xorl %eax,%eax
+	movb 12(%ebp),%al
+	pushl %eax
+	call set_member
+	addl $20,%esp
+	testl %eax,%eax
+	jne .L140
+	pushl $MM_Sx+1140
+	pushl $MI_Sx+44
+	movl MI_RTHooks+52,%eax
+	call *%eax
+	addl $8,%esp
+.L140:
+	movl MM_Sx+1084,%eax
+	movl -4(%ebp),%edx
+	movl 36(%eax),%eax
+	addl (%edx),%eax
+	movl 4(%eax),%ecx
+	xorl %eax,%eax
+	movb 12(%ebp),%al
+	pushl %eax
+	pushl %edx
+	call *%ecx
+	movl 8(%ebp),%eax
+	pushl %eax
+	movl MI_Rd+80,%eax
+	call *%eax
+	movb %al,12(%ebp)
+	pushl $MM_Sx+764
+	xorl %eax,%eax
+	movb 12(%ebp),%al
+	pushl %eax
+	call set_member
+	addl $20,%esp
+	testl %eax,%eax
+	jne .L140
+	jmp .L142
+	.align 16
+.L138:
+	cmpl $46,%esi
+	jne .L142
+.L143:
+	movl MM_Sx+1084,%eax
+	movl -4(%ebp),%edx
+	movl 36(%eax),%eax
+	addl (%edx),%eax
+	movl 4(%eax),%ecx
+	xorl %eax,%eax
+	movb 12(%ebp),%al
+	pushl %eax
+	pushl %edx
+	call *%ecx
+	movl 8(%ebp),%eax
+	pushl %eax
+	movl MI_Rd+80,%eax
+	call *%eax
+	movb %al,12(%ebp)
+	pushl $MM_Sx+44
+	xorl %eax,%eax
+	movb 12(%ebp),%al
+	pushl %eax
+	call set_member
+	addl $20,%esp
+	testl %eax,%eax
+	jne .L143
+	movl %ebp,%ecx
+	call Sx__ReadNumber__scanFloat.2
+	jmp .L148
+	.align 16
+.L142:
+	movl 8(%ebp),%eax
+	pushl %eax
+	movl MI_Rd+88,%eax
+	call *%eax
+	pushl $10
+	movl -4(%ebp),%eax
+	pushl %eax
+	movl MI_Lex+140,%eax
+	call *%eax
+	pushl %eax
+	call Sx__FromInt
+.L148:
+	movl %eax,%esi
+	movl -200(%ebp),%eax
+	movl %eax,RTThread__handlerStack
+	movl -192(%ebp),%eax
+	pushl %eax
+	movl MI_RTHooks+72,%eax
+	call *%eax
+	movl -188(%ebp),%eax
+	movl %eax,RTThread__handlerStack
+	movl %esi,%eax
+	jmp .L114
+	.align 16
+.L145:
+.L131:
+	pushl $MM_Sx+1168
+	pushl $MI_Sx+44
+	movl MI_RTHooks+52,%eax
+	call *%eax
+.L114:
+	leal -208(%ebp),%esp
+	popl %ebx
+	popl %esi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe18:
+	.size	 Sx__ReadNumber,.Lfe18-Sx__ReadNumber
+	.align 16
+	.type	 Sx__ReadDelimitedText,@function
+Sx__ReadDelimitedText:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $24,%esp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl MM_Sx+664,%edi
+	testl %edi,%edi
+	jne .L150
+	pushl $6484
+	call _m3_fault
+	.align 16
+.L150:
+	movl MM_Sx+1084,%eax
+	movl 24(%eax),%eax
+	movl (%eax,%edi),%eax
+	movl %eax,-4(%ebp)
+	pushl %eax
+	movl MI_RTHooks+68,%eax
+	call *%eax
+	addl $4,%esp
+.L151:
+	movl $6,-8(%ebp)
+	movl RTThread__handlerStack,%eax
+	movl %eax,-12(%ebp)
+	leal -12(%ebp),%ebx
+	movl %ebx,RTThread__handlerStack
+	movl MM_Sx+1084,%eax
+	movl (%edi),%edx
+	movl 36(%eax),%eax
+	movl (%eax,%edx),%edx
+	movl %edx,-24(%ebp)
+	pushl %edi
+	movl -24(%ebp),%ebx
+	call *%ebx
+	addl $4,%esp
+.L152:
+	movl 8(%ebp),%ebx
+	pushl %ebx
+	movl MI_Rd+80,%eax
+	call *%eax
+	movl %eax,%ecx
+	movb %cl,%al
+	movl %eax,%esi
+	andl $255,%esi
+	xorl %eax,%eax
+	movb 12(%ebp),%al
+	addl $4,%esp
+	cmpl %eax,%esi
+	jne .L153
+	testl %edi,%edi
+	jne .L154
+	pushl $6564
+	call _m3_fault
+	.align 16
+.L154:
+	movl MM_Sx+1024,%eax
+	movl 24(%eax),%edx
+	movl (%edx,%edi),%eax
+	testl %eax,%eax
+	jne .L155
+	pushl $6564
+	call _m3_fault
+	.align 16
+.L155:
+	movl %eax,%ecx
+	movl 12(%edx,%edi),%eax
+	movl %eax,-16(%ebp)
+	subl 4(%ecx),%eax
+	testl %eax,%eax
+	jle .L157
+	pushl $6561
+	call _m3_fault
+	.align 16
+.L157:
+	movl (%ecx),%eax
+	movl %eax,-20(%ebp)
+	leal -20(%ebp),%eax
+	pushl %eax
+	movl MI_Text+76,%eax
+	call *%eax
+	movl %eax,-24(%ebp)
+	movl -12(%ebp),%eax
+	movl %eax,RTThread__handlerStack
+	movl -4(%ebp),%eax
+	pushl %eax
+	movl MI_RTHooks+72,%eax
+	call *%eax
+	movl -24(%ebp),%eax
+	jmp .L149
+	.align 16
+.L153:
+	cmpl $92,%esi
+	jne .L158
+	pushl %eax
+	movl 8(%ebp),%ebx
+	pushl %ebx
+	call Sx__ReadEscapeSequence
+	movl %eax,%ecx
+	movl MM_Sx+1084,%eax
+	movl (%edi),%edx
+	movl 36(%eax),%eax
+	movl 4(%eax,%edx),%edx
+	movl %edx,-24(%ebp)
+	pushl %ecx
+	pushl %edi
+	movl -24(%ebp),%ebx
+	call *%ebx
+	addl $16,%esp
+	jmp .L152
+	.align 16
+.L158:
+	pushl %esi
+	call Sx__ISO_Latin_printing
+	movl %eax,%ecx
+	addl $4,%esp
+	testl %ecx,%ecx
+	je .L160
+	movl MM_Sx+1084,%eax
+	movl (%edi),%edx
+	movl 36(%eax),%eax
+	movl 4(%eax,%edx),%edx
+	movl %edx,-24(%ebp)
+	pushl %esi
+	pushl %edi
+	movl -24(%ebp),%ebx
+	call *%ebx
+	addl $8,%esp
+	jmp .L152
+	.align 16
+.L160:
+	pushl $MM_Sx+1204
+	pushl $MI_Sx+44
+	movl MI_RTHooks+52,%eax
+	call *%eax
+	addl $8,%esp
+	jmp .L152
+	.align 16
+.L162:
+.L149:
+	leal -36(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe19:
+	.size	 Sx__ReadDelimitedText,.Lfe19-Sx__ReadDelimitedText
+	.align 16
+	.type	 Sx__ISO_Latin_printing,@function
+Sx__ISO_Latin_printing:
+	pushl %ebp
+	movl %esp,%ebp
+	movl $1,%eax
+	xorl %edx,%edx
+	movb 8(%ebp),%dl
+	cmpl $31,%edx
+	jle .L164
+	cmpl $126,%edx
+	jle .L165
+.L164:
+	cmpl $160,%edx
+	jle .L166
+	cmpl $255,%edx
+	jle .L165
+.L166:
+	xorl %eax,%eax
+.L165:
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe20:
+	.size	 Sx__ISO_Latin_printing,.Lfe20-Sx__ISO_Latin_printing
+	.align 16
+	.type	 Sx__ReadCharLiteral,@function
+Sx__ReadCharLiteral:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%esi
+	pushl %esi
+	movl MI_Rd+80,%eax
+	call *%eax
+	movb %al,%bl
+	xorl %eax,%eax
+	movb %bl,%al
+	addl $4,%esp
+	cmpl $39,%eax
+	je .L168
+	pushl %eax
+	call Sx__ISO_Latin_printing
+	addl $4,%esp
+	testl %eax,%eax
+	jne .L169
+.L168:
+	pushl $MM_Sx+1252
+	pushl $MI_Sx+44
+	movl MI_RTHooks+52,%eax
+	call *%eax
+	addl $8,%esp
+.L169:
+	cmpb $92,%bl
+	jne .L170
+	pushl $39
+	pushl %esi
+	call Sx__ReadEscapeSequence
+	movb %al,%bl
+	addl $8,%esp
+.L170:
+	pushl %esi
+	movl MI_Rd+80,%eax
+	call *%eax
+	addl $4,%esp
+	cmpl $39,%eax
+	jne .L171
+	xorl %eax,%eax
+	movb %bl,%al
+	jmp .L167
+	.align 16
+.L171:
+	pushl $MM_Sx+1252
+	pushl $MI_Sx+44
+	movl MI_RTHooks+52,%eax
+	call *%eax
+.L167:
+	leal -8(%ebp),%esp
+	popl %ebx
+	popl %esi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe21:
+	.size	 Sx__ReadCharLiteral,.Lfe21-Sx__ReadCharLiteral
+	.align 16
+	.type	 Sx__ReadEscapeSequence,@function
+Sx__ReadEscapeSequence:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%edi
+	pushl %edi
+	movl MI_Rd+80,%eax
+	call *%eax
+	movb %al,%cl
+	xorl %edx,%edx
+	movb %cl,%dl
+	addl $4,%esp
+	cmpl $110,%edx
+	jne .L173
+	movl $10,%eax
+	jmp .L172
+	.align 16
+.L173:
+	cmpl $114,%edx
+	jne .L174
+	movl $13,%eax
+	jmp .L172
+	.align 16
+.L174:
+	cmpl $116,%edx
+	jne .L175
+	movl $9,%eax
+	jmp .L172
+	.align 16
+.L175:
+	cmpl $102,%edx
+	jne .L176
+	movl $12,%eax
+	jmp .L172
+	.align 16
+.L176:
+	cmpl $92,%edx
+	je .L177
+	xorl %eax,%eax
+	movb 12(%ebp),%al
+	cmpl %eax,%edx
+	je .L177
+	cmpl $34,%edx
+	je .L177
+	cmpl $39,%edx
+	jne .L178
+.L177:
+	xorl %eax,%eax
+	movb %cl,%al
+	jmp .L172
+	.align 16
+.L178:
+	cmpl $47,%edx
+	jle .L179
+	cmpl $51,%edx
+	jg .L179
+	leal -48(%edx),%eax
+	cmpl $7,%eax
+	jbe .L180
+	pushl $7393
+	call _m3_fault
+	.align 16
+.L180:
+	movl $MM_Sx+796,%esi
+	movl (%esi,%eax,4),%eax
+	cmpl $255,%eax
+	jbe .L181
+	pushl $7393
+	call _m3_fault
+	.align 16
+.L181:
+	movb %al,%bl
+	pushl %edi
+	movl MI_Rd+80,%eax
+	call *%eax
+	movb %al,%cl
+	xorl %eax,%eax
+	movb %cl,%al
+	addl $4,%esp
+	cmpl $47,%eax
+	jle .L179
+	cmpl $55,%eax
+	jg .L179
+	addl $-48,%eax
+	cmpl $7,%eax
+	jbe .L183
+	pushl $7441
+	call _m3_fault
+	.align 16
+.L183:
+	xorl %edx,%edx
+	movb %bl,%dl
+	movl (%esi,%eax,4),%eax
+	leal (%eax,%edx,8),%eax
+	cmpl $255,%eax
+	jbe .L184
+	pushl $7441
+	call _m3_fault
+	.align 16
+.L184:
+	movb %al,%bl
+	pushl %edi
+	movl MI_Rd+80,%eax
+	call *%eax
+	movb %al,%cl
+	xorl %eax,%eax
+	movb %cl,%al
+	addl $4,%esp
+	cmpl $47,%eax
+	jle .L179
+	cmpl $55,%eax
+	jg .L179
+	addl $-48,%eax
+	cmpl $7,%eax
+	jbe .L186
+	pushl $7489
+	call _m3_fault
+	.align 16
+.L186:
+	xorl %edx,%edx
+	movb %bl,%dl
+	movl (%esi,%eax,4),%eax
+	leal (%eax,%edx,8),%eax
+	cmpl $255,%eax
+	jbe .L187
+	pushl $7489
+	call _m3_fault
+	.align 16
+.L187:
+	movb %al,%bl
+	xorl %eax,%eax
+	movb %bl,%al
+	jmp .L172
+	.align 16
+.L179:
+	pushl $MM_Sx+1292
+	pushl $MI_Sx+44
+	movl MI_RTHooks+52,%eax
+	call *%eax
+.L172:
+	leal -12(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe22:
+	.size	 Sx__ReadEscapeSequence,.Lfe22-Sx__ReadEscapeSequence
+	.align 16
+	.type	 Sx__Print,@function
+Sx__Print:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $8,%esp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%edi
+	movl 12(%ebp),%ebx
+	testl %ebx,%ebx
+	je .L202
+	movl -4(%ebx),%eax
+	sall $11,%eax
+	movl %eax,%edx
+	shrl $12,%edx
+	cmpl %edx,MM_Sx+844
+	je .L204
+	cmpl %edx,MM_Sx+1328
+	je .L191
+	cmpl %edx,MM_Sx+852
+	je .L206
+	cmpl %edx,MM_Sx+860
+	je .L207
+	cmpl %edx,MM_Sx+868
+	je .L208
+	cmpl %edx,MM_Sx+1336
+	jg .L195
+	movl MM_Sx+1332,%eax
+	cmpl %edx,4(%eax)
+	jge .L196
+.L195:
+	cmpl %edx,MM_Sx+1344
+	jg .L197
+	movl MM_Sx+1340,%eax
+	cmpl %edx,4(%eax)
+	jge .L198
+.L197:
+	cmpl %edx,MM_Sx+1352
+	jg .L201
+	movl MM_Sx+1348,%eax
+	cmpl %edx,4(%eax)
+	jge .L200
+	jmp .L201
+	.align 16
+.L202:
+	pushl $MM_Sx+1360
+	pushl %edi
+	movl MI_Wr+68,%eax
+	jmp .L225
+	.align 16
+.L204:
+	pushl $10
+	movl (%ebx),%eax
+	pushl %eax
+	movl MI_Fmt+52,%eax
+	call *%eax
+	pushl %eax
+	pushl %edi
+	movl MI_Wr+68,%eax
+	jmp .L225
+	.align 16
+.L191:
+	pushl $39
+	pushl %edi
+	movl MI_Wr+64,%eax
+	call *%eax
+	addl $8,%esp
+	pushl $39
+	xorl %eax,%eax
+	movb (%ebx),%al
+	pushl %eax
+	pushl %edi
+	call Sx__PrintChar
+	pushl $39
+	pushl %edi
+	movl MI_Wr+64,%eax
+	jmp .L225
+	.align 16
+.L206:
+	pushl $1
+	pushl $8
+	pushl $2
+	movl (%ebx),%eax
+	pushl %eax
+	movl MI_Fmt+60,%eax
+	call *%eax
+	pushl %eax
+	pushl %edi
+	movl MI_Wr+68,%eax
+	jmp .L225
+	.align 16
+.L207:
+	pushl $1
+	pushl $16
+	pushl $2
+	movl 4(%ebx),%eax
+	movl (%ebx),%edx
+	pushl %eax
+	pushl %edx
+	movl MI_Fmt+64,%eax
+	call *%eax
+	pushl %eax
+	pushl %edi
+	movl MI_Wr+68,%eax
+	jmp .L225
+	.align 16
+.L208:
+	pushl $1
+	pushl $16
+	pushl $2
+	movl 4(%ebx),%eax
+	movl (%ebx),%edx
+	pushl %eax
+	pushl %edx
+	movl MI_Fmt+68,%eax
+	call *%eax
+	pushl %eax
+	pushl %edi
+	movl MI_Wr+68,%eax
+	jmp .L225
+	.align 16
+.L196:
+	movl %ebx,-4(%ebp)
+	pushl $34
+	pushl %edi
+	movl MI_Wr+64,%eax
+	call *%eax
+	movl -4(%ebp),%ecx
+	pushl %ecx
+	movl MI_Text+56,%eax
+	call *%eax
+	xorl %ebx,%ebx
+	leal -1(%eax),%esi
+	addl $12,%esp
+	jmp .L209
+	.align 16
+.L210:
+	pushl %ebx
+	movl -4(%ebp),%ecx
+	pushl %ecx
+	movl MI_Text+52,%eax
+	call *%eax
+	pushl $34
+	pushl %eax
+	pushl %edi
+	call Sx__PrintChar
+	incl %ebx
+	addl $20,%esp
+.L209:
+	cmpl %esi,%ebx
+	jle .L210
+	pushl $34
+	pushl %edi
+	movl MI_Wr+64,%eax
+	jmp .L225
+	.align 16
+.L198:
+	pushl %ebx
+	movl MI_Atom+48,%eax
+	call *%eax
+	movl %eax,%esi
+	pushl %esi
+	call Sx__NeedsBars
+	addl $8,%esp
+	testl %eax,%eax
+	je .L212
+	pushl $124
+	pushl %edi
+	movl MI_Wr+64,%eax
+	call *%eax
+	pushl %esi
+	movl MI_Text+56,%eax
+	call *%eax
+	xorl %ebx,%ebx
+	decl %eax
+	movl %eax,-8(%ebp)
+	addl $12,%esp
+	jmp .L213
+	.align 16
+.L214:
+	pushl %ebx
+	pushl %esi
+	movl MI_Text+52,%eax
+	call *%eax
+	pushl $124
+	pushl %eax
+	pushl %edi
+	call Sx__PrintChar
+	incl %ebx
+	addl $20,%esp
+.L213:
+	cmpl %ebx,-8(%ebp)
+	jge .L214
+	pushl $124
+	pushl %edi
+	movl MI_Wr+64,%eax
+	jmp .L225
+	.align 16
+.L212:
+	pushl %esi
+	pushl %edi
+	movl MI_Wr+68,%eax
+	jmp .L225
+	.align 16
+.L200:
+	cmpl $0,16(%ebp)
+	jne .L217
+	pushl $MM_Sx+1376
+	pushl %edi
+	movl MI_Wr+68,%eax
+	jmp .L225
+	.align 16
+.L217:
+	movl 20(%ebp),%esi
+	pushl $40
+	pushl %edi
+	movl MI_Wr+64,%eax
+	call *%eax
+	movl 16(%ebp),%eax
+	decl %eax
+	addl $8,%esp
+	testl %eax,%eax
+	jge .L219
+	pushl $8449
+	call _m3_fault
+	.align 16
+.L219:
+	movl %eax,16(%ebp)
+.L220:
+	movl 20(%ebp),%ecx
+	pushl %ecx
+	movl 16(%ebp),%ecx
+	pushl %ecx
+	movl 4(%ebx),%eax
+	pushl %eax
+	pushl %edi
+	call Sx__Print
+	movl 8(%ebx),%ebx
+	addl $16,%esp
+	testl %ebx,%ebx
+	je .L222
+	pushl $32
+	pushl %edi
+	movl MI_Wr+64,%eax
+	call *%eax
+	addl $8,%esp
+	testl %esi,%esi
+	jne .L223
+	pushl $MM_Sx+1376
+	pushl %edi
+	movl MI_Wr+68,%eax
+	call *%eax
+	addl $8,%esp
+	jmp .L222
+	.align 16
+.L223:
+	leal -1(%esi),%eax
+	testl %eax,%eax
+	jge .L224
+	pushl $8561
+	call _m3_fault
+	.align 16
+.L224:
+	movl %eax,%esi
+	jmp .L220
+	.align 16
+.L222:
+	pushl $41
+	pushl %edi
+	movl MI_Wr+64,%eax
+	jmp .L225
+	.align 16
+.L201:
+	pushl $MM_Sx+1392
+	pushl $MI_Sx+64
+	movl MI_RTHooks+52,%eax
+.L225:
+	call *%eax
+	leal -20(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe23:
+	.size	 Sx__Print,.Lfe23-Sx__Print
+	.align 16
+	.type	 Sx__PrintChar,@function
+Sx__PrintChar:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%edi
+	xorl %ebx,%ebx
+	movb 12(%ebp),%bl
+	cmpl $10,%ebx
+	jne .L227
+	pushl $MM_Sx+1432
+	jmp .L235
+	.align 16
+.L227:
+	cmpl $9,%ebx
+	jne .L229
+	pushl $MM_Sx+1448
+	jmp .L235
+	.align 16
+.L229:
+	cmpl $13,%ebx
+	jne .L230
+	pushl $MM_Sx+1464
+	jmp .L235
+	.align 16
+.L230:
+	cmpl $12,%ebx
+	jne .L231
+	pushl $MM_Sx+1480
+	jmp .L235
+	.align 16
+.L231:
+	cmpl $92,%ebx
+	jne .L232
+	pushl $MM_Sx+1496
+	jmp .L235
+	.align 16
+.L232:
+	xorl %eax,%eax
+	movb 16(%ebp),%al
+	cmpl %eax,%ebx
+	jne .L233
+	pushl $92
+	pushl %edi
+	movl MI_Wr+64,%eax
+	call *%eax
+	pushl %ebx
+	pushl %edi
+	movl MI_Wr+64,%eax
+	jmp .L236
+	.align 16
+.L233:
+	pushl %ebx
+	call Sx__ISO_Latin_printing
+	movl %eax,%esi
+	addl $4,%esp
+	testl %esi,%esi
+	je .L234
+	pushl %ebx
+	movl MI_Text+72,%eax
+	call *%eax
+	jmp .L237
+	.align 16
+.L234:
+	pushl $8
+	pushl %ebx
+	movl MI_Fmt+52,%eax
+	call *%eax
+	pushl %esi
+	pushl %esi
+	pushl %esi
+	pushl %esi
+	pushl %eax
+	pushl $MM_Sx+1512
+	movl MI_Fmt+76,%eax
+	call *%eax
+	addl $32,%esp
+.L237:
+	pushl %eax
+.L235:
+	pushl %edi
+	movl MI_Wr+68,%eax
+.L236:
+	call *%eax
+	leal -12(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe24:
+	.size	 Sx__PrintChar,.Lfe24-Sx__PrintChar
+	.align 16
+	.type	 Sx__NeedsBars,@function
+Sx__NeedsBars:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%edi
+	pushl %edi
+	movl MI_Text+56,%eax
+	call *%eax
+	movl %eax,%esi
+	addl $4,%esp
+	testl %esi,%esi
+	je .L245
+	pushl $0
+	pushl %edi
+	movl MI_Text+52,%eax
+	call *%eax
+	pushl $MM_Sx+76
+	xorl %ebx,%ebx
+	movb %al,%bl
+	pushl %ebx
+	call set_member
+	addl $16,%esp
+	testl %eax,%eax
+	je .L240
+	movl $1,%ebx
+	decl %esi
+	jmp .L241
+	.align 16
+.L242:
+	pushl %ebx
+	pushl %edi
+	movl MI_Text+52,%eax
+	call *%eax
+	pushl $MM_Sx+520
+	andl $255,%eax
+	pushl %eax
+	call set_member
+	addl $16,%esp
+	testl %eax,%eax
+	je .L245
+	incl %ebx
+.L241:
+	cmpl %esi,%ebx
+	jle .L242
+	xorl %eax,%eax
+	jmp .L250
+	.align 16
+.L240:
+	pushl $MM_Sx+488
+	pushl %ebx
+	call set_member
+	addl $8,%esp
+	testl %eax,%eax
+	je .L245
+	movl $1,%ebx
+	decl %esi
+	jmp .L246
+	.align 16
+.L247:
+	pushl %ebx
+	pushl %edi
+	movl MI_Text+52,%eax
+	call *%eax
+	pushl $MM_Sx+488
+	andl $255,%eax
+	pushl %eax
+	call set_member
+	addl $16,%esp
+	testl %eax,%eax
+	je .L245
+	incl %ebx
+.L246:
+	cmpl %esi,%ebx
+	jle .L247
+	xorl %eax,%eax
+	jmp .L250
+	.align 16
+.L245:
+	movl $1,%eax
+.L250:
+	leal -12(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe25:
+	.size	 Sx__NeedsBars,.Lfe25-Sx__NeedsBars
+	.align 16
+	.type	 Sx__CopySyntax,@function
+Sx__CopySyntax:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $16,%esp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%ebx
+	movl MM_Sx+1528,%eax
+	pushl %eax
+	movl MI_RTHooks+80,%eax
+	call *%eax
+	movl %eax,-16(%ebp)
+	addl $4,%esp
+	testl %ebx,%ebx
+	je .L252
+	movl %eax,%edi
+	addl $12,%edi
+	leal 12(%ebx),%esi
+	cld
+	movl $8,%ecx
+	rep
+	movsl
+	movl %ebx,-4(%ebp)
+	pushl %ebx
+	movl MI_RTHooks+68,%eax
+	call *%eax
+	addl $4,%esp
+.L253:
+	movl $6,-8(%ebp)
+	movl RTThread__handlerStack,%eax
+	movl %eax,-12(%ebp)
+	leal -12(%ebp),%ecx
+	movl %ecx,RTThread__handlerStack
+	movl 44(%ebx),%esi
+	jmp .L254
+	.align 16
+.L255:
+	movl MM_Sx+1536,%eax
+	pushl %eax
+	movl MI_RTHooks+80,%eax
+	call *%eax
+	movl %eax,%edx
+	movb (%esi),%al
+	movb %al,(%edx)
+	movl 4(%esi),%eax
+	movl %eax,4(%edx)
+	movl -16(%ebp),%ecx
+	addl $4,%esp
+	movl 44(%ecx),%eax
+	movl %eax,8(%edx)
+	movl %edx,44(%ecx)
+	movl 8(%esi),%esi
+.L254:
+	testl %esi,%esi
+	jne .L255
+.L260:
+	movl -12(%ebp),%eax
+	movl %eax,RTThread__handlerStack
+	movl -4(%ebp),%eax
+	pushl %eax
+	movl MI_RTHooks+72,%eax
+	call *%eax
+.L252:
+	leal -28(%ebp),%esp
+	movl -16(%ebp),%eax
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe26:
+	.size	 Sx__CopySyntax,.Lfe26-Sx__CopySyntax
+	.align 16
+	.type	 Sx__Syn,@function
+Sx__Syn:
+	pushl %ebp
+	movl %esp,%ebp
+	movl 8(%ebp),%eax
+	movb 12(%ebp),%dl
+	movl 44(%eax),%eax
+.L262:
+	testl %eax,%eax
+	jne .L263
+	pushl $9860
+	call _m3_fault
+	.align 16
+.L263:
+	cmpb %dl,(%eax)
+	je .L265
+	movl 8(%eax),%eax
+	jmp .L262
+	.align 16
+.L265:
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe27:
+	.size	 Sx__Syn,.Lfe27-Sx__Syn
+	.align 16
+	.type	 Sx__SetReadMacro__remove.0,@function
+Sx__SetReadMacro__remove.0:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $4,%esp
+	pushl %esi
+	pushl %ebx
+	movl %ecx,-4(%ebp)
+	movl 8(%ebp),%esi
+	movl -4(%ebp),%ebx
+	movl (%esi),%ecx
+	testl %ecx,%ecx
+	jne .L271
+	pushl $9988
+	call _m3_fault
+	.align 16
+.L271:
+	movl -12(%ebx),%edx
+	movb (%ecx),%al
+	cmpb %al,4(%edx)
+	jne .L275
+	movl 8(%ecx),%eax
+	movl %eax,(%esi)
+	jmp .L270
+	.align 16
+.L275:
+	leal 8(%ecx),%eax
+	pushl %eax
+	movl %ebx,%ecx
+	call Sx__SetReadMacro__remove.0
+.L270:
+	leal -12(%ebp),%esp
+	popl %ebx
+	popl %esi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe28:
+	.size	 Sx__SetReadMacro__remove.0,.Lfe28-Sx__SetReadMacro__remove.0
+	.align 16
+	.type	 Sx__SetReadMacro,@function
+Sx__SetReadMacro:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $88,%esp
+	pushl %edi
+	pushl %esi
+	leal 8(%ebp),%edx
+	pushl %ebx
+	movl %edx,-12(%ebp)
+.L269:
+	movl $5,-4(%ebp)
+	movl RTThread__handlerStack,%eax
+	movl %eax,-8(%ebp)
+	leal -8(%ebp),%edx
+	movl %edx,RTThread__handlerStack
+	cmpl $0,8(%ebp)
+	jne .L276
+	movl 8(%ebp),%edx
+	pushl %edx
+	pushl $MM_Sx+204
+	movl MI_RTHooks+52,%eax
+	call *%eax
+	addl $8,%esp
+.L276:
+	movl 8(%ebp),%edx
+	movl %edx,-16(%ebp)
+	pushl %edx
+	movl MI_RTHooks+68,%eax
+	call *%eax
+	addl $4,%esp
+.L277:
+	movl $6,-20(%ebp)
+	movl RTThread__handlerStack,%eax
+	movl %eax,-24(%ebp)
+	leal -24(%ebp),%edx
+	movl %edx,RTThread__handlerStack
+	pushl $MM_Sx+172
+	xorl %eax,%eax
+	movb 12(%ebp),%al
+	pushl %eax
+	call set_member
+	addl $8,%esp
+	testl %eax,%eax
+	je .L278
+	pushl $0
+	pushl $MM_Sx+204
+	movl MI_RTHooks+52,%eax
+	call *%eax
+	addl $8,%esp
+.L278:
+	movl 8(%ebp),%edi
+	addl $12,%edi
+	pushl %edi
+	xorl %eax,%eax
+	movb 12(%ebp),%al
+	pushl %eax
+	call set_member
+	addl $8,%esp
+	testl %eax,%eax
+	je .L279
+	cmpl $0,16(%ebp)
+	jne .L280
+	movl 16(%ebp),%edx
+	movl %edx,-88(%ebp)
+	movl %edx,-84(%ebp)
+	movl %edx,-80(%ebp)
+	movl %edx,-76(%ebp)
+	movl %edx,-72(%ebp)
+	movl %edx,-68(%ebp)
+	movl %edx,-64(%ebp)
+	movl %edx,-60(%ebp)
+	leal -88(%ebp),%ebx
+	pushl %ebx
+	xorl %eax,%eax
+	movb 12(%ebp),%al
+	pushl %eax
+	call set_singleton
+	leal -56(%ebp),%esi
+	pushl %esi
+	pushl %edi
+	pushl %ebx
+	pushl $256
+	call set_difference
+	cld
+	movl $8,%ecx
+	rep
+	movsl
+	movl 8(%ebp),%eax
+	addl $44,%eax
+	pushl %eax
+	movl %ebp,%ecx
+	call Sx__SetReadMacro__remove.0
+	addl $28,%esp
+	jmp .L285
+	.align 16
+.L280:
+	xorl %eax,%eax
+	movb 12(%ebp),%al
+	pushl %eax
+	movl 8(%ebp),%edx
+	pushl %edx
+	call Sx__Syn
+	addl $8,%esp
+	testl %eax,%eax
+	jne .L282
+	pushl $10228
+	call _m3_fault
+	.align 16
+.L282:
+	movl 16(%ebp),%edx
+	movl %edx,4(%eax)
+	jmp .L285
+	.align 16
+.L279:
+	cmpl $0,16(%ebp)
+	je .L285
+	movl %eax,-56(%ebp)
+	movl %eax,-52(%ebp)
+	movl %eax,-48(%ebp)
+	movl %eax,-44(%ebp)
+	movl %eax,-40(%ebp)
+	movl %eax,-36(%ebp)
+	movl %eax,-32(%ebp)
+	movl %eax,-28(%ebp)
+	leal -56(%ebp),%ebx
+	pushl %ebx
+	xorl %eax,%eax
+	movb 12(%ebp),%al
+	pushl %eax
+	call set_singleton
+	leal -88(%ebp),%esi
+	pushl %esi
+	pushl %edi
+	pushl %ebx
+	pushl $256
+	call set_union
+	cld
+	movl $8,%ecx
+	rep
+	movsl
+	movl MM_Sx+1536,%eax
+	pushl %eax
+	movl MI_RTHooks+80,%eax
+	call *%eax
+	movl %eax,%ecx
+	movb 12(%ebp),%al
+	movb %al,(%ecx)
+	movl 16(%ebp),%edx
+	movl %edx,4(%ecx)
+	movl 8(%ebp),%edx
+	addl $28,%esp
+	movl 44(%edx),%eax
+	movl %eax,8(%ecx)
+	movl %ecx,44(%edx)
+.L285:
+	movl -24(%ebp),%eax
+	movl %eax,RTThread__handlerStack
+	movl -16(%ebp),%eax
+	pushl %eax
+	movl MI_RTHooks+72,%eax
+	call *%eax
+.L286:
+	movl -8(%ebp),%eax
+	leal -100(%ebp),%esp
+	movl %eax,RTThread__handlerStack
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe29:
+	.size	 Sx__SetReadMacro,.Lfe29-Sx__SetReadMacro
+	.align 16
+	.type	 _INITM_Sx,@function
+_INITM_Sx:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $24,%esp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl $0,MM_Sx+484
+	movl $0,MM_Sx+664
+	movl MM_Sx+1528,%eax
+	pushl %eax
+	movl MI_RTHooks+80,%eax
+	call *%eax
+	movl %eax,%ebx
+	movl %ebx,MM_Sx+484
+	movl MM_Sx+1084,%eax
+	pushl %eax
+	movl MI_RTHooks+80,%eax
+	call *%eax
+	movl %eax,%ebx
+	movl MM_Sx+1544,%eax
+	pushl %eax
+	movl MI_RTHooks+80,%eax
+	call *%eax
+	movl %eax,%edx
+	movl MM_Sx+1084,%eax
+	movl 24(%eax),%eax
+	addl %ebx,%eax
+	leal -4(%ebp),%ecx
+	movl %edx,(%eax)
+	leal -12(%ebp),%eax
+	movl %ecx,-12(%ebp)
+	movl $1,-8(%ebp)
+	movl $4000,-4(%ebp)
+	pushl %eax
+	movl MM_Sx+1552,%eax
+	pushl %eax
+	movl MI_RTHooks+84,%eax
+	call *%eax
+	movl %eax,%edx
+	movl MM_Sx+1024,%eax
+	movl 24(%eax),%eax
+	addl %ebx,%eax
+	movl %edx,(%eax)
+	movl MM_Sx+1024,%edx
+	movl 24(%edx),%eax
+	movl $0,8(%eax,%ebx)
+	movl 24(%edx),%eax
+	movl $0,4(%eax,%ebx)
+	movl 24(%edx),%eax
+	movb $1,21(%eax,%ebx)
+	movl MM_Sx+1024,%eax
+	movl 24(%eax),%eax
+	movb $0,22(%eax,%ebx)
+	movl %ebx,MM_Sx+664
+	pushl $MM_Sx+1564
+	movl MI_Atom+44,%eax
+	call *%eax
+	movl %eax,MI_Sx+420
+	pushl $MM_Sx+1584
+	movl MI_Atom+44,%eax
+	call *%eax
+	movl %eax,MI_Sx+424
+	movl $-100,%ebx
+	addl $28,%esp
+.L288:
+	movl MM_Sx+840,%eax
+	pushl %eax
+	movl MI_RTHooks+80,%eax
+	call *%eax
+	movl %eax,L_1+400(,%ebx,4)
+	movl L_1+400(,%ebx,4),%eax
+	addl $4,%esp
+	testl %eax,%eax
+	jne .L289
+	pushl $10468
+	call _m3_fault
+	.align 16
+.L289:
+	movl %ebx,(%eax)
+	incl %ebx
+	cmpl $100,%ebx
+	jle .L288
+	xorl %ebx,%ebx
+.L292:
+	movb %bl,-16(%ebp)
+	movl MM_Sx+1324,%eax
+	pushl %eax
+	movl MI_RTHooks+80,%eax
+	call *%eax
+	movl %eax,%edx
+	xorl %eax,%eax
+	movb -16(%ebp),%al
+	addl $4,%esp
+	movl %edx,L_2(,%eax,4)
+	movl L_2(,%eax,4),%eax
+	testl %eax,%eax
+	jne .L293
+	pushl $10532
+	call _m3_fault
+	.align 16
+.L293:
+	movb -16(%ebp),%cl
+	movb %cl,(%eax)
+	incl %ebx
+	cmpl $255,%ebx
+	jle .L292
+	movl $-1,%ebx
+.L296:
+	movl MM_Sx+848,%eax
+	pushl %eax
+	movl MI_RTHooks+80,%eax
+	call *%eax
+	leal 1(%ebx),%edi
+	leal 0(,%edi,4),%esi
+	addl $4,%esp
+	movl %eax,MM_Sx+240(%esi)
+	movl MM_Sx+244(,%ebx,4),%eax
+	testl %eax,%eax
+	jne .L297
+	pushl $10596
+	call _m3_fault
+	.align 16
+.L297:
+	pushl %ebx
+	fildl (%esp)
+	addl $4,%esp
+	fstps (%eax)
+	movl MM_Sx+856,%eax
+	pushl %eax
+	movl MI_RTHooks+80,%eax
+	call *%eax
+	movl %eax,%edx
+	movl %edx,MM_Sx+252(%esi)
+	movl MM_Sx+256(,%ebx,4),%eax
+	addl $4,%esp
+	testl %eax,%eax
+	jne .L298
+	pushl $10628
+	call _m3_fault
+	.align 16
+.L298:
+	pushl %ebx
+	fildl (%esp)
+	addl $4,%esp
+	fstl -24(%ebp)
+	fstpl (%eax)
+	movl MM_Sx+864,%eax
+	pushl %eax
+	movl MI_RTHooks+80,%eax
+	call *%eax
+	movl %eax,MM_Sx+264(%esi)
+	movl MM_Sx+268(,%ebx,4),%eax
+	addl $4,%esp
+	testl %eax,%eax
+	jne .L299
+	pushl $10660
+	call _m3_fault
+	.align 16
+.L299:
+	movl %edi,%ebx
+	fldl -24(%ebp)
+	fstpl (%eax)
+	cmpl $1,%ebx
+	jle .L296
+	leal -36(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe30:
+	.size	 _INITM_Sx,.Lfe30-_INITM_Sx
+	.align 16
+	.type	 M_Sx_t7061ea11_LINK,@function
+M_Sx_t7061ea11_LINK:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %ebx
+	movl MM_Sx+1084,%edx
+	movl 52(%edx),%ebx
+	movl 36(%edx),%ecx
+	movl MM_Sx+668,%eax
+	movl %eax,(%ecx,%ebx)
+	movl 36(%edx),%edx
+	movl MM_Sx+684,%eax
+	movl %eax,4(%ebx,%edx)
+	movl MM_Sx+1024,%edx
+	movl 36(%edx),%ecx
+	movl MM_Sx+676,%eax
+	movl %eax,8(%ebx,%ecx)
+	movl 36(%edx),%ecx
+	movl MM_Sx+672,%eax
+	movl %eax,(%ecx,%ebx)
+	movl 36(%edx),%edx
+	movl MM_Sx+680,%eax
+	movl %eax,12(%ebx,%edx)
+	movl -4(%ebp),%ebx
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe31:
+	.size	 M_Sx_t7061ea11_LINK,.Lfe31-M_Sx_t7061ea11_LINK
+	.align 16
+	.type	 _m3_fault,@function
+_m3_fault:
+	pushl %ebp
+	movl %esp,%ebp
+	movl 8(%ebp),%eax
+	pushl %eax
+	pushl $MM_Sx
+	movl MI_RTHooks+108,%eax
+	call *%eax
+	.align 16
+.Lfe32:
+	.size	 _m3_fault,.Lfe32-_m3_fault
+.globl MM_Sx
+.data
+	.align 4
+	.type	 MM_Sx,@object
+	.size	 MM_Sx,2584
+MM_Sx:
+	.long MM_Sx+2342
+	.long MM_Sx+276
+	.long MM_Sx+840
+	.long MM_Sx+828
+	.zero	4
+	.long MM_Sx+1944
+	.zero	4
+	.long MM_Sx+2308
+	.long MM_Sx+2308
+	.zero	4
+	.long _INITM_Sx
+	.zero	4
+	.long 67043328
+	.zero	32
+	.long 134217726
+	.long 134217726
+	.zero	20
+	.long 67043328
+	.long 134217726
+	.long 134217726
+	.zero	16
+	.long 15872
+	.long 1
+	.zero	24
+	.long 15872
+	.long 134217729
+	.zero	24
+	.long MM_Sx+208
+	.ascii	"Sx.SetReadMacroError"
+	.zero	4
+	.long L_1
+	.long L_2
+	.zero	44
+	.long 203805501
+.byte 20
+.byte 229
+.byte 248
+.byte 23
+.byte 41
+.byte 54
+.byte 221
+.byte 27
+	.long 1
+	.zero	4
+	.long 36
+	.long 4
+	.zero	4
+	.long 0
+	.zero	12
+	.long MM_Sx+2538
+	.long MM_Sx+2542
+	.long MM_Sx+2546
+	.zero	8
+	.long 356643957
+	.zero	12
+	.long MM_Sx+2558
+	.long MM_Sx+2574
+	.long MM_Sx+380
+	.zero	8
+	.long -547149959
+.byte 87
+.byte 183
+.byte 30
+.byte 219
+.byte 46
+.byte 144
+.byte 125
+.byte 4
+	.long 1
+	.zero	4
+	.long 12
+	.long 4
+	.zero	20
+	.long MM_Sx+2506
+	.long MM_Sx+2511
+	.long MM_Sx+2515
+	.zero	28
+	.long MM_Sx+2529
+	.long MM_Sx+560
+	.zero	8
+	.long -201266054
+	.long -402653183
+	.long 1744830464
+	.zero	20
+	.long 67043328
+	.long -2013265922
+	.long 134217726
+	.zero	16
+	.long Sx__ReadToken
+	.long Sx__ReadAtom
+	.zero	8
+	.long 1885465105
+.byte 182
+.byte 0
+.byte 66
+.byte 103
+.byte 167
+.byte 234
+.byte 35
+.byte 23
+	.long 1
+	.zero	4
+	.long 4
+	.long 4
+	.zero	4
+	.long 8
+	.zero	12
+	.long MM_Sx+2476
+	.long MM_Sx+2478
+	.long MM_Sx+2480
+	.zero	4
+	.long M_Sx_t7061ea11_LINK
+	.long -93851857
+	.zero	16
+	.long MM_Sx+2488
+	.zero	8
+	.long Sx__Init
+	.long Sx__Seek
+	.long Sx__Length
+	.long Sx__Close
+	.long Sx__PutChar
+	.long Sx__ReadNumber
+	.long Sx__ReadDelimitedText
+	.long Sx__ISO_Latin_printing
+	.long Sx__ReadCharLiteral
+	.long Sx__ReadEscapeSequence
+	.long Sx__PrintChar
+	.long Sx__NeedsBars
+	.long Sx__Syn
+	.long Sx__FromChar
+	.long Sx__FromInt
+	.long Sx__FromReal
+	.long Sx__FromLongReal
+	.long Sx__FromExtended
+	.long Sx__FromBool
+	.long Sx__Read
+	.long Sx__ReadDelimitedList
+	.long Sx__Print
+	.long Sx__CopySyntax
+	.long Sx__SetReadMacro
+	.zero	4
+	.long 67043328
+	.long 126
+	.long 126
+	.zero	16
+	.long 0
+	.long 1
+	.long 2
+	.long 3
+	.long 4
+	.long 5
+	.long 6
+	.long 7
+	.long -1498778221
+	.long 203805501
+	.zero	4
+	.long MM_Sx+848
+	.long 1355119930
+	.long MM_Sx+856
+	.long -1738322473
+	.long MM_Sx+864
+	.long 1522317057
+	.long MM_Sx+1024
+	.long 2136304636
+	.long MI_Rd+64
+	.zero	4
+	.long 2
+	.long MM_Sx+892
+	.long 40
+	.ascii	"Read-macro for '%s' produced %s results"
+	.zero	1
+	.long MI_Rd+44
+	.long MI_Rd+64
+	.zero	4
+	.long 2
+	.long MM_Sx+956
+	.long 33
+	.ascii	"End-of-file in ReadDelimitedList"
+	.zero	4
+	.long 2
+	.long MM_Sx+1004
+	.long 19
+	.ascii	"Bad character '%s'"
+	.zero	2
+	.long MM_Sx+1084
+	.long -1638177541
+	.long 2
+	.long MM_Sx+1044
+	.long 37
+	.ascii	"Sx: Text literal or numeric too long"
+	.zero	4
+	.long MM_Sx+1324
+	.long 1885465105
+	.long 2
+	.long MM_Sx+1104
+	.long 17
+	.ascii	"Illegal exponent"
+	.zero	4
+	.long MI_FloatMode+88
+	.long MI_Lex+44
+	.zero	4
+	.long 2
+	.long MM_Sx+1148
+	.long 16
+	.ascii	"Illegal integer"
+	.zero	1
+	.long 2
+	.long MM_Sx+1176
+	.long 21
+	.ascii	"Bad Format in number"
+	.zero	4
+	.long 2
+	.long MM_Sx+1212
+	.long 34
+	.ascii	"Illegal character in Text literal"
+	.zero	3
+	.long 2
+	.long MM_Sx+1260
+	.long 26
+	.ascii	"Illegal character literal"
+	.zero	3
+	.long 2
+	.long MM_Sx+1300
+	.long 24
+	.ascii	"Illegal escape sequence"
+	.zero	1
+	.long MM_Sx+1332
+	.long 755546716
+	.long MM_Sx+1340
+	.long 1358456180
+	.long MM_Sx+1348
+	.long -774251250
+	.long MM_Sx+1528
+	.long -1185263845
+	.long 2
+	.long MM_Sx+1368
+	.long 3
+	.ascii	"()"
+	.zero	2
+	.long 2
+	.long MM_Sx+1384
+	.long 4
+	.ascii	"..."
+	.zero	1
+	.long 2
+	.long MM_Sx+1400
+	.long 25
+	.ascii	"Unprintable S-expression"
+	.zero	4
+	.long 2
+	.long MM_Sx+1440
+	.long 3
+	.ascii	"\\n"
+	.zero	2
+	.long 2
+	.long MM_Sx+1456
+	.long 3
+	.ascii	"\\t"
+	.zero	2
+	.long 2
+	.long MM_Sx+1472
+	.long 3
+	.ascii	"\\r"
+	.zero	2
+	.long 2
+	.long MM_Sx+1488
+	.long 3
+	.ascii	"\\f"
+	.zero	2
+	.long 2
+	.long MM_Sx+1504
+	.long 3
+	.ascii	"\\\\"
+	.zero	2
+	.long 2
+	.long MM_Sx+1520
+	.long 6
+	.ascii	"\\%03s"
+	.zero	3
+	.long MM_Sx+1536
+	.long -1498778221
+	.long MM_Sx+1544
+	.long -547149959
+	.long MM_Sx+1552
+	.long 356643957
+	.zero	4
+	.long -2020873848
+	.long 2
+	.long MM_Sx+1572
+	.long 5
+	.ascii	"TRUE"
+	.zero	4
+	.long 2
+	.long MM_Sx+1592
+	.long 6
+	.ascii	"FALSE"
+	.zero	3
+	.ascii	"_INITM_Sx"
+	.zero	1
+	.ascii	"SetReadMacro"
+	.zero	1
+	.ascii	"SetReadMacro.remove"
+	.zero	1
+	.ascii	"Syn"
+	.zero	1
+	.ascii	"CopySyntax"
+	.zero	1
+	.ascii	"NeedsBars"
+	.zero	1
+	.ascii	"PrintChar"
+	.zero	1
+	.ascii	"Print"
+	.zero	1
+	.ascii	"ReadEscapeSequence"
+	.zero	1
+	.ascii	"ReadCharLiteral"
+	.zero	1
+	.ascii	"ISO_Latin_printing"
+	.zero	1
+	.ascii	"ReadDelimitedText"
+	.zero	1
+	.ascii	"ReadNumber"
+	.zero	1
+	.ascii	"ReadNumber.scanFloat"
+	.zero	1
+	.ascii	"ReadNumber.scanExp"
+	.zero	1
+	.ascii	"PutChar"
+	.zero	1
+	.ascii	"Close"
+	.zero	1
+	.ascii	"Length"
+	.zero	1
+	.ascii	"Seek"
+	.zero	1
+	.ascii	"Init"
+	.zero	1
+	.ascii	"ReadAtom"
+	.zero	1
+	.ascii	"ReadToken"
+	.zero	1
+	.ascii	"ReadDelimitedList"
+	.zero	1
+	.ascii	"Read"
+	.zero	1
+	.ascii	"FromExtended"
+	.zero	1
+	.ascii	"FromLongReal"
+	.zero	1
+	.ascii	"FromReal"
+	.zero	1
+	.ascii	"FromBool"
+	.zero	1
+	.ascii	"FromChar"
+	.zero	1
+	.ascii	"FromInt"
+	.zero	4
+	.long _INITM_Sx
+	.long MM_Sx+1600
+	.zero	4
+	.long Sx__SetReadMacro
+	.long MM_Sx+1610
+	.long MI_Sx+548
+	.long Sx__SetReadMacro__remove.0
+	.long MM_Sx+1623
+	.zero	4
+	.long Sx__Syn
+	.long MM_Sx+1643
+	.zero	4
+	.long Sx__CopySyntax
+	.long MM_Sx+1647
+	.long MI_Sx+440
+	.long Sx__NeedsBars
+	.long MM_Sx+1658
+	.zero	4
+	.long Sx__PrintChar
+	.long MM_Sx+1668
+	.zero	4
+	.long Sx__Print
+	.long MM_Sx+1678
+	.long MI_Sx+436
+	.long Sx__ReadEscapeSequence
+	.long MM_Sx+1684
+	.zero	4
+	.long Sx__ReadCharLiteral
+	.long MM_Sx+1703
+	.zero	4
+	.long Sx__ISO_Latin_printing
+	.long MM_Sx+1719
+	.zero	4
+	.long Sx__ReadDelimitedText
+	.long MM_Sx+1738
+	.zero	4
+	.long Sx__ReadNumber
+	.long MM_Sx+1756
+	.zero	4
+	.long Sx__ReadNumber__scanFloat.2
+	.long MM_Sx+1767
+	.zero	4
+	.long Sx__ReadNumber__scanExp.1
+	.long MM_Sx+1788
+	.zero	4
+	.long Sx__PutChar
+	.long MM_Sx+1807
+	.zero	4
+	.long Sx__Close
+	.long MM_Sx+1815
+	.zero	4
+	.long Sx__Length
+	.long MM_Sx+1821
+	.zero	4
+	.long Sx__Seek
+	.long MM_Sx+1828
+	.zero	4
+	.long Sx__Init
+	.long MM_Sx+1833
+	.zero	4
+	.long Sx__ReadAtom
+	.long MM_Sx+1838
+	.zero	4
+	.long Sx__ReadToken
+	.long MM_Sx+1847
+	.zero	4
+	.long Sx__ReadDelimitedList
+	.long MM_Sx+1857
+	.long MI_Sx+432
+	.long Sx__Read
+	.long MM_Sx+1875
+	.long MI_Sx+428
+	.long Sx__FromExtended
+	.long MM_Sx+1880
+	.long MI_Sx+412
+	.long Sx__FromLongReal
+	.long MM_Sx+1893
+	.long MI_Sx+304
+	.long Sx__FromReal
+	.long MM_Sx+1906
+	.long MI_Sx+196
+	.long Sx__FromBool
+	.long MM_Sx+1915
+	.long MI_Sx+416
+	.long Sx__FromChar
+	.long MM_Sx+1924
+	.long MI_Sx+84
+	.long Sx__FromInt
+	.long MM_Sx+1933
+	.long MI_Sx+88
+	.zero	4
+.byte 42
+.byte 232
+.byte 2
+.byte 1
+.byte 4
+.byte 26
+.byte 201
+.byte 3
+.byte 2
+.byte 1
+.byte 4
+.byte 27
+.byte 0
+.byte 1
+.byte 3
+.byte 1
+.byte 4
+.byte 26
+.byte 3
+.byte 1
+.byte 4
+.byte 26
+.byte 3
+.byte 1
+.byte 4
+.byte 26
+.byte 3
+.byte 42
+.byte 208
+.byte 4
+.byte 42
+.byte 176
+.byte 4
+.byte 0
+	.ascii	"/home/ftp/tmp/pm3/tmp/pm3-1.1.15/language/modula3/m3compiler"
+	.ascii	"/m3bootstrap/LINUXLIBC6/pm3-LINUXLIBC6/boot-LINUXLIBC6/libm3"
+	.ascii	"/src/sx/Sx.m3"
+	.zero	1
+.byte 4
+.byte 0
+.byte 4
+.byte 0
+.byte 2
+.byte 10
+.byte 1
+.byte 16
+.byte 117
+.byte 244
+.byte 65
+.byte 21
+	.ascii	"Sx.RefArrayReader"
+	.zero	1
+.byte 16
+.byte 36
+.byte 4
+.byte 4
+.byte 0
+.byte 37
+.byte 4
+.byte 4
+.byte 0
+.byte 4
+.byte 15
+.byte 3
+.byte 4
+.byte 16
+.byte 22
+.byte 234
+.byte 29
+.byte 214
+.byte 16
+.byte 121
+.byte 39
+.byte 99
+.byte 223
+	.ascii	"Sx.MList"
+	.zero	1
+.byte 20
+.byte 32
+.byte 4
+.byte 0
+.byte 42
+.byte 32
+.byte 4
+.byte 0
+.byte 3
+.byte 10
+.byte 2
+.byte 18
+.byte 66
+.byte 0
+.byte 1
+.byte 16
+.byte 121
+.byte 39
+.byte 99
+.byte 223
+	.ascii	"Sx_^%#%^__0001M"
+	.zero	1
+	.ascii	"Sx.Syntax"
+	.zero	1
+	.local	L_1
+	.comm	L_1,804,4
+	.local	L_2
+	.comm	L_2,1024,4
+	.ident	"GCC: (GNU) cygnus-2.7.2-960712"

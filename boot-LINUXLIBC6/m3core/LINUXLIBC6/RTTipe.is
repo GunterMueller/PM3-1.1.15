@@ -1,0 +1,465 @@
+	.file	"RTTipe.ic"
+	.version	"01.01"
+/ SRC Modula-3 version cygnus-2.7.2-960712 (i486--linuxelf) compiled by GNU C version egcs-2.91.66 19990314/Linux (egcs-1.1.2 release).
+/ options passed:  -fno-strength-reduce -O2
+/ options enabled:  -fdefer-pop -fcse-follow-jumps -fcse-skip-blocks
+/ -fexpensive-optimizations -fthread-jumps -fpeephole -fforce-mem
+/ -ffunction-cse -finline -fkeep-static-consts -fcaller-saves
+/ -fpcc-struct-return -frerun-cse-after-loop -fschedule-insns2 -fcommon
+/ -fverbose-asm -fgnu-linker -m80387 -mhard-float -mno-soft-float -mieee-fp
+/ -mfp-ret-in-387 -mschedule-prologue -mcpu=i486 -march=i486
+
+gcc2_compiled.:
+.globl MI_RTTipe
+.data
+	.align 4
+	.type	 MI_RTTipe,@object
+	.size	 MI_RTTipe,1640
+MI_RTTipe:
+	.long MI_RTTipe+1192
+	.long MI_RTTipe+44
+	.zero	44
+	.long -307175135
+.byte 128
+.byte 247
+.byte 54
+.byte 251
+.byte 161
+.byte 22
+.byte 134
+.byte 22
+	.long 1
+	.zero	4
+	.long 12
+	.long 4
+	.zero	4
+	.long 0
+	.zero	12
+	.long MI_RTTipe+1619
+	.zero	4
+	.long MI_RTTipe+1624
+	.zero	8
+	.long -1651526519
+	.zero	16
+	.long MI_RTTipe+1631
+	.long MI_RTTipe+148
+	.zero	8
+	.long 1190547157
+.byte 64
+.byte 255
+.byte 40
+.byte 69
+.byte 149
+.byte 177
+.byte 222
+.byte 3
+	.long 1
+	.zero	4
+	.long 0
+	.long 1
+	.zero	4
+	.long 0
+	.zero	20
+	.long MI_RTTipe+1601
+	.zero	8
+	.long -307175135
+	.zero	16
+	.long MI_RTTipe+1604
+	.long MI_RTTipe+252
+	.zero	8
+	.long -1738775955
+.byte 89
+.byte 133
+.byte 18
+.byte 138
+.byte 52
+.byte 231
+.byte 78
+.byte 18
+	.long 1
+	.zero	4
+	.long 12
+	.long 4
+	.zero	4
+	.long 0
+	.zero	12
+	.long MI_RTTipe+1571
+	.long MI_RTTipe+1575
+	.long MI_RTTipe+1578
+	.zero	8
+	.long -307175135
+	.zero	16
+	.long MI_RTTipe+1588
+	.long MI_RTTipe+356
+	.zero	8
+	.long 2064731599
+.byte 81
+.byte 6
+.byte 43
+.byte 120
+.byte 158
+.byte 75
+.byte 58
+.byte 3
+	.long 1
+	.zero	4
+	.long 4
+	.long 4
+	.zero	4
+	.long 0
+	.zero	12
+	.long MI_RTTipe+1553
+	.zero	4
+	.long MI_RTTipe+1555
+	.zero	8
+	.long -307175135
+	.zero	16
+	.long MI_RTTipe+1559
+	.long MI_RTTipe+460
+	.zero	8
+	.long -2101500047
+.byte 237
+.byte 139
+.byte 162
+.byte 158
+.byte 156
+.byte 44
+.byte 31
+.byte 28
+	.long 1
+	.zero	4
+	.long 16
+	.long 4
+	.zero	4
+	.long 0
+	.zero	12
+	.long MI_RTTipe+1516
+	.long MI_RTTipe+1521
+	.long MI_RTTipe+1524
+	.zero	8
+	.long -307175135
+	.zero	16
+	.long MI_RTTipe+1539
+	.long MI_RTTipe+564
+	.zero	8
+	.long -1320086116
+.byte 65
+.byte 228
+.byte 204
+.byte 162
+.byte 221
+.byte 241
+.byte 157
+.byte 19
+	.long 1
+	.zero	4
+	.long 12
+	.long 4
+	.zero	20
+	.long MI_RTTipe+1482
+	.long MI_RTTipe+1486
+	.long MI_RTTipe+1489
+	.zero	28
+	.long MI_RTTipe+1503
+	.long MI_RTTipe+668
+	.zero	8
+	.long 1101661198
+.byte 59
+.byte 254
+.byte 63
+.byte 90
+.byte 53
+.byte 250
+.byte 149
+.byte 27
+	.long 1
+	.zero	4
+	.long 12
+	.long 4
+	.zero	4
+	.long 0
+	.zero	12
+	.long MI_RTTipe+1448
+	.long MI_RTTipe+1452
+	.long MI_RTTipe+1455
+	.zero	8
+	.long -307175135
+	.zero	16
+	.long MI_RTTipe+1465
+	.long MI_RTTipe+772
+	.zero	8
+	.long -1183876889
+.byte 199
+.byte 29
+.byte 157
+.byte 168
+.byte 32
+.byte 101
+.byte 242
+.byte 17
+	.long 1
+	.zero	4
+	.long 8
+	.long 4
+	.zero	4
+	.long 0
+	.zero	12
+	.long MI_RTTipe+1419
+	.long MI_RTTipe+1422
+	.long MI_RTTipe+1425
+	.zero	8
+	.long -307175135
+	.zero	16
+	.long MI_RTTipe+1434
+	.long MI_RTTipe+876
+	.zero	8
+	.long 160083678
+.byte 244
+.byte 34
+.byte 177
+.byte 23
+.byte 42
+.byte 140
+.byte 59
+.byte 30
+	.long 1
+	.zero	4
+	.long 4
+	.long 4
+	.zero	4
+	.long 0
+	.zero	12
+	.long MI_RTTipe+1393
+	.long MI_RTTipe+1395
+	.long MI_RTTipe+1397
+	.zero	8
+	.long -307175135
+	.zero	16
+	.long MI_RTTipe+1405
+	.long MI_RTTipe+980
+	.zero	8
+	.long -460255276
+.byte 16
+.byte 237
+.byte 97
+.byte 234
+.byte 196
+.byte 226
+.byte 240
+.byte 14
+	.long 1
+	.zero	4
+	.long 12
+	.long 4
+	.zero	4
+	.long 0
+	.zero	12
+	.long MI_RTTipe+1367
+	.zero	4
+	.long MI_RTTipe+1372
+	.zero	8
+	.long -307175135
+	.zero	16
+	.long MI_RTTipe+1382
+	.long MI_RTTipe+1084
+	.zero	8
+	.long 243314224
+.byte 253
+.byte 43
+.byte 204
+.byte 31
+.byte 205
+.byte 133
+.byte 76
+.byte 17
+	.long 1
+	.zero	4
+	.long 8
+	.long 4
+	.zero	4
+	.long 0
+	.zero	12
+	.long MI_RTTipe+1343
+	.zero	4
+	.long MI_RTTipe+1346
+	.zero	8
+	.long -307175135
+	.zero	16
+	.long MI_RTTipe+1351
+	.zero	8
+	.ascii	"/home/ftp/tmp/pm3/tmp/pm3-1.1.15/language/modula3/m3compiler"
+	.ascii	"/m3bootstrap/LINUXLIBC6/pm3-LINUXLIBC6/boot-LINUXLIBC6/m3cor"
+	.ascii	"e/src/runtime/common/RTTipe.i3"
+	.zero	1
+.byte 14
+.byte 14
+.byte 0
+.byte 3
+.byte 10
+.byte 2
+.byte 7
+.byte 23
+	.ascii	"RTTipe.Subrange"
+	.zero	1
+.byte 16
+.byte 36
+.byte 14
+.byte 5
+.byte 0
+.byte 4
+.byte 10
+.byte 3
+.byte 2
+.byte 7
+.byte 20
+.byte 31
+.byte 37
+.byte 114
+.byte 96
+	.ascii	"RTTipe.Ref"
+	.zero	1
+.byte 4
+.byte 0
+.byte 4
+.byte 0
+.byte 2
+.byte 10
+.byte 1
+.byte 16
+.byte 156
+.byte 21
+.byte 81
+.byte 177
+	.ascii	"RTTipe.Record"
+	.zero	1
+.byte 14
+.byte 4
+.byte 0
+.byte 37
+.byte 4
+.byte 0
+.byte 3
+.byte 10
+.byte 2
+.byte 7
+.byte 16
+.byte 33
+.byte 225
+.byte 176
+.byte 237
+	.ascii	"RTTipe.Packed"
+	.zero	1
+.byte 14
+.byte 4
+.byte 14
+.byte 0
+.byte 37
+.byte 4
+.byte 0
+.byte 4
+.byte 10
+.byte 3
+.byte 7
+.byte 16
+.byte 33
+.byte 225
+.byte 176
+.byte 237
+.byte 23
+	.ascii	"RTTipe.OpenArray"
+	.zero	1
+.byte 4
+.byte 4
+.byte 14
+.byte 0
+.byte 4
+.byte 4
+.byte 0
+.byte 4
+.byte 15
+.byte 3
+.byte 16
+.byte 33
+.byte 225
+.byte 176
+.byte 237
+.byte 16
+.byte 156
+.byte 21
+.byte 81
+.byte 177
+.byte 7
+	.ascii	"RTTipe.Field"
+	.zero	1
+.byte 5
+.byte 4
+.byte 14
+.byte 14
+.byte 0
+.byte 37
+.byte 4
+.byte 0
+.byte 5
+.byte 10
+.byte 4
+.byte 20
+.byte 31
+.byte 37
+.byte 114
+.byte 96
+.byte 16
+.byte 156
+.byte 21
+.byte 81
+.byte 177
+.byte 7
+.byte 25
+	.ascii	"RTTipe.Object"
+	.zero	1
+.byte 14
+.byte 0
+.byte 2
+.byte 10
+.byte 1
+.byte 7
+	.ascii	"RTTipe.Enum"
+	.zero	1
+.byte 14
+.byte 4
+.byte 14
+.byte 0
+.byte 37
+.byte 4
+.byte 0
+.byte 4
+.byte 10
+.byte 3
+.byte 7
+.byte 16
+.byte 33
+.byte 225
+.byte 176
+.byte 237
+.byte 23
+	.ascii	"RTTipe.Array"
+	.zero	1
+.byte 1
+.byte 10
+.byte 0
+	.ascii	"RTTipe.Builtin"
+	.zero	1
+.byte 16
+.byte 36
+.byte 14
+.byte 14
+.byte 0
+.byte 4
+.byte 10
+.byte 3
+.byte 5
+.byte 21
+.byte 7
+.byte 24
+	.ascii	"RTTipe.T"
+	.zero	1
+	.ident	"GCC: (GNU) cygnus-2.7.2-960712"

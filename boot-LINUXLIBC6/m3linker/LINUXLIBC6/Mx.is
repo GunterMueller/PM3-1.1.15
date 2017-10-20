@@ -1,0 +1,370 @@
+	.file	"Mx.ic"
+	.version	"01.01"
+/ SRC Modula-3 version cygnus-2.7.2-960712 (i486--linuxelf) compiled by GNU C version egcs-2.91.66 19990314/Linux (egcs-1.1.2 release).
+/ options passed:  -fno-strength-reduce -O2
+/ options enabled:  -fdefer-pop -fcse-follow-jumps -fcse-skip-blocks
+/ -fexpensive-optimizations -fthread-jumps -fpeephole -fforce-mem
+/ -ffunction-cse -finline -fkeep-static-consts -fcaller-saves
+/ -fpcc-struct-return -frerun-cse-after-loop -fschedule-insns2 -fcommon
+/ -fverbose-asm -fgnu-linker -m80387 -mhard-float -mno-soft-float -mieee-fp
+/ -mfp-ret-in-387 -mschedule-prologue -mcpu=i486 -march=i486
+
+gcc2_compiled.:
+.globl MI_Mx
+.data
+	.align 4
+	.type	 MI_Mx,@object
+	.size	 MI_Mx,1088
+MI_Mx:
+	.long MI_Mx+676
+	.long MI_Mx+48
+	.zero	48
+	.long -1203380091
+.byte 127
+.byte 235
+.byte 46
+.byte 172
+.byte 250
+.byte 11
+.byte 107
+.byte 20
+	.long 1
+	.zero	4
+	.long 8
+	.long 4
+	.zero	20
+	.long MI_Mx+1056
+	.long MI_Mx+1059
+	.long MI_Mx+1062
+	.zero	28
+	.long MI_Mx+1075
+	.long MI_Mx+156
+	.zero	12
+	.long 880986034
+.byte 123
+.byte 2
+.byte 24
+.byte 41
+.byte 201
+.byte 197
+.byte 154
+.byte 29
+	.long 1
+	.zero	4
+	.long 128
+	.long 4
+	.zero	20
+	.long MI_Mx+954
+	.long MI_Mx+989
+	.long MI_Mx+999
+	.zero	28
+	.long MI_Mx+1048
+	.long MI_Mx+260
+	.zero	8
+	.long 314313739
+.byte 196
+.byte 13
+.byte 82
+.byte 0
+.byte 207
+.byte 1
+.byte 238
+.byte 18
+	.long 1
+	.zero	4
+	.long 8
+	.long 4
+	.zero	20
+	.long MI_Mx+932
+	.long MI_Mx+935
+	.long MI_Mx+937
+	.zero	28
+	.long MI_Mx+946
+	.long MI_Mx+364
+	.zero	8
+	.long 812208790
+.byte 199
+.byte 67
+.byte 94
+.byte 55
+.byte 81
+.byte 17
+.byte 55
+.byte 7
+	.long 1
+	.zero	4
+	.long 12
+	.long 4
+	.zero	20
+	.long MI_Mx+898
+	.long MI_Mx+902
+	.long MI_Mx+904
+	.zero	28
+	.long MI_Mx+918
+	.long MI_Mx+468
+	.zero	8
+	.long -929516260
+.byte 31
+.byte 252
+.byte 225
+.byte 196
+.byte 3
+.byte 73
+.byte 121
+.byte 12
+	.long 1
+	.zero	4
+	.long 32
+	.long 4
+	.zero	20
+	.long MI_Mx+852
+	.long MI_Mx+862
+	.long MI_Mx+864
+	.zero	28
+	.long MI_Mx+884
+	.long MI_Mx+572
+	.zero	8
+	.long -660466080
+.byte 88
+.byte 133
+.byte 51
+.byte 195
+.byte 56
+.byte 147
+.byte 145
+.byte 27
+	.long 1
+	.zero	4
+	.long 20
+	.long 4
+	.zero	20
+	.long MI_Mx+810
+	.long MI_Mx+817
+	.long MI_Mx+821
+	.zero	28
+	.long MI_Mx+838
+	.zero	4
+	.ascii	"/home/ftp/tmp/pm3/tmp/pm3-1.1.15/language/modula3/m3compiler"
+	.ascii	"/m3bootstrap/LINUXLIBC6/pm3-LINUXLIBC6/boot-LINUXLIBC6/m3lin"
+	.ascii	"ker/src/Mx.i3"
+	.zero	1
+.byte 14
+.byte 14
+.byte 14
+.byte 4
+.byte 16
+.byte 16
+.byte 0
+.byte 42
+.byte 12
+.byte 4
+.byte 0
+.byte 8
+.byte 15
+.byte 6
+.byte 19
+.byte 254
+.byte 126
+.byte 12
+.byte 32
+.byte 23
+.byte 24
+.byte 16
+.byte 96
+.byte 22
+.byte 162
+.byte 216
+.byte 2
+.byte 28
+	.ascii	"Mx.Revelation"
+	.zero	1
+.byte 4
+.byte 14
+.byte 14
+.byte 14
+.byte 14
+.byte 14
+.byte 14
+.byte 16
+.byte 16
+.byte 0
+.byte 4
+.byte 0
+.byte 11
+.byte 15
+.byte 9
+.byte 16
+.byte 28
+.byte 181
+.byte 152
+.byte 200
+.byte 19
+.byte 254
+.byte 126
+.byte 12
+.byte 32
+.byte 24
+.byte 25
+.byte 7
+.byte 28
+.byte 28
+.byte 2
+.byte 31
+	.ascii	"Mx.ObjectType"
+	.zero	1
+.byte 4
+.byte 14
+.byte 14
+.byte 0
+.byte 4
+.byte 0
+.byte 5
+.byte 15
+.byte 3
+.byte 16
+.byte 150
+.byte 82
+.byte 105
+.byte 48
+.byte 12
+.byte 32
+.byte 19
+.byte 254
+.byte 126
+.byte 24
+	.ascii	"Mx.OpaqueType"
+	.zero	1
+.byte 4
+.byte 16
+.byte 0
+.byte 4
+.byte 0
+.byte 3
+.byte 15
+.byte 2
+.byte 16
+.byte 116
+.byte 101
+.byte 248
+.byte 80
+.byte 2
+	.ascii	"Mx.File"
+	.zero	1
+.byte 14
+.byte 4
+.byte 16
+.byte 16
+.byte 35
+.byte 18
+.byte 18
+.byte 18
+.byte 18
+.byte 18
+.byte 18
+.byte 18
+.byte 18
+.byte 18
+.byte 18
+.byte 18
+.byte 18
+.byte 18
+.byte 18
+.byte 18
+.byte 18
+.byte 18
+.byte 18
+.byte 18
+.byte 18
+.byte 18
+.byte 18
+.byte 18
+.byte 18
+.byte 4
+.byte 4
+.byte 4
+.byte 4
+.byte 4
+.byte 0
+.byte 37
+.byte 4
+.byte 42
+.byte 100
+.byte 4
+.byte 4
+.byte 4
+.byte 4
+.byte 4
+.byte 0
+.byte 24
+.byte 15
+.byte 21
+.byte 19
+.byte 254
+.byte 126
+.byte 16
+.byte 11
+.byte 12
+.byte 188
+.byte 18
+.byte 2
+.byte 25
+.byte 15
+.byte 2
+.byte 3
+.byte 28
+.byte 27
+.byte 27
+.byte 27
+.byte 27
+.byte 27
+.byte 27
+.byte 27
+.byte 27
+.byte 27
+.byte 27
+.byte 27
+.byte 16
+.byte 150
+.byte 82
+.byte 105
+.byte 48
+.byte 16
+.byte 28
+.byte 181
+.byte 152
+.byte 200
+.byte 42
+.byte 16
+.byte 96
+.byte 22
+.byte 162
+.byte 216
+.byte 16
+.byte 34
+.byte 186
+.byte 127
+.byte 33
+	.ascii	"Mx.Unit"
+	.zero	1
+.byte 4
+.byte 4
+.byte 0
+.byte 4
+.byte 4
+.byte 0
+.byte 3
+.byte 15
+.byte 2
+.byte 16
+.byte 178
+.byte 199
+.byte 130
+.byte 52
+.byte 16
+.byte 133
+.byte 224
+.byte 69
+.byte 184
+	.ascii	"Mx.UnitList"
+	.zero	2
+	.ident	"GCC: (GNU) cygnus-2.7.2-960712"

@@ -1,0 +1,53 @@
+	.file	"PklActionSeq.ic"
+	.version	"01.01"
+/ SRC Modula-3 version cygnus-2.7.2-960712 (i486--linuxelf) compiled by GNU C version egcs-2.91.66 19990314/Linux (egcs-1.1.2 release).
+/ options passed:  -fno-strength-reduce -O2
+/ options enabled:  -fdefer-pop -fcse-follow-jumps -fcse-skip-blocks
+/ -fexpensive-optimizations -fthread-jumps -fpeephole -fforce-mem
+/ -ffunction-cse -finline -fkeep-static-consts -fcaller-saves
+/ -fpcc-struct-return -frerun-cse-after-loop -fschedule-insns2 -fcommon
+/ -fverbose-asm -fgnu-linker -m80387 -mhard-float -mno-soft-float -mieee-fp
+/ -mfp-ret-in-387 -mschedule-prologue -mcpu=i486 -march=i486
+
+gcc2_compiled.:
+.globl MI_PklActionSeq
+.data
+	.align 4
+	.type	 MI_PklActionSeq,@object
+	.size	 MI_PklActionSeq,344
+MI_PklActionSeq:
+	.long MI_PklActionSeq+156
+	.long MI_PklActionSeq+44
+	.zero	44
+	.long -1929221974
+.byte 40
+.byte 115
+.byte 96
+.byte 135
+.byte 130
+.byte 27
+.byte 98
+.byte 10
+	.long 1
+	.zero	4
+	.long 0
+	.long 1
+	.zero	4
+	.long 44
+	.zero	20
+	.long MI_PklActionSeq+321
+	.zero	8
+	.long -1651526519
+	.zero	16
+	.long MI_PklActionSeq+324
+	.zero	12
+	.ascii	"PklActionSeq.i3 => /home/ftp/tmp/pm3/tmp/pm3-1.1.15/language"
+	.ascii	"/modula3/m3compiler/m3bootstrap/LINUXLIBC6/pm3-LINUXLIBC6/bo"
+	.ascii	"ot-LINUXLIBC6/libm3/src/sequence/Sequence.ig"
+	.zero	1
+.byte 1
+.byte 10
+.byte 0
+	.ascii	"PklActionSeq.Public"
+	.zero	1
+	.ident	"GCC: (GNU) cygnus-2.7.2-960712"

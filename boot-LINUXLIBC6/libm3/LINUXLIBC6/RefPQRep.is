@@ -1,0 +1,116 @@
+	.file	"RefPQRep.ic"
+	.version	"01.01"
+/ SRC Modula-3 version cygnus-2.7.2-960712 (i486--linuxelf) compiled by GNU C version egcs-2.91.66 19990314/Linux (egcs-1.1.2 release).
+/ options passed:  -fno-strength-reduce -O2
+/ options enabled:  -fdefer-pop -fcse-follow-jumps -fcse-skip-blocks
+/ -fexpensive-optimizations -fthread-jumps -fpeephole -fforce-mem
+/ -ffunction-cse -finline -fkeep-static-consts -fcaller-saves
+/ -fpcc-struct-return -frerun-cse-after-loop -fschedule-insns2 -fcommon
+/ -fverbose-asm -fgnu-linker -m80387 -mhard-float -mno-soft-float -mieee-fp
+/ -mfp-ret-in-387 -mschedule-prologue -mcpu=i486 -march=i486
+
+gcc2_compiled.:
+.globl MI_RefPQRep
+.data
+	.align 4
+	.type	 MI_RefPQRep,@object
+	.size	 MI_RefPQRep,496
+MI_RefPQRep:
+	.long MI_RefPQRep+264
+	.long MI_RefPQRep+44
+	.zero	8
+	.long MI_RefPQRep+252
+	.zero	32
+	.long -526809402
+.byte 107
+.byte 223
+.byte 164
+.byte 235
+.byte 173
+.byte 89
+.byte 61
+.byte 11
+	.long 1
+	.zero	4
+	.long 8
+	.long 4
+	.zero	4
+	.long 0
+	.zero	12
+	.long MI_RefPQRep+461
+	.long MI_RefPQRep+464
+	.long MI_RefPQRep+467
+	.zero	8
+	.long 386282287
+	.zero	16
+	.long MI_RefPQRep+476
+	.long MI_RefPQRep+148
+	.zero	8
+	.long -1065231525
+.byte 195
+.byte 216
+.byte 63
+.byte 215
+.byte 152
+.byte 3
+.byte 190
+.byte 23
+	.long 1
+	.zero	4
+	.long 8
+	.long 4
+	.zero	8
+	.long 1
+	.long 4
+	.zero	4
+	.long MI_RefPQRep+424
+	.long MI_RefPQRep+429
+	.long MI_RefPQRep+434
+	.zero	28
+	.long MI_RefPQRep+442
+	.zero	4
+	.long 386282284
+	.long -526809402
+	.zero	4
+	.ascii	"RefPQRep.i3 => /home/ftp/tmp/pm3/tmp/pm3-1.1.15/language/mod"
+	.ascii	"ula3/m3compiler/m3bootstrap/LINUXLIBC6/pm3-LINUXLIBC6/boot-L"
+	.ascii	"INUXLIBC6/libm3/src/pqueue/PQueueRep.ig"
+	.zero	1
+.byte 24
+.byte 1
+.byte 4
+.byte 0
+.byte 0
+.byte 24
+.byte 1
+.byte 4
+.byte 0
+.byte 0
+.byte 2
+.byte 11
+.byte 1
+.byte 16
+.byte 227
+.byte 130
+.byte 177
+.byte 39
+	.ascii	"RefPQRep.EltsArray"
+	.zero	1
+.byte 18
+.byte 4
+.byte 0
+.byte 37
+.byte 4
+.byte 0
+.byte 3
+.byte 10
+.byte 2
+.byte 3
+.byte 16
+.byte 91
+.byte 219
+.byte 129
+.byte 192
+	.ascii	"RefPQRep.DefaultPub"
+	.zero	1
+	.ident	"GCC: (GNU) cygnus-2.7.2-960712"

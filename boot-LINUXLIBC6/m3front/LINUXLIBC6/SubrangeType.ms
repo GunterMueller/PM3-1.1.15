@@ -1,0 +1,1768 @@
+	.file	"SubrangeType.mc"
+	.version	"01.01"
+/ SRC Modula-3 version cygnus-2.7.2-960712 (i486--linuxelf) compiled by GNU C version egcs-2.91.66 19990314/Linux (egcs-1.1.2 release).
+/ options passed:  -fno-strength-reduce -O2
+/ options enabled:  -fdefer-pop -fcse-follow-jumps -fcse-skip-blocks
+/ -fexpensive-optimizations -fthread-jumps -fpeephole -fforce-mem
+/ -ffunction-cse -finline -fkeep-static-consts -fcaller-saves
+/ -fpcc-struct-return -frerun-cse-after-loop -fschedule-insns2 -fcommon
+/ -fverbose-asm -fgnu-linker -m80387 -mhard-float -mno-soft-float -mieee-fp
+/ -mfp-ret-in-387 -mschedule-prologue -mcpu=i486 -march=i486
+
+gcc2_compiled.:
+.text
+	.align 16
+	.type	 SubrangeType__Parse,@function
+SubrangeType__Parse:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %ebx
+	pushl $0
+	pushl $0
+	pushl $MI_TInt+60
+	pushl $MI_TInt+44
+	call SubrangeType__New
+	movl %eax,%edx
+	addl $16,%esp
+	testl %edx,%edx
+	je .L2
+	movl -4(%edx),%eax
+	sall $11,%eax
+	movl %eax,%ecx
+	shrl $12,%ecx
+	cmpl %ecx,MM_SubrangeType+240
+	jg .L3
+	movl MM_SubrangeType+236,%eax
+	cmpl %ecx,4(%eax)
+	jge .L2
+.L3:
+	pushl $677
+	call _m3_fault
+	.align 16
+.L2:
+	pushl $18
+	movl MI_Scanner+108,%eax
+	movl %edx,%ebx
+	call *%eax
+	movl MI_Expr+148,%eax
+	call *%eax
+	movl %eax,%edx
+	movl %edx,60(%ebx)
+	pushl $27
+	movl MI_Scanner+108,%eax
+	call *%eax
+	movl MI_Expr+148,%eax
+	call *%eax
+	movl %eax,64(%ebx)
+	pushl $30
+	movl MI_Scanner+108,%eax
+	call *%eax
+	movl %ebx,%eax
+	movl -4(%ebp),%ebx
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe1:
+	.size	 SubrangeType__Parse,.Lfe1-SubrangeType__Parse
+	.align 16
+	.type	 SubrangeType__New,@function
+SubrangeType__New:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %esi
+	pushl %ebx
+	movl 16(%ebp),%ebx
+	movl MM_SubrangeType+236,%eax
+	pushl %eax
+	movl MI_RTHooks+80,%eax
+	call *%eax
+	pushl $16
+	movl %eax,%esi
+	pushl %esi
+	movl MI_TypeRep+148,%eax
+	call *%eax
+	movl %ebx,56(%esi)
+	movl 8(%ebp),%edx
+	movl (%edx),%eax
+	movl %eax,68(%esi)
+	movl 4(%edx),%eax
+	movl %eax,72(%esi)
+	movl 12(%ebp),%edx
+	leal -8(%ebp),%esp
+	movl (%edx),%eax
+	movl %eax,76(%esi)
+	movl 4(%edx),%eax
+	movl %eax,80(%esi)
+	movb 20(%ebp),%cl
+	movb %cl,85(%esi)
+	movl %esi,%eax
+	popl %ebx
+	popl %esi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe2:
+	.size	 SubrangeType__New,.Lfe2-SubrangeType__New
+	.align 16
+	.type	 SubrangeType__Reduce,@function
+SubrangeType__Reduce:
+	pushl %ebp
+	movl %esp,%ebp
+	movl 8(%ebp),%edx
+	testl %edx,%edx
+	je .L9
+	cmpb $1,34(%edx)
+	jne .L7
+	pushl %edx
+	movl MI_Type+76,%eax
+	call *%eax
+	movl %eax,%edx
+	addl $4,%esp
+.L7:
+	cmpb $16,34(%edx)
+	je .L8
+	xorl %eax,%eax
+	jmp .L11
+	.align 16
+.L8:
+	testl %edx,%edx
+	je .L9
+	movl -4(%edx),%eax
+	sall $11,%eax
+	movl %eax,%ecx
+	shrl $12,%ecx
+	cmpl %ecx,MM_SubrangeType+240
+	jg .L10
+	movl MM_SubrangeType+236,%eax
+	cmpl %ecx,4(%eax)
+	jge .L9
+.L10:
+	pushl $1125
+	call _m3_fault
+	.align 16
+.L9:
+	movl %edx,%eax
+.L11:
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe3:
+	.size	 SubrangeType__Reduce,.Lfe3-SubrangeType__Reduce
+	.align 16
+	.type	 SubrangeType__Split,@function
+SubrangeType__Split:
+	pushl %ebp
+	movl %esp,%ebp
+	movl 8(%ebp),%eax
+	pushl %eax
+	call SubrangeType__Reduce
+	movl %eax,%ecx
+	testl %ecx,%ecx
+	je .L13
+	movl 12(%ebp),%edx
+	movl 68(%ecx),%eax
+	movl %eax,(%edx)
+	movl 72(%ecx),%eax
+	movl %eax,4(%edx)
+	movl 16(%ebp),%edx
+	movl 76(%ecx),%eax
+	movl %eax,(%edx)
+	movl 80(%ecx),%eax
+	movl %eax,4(%edx)
+	movl $1,%eax
+	jmp .L14
+	.align 16
+.L13:
+	movl %ecx,%eax
+.L14:
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe4:
+	.size	 SubrangeType__Split,.Lfe4-SubrangeType__Split
+	.align 16
+	.type	 SubrangeType__SetRep,@function
+SubrangeType__SetRep:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%esi
+	leal 68(%esi),%eax
+	pushl %eax
+	leal 76(%esi),%eax
+	pushl %eax
+	movl MI_TInt+104,%eax
+	call *%eax
+	addl $8,%esp
+	testl %eax,%eax
+	je .L16
+	movl MI_TInt+44,%eax
+	movl %eax,68(%esi)
+	movl MI_TInt+48,%eax
+	movl %eax,72(%esi)
+	movl MI_TInt+60,%eax
+	movl %eax,76(%esi)
+	movl MI_TInt+64,%eax
+	movl %eax,80(%esi)
+	movb $0,84(%esi)
+	jmp .L15
+	.align 16
+.L16:
+	movl %eax,%ebx
+.L17:
+	leal 68(%esi),%eax
+	pushl %eax
+	leal (%ebx,%ebx,8),%eax
+	leal 0(,%eax,4),%edi
+	movl MI_TargetMap+316,%eax
+	addl %edi,%eax
+	addl $20,%eax
+	pushl %eax
+	movl MI_TInt+108,%eax
+	call *%eax
+	addl $8,%esp
+	testl %eax,%eax
+	je .L18
+	movl MI_TargetMap+316,%eax
+	addl %edi,%eax
+	addl $28,%eax
+	pushl %eax
+	leal 76(%esi),%eax
+	pushl %eax
+	movl MI_TInt+108,%eax
+	call *%eax
+	addl $8,%esp
+	testl %eax,%eax
+	je .L18
+	movb %bl,84(%esi)
+	jmp .L15
+	.align 16
+.L18:
+	incl %ebx
+	cmpl $7,%ebx
+	jle .L17
+	movb $7,84(%esi)
+.L15:
+	leal -12(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe5:
+	.size	 SubrangeType__SetRep,.Lfe5-SubrangeType__SetRep
+	.align 16
+	.type	 SubrangeType__Seal,@function
+SubrangeType__Seal:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $8,%esp
+	pushl %edi
+	pushl %esi
+	xorl %eax,%eax
+	pushl %ebx
+	movl 8(%ebp),%esi
+	movl %eax,-8(%ebp)
+	movl %eax,-4(%ebp)
+	cmpb $0,86(%esi)
+	jne .L21
+	movl 60(%esi),%eax
+	testl %eax,%eax
+	je .L23
+	pushl %eax
+	movl MI_Expr+160,%eax
+	call *%eax
+	movl %eax,%ebx
+	addl $4,%esp
+	testl %ebx,%ebx
+	jne .L24
+	pushl $MM_SubrangeType+248
+	jmp .L33
+	.align 16
+.L24:
+	leal 68(%esi),%edi
+	pushl %edi
+	pushl %ebx
+	movl MI_IntegerExpr+48,%eax
+	call *%eax
+	addl $8,%esp
+	testl %eax,%eax
+	je .L26
+	movl MI_Int+44,%eax
+	movl %eax,-8(%ebp)
+	jmp .L25
+	.align 16
+.L26:
+	leal -8(%ebp),%eax
+	pushl %eax
+	pushl %edi
+	pushl %ebx
+	movl MI_EnumExpr+48,%eax
+	call *%eax
+	addl $12,%esp
+	testl %eax,%eax
+	jne .L25
+	pushl $MM_SubrangeType+300
+.L33:
+	movl MI_Error+44,%eax
+	call *%eax
+	movl MI_TInt+44,%eax
+	movl %eax,68(%esi)
+	movl MI_TInt+48,%eax
+	movl %eax,72(%esi)
+	movl MI_Int+44,%eax
+	movl %eax,-8(%ebp)
+	addl $4,%esp
+.L25:
+	movl 64(%esi),%eax
+	pushl %eax
+	movl MI_Expr+160,%eax
+	call *%eax
+	movl %eax,%ebx
+	addl $4,%esp
+	testl %ebx,%ebx
+	jne .L28
+	pushl $MM_SubrangeType+360
+	jmp .L34
+	.align 16
+.L28:
+	leal 76(%esi),%edi
+	pushl %edi
+	pushl %ebx
+	movl MI_IntegerExpr+48,%eax
+	call *%eax
+	addl $8,%esp
+	testl %eax,%eax
+	je .L30
+	movl MI_Int+44,%eax
+	movl %eax,-4(%ebp)
+	jmp .L29
+	.align 16
+.L30:
+	leal -4(%ebp),%eax
+	pushl %eax
+	pushl %edi
+	pushl %ebx
+	movl MI_EnumExpr+48,%eax
+	call *%eax
+	addl $12,%esp
+	testl %eax,%eax
+	jne .L29
+	pushl $MM_SubrangeType+412
+.L34:
+	movl MI_Error+44,%eax
+	call *%eax
+	movl 68(%esi),%eax
+	movl %eax,76(%esi)
+	movl 72(%esi),%eax
+	movl %eax,80(%esi)
+	movl -8(%ebp),%eax
+	movl %eax,-4(%ebp)
+	addl $4,%esp
+.L29:
+	movl -8(%ebp),%eax
+	movl %eax,56(%esi)
+	pushl $0
+	movl -4(%ebp),%edx
+	pushl %edx
+	pushl %eax
+	movl MI_Type+116,%eax
+	call *%eax
+	addl $12,%esp
+	testl %eax,%eax
+	jne .L23
+	pushl $MM_SubrangeType+472
+	movl MI_Error+44,%eax
+	call *%eax
+	addl $4,%esp
+.L23:
+	pushl %esi
+	call SubrangeType__SetRep
+	movb $1,86(%esi)
+.L21:
+	leal -20(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe6:
+	.size	 SubrangeType__Seal,.Lfe6-SubrangeType__Seal
+	.align 16
+	.type	 SubrangeType__Check,@function
+SubrangeType__Check:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $52,%esp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%esi
+	movl $0,-20(%ebp)
+	movl $0,-16(%ebp)
+	movl $0,-12(%ebp)
+	movl $0,-8(%ebp)
+	movl $0,-4(%ebp)
+	movl $0,-48(%ebp)
+	movl $0,-44(%ebp)
+	movl $0,-40(%ebp)
+	movl $0,-36(%ebp)
+	movl $0,-32(%ebp)
+	movl $0,-28(%ebp)
+	pushl %esi
+	call SubrangeType__Seal
+	leal -48(%ebp),%ebx
+	pushl %ebx
+	movl 60(%esi),%eax
+	pushl %eax
+	movl MI_Expr+156,%eax
+	call *%eax
+	pushl %ebx
+	movl 64(%esi),%eax
+	pushl %eax
+	movl MI_Expr+156,%eax
+	call *%eax
+	leal -20(%ebp),%eax
+	pushl %eax
+	movl 56(%esi),%eax
+	pushl %eax
+	movl MI_Type+68,%eax
+	call *%eax
+	movl %eax,56(%esi)
+	movl -8(%ebp),%ebx
+	leal -24(%ebp),%edi
+	pushl %edi
+	leal 68(%esi),%ecx
+	movl %ecx,-52(%ebp)
+	pushl %ecx
+	movl MI_TInt+72,%eax
+	call *%eax
+	addl $36,%esp
+	testl %eax,%eax
+	jne .L36
+	movl $19,-24(%ebp)
+.L36:
+	movl %ebx,%eax
+	sall $4,%eax
+	subl %ebx,%eax
+	leal (%ebx,%eax,4),%eax
+	sall $3,%eax
+	subl %ebx,%eax
+	movl %eax,%ebx
+	addl -24(%ebp),%ebx
+	pushl %edi
+	leal 76(%esi),%edi
+	pushl %edi
+	movl MI_TInt+72,%eax
+	call *%eax
+	addl $8,%esp
+	testl %eax,%eax
+	jne .L37
+	movl $23,-24(%ebp)
+.L37:
+	movl %ebx,%eax
+	sall $4,%eax
+	subl %ebx,%eax
+	leal (%ebx,%eax,4),%eax
+	sall $3,%eax
+	subl %ebx,%eax
+	movl %eax,%ebx
+	addl -24(%ebp),%ebx
+	xorl %eax,%eax
+	movb 84(%esi),%al
+	leal (%eax,%eax,8),%eax
+	sall $2,%eax
+	addl MI_TargetMap+316,%eax
+	movl 4(%eax),%eax
+	movl %eax,16(%esi)
+	pushl %esi
+	call SubrangeType__MinSize
+	movl %eax,20(%esi)
+	xorl %eax,%eax
+	movb 84(%esi),%al
+	movl MI_TargetMap+316,%edx
+	leal (%eax,%eax,8),%eax
+	movl 8(%edx,%eax,4),%eax
+	movl %eax,24(%esi)
+	xorl %eax,%eax
+	movb 84(%esi),%al
+	leal (%eax,%eax,8),%eax
+	movb (%edx,%eax,4),%al
+	movb %al,33(%esi)
+	andl $255,%eax
+	movb MI_TargetMap+300(%eax),%al
+	movb %al,32(%esi)
+	movb $16,34(%esi)
+	movb 35(%esi),%al
+	andb $254,%al
+	andl $255,%eax
+	orb $4,%al
+	movb %al,35(%esi)
+	movl -52(%ebp),%ecx
+	pushl %ecx
+	pushl %edi
+	movl MI_TInt+104,%eax
+	call *%eax
+	xorl %edx,%edx
+	movb 35(%esi),%dl
+	andb $253,%dl
+	andl $1,%eax
+	addl %eax,%eax
+	orb %dl,%al
+	movb %al,35(%esi)
+	leal -64(%ebp),%esp
+	movl %ebx,28(%esi)
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe7:
+	.size	 SubrangeType__Check,.Lfe7-SubrangeType__Check
+	.align 16
+	.type	 SubrangeType__CheckAlign,@function
+SubrangeType__CheckAlign:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $8,%esp
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%edx
+	movl 12(%ebp),%esi
+.L39:
+	movl $5,-4(%ebp)
+	movl RTThread__handlerStack,%eax
+	movl %eax,-8(%ebp)
+	leal -8(%ebp),%ecx
+	movl %ecx,RTThread__handlerStack
+	xorl %eax,%eax
+	movb 84(%edx),%al
+	leal (%eax,%eax,8),%eax
+	sall $2,%eax
+	addl MI_TargetMap+316,%eax
+	movl 4(%eax),%ebx
+	pushl %esi
+	movl MI_Target+100,%eax
+	pushl %eax
+	call m3_div
+	movl %eax,%edx
+	imull MI_Target+100,%edx
+	movl -8(%ebp),%eax
+	movl %eax,RTThread__handlerStack
+	addl %esi,%ebx
+	addl MI_Target+96,%edx
+	cmpl %edx,%ebx
+	setle %al
+	andl $255,%eax
+.L40:
+	leal -16(%ebp),%esp
+	popl %ebx
+	popl %esi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe8:
+	.size	 SubrangeType__CheckAlign,.Lfe8-SubrangeType__CheckAlign
+	.align 16
+	.type	 SubrangeType__Compiler,@function
+SubrangeType__Compiler:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%ebx
+	movl 56(%ebx),%eax
+	pushl %eax
+	movl MI_Type+140,%eax
+	call *%eax
+	pushl %ebx
+	movl MI_Type+132,%eax
+	call *%eax
+	movl %eax,%esi
+	movl 56(%ebx),%eax
+	pushl %eax
+	movl MI_Type+132,%eax
+	call *%eax
+	movl %eax,%edx
+	xorl %eax,%eax
+	movb 84(%ebx),%al
+	leal (%eax,%eax,8),%eax
+	sall $2,%eax
+	addl MI_TargetMap+316,%eax
+	movl 4(%eax),%eax
+	pushl %eax
+	leal 76(%ebx),%eax
+	pushl %eax
+	addl $68,%ebx
+	pushl %ebx
+	pushl %edx
+	pushl %esi
+	movl MI_CG+120,%eax
+	call *%eax
+	leal -8(%ebp),%esp
+	popl %ebx
+	popl %esi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe9:
+	.size	 SubrangeType__Compiler,.Lfe9-SubrangeType__Compiler
+	.align 16
+	.type	 SubrangeType__Base,@function
+SubrangeType__Base:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%ebx
+	testl %ebx,%ebx
+	je .L43
+	movl -4(%ebx),%eax
+	sall $11,%eax
+	movl %eax,%edx
+	shrl $12,%edx
+	cmpl %edx,MM_SubrangeType+240
+	jg .L44
+	movl MM_SubrangeType+236,%eax
+	cmpl %edx,4(%eax)
+	jge .L43
+.L44:
+	pushl $2933
+	call _m3_fault
+	.align 16
+.L43:
+	movl %ebx,%esi
+	pushl %ebx
+	call SubrangeType__Seal
+	movl 56(%ebx),%ebx
+	addl $4,%esp
+	testl %ebx,%ebx
+	jne .L45
+	movl 60(%esi),%eax
+	pushl %eax
+	movl MI_Expr+152,%eax
+	call *%eax
+	movl %eax,%ebx
+.L45:
+	leal -8(%ebp),%esp
+	movl %ebx,%eax
+	popl %ebx
+	popl %esi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe10:
+	.size	 SubrangeType__Base,.Lfe10-SubrangeType__Base
+	.align 16
+	.type	 SubrangeType__EqualChk,@function
+SubrangeType__EqualChk:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%edi
+	movl 12(%ebp),%esi
+	testl %esi,%esi
+	je .L47
+	movl -4(%esi),%eax
+	sall $11,%eax
+	movl %eax,%ebx
+	shrl $12,%ebx
+	cmpl %ebx,MM_SubrangeType+240
+	jg .L48
+	movl MM_SubrangeType+236,%eax
+	cmpl %ebx,4(%eax)
+	jge .L47
+.L48:
+	pushl $3077
+	call _m3_fault
+	.align 16
+.L47:
+	pushl %edi
+	call SubrangeType__Seal
+	pushl %esi
+	call SubrangeType__Seal
+	xorl %ebx,%ebx
+	movb 85(%edi),%al
+	addl $8,%esp
+	cmpb %al,85(%esi)
+	jne .L49
+	leal 68(%esi),%eax
+	pushl %eax
+	leal 68(%edi),%eax
+	pushl %eax
+	movl MI_TInt+100,%eax
+	call *%eax
+	addl $8,%esp
+	testl %eax,%eax
+	je .L49
+	leal 76(%esi),%eax
+	pushl %eax
+	leal 76(%edi),%eax
+	pushl %eax
+	movl MI_TInt+100,%eax
+	call *%eax
+	addl $8,%esp
+	testl %eax,%eax
+	je .L49
+	movl 16(%ebp),%edx
+	pushl %edx
+	movl 56(%esi),%eax
+	pushl %eax
+	movl 56(%edi),%eax
+	pushl %eax
+	movl MI_Type+116,%eax
+	call *%eax
+	testl %eax,%eax
+	setne %al
+	xorl %ebx,%ebx
+	movb %al,%bl
+.L49:
+	leal -12(%ebp),%esp
+	movl %ebx,%eax
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe11:
+	.size	 SubrangeType__EqualChk,.Lfe11-SubrangeType__EqualChk
+	.align 16
+	.type	 SubrangeType__Subtyper,@function
+SubrangeType__Subtyper:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 12(%ebp),%edi
+	movl 8(%ebp),%edx
+	pushl %edx
+	call SubrangeType__Seal
+	movl 8(%ebp),%edx
+	movl 56(%edx),%eax
+	pushl %eax
+	movl MI_Type+80,%eax
+	call *%eax
+	movl %eax,%ebx
+	pushl %edi
+	movl MI_Type+80,%eax
+	xorl %esi,%esi
+	call *%eax
+	pushl %esi
+	pushl %eax
+	pushl %ebx
+	movl MI_Type+116,%eax
+	call *%eax
+	addl $24,%esp
+	testl %eax,%eax
+	jne .L51
+	movl %esi,%eax
+	jmp .L57
+	.align 16
+.L51:
+	cmpb $16,34(%edi)
+	jne .L58
+	movl 8(%ebp),%eax
+	addl $68,%eax
+	pushl %eax
+	movl 8(%ebp),%eax
+	addl $76,%eax
+	pushl %eax
+	movl MI_TInt+104,%eax
+	call *%eax
+	addl $8,%esp
+	testl %eax,%eax
+	je .L53
+.L58:
+	movl $1,%eax
+	jmp .L57
+	.align 16
+.L53:
+	testl %edi,%edi
+	je .L54
+	movl -4(%edi),%eax
+	sall $11,%eax
+	movl %eax,%ebx
+	shrl $12,%ebx
+	cmpl %ebx,MM_SubrangeType+240
+	jg .L55
+	movl MM_SubrangeType+236,%eax
+	cmpl %ebx,4(%eax)
+	jge .L54
+.L55:
+	pushl $3365
+	call _m3_fault
+	.align 16
+.L54:
+	movl %edi,%esi
+	movl 8(%ebp),%eax
+	addl $68,%eax
+	pushl %eax
+	leal 68(%esi),%eax
+	pushl %eax
+	movl MI_TInt+108,%eax
+	xorl %ebx,%ebx
+	call *%eax
+	addl $8,%esp
+	testl %eax,%eax
+	je .L56
+	leal 76(%esi),%eax
+	pushl %eax
+	movl 8(%ebp),%eax
+	addl $76,%eax
+	pushl %eax
+	movl MI_TInt+108,%eax
+	call *%eax
+	testl %eax,%eax
+	setne %al
+	xorl %ebx,%ebx
+	movb %al,%bl
+.L56:
+	movl %ebx,%eax
+.L57:
+	leal -12(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe12:
+	.size	 SubrangeType__Subtyper,.Lfe12-SubrangeType__Subtyper
+	.align 16
+	.type	 SubrangeType__MinSize,@function
+SubrangeType__MinSize:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $12,%esp
+	pushl %ebx
+	movl 8(%ebp),%ebx
+	movb $0,-2(%ebp)
+	movb $0,-1(%ebp)
+	leal 68(%ebx),%eax
+	pushl %eax
+	leal 76(%ebx),%eax
+	pushl %eax
+	movl MI_TInt+104,%eax
+	call *%eax
+	addl $8,%esp
+	testl %eax,%eax
+	je .L60
+	xorl %eax,%eax
+	jmp .L66
+	.align 16
+.L60:
+	leal -2(%ebp),%eax
+	pushl %eax
+	leal -12(%ebp),%eax
+	pushl %eax
+	movl 72(%ebx),%eax
+	movl 68(%ebx),%edx
+	pushl %eax
+	pushl %edx
+	call SubrangeType__BitWidth
+	leal -1(%ebp),%eax
+	pushl %eax
+	leal -8(%ebp),%eax
+	pushl %eax
+	movl 80(%ebx),%eax
+	movl 76(%ebx),%edx
+	pushl %eax
+	pushl %edx
+	call SubrangeType__BitWidth
+	movl -8(%ebp),%edx
+	movl -12(%ebp),%eax
+	cmpl %edx,%eax
+	jle .L61
+	movl %eax,-12(%ebp)
+	jmp .L62
+	.align 16
+.L61:
+	movl %edx,-12(%ebp)
+.L62:
+	cmpb $0,-2(%ebp)
+	jne .L63
+	cmpb $0,-1(%ebp)
+	je .L64
+.L63:
+	incl -12(%ebp)
+.L64:
+	movl -12(%ebp),%edx
+	movl MI_Target+96,%eax
+	cmpl %edx,%eax
+	jle .L65
+	movl %edx,%eax
+.L65:
+.L66:
+	movl -16(%ebp),%ebx
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe13:
+	.size	 SubrangeType__MinSize,.Lfe13-SubrangeType__MinSize
+	.align 16
+	.type	 SubrangeType__BitWidth,@function
+SubrangeType__BitWidth:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $8,%esp
+	pushl %edi
+	pushl %esi
+	movl $MI_TInt+44,%edi
+	pushl %ebx
+	movl 16(%ebp),%esi
+	movl 20(%ebp),%ebx
+	pushl %edi
+	leal 8(%ebp),%edx
+	pushl %edx
+	movl MI_TInt+104,%eax
+	call *%eax
+	movb %al,(%ebx)
+	addl $8,%esp
+	testb %al,%al
+	je .L68
+	leal -8(%ebp),%ebx
+	pushl %ebx
+	pushl $MI_TInt+52
+	leal 8(%ebp),%edx
+	pushl %edx
+	movl MI_TInt+80,%eax
+	call *%eax
+	addl $12,%esp
+	testl %eax,%eax
+	je .L69
+	leal 8(%ebp),%edx
+	pushl %edx
+	pushl %ebx
+	pushl %edi
+	movl MI_TInt+84,%eax
+	call *%eax
+	addl $12,%esp
+	testl %eax,%eax
+	jne .L68
+.L69:
+	movl MI_Target+96,%eax
+	movl %eax,(%esi)
+	jmp .L67
+	.align 16
+.L68:
+	cmpb $0,MM_SubrangeType+192
+	jne .L71
+	call SubrangeType__BuildPowerTables
+.L71:
+	movl MI_Target+96,%eax
+	movl %eax,(%esi)
+	xorl %ebx,%ebx
+.L72:
+	leal L_1(,%ebx,8),%eax
+	pushl %eax
+	leal 8(%ebp),%edx
+	pushl %edx
+	movl MI_TInt+108,%eax
+	call *%eax
+	addl $8,%esp
+	testl %eax,%eax
+	je .L73
+	movl %ebx,(%esi)
+	jmp .L67
+	.align 16
+.L73:
+	incl %ebx
+	cmpl $64,%ebx
+	jle .L72
+.L67:
+	leal -20(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe14:
+	.size	 SubrangeType__BitWidth,.Lfe14-SubrangeType__BitWidth
+	.align 16
+	.type	 SubrangeType__BuildPowerTables,@function
+SubrangeType__BuildPowerTables:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %ebx
+	movl MI_TInt+52,%eax
+	movl %eax,L_1
+	movl MI_TInt+56,%eax
+	movl %eax,L_1+4
+	movl $1,%ebx
+.L77:
+	leal L_1(,%ebx,8),%eax
+	pushl %eax
+	leal L_1-8(,%ebx,8),%eax
+	pushl %eax
+	pushl %eax
+	movl MI_TInt+80,%eax
+	call *%eax
+	addl $12,%esp
+	testl %eax,%eax
+	jne .L78
+	movl $L_1,%eax
+	movl MI_Target+120,%edx
+	movl %edx,(%eax,%ebx,8)
+	movl MI_Target+124,%edx
+	movl %edx,4(%eax,%ebx,8)
+.L78:
+	incl %ebx
+	cmpl $64,%ebx
+	jle .L77
+	movb $1,MM_SubrangeType+192
+	movl -4(%ebp),%ebx
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe15:
+	.size	 SubrangeType__BuildPowerTables,.Lfe15-SubrangeType__BuildPowerTables
+	.align 16
+	.type	 SubrangeType__InitCoster,@function
+SubrangeType__InitCoster:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%esi
+	movb 12(%ebp),%bl
+	pushl %esi
+	call SubrangeType__Seal
+	addl $4,%esp
+	testb %bl,%bl
+	je .L82
+	movl $MI_TInt+44,%ebx
+	pushl %ebx
+	leal 68(%esi),%eax
+	pushl %eax
+	movl MI_TInt+108,%eax
+	call *%eax
+	addl $8,%esp
+	testl %eax,%eax
+	je .L82
+	leal 76(%esi),%eax
+	pushl %eax
+	pushl %ebx
+	movl MI_TInt+108,%eax
+	call *%eax
+	addl $8,%esp
+	testl %eax,%eax
+	jne .L85
+.L82:
+	xorl %eax,%eax
+	movb 84(%esi),%al
+	leal (%eax,%eax,8),%eax
+	movl MI_TargetMap+316,%edx
+	leal 20(%edx,%eax,4),%eax
+	pushl %eax
+	leal 68(%esi),%edi
+	pushl %edi
+	movl MI_TInt+100,%eax
+	call *%eax
+	addl $8,%esp
+	testl %eax,%eax
+	je .L86
+	xorl %eax,%eax
+	movb 84(%esi),%al
+	leal (%eax,%eax,8),%eax
+	movl MI_TargetMap+316,%edx
+	leal 28(%edx,%eax,4),%eax
+	pushl %eax
+	leal 76(%esi),%ebx
+	pushl %ebx
+	movl MI_TInt+100,%eax
+	call *%eax
+	addl $8,%esp
+	testl %eax,%eax
+	je .L86
+	xorl %eax,%eax
+	movb 84(%esi),%al
+	leal (%eax,%eax,8),%eax
+	sall $2,%eax
+	addl MI_TargetMap+316,%eax
+	movl MI_Target+96,%edx
+	cmpl %edx,4(%eax)
+	jne .L85
+	pushl $MI_Target+112
+	pushl %edi
+	movl MI_TInt+100,%eax
+	call *%eax
+	addl $8,%esp
+	testl %eax,%eax
+	je .L86
+	pushl $MI_Target+120
+	pushl %ebx
+	movl MI_TInt+100,%eax
+	call *%eax
+	testl %eax,%eax
+	jne .L85
+.L86:
+	movl $1,%eax
+	jmp .L87
+	.align 16
+.L85:
+	xorl %eax,%eax
+.L87:
+	leal -12(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe16:
+	.size	 SubrangeType__InitCoster,.Lfe16-SubrangeType__InitCoster
+	.align 16
+	.type	 SubrangeType__GenInit,@function
+SubrangeType__GenInit:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $20,%esp
+	pushl %edi
+	pushl %esi
+	leal -20(%ebp),%eax
+	pushl %ebx
+	movl 8(%ebp),%ebx
+	movl $0,-20(%ebp)
+	movl $0,-16(%ebp)
+	movl $0,-12(%ebp)
+	movl $0,-8(%ebp)
+	movl $0,-4(%ebp)
+	pushl %eax
+	pushl %ebx
+	movl MI_Type+68,%eax
+	call *%eax
+	leal 68(%ebx),%edi
+	pushl %edi
+	movl $MI_TInt+44,%esi
+	pushl %esi
+	movl MI_TInt+104,%eax
+	call *%eax
+	addl $16,%esp
+	testl %eax,%eax
+	jne .L89
+	pushl %esi
+	leal 76(%ebx),%eax
+	pushl %eax
+	movl MI_TInt+104,%eax
+	call *%eax
+	movl %eax,%ebx
+	addl $8,%esp
+	testl %ebx,%ebx
+	je .L90
+.L89:
+	pushl %edi
+	movl MI_CG+428,%eax
+	call *%eax
+	movl -20(%ebp),%eax
+	addl $4,%esp
+	testl %eax,%eax
+	jge .L91
+	pushl $4641
+	call _m3_fault
+	.align 16
+.L91:
+	pushl %eax
+	pushl $0
+	jmp .L95
+	.align 16
+.L90:
+	cmpb $0,12(%ebp)
+	je .L93
+	pushl %ebx
+	movl MI_CG+640,%eax
+	call *%eax
+	jmp .L88
+	.align 16
+.L93:
+	pushl %esi
+	movl MI_CG+428,%eax
+	call *%eax
+	movl -20(%ebp),%eax
+	addl $4,%esp
+	testl %eax,%eax
+	jge .L94
+	pushl $4721
+	call _m3_fault
+	.align 16
+.L94:
+	pushl %eax
+	pushl %ebx
+.L95:
+	xorl %eax,%eax
+	movb -4(%ebp),%al
+	pushl %eax
+	movl MI_CG+400,%eax
+	call *%eax
+.L88:
+	leal -32(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe17:
+	.size	 SubrangeType__GenInit,.Lfe17-SubrangeType__GenInit
+	.align 16
+	.type	 SubrangeType__GenMap,@function
+SubrangeType__GenMap:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $8,%esp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 16(%ebp),%ebx
+.L97:
+	movl $5,-4(%ebp)
+	movl RTThread__handlerStack,%eax
+	movl %eax,-8(%ebp)
+	leal -8(%ebp),%ecx
+	movl %ecx,RTThread__handlerStack
+	movl 12(%ebp),%edi
+	andl $7,%edi
+	cmpb $0,20(%ebp)
+	jne .L115
+	movl $MI_TInt+44,%esi
+	pushl %esi
+	movl 8(%ebp),%eax
+	addl $68,%eax
+	pushl %eax
+	movl MI_TInt+104,%eax
+	call *%eax
+	addl $8,%esp
+	testl %eax,%eax
+	jne .L99
+	pushl %esi
+	movl 8(%ebp),%eax
+	addl $76,%eax
+	pushl %eax
+	movl MI_TInt+104,%eax
+	call *%eax
+	addl $8,%esp
+	testl %eax,%eax
+	je .L100
+.L99:
+	testl %edi,%edi
+	je .L101
+	movb $10,%dl
+	jmp .L107
+	.align 16
+.L101:
+	cmpl $8,%ebx
+	jne .L103
+	movb $12,%dl
+	jmp .L107
+	.align 16
+.L103:
+	cmpl $16,%ebx
+	jne .L104
+	movb $13,%dl
+	jmp .L107
+	.align 16
+.L104:
+	cmpl $32,%ebx
+	jne .L105
+	movb $14,%dl
+	jmp .L107
+	.align 16
+.L105:
+	movb $10,%dl
+	cmpl $64,%ebx
+	jne .L107
+	movb $15,%dl
+	jmp .L107
+	.align 16
+.L100:
+	testl %edi,%edi
+	je .L108
+	movb $11,%dl
+	jmp .L107
+	.align 16
+.L108:
+	cmpl $8,%ebx
+	jne .L110
+	movb $16,%dl
+	jmp .L107
+	.align 16
+.L110:
+	cmpl $16,%ebx
+	jne .L111
+	movb $17,%dl
+	jmp .L107
+	.align 16
+.L111:
+	cmpl $32,%ebx
+	jne .L112
+	movb $18,%dl
+	jmp .L107
+	.align 16
+.L112:
+	movb $11,%dl
+	cmpl $64,%ebx
+	jne .L107
+	movb $19,%dl
+.L107:
+	movl %ebx,%eax
+	sall $8,%eax
+	addl %edi,%eax
+	pushl %eax
+	xorl %eax,%eax
+	movb %dl,%al
+	pushl %eax
+	movl 12(%ebp),%ecx
+	pushl %ecx
+	movl MI_TipeMap+52,%eax
+	call *%eax
+.L114:
+	movl -8(%ebp),%eax
+.L115:
+	movl %eax,RTThread__handlerStack
+	leal -20(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe18:
+	.size	 SubrangeType__GenMap,.Lfe18-SubrangeType__GenMap
+	.align 16
+	.type	 SubrangeType__GenDesc,@function
+SubrangeType__GenDesc:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %ebx
+	movl 8(%ebp),%ebx
+	pushl $0
+	movl MI_Card+44,%eax
+	pushl %eax
+	pushl %ebx
+	movl MI_Type+116,%eax
+	call *%eax
+	addl $12,%esp
+	testl %eax,%eax
+	je .L117
+	pushl %ebx
+	pushl $3
+	movl MI_TipeDesc+52,%eax
+	call *%eax
+	jmp .L116
+	.align 16
+.L117:
+	pushl %ebx
+	pushl $19
+	movl MI_TipeDesc+52,%eax
+	call *%eax
+	addl $8,%esp
+	testl %eax,%eax
+	je .L116
+	leal 68(%ebx),%eax
+	pushl %eax
+	movl MI_TipeDesc+64,%eax
+	call *%eax
+	leal 76(%ebx),%eax
+	pushl %eax
+	movl MI_TipeDesc+64,%eax
+	call *%eax
+.L116:
+	movl -4(%ebp),%ebx
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe19:
+	.size	 SubrangeType__GenDesc,.Lfe19-SubrangeType__GenDesc
+	.align 16
+	.type	 SubrangeType__FPrinter,@function
+SubrangeType__FPrinter:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%ebx
+	pushl $0
+	movl MI_Card+44,%eax
+	pushl %eax
+	pushl %ebx
+	movl MI_Type+116,%eax
+	call *%eax
+	movl %eax,%esi
+	addl $12,%esp
+	testl %esi,%esi
+	je .L121
+	movl 12(%ebp),%eax
+	movl $MM_SubrangeType+524,(%eax)
+	movl 12(%ebp),%eax
+	movl $0,8(%eax)
+	jmp .L120
+	.align 16
+.L121:
+	pushl $MM_SubrangeType+548
+	movl 12(%ebp),%eax
+	movl 4(%eax),%eax
+	pushl %eax
+	movl MI_M3Buf+52,%eax
+	call *%eax
+	leal 68(%ebx),%eax
+	pushl %eax
+	movl 12(%ebp),%eax
+	movl 4(%eax),%eax
+	pushl %eax
+	movl MI_M3Buf+60,%eax
+	call *%eax
+	pushl $32
+	movl 12(%ebp),%eax
+	movl 4(%eax),%eax
+	pushl %eax
+	movl MI_M3Buf+48,%eax
+	call *%eax
+	leal 76(%ebx),%eax
+	pushl %eax
+	movl 12(%ebp),%eax
+	movl 4(%eax),%eax
+	pushl %eax
+	movl MI_M3Buf+60,%eax
+	call *%eax
+	movl 56(%ebx),%eax
+	addl $32,%esp
+	cmpl %eax,MI_Int+44
+	je .L123
+	pushl %eax
+	movl MI_Type+80,%eax
+	call *%eax
+	cmpl %eax,MI_Int+44
+	jne .L124
+.L123:
+	movl 12(%ebp),%eax
+	movl %esi,8(%eax)
+	jmp .L120
+	.align 16
+.L124:
+	movl 12(%ebp),%edx
+	movl $1,8(%edx)
+	movl 56(%ebx),%eax
+	movl %eax,12(%edx)
+.L120:
+	leal -8(%ebp),%esp
+	popl %ebx
+	popl %esi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe20:
+	.size	 SubrangeType__FPrinter,.Lfe20-SubrangeType__FPrinter
+	.align 16
+	.type	 M_SubrangeType_t7b343f7b_LINK,@function
+M_SubrangeType_t7b343f7b_LINK:
+	pushl %ebp
+	movl %esp,%ebp
+	movl MM_SubrangeType+236,%eax
+	movl %ebp,%esp
+	movl 52(%eax),%edx
+	movl MM_SubrangeType+160,%eax
+	movl %eax,4(%edx)
+	movl MM_SubrangeType+164,%eax
+	movl %eax,8(%edx)
+	movl MM_SubrangeType+172,%eax
+	movl %eax,12(%edx)
+	movl MM_SubrangeType+176,%eax
+	movl %eax,16(%edx)
+	movl MM_SubrangeType+168,%eax
+	movl %eax,20(%edx)
+	movl MM_SubrangeType+200,%eax
+	movl %eax,24(%edx)
+	movl MM_SubrangeType+204,%eax
+	movl %eax,28(%edx)
+	movl MM_SubrangeType+208,%eax
+	movl %eax,32(%edx)
+	movl MM_SubrangeType+212,%eax
+	movl %eax,36(%edx)
+	movl MM_SubrangeType+216,%eax
+	movl %eax,40(%edx)
+	popl %ebp
+	ret
+.Lfe21:
+	.size	 M_SubrangeType_t7b343f7b_LINK,.Lfe21-M_SubrangeType_t7b343f7b_LINK
+	.align 16
+	.type	 _m3_fault,@function
+_m3_fault:
+	pushl %ebp
+	movl %esp,%ebp
+	movl 8(%ebp),%eax
+	pushl %eax
+	pushl $MM_SubrangeType
+	movl MI_RTHooks+108,%eax
+	call *%eax
+	.align 16
+.Lfe22:
+	.size	 _m3_fault,.Lfe22-_m3_fault
+.globl MM_SubrangeType
+.data
+	.align 4
+	.type	 MM_SubrangeType,@object
+	.size	 MM_SubrangeType,1208
+MM_SubrangeType:
+	.long MM_SubrangeType+976
+	.long MM_SubrangeType+44
+	.long MM_SubrangeType+236
+	.zero	8
+	.long MM_SubrangeType+732
+	.zero	28
+	.long 2067021691
+.byte 250
+.byte 116
+.byte 105
+.byte 105
+.byte 129
+.byte 75
+.byte 93
+.byte 18
+	.long 1
+	.zero	4
+	.long 32
+	.long 4
+	.zero	4
+	.long 0
+	.zero	12
+	.long MM_SubrangeType+1125
+	.long MM_SubrangeType+1140
+	.long MM_SubrangeType+1144
+	.zero	4
+	.long M_SubrangeType_t7b343f7b_LINK
+	.long -2121051098
+	.zero	12
+	.long MM_SubrangeType+1175
+	.long MM_SubrangeType+1190
+	.zero	4
+	.long SubrangeType__Reduce
+	.long SubrangeType__SetRep
+	.long SubrangeType__Seal
+	.long SubrangeType__Check
+	.long SubrangeType__CheckAlign
+	.long SubrangeType__Compiler
+	.long SubrangeType__EqualChk
+	.long SubrangeType__Subtyper
+	.long SubrangeType__MinSize
+	.long SubrangeType__BitWidth
+	.long L_1
+	.zero	4
+	.long SubrangeType__BuildPowerTables
+	.long SubrangeType__InitCoster
+	.long SubrangeType__GenInit
+	.long SubrangeType__GenMap
+	.long SubrangeType__GenDesc
+	.long SubrangeType__FPrinter
+	.long SubrangeType__Parse
+	.long SubrangeType__New
+	.long SubrangeType__Split
+	.long SubrangeType__Base
+	.zero	4
+	.long 2067021691
+	.long 2
+	.long MM_SubrangeType+256
+	.long 37
+	.ascii	"subrange lower bound is not constant"
+	.zero	4
+	.long 2
+	.long MM_SubrangeType+308
+	.long 45
+	.ascii	"subrange lower bound is not an ordinal value"
+	.zero	4
+	.long 2
+	.long MM_SubrangeType+368
+	.long 37
+	.ascii	"subrange upper bound is not constant"
+	.zero	4
+	.long 2
+	.long MM_SubrangeType+420
+	.long 45
+	.ascii	"subrange upper bound is not an ordinal value"
+	.zero	4
+	.long 2
+	.long MM_SubrangeType+480
+	.long 40
+	.ascii	"subrange endpoints must be of same type"
+	.zero	1
+	.long 2
+	.long MM_SubrangeType+532
+	.long 10
+	.ascii	"$cardinal"
+	.zero	3
+	.long 2
+	.long MM_SubrangeType+556
+	.long 10
+	.ascii	"SUBRANGE "
+	.zero	3
+	.ascii	"FPrinter"
+	.zero	1
+	.ascii	"GenDesc"
+	.zero	1
+	.ascii	"GenMap"
+	.zero	1
+	.ascii	"GenInit"
+	.zero	1
+	.ascii	"InitCoster"
+	.zero	1
+	.ascii	"BuildPowerTables"
+	.zero	1
+	.ascii	"BitWidth"
+	.zero	1
+	.ascii	"MinSize"
+	.zero	1
+	.ascii	"Subtyper"
+	.zero	1
+	.ascii	"EqualChk"
+	.zero	1
+	.ascii	"Base"
+	.zero	1
+	.ascii	"Compiler"
+	.zero	1
+	.ascii	"CheckAlign"
+	.zero	1
+	.ascii	"Check"
+	.zero	1
+	.ascii	"Seal"
+	.zero	1
+	.ascii	"SetRep"
+	.zero	1
+	.ascii	"Split"
+	.zero	1
+	.ascii	"Reduce"
+	.zero	1
+	.ascii	"New"
+	.zero	1
+	.ascii	"Parse"
+	.zero	4
+	.long SubrangeType__FPrinter
+	.long MM_SubrangeType+568
+	.zero	4
+	.long SubrangeType__GenDesc
+	.long MM_SubrangeType+577
+	.zero	4
+	.long SubrangeType__GenMap
+	.long MM_SubrangeType+585
+	.zero	4
+	.long SubrangeType__GenInit
+	.long MM_SubrangeType+592
+	.zero	4
+	.long SubrangeType__InitCoster
+	.long MM_SubrangeType+600
+	.zero	4
+	.long SubrangeType__BuildPowerTables
+	.long MM_SubrangeType+611
+	.zero	4
+	.long SubrangeType__BitWidth
+	.long MM_SubrangeType+628
+	.zero	4
+	.long SubrangeType__MinSize
+	.long MM_SubrangeType+637
+	.zero	4
+	.long SubrangeType__Subtyper
+	.long MM_SubrangeType+645
+	.zero	4
+	.long SubrangeType__EqualChk
+	.long MM_SubrangeType+654
+	.zero	4
+	.long SubrangeType__Base
+	.long MM_SubrangeType+663
+	.long MI_SubrangeType+56
+	.long SubrangeType__Compiler
+	.long MM_SubrangeType+668
+	.zero	4
+	.long SubrangeType__CheckAlign
+	.long MM_SubrangeType+677
+	.zero	4
+	.long SubrangeType__Check
+	.long MM_SubrangeType+688
+	.zero	4
+	.long SubrangeType__Seal
+	.long MM_SubrangeType+694
+	.zero	4
+	.long SubrangeType__SetRep
+	.long MM_SubrangeType+699
+	.zero	4
+	.long SubrangeType__Split
+	.long MM_SubrangeType+706
+	.long MI_SubrangeType+52
+	.long SubrangeType__Reduce
+	.long MM_SubrangeType+712
+	.zero	4
+	.long SubrangeType__New
+	.long MM_SubrangeType+719
+	.long MI_SubrangeType+48
+	.long SubrangeType__Parse
+	.long MM_SubrangeType+723
+	.long MI_SubrangeType+44
+	.zero	4
+	.ascii	"/home/ftp/tmp/pm3/tmp/pm3-1.1.15/language/modula3/m3compiler"
+	.ascii	"/m3bootstrap/LINUXLIBC6/pm3-LINUXLIBC6/boot-LINUXLIBC6/m3fro"
+	.ascii	"nt/src/types/SubrangeType.m3"
+	.zero	1
+.byte 4
+.byte 4
+.byte 4
+.byte 1
+.byte 17
+.byte 26
+.byte 4
+.byte 1
+.byte 17
+.byte 26
+.byte 4
+.byte 16
+.byte 16
+.byte 16
+.byte 0
+.byte 4
+.byte 4
+.byte 4
+.byte 0
+.byte 12
+.byte 10
+.byte 8
+.byte 16
+.byte 38
+.byte 84
+.byte 147
+.byte 129
+.byte 16
+.byte 11
+.byte 185
+.byte 21
+.byte 235
+.byte 24
+.byte 15
+.byte 1
+.byte 1
+.byte 4
+.byte 12
+.byte 16
+.byte 19
+.byte 0
+.byte 66
+.byte 255
+.byte 255
+.byte 26
+.byte 19
+.byte 0
+.byte 7
+.byte 2
+.byte 32
+	.ascii	"SubrangeType.T"
+	.zero	1
+	.ascii	"SubrangeType.P"
+	.zero	4
+	.local	L_1
+	.comm	L_1,520,4
+	.ident	"GCC: (GNU) cygnus-2.7.2-960712"

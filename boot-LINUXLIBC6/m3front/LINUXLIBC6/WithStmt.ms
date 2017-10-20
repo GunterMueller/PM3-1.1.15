@@ -1,0 +1,595 @@
+	.file	"WithStmt.mc"
+	.version	"01.01"
+/ SRC Modula-3 version cygnus-2.7.2-960712 (i486--linuxelf) compiled by GNU C version egcs-2.91.66 19990314/Linux (egcs-1.1.2 release).
+/ options passed:  -fno-strength-reduce -O2
+/ options enabled:  -fdefer-pop -fcse-follow-jumps -fcse-skip-blocks
+/ -fexpensive-optimizations -fthread-jumps -fpeephole -fforce-mem
+/ -ffunction-cse -finline -fkeep-static-consts -fcaller-saves
+/ -fpcc-struct-return -frerun-cse-after-loop -fschedule-insns2 -fcommon
+/ -fverbose-asm -fgnu-linker -m80387 -mhard-float -mno-soft-float -mieee-fp
+/ -mfp-ret-in-387 -mschedule-prologue -mcpu=i486 -march=i486
+
+gcc2_compiled.:
+.text
+	.align 16
+	.type	 WithStmt__Parse,@function
+WithStmt__Parse:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl $103
+	movl MI_Scanner+108,%eax
+	call *%eax
+	call WithStmt__ParseTail
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe1:
+	.size	 WithStmt__Parse,.Lfe1-WithStmt__Parse
+	.align 16
+	.type	 WithStmt__ParseTail,@function
+WithStmt__ParseTail:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl MM_WithStmt+168,%eax
+	pushl %eax
+	movl MI_RTHooks+80,%eax
+	call *%eax
+	movl %eax,%ebx
+	pushl %ebx
+	movl MI_StmtRep+148,%eax
+	call *%eax
+	movl MI_Scanner+112,%eax
+	call *%eax
+	movl %eax,%esi
+	movl MI_Variable+112,%eax
+	call *%eax
+	pushl $0
+	movl %eax,%edi
+	pushl %esi
+	movl MI_Variable+48,%eax
+	call *%eax
+	movl %eax,12(%ebx)
+	pushl $21
+	movl MI_Scanner+108,%eax
+	call *%eax
+	movl MI_Expr+148,%eax
+	call *%eax
+	movl %eax,16(%ebx)
+	movl 12(%ebx),%eax
+	pushl %eax
+	movl MI_Scope+56,%eax
+	call *%eax
+	movl %eax,20(%ebx)
+	pushl %edi
+	movl 12(%ebx),%eax
+	pushl %eax
+	movl MI_Variable+116,%eax
+	call *%eax
+	addl $32,%esp
+	cmpb $15,MI_Scanner+44
+	jne .L3
+	movl MI_Scanner+104,%eax
+	call *%eax
+	call WithStmt__ParseTail
+	movl %eax,24(%ebx)
+	jmp .L4
+	.align 16
+.L3:
+	pushl $55
+	movl MI_Scanner+108,%eax
+	call *%eax
+	movl MI_Stmt+44,%eax
+	call *%eax
+	movl %eax,24(%ebx)
+	pushl $58
+	movl MI_Scanner+108,%eax
+	call *%eax
+	addl $8,%esp
+.L4:
+	movl MI_Scope+48,%eax
+	call *%eax
+	leal -12(%ebp),%esp
+	movl %ebx,%eax
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe2:
+	.size	 WithStmt__ParseTail,.Lfe2-WithStmt__ParseTail
+	.align 16
+	.type	 WithStmt__Check,@function
+WithStmt__Check:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%esi
+	movl 12(%ebp),%eax
+	pushl %eax
+	movl 16(%esi),%eax
+	pushl %eax
+	movl MI_Expr+156,%eax
+	call *%eax
+	movl 16(%esi),%eax
+	pushl %eax
+	movl MI_Expr+152,%eax
+	call *%eax
+	movl %eax,%ebx
+	pushl %ebx
+	movl MI_OpenArrayType+48,%eax
+	movl %ebx,%edi
+	call *%eax
+	addl $16,%esp
+	testl %eax,%eax
+	je .L6
+	movb $1,28(%esi)
+	jmp .L10
+	.align 16
+.L6:
+	movl 16(%esi),%eax
+	pushl %eax
+	movl MI_Expr+168,%eax
+	call *%eax
+	addl $4,%esp
+	testl %eax,%eax
+	je .L8
+	movb $0,28(%esi)
+	movl 16(%esi),%eax
+	pushl %eax
+	movl MI_Expr+184,%eax
+	jmp .L11
+	.align 16
+.L8:
+	pushl %ebx
+	movl MI_Type+88,%eax
+	call *%eax
+	addl $4,%esp
+	testl %eax,%eax
+	je .L9
+	movb $2,28(%esi)
+.L10:
+	movl 12(%esi),%eax
+	pushl %eax
+	movl MI_Variable+72,%eax
+.L11:
+	call *%eax
+	addl $4,%esp
+	jmp .L7
+	.align 16
+.L9:
+	movb $3,28(%esi)
+.L7:
+	movl 16(%esi),%eax
+	pushl %eax
+	movl MI_Expr+172,%eax
+	call *%eax
+	pushl $0
+	testl %eax,%eax
+	sete %al
+	pushl $1
+	andl $255,%eax
+	pushl %eax
+	cmpb $0,28(%esi)
+	sete %al
+	andl $255,%eax
+	pushl %eax
+	pushl %edi
+	movl 12(%esi),%eax
+	pushl %eax
+	movl MI_Variable+56,%eax
+	call *%eax
+	movl 12(%ebp),%eax
+	pushl %eax
+	movl 20(%esi),%eax
+	pushl %eax
+	movl MI_Scope+92,%eax
+	call *%eax
+	addl $36,%esp
+	movl 20(%esi),%eax
+	pushl %eax
+	movl MI_Scope+60,%eax
+	call *%eax
+	movl %eax,%ebx
+	movl 12(%ebp),%eax
+	pushl %eax
+	movl 24(%esi),%eax
+	pushl %eax
+	movl MI_Stmt+48,%eax
+	call *%eax
+	pushl %ebx
+	movl MI_Scope+64,%eax
+	call *%eax
+	movl 20(%esi),%eax
+	pushl %eax
+	movl MI_Scope+96,%eax
+	call *%eax
+	leal -12(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe3:
+	.size	 WithStmt__Check,.Lfe3-WithStmt__Check
+	.align 16
+	.type	 WithStmt__Compile,@function
+WithStmt__Compile:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $24,%esp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%edi
+	movl $0,-24(%ebp)
+	movl -24(%ebp),%ecx
+	movl %ecx,-20(%ebp)
+	movl %ecx,-16(%ebp)
+	movl %ecx,-12(%ebp)
+	movl %ecx,-8(%ebp)
+	movl %ecx,-4(%ebp)
+	movl -24(%ebp),%esi
+	movl 12(%edi),%eax
+	pushl %eax
+	movl MI_Value+48,%eax
+	call *%eax
+	movl %eax,%edx
+	leal -20(%ebp),%eax
+	pushl %eax
+	pushl %edx
+	movl MI_Type+68,%eax
+	call *%eax
+	movl %eax,%edx
+	movl %edx,%ebx
+	xorl %eax,%eax
+	movb 28(%edi),%al
+	addl $12,%esp
+	testl %eax,%eax
+	jle .L13
+	cmpl $1,%eax
+	jle .L14
+	cmpl $2,%eax
+	jle .L15
+	cmpl $3,%eax
+	jle .L14
+.L13:
+	movl 16(%edi),%eax
+	pushl %eax
+	movl MI_Expr+208,%eax
+	call *%eax
+	movl 16(%edi),%eax
+	pushl %eax
+	movl MI_Expr+216,%eax
+	jmp .L26
+	.align 16
+.L15:
+	movl 12(%edi),%eax
+	pushl %eax
+	movl MI_Value+48,%eax
+	call *%eax
+	movl %eax,%edx
+	pushl $1
+	movl 16(%edi),%eax
+	pushl %eax
+	pushl %edx
+	movl MI_AssignStmt+52,%eax
+	call *%eax
+	addl $16,%esp
+	jmp .L16
+	.align 16
+.L14:
+	movl 16(%edi),%eax
+	pushl %eax
+	movl MI_Expr+200,%eax
+	call *%eax
+	movl 16(%edi),%eax
+	pushl %eax
+	movl MI_Expr+204,%eax
+.L26:
+	call *%eax
+	movl MI_CG+220,%eax
+	call *%eax
+	movl %eax,%esi
+	addl $8,%esp
+.L16:
+	movl 20(%edi),%eax
+	pushl %eax
+	movl MI_Scope+60,%eax
+	call *%eax
+	movl %eax,-24(%ebp)
+	movl 20(%edi),%eax
+	pushl %eax
+	movl MI_Scope+100,%eax
+	call *%eax
+	xorl %eax,%eax
+	movb 28(%edi),%al
+	addl $8,%esp
+	testl %eax,%eax
+	jle .L18
+	cmpl $1,%eax
+	jle .L19
+	cmpl $2,%eax
+	jle .L20
+	cmpl $3,%eax
+	jle .L21
+.L18:
+	pushl %esi
+	movl MI_CG+228,%eax
+	call *%eax
+	movl 12(%edi),%eax
+	pushl %eax
+	movl MI_Variable+92,%eax
+	call *%eax
+	jmp .L27
+	.align 16
+.L19:
+	pushl %ebx
+	movl MI_OpenArrayType+64,%eax
+	call *%eax
+	movl %eax,%ebx
+	imull MI_Target+104,%ebx
+	addl MI_M3RT+296,%ebx
+	movl 12(%edi),%eax
+	pushl %eax
+	movl MI_Variable+88,%eax
+	call *%eax
+	pushl %esi
+	movl MI_CG+228,%eax
+	call *%eax
+	addl $12,%esp
+	testl %ebx,%ebx
+	jge .L23
+	pushl $2145
+	call _m3_fault
+	.align 16
+.L23:
+	pushl $0
+	pushl %ebx
+	movl MI_CG+648,%eax
+	call *%eax
+.L27:
+	pushl %esi
+	movl MI_CG+232,%eax
+	call *%eax
+	addl $12,%esp
+	jmp .L22
+	.align 16
+.L20:
+	movl 12(%edi),%eax
+	pushl %eax
+	movl MI_Variable+88,%eax
+	call *%eax
+	movl 12(%edi),%eax
+	pushl %eax
+	movl MI_Value+48,%eax
+	call *%eax
+	movl %eax,%edx
+	movl 16(%edi),%eax
+	pushl %eax
+	pushl %edx
+	movl MI_AssignStmt+56,%eax
+	call *%eax
+	jmp .L28
+	.align 16
+.L21:
+	movl 12(%edi),%eax
+	pushl %eax
+	movl MI_Variable+88,%eax
+	call *%eax
+	pushl %esi
+	movl MI_CG+228,%eax
+	call *%eax
+	movl -20(%ebp),%eax
+	addl $8,%esp
+	testl %eax,%eax
+	jge .L24
+	pushl $2273
+	call _m3_fault
+	.align 16
+.L24:
+	pushl %eax
+	pushl $0
+	xorl %eax,%eax
+	movb -4(%ebp),%al
+	pushl %eax
+	movl MI_CG+400,%eax
+	call *%eax
+	pushl %esi
+	movl MI_CG+232,%eax
+	call *%eax
+.L28:
+	addl $16,%esp
+.L22:
+	movl 12(%edi),%eax
+	pushl %eax
+	movl MI_Variable+124,%eax
+	call *%eax
+	movl 24(%edi),%eax
+	pushl %eax
+	movl MI_Stmt+52,%eax
+	call *%eax
+	movl %eax,%ebx
+	movl 20(%edi),%eax
+	pushl %eax
+	movl MI_Scope+108,%eax
+	call *%eax
+	movl -24(%ebp),%ecx
+	pushl %ecx
+	movl MI_Scope+64,%eax
+	call *%eax
+	leal -36(%ebp),%esp
+	movl %ebx,%eax
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe4:
+	.size	 WithStmt__Compile,.Lfe4-WithStmt__Compile
+	.align 16
+	.type	 WithStmt__GetOutcome,@function
+WithStmt__GetOutcome:
+	pushl %ebp
+	movl %esp,%ebp
+	movl 8(%ebp),%eax
+	movl 24(%eax),%eax
+	pushl %eax
+	movl MI_Stmt+56,%eax
+	call *%eax
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe5:
+	.size	 WithStmt__GetOutcome,.Lfe5-WithStmt__GetOutcome
+	.align 16
+	.type	 M_WithStmt_t5fbc9c3f_LINK,@function
+M_WithStmt_t5fbc9c3f_LINK:
+	pushl %ebp
+	movl %esp,%ebp
+	movl MM_WithStmt+168,%eax
+	movl %ebp,%esp
+	movl 52(%eax),%edx
+	movl MM_WithStmt+152,%eax
+	movl %eax,4(%edx)
+	movl MM_WithStmt+156,%eax
+	movl %eax,8(%edx)
+	movl MM_WithStmt+160,%eax
+	movl %eax,12(%edx)
+	popl %ebp
+	ret
+.Lfe6:
+	.size	 M_WithStmt_t5fbc9c3f_LINK,.Lfe6-M_WithStmt_t5fbc9c3f_LINK
+	.align 16
+	.type	 _m3_fault,@function
+_m3_fault:
+	pushl %ebp
+	movl %esp,%ebp
+	movl 8(%ebp),%eax
+	pushl %eax
+	pushl $MM_WithStmt
+	movl MI_RTHooks+108,%eax
+	call *%eax
+	.align 16
+.Lfe7:
+	.size	 _m3_fault,.Lfe7-_m3_fault
+.globl MM_WithStmt
+.data
+	.align 4
+	.type	 MM_WithStmt,@object
+	.size	 MM_WithStmt,476
+MM_WithStmt:
+	.long MM_WithStmt+284
+	.long MM_WithStmt+44
+	.long MM_WithStmt+168
+	.zero	8
+	.long MM_WithStmt+220
+	.zero	28
+	.long 1606196287
+.byte 176
+.byte 167
+.byte 46
+.byte 71
+.byte 143
+.byte 59
+.byte 146
+.byte 24
+	.long 1
+	.zero	4
+	.long 20
+	.long 4
+	.zero	4
+	.long 0
+	.zero	12
+	.long MM_WithStmt+429
+	.long MM_WithStmt+435
+	.long MM_WithStmt+440
+	.zero	4
+	.long M_WithStmt_t5fbc9c3f_LINK
+	.long 1595657850
+	.zero	16
+	.long MM_WithStmt+465
+	.zero	4
+	.long WithStmt__ParseTail
+	.long WithStmt__Check
+	.long WithStmt__Compile
+	.long WithStmt__GetOutcome
+	.long WithStmt__Parse
+	.zero	4
+	.long 1606196287
+	.ascii	"GetOutcome"
+	.zero	1
+	.ascii	"Compile"
+	.zero	1
+	.ascii	"Check"
+	.zero	1
+	.ascii	"ParseTail"
+	.zero	1
+	.ascii	"Parse"
+	.zero	4
+	.long WithStmt__GetOutcome
+	.long MM_WithStmt+176
+	.zero	4
+	.long WithStmt__Compile
+	.long MM_WithStmt+187
+	.zero	4
+	.long WithStmt__Check
+	.long MM_WithStmt+195
+	.zero	4
+	.long WithStmt__ParseTail
+	.long MM_WithStmt+201
+	.zero	4
+	.long WithStmt__Parse
+	.long MM_WithStmt+211
+	.long MI_WithStmt+44
+	.zero	4
+	.ascii	"/home/ftp/tmp/pm3/tmp/pm3-1.1.15/language/modula3/m3compiler"
+	.ascii	"/m3bootstrap/LINUXLIBC6/pm3-LINUXLIBC6/boot-LINUXLIBC6/m3fro"
+	.ascii	"nt/src/stmts/WithStmt.m3"
+	.zero	1
+.byte 4
+.byte 4
+.byte 4
+.byte 4
+.byte 16
+.byte 0
+.byte 4
+.byte 4
+.byte 4
+.byte 4
+.byte 0
+.byte 6
+.byte 10
+.byte 5
+.byte 16
+.byte 25
+.byte 159
+.byte 238
+.byte 8
+.byte 16
+.byte 11
+.byte 185
+.byte 21
+.byte 235
+.byte 16
+.byte 225
+.byte 46
+.byte 241
+.byte 204
+.byte 16
+.byte 122
+.byte 206
+.byte 27
+.byte 95
+.byte 5
+.byte 4
+	.ascii	"WithStmt.P"
+	.zero	1
+	.ident	"GCC: (GNU) cygnus-2.7.2-960712"

@@ -1,0 +1,147 @@
+	.file	"Arg.ic"
+	.version	"01.01"
+/ SRC Modula-3 version cygnus-2.7.2-960712 (i486--linuxelf) compiled by GNU C version egcs-2.91.66 19990314/Linux (egcs-1.1.2 release).
+/ options passed:  -fno-strength-reduce -O2
+/ options enabled:  -fdefer-pop -fcse-follow-jumps -fcse-skip-blocks
+/ -fexpensive-optimizations -fthread-jumps -fpeephole -fforce-mem
+/ -ffunction-cse -finline -fkeep-static-consts -fcaller-saves
+/ -fpcc-struct-return -frerun-cse-after-loop -fschedule-insns2 -fcommon
+/ -fverbose-asm -fgnu-linker -m80387 -mhard-float -mno-soft-float -mieee-fp
+/ -mfp-ret-in-387 -mschedule-prologue -mcpu=i486 -march=i486
+
+gcc2_compiled.:
+.globl MI_Arg
+.data
+	.align 4
+	.type	 MI_Arg,@object
+	.size	 MI_Arg,584
+MI_Arg:
+	.long MI_Arg+380
+	.long MI_Arg+44
+	.zero	44
+	.long -751886824
+.byte 35
+.byte 148
+.byte 219
+.byte 195
+.byte 59
+.byte 138
+.byte 244
+.byte 16
+	.long 1
+	.zero	4
+	.long 8
+	.long 4
+	.zero	20
+	.long MI_Arg+559
+	.long MI_Arg+562
+	.long MI_Arg+565
+	.zero	28
+	.long MI_Arg+578
+	.long MI_Arg+148
+	.zero	8
+	.long -1678288446
+.byte 110
+.byte 141
+.byte 5
+.byte 153
+.byte 172
+.byte 212
+.byte 242
+.byte 2
+	.long 1
+	.zero	4
+	.long 12
+	.long 4
+	.zero	20
+	.long MI_Arg+533
+	.long MI_Arg+537
+	.long MI_Arg+540
+	.zero	28
+	.long MI_Arg+550
+	.long MI_Arg+272
+	.zero	28
+	.long -244065135
+.byte 124
+.byte 141
+.byte 14
+.byte 238
+.byte 237
+.byte 81
+.byte 125
+.byte 31
+	.long 1
+	.zero	4
+	.long 8
+	.long 4
+	.zero	8
+	.long 1
+	.long 4
+	.zero	4
+	.long MI_Arg+515
+	.long MI_Arg+520
+	.long MI_Arg+525
+	.zero	40
+	.ascii	"/home/ftp/tmp/pm3/tmp/pm3-1.1.15/language/modula3/m3compiler"
+	.ascii	"/m3bootstrap/LINUXLIBC6/pm3-LINUXLIBC6/boot-LINUXLIBC6/m3dri"
+	.ascii	"ver/src/Arg.i3"
+	.zero	1
+.byte 24
+.byte 1
+.byte 4
+.byte 0
+.byte 0
+.byte 24
+.byte 1
+.byte 4
+.byte 0
+.byte 0
+.byte 2
+.byte 11
+.byte 1
+.byte 16
+.byte 116
+.byte 101
+.byte 248
+.byte 80
+.byte 4
+.byte 4
+.byte 14
+.byte 0
+.byte 4
+.byte 4
+.byte 0
+.byte 4
+.byte 15
+.byte 3
+.byte 16
+.byte 24
+.byte 30
+.byte 47
+.byte 211
+.byte 23
+.byte 7
+	.ascii	"Arg.List"
+	.zero	1
+.byte 4
+.byte 4
+.byte 0
+.byte 4
+.byte 4
+.byte 0
+.byte 3
+.byte 15
+.byte 2
+.byte 16
+.byte 116
+.byte 101
+.byte 248
+.byte 80
+.byte 16
+.byte 24
+.byte 30
+.byte 47
+.byte 211
+	.ascii	"Arg.T"
+	.zero	1
+	.ident	"GCC: (GNU) cygnus-2.7.2-960712"

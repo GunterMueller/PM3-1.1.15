@@ -1,0 +1,2469 @@
+	.file	"Target.mc"
+	.version	"01.01"
+/ SRC Modula-3 version cygnus-2.7.2-960712 (i486--linuxelf) compiled by GNU C version egcs-2.91.66 19990314/Linux (egcs-1.1.2 release).
+/ options passed:  -fno-strength-reduce -O2
+/ options enabled:  -fdefer-pop -fcse-follow-jumps -fcse-skip-blocks
+/ -fexpensive-optimizations -fthread-jumps -fpeephole -fforce-mem
+/ -ffunction-cse -finline -fkeep-static-consts -fcaller-saves
+/ -fpcc-struct-return -frerun-cse-after-loop -fschedule-insns2 -fcommon
+/ -fverbose-asm -fgnu-linker -m80387 -mhard-float -mno-soft-float -mieee-fp
+/ -mfp-ret-in-387 -mschedule-prologue -mcpu=i486 -march=i486
+
+gcc2_compiled.:
+.section	.rodata
+	.align 4
+	.type	 L_2.0,@object
+	.size	 L_2.0,128
+L_2.0:
+	.long .L9
+	.long .L10
+	.long .L11
+	.long .L12
+	.long .L13
+	.long .L14
+	.long .L15
+	.long .L16
+	.long .L16
+	.long .L16
+	.long .L16
+	.long .L17
+	.long .L18
+	.long .L19
+	.long .L20
+	.long .L21
+	.long .L22
+	.long .L23
+	.long .L24
+	.long .L25
+	.long .L26
+	.long .L26
+	.long .L27
+	.long .L28
+	.long .L29
+	.long .L29
+	.long .L30
+	.long .L31
+	.long .L32
+	.long .L10
+	.long .L33
+	.long .L34
+.text
+	.align 16
+	.type	 Target__Init,@function
+Target__Init:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $28,%esp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%esi
+.L2:
+	movl $5,-4(%ebp)
+	movl RTThread__handlerStack,%eax
+	movl %eax,-8(%ebp)
+	leal -8(%ebp),%ebx
+	movl %ebx,RTThread__handlerStack
+	movb $0,-24(%ebp)
+	testl %esi,%esi
+	jne .L4
+	jmp .L128
+	.align 16
+.L5:
+	cmpl $31,-28(%ebp)
+	jne .L6
+	movl -8(%ebp),%eax
+.L128:
+	movl %eax,RTThread__handlerStack
+	xorl %eax,%eax
+	jmp .L1
+	.align 16
+.L6:
+	movl -28(%ebp),%eax
+	incl %eax
+	cmpl $31,%eax
+	jle .L7
+	pushl $769
+	call _m3_fault
+	.align 16
+.L7:
+	movb %al,-24(%ebp)
+.L4:
+	xorl %ebx,%ebx
+	movb -24(%ebp),%bl
+	movl $MM_Target+44,%edi
+	movl %ebx,-28(%ebp)
+	movl (%edi,%ebx,4),%eax
+	pushl %eax
+	pushl %esi
+	movl MI_Text+48,%eax
+	call *%eax
+	movl %eax,%edx
+	addl $8,%esp
+	testl %edx,%edx
+	je .L5
+	movl (%edi,%ebx,4),%eax
+	movl %eax,MI_Target+48
+	movb $0,MI_Target+56
+	movl $32,MI_Target+60
+	movl $32,MI_Target+64
+	movl MM_Target+968,%eax
+	movl %eax,MI_Target+76
+	movl MM_Target+972,%eax
+	movl %eax,MI_Target+80
+	movl MM_Target+976,%eax
+	movl %eax,MI_Target+84
+	movl MM_Target+980,%eax
+	movl %eax,MI_Target+88
+	movb $6,MI_Target+272
+	movl $8,MI_Target+276
+	movl $8,MI_Target+280
+	movl MM_Target+984,%eax
+	movl %eax,MI_Target+292
+	movl MM_Target+988,%eax
+	movl %eax,MI_Target+296
+	movl MM_Target+992,%eax
+	movl %eax,MI_Target+300
+	movl MM_Target+996,%eax
+	movl %eax,MI_Target+304
+	movb $7,MI_Target+308
+	movl $16,MI_Target+312
+	movl $16,MI_Target+316
+	movl MM_Target+1000,%eax
+	movl %eax,MI_Target+328
+	movl MM_Target+1004,%eax
+	movl %eax,MI_Target+332
+	movl MM_Target+1008,%eax
+	movl %eax,MI_Target+336
+	movl MM_Target+1012,%eax
+	movl %eax,MI_Target+340
+	movl $MI_Target+344,%edx
+	movb $2,MI_Target+344
+	movl $32,MI_Target+348
+	movl $32,MI_Target+352
+	movl MM_Target+1016,%eax
+	movl %eax,MI_Target+364
+	movl MM_Target+1020,%eax
+	movl %eax,MI_Target+368
+	movl MM_Target+1024,%eax
+	movl %eax,MI_Target+372
+	movl MM_Target+1028,%eax
+	movl $MI_Target+380,%edi
+	movl %edx,%esi
+	movl %eax,MI_Target+376
+	cld
+	movl $9,%ecx
+	rep
+	movsl
+	movl $MI_Target+92,%edi
+	movl %edx,%esi
+	cld
+	movl $9,%ecx
+	rep
+	movsl
+	movb $10,MI_Target+416
+	movl $8,MI_Target+420
+	movl $8,MI_Target+424
+	movl MM_Target+1032,%eax
+	movl %eax,MI_Target+436
+	movl MM_Target+1036,%eax
+	movl %eax,MI_Target+440
+	movl MM_Target+1040,%eax
+	movl %eax,MI_Target+444
+	movl MM_Target+1044,%eax
+	movl %eax,MI_Target+448
+	movb $11,MI_Target+452
+	movl $16,MI_Target+456
+	movl $16,MI_Target+460
+	movl MM_Target+1048,%eax
+	movl %eax,MI_Target+472
+	movl MM_Target+1052,%eax
+	movl %eax,MI_Target+476
+	movl MM_Target+1056,%eax
+	movl %eax,MI_Target+480
+	movl MM_Target+1060,%eax
+	movl %eax,MI_Target+484
+	movb $1,MI_Target+488
+	movl $32,MI_Target+492
+	movl $32,MI_Target+496
+	movl MM_Target+1064,%eax
+	movl %eax,MI_Target+508
+	movl MM_Target+1068,%eax
+	movl %eax,MI_Target+512
+	movl MM_Target+1072,%eax
+	movl %eax,MI_Target+516
+	movl MM_Target+1076,%eax
+	movl $MI_Target+524,%edi
+	movl $MI_Target+488,%esi
+	movl %eax,MI_Target+520
+	cld
+	movl $9,%ecx
+	rep
+	movsl
+	movl $MI_Target+596,%edi
+	movl $MI_Target+416,%esi
+	movl $MM_Target+1096,%edx
+	cld
+	movl $9,%ecx
+	rep
+	movsl
+	movb $15,MI_Target+560
+	movl $0,MI_Target+564
+	movl $8,MI_Target+568
+	movl MM_Target+1080,%eax
+	movl %eax,MI_Target+580
+	movl MM_Target+1084,%eax
+	movl %eax,MI_Target+584
+	movl MM_Target+1088,%eax
+	movl %eax,MI_Target+588
+	movl MM_Target+1092,%eax
+	movl %eax,MI_Target+592
+	movb $3,MI_Target+128
+	movb $0,MI_Target+129
+	movl $32,MI_Target+132
+	movl $32,MI_Target+136
+	movl $MI_Target+144,%ecx
+	movl MM_Target+1096,%eax
+	movl %eax,MI_Target+144
+	movl 4(%edx),%eax
+	movl %eax,4(%ecx)
+	movl 8(%edx),%eax
+	movl %eax,8(%ecx)
+	movl 12(%edx),%eax
+	movl %eax,12(%ecx)
+	movl $MI_Target+160,%ecx
+	movl $MM_Target+1112,%edx
+	movl MM_Target+1112,%eax
+	movl %eax,MI_Target+160
+	movl 4(%edx),%eax
+	movl %eax,4(%ecx)
+	movl 8(%edx),%eax
+	movl %eax,8(%ecx)
+	movl 12(%edx),%eax
+	movl %eax,12(%ecx)
+	movb $4,MI_Target+176
+	movb $1,MI_Target+177
+	movl $64,MI_Target+180
+	movl $64,MI_Target+184
+	movl $MI_Target+192,%ecx
+	movl $MM_Target+1128,%edx
+	movl MM_Target+1128,%eax
+	movl %eax,MI_Target+192
+	movl 4(%edx),%eax
+	movl %eax,4(%ecx)
+	movl 8(%edx),%eax
+	movl %eax,8(%ecx)
+	movl 12(%edx),%eax
+	movl %eax,12(%ecx)
+	movl $MI_Target+208,%ecx
+	movl $MM_Target+1144,%edx
+	movl MM_Target+1144,%eax
+	movl %eax,MI_Target+208
+	movl 4(%edx),%eax
+	movl %eax,4(%ecx)
+	movl 8(%edx),%eax
+	movl %eax,8(%ecx)
+	movl 12(%edx),%eax
+	movl %eax,12(%ecx)
+	movb $5,MI_Target+224
+	movb $2,MI_Target+225
+	movl $64,MI_Target+228
+	movl $64,MI_Target+232
+	movl $MI_Target+240,%ecx
+	movl $MM_Target+1160,%edx
+	movl MM_Target+1160,%eax
+	movl %eax,MI_Target+240
+	movl 4(%edx),%eax
+	movl %eax,4(%ecx)
+	movl 8(%edx),%eax
+	movl %eax,8(%ecx)
+	movl 12(%edx),%eax
+	movl %eax,12(%ecx)
+	movl $MI_Target+256,%ecx
+	movl $MM_Target+1176,%edx
+	movl MM_Target+1176,%eax
+	movl %eax,MI_Target+256
+	movl 4(%edx),%eax
+	movl %eax,4(%ecx)
+	movl 8(%edx),%eax
+	movl %eax,8(%ecx)
+	movl 12(%edx),%eax
+	movl %eax,12(%ecx)
+	movl $8,MI_Target+632
+	movl $16,MI_Target+636
+	movl $32,MI_Target+640
+	movl $64,MI_Target+644
+	movl $0,MM_Target+276
+	jmp *L_2.0(,%ebx,4)
+	.align 16
+.L9:
+	movl $32,%esi
+	movb $1,MI_Target+772
+	movb $0,MI_Target+773
+	movl $8,MI_Target+776
+	movb $0,MI_Target+780
+	movl $0,MI_Target+784
+	movl MI_Target+60,%eax
+	leal 0(,%eax,4),%edx
+	addl %edx,%eax
+	leal (%eax,%eax,4),%eax
+	testl %eax,%eax
+	jge .L35
+	pushl $2321
+	call _m3_fault
+	.align 16
+.L35:
+	movl %eax,MI_Target+788
+	movl MI_Target+64,%eax
+	movl %eax,MI_Target+792
+	testl %edx,%edx
+	jge .L36
+	pushl $2353
+	call _m3_fault
+	.align 16
+.L36:
+	movl %edx,MI_Target+796
+	movl $0,MI_Target+800
+	movb $1,MI_Target+804
+	jmp .L129
+	.align 16
+.L10:
+	movb $8,MI_Target+344
+	movb $12,MI_Target+488
+	movw $65535,MI_Target+518
+	movb $9,MI_Target+380
+	movl $64,MI_Target+384
+	movl $64,MI_Target+388
+	movl MM_Target+1226,%eax
+	movl %eax,MI_Target+400
+	movl MM_Target+1230,%eax
+	movl %eax,MI_Target+404
+	movl MM_Target+1234,%eax
+	movl %eax,MI_Target+408
+	movl MM_Target+1238,%eax
+	movl %eax,MI_Target+412
+	movb $13,MI_Target+524
+	movl $64,MI_Target+528
+	movl $64,MI_Target+532
+	movl MM_Target+1242,%eax
+	movl %eax,MI_Target+544
+	movl MM_Target+1246,%eax
+	movl %eax,MI_Target+548
+	movl MM_Target+1250,%eax
+	movl %eax,MI_Target+552
+	movl MM_Target+1254,%eax
+	movl $MI_Target+92,%edi
+	movl $MI_Target+380,%esi
+	movl %eax,MI_Target+556
+	cld
+	movl $9,%ecx
+	rep
+	movsl
+	movl $MI_Target+56,%edi
+	movl $MI_Target+524,%esi
+	cld
+	movl $9,%ecx
+	rep
+	movsl
+	movb $0,MI_Target+56
+	movl $64,%esi
+	movb $1,MI_Target+772
+	movb $1,MI_Target+773
+	movl $8,MI_Target+776
+	movb $0,MI_Target+780
+	movl $4194304,MI_Target+784
+	movl MI_Target+60,%edx
+	leal 0(,%edx,4),%ecx
+	leal (%edx,%ecx),%eax
+	leal (%edx,%eax,4),%eax
+	sall $2,%eax
+	jns .L38
+	pushl $2945
+	call _m3_fault
+	.align 16
+.L38:
+	movl %eax,MI_Target+788
+	movl MI_Target+64,%eax
+	movl %eax,MI_Target+792
+	testl %ecx,%ecx
+	jge .L39
+	pushl $2977
+	call _m3_fault
+	.align 16
+.L39:
+	movl %ecx,MI_Target+796
+	movl MI_Target+600,%eax
+	sall $12,%eax
+	jns .L40
+	pushl $2993
+	call _m3_fault
+	.align 16
+.L40:
+	movl %eax,MI_Target+800
+	movb $1,MI_Target+804
+	movb $1,MI_Target+805
+	movl $MM_Target+1196,MI_Target+808
+	movb $1,MI_Target+812
+	jmp .L130
+	.align 16
+.L11:
+	movl $16,%esi
+	movb $0,MI_Target+772
+	movb $0,MI_Target+773
+	movl %esi,MI_Target+776
+	movb $1,MI_Target+780
+	movl $0,MI_Target+784
+	movl MI_Target+60,%edx
+	leal 0(,%edx,4),%ecx
+	leal (%edx,%ecx),%eax
+	leal (%edx,%eax,8),%eax
+	leal (%edx,%eax,2),%eax
+	testl %eax,%eax
+	jge .L41
+	pushl $3249
+	call _m3_fault
+	.align 16
+.L41:
+	movl %eax,MI_Target+788
+	movl MI_Target+64,%eax
+	movl %eax,MI_Target+792
+	testl %ecx,%ecx
+	jge .L42
+	pushl $3281
+	call _m3_fault
+	.align 16
+.L42:
+	movl %ecx,MI_Target+796
+	movl $0,MI_Target+800
+	movb $1,MI_Target+804
+	jmp .L129
+	.align 16
+.L12:
+	movl $32,%esi
+	movb $0,MI_Target+772
+	movb $1,MI_Target+773
+	movl %esi,MI_Target+776
+	movb $0,MI_Target+780
+	movl $0,MI_Target+784
+	movl MI_Target+60,%edx
+	movl %edx,%eax
+	sall $4,%eax
+	jns .L43
+	pushl $3553
+	call _m3_fault
+	.align 16
+.L43:
+	movl %eax,MI_Target+788
+	movl MI_Target+64,%eax
+	movl %eax,MI_Target+792
+	leal 0(,%edx,4),%eax
+	testl %eax,%eax
+	jge .L44
+	pushl $3585
+	call _m3_fault
+	.align 16
+.L44:
+	movl %eax,MI_Target+796
+	movl $0,MI_Target+800
+	movb $1,MI_Target+804
+	jmp .L129
+	.align 16
+.L13:
+	movl $32,%esi
+	movb $1,MI_Target+772
+	movb $1,MI_Target+773
+	movl $8,MI_Target+776
+	movb $0,MI_Target+780
+	movl $4096,MI_Target+784
+	movl MI_Target+60,%eax
+	leal 0(,%eax,4),%edx
+	addl %edx,%eax
+	addl %eax,%eax
+	jns .L45
+	pushl $3857
+	call _m3_fault
+	.align 16
+.L45:
+	movl %eax,MI_Target+788
+	movl MI_Target+64,%eax
+	movl %eax,MI_Target+792
+	testl %edx,%edx
+	jge .L46
+	pushl $3889
+	call _m3_fault
+	.align 16
+.L46:
+	movl %edx,MI_Target+796
+	movl MI_Target+600,%eax
+	sall $12,%eax
+	jns .L47
+	pushl $3905
+	call _m3_fault
+	.align 16
+.L47:
+	movl %eax,MI_Target+800
+	movb $1,MI_Target+804
+	jmp .L129
+	.align 16
+.L14:
+	movl $64,%esi
+	movb $1,MI_Target+772
+	movb $1,MI_Target+773
+	movl $8,MI_Target+776
+	movb $0,MI_Target+780
+	movl $4194304,MI_Target+784
+	movl MI_Target+60,%edx
+	leal 0(,%edx,4),%ecx
+	leal (%edx,%ecx),%eax
+	leal (%edx,%eax,4),%eax
+	sall $2,%eax
+	jns .L48
+	pushl $4161
+	call _m3_fault
+	.align 16
+.L48:
+	movl %eax,MI_Target+788
+	movl MI_Target+64,%eax
+	movl %eax,MI_Target+792
+	testl %ecx,%ecx
+	jge .L49
+	pushl $4193
+	call _m3_fault
+	.align 16
+.L49:
+	movl %ecx,MI_Target+796
+	movl MI_Target+600,%eax
+	sall $12,%eax
+	jns .L50
+	pushl $4209
+	call _m3_fault
+	.align 16
+.L50:
+	movl %eax,MI_Target+800
+	movb $1,MI_Target+804
+	movb $1,MI_Target+805
+	movl $MM_Target+1196,MI_Target+808
+	movb $1,MI_Target+812
+	jmp .L130
+	.align 16
+.L15:
+	movb $8,MI_Target+344
+	movb $12,MI_Target+488
+	movw $65535,MI_Target+518
+	movb $9,MI_Target+380
+	movl $64,MI_Target+384
+	movl $64,MI_Target+388
+	movl MM_Target+1258,%eax
+	movl %eax,MI_Target+400
+	movl MM_Target+1262,%eax
+	movl %eax,MI_Target+404
+	movl MM_Target+1266,%eax
+	movl %eax,MI_Target+408
+	movl MM_Target+1270,%eax
+	movl %eax,MI_Target+412
+	movb $13,MI_Target+524
+	movl $64,MI_Target+528
+	movl $64,MI_Target+532
+	movl MM_Target+1274,%eax
+	movl %eax,MI_Target+544
+	movl MM_Target+1278,%eax
+	movl %eax,MI_Target+548
+	movl MM_Target+1282,%eax
+	movl %eax,MI_Target+552
+	movl MM_Target+1286,%eax
+	movl $MI_Target+92,%edi
+	movl $MI_Target+380,%esi
+	movl %eax,MI_Target+556
+	cld
+	movl $9,%ecx
+	rep
+	movsl
+	movl $MI_Target+56,%edi
+	movl $MI_Target+524,%esi
+	cld
+	movl $9,%ecx
+	rep
+	movsl
+	movb $0,MI_Target+56
+	movl $64,%esi
+	movb $1,MI_Target+772
+	movb $1,MI_Target+773
+	movl $8,MI_Target+776
+	movb $0,MI_Target+780
+	movl MI_Target+600,%eax
+	sall $13,%eax
+	movl %eax,%edi
+	jns .L51
+	pushl $4769
+	call _m3_fault
+	.align 16
+.L51:
+	movl %eax,MI_Target+784
+	movl MI_Target+60,%edx
+	leal 0(,%edx,4),%ecx
+	leal (%edx,%ecx),%eax
+	leal (%edx,%eax,8),%eax
+	addl %eax,%eax
+	jns .L52
+	pushl $4785
+	call _m3_fault
+	.align 16
+.L52:
+	movl %eax,MI_Target+788
+	movl MI_Target+64,%eax
+	movl %eax,MI_Target+792
+	testl %ecx,%ecx
+	jge .L53
+	pushl $4817
+	call _m3_fault
+	.align 16
+.L53:
+	movl %ecx,MI_Target+796
+	movl %edi,MI_Target+800
+	movb $1,MI_Target+804
+	jmp .L129
+	.align 16
+.L16:
+	movl $32,%esi
+	movb $1,MI_Target+772
+	movb $1,MI_Target+773
+	movl $8,MI_Target+776
+	movb $0,MI_Target+780
+	movl MI_Target+600,%eax
+	sall $12,%eax
+	jns .L55
+	pushl $5073
+	call _m3_fault
+	.align 16
+.L55:
+	movl %eax,MI_Target+784
+	movl MI_Target+60,%eax
+	leal 0(,%eax,4),%ecx
+	leal (%eax,%ecx),%edx
+	leal (%eax,%edx,2),%eax
+	testl %eax,%eax
+	jge .L56
+	pushl $5089
+	call _m3_fault
+	.align 16
+.L56:
+	movl %eax,MI_Target+788
+	movl MI_Target+64,%eax
+	movl %eax,MI_Target+792
+	testl %ecx,%ecx
+	jge .L57
+	pushl $5121
+	call _m3_fault
+	.align 16
+.L57:
+	movl %ecx,MI_Target+796
+	movl $0,MI_Target+800
+	movb $1,MI_Target+804
+	jmp .L129
+	.align 16
+.L17:
+	movl $16,%esi
+	movb $0,MI_Target+772
+	movb $0,MI_Target+773
+	movl %esi,MI_Target+776
+	movb $1,MI_Target+780
+	movl $0,MI_Target+784
+	movl MI_Target+60,%eax
+	leal 0(,%eax,4),%edx
+	addl %edx,%eax
+	leal (%eax,%eax,4),%eax
+	sall $2,%eax
+	jns .L59
+	pushl $5393
+	call _m3_fault
+	.align 16
+.L59:
+	movl %eax,MI_Target+788
+	movl MI_Target+64,%eax
+	movl %eax,MI_Target+792
+	testl %edx,%edx
+	jge .L60
+	pushl $5425
+	call _m3_fault
+	.align 16
+.L60:
+	movl %edx,MI_Target+796
+	movl $0,MI_Target+800
+	movb $1,MI_Target+804
+	jmp .L129
+	.align 16
+.L18:
+	movl $64,%esi
+	movb $0,MI_Target+772
+	movb $1,MI_Target+773
+	movl $16,MI_Target+776
+	movb $0,MI_Target+780
+	movl $4096,MI_Target+784
+	movl MI_Target+60,%edx
+	leal (%edx,%edx,2),%eax
+	leal (%edx,%eax,4),%eax
+	leal (%edx,%eax,4),%eax
+	testl %eax,%eax
+	jge .L61
+	pushl $5697
+	call _m3_fault
+	.align 16
+.L61:
+	movl %eax,MI_Target+788
+	movl %esi,MI_Target+792
+	leal 0(,%edx,8),%eax
+	testl %eax,%eax
+	jge .L63
+	pushl $5729
+	call _m3_fault
+	.align 16
+.L63:
+	movl %eax,MI_Target+796
+	movl $0,MI_Target+800
+	movb $1,MI_Target+804
+	movb $0,MI_Target+805
+	movl $MM_Target+1196,MI_Target+808
+	movb $0,MI_Target+812
+	movb $1,MI_Target+813
+	movb $0,MI_Target+814
+	jmp .L131
+	.align 16
+.L19:
+	movl $32,%esi
+	movb $0,MI_Target+772
+	movb $0,MI_Target+773
+	movl %esi,MI_Target+776
+	movb $0,MI_Target+780
+	movl $0,MI_Target+784
+	movl MI_Target+60,%edx
+	movl %edx,%eax
+	sall $6,%eax
+	addl %edx,%eax
+	jns .L64
+	pushl $6001
+	call _m3_fault
+	.align 16
+.L64:
+	movl %eax,MI_Target+788
+	movl MI_Target+64,%eax
+	movl %eax,MI_Target+792
+	leal 0(,%edx,4),%eax
+	testl %eax,%eax
+	jge .L65
+	pushl $6033
+	call _m3_fault
+	.align 16
+.L65:
+	movl %eax,MI_Target+796
+	movl $0,MI_Target+800
+	movb $1,MI_Target+804
+	jmp .L129
+	.align 16
+.L20:
+	movl $32,%esi
+	movb $0,MI_Target+772
+	movb $0,MI_Target+773
+	movl $8,MI_Target+776
+	movb $0,MI_Target+780
+	movl $0,MI_Target+784
+	movl MI_Target+60,%edx
+	movl %edx,%eax
+	sall $4,%eax
+	addl %edx,%eax
+	jns .L66
+	pushl $6305
+	call _m3_fault
+	.align 16
+.L66:
+	movl %eax,MI_Target+788
+	movl MI_Target+64,%eax
+	movl %eax,MI_Target+792
+	leal 0(,%edx,4),%eax
+	testl %eax,%eax
+	jge .L67
+	pushl $6337
+	call _m3_fault
+	.align 16
+.L67:
+	movl %eax,MI_Target+796
+	movl $0,MI_Target+800
+	movb $1,MI_Target+804
+	jmp .L129
+	.align 16
+.L21:
+	movl $64,%esi
+	movb $0,MI_Target+772
+	movb $1,MI_Target+773
+	movl $8,MI_Target+776
+	movb $0,MI_Target+780
+	movl $4194304,MI_Target+784
+	movl MI_Target+60,%edx
+	leal 0(,%edx,8),%eax
+	subl %edx,%eax
+	sall $2,%eax
+	jns .L68
+	pushl $6609
+	call _m3_fault
+	.align 16
+.L68:
+	movl %eax,MI_Target+788
+	movl MI_Target+64,%eax
+	movl %eax,MI_Target+792
+	leal 0(,%edx,4),%eax
+	testl %eax,%eax
+	jge .L69
+	pushl $6641
+	call _m3_fault
+	.align 16
+.L69:
+	movl %eax,MI_Target+796
+	movl MI_Target+600,%eax
+	sall $12,%eax
+	jns .L70
+	pushl $6657
+	call _m3_fault
+	.align 16
+.L70:
+	movl %eax,MI_Target+800
+	movb $1,MI_Target+804
+	movb $0,MI_Target+805
+	movl $MM_Target+1296,MI_Target+808
+	jmp .L132
+	.align 16
+.L22:
+	movl $32,%esi
+	movb $1,MI_Target+772
+	movb $1,MI_Target+773
+	movl $8,MI_Target+776
+	movb $0,MI_Target+780
+	movl $0,MI_Target+784
+	movl MI_Target+60,%edx
+	leal 0(,%edx,8),%eax
+	testl %eax,%eax
+	jge .L71
+	pushl $6913
+	call _m3_fault
+	.align 16
+.L71:
+	movl %eax,MI_Target+788
+	movl MI_Target+64,%eax
+	movl %eax,MI_Target+792
+	leal 0(,%edx,4),%eax
+	testl %eax,%eax
+	jge .L72
+	pushl $6945
+	call _m3_fault
+	.align 16
+.L72:
+	movl %eax,MI_Target+796
+	movl $0,MI_Target+800
+	movb $1,MI_Target+804
+	movb $0,MI_Target+805
+	movl $MM_Target+1316,MI_Target+808
+	jmp .L132
+	.align 16
+.L23:
+	movl $32,%esi
+	movb $1,MI_Target+772
+	movb $1,MI_Target+773
+	movl $8,MI_Target+776
+	movb $0,MI_Target+780
+	movl $0,MI_Target+784
+	movl MI_Target+60,%edx
+	leal 0(,%edx,8),%eax
+	testl %eax,%eax
+	jge .L74
+	pushl $7217
+	call _m3_fault
+	.align 16
+.L74:
+	movl %eax,MI_Target+788
+	movl MI_Target+64,%eax
+	movl %eax,MI_Target+792
+	leal 0(,%edx,4),%eax
+	testl %eax,%eax
+	jge .L75
+	pushl $7249
+	call _m3_fault
+	.align 16
+.L75:
+	movl %eax,MI_Target+796
+	movl MI_Target+600,%eax
+	sall $12,%eax
+	jns .L76
+	pushl $7265
+	call _m3_fault
+	.align 16
+.L76:
+	movl %eax,MI_Target+800
+	movb $1,MI_Target+804
+	movb $0,MI_Target+805
+	movl $MM_Target+1316,MI_Target+808
+	jmp .L133
+	.align 16
+.L24:
+	movl $32,%esi
+	movb $1,MI_Target+772
+	movb $1,MI_Target+773
+	movl $8,MI_Target+776
+	movb $0,MI_Target+780
+	movl $0,MI_Target+784
+	movl MI_Target+60,%eax
+	leal 0(,%eax,4),%edx
+	addl %edx,%eax
+	sall $3,%eax
+	jns .L78
+	pushl $7633
+	call _m3_fault
+	.align 16
+.L78:
+	movl %eax,MI_Target+788
+	movl MI_Target+64,%eax
+	movl %eax,MI_Target+792
+	testl %edx,%edx
+	jge .L79
+	pushl $7665
+	call _m3_fault
+	.align 16
+.L79:
+	movl %edx,MI_Target+796
+	movl MI_Target+600,%eax
+	sall $12,%eax
+	jns .L80
+	pushl $7681
+	call _m3_fault
+	.align 16
+.L80:
+	movl %eax,MI_Target+800
+	movb $1,MI_Target+804
+	movb $0,MI_Target+805
+	movl $MM_Target+1196,MI_Target+808
+.L133:
+	movb $0,MI_Target+812
+	movb $1,MI_Target+813
+	movb $1,MI_Target+814
+	movl $MM_Target+1216,MI_Target+816
+	cmpb $0,12(%ebp)
+	je .L37
+	leal -20(%ebp),%eax
+	leal -12(%ebp),%ebx
+	movl %ebx,-20(%ebp)
+	movl $1,-16(%ebp)
+	movl $1,-12(%ebp)
+	pushl %eax
+	movl MM_Target+1336,%eax
+	pushl %eax
+	movl MI_RTHooks+84,%eax
+	call *%eax
+	movl %eax,MM_Target+276
+	pushl $0
+	pushl $MM_Target+1348
+	pushl $0
+	call Target__LINUXELFCall
+	addl $20,%esp
+	jmp .L37
+	.align 16
+.L25:
+	movl $16,%esi
+	movb $0,MI_Target+772
+	movb $0,MI_Target+773
+	movl %esi,MI_Target+776
+	movb $0,MI_Target+780
+	movl $0,MI_Target+784
+	movl MI_Target+60,%edx
+	leal 0(,%edx,4),%ecx
+	leal (%edx,%ecx),%eax
+	sall $3,%eax
+	subl %edx,%eax
+	jns .L82
+	pushl $8033
+	call _m3_fault
+	.align 16
+.L82:
+	movl %eax,MI_Target+788
+	movl MI_Target+64,%eax
+	movl %eax,MI_Target+792
+	testl %ecx,%ecx
+	jge .L83
+	pushl $8065
+	call _m3_fault
+	.align 16
+.L83:
+	movl %ecx,MI_Target+796
+	movl $0,MI_Target+800
+	movb $1,MI_Target+804
+	jmp .L129
+	.align 16
+.L26:
+	movl $32,%esi
+	movb $1,MI_Target+772
+	movb $1,MI_Target+773
+	movl $8,MI_Target+776
+	movb $0,MI_Target+780
+	movl $4096,MI_Target+784
+	movl MI_Target+64,%eax
+	movl %eax,MI_Target+792
+	movl $0,MI_Target+796
+	movl $0,MI_Target+800
+	movb $1,MI_Target+804
+	movb $0,MI_Target+805
+	cmpb $20,-24(%ebp)
+	jne .L84
+	movl MI_Target+60,%ebx
+	leal 0(,%ebx,8),%eax
+	testl %eax,%eax
+	jge .L85
+	pushl $8449
+	call _m3_fault
+	.align 16
+.L85:
+	movl %eax,MI_Target+788
+	movl $MM_Target+1196,MI_Target+808
+	jmp .L86
+	.align 16
+.L84:
+	movl MI_Target+60,%eax
+	leal (%eax,%eax,2),%edx
+	leal (%eax,%edx,4),%edx
+	leal 0(,%edx,4),%eax
+	testl %eax,%eax
+	jge .L87
+	pushl $8497
+	call _m3_fault
+	.align 16
+.L87:
+	movl %eax,MI_Target+788
+	movl $MM_Target+1296,MI_Target+808
+.L86:
+	movb $0,MI_Target+812
+	movb $0,MI_Target+813
+	movb $1,MI_Target+814
+	movl $MM_Target+1364,MI_Target+816
+	leal -20(%ebp),%eax
+	leal -12(%ebp),%ebx
+	movl %ebx,-20(%ebp)
+	movl $1,-16(%ebp)
+	movl $9,-12(%ebp)
+	pushl %eax
+	movl MM_Target+1336,%eax
+	pushl %eax
+	movl MI_RTHooks+84,%eax
+	call *%eax
+	movl %eax,MM_Target+276
+	xorl %ebx,%ebx
+	movb -24(%ebp),%bl
+	addl $8,%esp
+	cmpl $21,%ebx
+	sete %al
+	andl $255,%eax
+	pushl %eax
+	pushl $0
+	pushl $MM_Target+1348
+	pushl $0
+	call Target__NTCall
+	addl $16,%esp
+	cmpl $21,%ebx
+	sete %al
+	andl $255,%eax
+	pushl %eax
+	pushl $1
+	pushl $MM_Target+1380
+	pushl $1
+	call Target__NTCall
+	addl $16,%esp
+	cmpl $21,%ebx
+	sete %al
+	andl $255,%eax
+	pushl %eax
+	pushl $1
+	pushl $MM_Target+1400
+	pushl $2
+	call Target__NTCall
+	addl $16,%esp
+	cmpl $21,%ebx
+	sete %al
+	andl $255,%eax
+	pushl %eax
+	pushl $0
+	pushl $MM_Target+1424
+	pushl $3
+	call Target__NTCall
+	addl $16,%esp
+	cmpl $21,%ebx
+	sete %al
+	andl $255,%eax
+	pushl %eax
+	pushl $1
+	pushl $MM_Target+1444
+	pushl $4
+	call Target__NTCall
+	addl $16,%esp
+	cmpl $21,%ebx
+	sete %al
+	andl $255,%eax
+	pushl %eax
+	pushl $1
+	pushl $MM_Target+1468
+	pushl $5
+	call Target__NTCall
+	addl $16,%esp
+	cmpl $21,%ebx
+	sete %al
+	andl $255,%eax
+	pushl %eax
+	pushl $1
+	pushl $MM_Target+1492
+	pushl $6
+	call Target__NTCall
+	addl $16,%esp
+	cmpl $21,%ebx
+	sete %al
+	andl $255,%eax
+	pushl %eax
+	pushl $0
+	pushl $MM_Target+1512
+	pushl $7
+	call Target__NTCall
+	addl $16,%esp
+	cmpl $21,%ebx
+	sete %al
+	andl $255,%eax
+	pushl %eax
+	pushl $1
+	pushl $MM_Target+1532
+	pushl $8
+	call Target__NTCall
+	addl $16,%esp
+	jmp .L37
+	.align 16
+.L27:
+	movl $32,%esi
+	movb $1,MI_Target+772
+	movb $1,MI_Target+773
+	movl %esi,MI_Target+776
+	movb $0,MI_Target+780
+	movl $0,MI_Target+784
+	movl MI_Target+60,%edx
+	leal 0(,%edx,4),%ecx
+	leal (%edx,%ecx),%eax
+	leal (%edx,%eax,2),%eax
+	addl %eax,%eax
+	jns .L88
+	pushl $8993
+	call _m3_fault
+	.align 16
+.L88:
+	movl %eax,MI_Target+788
+	movl MI_Target+64,%eax
+	movl %eax,MI_Target+792
+	testl %ecx,%ecx
+	jge .L89
+	pushl $9025
+	call _m3_fault
+	.align 16
+.L89:
+	movl %ecx,MI_Target+796
+	movl $0,MI_Target+800
+	movb $1,MI_Target+804
+	jmp .L129
+	.align 16
+.L28:
+	movl $32,%esi
+	movb $1,MI_Target+772
+	movb $1,MI_Target+773
+	movl $8,MI_Target+776
+	movb $0,MI_Target+780
+	movl $0,MI_Target+784
+	movl MI_Target+60,%edx
+	leal 0(,%edx,4),%ecx
+	leal (%edx,%ecx),%eax
+	leal (%edx,%eax,4),%eax
+	sall $2,%eax
+	jns .L90
+	pushl $9297
+	call _m3_fault
+	.align 16
+.L90:
+	movl %eax,MI_Target+788
+	movl MI_Target+64,%eax
+	movl %eax,MI_Target+792
+	testl %ecx,%ecx
+	jge .L91
+	pushl $9329
+	call _m3_fault
+	.align 16
+.L91:
+	movl %ecx,MI_Target+796
+	movl MI_Target+600,%eax
+	sall $12,%eax
+	jns .L92
+	pushl $9345
+	call _m3_fault
+	.align 16
+.L92:
+	movl %eax,MI_Target+800
+	movb $1,MI_Target+804
+	jmp .L129
+	.align 16
+.L29:
+	movl $64,%esi
+	movb $0,MI_Target+772
+	movb $1,MI_Target+773
+	movl $8,MI_Target+776
+	movb $0,MI_Target+780
+	movl $8192,MI_Target+784
+	movl MI_Target+60,%edx
+	leal (%edx,%edx,8),%eax
+	leal (%edx,%eax,2),%eax
+	testl %eax,%eax
+	jge .L93
+	pushl $9601
+	call _m3_fault
+	.align 16
+.L93:
+	movl %eax,MI_Target+788
+	movl MI_Target+64,%eax
+	movl %eax,MI_Target+792
+	leal (%edx,%edx,4),%eax
+	sall $2,%eax
+	jns .L94
+	pushl $9633
+	call _m3_fault
+	.align 16
+.L94:
+	movl %eax,MI_Target+796
+	movl MI_Target+600,%eax
+	sall $12,%eax
+	jns .L95
+	pushl $9649
+	call _m3_fault
+	.align 16
+.L95:
+	movl %eax,MI_Target+800
+	movb $1,MI_Target+804
+	movb $1,MI_Target+805
+	movl $MM_Target+1296,MI_Target+808
+	jmp .L132
+	.align 16
+.L30:
+	movl $64,%esi
+	movb $0,MI_Target+772
+	movb $1,MI_Target+773
+	movl $8,MI_Target+776
+	movb $0,MI_Target+780
+	movl $8192,MI_Target+784
+	movl MI_Target+60,%eax
+	leal (%eax,%eax,4),%edx
+	movl %edx,%eax
+	addl %edx,%eax
+	jns .L96
+	pushl $9905
+	call _m3_fault
+	.align 16
+.L96:
+	movl %eax,MI_Target+788
+	movl MI_Target+64,%eax
+	movl %eax,MI_Target+792
+	leal 0(,%edx,4),%eax
+	testl %eax,%eax
+	jge .L97
+	pushl $9937
+	call _m3_fault
+	.align 16
+.L97:
+	movl %eax,MI_Target+796
+	movl MI_Target+600,%eax
+	sall $12,%eax
+	jns .L98
+	pushl $9953
+	call _m3_fault
+	.align 16
+.L98:
+	movl %eax,MI_Target+800
+	movb $1,MI_Target+804
+	jmp .L129
+	.align 16
+.L31:
+	movl $16,%esi
+	movb $0,MI_Target+772
+	movb $0,MI_Target+773
+	movl %esi,MI_Target+776
+	movb $0,MI_Target+780
+	movl $0,MI_Target+784
+	movl MI_Target+60,%edx
+	leal 0(,%edx,4),%ecx
+	leal (%edx,%ecx),%eax
+	sall $4,%eax
+	subl %edx,%eax
+	jns .L99
+	pushl $10209
+	call _m3_fault
+	.align 16
+.L99:
+	movl %eax,MI_Target+788
+	movl MI_Target+64,%eax
+	movl %eax,MI_Target+792
+	testl %ecx,%ecx
+	jge .L100
+	pushl $10241
+	call _m3_fault
+	.align 16
+.L100:
+	movl %ecx,MI_Target+796
+	movl MI_Target+600,%eax
+	sall $10,%eax
+	jns .L101
+	pushl $10257
+	call _m3_fault
+	.align 16
+.L101:
+	movl %eax,MI_Target+800
+	movb $1,MI_Target+804
+	jmp .L129
+	.align 16
+.L32:
+	movl $32,%esi
+	movb $1,MI_Target+772
+	movb $0,MI_Target+773
+	movl $8,MI_Target+776
+	movb $0,MI_Target+780
+	movl $0,MI_Target+784
+	movl MI_Target+60,%edx
+	leal 0(,%edx,8),%eax
+	testl %eax,%eax
+	jge .L102
+	pushl $10513
+	call _m3_fault
+	.align 16
+.L102:
+	movl %eax,MI_Target+788
+	movl MI_Target+64,%eax
+	movl %eax,MI_Target+792
+	leal 0(,%edx,4),%eax
+	testl %eax,%eax
+	jge .L103
+	pushl $10545
+	call _m3_fault
+	.align 16
+.L103:
+	movl %eax,MI_Target+796
+	movl $0,MI_Target+800
+	movb $1,MI_Target+804
+	jmp .L129
+	.align 16
+.L33:
+	movl $32,%esi
+	movb $1,MI_Target+772
+	movb $1,MI_Target+773
+	movl $8,MI_Target+776
+	movb $0,MI_Target+780
+	movl $0,MI_Target+784
+	movl MI_Target+60,%eax
+	leal 0(,%eax,4),%edx
+	addl %edx,%eax
+	addl %eax,%eax
+	jns .L104
+	pushl $10817
+	call _m3_fault
+	.align 16
+.L104:
+	movl %eax,MI_Target+788
+	movl MI_Target+64,%eax
+	movl %eax,MI_Target+792
+	testl %edx,%edx
+	jge .L105
+	pushl $10849
+	call _m3_fault
+	.align 16
+.L105:
+	movl %edx,MI_Target+796
+	movl $0,MI_Target+800
+	movb $1,MI_Target+804
+	jmp .L129
+	.align 16
+.L34:
+	movl $32,%esi
+	movb $1,MI_Target+772
+	movb $1,MI_Target+773
+	movl $8,MI_Target+776
+	movb $0,MI_Target+780
+	movl $0,MI_Target+784
+	movl MI_Target+60,%edx
+	leal (%edx,%edx,4),%eax
+	addl %eax,%eax
+	movl $-171258362,MI_Target+152
+	movl $-941621621,MI_Target+156
+	movl $-171258362,MI_Target+168
+	movl $-941621621,MI_Target+172
+	movl $-171258362,MI_Target+200
+	movl $-941621621,MI_Target+204
+	movl $-171258362,MI_Target+216
+	movl $-941621621,MI_Target+220
+	movl $-171258362,MI_Target+248
+	movl $-941621621,MI_Target+252
+	movl $-171258362,MI_Target+264
+	movl $-941621621,MI_Target+268
+	jns .L106
+	pushl $11233
+	call _m3_fault
+	.align 16
+.L106:
+	movl %eax,MI_Target+788
+	movl MI_Target+64,%eax
+	movl %eax,MI_Target+792
+	leal (%edx,%edx,2),%eax
+	sall $2,%eax
+	jns .L107
+	pushl $11265
+	call _m3_fault
+	.align 16
+.L107:
+	movl %eax,MI_Target+796
+	movl MI_Target+600,%eax
+	sall $10,%eax
+	jns .L108
+	pushl $11281
+	call _m3_fault
+	.align 16
+.L108:
+	movl %eax,MI_Target+800
+	movb $0,MI_Target+804
+.L129:
+	movb $0,MI_Target+805
+	movl $MM_Target+1196,MI_Target+808
+.L132:
+	movb $0,MI_Target+812
+.L130:
+	movb $1,MI_Target+813
+	movb $1,MI_Target+814
+.L131:
+	movl $MM_Target+1216,MI_Target+816
+.L37:
+	movl MM_Target+276,%edi
+	testl %edi,%edi
+	jne .L110
+	leal -20(%ebp),%eax
+	leal -12(%ebp),%ebx
+	movl %ebx,-20(%ebp)
+	movl $1,-16(%ebp)
+	movl $1,-12(%ebp)
+	pushl %eax
+	movl MM_Target+1336,%eax
+	pushl %eax
+	movl MI_RTHooks+84,%eax
+	call *%eax
+	movl %eax,MM_Target+276
+	movl MM_Target+1552,%eax
+	pushl %eax
+	movl MI_RTHooks+80,%eax
+	call *%eax
+	movl %eax,%edx
+	movl MM_Target+276,%eax
+	addl $12,%esp
+	testl %eax,%eax
+	jne .L111
+	pushl $11524
+	call _m3_fault
+	.align 16
+.L111:
+	cmpl $0,4(%eax)
+	jne .L112
+	pushl $11522
+	call _m3_fault
+	.align 16
+.L112:
+	movl (%eax),%eax
+	movl %edx,(%eax)
+	testl %edx,%edx
+	jne .L113
+	pushl $11540
+	call _m3_fault
+	.align 16
+.L113:
+	movl $MM_Target+1348,(%edx)
+	movl %edi,4(%edx)
+	movb $1,8(%edx)
+	movb $0,9(%edx)
+	movb $1,10(%edx)
+.L110:
+	movl MM_Target+276,%eax
+	testl %eax,%eax
+	jne .L118
+	pushl $11652
+	call _m3_fault
+	.align 16
+.L118:
+	cmpl $0,4(%eax)
+	jne .L119
+	pushl $11650
+	call _m3_fault
+	.align 16
+.L119:
+	movl (%eax),%eax
+	movl (%eax),%eax
+	movl %eax,MI_Target+752
+	movl MI_Target+96,%eax
+	movl %eax,%edi
+	andl $15,%edi
+	je .L120
+	pushl $11696
+	call _m3_fault
+	.align 16
+.L120:
+	sarl $4,%eax
+	decl %eax
+	cmpl $3,%eax
+	jbe .L121
+	pushl $11713
+	call _m3_fault
+	.align 16
+.L121:
+	movb %al,MI_Target+52
+	pushl %esi
+	pushl $MI_Target+56
+	call Target__FixI
+	pushl %esi
+	pushl $MI_Target+92
+	call Target__FixI
+	pushl %esi
+	pushl $MI_Target+128
+	call Target__FixF
+	pushl %esi
+	pushl $MI_Target+176
+	call Target__FixF
+	addl $32,%esp
+	pushl %esi
+	pushl $MI_Target+224
+	call Target__FixF
+	pushl %esi
+	pushl $MI_Target+272
+	call Target__FixI
+	pushl %esi
+	pushl $MI_Target+308
+	call Target__FixI
+	pushl %esi
+	pushl $MI_Target+344
+	call Target__FixI
+	addl $32,%esp
+	pushl %esi
+	pushl $MI_Target+380
+	call Target__FixI
+	pushl %esi
+	pushl $MI_Target+416
+	call Target__FixI
+	pushl %esi
+	pushl $MI_Target+452
+	call Target__FixI
+	pushl %esi
+	pushl $MI_Target+488
+	call Target__FixI
+	addl $32,%esp
+	pushl %esi
+	pushl $MI_Target+524
+	call Target__FixI
+	pushl %esi
+	pushl $MI_Target+560
+	call Target__FixI
+	pushl %esi
+	pushl $MI_Target+596
+	call Target__FixI
+	movl MI_Target+96,%eax
+	movl %eax,MI_Target+764
+	movl MI_Target+100,%eax
+	movl %eax,MI_Target+768
+	movl %edi,%edx
+	addl $24,%esp
+.L122:
+	movl $MI_Target+632,%edi
+	movl %esi,%eax
+	movl (%edi,%edx,4),%ecx
+	cmpl %ecx,%eax
+	jle .L123
+	movl %ecx,%eax
+.L123:
+	testl %eax,%eax
+	jge .L124
+	pushl $12113
+	call _m3_fault
+	.align 16
+.L124:
+	movl %eax,(%edi,%edx,4)
+	incl %edx
+	cmpl $3,%edx
+	jle .L122
+	movl MI_TargetMap+464,%eax
+	call *%eax
+	movl MI_M3RT+372,%eax
+	call *%eax
+	movl -8(%ebp),%eax
+	movl %eax,RTThread__handlerStack
+	movl $1,%eax
+.L127:
+.L1:
+	leal -40(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe1:
+	.size	 Target__Init,.Lfe1-Target__Init
+	.align 16
+	.type	 Target__NTCall,@function
+Target__NTCall:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%edi
+	movl 12(%ebp),%ebx
+	movl 16(%ebp),%esi
+	movl MM_Target+1552,%eax
+	pushl %eax
+	movl MI_RTHooks+80,%eax
+	call *%eax
+	movl %eax,%edx
+	addl $4,%esp
+	movl %ebx,(%edx)
+	movl %esi,4(%edx)
+	movb $0,8(%edx)
+	movb $1,9(%edx)
+	movb $0,10(%edx)
+	movl MM_Target+276,%eax
+	testl %eax,%eax
+	jne .L135
+	pushl $12308
+	call _m3_fault
+	.align 16
+.L135:
+	cmpl %edi,4(%eax)
+	ja .L136
+	pushl $12306
+	call _m3_fault
+	.align 16
+.L136:
+	movl (%eax),%eax
+	movl %edx,(%eax,%edi,4)
+	cmpb $0,20(%ebp)
+	je .L134
+	movl MM_Target+276,%eax
+	testl %eax,%eax
+	jne .L138
+	pushl $12420
+	call _m3_fault
+	.align 16
+.L138:
+	cmpl %edi,4(%eax)
+	ja .L139
+	pushl $12418
+	call _m3_fault
+	.align 16
+.L139:
+	movl (%eax),%eax
+	movl (%eax,%edi,4),%eax
+	testl %eax,%eax
+	jne .L140
+	pushl $12420
+	call _m3_fault
+	.align 16
+.L140:
+	movb $1,8(%eax)
+	movl MM_Target+276,%eax
+	testl %eax,%eax
+	jne .L141
+	pushl $12436
+	call _m3_fault
+	.align 16
+.L141:
+	cmpl %edi,4(%eax)
+	ja .L142
+	pushl $12434
+	call _m3_fault
+	.align 16
+.L142:
+	movl (%eax),%eax
+	movl (%eax,%edi,4),%eax
+	testl %eax,%eax
+	jne .L143
+	pushl $12436
+	call _m3_fault
+	.align 16
+.L143:
+	movb $1,9(%eax)
+	movl MM_Target+276,%eax
+	testl %eax,%eax
+	jne .L144
+	pushl $12452
+	call _m3_fault
+	.align 16
+.L144:
+	cmpl %edi,4(%eax)
+	ja .L145
+	pushl $12450
+	call _m3_fault
+	.align 16
+.L145:
+	movl (%eax),%eax
+	movl (%eax,%edi,4),%eax
+	testl %eax,%eax
+	jne .L146
+	pushl $12452
+	call _m3_fault
+	.align 16
+.L146:
+	movb $1,10(%eax)
+.L134:
+	leal -12(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe2:
+	.size	 Target__NTCall,.Lfe2-Target__NTCall
+	.align 16
+	.type	 Target__LINUXELFCall,@function
+Target__LINUXELFCall:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%edi
+	movl 12(%ebp),%ebx
+	movl 16(%ebp),%esi
+	movl MM_Target+1552,%eax
+	pushl %eax
+	movl MI_RTHooks+80,%eax
+	call *%eax
+	movl %eax,%edx
+	addl $4,%esp
+	movl %ebx,(%edx)
+	movl %esi,4(%edx)
+	movb $0,8(%edx)
+	movb $0,9(%edx)
+	movb $1,10(%edx)
+	movl MM_Target+276,%eax
+	testl %eax,%eax
+	jne .L148
+	pushl $12548
+	call _m3_fault
+	.align 16
+.L148:
+	cmpl %edi,4(%eax)
+	ja .L149
+	pushl $12546
+	call _m3_fault
+	.align 16
+.L149:
+	movl (%eax),%eax
+	leal -12(%ebp),%esp
+	movl %edx,(%eax,%edi,4)
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe3:
+	.size	 Target__LINUXELFCall,.Lfe3-Target__LINUXELFCall
+	.align 16
+	.type	 Target__FixI,@function
+Target__FixI:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $8,%esp
+	pushl %ebx
+.L151:
+	movl $5,-4(%ebp)
+	movl RTThread__handlerStack,%eax
+	movl %eax,-8(%ebp)
+	leal -8(%ebp),%ebx
+	movl %ebx,RTThread__handlerStack
+	movl 8(%ebp),%ecx
+	movl 12(%ebp),%eax
+	movl 8(%ecx),%edx
+	cmpl %edx,%eax
+	jle .L152
+	movl %edx,%eax
+.L152:
+	testl %eax,%eax
+	jge .L153
+	pushl $12705
+	call _m3_fault
+	.align 16
+.L153:
+	movl %eax,8(%ecx)
+	movl 4(%ecx),%eax
+	sarl $3,%eax
+	jns .L154
+	pushl $12721
+	call _m3_fault
+	.align 16
+.L154:
+	movl %eax,16(%ecx)
+	movl 8(%ecx),%edx
+	movl 4(%ecx),%eax
+	addl %edx,%eax
+	decl %eax
+	pushl %eax
+	pushl %edx
+	call m3_div
+	movl 8(%ebp),%edx
+	addl $8,%esp
+	imull 8(%edx),%eax
+	testl %eax,%eax
+	jge .L155
+	pushl $12737
+	call _m3_fault
+	.align 16
+.L155:
+	movl %eax,12(%edx)
+.L156:
+	movl -8(%ebp),%eax
+	movl %eax,RTThread__handlerStack
+	movl -12(%ebp),%ebx
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe4:
+	.size	 Target__FixI,.Lfe4-Target__FixI
+	.align 16
+	.type	 Target__FixF,@function
+Target__FixF:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $8,%esp
+	pushl %ebx
+.L158:
+	movl $5,-4(%ebp)
+	movl RTThread__handlerStack,%eax
+	movl %eax,-8(%ebp)
+	leal -8(%ebp),%ebx
+	movl %ebx,RTThread__handlerStack
+	movl 8(%ebp),%edx
+	movl 12(%ebp),%eax
+	movl 8(%edx),%ecx
+	cmpl %ecx,%eax
+	jle .L159
+	movl %ecx,%eax
+.L159:
+	testl %eax,%eax
+	jge .L160
+	pushl $12817
+	call _m3_fault
+	.align 16
+.L160:
+	movl %eax,8(%edx)
+	movl 4(%edx),%eax
+	sarl $3,%eax
+	jns .L161
+	pushl $12833
+	call _m3_fault
+	.align 16
+.L161:
+	movl %eax,12(%edx)
+.L162:
+	movl -8(%ebp),%eax
+	movl %eax,RTThread__handlerStack
+	movl -12(%ebp),%ebx
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe5:
+	.size	 Target__FixF,.Lfe5-Target__FixF
+	.align 16
+	.type	 Target__FindConvention,@function
+Target__FindConvention:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	xorl %ebx,%ebx
+	movl MM_Target+276,%eax
+	testl %eax,%eax
+	jne .L164
+	pushl $12948
+	call _m3_fault
+	.align 16
+.L164:
+	movl %ebx,%esi
+	movl 4(%eax),%edi
+	decl %edi
+	jmp .L165
+	.align 16
+.L166:
+	movl MM_Target+276,%eax
+	testl %eax,%eax
+	jne .L167
+	pushl $12964
+	call _m3_fault
+	.align 16
+.L167:
+	cmpl %esi,4(%eax)
+	ja .L168
+	pushl $12962
+	call _m3_fault
+	.align 16
+.L168:
+	movl (%eax),%eax
+	movl (%eax,%esi,4),%ebx
+	testl %ebx,%ebx
+	je .L169
+	movl (%ebx),%eax
+	pushl %eax
+	movl 8(%ebp),%edx
+	pushl %edx
+	movl MI_Text+48,%eax
+	call *%eax
+	addl $8,%esp
+	testl %eax,%eax
+	je .L169
+	movl %ebx,%eax
+	jmp .L172
+	.align 16
+.L169:
+	incl %esi
+.L165:
+	cmpl %edi,%esi
+	jle .L166
+	xorl %eax,%eax
+.L172:
+	leal -12(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe6:
+	.size	 Target__FindConvention,.Lfe6-Target__FindConvention
+	.align 16
+	.type	 Target__ConventionFromID,@function
+Target__ConventionFromID:
+	pushl %ebp
+	movl %esp,%ebp
+	xorl %eax,%eax
+	pushl %ebx
+	movl 8(%ebp),%ebx
+	movl MM_Target+276,%edx
+	testl %edx,%edx
+	jne .L174
+	pushl $13108
+	call _m3_fault
+	.align 16
+.L174:
+	movl %eax,%ecx
+	movl 4(%edx),%edx
+	decl %edx
+	jmp .L175
+	.align 16
+.L176:
+	movl MM_Target+276,%eax
+	testl %eax,%eax
+	jne .L177
+	pushl $13124
+	call _m3_fault
+	.align 16
+.L177:
+	cmpl %ecx,4(%eax)
+	ja .L178
+	pushl $13122
+	call _m3_fault
+	.align 16
+.L178:
+	movl (%eax),%eax
+	movl (%eax,%ecx,4),%eax
+	testl %eax,%eax
+	je .L179
+	cmpl %ebx,4(%eax)
+	je .L182
+.L179:
+	incl %ecx
+.L175:
+	cmpl %edx,%ecx
+	jle .L176
+	xorl %eax,%eax
+.L182:
+	movl -4(%ebp),%ebx
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe7:
+	.size	 Target__ConventionFromID,.Lfe7-Target__ConventionFromID
+	.align 16
+	.type	 _m3_fault,@function
+_m3_fault:
+	pushl %ebp
+	movl %esp,%ebp
+	movl 8(%ebp),%eax
+	pushl %eax
+	pushl $MM_Target
+	movl MI_RTHooks+108,%eax
+	call *%eax
+	.align 16
+.Lfe8:
+	.size	 _m3_fault,.Lfe8-_m3_fault
+.globl MM_Target
+.data
+	.align 4
+	.type	 MM_Target,@object
+	.size	 MM_Target,1880
+MM_Target:
+	.long MM_Target+1721
+	.long MM_Target+172
+	.long MM_Target+1336
+	.zero	8
+	.long MM_Target+1628
+	.zero	4
+	.long MM_Target+1716
+	.long MM_Target+1716
+	.zero	8
+	.long MM_Target+312
+	.long MM_Target+332
+	.long MM_Target+356
+	.long MM_Target+376
+	.long MM_Target+392
+	.long MM_Target+412
+	.long MM_Target+432
+	.long MM_Target+456
+	.long MM_Target+476
+	.long MM_Target+500
+	.long MM_Target+524
+	.long MM_Target+548
+	.long MM_Target+568
+	.long MM_Target+588
+	.long MM_Target+608
+	.long MM_Target+628
+	.long MM_Target+648
+	.long MM_Target+668
+	.long MM_Target+692
+	.long MM_Target+716
+	.long MM_Target+736
+	.long MM_Target+756
+	.long MM_Target+780
+	.long MM_Target+796
+	.long MM_Target+816
+	.long MM_Target+836
+	.long MM_Target+856
+	.long MM_Target+876
+	.long MM_Target+896
+	.long MM_Target+916
+	.long MM_Target+936
+	.long MM_Target+956
+	.zero	8
+	.long 1494868872
+.byte 14
+.byte 69
+.byte 225
+.byte 85
+.byte 134
+.byte 166
+.byte 248
+.byte 12
+	.long 1
+	.zero	4
+	.long 8
+	.long 4
+	.zero	8
+	.long 1
+	.long 4
+	.zero	4
+	.long MM_Target+1859
+	.long MM_Target+1864
+	.long MM_Target+1869
+	.zero	40
+	.long Target__NTCall
+	.long Target__LINUXELFCall
+	.long Target__FixI
+	.long Target__FixF
+	.long Target__Init
+	.long Target__FindConvention
+	.long Target__ConventionFromID
+	.long 2
+	.long MM_Target+320
+	.long 7
+	.ascii	"AIX386"
+	.zero	2
+	.long 2
+	.long MM_Target+340
+	.long 10
+	.ascii	"ALPHA_OSF"
+	.zero	3
+	.long 2
+	.long MM_Target+364
+	.long 7
+	.ascii	"AP3000"
+	.zero	2
+	.long 2
+	.long MM_Target+384
+	.long 4
+	.ascii	"ARM"
+	.zero	1
+	.long 2
+	.long MM_Target+400
+	.long 6
+	.ascii	"BSDI4"
+	.zero	3
+	.long 2
+	.long MM_Target+420
+	.long 7
+	.ascii	"DS3100"
+	.zero	2
+	.long 2
+	.long MM_Target+440
+	.long 11
+	.ascii	"FBSD_ALPHA"
+	.zero	2
+	.long 2
+	.long MM_Target+464
+	.long 8
+	.ascii	"FreeBSD"
+	.zero	1
+	.long 2
+	.long MM_Target+484
+	.long 9
+	.ascii	"FreeBSD2"
+	.zero	4
+	.long 2
+	.long MM_Target+508
+	.long 9
+	.ascii	"FreeBSD3"
+	.zero	4
+	.long 2
+	.long MM_Target+532
+	.long 9
+	.ascii	"FreeBSD4"
+	.zero	4
+	.long 2
+	.long MM_Target+556
+	.long 6
+	.ascii	"HP300"
+	.zero	3
+	.long 2
+	.long MM_Target+576
+	.long 5
+	.ascii	"HPPA"
+	.zero	4
+	.long 2
+	.long MM_Target+596
+	.long 6
+	.ascii	"IBMR2"
+	.zero	3
+	.long 2
+	.long MM_Target+616
+	.long 6
+	.ascii	"IBMRT"
+	.zero	3
+	.long 2
+	.long MM_Target+636
+	.long 6
+	.ascii	"IRIX5"
+	.zero	3
+	.long 2
+	.long MM_Target+656
+	.long 6
+	.ascii	"LINUX"
+	.zero	3
+	.long 2
+	.long MM_Target+676
+	.long 9
+	.ascii	"LINUXELF"
+	.zero	4
+	.long 2
+	.long MM_Target+700
+	.long 11
+	.ascii	"LINUXLIBC6"
+	.zero	2
+	.long 2
+	.long MM_Target+724
+	.long 5
+	.ascii	"NEXT"
+	.zero	4
+	.long 2
+	.long MM_Target+744
+	.long 6
+	.ascii	"NT386"
+	.zero	3
+	.long 2
+	.long MM_Target+764
+	.long 9
+	.ascii	"NT386GNU"
+	.zero	4
+	.long 2
+	.long MM_Target+788
+	.long 4
+	.ascii	"OKI"
+	.zero	1
+	.long 2
+	.long MM_Target+804
+	.long 8
+	.ascii	"SEQUENT"
+	.zero	1
+	.long 2
+	.long MM_Target+824
+	.long 7
+	.ascii	"SOLgnu"
+	.zero	2
+	.long 2
+	.long MM_Target+844
+	.long 7
+	.ascii	"SOLsun"
+	.zero	2
+	.long 2
+	.long MM_Target+864
+	.long 6
+	.ascii	"SPARC"
+	.zero	3
+	.long 2
+	.long MM_Target+884
+	.long 5
+	.ascii	"SUN3"
+	.zero	4
+	.long 2
+	.long MM_Target+904
+	.long 7
+	.ascii	"SUN386"
+	.zero	2
+	.long 2
+	.long MM_Target+924
+	.long 8
+	.ascii	"Tru64v5"
+	.zero	1
+	.long 2
+	.long MM_Target+944
+	.long 5
+	.ascii	"UMAX"
+	.zero	4
+	.long 2
+	.long MM_Target+964
+	.long 4
+	.ascii	"VAX"
+	.zero	1
+	.value 0
+	.zero	6
+	.value 65535
+	.value 65535
+	.zero	4
+	.value 65408
+	.value 65535
+	.value 65535
+	.value 65535
+	.value 127
+	.zero	6
+	.value 32768
+	.value 65535
+	.value 65535
+	.value 65535
+	.value 32767
+	.zero	6
+	.value 0
+	.value 32768
+	.value 65535
+	.value 65535
+	.value 65535
+	.value 32767
+	.zero	4
+	.value 0
+	.zero	6
+	.value 255
+	.zero	6
+	.value 0
+	.zero	6
+	.value 65535
+	.zero	6
+	.value 0
+	.zero	6
+	.value 65535
+	.value 32767
+	.zero	4
+	.value 0
+	.zero	6
+	.value 0
+	.zero	14
+	.long 0xe000001e,0xc7efffff
+	.zero	8
+	.long 0xe000001e,0x47efffff
+.byte 1
+	.zero	7
+	.long 0xffffffb0,0xffefffff
+.byte 1
+	.zero	7
+	.long 0xffffffb0,0x7fefffff
+.byte 2
+	.zero	7
+	.long 0xffffffb0,0xffefffff
+.byte 2
+	.zero	7
+	.long 0xffffffb0,0x7fefffff
+	.long 2
+	.long MM_Target+1204
+	.long 8
+	.ascii	"_setjmp"
+	.zero	1
+	.long 2
+	.long MM_Target+1224
+	.long 2
+	.ascii	"\n"
+	.zero	1
+	.value 0
+	.value 0
+	.value 0
+	.value 32768
+	.value 65535
+	.value 65535
+	.value 65535
+	.value 32767
+	.value 0
+	.zero	6
+	.value 65535
+	.value 65535
+	.value 65535
+	.value 65535
+	.value 0
+	.value 0
+	.value 0
+	.value 32768
+	.value 65535
+	.value 65535
+	.value 65535
+	.value 32767
+	.value 0
+	.zero	6
+	.value 65535
+	.value 65535
+	.value 65535
+	.value 65535
+	.zero	2
+	.long 2
+	.long MM_Target+1304
+	.long 7
+	.ascii	"setjmp"
+	.zero	2
+	.long 2
+	.long MM_Target+1324
+	.long 9
+	.ascii	"__setjmp"
+	.zero	4
+	.long MM_Target+1552
+	.long 1494868872
+	.long 2
+	.long MM_Target+1356
+	.long 2
+	.ascii	"C"
+	.zero	3
+	.long 2
+	.long MM_Target+1372
+	.long 3
+	.ascii	"\r\n"
+	.zero	2
+	.long 2
+	.long MM_Target+1388
+	.long 7
+	.ascii	"WINAPI"
+	.zero	2
+	.long 2
+	.long MM_Target+1408
+	.long 9
+	.ascii	"CALLBACK"
+	.zero	4
+	.long 2
+	.long MM_Target+1432
+	.long 8
+	.ascii	"WINAPIV"
+	.zero	1
+	.long 2
+	.long MM_Target+1452
+	.long 9
+	.ascii	"APIENTRY"
+	.zero	4
+	.long 2
+	.long MM_Target+1476
+	.long 11
+	.ascii	"APIPRIVATE"
+	.zero	2
+	.long 2
+	.long MM_Target+1500
+	.long 7
+	.ascii	"PASCAL"
+	.zero	2
+	.long 2
+	.long MM_Target+1520
+	.long 8
+	.ascii	"__cdecl"
+	.zero	1
+	.long 2
+	.long MM_Target+1540
+	.long 10
+	.ascii	"__stdcall"
+	.zero	7
+	.long 1649186066
+	.ascii	"ConventionFromID"
+	.zero	1
+	.ascii	"FindConvention"
+	.zero	1
+	.ascii	"FixF"
+	.zero	1
+	.ascii	"FixI"
+	.zero	1
+	.ascii	"LINUXELFCall"
+	.zero	1
+	.ascii	"NTCall"
+	.zero	1
+	.ascii	"Init"
+	.zero	2
+	.long Target__ConventionFromID
+	.long MM_Target+1560
+	.long MI_Target+760
+	.long Target__FindConvention
+	.long MM_Target+1577
+	.long MI_Target+756
+	.long Target__FixF
+	.long MM_Target+1592
+	.zero	4
+	.long Target__FixI
+	.long MM_Target+1597
+	.zero	4
+	.long Target__LINUXELFCall
+	.long MM_Target+1602
+	.zero	4
+	.long Target__NTCall
+	.long MM_Target+1615
+	.zero	4
+	.long Target__Init
+	.long MM_Target+1622
+	.long MI_Target+44
+	.zero	4
+.byte 43
+.byte 20
+.byte 1
+.byte 4
+.byte 0
+	.ascii	"/home/ftp/tmp/pm3/tmp/pm3-1.1.15/language/modula3/m3compiler"
+	.ascii	"/m3bootstrap/LINUXLIBC6/pm3-LINUXLIBC6/boot-LINUXLIBC6/m3mid"
+	.ascii	"dle/src/Target.m3"
+	.zero	1
+.byte 24
+.byte 1
+.byte 4
+.byte 0
+.byte 0
+.byte 24
+.byte 1
+.byte 4
+.byte 0
+.byte 0
+.byte 2
+.byte 11
+.byte 1
+.byte 16
+.byte 18
+.byte 149
+.byte 76
+.byte 98
+	.zero	3
+	.ident	"GCC: (GNU) cygnus-2.7.2-960712"

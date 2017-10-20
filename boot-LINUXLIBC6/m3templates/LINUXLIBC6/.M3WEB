@@ -1,0 +1,1135 @@
+BldWin32.m3 65
+BldPosix.m3 86
+BldHooks.m3 153
+BldFace.m3 1210
+BldQuake.m3 6025
+IntMapTbl.m3 1488
+IntM3LibsTbl.m3 1512
+TextLocTbl.m3 1650
+BldWin32.i3 214
+BldPosix.i3 214
+BldHooks.i3 1133
+BldFace.i3 215
+BldQRep.i3 2803
+BldQuake.i3 399
+IntMapTbl.i3 725
+IntM3LibsTbl.i3 761
+M3Libs.i3 151
+TextLocTbl.i3 725
+Location.i3 125
+$ 0
+@BldWin32.m3
+ABldWin32
+DBldWin32
+COSError
+CFS
+CBldQuake
+CRTHooks
+@BldPosix.m3
+ABldPosix
+DBldPosix
+CUtils
+CArg
+COSError
+CFS
+CBldQRep
+CBldQuake
+CRTHooks
+@BldHooks.m3
+ABldHooks
+DBldHooks
+CQuake
+CBldQuake
+CQVal
+CQMachRep
+CM3Libs
+CQVTbl
+CQVSeq
+CM3ID
+CBldQRep
+CQValue
+CIntM3LibsTbl
+CRTHooks
+Qd0256c1d 2fda93e2
+@BldFace.m3
+ABldFace
+V6dddefbd 9baef731 1 0 6 32 BldFace_^%#%^__0001M
+Xinit BldFace.Init
+XcompileC BldFace.CompileC
+Xbackend BldFace.Backend
+Xassemble BldFace.Assemble
+Xlink BldFace.Link
+Xmakelib BldFace.MakeLib
+Lmachine 0 32 e3446bb9
+F131d0f54 9e49e271 adc6066d 64
+R633d598a 2 9baef732 1
+St 9baef732
+Sm e3446bb9
+TBldFace.Error
+Qa3575bbd 5ca8a442
+R9427118f 2 00000000 1
+Sx 50f86574
+Sval a3575bbd
+TBldFace.Error
+R9b59e444 2 00000000 2
+Soption 50f86574
+Sval a3575bbd
+TBldFace.Error
+TQuake.Error
+R81a5ec07 7 00000000 1
+St 9baef732
+Ssource 50f86574
+Sobject 50f86574
+Sincludes 8805098f
+Soptimize 1e59237d
+Sdebug 1e59237d
+Sshared 1e59237d
+TM3Driver.InterErr
+R8651828d 6 00000000 1
+St 9baef732
+Ssource 50f86574
+Sobject 50f86574
+Soptimize 1e59237d
+Sdebug 1e59237d
+Sshared 1e59237d
+TM3Driver.InterErr
+R5c03a445 6 00000000 1
+St 9baef732
+Sprog 50f86574
+Sobjs 8805098f
+Slibs be1be11e
+Sdebug 1e59237d
+Sshared 1e59237d
+TM3Driver.InterErr
+R76469746 6 00000000 1
+St 9baef732
+Sname 50f86574
+Slibs 8805098f
+Simp 8805098f
+Sstatic 1e59237d
+Sshared 1e59237d
+TM3Driver.InterErr
+DBldFace
+CLib
+CLibSeq
+CTextSeq
+CQMachRep
+CMsg
+CM3Driver
+CBldQRep
+CBldQuake
+CBldHooks
+CQVTbl
+CQVSeq
+CQVal
+CQValue
+CQuake
+CM3ID
+CRTHooks
+Z9baef732 6dddefbd
+@BldQuake.m3
+ABldQuake
+V8cf18cfc 41cb6ae8 0 0 3 0 BldQuake.T
+Xinit BldQuake.Init
+Xsetup BldQuake.Setup
+Xgetsl BldQuake.GetSL
+K3220bf7e 64 2
+Lproc 0 32 7b7f7894
+Lreadonly 32 8 1e59237d
+R466d0a9d 5 e3446bb9 1
+St e3446bb9
+Swr 62761487
+Spackage 50f86574
+Spackage_dir 50f86574
+Sbuild_dir 50f86574
+TQuake.Error
+Rf12ce6ab 2 00000000 1
+St 23199190
+Sn_args 195c2a74
+TQuake.Error
+R6694a01a 2 50f86574 0
+St e3446bb9
+Sx 50f86574
+R47195c20 5 00000000 1
+St 23199190
+Sfn 50f86574
+Sfname 50f86574
+Sdir 50f86574
+Spkg 50f86574
+TQuake.Error
+Rfdd0c3b7 3 50f86574 0
+St e3446bb9
+Spkg 50f86574
+Ssubdir 50f86574
+R29336b73 2 50f86574 0
+St e3446bb9
+Sloc 50f86574
+R3041c154 2 50f86574 1
+St e3446bb9
+Sx 50f86574
+TQuake.Error
+R2121e7f7 3 50f86574 1
+St e3446bb9
+Sprefix 50f86574
+Sunfixed 50f86574
+TQuake.Error
+Re6b6dfd4 1 50f86574 1
+St e3446bb9
+TQuake.Error
+Rc3894bf7 4 00000000 1
+St e3446bb9
+Sx 50f86574
+Spkg 50f86574
+Ssubdir 50f86574
+TQuake.Error
+R6db2dbea 4 00000000 0
+St e3446bb9
+Sx 50f86574
+Spkg 50f86574
+Ssubdir 50f86574
+Rc0a0a457 4 00000000 0
+St e3446bb9
+Sx 50f86574
+Spn 50f86574
+Sl 1e59237d
+R421f2617 2 00000000 1
+St 23199190
+Sn_args 195c2a74
+TQuake.Error
+R17e49237 5 00000000 0
+St e3446bb9
+Sunit adc6066d
+Spkg 50f86574
+Ssubdir 50f86574
+Svisibility 1e59237d
+R495a4b44 6 00000000 1
+St e3446bb9
+Spkg 50f86574
+Ssubdir 50f86574
+Svisibility 1e59237d
+Sunit adc6066d
+Sunit_name 50f86574
+TM3Driver.Error
+R9a199a1e 6 00000000 0
+St e3446bb9
+Sunit adc6066d
+Spkg 50f86574
+Ssubdir 50f86574
+Svisibility 1e59237d
+Sunit_name 50f86574
+R8b657645 2 00000000 1
+St e3446bb9
+Sdir 50f86574
+TQuake.Error
+Rd28d3d1d 2 00000000 1
+St e3446bb9
+Spkg 50f86574
+TQuake.Error
+Rd22a3c63 2 00000000 1
+St e3446bb9
+Sp 50f86574
+TQuake.Error
+R3a544955 4 00000000 1
+St e3446bb9
+Sp 50f86574
+Sversion 50f86574
+Sid 195c2a74
+TQuake.Error
+Rb3b42462 3 00000000 0
+St e3446bb9
+Sx 50f86574
+Spn 50f86574
+R663e989e 3 00000000 1
+St e3446bb9
+Sx 50f86574
+Sext 50f86574
+TQuake.Error
+Q62e61cd8 9d19e327
+R0eec8216 3 00000000 1
+St e3446bb9
+Sd 50f86574
+Sext 62e61cd8
+TQuake.Error
+Rfe02323e 3 00000000 1
+St e3446bb9
+Sx 50f86574
+Svisibility 1e59237d
+TQuake.Error
+Rf6c4c3c1 3 00000000 1
+St e3446bb9
+Sx 50f86574
+Svis 1e59237d
+TQuake.Error
+Rd4040398 6 00000000 1
+St e3446bb9
+Snm 50f86574
+Sgeneric 50f86574
+Sargs 39e90bcf
+Svis 1e59237d
+Sunsafe 1e59237d
+TQuake.Error
+R5d8fbfce 5 00000000 1
+St e3446bb9
+Snm 50f86574
+Sgeneric 50f86574
+Sargs 39e90bcf
+Sunsafe 1e59237d
+TQuake.Error
+R4ae881bb 3 00000000 1
+St e3446bb9
+Sx 50f86574
+Shidden 1e59237d
+TQuake.Error
+R720731ff 1 00000000 0
+Ss adedb978
+Kf922e8ee 64 2
+Lname 0 32 50f86574
+Lnext 32 32 f922e8ed
+Pf922e8ed f922e8ee
+H03c126bc 3 8
+IPgm
+ILib
+IOther
+Ra99e2475 1 50f86574 0
+Sv 1e59237d
+Re7ab2033 3 00000000 1
+St e3446bb9
+Sx 50f86574
+Stype 03c126bc
+TQuake.Error
+R347143c3 3 00000000 2
+Ss adedb978
+Stxt 50f86574
+Swr 62761487
+TThread.Alerted
+TWr.Failure
+N882830d7 195c2a74 1 2 8
+Fbb21e10e 882830d7 50f86574 64
+N8f2830d7 195c2a74 1 5 8
+Faf84b996 8f2830d7 50f86574 160
+N8b2830d7 195c2a74 1 1 8
+F9b5e11af 8b2830d7 50f86574 32
+R2f0bbca6 4 00000000 1
+St e3446bb9
+Ssrc 50f86574
+Starget 50f86574
+Sdest 50f86574
+TQuake.Error
+R57bb74d8 5 00000000 1
+St e3446bb9
+Ssrc 50f86574
+Starget 50f86574
+Salias 50f86574
+Sdest 50f86574
+TQuake.Error
+R5c32766f 3 00000000 1
+St e3446bb9
+Sdest 50f86574
+Swr 62761487
+TQuake.Error
+Rc3e5cfef 2 00000000 0
+St 23199190
+Sn_args 195c2a74
+R66f234f2 4 00000000 1
+Sm e3446bb9
+St adedb978
+Sn 50f86574
+Shidden 1e59237d
+TQuake.Error
+Rb4514210 3 00000000 1
+St e3446bb9
+Srd 50f86574
+Sx 50f86574
+TQuake.Error
+R6d2e22da 2 00000000 1
+St e3446bb9
+Sm 50f86574
+TQuake.Error
+R532156c8 3 00000000 1
+St e3446bb9
+Sx 50f86574
+Ssec 50f86574
+TQuake.Error
+R243990c5 4 00000000 1
+St e3446bb9
+Ssrc_file 50f86574
+Sroot 50f86574
+Sdest_file 50f86574
+TQuake.Error
+R2d2ef807 1 1e59237d 0
+Ss adedb978
+Rc26b43c3 5 00000000 1
+St e3446bb9
+Ssrc 50f86574
+Sdest 50f86574
+Smode 50f86574
+Sderived 1e59237d
+TQuake.Error
+R6fc3050e 4 00000000 1
+St e3446bb9
+Sx 50f86574
+Ssec 50f86574
+Sderived 1e59237d
+TQuake.Error
+R2f186d62 4 00000000 1
+St e3446bb9
+Ssrc 50f86574
+Sdest 50f86574
+Smode 50f86574
+TQuake.Error
+Rdf71d8ac 5 00000000 1
+St e3446bb9
+Ssrc 50f86574
+Sdest 50f86574
+Swr 62761487
+Sfile 50f86574
+TQuake.Error
+R3decae42 3 00000000 1
+St e3446bb9
+Sx 50f86574
+Sderived 1e59237d
+TQuake.Error
+R52c3acf0 4 00000000 1
+St e3446bb9
+Sx 50f86574
+Ss 50f86574
+Sderived 1e59237d
+TQuake.Error
+R480b369d 1 f173dc91 0
+StextOptions 50f86574
+N4b3873bd 195c2a74 0 4095 16
+F998dd4c6 4b3873bd 56e16863 32768
+R05dbc4ca 3 50f86574 0
+Sstring 50f86574
+Sold 56e16863
+Snew 56e16863
+R261e103e 1 50f86574 0
+Sstring 50f86574
+Rbd80ccee 2 1e59237d 0
+Starget 50f86574
+Ssource 50f86574
+R93879102 1 50f86574 0
+Stxt 50f86574
+N075733aa 195c2a74 0 199 8
+F46f94475 075733aa 56e16863 1600
+R1eb22347 4 7b7f7894 0
+Snm 50f86574
+Shandler 305485f1
+Sn_args 195c2a74
+SisFunc 1e59237d
+G219cb5a5 3220bf7e 64
+Pe79b1a3f 219cb5a5
+R18087564 0 e79b1a3f 0
+R393e7500 2 50f86574 1
+Sx 50f86574
+Smsg 50f86574
+TQuake.Error
+R84653867 2 00000000 1
+Sx 50f86574
+Smsg 50f86574
+TQuake.Error
+Qc616f430 39e90bcf
+R930d9e08 3 00000000 1
+St e3446bb9
+Sconv 70cddd9e
+Snm_conv c616f430
+TQuake.Error
+R2446d591 1 50f86574 0
+St e3446bb9
+R32e5374b 1 00000000 1
+St 50f86574
+TQuake.Error
+Rb946c762 2 23199190 0
+S_self_ 23199190
+Swriter 62761487
+R2c39e422 2 e3c0df68 0
+S_self_ e3c0df68
+SsizeHint 97e237e2
+DBldQRep
+DBldQuake
+CQuake
+CLocation
+CRd
+CFileRd
+CBldFace
+CTextList
+CThread
+CPipe
+CProcess
+CBldHooks
+CBldWin32
+CBldPosix
+CArg
+CFS
+CFile
+CFileWr
+COSError
+CUnit
+CUtils
+CTextRefTbl
+CTextSeq
+CM3Libs
+CM3Path
+CIntM3LibsTbl
+CQVSeq
+CTextTextTbl
+CIntMapTbl
+CTextLocTbl
+CM3File
+CText
+CPathname
+CIntTextTbl
+CQMachRep
+CWr
+CM3ID
+CQVal
+CQValue
+CQCode
+CQMachine
+CM3Buf
+CM3Driver
+CRTHooks
+Ef7f46230 BldQuake.NK
+E3220bf7e BldQuake.ProcRec
+E03c126bc BldQuake.GenType
+Ef922e8ed BldQuake.GenerateTFile.List
+Ebb21e10e BldQuake.U_Program.Exts2
+Eaf84b996 BldQuake.U_Program.Exts5
+Ebb21e10e BldQuake.CProgram.Exts2
+E9b5e11af BldQuake.CProgram.Exts1
+E06456af3 BldQuake.Library.Exts
+Ef922e8ed BldQuake.InstallSources.List
+E263a9a52 BldQuake.DerivedResource.Arr
+Qa3575bbd 5ca8a442
+Ze3446bb9 8cf18cfc
+@IntMapTbl.m3
+AIntMapTbl
+K93bed212 96 3
+Lkey 0 32 195c2a74
+Lvalue 32 32 c4f658d0
+Ltail 64 32 93bed211
+P93bed211 93bed212
+G3e9f326e 93bed211 64
+P35792487 3e9f326e
+V74e4bdda f37c31ec 6 0 8 192 (Default (Table Integer (Table Text-1.0 Text-1.0)))
+Xget IntMapTbl.Get
+Xput IntMapTbl.Put
+Xdelete IntMapTbl.Delete
+Xsize IntMapTbl.Size
+Xiterate IntMapTbl.Iterate
+Xinit IntMapTbl.Init
+XkeyEqual IntMapTbl.KeyEqual
+XkeyHash IntMapTbl.KeyHash
+LminLogBuckets 0 32 97e237e2
+Lbuckets 32 32 35792487
+LlogBuckets 64 32 97e237e2
+LmaxEntries 96 32 97e237e2
+LminEntries 128 32 97e237e2
+LnumEntries 160 32 97e237e2
+V66b1b70e 0538c88d 4 0 1 128 IntMapTbl_^%#%^__0001M
+Xnext IntMapTbl.Next
+Ltbl 0 32 f37c31ef
+Lthis 32 32 93bed211
+Lbucket 64 32 97e237e2
+Ldone 96 8 1e59237d
+Rf5c021e5 2 f37c31ef 0
+Stbl f37c31ef
+Sn 97e237e2
+Qe6a3d58b 195c2a74
+Q3b09a72f c4f658d0
+Rd71200b2 3 1e59237d 0
+Stbl f37c31ef
+Skey e6a3d58b
+Sval 3b09a72f
+R5c4a23c0 3 1e59237d 0
+Stbl f37c31ef
+Skey e6a3d58b
+Sval 3b09a72f
+R9d7d998b 1 97e237e2 0
+Stbl f37c31ef
+R84138e6c 1 0538c88d 0
+Stbl f37c31ef
+Rfbfbfc6d 2 195c2a74 0
+Stbl f37c31ef
+Sk e6a3d58b
+R23bf6f05 3 1e59237d 0
+Stbl f37c31ef
+Sk1 e6a3d58b
+Sk2 e6a3d58b
+Rf245e620 1 97e237e2 0
+Sx 97e237e2
+R81b45d69 2 00000000 0
+Stbl f37c31ef
+SlogBuckets 97e237e2
+R0a598ca6 3 1e59237d 0
+Si 66b1b70e
+Skey e6a3d58b
+Sval 3b09a72f
+DIntMapTbl
+CWord
+CRTHooks
+CTextTextTbl
+CInteger
+Ef37c31ec IntMapTbl.Public
+E93bed211 IntMapTbl.EntryList
+E66b1b70e IntMapTbl.DefaultIterator
+Zf37c31ef 74e4bdda
+Q6c412dee 93bed211
+@IntM3LibsTbl.m3
+AIntM3LibsTbl
+K5ea2125f 96 3
+Lkey 0 32 195c2a74
+Lvalue 32 32 270aa4cd
+Ltail 64 32 5ea2125c
+P5ea2125c 5ea2125f
+Ga2d3f9ab 5ea2125c 64
+P9a5fe8ec a2d3f9ab
+V2ee77bf6 06e9f961 6 0 8 192 (Default (Table Integer M3Libs))
+Xget IntM3LibsTbl.Get
+Xput IntM3LibsTbl.Put
+Xdelete IntM3LibsTbl.Delete
+Xsize IntM3LibsTbl.Size
+Xiterate IntM3LibsTbl.Iterate
+Xinit IntM3LibsTbl.Init
+XkeyEqual IntM3LibsTbl.KeyEqual
+XkeyHash IntM3LibsTbl.KeyHash
+LminLogBuckets 0 32 97e237e2
+Lbuckets 32 32 9a5fe8ec
+LlogBuckets 64 32 97e237e2
+LmaxEntries 96 32 97e237e2
+LminEntries 128 32 97e237e2
+LnumEntries 160 32 97e237e2
+Vc990718b 7d1936b0 4 0 1 128 IntM3LibsTbl_^%#%^__0001M
+Xnext IntM3LibsTbl.Next
+Ltbl 0 32 06e9f962
+Lthis 32 32 5ea2125c
+Lbucket 64 32 97e237e2
+Ldone 96 8 1e59237d
+R5f396df2 2 06e9f962 0
+Stbl 06e9f962
+Sn 97e237e2
+Qe6a3d58b 195c2a74
+Qd8f55b32 270aa4cd
+R3ab170df 3 1e59237d 0
+Stbl 06e9f962
+Skey e6a3d58b
+Sval d8f55b32
+Rb1e953ad 3 1e59237d 0
+Stbl 06e9f962
+Skey e6a3d58b
+Sval d8f55b32
+Rabb9ff4b 1 97e237e2 0
+Stbl 06e9f962
+Rb44d0740 1 7d1936b0 0
+Stbl 06e9f962
+R3e5550b9 2 195c2a74 0
+Stbl 06e9f962
+Sk e6a3d58b
+R0f079ade 3 1e59237d 0
+Stbl 06e9f962
+Sk1 e6a3d58b
+Sk2 e6a3d58b
+Rf245e620 1 97e237e2 0
+Sx 97e237e2
+Rb7703ba9 2 00000000 0
+Stbl 06e9f962
+SlogBuckets 97e237e2
+R2365463a 3 1e59237d 0
+Si c990718b
+Skey e6a3d58b
+Sval d8f55b32
+DIntM3LibsTbl
+CWord
+CRTHooks
+CM3Libs
+CInteger
+E06e9f961 IntM3LibsTbl.Public
+E5ea2125c IntM3LibsTbl.EntryList
+Ec990718b IntM3LibsTbl.DefaultIterator
+Z06e9f962 2ee77bf6
+Qa15deda3 5ea2125c
+@TextLocTbl.m3
+ATextLocTbl
+K59bf0e51 128 3
+Lkey 0 32 50f86574
+Lvalue 32 64 76a9732e
+Ltail 96 32 59bf0e52
+P59bf0e52 59bf0e51
+Gff7ca716 59bf0e52 64
+P09882196 ff7ca716
+V216bcc36 5c4cab97 6 0 8 192 (Default (Table Text-1.0 Location))
+Xget TextLocTbl.Get
+Xput TextLocTbl.Put
+Xdelete TextLocTbl.Delete
+Xsize TextLocTbl.Size
+Xiterate TextLocTbl.Iterate
+Xinit TextLocTbl.Init
+XkeyEqual TextLocTbl.KeyEqual
+XkeyHash TextLocTbl.KeyHash
+LminLogBuckets 0 32 97e237e2
+Lbuckets 32 32 09882196
+LlogBuckets 64 32 97e237e2
+LmaxEntries 96 32 97e237e2
+LminEntries 128 32 97e237e2
+LnumEntries 160 32 97e237e2
+V057e0cd4 b9bf0ee2 4 0 1 128 TextLocTbl_^%#%^__0001M
+Xnext TextLocTbl.Next
+Ltbl 0 32 5c4cab94
+Lthis 32 32 59bf0e52
+Lbucket 64 32 97e237e2
+Ldone 96 8 1e59237d
+Rbc35ddaa 2 5c4cab94 0
+Stbl 5c4cab94
+Sn 97e237e2
+Qaf079a8b 50f86574
+Q89568cd1 76a9732e
+Rf80187ce 3 1e59237d 0
+Stbl 5c4cab94
+Skey af079a8b
+Sval 89568cd1
+R7359a4bc 3 1e59237d 0
+Stbl 5c4cab94
+Skey af079a8b
+Sval 89568cd1
+Re72e288f 1 97e237e2 0
+Stbl 5c4cab94
+R3b43c40b 1 b9bf0ee2 0
+Stbl 5c4cab94
+R107ce47e 2 195c2a74 0
+Stbl 5c4cab94
+Sk af079a8b
+R70bdb52d 3 1e59237d 0
+Stbl 5c4cab94
+Sk1 af079a8b
+Sk2 af079a8b
+Rf245e620 1 97e237e2 0
+Sx 97e237e2
+Rfbe7ec6d 2 00000000 0
+Stbl 5c4cab94
+SlogBuckets 97e237e2
+Rfc882004 3 1e59237d 0
+Si 057e0cd4
+Skey af079a8b
+Sval 89568cd1
+DTextLocTbl
+CWord
+CRTHooks
+CLocation
+CText
+E5c4cab97 TextLocTbl.Public
+E59bf0e52 TextLocTbl.EntryList
+E057e0cd4 TextLocTbl.DefaultIterator
+Z5c4cab94 216bcc36
+Qa640f1ad 59bf0e52
+Rd4f21c29 2 195c2a74 0
+Sx 195c2a74
+Sy 195c2a74
+Rc52a772e 2 195c2a74 0
+Sx 195c2a74
+Sn 195c2a74
+N2da6581d 195c2a74 0 31 8
+R6fb7d834 2 195c2a74 0
+Sx 195c2a74
+Sn 2da6581d
+@BldWin32.i3
+BBldWin32
+R047a1dad 2 00000000 0
+St e3446bb9
+Sx 50f86574
+R66d6c440 3 00000000 0
+St e3446bb9
+Sfrom 50f86574
+Sto 50f86574
+R427a6a6a 2 00000000 0
+St e3446bb9
+Sscript 50f86574
+DBldWin32
+CBldQuake
+CRTHooks
+@BldPosix.i3
+BBldPosix
+R047a1dad 2 00000000 0
+St e3446bb9
+Sx 50f86574
+R66d6c440 3 00000000 0
+St e3446bb9
+Sfrom 50f86574
+Sto 50f86574
+R427a6a6a 2 00000000 0
+St e3446bb9
+Sscript 50f86574
+DBldPosix
+CBldQuake
+CRTHooks
+@BldHooks.i3
+BBldHooks
+Rf869db89 2 00000000 1
+St e3446bb9
+Sx 50f86574
+TQuake.Error
+R2f3bfd9b 3 00000000 1
+St e3446bb9
+Sfrom 50f86574
+Sto 50f86574
+TQuake.Error
+Ra17dd473 1 00000000 1
+St e3446bb9
+TQuake.Error
+G43a064d3 adedb978 64
+P75419a25 43a064d3
+Rb3aa8f4a 2 75419a25 1
+St e3446bb9
+Sinstall_impls 1e59237d
+TQuake.Error
+R21cf00bf 1 75419a25 1
+St e3446bb9
+TQuake.Error
+R076ac38a 7 195c2a74 1
+St e3446bb9
+Ssrc 50f86574
+Sobj 50f86574
+Sincl 39e90bcf
+Soptimize 1e59237d
+Sdebug 1e59237d
+Sshared 1e59237d
+TQuake.Error
+R9e05757b 6 195c2a74 1
+St e3446bb9
+Sprog 50f86574
+Sobjs 39e90bcf
+Slibs 39e90bcf
+Sdebug 1e59237d
+Sshared 1e59237d
+TQuake.Error
+R32117b7d 6 195c2a74 1
+St e3446bb9
+Sname 50f86574
+Slibs 39e90bcf
+Simp 39e90bcf
+Sstatic 1e59237d
+Sshared 1e59237d
+TQuake.Error
+R02c41af5 2 195c2a74 1
+St e3446bb9
+Sname 50f86574
+TQuake.Error
+Rdc7ed88d 6 195c2a74 1
+St e3446bb9
+Ssrc 50f86574
+Sobj 50f86574
+Soptimize 1e59237d
+Sdebug 1e59237d
+Sshared 1e59237d
+TQuake.Error
+Qd0256c1d 2fda93e2
+R5bb91ac0 4 1e59237d 1
+St e3446bb9
+Sname 50f86574
+Sargs d0256c1d
+SisFunc 1e59237d
+TQuake.Error
+DBldHooks
+CQuake
+CBldQuake
+CQVSeq
+CQValue
+CIntM3LibsTbl
+CRTHooks
+@BldFace.i3
+BBldFace
+Y9baef732 9baef731
+R9baef730 1 9baef732 1
+Sm e3446bb9
+TBldFace.Error
+V9baef731 aa8341fa 0 1 0 0
+Winit 9baef730
+DBldFace
+CBldQuake
+CM3Driver
+CRTHooks
+E9baef732 BldFace.T
+E9baef731 BldFace.Public
+@BldQRep.i3
+BBldQRep
+R047a1dad 2 00000000 0
+St e3446bb9
+Sx 50f86574
+R66d6c440 3 00000000 0
+St e3446bb9
+Sfrom 50f86574
+Sto 50f86574
+R427a6a6a 2 00000000 0
+St e3446bb9
+Sscript 50f86574
+F06456af3 892831d7 50f86574 128
+N8b2831d7 195c2a74 0 1 8
+F9abfde20 8b2831d7 50f86574 64
+N8a2831d7 195c2a74 0 0 8
+F263a9a52 8a2831d7 50f86574 32
+N832831d7 195c2a74 0 9 8
+Fc83ab069 832831d7 50f86574 320
+V41cb6ae8 e3446bba 74 0 0 2848
+LPKG_USE 0 32 50f86574
+LPKG_INSTALL 32 32 50f86574
+LBIN_USE 64 32 50f86574
+LBIN_INSTALL 96 32 50f86574
+LLIB_USE 128 32 50f86574
+LLIB_INSTALL 160 32 50f86574
+LMAN_INSTALL 192 32 50f86574
+LEMACS_INSTALL 224 32 50f86574
+LDOC_INSTALL 256 32 50f86574
+LHTML_INSTALL 288 32 50f86574
+Lconv 320 32 70cddd9e
+Ltarget_conv 352 32 70cddd9e
+Llib_name 384 32 50f86574
+Lpgm_name 416 32 50f86574
+Lno_m3main 448 8 1e59237d
+LCR 480 32 50f86574
+LSL 512 32 50f86574
+LCRship 544 32 50f86574
+LSLship 576 32 50f86574
+LQRPCR 608 32 50f86574
+LOBJ_ext 640 32 50f86574
+LIO_ext 672 32 50f86574
+LMO_ext 704 32 50f86574
+LLIB_pre 736 32 50f86574
+LLIB_ext 768 32 50f86574
+LPGM_ext 800 32 50f86574
+Lintf_extensions 832 128 06456af3
+Limpl_extensions 960 128 06456af3
+Lc_extensions 1088 64 9abfde20
+Ls_extensions 1152 32 263a9a52
+Lno_extension 1184 32 263a9a52
+Lrsrc_extensions 1216 320 c83ab069
+Lpackage 1536 32 50f86574
+Lbuild_package 1568 32 50f86574
+Llast_ship_dir 1600 32 50f86574
+Lall_ship_dirs 1632 32 17b65d08
+Lpackage_dir 1664 32 50f86574
+Lbuild_dir 1696 32 50f86574
+Limports 1728 32 8993bff3
+Lpkg_cache 1760 32 8993bff3
+Lpkg_overrides 1792 32 8993bff3
+Llocations 1824 32 d1e5e3f4
+Lpkg_dirs 1856 32 a9afd6b0
+Lm3libs 1888 32 adedb978
+Lm3libs_x 1920 32 8805098f
+Lother_libs 1952 32 adedb978
+Lother_libs_x 1984 32 8805098f
+Lcompile_objects 2016 32 39e90bcf
+Linterface_sources 2048 32 adedb978
+Lmodule_sources 2080 32 adedb978
+Lgeneric_interface_sources 2112 32 adedb978
+Lgeneric_module_sources 2144 32 adedb978
+Lc_sources 2176 32 adedb978
+Lc_inputs 2208 32 8993bff3
+Lh_sources 2240 32 adedb978
+Lh_inputs 2272 32 8805098f
+Lh_dirs 2304 32 c4f658d0
+Ls_sources 2336 32 adedb978
+Ltfile_args 2368 32 c5c06198
+Ltemplates 2400 32 adedb978
+Lderived_sources 2432 32 c4f658d0
+Lresources 2464 32 c4f658d0
+Lcleanup_procs 2496 32 8805098f
+Lm3_options 2528 32 8805098f
+Ldelete_file 2560 32 047a1dad
+Llink_file 2592 32 66d6c440
+Lmake_executable 2624 32 427a6a6a
+Lpath_of_path 2656 32 50f86574
+Lpath_of_base 2688 32 50f86574
+Lpkg_subdir_path 2720 32 50f86574
+Lpkg_subdir_base 2752 32 50f86574
+Lwarned 2784 8 1e59237d
+Lall 2792 8 1e59237d
+Lm3front_options 2816 32 8805098f
+DBldQRep
+CM3Driver
+CTextTextTbl
+CM3Buf
+CQVSeq
+CTextSeq
+CIntM3LibsTbl
+CIntMapTbl
+CTextLocTbl
+CIntTextTbl
+CPathname
+CTextRefTbl
+CBldQuake
+CRTHooks
+E047a1dad BldQRep.DelFileProc
+E66d6c440 BldQRep.LinkFileProc
+E427a6a6a BldQRep.MakeExecProc
+E41cb6ae8 BldQRep.Private
+@BldQuake.i3
+BBldQuake
+Ye3446bb9 e3446bba
+Re3446bbb 4 e3446bb9 1
+Swr 62761487
+Spackage 50f86574
+Spackage_dir 50f86574
+Sbuild_dir 50f86574
+TQuake.Error
+Ve3446bba 23199190 0 3 0 0
+Winit e3446bbb
+Wsetup 7e7ef80a
+Wgetsl 87825ea1
+Ra8729883 3 00000000 1
+St e3446bb9
+Ssrc 50f86574
+Sdest 50f86574
+TQuake.Error
+DBldQuake
+CQuake
+CPathname
+CWr
+CQMachine
+CRTHooks
+Ee3446bb9 BldQuake.T
+Ee3446bba BldQuake.Public
+@IntMapTbl.i3
+BIntMapTbl
+Qe6a3d58b 195c2a74
+Q3b09a72f c4f658d0
+R5555506d 2 1e59237d 0
+Sk e6a3d58b
+Sv 3b09a72f
+R0e6ddc08 2 1e59237d 0
+Sk e6a3d58b
+Sv 3b09a72f
+R723542a3 2 1e59237d 0
+Sk e6a3d58b
+Sv 3b09a72f
+V0538c88d 9d8fb489 0 1 0 0
+Wnext 723542a3
+R45223e79 0 0538c88d 0
+Va9afd6b0 9d8fb489 0 5 0 0
+Wget 5555506d
+Wput 0e6ddc08
+Wdelete 5555506d
+Wsize 5c4c299e
+Witerate 45223e79
+Yf37c31ef f37c31ec
+Rf37c31ed 1 f37c31ef 0
+SsizeHint 97e237e2
+Rb5445f81 2 1e59237d 0
+Sk1 e6a3d58b
+Sk2 e6a3d58b
+Rd9746788 1 195c2a74 0
+Sk e6a3d58b
+Vf37c31ec a9afd6b0 0 3 0 0
+Winit f37c31ed
+WkeyEqual b5445f81
+WkeyHash d9746788
+DIntMapTbl
+CWord
+CRTHooks
+CTextTextTbl
+CInteger
+Ea9afd6b0 IntMapTbl.T
+E0538c88d IntMapTbl.Iterator
+Ef37c31ef IntMapTbl.Default
+@IntM3LibsTbl.i3
+BIntM3LibsTbl
+Qe6a3d58b 195c2a74
+Qd8f55b32 270aa4cd
+R944ed5db 2 1e59237d 0
+Sk e6a3d58b
+Sv d8f55b32
+Rcf7659be 2 1e59237d 0
+Sk e6a3d58b
+Sv d8f55b32
+R5c4c299e 0 97e237e2 0
+Rb32ec715 2 1e59237d 0
+Sk e6a3d58b
+Sv d8f55b32
+V7d1936b0 9d8fb489 0 1 0 0
+Wnext b32ec715
+R43b8d195 0 7d1936b0 0
+Vadedb978 9d8fb489 0 5 0 0
+Wget 944ed5db
+Wput cf7659be
+Wdelete 944ed5db
+Wsize 5c4c299e
+Witerate 43b8d195
+Y06e9f962 06e9f961
+R06e9f960 1 06e9f962 0
+SsizeHint 97e237e2
+Rb5445f81 2 1e59237d 0
+Sk1 e6a3d58b
+Sk2 e6a3d58b
+Rd9746788 1 195c2a74 0
+Sk e6a3d58b
+V06e9f961 adedb978 0 3 0 0
+Winit 06e9f960
+WkeyEqual b5445f81
+WkeyHash d9746788
+DIntM3LibsTbl
+CWord
+CRTHooks
+CM3Libs
+CInteger
+Eadedb978 IntM3LibsTbl.T
+E7d1936b0 IntM3LibsTbl.Iterator
+E06e9f962 IntM3LibsTbl.Default
+@M3Libs.i3
+BM3Libs
+Ke4e08cf4 64 3
+Lloc 0 32 50f86574
+Lhidden 32 8 1e59237d
+Llocal 40 8 1e59237d
+P270aa4cd e4e08cf4
+DM3Libs
+CRTHooks
+E270aa4cd M3Libs.T
+@TextLocTbl.i3
+BTextLocTbl
+Qaf079a8b 50f86574
+Q89568cd1 76a9732e
+R7af8232a 2 1e59237d 0
+Sk af079a8b
+Sv 89568cd1
+R21c0af4f 2 1e59237d 0
+Sk af079a8b
+Sv 89568cd1
+R5d9831e4 2 1e59237d 0
+Sk af079a8b
+Sv 89568cd1
+Vb9bf0ee2 9d8fb489 0 1 0 0
+Wnext 5d9831e4
+R8021c51a 0 b9bf0ee2 0
+Vd1e5e3f4 9d8fb489 0 5 0 0
+Wget 7af8232a
+Wput 21c0af4f
+Wdelete 7af8232a
+Wsize 5c4c299e
+Witerate 8021c51a
+Y5c4cab94 5c4cab97
+R5c4cab96 1 5c4cab94 0
+SsizeHint 97e237e2
+Re6f87192 2 1e59237d 0
+Sk1 af079a8b
+Sk2 af079a8b
+Re79c5f2f 1 195c2a74 0
+Sk af079a8b
+V5c4cab97 d1e5e3f4 0 3 0 0
+Winit 5c4cab96
+WkeyEqual e6f87192
+WkeyHash e79c5f2f
+DTextLocTbl
+CWord
+CRTHooks
+CLocation
+CText
+Ed1e5e3f4 TextLocTbl.T
+Eb9bf0ee2 TextLocTbl.Iterator
+E5c4cab94 TextLocTbl.Default
+@Location.i3
+BLocation
+K76a9732e 64 2
+Lid 0 32 adc6066d
+Lsubdir 32 32 50f86574
+DLocation
+CM3ID
+CRTHooks
+E76a9732e Location.T

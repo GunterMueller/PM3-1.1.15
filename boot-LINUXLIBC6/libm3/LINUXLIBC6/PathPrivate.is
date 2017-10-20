@@ -1,0 +1,136 @@
+	.file	"PathPrivate.ic"
+	.version	"01.01"
+/ SRC Modula-3 version cygnus-2.7.2-960712 (i486--linuxelf) compiled by GNU C version egcs-2.91.66 19990314/Linux (egcs-1.1.2 release).
+/ options passed:  -fno-strength-reduce -O2
+/ options enabled:  -fdefer-pop -fcse-follow-jumps -fcse-skip-blocks
+/ -fexpensive-optimizations -fthread-jumps -fpeephole -fforce-mem
+/ -ffunction-cse -finline -fkeep-static-consts -fcaller-saves
+/ -fpcc-struct-return -frerun-cse-after-loop -fschedule-insns2 -fcommon
+/ -fverbose-asm -fgnu-linker -m80387 -mhard-float -mno-soft-float -mieee-fp
+/ -mfp-ret-in-387 -mschedule-prologue -mcpu=i486 -march=i486
+
+gcc2_compiled.:
+.globl MI_PathPrivate
+.data
+	.align 4
+	.type	 MI_PathPrivate,@object
+	.size	 MI_PathPrivate,632
+MI_PathPrivate:
+	.long MI_PathPrivate+376
+	.long MI_PathPrivate+44
+	.zero	4
+	.long MI_PathPrivate+364
+	.zero	36
+	.long 607144640
+.byte 211
+.byte 195
+.byte 203
+.byte 41
+.byte 19
+.byte 137
+.byte 251
+.byte 13
+	.long 1
+	.zero	4
+	.long 24
+	.long 4
+	.zero	4
+	.long 0
+	.zero	12
+	.long MI_PathPrivate+576
+	.long MI_PathPrivate+583
+	.long MI_PathPrivate+585
+	.zero	8
+	.long -1651526519
+	.zero	12
+	.long MI_PathPrivate+598
+	.long MI_PathPrivate+623
+	.long MI_PathPrivate+156
+	.zero	16
+	.long -1296242159
+.byte 199
+.byte 214
+.byte 245
+.byte 164
+.byte 214
+.byte 60
+.byte 73
+.byte 22
+	.zero	8
+	.long 28
+	.long 4
+	.zero	20
+	.long MI_PathPrivate+548
+	.zero	36
+	.long MI_PathPrivate+557
+	.long MI_PathPrivate+260
+	.zero	8
+	.long 135855215
+.byte 226
+.byte 87
+.byte 203
+.byte 8
+.byte 141
+.byte 171
+.byte 211
+.byte 0
+	.zero	8
+	.long 12
+	.long 4
+	.zero	20
+	.long MI_PathPrivate+525
+	.zero	36
+	.long MI_PathPrivate+530
+	.zero	4
+	.long -878987541
+	.long 607144640
+	.zero	4
+	.ascii	"/home/ftp/tmp/pm3/tmp/pm3-1.1.15/language/modula3/m3compiler"
+	.ascii	"/m3bootstrap/LINUXLIBC6/pm3-LINUXLIBC6/boot-LINUXLIBC6/libm3"
+	.ascii	"/src/geometry/PathPrivate.i3"
+	.zero	1
+.byte 16
+.byte 36
+.byte 14
+.byte 14
+.byte 0
+	.ascii	"PathPrivate.PLine"
+	.zero	1
+.byte 16
+.byte 36
+.byte 14
+.byte 14
+.byte 14
+.byte 14
+.byte 14
+.byte 14
+.byte 0
+	.ascii	"PathPrivate.PCurve"
+	.zero	1
+.byte 4
+.byte 5
+.byte 5
+.byte 5
+.byte 5
+.byte 18
+.byte 0
+.byte 4
+.byte 0
+.byte 7
+.byte 10
+.byte 6
+.byte 16
+.byte 34
+.byte 186
+.byte 127
+.byte 33
+.byte 0
+.byte 24
+.byte 24
+.byte 24
+.byte 3
+	.ascii	"PathPrivate_^%#%^__0001I"
+	.zero	1
+	.ascii	"Path.T"
+	.zero	3
+	.ident	"GCC: (GNU) cygnus-2.7.2-960712"

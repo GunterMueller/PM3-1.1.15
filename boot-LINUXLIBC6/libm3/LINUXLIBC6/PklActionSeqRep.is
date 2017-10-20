@@ -1,0 +1,123 @@
+	.file	"PklActionSeqRep.ic"
+	.version	"01.01"
+/ SRC Modula-3 version cygnus-2.7.2-960712 (i486--linuxelf) compiled by GNU C version egcs-2.91.66 19990314/Linux (egcs-1.1.2 release).
+/ options passed:  -fno-strength-reduce -O2
+/ options enabled:  -fdefer-pop -fcse-follow-jumps -fcse-skip-blocks
+/ -fexpensive-optimizations -fthread-jumps -fpeephole -fforce-mem
+/ -ffunction-cse -finline -fkeep-static-consts -fcaller-saves
+/ -fpcc-struct-return -frerun-cse-after-loop -fschedule-insns2 -fcommon
+/ -fverbose-asm -fgnu-linker -m80387 -mhard-float -mno-soft-float -mieee-fp
+/ -mfp-ret-in-387 -mschedule-prologue -mcpu=i486 -march=i486
+
+gcc2_compiled.:
+.globl MI_PklActionSeqRep
+.data
+	.align 4
+	.type	 MI_PklActionSeqRep,@object
+	.size	 MI_PklActionSeqRep,576
+MI_PklActionSeqRep:
+	.long MI_PklActionSeqRep+264
+	.long MI_PklActionSeqRep+44
+	.zero	8
+	.long MI_PklActionSeqRep+252
+	.zero	32
+	.long 953432678
+.byte 147
+.byte 142
+.byte 199
+.byte 44
+.byte 245
+.byte 180
+.byte 19
+.byte 20
+	.long 1
+	.zero	4
+	.long 12
+	.long 4
+	.zero	4
+	.long 0
+	.zero	12
+	.long MI_PklActionSeqRep+507
+	.long MI_PklActionSeqRep+511
+	.long MI_PklActionSeqRep+513
+	.zero	8
+	.long -1929221974
+	.zero	12
+	.long MI_PklActionSeqRep+523
+	.long MI_PklActionSeqRep+552
+	.long MI_PklActionSeqRep+148
+	.zero	8
+	.long -917536317
+.byte 44
+.byte 231
+.byte 232
+.byte 220
+.byte 239
+.byte 102
+.byte 167
+.byte 21
+	.long 1
+	.zero	4
+	.long 8
+	.long 4
+	.zero	8
+	.long 1
+	.long 4
+	.zero	4
+	.long MI_PklActionSeqRep+435
+	.long MI_PklActionSeqRep+440
+	.long MI_PklActionSeqRep+445
+	.zero	24
+	.long MI_PklActionSeqRep+453
+	.long MI_PklActionSeqRep+482
+	.zero	4
+	.long -1929221975
+	.long 953432678
+	.zero	4
+	.ascii	"PklActionSeqRep.i3 => /home/ftp/tmp/pm3/tmp/pm3-1.1.15/langu"
+	.ascii	"age/modula3/m3compiler/m3bootstrap/LINUXLIBC6/pm3-LINUXLIBC6"
+	.ascii	"/boot-LINUXLIBC6/libm3/src/sequence/SequenceRep.ig"
+	.zero	1
+.byte 24
+.byte 1
+.byte 4
+.byte 0
+.byte 0
+.byte 24
+.byte 1
+.byte 4
+.byte 0
+.byte 0
+.byte 2
+.byte 11
+.byte 1
+.byte 16
+.byte 134
+.byte 244
+.byte 144
+.byte 73
+	.ascii	"PklActionSeqRep_^%#%^__0001I"
+	.zero	1
+	.ascii	"PklActionSeqRep.RefArray"
+	.zero	1
+.byte 4
+.byte 18
+.byte 18
+.byte 0
+.byte 4
+.byte 0
+.byte 4
+.byte 10
+.byte 3
+.byte 16
+.byte 195
+.byte 129
+.byte 79
+.byte 201
+.byte 3
+.byte 24
+	.ascii	"PklActionSeqRep_^%#%^__0002I"
+	.zero	1
+	.ascii	"PklActionSeqRep.Public"
+	.zero	2
+	.ident	"GCC: (GNU) cygnus-2.7.2-960712"

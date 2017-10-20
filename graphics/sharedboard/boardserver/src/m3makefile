@@ -1,0 +1,27 @@
+% Copyright (C) 1995, Digital Equipment Corporation
+% All rights reserved.
+% See the file COPYRIGHT for a full description.
+%
+override 	("board", path_of(".." & SL & ".."))
+import		("board")
+import		("m3tk")
+import		("smalldb")
+
+interface ("AtomicItemTbl")
+
+module ("ClientInfoX")
+list ("ClientInfo", "ClientInfo")
+module ("AtomicClientList")
+
+module ("NotifyRec")
+list ("NotifyRec", "NotifyRec")
+module ("NotifyQueue")
+module ("Log")
+
+module ("BoardX")
+table ("Board", "Text", "Board")
+module ("BoardServerX")
+
+implementation ("Server")
+program ("boardserver")
+

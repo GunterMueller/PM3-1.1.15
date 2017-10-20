@@ -1,0 +1,347 @@
+	.file	"MxGenRep.ic"
+	.version	"01.01"
+/ SRC Modula-3 version cygnus-2.7.2-960712 (i486--linuxelf) compiled by GNU C version egcs-2.91.66 19990314/Linux (egcs-1.1.2 release).
+/ options passed:  -fno-strength-reduce -O2
+/ options enabled:  -fdefer-pop -fcse-follow-jumps -fcse-skip-blocks
+/ -fexpensive-optimizations -fthread-jumps -fpeephole -fforce-mem
+/ -ffunction-cse -finline -fkeep-static-consts -fcaller-saves
+/ -fpcc-struct-return -frerun-cse-after-loop -fschedule-insns2 -fcommon
+/ -fverbose-asm -fgnu-linker -m80387 -mhard-float -mno-soft-float -mieee-fp
+/ -mfp-ret-in-387 -mschedule-prologue -mcpu=i486 -march=i486
+
+gcc2_compiled.:
+.globl MI_MxGenRep
+.data
+	.align 4
+	.type	 MI_MxGenRep,@object
+	.size	 MI_MxGenRep,1040
+MI_MxGenRep:
+	.long MI_MxGenRep+632
+	.long MI_MxGenRep+44
+	.zero	44
+	.long -1712608335
+.byte 181
+.byte 108
+.byte 244
+.byte 142
+.byte 4
+.byte 199
+.byte 31
+.byte 23
+	.long 1
+	.zero	4
+	.long 52
+	.long 4
+	.zero	4
+	.long 0
+	.zero	12
+	.long MI_MxGenRep+946
+	.long MI_MxGenRep+963
+	.long MI_MxGenRep+976
+	.zero	8
+	.long 1396576069
+	.zero	16
+	.long MI_MxGenRep+1024
+	.long MI_MxGenRep+148
+	.zero	8
+	.long -259465201
+.byte 5
+.byte 207
+.byte 21
+.byte 250
+.byte 10
+.byte 47
+.byte 157
+.byte 10
+	.long 1
+	.zero	4
+	.long 32
+	.long 4
+	.zero	20
+	.long MI_MxGenRep+887
+	.long MI_MxGenRep+897
+	.long MI_MxGenRep+904
+	.zero	28
+	.long MI_MxGenRep+928
+	.long MI_MxGenRep+252
+	.zero	8
+	.long 806557552
+.byte 0
+.byte 193
+.byte 56
+.byte 44
+.byte 112
+.byte 214
+.byte 43
+.byte 28
+	.long 1
+	.zero	4
+	.long 20
+	.long 4
+	.zero	20
+	.long MI_MxGenRep+831
+	.long MI_MxGenRep+837
+	.long MI_MxGenRep+843
+	.zero	28
+	.long MI_MxGenRep+867
+	.long MI_MxGenRep+364
+	.long MI_MxGenRep+604
+	.long MI_MxGenRep+620
+	.zero	8
+	.long -259465203
+.byte 5
+.byte 207
+.byte 21
+.byte 250
+.byte 8
+.byte 47
+.byte 157
+.byte 10
+	.long 1
+	.zero	4
+	.long 8
+	.long 4
+	.zero	20
+	.long MI_MxGenRep+790
+	.long MI_MxGenRep+793
+	.long MI_MxGenRep+796
+	.zero	28
+	.long MI_MxGenRep+809
+	.long MI_MxGenRep+476
+	.zero	16
+	.long -1078442736
+.byte 186
+.byte 103
+.byte 163
+.byte 175
+.byte 170
+.byte 34
+.byte 27
+.byte 16
+	.long 1
+	.zero	4
+	.long 8
+	.long 4
+	.zero	8
+	.long 1
+	.long 4
+	.zero	4
+	.long MI_MxGenRep+772
+	.long MI_MxGenRep+777
+	.long MI_MxGenRep+782
+	.zero	56
+	.long 2
+	.long MI_MxGenRep+612
+	.long 4
+	.ascii	"MM_"
+	.zero	1
+	.long 2
+	.long MI_MxGenRep+628
+	.long 4
+	.ascii	"MI_"
+	.zero	1
+	.ascii	"/home/ftp/tmp/pm3/tmp/pm3-1.1.15/language/modula3/m3compiler"
+	.ascii	"/m3bootstrap/LINUXLIBC6/pm3-LINUXLIBC6/boot-LINUXLIBC6/m3lin"
+	.ascii	"ker/src/MxGenRep.i3"
+	.zero	1
+.byte 24
+.byte 1
+.byte 4
+.byte 0
+.byte 0
+.byte 24
+.byte 1
+.byte 4
+.byte 0
+.byte 0
+.byte 2
+.byte 11
+.byte 1
+.byte 16
+.byte 15
+.byte 224
+.byte 136
+.byte 240
+.byte 4
+.byte 4
+.byte 0
+.byte 4
+.byte 4
+.byte 0
+.byte 3
+.byte 15
+.byte 2
+.byte 16
+.byte 15
+.byte 224
+.byte 136
+.byte 240
+.byte 16
+.byte 13
+.byte 224
+.byte 136
+.byte 240
+	.ascii	"MxGenRep.UnitInfoList"
+	.zero	1
+.byte 4
+.byte 4
+.byte 4
+.byte 4
+.byte 4
+.byte 0
+.byte 4
+.byte 4
+.byte 4
+.byte 4
+.byte 4
+.byte 0
+.byte 6
+.byte 15
+.byte 5
+.byte 16
+.byte 112
+.byte 23
+.byte 19
+.byte 48
+.byte 16
+.byte 150
+.byte 82
+.byte 105
+.byte 48
+.byte 16
+.byte 178
+.byte 199
+.byte 130
+.byte 52
+.byte 16
+.byte 96
+.byte 22
+.byte 162
+.byte 216
+.byte 25
+	.ascii	"MxGenRep.OpaqueInfo"
+	.zero	1
+.byte 4
+.byte 4
+.byte 4
+.byte 4
+.byte 14
+.byte 14
+.byte 4
+.byte 16
+.byte 16
+.byte 0
+.byte 4
+.byte 4
+.byte 4
+.byte 4
+.byte 41
+.byte 4
+.byte 0
+.byte 10
+.byte 15
+.byte 9
+.byte 16
+.byte 178
+.byte 199
+.byte 130
+.byte 52
+.byte 16
+.byte 15
+.byte 224
+.byte 136
+.byte 240
+.byte 16
+.byte 13
+.byte 224
+.byte 136
+.byte 240
+.byte 25
+.byte 7
+.byte 27
+.byte 24
+.byte 2
+.byte 30
+	.ascii	"MxGenRep.UnitInfo"
+	.zero	1
+.byte 4
+.byte 4
+.byte 4
+.byte 16
+.byte 16
+.byte 16
+.byte 34
+.byte 14
+.byte 14
+.byte 4
+.byte 14
+.byte 4
+.byte 4
+.byte 14
+.byte 4
+.byte 4
+.byte 0
+.byte 4
+.byte 4
+.byte 4
+.byte 42
+.byte 12
+.byte 4
+.byte 37
+.byte 4
+.byte 4
+.byte 37
+.byte 4
+.byte 4
+.byte 0
+.byte 16
+.byte 10
+.byte 15
+.byte 16
+.byte 146
+.byte 99
+.byte 39
+.byte 95
+.byte 16
+.byte 135
+.byte 20
+.byte 118
+.byte 98
+.byte 24
+.byte 2
+.byte 26
+.byte 26
+.byte 7
+.byte 29
+.byte 16
+.byte 15
+.byte 224
+.byte 136
+.byte 240
+.byte 29
+.byte 16
+.byte 43
+.byte 186
+.byte 211
+.byte 90
+.byte 16
+.byte 112
+.byte 23
+.byte 19
+.byte 48
+.byte 19
+.byte 254
+.byte 126
+.byte 16
+.byte 178
+.byte 199
+.byte 130
+.byte 52
+.byte 16
+.byte 116
+.byte 101
+.byte 248
+.byte 80
+	.ascii	"MxGenRep.Public"
+	.zero	1
+	.ident	"GCC: (GNU) cygnus-2.7.2-960712"

@@ -1,0 +1,67 @@
+	.file	"FilePosix.ic"
+	.version	"01.01"
+/ SRC Modula-3 version cygnus-2.7.2-960712 (i486--linuxelf) compiled by GNU C version egcs-2.91.66 19990314/Linux (egcs-1.1.2 release).
+/ options passed:  -fno-strength-reduce -O2
+/ options enabled:  -fdefer-pop -fcse-follow-jumps -fcse-skip-blocks
+/ -fexpensive-optimizations -fthread-jumps -fpeephole -fforce-mem
+/ -ffunction-cse -finline -fkeep-static-consts -fcaller-saves
+/ -fpcc-struct-return -frerun-cse-after-loop -fschedule-insns2 -fcommon
+/ -fverbose-asm -fgnu-linker -m80387 -mhard-float -mno-soft-float -mieee-fp
+/ -mfp-ret-in-387 -mschedule-prologue -mcpu=i486 -march=i486
+
+gcc2_compiled.:
+.globl MI_FilePosix
+.data
+	.align 4
+	.type	 MI_FilePosix,@object
+	.size	 MI_FilePosix,344
+MI_FilePosix:
+	.long MI_FilePosix+172
+	.long MI_FilePosix+44
+	.zero	8
+	.long MI_FilePosix+160
+	.zero	32
+	.long -1122767062
+.byte 89
+.byte 90
+.byte 118
+.byte 170
+.byte 115
+.byte 181
+.byte 101
+.byte 23
+	.long 1
+	.zero	4
+	.long 8
+	.long 4
+	.zero	4
+	.long 0
+	.zero	12
+	.long MI_FilePosix+319
+	.zero	4
+	.long MI_FilePosix+323
+	.zero	8
+	.long 26474158
+	.zero	16
+	.long MI_FilePosix+329
+	.zero	16
+	.long -1506843708
+	.long -1122767062
+	.zero	4
+	.ascii	"/home/ftp/tmp/pm3/tmp/pm3-1.1.15/language/modula3/m3compiler"
+	.ascii	"/m3bootstrap/LINUXLIBC6/pm3-LINUXLIBC6/boot-LINUXLIBC6/libm3"
+	.ascii	"/src/os/POSIX/FilePosix.i3"
+	.zero	1
+.byte 14
+.byte 20
+.byte 4
+.byte 0
+.byte 3
+.byte 10
+.byte 2
+.byte 7
+.byte 18
+.byte 2
+	.ascii	"FilePosix.T"
+	.zero	4
+	.ident	"GCC: (GNU) cygnus-2.7.2-960712"

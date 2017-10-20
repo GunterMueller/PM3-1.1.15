@@ -1,0 +1,1967 @@
+	.file	"Main.mc"
+	.version	"01.01"
+/ SRC Modula-3 version cygnus-2.7.2-960712 (i486--linuxelf) compiled by GNU C version egcs-2.91.66 19990314/Linux (egcs-1.1.2 release).
+/ options passed:  -fno-strength-reduce -O2
+/ options enabled:  -fdefer-pop -fcse-follow-jumps -fcse-skip-blocks
+/ -fexpensive-optimizations -fthread-jumps -fpeephole -fforce-mem
+/ -ffunction-cse -finline -fkeep-static-consts -fcaller-saves
+/ -fpcc-struct-return -frerun-cse-after-loop -fschedule-insns2 -fcommon
+/ -fverbose-asm -fgnu-linker -m80387 -mhard-float -mno-soft-float -mieee-fp
+/ -mfp-ret-in-387 -mschedule-prologue -mcpu=i486 -march=i486
+
+gcc2_compiled.:
+.text
+	.align 16
+	.type	 Main__Out,@function
+Main__Out:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $8,%esp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%edx
+	movl 12(%ebp),%esi
+	movl 16(%ebp),%edi
+.L2:
+	movl $5,-4(%ebp)
+	movl RTThread__handlerStack,%eax
+	movl %eax,-8(%ebp)
+	leal -8(%ebp),%ecx
+	movl %ecx,RTThread__handlerStack
+	movl MI_Stdio+48,%ebx
+	testl %edx,%edx
+	je .L3
+	pushl %edx
+	pushl %ebx
+	movl MI_Wr+68,%eax
+	call *%eax
+	addl $8,%esp
+.L3:
+	testl %esi,%esi
+	je .L4
+	pushl %esi
+	pushl %ebx
+	movl MI_Wr+68,%eax
+	call *%eax
+	addl $8,%esp
+.L4:
+	testl %edi,%edi
+	je .L5
+	pushl %edi
+	pushl %ebx
+	movl MI_Wr+68,%eax
+	call *%eax
+	addl $8,%esp
+.L5:
+	cmpl $0,20(%ebp)
+	je .L7
+	movl 20(%ebp),%ecx
+	pushl %ecx
+	pushl %ebx
+	movl MI_Wr+68,%eax
+	call *%eax
+.L7:
+	movl -8(%ebp),%eax
+	leal -20(%ebp),%esp
+	movl %eax,RTThread__handlerStack
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe1:
+	.size	 Main__Out,.Lfe1-Main__Out
+	.align 16
+	.type	 Main__Err,@function
+Main__Err:
+	pushl %ebp
+	movl %esp,%ebp
+	movl 8(%ebp),%edx
+	movl 12(%ebp),%eax
+	pushl $MM_Main+368
+	pushl %eax
+	pushl %edx
+	pushl $MM_Main+344
+	call Main__Out
+	pushl $1
+	movl MI_Process+156,%eax
+	call *%eax
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe2:
+	.size	 Main__Err,.Lfe2-Main__Err
+	.align 16
+	.type	 Main__PrintUsage,@function
+Main__PrintUsage:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %esi
+	pushl %ebx
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $MM_Main+384
+	call Main__Out
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $MM_Main+424
+	call Main__Out
+	addl $32,%esp
+	pushl $0
+	movl $MM_Main+536,%ebx
+	pushl %ebx
+	movl MM_Main+160,%eax
+	pushl %eax
+	movl $MM_Main+496,%esi
+	pushl %esi
+	call Main__Out
+	pushl $0
+	pushl %ebx
+	movl MM_Main+164,%eax
+	pushl %eax
+	pushl $MM_Main+552
+	call Main__Out
+	addl $32,%esp
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $MM_Main+616
+	call Main__Out
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $MM_Main+676
+	call Main__Out
+	addl $32,%esp
+	pushl $0
+	pushl %ebx
+	movl MM_Main+148,%eax
+	pushl %eax
+	pushl %esi
+	call Main__Out
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $MM_Main+736
+	call Main__Out
+	addl $32,%esp
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $MM_Main+788
+	call Main__Out
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $MM_Main+820
+	call Main__Out
+	addl $32,%esp
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $MM_Main+856
+	call Main__Out
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $MM_Main+904
+	call Main__Out
+	addl $32,%esp
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $MM_Main+944
+	call Main__Out
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $MM_Main+992
+	call Main__Out
+	addl $32,%esp
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $MM_Main+368
+	call Main__Out
+	leal -8(%ebp),%esp
+	popl %ebx
+	popl %esi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe3:
+	.size	 Main__PrintUsage,.Lfe3-Main__PrintUsage
+	.align 16
+	.type	 Main__ParseCommandLine,@function
+Main__ParseCommandLine:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $4,%esp
+	pushl %esi
+	pushl %ebx
+	movl $0,-4(%ebp)
+	movl $1,%ebx
+	movl MI_Params+44,%esi
+	jmp .L11
+	.align 16
+.L12:
+	testl %ebx,%ebx
+	jge .L13
+	pushl $1377
+	call _m3_fault
+	.align 16
+.L13:
+	pushl %ebx
+	movl MI_Params+48,%eax
+	call *%eax
+	movl %eax,-4(%ebp)
+	pushl $MM_Main+1032
+	pushl %eax
+	movl MI_Text+48,%eax
+	call *%eax
+	addl $12,%esp
+	testl %eax,%eax
+	je .L14
+	incl %ebx
+	cmpl %esi,%ebx
+	jge .L16
+	testl %ebx,%ebx
+	jge .L17
+	pushl $1409
+	call _m3_fault
+	.align 16
+.L17:
+	pushl %ebx
+	movl MI_Params+48,%eax
+	call *%eax
+	movl %eax,-4(%ebp)
+	movl %eax,MM_Main+160
+	movl %eax,MM_Main+156
+	addl $4,%esp
+	jmp .L18
+	.align 16
+.L14:
+	pushl $MM_Main+1048
+	movl -4(%ebp),%eax
+	pushl %eax
+	movl MI_Text+48,%eax
+	call *%eax
+	addl $8,%esp
+	testl %eax,%eax
+	je .L19
+	incl %ebx
+	cmpl %esi,%ebx
+	jge .L16
+	testl %ebx,%ebx
+	jge .L21
+	pushl $1473
+	call _m3_fault
+	.align 16
+.L21:
+	pushl %ebx
+	movl MI_Params+48,%eax
+	call *%eax
+	movl %eax,-4(%ebp)
+	movl %eax,MM_Main+152
+	addl $4,%esp
+	jmp .L18
+	.align 16
+.L19:
+	pushl $MM_Main+1064
+	movl -4(%ebp),%eax
+	pushl %eax
+	movl MI_Text+48,%eax
+	call *%eax
+	addl $8,%esp
+	testl %eax,%eax
+	je .L22
+	incl %ebx
+	cmpl %esi,%ebx
+	jge .L16
+	testl %ebx,%ebx
+	jge .L24
+	pushl $1521
+	call _m3_fault
+	.align 16
+.L24:
+	pushl %ebx
+	movl MI_Params+48,%eax
+	call *%eax
+	movl %eax,-4(%ebp)
+	movl MM_Main+188,%eax
+	pushl %eax
+	leal -4(%ebp),%eax
+	pushl %eax
+	movl MI_TextList+148,%eax
+	call *%eax
+	movl %eax,MM_Main+188
+	addl $12,%esp
+	jmp .L18
+	.align 16
+.L22:
+	pushl $MM_Main+1080
+	movl -4(%ebp),%eax
+	pushl %eax
+	movl MI_Text+48,%eax
+	call *%eax
+	addl $8,%esp
+	testl %eax,%eax
+	je .L25
+	movb $1,MM_Main+196
+	jmp .L18
+	.align 16
+.L25:
+	pushl $MM_Main+1096
+	movl -4(%ebp),%eax
+	pushl %eax
+	movl MI_Text+48,%eax
+	call *%eax
+	addl $8,%esp
+	testl %eax,%eax
+	je .L26
+	movb $1,MM_Main+199
+	jmp .L18
+	.align 16
+.L26:
+	pushl $MM_Main+1112
+	movl -4(%ebp),%eax
+	pushl %eax
+	movl MI_Text+48,%eax
+	call *%eax
+	addl $8,%esp
+	testl %eax,%eax
+	je .L27
+	incl %ebx
+	cmpl %esi,%ebx
+	jge .L16
+	testl %ebx,%ebx
+	jge .L29
+	pushl $1633
+	call _m3_fault
+	.align 16
+.L29:
+	pushl %ebx
+	movl MI_Params+48,%eax
+	call *%eax
+	movl %eax,-4(%ebp)
+	movl %eax,MM_Main+164
+	addl $4,%esp
+	jmp .L18
+	.align 16
+.L27:
+	pushl $MM_Main+1128
+	movl -4(%ebp),%eax
+	pushl %eax
+	movl MI_Text+48,%eax
+	call *%eax
+	addl $8,%esp
+	testl %eax,%eax
+	je .L30
+	movb $1,MM_Main+198
+	movb $0,MM_Main+197
+	jmp .L18
+	.align 16
+.L30:
+	pushl $MM_Main+1144
+	movl -4(%ebp),%eax
+	pushl %eax
+	movl MI_Text+48,%eax
+	call *%eax
+	addl $8,%esp
+	testl %eax,%eax
+	je .L31
+	movb $0,MM_Main+198
+	movb $1,MM_Main+197
+	jmp .L18
+	.align 16
+.L31:
+	pushl $MM_Main+1160
+	movl -4(%ebp),%eax
+	pushl %eax
+	movl MI_Text+48,%eax
+	call *%eax
+	addl $8,%esp
+	testl %eax,%eax
+	je .L32
+	pushl $0
+	pushl $MM_Main+368
+	pushl $MM_Main+1208
+	pushl $MM_Main+1184
+	call Main__Out
+	pushl $0
+	movl MI_Process+156,%eax
+	call *%eax
+	addl $20,%esp
+	jmp .L18
+	.align 16
+.L32:
+	pushl $MM_Main+1272
+	movl -4(%ebp),%eax
+	pushl %eax
+	movl MI_Text+48,%eax
+	call *%eax
+	addl $8,%esp
+	testl %eax,%eax
+	jne .L38
+	pushl $MM_Main+1288
+	movl -4(%ebp),%eax
+	pushl %eax
+	movl MI_Text+48,%eax
+	call *%eax
+	addl $8,%esp
+	testl %eax,%eax
+	jne .L38
+	pushl $MM_Main+1308
+	movl -4(%ebp),%eax
+	pushl %eax
+	movl MI_Text+48,%eax
+	call *%eax
+	addl $8,%esp
+	testl %eax,%eax
+	je .L35
+.L38:
+	call Main__PrintUsage
+	pushl $0
+	movl MI_Process+156,%eax
+	call *%eax
+	addl $4,%esp
+	jmp .L18
+	.align 16
+.L35:
+	pushl $2
+	pushl %eax
+	movl -4(%ebp),%eax
+	pushl %eax
+	movl MI_Text+64,%eax
+	call *%eax
+	pushl $MM_Main+1324
+	pushl %eax
+	movl MI_Text+48,%eax
+	call *%eax
+	addl $20,%esp
+	testl %eax,%eax
+	je .L36
+	pushl $2147483647
+	pushl $2
+	movl -4(%ebp),%eax
+	pushl %eax
+	movl MI_Text+64,%eax
+	call *%eax
+	pushl %eax
+	call Main__AddDefine
+	addl $16,%esp
+	jmp .L18
+	.align 16
+.L36:
+	pushl %eax
+	movl -4(%ebp),%eax
+	pushl %eax
+	movl MI_Text+52,%eax
+	call *%eax
+	addl $8,%esp
+	call Main__PrintUsage
+	movl -4(%ebp),%eax
+	pushl %eax
+	pushl $MM_Main+1340
+	call Main__Err
+	addl $8,%esp
+.L18:
+	incl %ebx
+.L11:
+	cmpl %esi,%ebx
+	jl .L12
+.L16:
+	movl MM_Main+188,%eax
+	pushl %eax
+	movl MI_TextList+192,%eax
+	call *%eax
+	leal -12(%ebp),%esp
+	movl %eax,MM_Main+188
+	popl %ebx
+	popl %esi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe4:
+	.size	 Main__ParseCommandLine,.Lfe4-Main__ParseCommandLine
+	.align 16
+	.type	 Main__AddDefine,@function
+Main__AddDefine:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $4,%esp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%edi
+	xorl %ebx,%ebx
+	pushl %ebx
+	pushl $61
+	pushl %edi
+	movl MI_Text+88,%eax
+	call *%eax
+	movl %eax,%esi
+	addl $12,%esp
+	testl %eax,%eax
+	jge .L40
+	movl %edi,%ebx
+	movl %ebx,-4(%ebp)
+	jmp .L41
+	.align 16
+.L40:
+	testl %eax,%eax
+	je .L39
+	jge .L43
+	pushl $2305
+	call _m3_fault
+	.align 16
+.L43:
+	pushl %esi
+	pushl %ebx
+	pushl %edi
+	movl MI_Text+64,%eax
+	call *%eax
+	movl %eax,%edx
+	movl %edx,-4(%ebp)
+	leal 1(%esi),%eax
+	addl $12,%esp
+	testl %eax,%eax
+	jge .L44
+	pushl $2321
+	call _m3_fault
+	.align 16
+.L44:
+	pushl $2147483647
+	pushl %eax
+	pushl %edi
+	movl MI_Text+64,%eax
+	call *%eax
+	movl %eax,%edx
+	movl %edx,%ebx
+	addl $12,%esp
+.L41:
+	movl MM_Main+1372,%eax
+	pushl %eax
+	movl MI_RTHooks+80,%eax
+	call *%eax
+	movl %eax,%edx
+	movl MM_Main+192,%eax
+	movl %eax,(%edx)
+	movl -4(%ebp),%ecx
+	movl %ecx,4(%edx)
+	movl %ebx,8(%edx)
+	movl %edx,MM_Main+192
+.L39:
+	leal -16(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe5:
+	.size	 Main__AddDefine,.Lfe5-Main__AddDefine
+	.align 16
+	.type	 Main__ChDir,@function
+Main__ChDir:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $180,%esp
+.L46:
+	movl $MM_Main+1380,-172(%ebp)
+	movl $0,-176(%ebp)
+	movl RTThread__handlerStack,%eax
+	movl %eax,-180(%ebp)
+	leal -180(%ebp),%edx
+	movl %edx,RTThread__handlerStack
+	leal -160(%ebp),%eax
+	pushl %eax
+	call _setjmp
+	addl $4,%esp
+	testl %eax,%eax
+	jne .L47
+	movl 8(%ebp),%edx
+	pushl %edx
+	movl MI_Process+184,%eax
+	call *%eax
+	movl -180(%ebp),%eax
+	movl %eax,RTThread__handlerStack
+	jmp .L45
+	.align 16
+.L47:
+	movl 8(%ebp),%edx
+	pushl %edx
+	pushl $MM_Main+1392
+	call Main__Err
+.L45:
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe6:
+	.size	 Main__ChDir,.Lfe6-Main__ChDir
+	.align 16
+	.type	 Main__MkDir,@function
+Main__MkDir:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $180,%esp
+.L51:
+	movl $MM_Main+1380,-172(%ebp)
+	movl $0,-176(%ebp)
+	movl RTThread__handlerStack,%eax
+	movl %eax,-180(%ebp)
+	leal -180(%ebp),%edx
+	movl %edx,RTThread__handlerStack
+	leal -160(%ebp),%eax
+	pushl %eax
+	call _setjmp
+	addl $4,%esp
+	testl %eax,%eax
+	jne .L52
+	movl 8(%ebp),%edx
+	pushl %edx
+	movl MI_FS+56,%eax
+	call *%eax
+	movl -180(%ebp),%eax
+	movl %eax,RTThread__handlerStack
+	jmp .L50
+	.align 16
+.L52:
+	movl 8(%ebp),%edx
+	pushl %edx
+	pushl $MM_Main+1436
+	call Main__Err
+.L50:
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe7:
+	.size	 Main__MkDir,.Lfe7-Main__MkDir
+	.align 16
+	.type	 Main__GotoInitialDirectory,@function
+Main__GotoInitialDirectory:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $180,%esp
+	movl MM_Main+164,%eax
+	pushl %eax
+	call Main__ChDir
+	addl $4,%esp
+.L56:
+	movl $MM_Main+1380,-172(%ebp)
+	movl $0,-176(%ebp)
+	movl RTThread__handlerStack,%eax
+	movl %eax,-180(%ebp)
+	leal -180(%ebp),%edx
+	movl %edx,RTThread__handlerStack
+	leal -160(%ebp),%eax
+	pushl %eax
+	call _setjmp
+	addl $4,%esp
+	testl %eax,%eax
+	jne .L57
+	movl MI_Process+180,%eax
+	call *%eax
+	movl %eax,MM_Main+164
+	movl -180(%ebp),%eax
+	movl %eax,RTThread__handlerStack
+	jmp .L58
+	.align 16
+.L57:
+	movl MM_Main+164,%eax
+	pushl %eax
+	pushl $MM_Main+1480
+	call Main__Err
+	addl $8,%esp
+.L58:
+	movl MM_Main+164,%eax
+	pushl %eax
+	movl MI_Pathname+88,%eax
+	call *%eax
+	movl %eax,MM_Main+168
+	movl MM_Main+164,%eax
+	pushl %eax
+	movl MI_Pathname+84,%eax
+	call *%eax
+	movl %eax,MM_Main+172
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe8:
+	.size	 Main__GotoInitialDirectory,.Lfe8-Main__GotoInitialDirectory
+	.align 16
+	.type	 Main__GotoBuildDir,@function
+Main__GotoBuildDir:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%esi
+	pushl %esi
+	movl MI_M3File+60,%eax
+	call *%eax
+	movl %eax,%ebx
+	addl $4,%esp
+	testl %ebx,%ebx
+	je .L61
+	cmpb $0,MM_Main+198
+	jne .L65
+	pushl $0
+	jmp .L66
+	.align 16
+.L61:
+	cmpb $0,MM_Main+198
+	jne .L64
+	pushl %ebx
+	pushl $MM_Main+368
+	pushl %esi
+	pushl $MM_Main+1580
+	call Main__Out
+	addl $16,%esp
+.L64:
+	pushl %esi
+	call Main__MkDir
+	addl $4,%esp
+	cmpb $0,MM_Main+198
+	jne .L65
+	pushl %ebx
+.L66:
+	pushl $MM_Main+1560
+	pushl %esi
+	pushl $MM_Main+1528
+	call Main__Out
+	addl $16,%esp
+.L65:
+	pushl %esi
+	call Main__ChDir
+	leal -8(%ebp),%esp
+	popl %ebx
+	popl %esi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe9:
+	.size	 Main__GotoBuildDir,.Lfe9-Main__GotoBuildDir
+	.align 16
+	.type	 Main__PathEQ,@function
+Main__PathEQ:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $4,%esp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%edx
+	pushl %edx
+	movl MI_Text+56,%eax
+	call *%eax
+	movl %eax,%ebx
+	movl 12(%ebp),%edx
+	pushl %edx
+	movl MI_Text+56,%eax
+	call *%eax
+	addl $8,%esp
+	cmpl %eax,%ebx
+	jne .L74
+	xorl %esi,%esi
+	leal -1(%eax),%edi
+	jmp .L69
+	.align 16
+.L70:
+	pushl %esi
+	movl 8(%ebp),%edx
+	pushl %edx
+	movl MI_Text+52,%eax
+	call *%eax
+	movl $MI_ASCII+396,%ebx
+	movb (%ebx,%eax),%al
+	movb %al,-4(%ebp)
+	pushl %esi
+	movl 12(%ebp),%edx
+	pushl %edx
+	movl MI_Text+52,%eax
+	call *%eax
+	addl $16,%esp
+	movb -4(%ebp),%dl
+	cmpb %dl,(%ebx,%eax)
+	je .L71
+.L74:
+	xorl %eax,%eax
+	jmp .L73
+	.align 16
+.L71:
+	incl %esi
+.L69:
+	cmpl %edi,%esi
+	jle .L70
+	movl $1,%eax
+.L73:
+	leal -16(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe10:
+	.size	 Main__PathEQ,.Lfe10-Main__PathEQ
+	.align 16
+	.type	 Main__GotoDerivedDirectory,@function
+Main__GotoDerivedDirectory:
+	pushl %ebp
+	movl %esp,%ebp
+	cmpb $0,MM_Main+196
+	je .L76
+	movl MM_Main+172,%eax
+	movl %eax,MM_Main+176
+	movl MM_Main+168,%eax
+	movl %eax,MM_Main+160
+	jmp .L77
+	.align 16
+.L76:
+	pushl $MM_Main+1600
+	movl MM_Main+168,%eax
+	pushl %eax
+	call Main__PathEQ
+	addl $8,%esp
+	testl %eax,%eax
+	je .L78
+	movl MM_Main+172,%eax
+	movl %eax,MM_Main+176
+	movl MM_Main+160,%eax
+	pushl %eax
+	pushl $MM_Main+1616
+	movl MI_RTHooks+76,%eax
+	call *%eax
+	pushl %eax
+	call Main__GotoBuildDir
+	addl $12,%esp
+	jmp .L77
+	.align 16
+.L78:
+	movl MM_Main+160,%eax
+	pushl %eax
+	movl MM_Main+168,%eax
+	pushl %eax
+	call Main__PathEQ
+	addl $8,%esp
+	testl %eax,%eax
+	je .L79
+	movl MM_Main+172,%eax
+	movl %eax,MM_Main+176
+	jmp .L77
+	.align 16
+.L79:
+	movl MM_Main+164,%eax
+	movl %eax,MM_Main+176
+	movl MM_Main+160,%eax
+	pushl %eax
+	call Main__GotoBuildDir
+	addl $4,%esp
+.L77:
+	movl MM_Main+176,%eax
+	pushl %eax
+	movl MI_Pathname+88,%eax
+	call *%eax
+	movl %eax,MM_Main+180
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe11:
+	.size	 Main__GotoDerivedDirectory,.Lfe11-Main__GotoDerivedDirectory
+	.align 16
+	.type	 Main__CheckForShipfile,@function
+Main__CheckForShipfile:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %esi
+	pushl %ebx
+	movl $MM_Main+1632,%esi
+	pushl %esi
+	movl MI_M3File+64,%eax
+	call *%eax
+	addl $4,%esp
+	testl %eax,%eax
+	je .L81
+	movl $MM_Main+1652,%ebx
+	pushl %ebx
+	movl MM_Main+176,%eax
+	pushl %eax
+	movl MI_RTHooks+76,%eax
+	call *%eax
+	movl %eax,%edx
+	movl MM_Main+160,%eax
+	pushl %eax
+	pushl %edx
+	movl MI_RTHooks+76,%eax
+	call *%eax
+	pushl %ebx
+	pushl %eax
+	movl MI_RTHooks+76,%eax
+	call *%eax
+	pushl %esi
+	pushl %eax
+	movl MI_RTHooks+76,%eax
+	call *%eax
+	movl %eax,MM_Main+184
+	jmp .L80
+	.align 16
+.L81:
+	pushl %eax
+	pushl $MM_Main+1668
+	call Main__Err
+.L80:
+	leal -8(%ebp),%esp
+	popl %ebx
+	popl %esi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe12:
+	.size	 Main__CheckForShipfile,.Lfe12-Main__CheckForShipfile
+	.align 16
+	.type	 Main__CheckForOverridesFile,@function
+Main__CheckForOverridesFile:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl $MM_Main+1728
+	movl MI_M3File+64,%eax
+	call *%eax
+	addl $4,%esp
+	testl %eax,%eax
+	je .L83
+	cmpb $0,MM_Main+199
+	jne .L83
+	pushl $0
+	pushl $MM_Main+1756
+	call Main__Err
+.L83:
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe13:
+	.size	 Main__CheckForOverridesFile,.Lfe13-Main__CheckForOverridesFile
+	.align 16
+	.type	 Main__QDefine,@function
+Main__QDefine:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%edi
+	movl 12(%ebp),%esi
+	movl 16(%ebp),%ebx
+	cmpb $0,MM_Main+197
+	je .L86
+	pushl $MM_Main+368
+	pushl %ebx
+	pushl $MM_Main+1812
+	pushl %esi
+	call Main__Out
+	addl $16,%esp
+.L86:
+	pushl %ebx
+	pushl %esi
+	pushl %edi
+	movl MI_Quake+76,%eax
+	call *%eax
+	leal -12(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe14:
+	.size	 Main__QDefine,.Lfe14-Main__QDefine
+	.align 16
+	.type	 Main__QRun,@function
+Main__QRun:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%esi
+	movl 12(%ebp),%ebx
+	cmpb $0,MM_Main+197
+	je .L88
+	pushl $0
+	pushl $MM_Main+1848
+	pushl %ebx
+	pushl $MM_Main+1828
+	call Main__Out
+	addl $16,%esp
+.L88:
+	pushl %ebx
+	pushl %esi
+	movl MI_Quake+64,%eax
+	call *%eax
+	leal -8(%ebp),%esp
+	popl %ebx
+	popl %esi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe15:
+	.size	 Main__QRun,.Lfe15-Main__QRun
+	.align 16
+	.type	 M_Main_LINE_293.0,@function
+M_Main_LINE_293.0:
+	pushl %ebp
+	movl %esp,%ebp
+	movl %ecx,-4(%ebp)
+	movl -4(%ebp),%eax
+	subl $4,%esp
+	movl -200(%eax),%eax
+	pushl %eax
+	movl MI_Quake+80,%eax
+	call *%eax
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe16:
+	.size	 M_Main_LINE_293.0,.Lfe16-M_Main_LINE_293.0
+	.align 16
+	.type	 Main__RunQuake,@function
+Main__RunQuake:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $200,%esp
+	pushl %esi
+	pushl %ebx
+	movl $0,-200(%ebp)
+.L90:
+	movl $MM_Main+1860,-172(%ebp)
+	movl $0,-176(%ebp)
+	movl RTThread__handlerStack,%eax
+	movl %eax,-180(%ebp)
+	leal -180(%ebp),%esi
+	movl %esi,RTThread__handlerStack
+	leal -160(%ebp),%eax
+	pushl %eax
+	call _setjmp
+	addl $4,%esp
+	testl %eax,%eax
+	jne .L91
+	movl MM_Main+1868,%eax
+	pushl %eax
+	movl MI_RTHooks+80,%eax
+	call *%eax
+	movl %eax,%edx
+	movl (%edx),%eax
+	movl 48(%eax),%ecx
+	movl MM_Main+160,%eax
+	pushl %eax
+	movl MM_Main+176,%eax
+	pushl %eax
+	movl MM_Main+180,%eax
+	pushl %eax
+	movl MI_Stdio+48,%eax
+	pushl %eax
+	pushl %edx
+	call *%ecx
+	movl %eax,%edx
+	movl %edx,-200(%ebp)
+	movl $M_Main_LINE_293.0,-188(%ebp)
+	movl %ebp,-184(%ebp)
+	addl $24,%esp
+.L92:
+	movl $3,-192(%ebp)
+	movl RTThread__handlerStack,%eax
+	movl %eax,-196(%ebp)
+	leal -196(%ebp),%esi
+	movl %esi,RTThread__handlerStack
+	movl 8(%ebp),%esi
+	pushl %esi
+	pushl $MM_Main+1880
+	movl MI_RTHooks+76,%eax
+	call *%eax
+	movl $MM_Main+1896,%ebx
+	pushl %ebx
+	movl %eax,%edx
+	pushl %edx
+	movl -200(%ebp),%eax
+	pushl %eax
+	call Main__QDefine
+	addl $20,%esp
+	cmpb $0,MM_Main+198
+	je .L93
+	pushl %ebx
+	pushl $MM_Main+1916
+	movl -200(%ebp),%eax
+	pushl %eax
+	call Main__QDefine
+	addl $12,%esp
+.L93:
+	movl MM_Main+176,%eax
+	pushl %eax
+	pushl $MM_Main+1936
+	movl -200(%ebp),%eax
+	pushl %eax
+	call Main__QDefine
+	movl MM_Main+180,%eax
+	pushl %eax
+	pushl $MM_Main+1960
+	movl -200(%ebp),%eax
+	pushl %eax
+	call Main__QDefine
+	movl MM_Main+160,%eax
+	pushl %eax
+	pushl $MM_Main+1980
+	movl -200(%ebp),%eax
+	pushl %eax
+	call Main__QDefine
+	addl $36,%esp
+	pushl $MM_Main+1652
+	movl MM_Main+152,%eax
+	pushl %eax
+	movl MI_RTHooks+76,%eax
+	call *%eax
+	movl %eax,%edx
+	movl MM_Main+156,%eax
+	pushl %eax
+	pushl %edx
+	movl MI_RTHooks+76,%eax
+	call *%eax
+	movl %eax,%ecx
+	pushl %ecx
+	movl -200(%ebp),%eax
+	pushl %eax
+	call Main__QRun
+	movl MM_Main+192,%ebx
+	addl $24,%esp
+	jmp .L94
+	.align 16
+.L95:
+	movl 8(%ebx),%eax
+	pushl %eax
+	movl 4(%ebx),%eax
+	pushl %eax
+	movl -200(%ebp),%eax
+	pushl %eax
+	call Main__QDefine
+	addl $12,%esp
+	movl (%ebx),%ebx
+.L94:
+	testl %ebx,%ebx
+	jne .L95
+	movl MM_Main+188,%ebx
+	jmp .L100
+	.align 16
+.L101:
+	movl 4(%ebx),%eax
+	pushl %eax
+	movl -200(%ebp),%eax
+	pushl %eax
+	call Main__QRun
+	movl 8(%ebx),%ebx
+	addl $8,%esp
+.L100:
+	testl %ebx,%ebx
+	jne .L101
+	movl -200(%ebp),%edx
+	movl (%edx),%eax
+	movl 52(%eax),%ecx
+	pushl %edx
+	call *%ecx
+	movl MM_Main+184,%eax
+	pushl %eax
+	movl -200(%ebp),%eax
+	pushl %eax
+	call Main__QRun
+	movl -196(%ebp),%eax
+	movl %eax,RTThread__handlerStack
+	movl %ebp,%ecx
+	call M_Main_LINE_293.0
+.L103:
+	movl -180(%ebp),%eax
+	movl %eax,RTThread__handlerStack
+	jmp .L89
+	.align 16
+.L91:
+	movl -164(%ebp),%eax
+	pushl %eax
+	pushl $MM_Main+2004
+	call Main__Err
+.L89:
+	leal -208(%ebp),%esp
+	popl %ebx
+	popl %esi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe17:
+	.size	 Main__RunQuake,.Lfe17-Main__RunQuake
+	.align 16
+	.type	 Main__FindTemplateDir,@function
+Main__FindTemplateDir:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $4,%esp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	pushl $MM_Main+2032
+	movl MI_Env+44,%eax
+	call *%eax
+	xorl %ebx,%ebx
+	addl $4,%esp
+	testl %eax,%eax
+	jne .L122
+	pushl $MM_Main+2060
+	movl MI_Env+44,%eax
+	call *%eax
+	movl $MM_Main+2080,%esi
+	pushl %esi
+	movl %eax,%edi
+	pushl %esi
+	movl MI_Text+48,%eax
+	call *%eax
+	addl $12,%esp
+	testl %eax,%eax
+	je .L110
+	movb $58,-4(%ebp)
+	jmp .L113
+	.align 16
+.L110:
+	pushl $MM_Main+2100
+	pushl %esi
+	movl MI_Text+48,%eax
+	call *%eax
+	addl $8,%esp
+	testl %eax,%eax
+	je .L112
+	movb $59,-4(%ebp)
+	jmp .L113
+	.align 16
+.L112:
+	pushl %esi
+	pushl $MM_Main+2120
+	call Main__Err
+	addl $8,%esp
+.L113:
+	leal 1(%ebx),%eax
+	pushl %eax
+	xorl %eax,%eax
+	movb -4(%ebp),%al
+	pushl %eax
+	pushl %edi
+	movl MI_Text+88,%eax
+	call *%eax
+	movl %eax,%esi
+	addl $12,%esp
+	cmpl $-1,%esi
+	je .L114
+	testl %ebx,%ebx
+	jge .L115
+	pushl $5201
+	call _m3_fault
+	.align 16
+.L115:
+	movl %esi,%eax
+	subl %ebx,%eax
+	decl %eax
+	jns .L116
+	pushl $5201
+	call _m3_fault
+	.align 16
+.L116:
+	pushl %eax
+	jmp .L123
+	.align 16
+.L114:
+	testl %ebx,%ebx
+	jge .L118
+	pushl $5233
+	call _m3_fault
+	.align 16
+.L118:
+	pushl $2147483647
+.L123:
+	pushl %ebx
+	pushl %edi
+	movl MI_Text+64,%eax
+	call *%eax
+	movl %eax,%ebx
+	addl $12,%esp
+	movl MM_Main+156,%eax
+	pushl %eax
+	pushl %ebx
+	movl MI_RTHooks+76,%eax
+	call *%eax
+	pushl %eax
+	movl MI_M3File+64,%eax
+	call *%eax
+	addl $12,%esp
+	testl %eax,%eax
+	je .L119
+	movl %ebx,MM_Main+152
+	jmp .L107
+	.align 16
+.L119:
+	movl %esi,%ebx
+	cmpl $-1,%ebx
+	jne .L113
+	cmpl $0,MM_Main+152
+	jne .L107
+	movl MM_Main+148,%eax
+.L122:
+	movl %eax,MM_Main+152
+.L107:
+	leal -16(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe18:
+	.size	 Main__FindTemplateDir,.Lfe18-Main__FindTemplateDir
+	.align 16
+	.type	 Main__FindTemplate,@function
+Main__FindTemplate:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl $MM_Main+2184
+	movl MI_Env+44,%eax
+	call *%eax
+	addl $4,%esp
+	testl %eax,%eax
+	je .L125
+	pushl %eax
+	movl MI_Pathname+88,%eax
+	call *%eax
+	movl %eax,MM_Main+156
+	jmp .L126
+	.align 16
+.L125:
+	movl $MM_Main+2208,MM_Main+156
+.L126:
+	movl MM_Main+156,%eax
+	movl %eax,MM_Main+160
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe19:
+	.size	 Main__FindTemplate,.Lfe19-Main__FindTemplate
+	.align 16
+	.type	 _INITM_Main,@function
+_INITM_Main:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %ebx
+	call Main__ParseCommandLine
+	cmpl $0,MM_Main+156
+	jne .L128
+	call Main__FindTemplate
+.L128:
+	cmpl $0,MM_Main+152
+	jne .L129
+	call Main__FindTemplateDir
+.L129:
+	call Main__GotoInitialDirectory
+	call Main__GotoDerivedDirectory
+	movl MM_Main+152,%eax
+	pushl %eax
+	movl MI_Pathname+80,%eax
+	call *%eax
+	addl $4,%esp
+	testl %eax,%eax
+	jne .L130
+	movl $MM_Main+1652,%ebx
+	pushl %ebx
+	movl MM_Main+176,%eax
+	pushl %eax
+	movl MI_RTHooks+76,%eax
+	call *%eax
+	movl %eax,%edx
+	movl MM_Main+160,%eax
+	pushl %eax
+	pushl %edx
+	movl MI_RTHooks+76,%eax
+	call *%eax
+	pushl %ebx
+	pushl %eax
+	movl MI_RTHooks+76,%eax
+	call *%eax
+	movl %eax,%edx
+	movl MM_Main+152,%eax
+	pushl %eax
+	pushl %edx
+	movl MI_RTHooks+76,%eax
+	call *%eax
+	movl %eax,MM_Main+152
+	addl $32,%esp
+.L130:
+	call Main__CheckForShipfile
+	call Main__CheckForOverridesFile
+	pushl $MM_Main+2232
+	call Main__RunQuake
+	movl -4(%ebp),%ebx
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe20:
+	.size	 _INITM_Main,.Lfe20-_INITM_Main
+	.align 16
+	.type	 _m3_fault,@function
+_m3_fault:
+	pushl %ebp
+	movl %esp,%ebp
+	movl 8(%ebp),%eax
+	pushl %eax
+	pushl $MM_Main
+	movl MI_RTHooks+108,%eax
+	call *%eax
+	.align 16
+.Lfe21:
+	.size	 _m3_fault,.Lfe21-_m3_fault
+.globl MM_Main
+.data
+	.align 4
+	.type	 MM_Main,@object
+	.size	 MM_Main,2920
+MM_Main:
+	.long MM_Main+2747
+	.long MM_Main+44
+	.long MM_Main+1372
+	.zero	8
+	.long MM_Main+2488
+	.zero	4
+	.long MM_Main+2732
+	.long MM_Main+2732
+	.zero	4
+	.long _INITM_Main
+	.zero	8
+	.long 423322038
+.byte 24
+.byte 35
+.byte 243
+.byte 31
+.byte 174
+.byte 66
+.byte 200
+.byte 6
+	.long 1
+	.zero	4
+	.long 12
+	.long 4
+	.zero	20
+	.long MM_Main+2881
+	.long MM_Main+2885
+	.long MM_Main+2889
+	.zero	28
+	.long MM_Main+2903
+	.zero	4
+	.long MM_Main+276
+	.zero	12
+	.long MM_Main+328
+	.zero	32
+	.long Main__Out
+	.long Main__Err
+	.long Main__PrintUsage
+	.long Main__ParseCommandLine
+	.long Main__AddDefine
+	.long Main__ChDir
+	.long Main__MkDir
+	.long Main__GotoInitialDirectory
+	.long Main__GotoBuildDir
+	.long Main__PathEQ
+	.long Main__GotoDerivedDirectory
+	.long Main__CheckForShipfile
+	.long Main__CheckForOverridesFile
+	.long Main__QDefine
+	.long Main__QRun
+	.long Main__RunQuake
+	.long Main__FindTemplateDir
+	.long Main__FindTemplate
+	.long 2
+	.long MM_Main+284
+	.long 39
+	.ascii	"/usr/local/pm3/lib/m3/pkg"
+	.ascii	"/"
+	.ascii	"m3config"
+	.ascii	"/"
+	.ascii	"src"
+	.zero	2
+	.long 2
+	.long MM_Main+336
+	.long 2
+	.ascii	"."
+	.zero	3
+	.long 2
+	.long MM_Main+352
+	.long 10
+	.ascii	"\nm3ship: "
+	.zero	3
+	.long 2
+	.long MM_Main+376
+	.long 2
+	.ascii	"\n"
+	.zero	3
+	.long 2
+	.long MM_Main+392
+	.long 25
+	.ascii	"usage: m3ship [options]\n"
+	.zero	4
+	.long 2
+	.long MM_Main+432
+	.long 59
+	.ascii	"  -b <dir>   build with template <dir> in directory <dir>\n"
+	.zero	2
+	.long 2
+	.long MM_Main+504
+	.long 26
+	.ascii	"               (default='"
+	.zero	3
+	.long 2
+	.long MM_Main+544
+	.long 4
+	.ascii	"')\n"
+	.zero	1
+	.long 2
+	.long MM_Main+560
+	.long 49
+	.ascii	"  -d <dir>   start in directory <dir> (default='"
+	.zero	4
+	.long 2
+	.long MM_Main+624
+	.long 47
+	.ascii	"  -F <file>  prepend the quake code in <file>\n"
+	.zero	2
+	.long 2
+	.long MM_Main+684
+	.long 47
+	.ascii	"  -T <dir>   use templates in directory <dir>\n"
+	.zero	2
+	.long 2
+	.long MM_Main+744
+	.long 39
+	.ascii	"  -S         build in 'src' directory\n"
+	.zero	2
+	.long 2
+	.long MM_Main+796
+	.long 20
+	.ascii	"  -q         quiet\n"
+	.zero	1
+	.long 2
+	.long MM_Main+828
+	.long 22
+	.ascii	"  -v         verbose\n"
+	.zero	3
+	.long 2
+	.long MM_Main+864
+	.long 34
+	.ascii	"  -help      print this messsage\n"
+	.zero	3
+	.long 2
+	.long MM_Main+912
+	.long 28
+	.ascii	"  -version   print version\n"
+	.zero	1
+	.long 2
+	.long MM_Main+952
+	.long 35
+	.ascii	"  -<arg>     pass -<arg> to quake\n"
+	.zero	2
+	.long 2
+	.long MM_Main+1000
+	.long 27
+	.ascii	"  -k         ship partial\n"
+	.zero	2
+	.long 2
+	.long MM_Main+1040
+	.long 3
+	.ascii	"-b"
+	.zero	2
+	.long 2
+	.long MM_Main+1056
+	.long 3
+	.ascii	"-T"
+	.zero	2
+	.long 2
+	.long MM_Main+1072
+	.long 3
+	.ascii	"-F"
+	.zero	2
+	.long 2
+	.long MM_Main+1088
+	.long 3
+	.ascii	"-S"
+	.zero	2
+	.long 2
+	.long MM_Main+1104
+	.long 3
+	.ascii	"-k"
+	.zero	2
+	.long 2
+	.long MM_Main+1120
+	.long 3
+	.ascii	"-d"
+	.zero	2
+	.long 2
+	.long MM_Main+1136
+	.long 3
+	.ascii	"-q"
+	.zero	2
+	.long 2
+	.long MM_Main+1152
+	.long 3
+	.ascii	"-v"
+	.zero	2
+	.long 2
+	.long MM_Main+1168
+	.long 9
+	.ascii	"-version"
+	.zero	4
+	.long 2
+	.long MM_Main+1192
+	.long 9
+	.ascii	"m3ship: "
+	.zero	4
+	.long 2
+	.long MM_Main+1216
+	.long 50
+	.ascii	"PM3 Version "
+	.ascii	"1.1.15"
+	.ascii	" ("
+	.ascii	"Tue Sep  5 17:16:07 EDT 2000"
+	.ascii	")"
+	.zero	3
+	.long 2
+	.long MM_Main+1280
+	.long 3
+	.ascii	"-h"
+	.zero	2
+	.long 2
+	.long MM_Main+1296
+	.long 6
+	.ascii	"-help"
+	.zero	3
+	.long 2
+	.long MM_Main+1316
+	.long 3
+	.ascii	"-?"
+	.zero	2
+	.long 2
+	.long MM_Main+1332
+	.long 3
+	.ascii	"-D"
+	.zero	2
+	.long 2
+	.long MM_Main+1348
+	.long 22
+	.ascii	"unrecognized option: "
+	.zero	3
+	.long MM_Main+1868
+	.long 423322038
+	.long MI_OSError+44
+	.zero	4
+	.long 2
+	.long MM_Main+1400
+	.long 30
+	.ascii	"unable to move to directory: "
+	.zero	3
+	.long 2
+	.long MM_Main+1444
+	.long 29
+	.ascii	"unable to create directory: "
+	.zero	4
+	.long 2
+	.long MM_Main+1488
+	.long 36
+	.ascii	"unable to get full directory path: "
+	.zero	1
+	.long 2
+	.long MM_Main+1536
+	.long 19
+	.ascii	"--- shipping from "
+	.zero	2
+	.long 2
+	.long MM_Main+1568
+	.long 6
+	.ascii	" ---\n"
+	.zero	3
+	.long 2
+	.long MM_Main+1588
+	.long 7
+	.ascii	"mkdir "
+	.zero	2
+	.long 2
+	.long MM_Main+1608
+	.long 4
+	.ascii	"src"
+	.zero	1
+	.long 2
+	.long MM_Main+1624
+	.long 4
+	.ascii	".."
+	.ascii	"/"
+	.zero	1
+	.long 2
+	.long MM_Main+1640
+	.long 8
+	.ascii	".M3SHIP"
+	.zero	1
+	.long 2
+	.long MM_Main+1660
+	.long 2
+	.ascii	"/"
+	.zero	3
+	.long 2
+	.long MM_Main+1676
+	.long 48
+	.ascii	"cannot locate a .M3SHIP file, run m3build first"
+	.zero	1
+	.long 2
+	.long MM_Main+1736
+	.long 13
+	.ascii	".M3OVERRIDES"
+	.zero	4
+	.long 2
+	.long MM_Main+1764
+	.long 44
+	.ascii	"package built with overrides - not shipping"
+	.zero	1
+	.long 2
+	.long MM_Main+1820
+	.long 4
+	.ascii	" = "
+	.zero	1
+	.long 2
+	.long MM_Main+1836
+	.long 7
+	.ascii	"EVAL ("
+	.zero	2
+	.long 2
+	.long MM_Main+1856
+	.long 3
+	.ascii	")\n"
+	.zero	2
+	.long MI_Quake+44
+	.zero	8
+	.long -482055239
+	.long 2
+	.long MM_Main+1888
+	.long 2
+	.ascii	"_"
+	.zero	3
+	.long 2
+	.long MM_Main+1904
+	.long 5
+	.ascii	"TRUE"
+	.zero	4
+	.long 2
+	.long MM_Main+1924
+	.long 7
+	.ascii	"_quiet"
+	.zero	2
+	.long 2
+	.long MM_Main+1944
+	.long 12
+	.ascii	"PACKAGE_DIR"
+	.zero	1
+	.long 2
+	.long MM_Main+1968
+	.long 8
+	.ascii	"PACKAGE"
+	.zero	1
+	.long 2
+	.long MM_Main+1988
+	.long 10
+	.ascii	"BUILD_DIR"
+	.zero	3
+	.long 2
+	.long MM_Main+2012
+	.long 14
+	.ascii	"quake error: "
+	.zero	3
+	.long 2
+	.long MM_Main+2040
+	.long 16
+	.ascii	"M3_TEMPLATE_DIR"
+	.zero	1
+	.long 2
+	.long MM_Main+2068
+	.long 5
+	.ascii	"PATH"
+	.zero	4
+	.long 2
+	.long MM_Main+2088
+	.long 6
+	.ascii	"POSIX"
+	.zero	3
+	.long 2
+	.long MM_Main+2108
+	.long 6
+	.ascii	"WIN32"
+	.zero	3
+	.long 2
+	.long MM_Main+2128
+	.long 51
+	.ascii	"FindTemplate does not know how to handle OS_TYPE: "
+	.zero	2
+	.long 2
+	.long MM_Main+2192
+	.long 12
+	.ascii	"M3_TEMPLATE"
+	.zero	1
+	.long 2
+	.long MM_Main+2216
+	.long 11
+	.ascii	"LINUXLIBC6"
+	.zero	2
+	.long 2
+	.long MM_Main+2240
+	.long 5
+	.ascii	"ship"
+	.zero	4
+	.ascii	"_INITM_Main"
+	.zero	1
+	.ascii	"FindTemplate"
+	.zero	1
+	.ascii	"FindTemplateDir"
+	.zero	1
+	.ascii	"RunQuake"
+	.zero	1
+	.ascii	"M_Main_LINE_293"
+	.zero	1
+	.ascii	"QRun"
+	.zero	1
+	.ascii	"QDefine"
+	.zero	1
+	.ascii	"CheckForOverridesFile"
+	.zero	1
+	.ascii	"CheckForShipfile"
+	.zero	1
+	.ascii	"GotoDerivedDirectory"
+	.zero	1
+	.ascii	"PathEQ"
+	.zero	1
+	.ascii	"GotoBuildDir"
+	.zero	1
+	.ascii	"GotoInitialDirectory"
+	.zero	1
+	.ascii	"MkDir"
+	.zero	1
+	.ascii	"ChDir"
+	.zero	1
+	.ascii	"AddDefine"
+	.zero	1
+	.ascii	"ParseCommandLine"
+	.zero	1
+	.ascii	"PrintUsage"
+	.zero	1
+	.ascii	"Err"
+	.zero	1
+	.ascii	"Out"
+	.zero	3
+	.long _INITM_Main
+	.long MM_Main+2248
+	.zero	4
+	.long Main__FindTemplate
+	.long MM_Main+2260
+	.zero	4
+	.long Main__FindTemplateDir
+	.long MM_Main+2273
+	.zero	4
+	.long Main__RunQuake
+	.long MM_Main+2289
+	.zero	4
+	.long M_Main_LINE_293.0
+	.long MM_Main+2298
+	.zero	4
+	.long Main__QRun
+	.long MM_Main+2314
+	.zero	4
+	.long Main__QDefine
+	.long MM_Main+2319
+	.zero	4
+	.long Main__CheckForOverridesFile
+	.long MM_Main+2327
+	.zero	4
+	.long Main__CheckForShipfile
+	.long MM_Main+2349
+	.zero	4
+	.long Main__GotoDerivedDirectory
+	.long MM_Main+2366
+	.zero	4
+	.long Main__PathEQ
+	.long MM_Main+2387
+	.zero	4
+	.long Main__GotoBuildDir
+	.long MM_Main+2394
+	.zero	4
+	.long Main__GotoInitialDirectory
+	.long MM_Main+2407
+	.zero	4
+	.long Main__MkDir
+	.long MM_Main+2428
+	.zero	4
+	.long Main__ChDir
+	.long MM_Main+2434
+	.zero	4
+	.long Main__AddDefine
+	.long MM_Main+2440
+	.zero	4
+	.long Main__ParseCommandLine
+	.long MM_Main+2450
+	.zero	4
+	.long Main__PrintUsage
+	.long MM_Main+2467
+	.zero	4
+	.long Main__Err
+	.long MM_Main+2478
+	.zero	4
+	.long Main__Out
+	.long MM_Main+2482
+	.zero	8
+.byte 42
+.byte 148
+.byte 4
+.byte 4
+.byte 4
+.byte 4
+.byte 4
+.byte 4
+.byte 4
+.byte 4
+.byte 4
+.byte 4
+.byte 4
+.byte 4
+.byte 0
+	.ascii	"/home/ftp/tmp/pm3/tmp/pm3-1.1.15/language/modula3/m3compiler"
+	.ascii	"/m3bootstrap/LINUXLIBC6/pm3-LINUXLIBC6/boot-LINUXLIBC6/m3shi"
+	.ascii	"p/src/Main.m3"
+	.zero	1
+.byte 4
+.byte 4
+.byte 4
+.byte 0
+.byte 4
+.byte 4
+.byte 4
+.byte 0
+.byte 4
+.byte 15
+.byte 3
+.byte 16
+.byte 182
+.byte 97
+.byte 59
+.byte 25
+.byte 16
+.byte 116
+.byte 101
+.byte 248
+.byte 80
+.byte 24
+	.ascii	"Main.DefineList"
+	.zero	2
+	.ident	"GCC: (GNU) cygnus-2.7.2-960712"

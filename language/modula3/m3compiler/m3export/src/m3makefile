@@ -1,0 +1,982 @@
+%
+% Some utility procedures
+%
+
+NOEXEC = lookup("NOEXEC","")
+
+FIRST_STEP = lookup("FIRST_STEP","")
+LAST_STEP = lookup("LAST_STEP","")
+
+M3MAKEOPTIONS = lookup("M3MAKEOPTIONS","")
+
+if FIRST_STEP doStep = ""
+else doStep = "T"
+end
+
+readonly proc DoStep(nm) is
+  if equal(nm,FIRST_STEP) doStep = "T" end
+  if equal(nm,LAST_STEP) doStep = "" end
+
+  if doStep write(CR,"Start Step ",nm,CR,CR)
+  else write(CR,"Skip Step ",nm,CR,CR)
+  end
+
+  return doStep
+end
+
+readonly proc CheckErrors(file) is
+  %Exec(["grep","[Ee][Rr][Rr][Oo][Rr]:"
+  write("Unimplemented check errors for ", file, CR)
+end
+
+readonly proc Exec(command,io,wd) is
+
+  if VERBOSE 
+    write("command: ", command, CR, "io: ", io, CR, "wd: ",wd, CR, CR)
+  end
+
+  if NOEXEC 
+    return 0
+  else
+    return exec(command,io,wd)
+  end
+end
+  
+readonly proc CheckExec(command,io,wd,msg) is
+  if VERBOSE
+    write("command: ", command, CR, "io: ", io, CR, "wd: ", wd, CR,
+        "msg: ", msg, CR, CR)
+  end
+  if not(NOEXEC)
+    local ret = exec(command,io,wd)
+    if not equal(ret,0) error(msg & "(returned " & ret & ")",CR) end
+  end
+end
+
+readonly proc Version(timestamp,major,mid,minor,keep) is
+  VERSION = [timestamp, major, mid, minor, keep]
+end
+
+readonly proc VersionNumber(v) is
+  return v[1] & "." & v[2] & "." & v[3]
+end
+
+readonly proc VersionName(v) is
+  return "pm3-" & VersionNumber(v)
+end
+
+readonly proc DiffName(v1,v2) is
+  return "pm3-diffs-" & VersionNumber(v1) & "-" & VersionNumber(v2)
+end
+
+%
+% Remove all temporary directories associated with a version
+%
+
+readonly proc CleanTmpDirs(v1Exists,v1,v2Exists,v2) is
+  if v2Exists
+    if v1Exists
+      ret = Exec(["rm", EXPORT_TMP_SRC & "/" & DiffName(v1,v2)],[],".")
+    end
+
+    ret = Exec(["rm", "-r", EXPORT_TMP_TMP & "/" & VersionName(v2),
+        EXPORT_TMP_SRC & "/" & VersionName(v2)],[],".")
+
+    foreach platform in Platforms
+      if Platforms{platform}[3] 
+        ret = Exec(["rm", "-r", 
+            EXPORT_TMP_BOOTSTRAP & "/" & platform & "/" & VersionName(v2),
+            EXPORT_TMP_BINARIES & "/" & platform & "/" & VersionName(v2)],[],
+            ".")
+      end
+    end
+  end
+end
+
+readonly proc BuildDirectories() is
+  ret = Exec(["mkdir","-p",EXPORT_TMP_TMP],[],".")
+  ret = Exec(["mkdir","-p",EXPORT_TMP_SRC],[],".")
+  ret = Exec(["mkdir","-p",EXPORT_TMP_BOOTSTRAP],[],".")
+  ret = Exec(["mkdir","-p",EXPORT_TMP_BINARIES],[],".")
+  ret = Exec(["mkdir","-p",EXPORT_TMP_CROSS_COMPILERS],[],".")
+  ret = Exec(["mkdir","-p",EXPORT_SRC],[],".")
+  ret = Exec(["mkdir","-p",EXPORT_BOOTSTRAP],[],".")
+  ret = Exec(["mkdir","-p",EXPORT_BINARIES],[],".")
+  ret = Exec(["mkdir","-p",STORE_ROOT],[],".")
+  ret = Exec(["mkdir","-p",STORE_VERSION],[],".")
+
+  foreach platform in Platforms
+    if Platforms{platform}[3] 
+      ret = Exec(["mkdir",EXPORT_TMP_BOOTSTRAP & "/" & platform],[],".")
+      ret = Exec(["mkdir",EXPORT_TMP_BINARIES & "/" & platform],[],".")
+      ret = Exec(["mkdir",EXPORT_BOOTSTRAP & "/" & platform],[],".")
+      ret = Exec(["mkdir",EXPORT_BINARIES & "/" & platform],[],".")
+    end
+  end
+end
+
+%
+% Check if a previous, current and next version were defined.
+%
+
+readonly proc ReadVersionInfo() is
+  local vdir = STORE_VERSION & SL
+
+  if not stale(vdir & "PREVIOUSVERSION",vdir & "PREVIOUSVERSION")
+    previousVersionExists = "T"
+    include(vdir & "PREVIOUSVERSION")
+    previousVersion = VERSION
+  end
+
+  if not stale(vdir & "CURRENTVERSION",vdir & "CURRENTVERSION")
+    currentVersionExists = "T"
+    include(vdir & "CURRENTVERSION")
+    currentVersion = VERSION
+  end
+
+  if not stale(vdir & "NEXTVERSION",vdir & "NEXTVERSION")
+    nextVersionExists = "T"
+    include(vdir & "NEXTVERSION")
+    version = VERSION
+    versionName = VersionName(version)
+  end
+end
+
+%
+% Compute the diffs from the current version. No diffs, no new version
+% required.
+%
+
+readonly proc BuildDiff() is
+  if currentVersionExists
+    local ret = Exec(["cvs","rdiff","-D",currentVersion[0],"-D",NOW,"m3/pm3"],
+        ["", EXPORT_TMP_SRC & "/" & DiffName(currentVersion,version), ""],
+        EXPORT_TMP_SRC)
+    write("NOTE: cvs rdiff returned ",ret,CR)
+    CheckExec(["grep","-q","[^ ]", EXPORT_TMP_SRC & "/" & 
+        DiffName(currentVersion,version)], [], 
+        EXPORT_TMP_SRC, "no new version required")
+  end
+end
+
+%
+% Export the source tree and add the README/Version information
+%
+
+readonly proc CVSExport() is
+  CheckExec(["cvs","export","-D",NOW,"-d",versionName,"m3/pm3"],[],
+      EXPORT_TMP_SRC,"cvs export failed")
+
+  >> EXPORT_TMP_SRC & "/" & versionName & "/" & "m3config/src/COMMON" in
+    write("M3_VERSION=\"", VersionNumber(version),"\"",CR,
+          "M3_VERSION_DATE=\"",NOW,"\"",CR)
+  end
+
+  > EXPORT_TMP_SRC & "/" & versionName & "/" & "README" in
+    write(
+"The Polytechnique Montreal Distribution of Modula-3",CR,
+"",CR,
+"pm3 version ", VersionNumber(version), " dated ", NOW,CR,
+"",CR,
+"This distribution is based on the DEC SRC Modula-3 release 3.6. Local",CR,
+"enhancements by Louis Dubeau, Jerome Collin and myself (Michel Dagenais)",CR,
+"were added, and several packages (libraries, programs, and documentation)",CR,
+"from other sources were added as well. The online documentation may be",CR,
+"accessed before the build by pointing your favourite WWW browser to",CR,
+"intro/src/index.html.",CR,
+"",CR,
+"This file is normally part of a source code + bootstrap distribution.",CR,
+"To compile the bootstrap program, and compile and install the Modula-3",CR,
+"source, the following steps are required.",CR,
+"",CR,
+"- insure that you have the usual development tools (make, gcc, ar).",CR,
+"",CR,
+"- check, and modify if needed, the template for your platform. This",CR,
+"  template determines where the Modula-3 programs, libraries and ",CR,
+"  documentation will be installed and used, as well as default options",CR,
+"  for various needed tools. Typically you only need to change the",CR,
+"  INSTALL_ROOT variable if the default does not suit you.",CR,
+"  The template is located in m3config/src/{LINUXELF, SOLgnu, NT386GNU...}.",CR,
+"",CR,
+"- The file src/m3makefile is used in the following steps to build all the",CR,
+"  packages. By default, almost all the available packages are built.",CR,
+"  You may comment out some of these in src/m3makefile to save build time",CR,
+"  and disk space.",CR,
+"",CR,
+"- run \"make\", which will execute the commands in Makefile. It will",CR,
+"  build bootstrap versions of \"m3build\" and \"m3ship\" and then use",CR, 
+"  these programs to rebuild and install all the libraries and programs in",CR,
+"  the distribution.",CR,
+"",CR,
+"  If you downloaded bootstraps for several platforms, the remaining ",CR,
+"  Makefile is the last one you downloaded. In that case, you can use ",CR,
+"  the correct platform specific Makefile as Makefile.PLATFORM ",CR,
+"  (e.g. Makefile.LINUXELF) and use it with \"make -f Makefile.PLATFORM\". ",CR,
+"",CR)
+  end
+end
+
+%
+% Move the bootstraps where they may be used to build binaries
+%
+
+readonly proc MoveBootstraps() is
+  foreach platform in Platforms
+    if Platforms{platform}[3] 
+      CheckExec(["mv", EXPORT_TMP_TMP & "/" & versionName &
+          "/language/modula3/m3compiler/m3bootstrap" & "/" & TARGET &
+          "/pm3-" & platform,
+          EXPORT_TMP_BOOTSTRAP & "/" & platform & "/" & versionName],
+          [], ".", "moving the bootstraps failed")
+    end
+  end
+end
+
+%
+% Everything went well up to here. We have a new release. 
+% Remove the previous version, keep the current version, and
+% export the new version.
+%
+
+readonly proc RemovePreviousVersion() is
+  if previousVersionExists
+    if not previousVersion[4]
+      ret = Exec(["rm", "-r", EXPORT_SRC & "/" & VersionName(previousVersion)],
+          [],".")
+      ret = Exec(["rm", EXPORT_ROOT & "/SRPMS/" & 
+          VersionName(previousVersion) & "-1.src.rpm"],[],".")
+      ret = Exec(["rm", EXPORT_ROOT & "/targzip/" & 
+          VersionName(previousVersion) & "-src.tgz"],[],".")
+      ret = Exec(["rm", EXPORT_DOWNLOAD & "/" & VersionName(previousVersion) &
+          ".html"],[],".")
+    end
+
+    foreach platform in Platforms
+      if Platforms{platform}[3] 
+        ret = Exec(["rm", "-r", 
+            EXPORT_BOOTSTRAP & "/" & platform & "/" & 
+            VersionName(previousVersion)],[],".")
+
+        ret = Exec(["rm", "-r", 
+            EXPORT_ROOT & "/" & "targzip" & "/" & 
+            VersionName(previousVersion) & "-" & platform & "-boot.tgz"],
+            [],".")
+
+        if Binaries contains platform
+          ret = Exec(["rm", "-r", 
+              EXPORT_BINARIES & "/" & platform & "/" & 
+              VersionName(previousVersion)],[],".")
+        end
+
+        if RPMBinaries contains platform
+          ret = Exec(["rm", "-r", 
+              EXPORT_BINARIES & "/" & platform & "/" & 
+              VersionName(previousVersion) & "-RPMS"],[],".")
+        end
+      end
+    end
+  end
+end
+
+%
+% The version built gets installed (exported)
+%
+
+readonly proc InstallNextVersion() is
+
+  %
+  % Create a pre-built tar file for the source
+  %
+
+  CheckExec(["tar", "cfz", versionName & "-src.tgz", versionName],[],
+      EXPORT_TMP_SRC,"building src.tgz failed")
+  CheckExec(["mv", EXPORT_TMP_SRC & "/" & versionName & "-src.tgz",
+      EXPORT_ROOT & "/" & "targzip"],[],".","export tar source failed")
+
+  %
+  % Move the source tree
+  %
+
+  ret = Exec(["rm", "-r", EXPORT_SRC & "/" & versionName],[],".")
+  CheckExec(["mv", EXPORT_TMP_SRC & "/" & versionName,
+      EXPORT_SRC],[],".","export source failed")
+
+  if currentVersionExists
+    CheckExec(["mv", EXPORT_TMP_SRC & "/" & DiffName(currentVersion,version), 
+        EXPORT_SRC],[],".","export diff failed")
+  end
+
+  foreach platform in Platforms
+    if Platforms{platform}[3] 
+
+      %
+      % Create pre-built bootstrap tar file for the platform.
+      %
+
+      CheckExec(["tar", "cfz", versionName & "-" & platform & "-boot.tgz", 
+          versionName],[], EXPORT_TMP_BOOTSTRAP & "/" & platform, 
+          "building boot.tgz failed")
+      CheckExec(["mv", EXPORT_TMP_BOOTSTRAP & "/" & platform & "/" & 
+          versionName & "-" & platform & "-boot.tgz", 
+          EXPORT_ROOT & "/" & "targzip"],
+          [],".","export tar boot failed")
+
+      %
+      % Move the bootstrap trees
+      %
+
+      ret = Exec(["rm", "-r", 
+          EXPORT_BOOTSTRAP & "/" & platform & "/" & versionName],[],".")
+      CheckExec(["mv", 
+          EXPORT_TMP_BOOTSTRAP & "/" & platform & "/" & versionName,
+          EXPORT_BOOTSTRAP & "/" & platform],[],".","export bootstrap failed")
+      if not(NOEXEC)
+        > EXPORT_TMP_BOOTSTRAP & "/" & platform & "/" & "TODO" in
+          write(versionName,CR)
+        end
+      end
+    end
+  end
+
+  ret = Exec(["rm", "-r",
+      EXPORT_BINARIES & "/" & TARGET & "/" & versionName],[],".")
+  CheckExec(["mv", 
+      EXPORT_TMP_BINARIES & "/" & TARGET & "/" & versionName,
+      EXPORT_BINARIES & "/" & TARGET],[],".","export binaries failed")
+
+  CheckExec(["rm", EXPORT_TMP_BOOTSTRAP & "/" & TARGET & "/" & "TODO"],[],".",
+      "remove TODO failed")
+
+  ret = Exec(["rm", EXPORT_ROOT & "/" & "pkgf" & "/" & "pm3"],[],".")
+  CheckExec(["ln","-s","../pkg/" & versionName,
+      EXPORT_ROOT & "/" & "pkgf" & "/" & "pm3"],[],".","link in pkgf failed")
+  ret = Exec(["rm", EXPORT_ROOT & "/" & "pkg" & "/" & "pm3"],[],".")
+  CheckExec(["ln","-s",versionName,
+      EXPORT_ROOT & "/" & "pkg" & "/" & "pm3"],[],".","link in pkg failed")
+end
+
+%
+% Create a nice download menu in HTML
+%
+
+readonly proc DownloadMenu() is
+
+  % Write the index.html leading to the previous and latest versions
+
+  > EXPORT_DOWNLOAD & "/" & "index.html" in
+    write("<HTML>",CR,"<HEAD>",CR,
+        "<TITLE>Downloading Polytechnique Montreal Modula-3</TITLE>",CR,
+        "</HEAD>",CR,"<BODY>",CR,
+        "<H1>Downloading Polytechnique Montreal Modula-3</H1>",CR)
+
+    if currentVersionExists
+      write("<P>Previous version: <A HREF=\"",
+          VersionName(currentVersion) & ".html","\">",
+          VersionName(currentVersion),"</A>",CR)
+    end
+
+    write("<P>Latest version: <A HREF=\"",
+        VersionName(version) & ".html","\">",
+        VersionName(version),"</A>",CR)
+    write("</BOBY>",CR,"</HTML>",CR)
+  end
+
+  % Write the html file for the latest version
+
+  > EXPORT_DOWNLOAD & "/" & VersionName(version) & ".html" in
+    write("<HTML>",CR,"<HEAD>",CR,"<TITLE>Downloading " & 
+        VersionName(version) & "</TITLE>",CR,
+        "</HEAD>",CR,"<BODY>",CR,"<H1>Downloading " & 
+        VersionName(version) & "</H1>",CR)
+
+    write("<P>You may download the source code and compile everything",CR,
+        "yourself, provided that you have a previous version of the",CR,
+        "Modula-3 compiler installed, since everything is in Modula-3.",CR,
+        "Alternatively, you may download the source and a platform",CR,
+        "dependent bootstrap package (containing the ready to assemble and",CR,
+        "link assembly files for the compiler). If you need the source",CR,
+        "and bootstrap for several platforms, you may download the source",CR,
+        "and bootstrap for the first one, and the bootstrap only for the",CR,
+        "others. Finally, for some",CR,
+        "platforms, you may directly use the provided pre-compiled binaries.",
+        CR,
+        "<P>The source, the individual bootstrap files, and the RPM files",CR,
+        "are pre-built. Thus, those with slow and unreliable network",CR,
+        "connections may want to download these by FTP and benefit from",CR,
+        "the <I>reget</I> option to continue where they left.",CR)
+
+    write("<P>Source code only (requires a Modula-3 compiler): ",
+        "as a compressed tar file, ",CR,
+        "<A HREF=\"../targzip/",VersionName(version),"-src.tgz\">",
+        VersionName(version) & "-src.tgz","</A>",CR,
+        "(same by <A HREF=\"ftp://m3.polymtl.ca/pub/m3/targzip/",
+        VersionName(version),"-src.tgz\">FTP</A>)",CR,
+        ", or as a source RPM package, ",CR,
+        "<A HREF=\"../SRPMS/",VersionName(version),"-1.src.rpm\">",
+        VersionName(version),"-1.src.rpm</A>",CR,
+        "(same by <A HREF=\"ftp://m3.polymtl.ca/pub/m3/SRPMS/",
+        VersionName(version),"-1.src.rpm\">FTP</A>).",CR)
+
+    write("<DL>",CR)
+    foreach platform in Platforms
+      if Platforms{platform}[3] 
+        write("<DT>",platform,"<DD>Source and bootstrap <A HREF=\"",
+            DownloadQuery(VersionName(version),"T",platform,"T",""),
+            "\">",VersionName(version) & "-src-" & platform & "-boot.tgz",
+            "</A>",", bootstrap only <A HREF=\"../targzip/",
+            VersionName(version),"-",platform,"-boot.tgz\">",
+            VersionName(version),"-",platform,"-boot.tgz</A>",CR,
+        "(same by <A HREF=\"ftp://m3.polymtl.ca/pub/m3/targzip/",
+        VersionName(version),"-",platform,"-boot.tgz\">FTP</A>)",CR)
+
+        if Binaries contains platform
+          write(", binaries <A HREF=\"",
+              DownloadQuery(VersionName(version),"",platform,"","T"),
+              "\">",VersionName(version) & "-" & platform & "-bin.tgz",
+              "</A>",CR)
+        end
+
+        if RPMBinaries contains platform
+          write(", RPM binaries <A HREF=\"../binaries/",platform,
+              "/",VersionName(version),"-RPMS\">",
+              VersionName(version),"-RPMS</A>",CR,
+              "(same by <A HREF=\"ftp://m3.polymtl.ca/pub/m3/binaries/",
+              platform,"/",VersionName(version),"-RPMS\">FTP</A>)",CR)
+        end
+      end
+    end
+    write("</DL>",CR)
+
+    write("</BOBY>",CR,"</HTML>",CR)
+  end
+end
+
+readonly proc DownloadQuery(vname,src,platform,boot,bin) is
+  local res = DOWNLOAD_SCRIPT & "/" & vname
+  local query = "?version=" & vname & "&platform=" & platform
+
+  if src
+    res = res & "-src"
+    query = query & "&pkg=on"
+  else
+    query = query & "&pkg=off"
+  end
+
+  if boot or bin
+    res = res & "-" & platform
+  end
+
+  if boot
+    res = res & "-boot"
+    query = query & "&bootstrap=on"
+  else
+    query = query & "&bootstrap=off"
+  end
+
+  if bin
+    res = res & "-bin"
+    query = query & "&binaries=on"
+  else
+    query = query & "&binaries=off"
+  end
+
+  return res & ".tgz" & query
+end
+
+%
+% Build an up to date ASCII and Postscript version of the FAQ
+%
+
+readonly proc BuildFAQ() is
+  local dir = EXPORT_TMP_TMP & "/" & versionName & "/" & "intro"
+  local ret = Exec(["mkdir",dir & "/" & TARGET],[],".")
+
+  > dir & "/" & TARGET & "/" & "config.tmpl" in
+    write("M3DOC_PREFIX=[\"" & EXPORT_TMP_TMP & "/" & versionName & 
+        "\",\"" & PM3_WEB & "\"]",CR)
+    write("PLATFORM_SUPPORTS_LATEX=\"T\"",CR)
+  end
+  CheckExec(["m3build","-DBUILD_FAQ","-F",dir & "/" & TARGET & "/" & 
+      "config.tmpl"],[],dir,"build postscript FAQ failed")
+
+  >> dir & "/" & TARGET & "/" & "config.tmpl" in
+    write("PLATFORM_SUPPORTS_LATEX=\"\"",CR)
+  end
+  CheckExec(["m3build","-DBUILD_FAQ","-F",dir & "/" & TARGET & "/" & 
+      "config.tmpl"],[],dir,"build ASCII FAQ failed")
+
+  CheckExec(["lynx","-dump",dir & "/" & TARGET & "/" & "questions_r.html"],
+      ["",dir & "/" & TARGET & "/" & "questions.txt",""],dir,
+      "failed to convert FAQ to ASCII")
+  CheckExec(["cp",dir & "/" & TARGET & "/" & "questions.ps",
+      EXPORT_ROOT & "/" & "faq.ps"],[],dir,"could not copy postscript FAQ")
+  CheckExec(["cp",dir & "/" & TARGET & "/" & "questions.txt",
+      EXPORT_ROOT & "/" & "faq.txt"],[],dir,"could not copy ASCII FAQ")
+  ret = Exec(["rm","-r",TARGET],[],dir)
+end
+
+%
+% Write the information for the next versions
+%
+
+readonly proc UpdateVersionNumbers() is
+  local vdir = STORE_VERSION & SL
+
+  if previousVersionExists
+    >> vdir & "OLDVERSIONS" in
+      write("Version(\"",previousVersion[0],"\",\"",previousVersion[1],"\",\"",
+          previousVersion[2],"\",\"",previousVersion[3],"\",\"",
+          previousVersion[4],"\")",CR)
+    end
+  end
+
+  if currentVersionExists
+    > vdir & "PREVIOUSVERSION" in
+      write("Version(\"",currentVersion[0],"\",\"",currentVersion[1],"\",\"",
+          currentVersion[2],"\",\"",currentVersion[3],"\",\"",
+          currentVersion[4],"\")",CR)
+    end
+  end
+
+  > vdir & "CURRENTVERSION" in
+    write("Version(\"",NOW,"\",\"",version[1],"\",\"",
+        version[2],"\",\"",version[3],"\",\"",version[4],"\")",CR)
+  end
+
+  >> EXPORT_VERSION & "/" & "pm3-versions" in
+    write("Version ", VersionNumber(version), " released on ",NOW,CR)
+  end
+
+  > vdir & "NEXTVERSION" in
+    write("Version(\"","0","\",\"",version[1],"\",\"",
+        version[2],"\",\"",inc(version[3],1),"\",\"\")",CR)
+  end
+end
+
+%
+% Use the package list to create the CVSsup configuration files
+%
+
+readonly proc BuildCvsup() is
+  local ret = Exec(["mkdir","sup"],[],".")
+
+  % define the whole package
+
+  ret = Exec(["mkdir","sup/pm3"],[],".")
+
+  > "sup/pm3" & "/files" in
+    write("upgrade pm3",CR,"omitany *~",CR,"omitany *.bak",CR,
+        "omitany *.tar",CR,"omitany *.Z",CR,"omitany *.gz",CR,
+        "omitany *.tgz",CR,"omitany *.zip",CR)
+  end
+
+  > "sup/pm3" & "/releases" in
+    write("cvs	list=files prefix=/home/cvsroot/m3",
+        " keywordprefix=/home/cvsroot/m3" & " norsync",CR)
+  end
+
+  % define a procedure to be called for each package. This procedure
+  % writes the cvsup file for the package.
+
+  proc PkgInfo(name,subdirectory,subtree,bundle,type,bundleHead,buildPhase,
+      dependency,buildPlatforms,buildReq,description) is
+    local ret = Exec(["mkdir","sup/" & name],[],".")
+    local fname = name
+
+    if equal(subdirectory,".") subdirectory = ""
+    else subdirectory = subdirectory & "/"
+    end
+
+    if equal(subtree,"src")
+      subdirectory = subdirectory & name
+      fname = "src"
+    end
+
+    > "sup/" & name & "/files" in
+      write("upgrade " & fname,CR,"omitany *~",CR,"omitany *.bak",CR,
+          "omitany *.tar",CR,"omitany *.Z",CR,"omitany *.gz",CR,
+          "omitany *.tgz",CR,"omitany *.zip",CR)
+    end
+
+    > "sup/" & name & "/releases" in
+      write("cvs	list=files prefix=/home/cvsroot/m3/pm3/" & 
+          subdirectory," keywordprefix=/home/cvsroot/m3/pm3/" & 
+          subdirectory & " norsync",CR)
+    end
+  end
+
+  % The above procedure will be called for each package described in this
+  % file.
+
+  include("../../../../../src/PACKAGES")
+
+  ret = Exec(["rm","-r","/etc/cvsup/sup.old"],[],".")
+  ret = Exec(["mv","/etc/cvsup/sup","/etc/cvsup/sup.old"],[],".")
+  CheckExec(["cp","-a","sup","/etc/cvsup/sup"],[],".","Copying sup")
+end
+
+%
+% Build the spec file required to produce an RPM file
+%
+
+readonly proc BuildSpec() is
+  local spec = EXPORT_TMP_ROOT & "/" & "rpm" & "/" & "SPECS" & "/" & 
+      versionName & ".spec"
+
+  local ret = Exec(["rm","-r","rpm"],[],EXPORT_TMP_ROOT)
+  CheckExec(["mkdir","rpm"],[],EXPORT_TMP_ROOT,"Creating rpm directory")
+  CheckExec(["mkdir","BUILD","RPMS","RPMS/i386","SOURCES","SPECS","SRPMS",
+      "tmp"],[],EXPORT_TMP_ROOT & "/" & "rpm","Creating rpm subdirectories")
+
+  local bundles = {}
+
+  > spec in
+    write(
+"Name: pm3",CR,
+"Version: " & VersionNumber(version),CR,
+"Release: 1",CR,
+"Group: Development/Languages/Modula3",CR,
+"Source: ",versionName,".tgz",CR,
+"BuildRoot: /tmp/pm3",CR,
+"CopyRight: Open Source, mostly BSD like, some LGPL/GPL",CR,
+"Summary: The Polytechnique Montreal Modula-3 distribution",CR,
+"URL: http://m3.polymtl.ca/m3",CR,
+"Packager: Michel Dagenais <michel.dagenais@polymtl.ca>",CR,
+"# PM3 runs on several platforms but for Linux only on i386.",CR,
+"# Since RPM is mostly popular on Linux... let's stick to i386/Linux",CR,
+"ExclusiveArch: i386",CR,
+"ExclusiveOS: Linux",CR,
+"%description",CR,
+"The Polytechnique Montreal Modula-3 distribution is based on the DEC SRC",CR,
+"Modula-3 programming environment.",CR,
+CR,
+"Modula-3 is a systems programming language that descends from Mesa,",CR,
+"Modula-2, Cedar, and Modula-2+. It also resembles its cousins Object",CR, 
+"Pascal, Oberon, and Euclid.",CR,
+CR,
+"The goal of Modula-3 is to be as simple and safe as it can be while",CR,
+"meeting the needs of modern systems programmers. Instead of exploring new",CR,
+"features, they studied the features of the Modula family of languages",CR,
+"that have proven themselves in practice and tried to simplify them into",CR,
+"a harmonious language. They found that most of the successful features",CR,
+"were aimed at one of two main goals: greater robustness, and a simpler,",CR,
+"more systematic type system.",CR,
+CR,
+"Modula-3 retains one of Modula-2's most successful features, the",CR,
+"provision for explicit interfaces between modules. It adds objects and",CR,
+"classes, exception handling, garbage collection, lightweight processes",CR,
+"(or threads), and the isolation of unsafe features.",CR,
+CR,
+"A large number of platform independant libraries are available for easily",CR,
+"constructing distributed, graphical, multi-threaded applications",CR)
+  end
+
+  proc PkgInfo(name,subdirectory,subtree,bundle,type,bundleHead,buildPhase,
+      dependency,buildPlatforms,buildReq,description) is
+
+    % for each bundle (subpackage), write a section in the spec file
+
+    if bundleHead
+      >> spec in
+        write("%package ",bundle,CR,"Summary: ",description,CR,
+            "Group: Development/Languages/Modula3/",subdirectory,
+            CR,"%description ",bundle,CR,description,CR)
+      end
+    end
+
+    % accumulate a list of bundles
+
+    if not bundles contains bundle bundles{bundle} = "" end
+  end
+
+  include("../../../../../src/PACKAGES")
+
+  >> spec in
+    write(
+"%prep",CR,
+"%setup",CR,
+"%build",CR,
+"if test ${RPM_ARCH} = i386 -a ${RPM_OS} = Linux",CR,
+"  then if test -f /lib/libc.so.6",CR,
+"    then make -f Makefile.LINUXLIBC6 M3OPTIONS=\"-DLIST_FILES -DSETROOT=/usr -DEXPORTPATH=${RPM_BUILD_ROOT}\"",CR,
+"  else make -f Makefile.LINUXELF M3OPTIONS=\"-DLIST_FILES -DSETROOT=/usr -DEXPORTPATH=${RPM_BUILD_ROOT}\"",CR,
+"  fi",CR,
+"else make M3OPTIONS=\"-DLIST_FILES -DSETROOT=/usr -DEXPORTPATH=${RPM_BUILD_ROOT}\"",CR,
+"fi",CR,
+"%install",CR,
+"make nothing",CR)
+  end
+
+  >> spec in
+    foreach i in bundles
+      write("%files ",i," -f files/",i,CR)
+      write("%docdir /usr/lib/m3/www",CR)
+    end
+  end
+end
+
+%
+% Use the spec file to create an rpm file
+%
+
+proc BuildRPM() is
+  local dir = EXPORT_TMP_ROOT & "/" & "rpm"
+  local tmplDir = versionName & "/" & "m3config" & "/" & "src"
+
+  % Save the default install root
+
+  CheckExec(["cp","-p",EXPORT_TMP_SRC & "/" & tmplDir & "/" & "COMMON",
+      EXPORT_TMP_TMP & "/" & tmplDir & "/" & "COMMON"],[],".","save COMMON")
+
+  % Set the default install root for RPM
+
+  >> EXPORT_TMP_SRC & "/" & tmplDir & "/" & "COMMON" in
+  write("% With RPM, no problem to install in /usr",CR,
+      "INSTALL_ROOT = \"/usr\"",CR)
+  end
+
+  if equal(TARGET,"LINUXELF")
+    CheckExec(["tar","zcf",dir & "/" & "SOURCES" & "/" & versionName & ".tgz",
+        "--directory",EXPORT_TMP_SRC,versionName,
+        "--directory",EXPORT_TMP_BOOTSTRAP & "/LINUXLIBC6",versionName,
+        "--directory",EXPORT_TMP_BOOTSTRAP & "/LINUXELF",versionName],[],".",
+        "Preparing source tar file for rpm")
+  else
+    CheckExec(["tar","zcf",dir & "/" & "SOURCES" & "/" & versionName & ".tgz",
+        "--directory",EXPORT_TMP_SRC,versionName,
+        "--directory",EXPORT_TMP_BOOTSTRAP & "/" & TARGET,versionName],[],".",
+        "Preparing source tar file for rpm")
+  end
+
+  % Restore the previous default install root
+
+  CheckExec(["cp","-p",EXPORT_TMP_TMP & "/" & tmplDir & "/" & "COMMON",
+      EXPORT_TMP_SRC & "/" & tmplDir & "/" & "COMMON"],[],".","restore COMMON")
+
+  CheckExec(["rpm","-ba","--buildroot",dir & "/" & "tmp",
+      "--define", "_topdir " & dir,
+      versionName & ".spec"], ["/dev/null","rpm.out","rpm.err"],
+      dir & "/" & "SPECS", "building rpm failed")
+end
+
+
+%
+% Install the rpm files
+%
+
+proc InstallRPM() is
+  local dir = EXPORT_TMP_ROOT & "/" & "rpm"
+
+  ret =Exec(["rm", "-r", EXPORT_BINARIES & "/" & TARGET & "/" & 
+      VersionName(version) & "-RPMS"],[],dir)
+  CheckExec(["mv","RPMS",EXPORT_BINARIES & "/" & TARGET & "/" & 
+      VersionName(version) & "-RPMS"],[],dir,"Moving RPMS")
+
+  CheckExec(["mv","SRPMS" & "/" & VersionName(version) & "-1.src.rpm",
+      EXPORT_ROOT & "/" & "SRPMS"],[],dir,"Moving SRPMS")
+end
+
+%
+% Remove all temporary files created during a release
+%
+
+readonly proc RmTempFiles() is
+  ret = Exec(["rm", "-r", EXPORT_TMP_TMP],[],".")
+  ret = Exec(["rm", "-r", EXPORT_TMP_ROOT & "/" & "rpm"],[],".")
+end
+
+%
+% The processing begins here.
+%
+
+local ret = 0
+
+local currentVersionExists = ""
+local currentVersion = ""
+
+local previousVersionExists = ""
+local previousVersion = ""
+
+local nextVersionExists = ""
+local version = ""
+
+include("../src/CONFIG")
+
+
+% Test mode, build everything before attempting a release.
+
+if defined("PRERELEASE")
+  write("Pre release test",CR,CR)
+  CheckExec(["m3build","-T","../../../../../m3config/src",
+      "-DBOOTTARGET=" & TARGET,
+      "-DCACHE_CROSS_COMPILERS=" & EXPORT_TMP_CROSS_COMPILERS], [], 
+      "../../m3bootstrap","build bootstrap failed")
+  CheckExec(["mv", "boot-" & TARGET, "Makefile",path_of("../../../../..")], 
+      [], "../../m3bootstrap/" & TARGET & "/pm3-" & TARGET,
+      "move bootstrap to build binaries failed")
+  if not equal(PRERELEASE,"BOOTSTRAP")
+    CheckExec(["make","exportall","M3OPTIONS=" & M3MAKEOPTIONS], 
+        ["","make.stdout","make.stderr"],
+        path_of("../../../../.."),"building bootstrap failed")
+  end
+
+% Not in pre-release test mode
+
+else
+
+ReadVersionInfo()
+
+if not nextVersionExists
+  error("Next version not defined", CR)
+end
+
+%
+% Insure that the needed directories exist
+%
+
+if DoStep("BuildDirectories")
+  BuildDirectories()
+end
+
+%
+% Attempt to clean the current version from the temporary build directory
+% before building the next version
+%
+
+if DoStep("CleanTmpDirs")
+  CleanTmpDirs("","",previousVersionExists,previousVersion)
+  CleanTmpDirs(previousVersionExists,previousVersion,
+      currentVersionExists,currentVersion)
+  CleanTmpDirs(currentVersionExists,currentVersion,nextVersionExists,version)
+end
+
+if DoStep("BuildDiff")
+  BuildDiff()
+end
+
+%
+% Export the new version
+%
+
+if DoStep("CVSExport")
+  CVSExport()
+end
+
+%
+% Leave the original copy untouched. Take a copy to build the bootstraps
+% and binaries.
+%
+
+if DoStep("cpSrc")
+  CheckExec(["cp","-a",EXPORT_TMP_SRC & "/" & versionName,EXPORT_TMP_TMP],
+      [], EXPORT_TMP_TMP,"copy source failed")
+end
+
+%
+% Build the bootstraps
+%
+
+if DoStep("buildBootstraps")
+  CheckExec([BIN_USE & SL & "m3build","-T","../../../../../m3config/src",
+      "-DCACHE_CROSS_COMPILERS=" & EXPORT_TMP_CROSS_COMPILERS],
+      ["", EXPORT_TMP_TMP & "/" & versionName & "/" & "boot.stdout",
+      EXPORT_TMP_TMP & "/" & versionName & "/" & "boot.stderr"],
+      EXPORT_TMP_TMP & "/" & versionName & 
+      "/language/modula3/m3compiler/m3bootstrap","bootstrap build failed")
+end
+
+if DoStep("MoveBootstraps")
+  MoveBootstraps()
+end
+
+%
+% Take a copy of the bootstrap for the current platform and build binaries
+%
+
+if DoStep("cpBootTarget")
+  CheckExec(["cp", "-a", "boot-" & TARGET, "Makefile", 
+      EXPORT_TMP_TMP & "/" & versionName], [], 
+      EXPORT_TMP_BOOTSTRAP & "/" & TARGET & "/" & versionName, 
+      "copy bootstrap to build binaries failed")
+end
+
+if DoStep("makeExportall")
+  CheckExec(["make","exportall"], ["", 
+      EXPORT_TMP_TMP & "/" & versionName & "/" & "make.stdout", 
+      EXPORT_TMP_TMP & "/" & versionName & "/" & "make.stderr"],
+      EXPORT_TMP_TMP & "/" & versionName,"building bootstrap failed")
+end
+
+if DoStep("BuildSpec")
+  BuildSpec()
+end
+
+if DoStep("makeClean")
+  CheckExec(["make","boot-clean"], [], EXPORT_TMP_TMP & "/" & versionName,
+      "cleaning bootstrap failed")
+end
+
+%
+% Move the binaries to their correct location
+%
+
+if DoStep("mvBinaries")
+  CheckExec(["mv", EXPORT_TMP_TMP & "/" & versionName & "/" & "binaries" & "/"
+      & TARGET, EXPORT_TMP_BINARIES & "/" & TARGET & "/" & versionName],[],".",
+      "move binaries failed")
+end
+
+if DoStep("done")
+  if not(NOEXEC)
+    > EXPORT_TMP_BINARIES & "/" & TARGET & "/" & "DONE" in
+      write(versionName,CR)
+    end
+  end
+end
+
+%
+% Ideally RemovePreviousVersion should be done just before InstallNextVersion.
+% However all these sources/binaries/bootstraps in multiple versions for
+% multiple platforms overflow my 3GB drive during the rpm build :-(.
+%
+
+if DoStep("RemovePreviousVersion")
+  RemovePreviousVersion()
+end
+
+if DoStep("BuildRPM")
+  BuildRPM()
+end
+
+if DoStep("InstallRPM")
+  InstallRPM()
+end
+
+if DoStep("InstallNextVersion")
+  InstallNextVersion()
+end
+
+if DoStep("BuildCvsup")
+  BuildCvsup()
+end
+
+if DoStep("DownloadMenu")
+  DownloadMenu()
+end
+
+if DoStep("BuildFAQ")
+  BuildFAQ()
+end
+
+if DoStep("UpdateVersionNumbers")
+  UpdateVersionNumbers()
+end
+
+if DoStep("RmTempFiles")
+  RmTempFiles()
+end
+
+write("Finished export",CR)
+
+
+end % terminates the "else" section of the "if PRERELEASE"

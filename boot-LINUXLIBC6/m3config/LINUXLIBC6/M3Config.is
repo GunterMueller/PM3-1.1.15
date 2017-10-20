@@ -1,0 +1,23 @@
+	.file	"M3Config.ic"
+	.version	"01.01"
+/ SRC Modula-3 version cygnus-2.7.2-960712 (i486--linuxelf) compiled by GNU C version egcs-2.91.66 19990314/Linux (egcs-1.1.2 release).
+/ options passed:  -fno-strength-reduce -O2
+/ options enabled:  -fdefer-pop -fcse-follow-jumps -fcse-skip-blocks
+/ -fexpensive-optimizations -fthread-jumps -fpeephole -fforce-mem
+/ -ffunction-cse -finline -fkeep-static-consts -fcaller-saves
+/ -fpcc-struct-return -frerun-cse-after-loop -fschedule-insns2 -fcommon
+/ -fverbose-asm -fgnu-linker -m80387 -mhard-float -mno-soft-float -mieee-fp
+/ -mfp-ret-in-387 -mschedule-prologue -mcpu=i486 -march=i486
+
+gcc2_compiled.:
+.globl MI_M3Config
+.data
+	.align 4
+	.type	 MI_M3Config,@object
+	.size	 MI_M3Config,56
+MI_M3Config:
+	.long MI_M3Config+44
+	.zero	40
+	.ascii	"M3Config.i3"
+	.zero	1
+	.ident	"GCC: (GNU) cygnus-2.7.2-960712"

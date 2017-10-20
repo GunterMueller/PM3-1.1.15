@@ -1,0 +1,2554 @@
+	.file	"MxGenCG.mc"
+	.version	"01.01"
+/ SRC Modula-3 version cygnus-2.7.2-960712 (i486--linuxelf) compiled by GNU C version egcs-2.91.66 19990314/Linux (egcs-1.1.2 release).
+/ options passed:  -fno-strength-reduce -O2
+/ options enabled:  -fdefer-pop -fcse-follow-jumps -fcse-skip-blocks
+/ -fexpensive-optimizations -fthread-jumps -fpeephole -fforce-mem
+/ -ffunction-cse -finline -fkeep-static-consts -fcaller-saves
+/ -fpcc-struct-return -frerun-cse-after-loop -fschedule-insns2 -fcommon
+/ -fverbose-asm -fgnu-linker -m80387 -mhard-float -mno-soft-float -mieee-fp
+/ -mfp-ret-in-387 -mschedule-prologue -mcpu=i486 -march=i486
+
+gcc2_compiled.:
+.text
+	.align 16
+	.type	 MxGenCG__New,@function
+MxGenCG__New:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%esi
+	movl 12(%ebp),%ebx
+	movl MM_MxGenCG+304,%eax
+	pushl %eax
+	movl MI_RTHooks+80,%eax
+	call *%eax
+	movl %eax,%edx
+	leal -8(%ebp),%esp
+	movl %ebx,56(%edx)
+	movl %esi,4(%edx)
+	movb 16(%ebp),%cl
+	movb %cl,17(%edx)
+	movl MI_Stdio+48,%eax
+	movl %eax,8(%edx)
+	movb 20(%ebp),%cl
+	movb %cl,18(%edx)
+	movl MI_Target+816,%eax
+	movl %eax,52(%edx)
+	movl %edx,%eax
+	popl %ebx
+	popl %esi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe1:
+	.size	 MxGenCG__New,.Lfe1-MxGenCG__New
+	.align 16
+	.type	 MxGenCG__GenerateMain,@function
+MxGenCG__GenerateMain:
+	pushl %ebp
+	movl %esp,%ebp
+	leal 8(%ebp),%edx
+	pushl %edx
+	call MxGenCG__GenTypeDecls
+	movl 8(%ebp),%eax
+	pushl %eax
+	movl MI_MxGenRep+468,%eax
+	call *%eax
+	movl 8(%ebp),%eax
+	pushl %eax
+	movl MI_MxGenRep+472,%eax
+	call *%eax
+	leal 8(%ebp),%edx
+	pushl %edx
+	call MxGenCG__GenerateUnitList
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe2:
+	.size	 MxGenCG__GenerateMain,.Lfe2-MxGenCG__GenerateMain
+	.align 16
+	.type	 MxGenCG__GenTypeDecls,@function
+MxGenCG__GenTypeDecls:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $16,%esp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%edi
+.L4:
+	movl $5,-4(%ebp)
+	movl RTThread__handlerStack,%eax
+	movl %eax,-8(%ebp)
+	leal -8(%ebp),%edx
+	movl %edx,RTThread__handlerStack
+	movl (%edi),%eax
+	movl 56(%eax),%ebx
+	movl (%ebx),%edx
+	movl 12(%edx),%esi
+	pushl $0
+	pushl %ebx
+	call *%esi
+	movl (%edi),%eax
+	movl 56(%eax),%esi
+	movl (%esi),%edx
+	movl 132(%edx),%ebx
+	pushl $-1
+	pushl $0
+	pushl %esi
+	call *%ebx
+	movl (%edi),%eax
+	movl 56(%eax),%ecx
+	movl (%ecx),%edx
+	movl 28(%edx),%ebx
+	pushl $MM_MxGenCG+316
+	pushl %ecx
+	call *%ebx
+	movl (%edi),%eax
+	movl 56(%eax),%ebx
+	movl (%ebx),%edx
+	movl 32(%edx),%ecx
+	pushl $1
+	pushl %ebx
+	call *%ecx
+	movl (%edi),%ecx
+	movl MI_Target+72,%eax
+	movl %eax,-12(%ebp)
+	leal (%eax,%eax,4),%edx
+	leal (%eax,%edx,2),%eax
+	movl %eax,60(%ecx)
+	movl -12(%ebp),%edx
+	leal (%edx,%edx,2),%edx
+	addl MI_Target+108,%edx
+	movl (%edi),%eax
+	addl %edx,%edx
+	movl %edx,64(%eax)
+	movl (%edi),%esi
+	movl MI_M3RT+272,%edx
+	movl %edx,-12(%ebp)
+	movl MI_Target+60,%eax
+	movl %eax,-16(%ebp)
+	movl -12(%ebp),%eax
+	cltd
+	idivl -16(%ebp)
+	movl %edx,%ecx
+	movl %eax,%ebx
+	testl %ecx,%ecx
+	je .L5
+	movl -12(%ebp),%eax
+	xorl -16(%ebp),%eax
+	jns .L5
+	decl %ebx
+.L5:
+	movl %ebx,176(%esi)
+	movl (%edi),%edx
+	movl 176(%edx),%eax
+	imull MI_Target+72,%eax
+	addl MI_Target+72,%eax
+	addl 60(%edx),%eax
+	movl %eax,68(%edx)
+.L6:
+	movl -8(%ebp),%eax
+	leal -28(%ebp),%esp
+	movl %eax,RTThread__handlerStack
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe3:
+	.size	 MxGenCG__GenTypeDecls,.Lfe3-MxGenCG__GenTypeDecls
+	.align 16
+	.type	 MxGenCG__GenerateUnitList,@function
+MxGenCG__GenerateUnitList:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $68,%esp
+	pushl %edi
+	pushl %esi
+	xorl %ecx,%ecx
+	pushl %ebx
+	movl %ecx,-36(%ebp)
+	movl 8(%ebp),%eax
+	movl %ecx,-24(%ebp)
+	movl (%eax),%eax
+	movl 4(%eax),%eax
+	testl %eax,%eax
+	jne .L8
+	pushl $2564
+	call _m3_fault
+	.align 16
+.L8:
+	movl (%eax),%eax
+	pushl %eax
+	movl MI_MxMap+276,%eax
+	call *%eax
+	movl %eax,-28(%ebp)
+	leal -16(%ebp),%edx
+	leal -8(%ebp),%esi
+	movl %esi,-16(%ebp)
+	movl $1,-12(%ebp)
+	addl $4,%esp
+	cmpl $0,-28(%ebp)
+	jne .L9
+	pushl $2580
+	call _m3_fault
+	.align 16
+.L9:
+	movl -28(%ebp),%ecx
+	movl 4(%ecx),%eax
+	movl %eax,-8(%ebp)
+	pushl %edx
+	movl MM_MxGenCG+336,%eax
+	pushl %eax
+	movl MI_RTHooks+84,%eax
+	call *%eax
+	movl %eax,-32(%ebp)
+	addl $8,%esp
+	movl -28(%ebp),%esi
+	movl -24(%ebp),%ebx
+	movl 4(%esi),%esi
+	decl %esi
+	movl %esi,-44(%ebp)
+	jmp .L11
+	.align 16
+.L12:
+	cmpl $0,-28(%ebp)
+	jne .L13
+	pushl $2612
+	call _m3_fault
+	.align 16
+.L13:
+	movl -28(%ebp),%ecx
+	cmpl %ebx,4(%ecx)
+	ja .L14
+	pushl $2610
+	call _m3_fault
+	.align 16
+.L14:
+	movl -28(%ebp),%esi
+	movl (%esi),%eax
+	movl 4(%eax,%ebx,8),%edx
+	testl %edx,%edx
+	je .L15
+	movl -4(%edx),%eax
+	sall $11,%eax
+	shrl $12,%eax
+	cmpl %eax,MM_MxGenCG+348
+	je .L15
+	pushl $2613
+	call _m3_fault
+	.align 16
+.L15:
+	movl %edx,-64(%ebp)
+	xorl %edi,%edi
+	testl %edx,%edx
+	je .L16
+	movl MM_MxGenCG+352,%eax
+	pushl %eax
+	movl MI_RTHooks+80,%eax
+	call *%eax
+	movl -64(%ebp),%ecx
+	movl %ecx,(%eax)
+	movl -36(%ebp),%esi
+	movl %esi,4(%eax)
+	movl %eax,-36(%ebp)
+	movl -36(%ebp),%edi
+	incl -24(%ebp)
+	addl $4,%esp
+.L16:
+	cmpl $0,-32(%ebp)
+	jne .L17
+	pushl $2724
+	call _m3_fault
+	.align 16
+.L17:
+	movl -32(%ebp),%ecx
+	cmpl %ebx,4(%ecx)
+	ja .L18
+	pushl $2722
+	call _m3_fault
+	.align 16
+.L18:
+	movl -32(%ebp),%esi
+	movl (%esi),%eax
+	movl %edi,(%eax,%ebx,4)
+	incl %ebx
+.L11:
+	cmpl %ebx,-44(%ebp)
+	jge .L12
+	movl 8(%ebp),%eax
+	movl (%eax),%eax
+	movl 4(%eax),%eax
+	testl %eax,%eax
+	jne .L20
+	pushl $2788
+	call _m3_fault
+	.align 16
+.L20:
+	movl 4(%eax),%eax
+	pushl %eax
+	movl MI_MxMap+276,%eax
+	call *%eax
+	movl %eax,-28(%ebp)
+	addl $4,%esp
+	testl %eax,%eax
+	jne .L21
+	pushl $2804
+	call _m3_fault
+	.align 16
+.L21:
+	xorl %ebx,%ebx
+	movl 4(%eax),%edi
+	decl %edi
+	jmp .L22
+	.align 16
+.L23:
+	cmpl $0,-28(%ebp)
+	jne .L24
+	pushl $2820
+	call _m3_fault
+	.align 16
+.L24:
+	movl -28(%ebp),%eax
+	cmpl %ebx,4(%eax)
+	ja .L25
+	pushl $2818
+	call _m3_fault
+	.align 16
+.L25:
+	movl (%eax),%eax
+	movl 4(%eax,%ebx,8),%edx
+	testl %edx,%edx
+	je .L26
+	movl -4(%edx),%eax
+	sall $11,%eax
+	shrl $12,%eax
+	cmpl %eax,MM_MxGenCG+348
+	je .L26
+	pushl $2821
+	call _m3_fault
+	.align 16
+.L26:
+	movl %edx,-64(%ebp)
+	testl %edx,%edx
+	je .L27
+	movl MM_MxGenCG+352,%eax
+	pushl %eax
+	movl MI_RTHooks+80,%eax
+	call *%eax
+	movl %eax,%edx
+	movl -64(%ebp),%ecx
+	addl $4,%esp
+	movl %ecx,(%edx)
+	movl -36(%ebp),%esi
+	movl %esi,4(%edx)
+	movl %edx,-36(%ebp)
+	incl -24(%ebp)
+.L27:
+	incl %ebx
+.L22:
+	cmpl %edi,%ebx
+	jle .L23
+	movl -24(%ebp),%ecx
+	pushl %ecx
+	movl -36(%ebp),%esi
+	pushl %esi
+	movl MI_MxGenRep+596,%eax
+	call *%eax
+	movl %eax,-36(%ebp)
+	movl -36(%ebp),%edi
+	addl $8,%esp
+	jmp .L29
+	.align 16
+.L30:
+	movl (%edi),%ecx
+	movl %ecx,-64(%ebp)
+	testl %ecx,%ecx
+	jne .L32
+	pushl $3060
+	call _m3_fault
+	.align 16
+.L32:
+	movl -64(%ebp),%esi
+	movl 20(%esi),%edx
+	movl %edx,%eax
+	addl 24(%esi),%eax
+	movl %edx,-48(%ebp)
+	decl %eax
+	movl %eax,-52(%ebp)
+	jmp .L35
+	.align 16
+.L36:
+	cmpl $0,-64(%ebp)
+	jne .L37
+	pushl $3092
+	call _m3_fault
+	.align 16
+.L37:
+	movl -64(%ebp),%ecx
+	movl 124(%ecx),%eax
+	testl %eax,%eax
+	jne .L38
+	pushl $3092
+	call _m3_fault
+	.align 16
+.L38:
+	movl %eax,%edx
+	movl -48(%ebp),%esi
+	cmpl %esi,4(%edx)
+	ja .L39
+	pushl $3090
+	call _m3_fault
+	.align 16
+.L39:
+	movl (%edx),%eax
+	movl -48(%ebp),%ecx
+	movl (%eax,%ecx,4),%eax
+	movl %eax,-4(%ebp)
+	leal -4(%ebp),%eax
+	pushl %eax
+	movl -32(%ebp),%esi
+	pushl %esi
+	movl 8(%ebp),%eax
+	movl (%eax),%eax
+	pushl %eax
+	movl MI_MxGenRep+580,%eax
+	call *%eax
+	movl %eax,%edx
+	movl %edx,%ebx
+	addl $12,%esp
+	cmpl %ebx,%edi
+	je .L40
+	movl MM_MxGenCG+360,%eax
+	pushl %eax
+	movl MI_RTHooks+80,%eax
+	call *%eax
+	movl %eax,%edx
+	addl $4,%esp
+	testl %edi,%edi
+	jne .L41
+	pushl $3140
+	call _m3_fault
+	.align 16
+.L41:
+	movl 8(%edi),%eax
+	movl %eax,4(%edx)
+	movl %ebx,(%edx)
+	movl %edx,8(%edi)
+.L40:
+	incl -48(%ebp)
+.L35:
+	movl -52(%ebp),%ecx
+	cmpl %ecx,-48(%ebp)
+	jle .L36
+	cmpl $0,-64(%ebp)
+	jne .L44
+	pushl $3204
+	call _m3_fault
+	.align 16
+.L44:
+	movl -64(%ebp),%esi
+	movl 12(%esi),%edx
+	movl %edx,%eax
+	addl 16(%esi),%eax
+	movl %edx,-56(%ebp)
+	decl %eax
+	movl %eax,-60(%ebp)
+	jmp .L47
+	.align 16
+.L48:
+	cmpl $0,-64(%ebp)
+	jne .L49
+	pushl $3236
+	call _m3_fault
+	.align 16
+.L49:
+	movl -64(%ebp),%ecx
+	movl 124(%ecx),%eax
+	testl %eax,%eax
+	jne .L50
+	pushl $3236
+	call _m3_fault
+	.align 16
+.L50:
+	movl %eax,%edx
+	movl -56(%ebp),%esi
+	cmpl %esi,4(%edx)
+	ja .L51
+	pushl $3234
+	call _m3_fault
+	.align 16
+.L51:
+	movl (%edx),%eax
+	movl -56(%ebp),%ecx
+	movl (%eax,%ecx,4),%eax
+	movl %eax,-4(%ebp)
+	leal -4(%ebp),%eax
+	pushl %eax
+	movl -32(%ebp),%esi
+	pushl %esi
+	movl 8(%ebp),%eax
+	movl (%eax),%eax
+	pushl %eax
+	movl MI_MxGenRep+580,%eax
+	call *%eax
+	movl %eax,%edx
+	movl %edx,%ebx
+	addl $12,%esp
+	cmpl %ebx,%edi
+	je .L52
+	movl MM_MxGenCG+360,%eax
+	pushl %eax
+	movl MI_RTHooks+80,%eax
+	call *%eax
+	movl %eax,%edx
+	addl $4,%esp
+	testl %edi,%edi
+	jne .L53
+	pushl $3284
+	call _m3_fault
+	.align 16
+.L53:
+	movl 8(%edi),%eax
+	movl %eax,4(%edx)
+	movl %ebx,(%edx)
+	movl %edx,8(%edi)
+	movl MM_MxGenCG+360,%eax
+	pushl %eax
+	movl MI_RTHooks+80,%eax
+	call *%eax
+	movl %eax,%edx
+	addl $4,%esp
+	testl %ebx,%ebx
+	jne .L55
+	pushl $3300
+	call _m3_fault
+	.align 16
+.L55:
+	movl 12(%ebx),%eax
+	movl %eax,4(%edx)
+	movl %edi,(%edx)
+	movl %edx,12(%ebx)
+.L52:
+	incl -56(%ebp)
+.L47:
+	movl -60(%ebp),%ecx
+	cmpl %ecx,-56(%ebp)
+	jle .L48
+	testl %edi,%edi
+	jne .L58
+	pushl $3364
+	call _m3_fault
+	.align 16
+.L58:
+	movl 4(%edi),%edi
+.L29:
+	testl %edi,%edi
+	jne .L30
+	movl -36(%ebp),%edi
+	leal -16(%ebp),%eax
+	leal -8(%ebp),%esi
+	movl %esi,-16(%ebp)
+	movl $1,-12(%ebp)
+	movl -24(%ebp),%ecx
+	movl %ecx,-8(%ebp)
+	pushl %eax
+	movl MM_MxGenCG+368,%eax
+	pushl %eax
+	movl MI_RTHooks+84,%eax
+	call *%eax
+	movl %eax,%ebx
+	movl 8(%ebp),%eax
+	addl $8,%esp
+	movl (%eax),%eax
+	movl %eax,-68(%ebp)
+	movl %ebx,92(%eax)
+	jmp .L60
+	.align 16
+.L61:
+	movl (%edi),%eax
+	pushl %eax
+	movl 8(%ebp),%eax
+	pushl %eax
+	call MxGenCG__ImportUnit
+	addl $8,%esp
+	movl 4(%edi),%edi
+.L60:
+	testl %edi,%edi
+	jne .L61
+	pushl %edi
+	pushl $MM_MxGenCG+380
+	movl MI_M3ID+44,%eax
+	call *%eax
+	movl %eax,%ebx
+	movl %ebx,-20(%ebp)
+	leal -20(%ebp),%eax
+	pushl %eax
+	movl -32(%ebp),%esi
+	pushl %esi
+	movl 8(%ebp),%eax
+	movl (%eax),%eax
+	pushl %eax
+	movl MI_MxGenRep+580,%eax
+	call *%eax
+	movl %eax,-64(%ebp)
+	movl 8(%ebp),%eax
+	movl (%eax),%edx
+	leal 44(%edx),%eax
+	pushl %eax
+	pushl %esi
+	pushl %edx
+	movl MI_MxGenRep+580,%eax
+	call *%eax
+	addl $32,%esp
+	movl %eax,-40(%ebp)
+	pushl %edi
+	pushl $MM_MxGenCG+400
+	movl MI_M3ID+44,%eax
+	call *%eax
+	movl 8(%ebp),%edx
+	movl %eax,%ebx
+	movl (%edx),%eax
+	movl %ebx,72(%eax)
+	movl (%edx),%edx
+	movl 56(%edx),%ecx
+	movl %ecx,-68(%ebp)
+	movl (%ecx),%eax
+	addl $8,%esp
+	movl 140(%eax),%ebx
+	movl -24(%ebp),%eax
+	imull MI_Target+72,%eax
+	testl %eax,%eax
+	jge .L65
+	pushl $3681
+	call _m3_fault
+	.align 16
+.L65:
+	pushl %edi
+	pushl %edi
+	pushl %edi
+	pushl $14
+	pushl $4
+	pushl %eax
+	movl 72(%edx),%eax
+	pushl %eax
+	movl -68(%ebp),%esi
+	pushl %esi
+	call *%ebx
+	movl %eax,%ebx
+	movl 8(%ebp),%eax
+	movl (%eax),%edx
+	addl $32,%esp
+	movl %ebx,76(%edx)
+	pushl %eax
+	call MxGenCG__GenerateEntryTop
+	movl 8(%ebp),%ebx
+	movl (%ebx),%eax
+	movl $1,24(%eax)
+	movl (%ebx),%edx
+	addl $4,%esp
+	movl %edi,28(%edx)
+	cmpl $0,-40(%ebp)
+	je .L66
+	pushl %edi
+	movl -40(%ebp),%ecx
+	pushl %ecx
+	pushl %ebx
+	call MxGenCG__InitUnit
+	addl $12,%esp
+.L66:
+	movl -36(%ebp),%esi
+	pushl %esi
+	movl -64(%ebp),%ecx
+	pushl %ecx
+	movl 8(%ebp),%eax
+	pushl %eax
+	call MxGenCG__InitUnit
+	movl 8(%ebp),%eax
+	pushl %eax
+	call MxGenCG__GenerateEntryBottom
+	movl 8(%ebp),%eax
+	addl $16,%esp
+	movl (%eax),%eax
+	movl -24(%ebp),%esi
+	cmpl %esi,20(%eax)
+	je .L7
+	pushl $3904
+	call _m3_fault
+	.align 16
+.L7:
+	leal -80(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe4:
+	.size	 MxGenCG__GenerateUnitList,.Lfe4-MxGenCG__GenerateUnitList
+	.align 16
+	.type	 MxGenCG__ImportUnit,@function
+MxGenCG__ImportUnit:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $4,%esp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%edi
+	cmpl $0,12(%ebp)
+	jne .L69
+	pushl $4020
+	call _m3_fault
+	.align 16
+.L69:
+	movl 12(%ebp),%esi
+	movl (%esi),%eax
+	pushl %eax
+	movl MI_M3ID+52,%eax
+	call *%eax
+	addl $4,%esp
+	pushl %eax
+	xorl %eax,%eax
+	movb 8(%esi),%al
+	movl MI_MxGenRep+356(,%eax,4),%eax
+	pushl %eax
+	movl MI_RTHooks+76,%eax
+	call *%eax
+	pushl $0
+	movl %eax,%ebx
+	pushl %ebx
+	movl MI_M3ID+44,%eax
+	call *%eax
+	movl %eax,%ebx
+	movl (%edi),%edx
+	addl $16,%esp
+	movl 92(%edx),%eax
+	testl %eax,%eax
+	jne .L71
+	pushl $4020
+	call _m3_fault
+	.align 16
+.L71:
+	movl %eax,%ecx
+	movl 88(%edx),%edx
+	cmpl %edx,4(%ecx)
+	ja .L72
+	pushl $4018
+	call _m3_fault
+	.align 16
+.L72:
+	movl (%ecx),%eax
+	movl %ebx,(%eax,%edx,8)
+	movl (%edi),%edx
+	movl 56(%edx),%ecx
+	movl (%ecx),%eax
+	movl 128(%eax),%ebx
+	movl 92(%edx),%eax
+	testl %eax,%eax
+	jne .L73
+	pushl $4052
+	call _m3_fault
+	.align 16
+.L73:
+	movl 88(%edx),%esi
+	movl %esi,-4(%ebp)
+	cmpl %esi,4(%eax)
+	ja .L74
+	pushl $4050
+	call _m3_fault
+	.align 16
+.L74:
+	movl 60(%edx),%edx
+	testl %edx,%edx
+	jge .L75
+	pushl $4049
+	call _m3_fault
+	.align 16
+.L75:
+	pushl $0
+	pushl $14
+	pushl $4
+	pushl %edx
+	movl (%eax),%eax
+	movl -4(%ebp),%esi
+	movl (%eax,%esi,8),%eax
+	pushl %eax
+	pushl %ecx
+	call *%ebx
+	movl %eax,%ebx
+	movl (%edi),%edx
+	addl $24,%esp
+	movl 92(%edx),%eax
+	testl %eax,%eax
+	jne .L76
+	pushl $4052
+	call _m3_fault
+	.align 16
+.L76:
+	movl %eax,%ecx
+	movl 88(%edx),%edx
+	cmpl %edx,4(%ecx)
+	ja .L77
+	pushl $4050
+	call _m3_fault
+	.align 16
+.L77:
+	movl (%ecx),%eax
+	movl %ebx,4(%eax,%edx,8)
+	movl 12(%ebp),%esi
+	movl (%esi),%eax
+	pushl %eax
+	movl MI_M3ID+52,%eax
+	call *%eax
+	pushl $MM_MxGenCG+420
+	movl %eax,%edx
+	pushl %edx
+	movl MI_Text+48,%eax
+	call *%eax
+	addl $12,%esp
+	testl %eax,%eax
+	je .L79
+	cmpb $0,8(%esi)
+	je .L81
+	movl (%edi),%ecx
+	movl 92(%ecx),%eax
+	testl %eax,%eax
+	jne .L82
+	pushl $4148
+	call _m3_fault
+	.align 16
+.L82:
+	movl %eax,%edx
+	movl 88(%ecx),%ebx
+	cmpl %ebx,4(%edx)
+	ja .L83
+	pushl $4146
+	call _m3_fault
+	.align 16
+.L83:
+	movl (%edx),%eax
+	movl (%eax,%ebx,8),%eax
+	movl %eax,104(%ecx)
+	movl (%edi),%edx
+	movl 92(%edx),%eax
+	testl %eax,%eax
+	jne .L84
+	pushl $4164
+	call _m3_fault
+	.align 16
+.L84:
+	movl %eax,%ecx
+	movl 88(%edx),%ebx
+	cmpl %ebx,4(%ecx)
+	ja .L85
+	pushl $4162
+	call _m3_fault
+	.align 16
+.L85:
+	movl (%ecx),%eax
+	movl 4(%eax,%ebx,8),%eax
+	movl %eax,108(%edx)
+	jmp .L79
+	.align 16
+.L81:
+	movl (%edi),%edx
+	movl 92(%edx),%eax
+	testl %eax,%eax
+	jne .L87
+	pushl $4196
+	call _m3_fault
+	.align 16
+.L87:
+	movl %eax,%ecx
+	movl 88(%edx),%ebx
+	cmpl %ebx,4(%ecx)
+	ja .L88
+	pushl $4194
+	call _m3_fault
+	.align 16
+.L88:
+	movl (%ecx),%eax
+	movl (%eax,%ebx,8),%eax
+	movl %eax,112(%edx)
+	movl (%edi),%ecx
+	movl 92(%ecx),%eax
+	testl %eax,%eax
+	jne .L89
+	pushl $4212
+	call _m3_fault
+	.align 16
+.L89:
+	movl %eax,%edx
+	movl 88(%ecx),%ebx
+	cmpl %ebx,4(%edx)
+	ja .L90
+	pushl $4210
+	call _m3_fault
+	.align 16
+.L90:
+	movl (%edx),%eax
+	movl 4(%eax,%ebx,8),%eax
+	movl %eax,116(%ecx)
+.L79:
+	movl (%edi),%edx
+	leal -16(%ebp),%esp
+	incl 88(%edx)
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe5:
+	.size	 MxGenCG__ImportUnit,.Lfe5-MxGenCG__ImportUnit
+	.align 16
+	.type	 MxGenCG__InitUnit,@function
+MxGenCG__InitUnit:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %esi
+	pushl %ebx
+	movl 12(%ebp),%esi
+	testl %esi,%esi
+	je .L92
+	movb $1,28(%esi)
+	movl 8(%ebp),%edx
+	movl (%edx),%eax
+	movl 24(%eax),%eax
+	movl %eax,16(%esi)
+	movl (%edx),%eax
+	incl 24(%eax)
+	movl 16(%esi),%eax
+	movl %eax,20(%esi)
+	cmpb $0,29(%esi)
+	je .L99
+	pushl $4480
+	call _m3_fault
+	.align 16
+.L99:
+	movb $1,29(%esi)
+	movl 8(%ebp),%eax
+	movl (%eax),%edx
+	movl 28(%edx),%edx
+	movl %edx,24(%esi)
+	movl (%eax),%eax
+	movl %esi,28(%eax)
+	movl 8(%esi),%ebx
+	jmp .L102
+	.align 16
+.L103:
+	movl (%ebx),%eax
+	pushl %eax
+	pushl %esi
+	movl 8(%ebp),%eax
+	pushl %eax
+	call MxGenCG__InitProbe
+	addl $12,%esp
+	movl 4(%ebx),%ebx
+.L102:
+	testl %ebx,%ebx
+	jne .L103
+	testl %esi,%esi
+	jne .L107
+	pushl $4628
+	call _m3_fault
+	.align 16
+.L107:
+	movl 12(%esi),%ebx
+	jmp .L108
+	.align 16
+.L109:
+	movl (%ebx),%eax
+	pushl %eax
+	pushl %esi
+	movl 8(%ebp),%eax
+	pushl %eax
+	call MxGenCG__InitProbe
+	addl $12,%esp
+	movl 4(%ebx),%ebx
+.L108:
+	testl %ebx,%ebx
+	jne .L109
+.L92:
+	movl 16(%ebp),%ebx
+	jmp .L113
+	.align 16
+.L114:
+	pushl %ebx
+	pushl %esi
+	movl 8(%ebp),%eax
+	pushl %eax
+	call MxGenCG__InitProbe
+	addl $12,%esp
+	movl 4(%ebx),%ebx
+.L113:
+	testl %ebx,%ebx
+	jne .L114
+	testl %esi,%esi
+	je .L91
+	movl 16(%esi),%eax
+	cmpl %eax,20(%esi)
+	jne .L91
+	movl 8(%ebp),%eax
+	movl (%eax),%eax
+	movl 28(%eax),%ebx
+.L120:
+	testl %ebx,%ebx
+	jne .L121
+	pushl $4884
+	call _m3_fault
+	.align 16
+.L121:
+	movl (%ebx),%eax
+	testl %eax,%eax
+	jne .L122
+	pushl $4884
+	call _m3_fault
+	.align 16
+.L122:
+	cmpb $0,8(%eax)
+	je .L123
+	pushl %eax
+	movl 8(%ebp),%eax
+	pushl %eax
+	call MxGenCG__EmitInit
+	addl $8,%esp
+.L123:
+	cmpl %esi,%ebx
+	je .L126
+	testl %ebx,%ebx
+	jne .L127
+	pushl $4916
+	call _m3_fault
+	.align 16
+.L127:
+	movl 24(%ebx),%ebx
+	jmp .L120
+	.align 16
+.L126:
+	movl 8(%ebp),%eax
+	movl (%eax),%eax
+	movl 28(%eax),%ebx
+.L128:
+	testl %ebx,%ebx
+	jne .L129
+	pushl $5012
+	call _m3_fault
+	.align 16
+.L129:
+	movl (%ebx),%eax
+	testl %eax,%eax
+	jne .L130
+	pushl $5012
+	call _m3_fault
+	.align 16
+.L130:
+	cmpb $0,8(%eax)
+	jne .L131
+	pushl %eax
+	movl 8(%ebp),%eax
+	pushl %eax
+	call MxGenCG__EmitInit
+	addl $8,%esp
+.L131:
+	cmpl %esi,%ebx
+	je .L134
+	testl %ebx,%ebx
+	jne .L135
+	pushl $5044
+	call _m3_fault
+	.align 16
+.L135:
+	movl 24(%ebx),%ebx
+	jmp .L128
+	.align 16
+.L134:
+	movl 8(%ebp),%eax
+	movl (%eax),%eax
+	movl 28(%eax),%ebx
+.L136:
+	testl %ebx,%ebx
+	jne .L137
+	pushl $5140
+	call _m3_fault
+	.align 16
+.L137:
+	movl 24(%ebx),%edx
+	movl %ebx,%eax
+	movb $0,29(%ebx)
+	movl $0,24(%eax)
+	cmpl %esi,%eax
+	je .L141
+	movl %edx,%ebx
+	jmp .L136
+	.align 16
+.L141:
+	movl 8(%ebp),%eax
+	movl (%eax),%eax
+	movl %edx,28(%eax)
+.L91:
+	leal -8(%ebp),%esp
+	popl %ebx
+	popl %esi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe6:
+	.size	 MxGenCG__InitUnit,.Lfe6-MxGenCG__InitUnit
+	.align 16
+	.type	 MxGenCG__InitProbe,@function
+MxGenCG__InitProbe:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %esi
+	pushl %ebx
+	movl 12(%ebp),%ebx
+	movl 16(%ebp),%esi
+	testl %esi,%esi
+	jne .L143
+	pushl $5332
+	call _m3_fault
+	.align 16
+.L143:
+	cmpb $0,28(%esi)
+	jne .L144
+	pushl $0
+	pushl %esi
+	movl 8(%ebp),%eax
+	pushl %eax
+	call MxGenCG__InitUnit
+	testl %ebx,%ebx
+	je .L142
+	movl 20(%esi),%edx
+	jmp .L159
+	.align 16
+.L144:
+	testl %ebx,%ebx
+	je .L142
+	movl 16(%esi),%edx
+	cmpl %edx,16(%ebx)
+	jle .L142
+	cmpb $0,29(%esi)
+	je .L142
+.L159:
+	movl 20(%ebx),%eax
+	cmpl %edx,%eax
+	jle .L158
+	movl %edx,%eax
+.L158:
+	movl %eax,20(%ebx)
+.L142:
+	leal -8(%ebp),%esp
+	popl %ebx
+	popl %esi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe7:
+	.size	 MxGenCG__InitProbe,.Lfe7-MxGenCG__InitProbe
+	.align 16
+	.type	 MxGenCG__EmitInit,@function
+MxGenCG__EmitInit:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $4,%esp
+	pushl %edi
+	pushl %esi
+	xorl %esi,%esi
+	pushl %ebx
+	cmpl $0,12(%ebp)
+	jne .L161
+	pushl $5508
+	call _m3_fault
+	.align 16
+.L161:
+	movl 12(%ebp),%edi
+	movl (%edi),%eax
+	pushl %eax
+	movl MI_M3ID+52,%eax
+	call *%eax
+	addl $4,%esp
+	movl %eax,%ebx
+	pushl %ebx
+	xorl %eax,%eax
+	movb 8(%edi),%al
+	movl MI_MxGenRep+356(,%eax,4),%eax
+	pushl %eax
+	movl MI_RTHooks+76,%eax
+	call *%eax
+	pushl %esi
+	movl %eax,%edx
+	pushl %edx
+	movl MI_M3ID+44,%eax
+	call *%eax
+	movl %eax,%ebx
+	addl $16,%esp
+	jmp .L163
+	.align 16
+.L164:
+	cmpl %ecx,%esi
+	jb .L166
+	pushl $5570
+	call _m3_fault
+	.align 16
+.L166:
+	movl (%edx),%eax
+	cmpl %ebx,(%eax,%esi,8)
+	je .L168
+	incl %esi
+.L163:
+	movl 8(%ebp),%edi
+	movl (%edi),%eax
+	movl 92(%eax),%edx
+	testl %edx,%edx
+	jne .L169
+	pushl $5556
+	call _m3_fault
+	.align 16
+.L169:
+	movl 4(%edx),%ecx
+	leal -1(%ecx),%eax
+	cmpl %esi,%eax
+	jge .L164
+.L168:
+	movl 8(%ebp),%edi
+	movl (%edi),%edx
+	movl 92(%edx),%ecx
+	testl %ecx,%ecx
+	jne .L170
+	pushl $5620
+	call _m3_fault
+	.align 16
+.L170:
+	movl 4(%ecx),%edi
+	movl %edi,-4(%ebp)
+	movl %edi,%eax
+	decl %eax
+	cmpl %esi,%eax
+	jge .L171
+	pushl $5616
+	call _m3_fault
+	.align 16
+.L171:
+	movl 56(%edx),%edx
+	movl (%edx),%eax
+	movl 280(%eax),%ebx
+	cmpl %esi,-4(%ebp)
+	ja .L173
+	pushl $5634
+	call _m3_fault
+	.align 16
+.L173:
+	pushl $0
+	movl (%ecx),%eax
+	movl 4(%eax,%esi,8),%eax
+	pushl %eax
+	pushl %edx
+	call *%ebx
+	movl 8(%ebp),%edi
+	movl (%edi),%edx
+	movl 56(%edx),%ecx
+	movl (%ecx),%eax
+	movl 288(%eax),%ebx
+	pushl $0
+	movl 20(%edx),%eax
+	imull MI_Target+72,%eax
+	pushl %eax
+	movl 76(%edx),%eax
+	pushl %eax
+	pushl %ecx
+	call *%ebx
+	movl (%edi),%ebx
+	leal -16(%ebp),%esp
+	incl 20(%ebx)
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe8:
+	.size	 MxGenCG__EmitInit,.Lfe8-MxGenCG__EmitInit
+	.align 16
+	.type	 MxGenCG__GenerateEntryTop,@function
+MxGenCG__GenerateEntryTop:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $40,%esp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%edi
+.L175:
+	movl $5,-12(%ebp)
+	movl RTThread__handlerStack,%eax
+	movl %eax,-16(%ebp)
+	leal -16(%ebp),%edx
+	movl %edx,RTThread__handlerStack
+	movl MI_Target+64,%ebx
+	movl MI_Target+72,%esi
+	movl %ebx,%eax
+	cltd
+	idivl %esi
+	movl %edx,%ecx
+	movl %eax,-20(%ebp)
+	testl %ecx,%ecx
+	je .L176
+	movl %ebx,%eax
+	xorl %esi,%eax
+	jns .L176
+	decl -20(%ebp)
+.L176:
+	pushl $0
+	pushl $MM_MxGenCG+444
+	movl MI_M3ID+44,%eax
+	call *%eax
+	movl (%edi),%edx
+	movl %eax,%ecx
+	movl %ecx,80(%edx)
+	movl (%edi),%eax
+	movl %eax,-40(%ebp)
+	movl 56(%eax),%ebx
+	addl $8,%esp
+	movl (%ebx),%edx
+	movl 64(%eax),%ecx
+	movl 140(%edx),%esi
+	testl %ecx,%ecx
+	jge .L177
+	pushl $6081
+	call _m3_fault
+	.align 16
+.L177:
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $14
+	pushl $4
+	pushl %ecx
+	movl -40(%ebp),%eax
+	movl 80(%eax),%eax
+	pushl %eax
+	pushl %ebx
+	call *%esi
+	movl (%edi),%ebx
+	movl %eax,%esi
+	movl %esi,84(%ebx)
+	movl (%edi),%edx
+	addl $32,%esp
+	cmpb $0,18(%edx)
+	je .L178
+	pushl $0
+	pushl $MM_MxGenCG+472
+	movl MI_M3ID+44,%eax
+	call *%eax
+	movl %eax,%ecx
+	movl (%edi),%eax
+	movl %ecx,96(%eax)
+	movl (%edi),%edx
+	movl 56(%edx),%ebx
+	movl (%ebx),%eax
+	movl 204(%eax),%esi
+	pushl $0
+	pushl $1
+	movl MI_Target+752,%eax
+	pushl %eax
+	pushl $0
+	pushl $2
+	pushl $4
+	movl 96(%edx),%eax
+	pushl %eax
+	pushl %ebx
+	call *%esi
+	movl %eax,%esi
+	movl (%edi),%ebx
+	addl $40,%esp
+	movl %esi,100(%ebx)
+	pushl $0
+	pushl $MM_MxGenCG+496
+	movl MI_M3ID+44,%eax
+	call *%eax
+	movl %eax,%ecx
+	movl (%edi),%eax
+	movl %ecx,152(%eax)
+	movl (%edi),%edx
+	movl 56(%edx),%ebx
+	movl (%ebx),%eax
+	movl 152(%eax),%esi
+	pushl $1
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $4
+	movl MI_Target+72,%eax
+	pushl %eax
+	movl 152(%edx),%eax
+	pushl %eax
+	pushl %ebx
+	call *%esi
+	movl %eax,%esi
+	movl (%edi),%ebx
+	addl $44,%esp
+	movl %esi,156(%ebx)
+	pushl $0
+	pushl $MM_MxGenCG+516
+	movl MI_M3ID+44,%eax
+	call *%eax
+	movl %eax,%ecx
+	movl (%edi),%eax
+	movl %ecx,160(%eax)
+	movl (%edi),%edx
+	movl 56(%edx),%ebx
+	movl (%ebx),%eax
+	movl 152(%eax),%esi
+	pushl $1
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $4
+	movl MI_Target+72,%eax
+	pushl %eax
+	movl 160(%edx),%eax
+	pushl %eax
+	pushl %ebx
+	call *%esi
+	movl %eax,%esi
+	movl (%edi),%ebx
+	addl $44,%esp
+	movl %esi,164(%ebx)
+	pushl $0
+	pushl $MM_MxGenCG+536
+	movl MI_M3ID+44,%eax
+	call *%eax
+	movl %eax,%ecx
+	movl (%edi),%eax
+	movl %ecx,120(%eax)
+	movl (%edi),%edx
+	movl 56(%edx),%ebx
+	movl (%ebx),%eax
+	movl 152(%eax),%esi
+	pushl $1
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $4
+	movl MI_Target+72,%eax
+	pushl %eax
+	movl 120(%edx),%eax
+	pushl %eax
+	pushl %ebx
+	call *%esi
+	movl %eax,%esi
+	movl (%edi),%ebx
+	addl $44,%esp
+	movl %esi,124(%ebx)
+	pushl $0
+	pushl $MM_MxGenCG+556
+	movl MI_M3ID+44,%eax
+	call *%eax
+	movl %eax,%ecx
+	movl (%edi),%eax
+	movl %ecx,168(%eax)
+	movl (%edi),%edx
+	movl 56(%edx),%ebx
+	movl (%ebx),%eax
+	movl 152(%eax),%esi
+	pushl $1
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $2
+	pushl $4
+	movl MI_Target+108,%eax
+	pushl %eax
+	movl 168(%edx),%eax
+	pushl %eax
+	pushl %ebx
+	call *%esi
+	movl (%edi),%ebx
+	movl %eax,%esi
+	movl %esi,172(%ebx)
+	movl (%edi),%edx
+	movl 56(%edx),%ebx
+	movl (%ebx),%eax
+	addl $44,%esp
+	movl 208(%eax),%esi
+	movl 100(%edx),%eax
+	pushl %eax
+	pushl %ebx
+	call *%esi
+	movl (%edi),%eax
+	movl 56(%eax),%esi
+	movl (%esi),%eax
+	addl $8,%esp
+	movl 156(%eax),%ebx
+	cmpl $0,-20(%ebp)
+	jge .L179
+	pushl $6641
+	call _m3_fault
+	.align 16
+.L179:
+	pushl $1
+	pushl $0
+	movl -20(%ebp),%eax
+	pushl %eax
+	movl MI_Target+72,%edx
+	pushl %edx
+	pushl %esi
+	call *%ebx
+	movl (%edi),%ebx
+	movl %eax,%esi
+	movl %esi,148(%ebx)
+	movl (%edi),%ecx
+	addl $20,%esp
+	cmpl $0,108(%ecx)
+	jne .L180
+	pushl $6736
+	call _m3_fault
+	.align 16
+.L180:
+	movl 56(%ecx),%ebx
+	movl (%ebx),%eax
+	movl 280(%eax),%esi
+	pushl $0
+	movl 84(%ecx),%ecx
+	movl %ecx,-36(%ebp)
+	pushl %ecx
+	pushl %ebx
+	call *%esi
+	movl (%edi),%edx
+	movl %edx,-40(%ebp)
+	movl 56(%edx),%esi
+	movl (%esi),%eax
+	movl 288(%eax),%ebx
+	pushl $0
+	movl 176(%edx),%edx
+	movl -40(%ebp),%eax
+	imull MI_Target+72,%edx
+	addl 60(%eax),%edx
+	pushl %edx
+	movl 108(%eax),%edx
+	pushl %edx
+	pushl %esi
+	call *%ebx
+	leal -8(%ebp),%eax
+	movl %eax,-28(%ebp)
+	pushl %eax
+	pushl $-1
+	movl MI_TInt+68,%edx
+	call *%edx
+	movl %eax,%ecx
+	addl $36,%esp
+	testl %ecx,%ecx
+	jne .L181
+	pushl $6928
+	call _m3_fault
+	.align 16
+.L181:
+	movl (%edi),%eax
+	movl 56(%eax),%ebx
+	movl (%ebx),%edx
+	movl -28(%ebp),%eax
+	movl 308(%edx),%esi
+	pushl %eax
+	pushl %ebx
+	call *%esi
+	movl (%edi),%edx
+	movl %edx,-40(%ebp)
+	movl 56(%edx),%esi
+	movl (%esi),%eax
+	movl 288(%eax),%ebx
+	pushl $2
+	movl MI_Target+108,%edx
+	addl MI_Target+72,%edx
+	pushl %edx
+	movl -40(%ebp),%eax
+	movl 84(%eax),%eax
+	pushl %eax
+	pushl %esi
+	call *%ebx
+	movl (%edi),%edx
+	movl 56(%edx),%ebx
+	movl (%ebx),%eax
+	movl 276(%eax),%esi
+	pushl $0
+	pushl $0
+	movl 124(%edx),%edx
+	pushl %edx
+	pushl %ebx
+	call *%esi
+	movl (%edi),%eax
+	movl %eax,-40(%ebp)
+	movl 56(%eax),%esi
+	movl (%esi),%edx
+	addl $40,%esp
+	movl 288(%edx),%ebx
+	pushl $0
+	movl MI_Target+108,%eax
+	addl %eax,%eax
+	movl %eax,-36(%ebp)
+	addl MI_Target+72,%eax
+	pushl %eax
+	movl -40(%ebp),%edx
+	movl 84(%edx),%edx
+	pushl %edx
+	pushl %esi
+	call *%ebx
+	movl (%edi),%eax
+	movl 56(%eax),%ebx
+	pushl $0
+	pushl $MM_MxGenCG+576
+	movl MI_M3ID+44,%edx
+	call *%edx
+	movl %eax,%ecx
+	movl (%ebx),%eax
+	movl MI_Target+752,%edx
+	movl 200(%eax),%esi
+	pushl %edx
+	pushl $0
+	pushl $0
+	pushl %ecx
+	pushl %ebx
+	call *%esi
+	movl %eax,%ebx
+	movl %ebx,-24(%ebp)
+	movl (%edi),%eax
+	movl 56(%eax),%ebx
+	movl (%ebx),%edx
+	addl $44,%esp
+	movl 596(%edx),%esi
+	pushl $0
+	pushl $0
+	movl -24(%ebp),%eax
+	pushl %eax
+	pushl %ebx
+	call *%esi
+	movl (%edi),%edx
+	movl 56(%edx),%esi
+	movl (%esi),%eax
+	movl 600(%eax),%ebx
+	pushl $0
+	movl -24(%ebp),%edx
+	pushl %edx
+	pushl %esi
+	call *%ebx
+	movl (%edi),%eax
+	movl %eax,-40(%ebp)
+	movl 56(%eax),%ebx
+	movl (%ebx),%edx
+	movl 288(%edx),%esi
+	pushl $0
+	movl MI_Target+108,%eax
+	addl MI_Target+72,%eax
+	movl %eax,%edx
+	addl %eax,%edx
+	pushl %edx
+	movl -40(%ebp),%eax
+	movl 84(%eax),%eax
+	pushl %eax
+	pushl %ebx
+	call *%esi
+	movl (%edi),%edx
+	movl 56(%edx),%esi
+	movl (%esi),%eax
+	addl $44,%esp
+	movl 276(%eax),%ebx
+	pushl $0
+	pushl $0
+	movl 156(%edx),%edx
+	pushl %edx
+	pushl %esi
+	call *%ebx
+	jmp .L186
+	.align 16
+.L178:
+	pushl $0
+	pushl $MM_MxGenCG+612
+	movl MI_M3ID+44,%eax
+	call *%eax
+	movl %eax,%ecx
+	movl (%edi),%eax
+	movl %ecx,96(%eax)
+	movl (%edi),%edx
+	movl 56(%edx),%esi
+	movl (%esi),%eax
+	movl 204(%eax),%ebx
+	pushl $0
+	pushl $1
+	movl MI_Target+752,%eax
+	pushl %eax
+	pushl $0
+	pushl $2
+	pushl $3
+	movl 96(%edx),%eax
+	pushl %eax
+	pushl %esi
+	call *%ebx
+	movl %eax,%ebx
+	movl (%edi),%esi
+	addl $40,%esp
+	movl %ebx,100(%esi)
+	pushl $0
+	pushl $MM_MxGenCG+632
+	movl MI_M3ID+44,%eax
+	call *%eax
+	movl %eax,%ecx
+	movl (%edi),%eax
+	movl %ecx,128(%eax)
+	movl (%edi),%edx
+	movl 56(%edx),%esi
+	movl (%esi),%eax
+	movl 152(%eax),%ebx
+	pushl $1
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $2
+	pushl $4
+	movl MI_Target+108,%eax
+	pushl %eax
+	movl 128(%edx),%eax
+	pushl %eax
+	pushl %esi
+	call *%ebx
+	movl %eax,%ebx
+	movl (%edi),%esi
+	addl $44,%esp
+	movl %ebx,132(%esi)
+	pushl $0
+	pushl $MM_MxGenCG+652
+	movl MI_M3ID+44,%eax
+	call *%eax
+	movl %eax,%ecx
+	movl (%edi),%eax
+	movl %ecx,120(%eax)
+	movl (%edi),%edx
+	movl 56(%edx),%esi
+	movl (%esi),%eax
+	movl 152(%eax),%ebx
+	pushl $1
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $4
+	movl MI_Target+72,%eax
+	pushl %eax
+	movl 120(%edx),%eax
+	pushl %eax
+	pushl %esi
+	call *%ebx
+	movl %eax,%ebx
+	movl (%edi),%esi
+	addl $44,%esp
+	movl %ebx,124(%esi)
+	pushl $0
+	pushl $MM_MxGenCG+672
+	movl MI_M3ID+44,%eax
+	call *%eax
+	movl %eax,%ecx
+	movl (%edi),%eax
+	movl %ecx,136(%eax)
+	movl (%edi),%edx
+	movl 56(%edx),%esi
+	movl (%esi),%eax
+	movl 152(%eax),%ebx
+	pushl $1
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $2
+	pushl $4
+	movl MI_Target+108,%eax
+	pushl %eax
+	movl 136(%edx),%eax
+	pushl %eax
+	pushl %esi
+	call *%ebx
+	movl (%edi),%esi
+	movl %eax,%ebx
+	movl %ebx,140(%esi)
+	movl (%edi),%edx
+	movl 56(%edx),%esi
+	movl (%esi),%eax
+	addl $44,%esp
+	movl 208(%eax),%ebx
+	movl 100(%edx),%eax
+	pushl %eax
+	pushl %esi
+	call *%ebx
+	movl (%edi),%eax
+	movl 56(%eax),%ebx
+	movl (%ebx),%eax
+	movl 156(%eax),%esi
+	pushl $1
+	pushl $0
+	pushl $4
+	movl MI_Target+72,%eax
+	pushl %eax
+	pushl %ebx
+	call *%esi
+	movl (%edi),%esi
+	movl %eax,%ebx
+	movl %ebx,148(%esi)
+	movl (%edi),%ecx
+	addl $28,%esp
+	cmpl $0,108(%ecx)
+	jne .L183
+	pushl $7856
+	call _m3_fault
+	.align 16
+.L183:
+	movl 56(%ecx),%esi
+	movl (%esi),%edx
+	movl 280(%edx),%ebx
+	pushl $0
+	movl 84(%ecx),%ecx
+	movl %ecx,-36(%ebp)
+	pushl %ecx
+	pushl %esi
+	call *%ebx
+	movl (%edi),%eax
+	movl %eax,-40(%ebp)
+	movl 56(%eax),%ebx
+	movl (%ebx),%edx
+	movl 288(%edx),%esi
+	pushl $0
+	movl 176(%eax),%eax
+	movl -40(%ebp),%edx
+	imull MI_Target+72,%eax
+	addl 60(%edx),%eax
+	pushl %eax
+	movl 108(%edx),%eax
+	pushl %eax
+	pushl %ebx
+	call *%esi
+	movl (%edi),%edx
+	movl 56(%edx),%esi
+	movl (%esi),%eax
+	movl 276(%eax),%ebx
+	pushl $2
+	pushl $0
+	movl 132(%edx),%edx
+	pushl %edx
+	pushl %esi
+	call *%ebx
+	movl (%edi),%eax
+	movl %eax,-40(%ebp)
+	movl 56(%eax),%ebx
+	movl (%ebx),%edx
+	addl $44,%esp
+	movl 288(%edx),%esi
+	pushl $2
+	movl MI_Target+108,%eax
+	addl MI_Target+72,%eax
+	pushl %eax
+	movl -40(%ebp),%edx
+	movl 84(%edx),%edx
+	pushl %edx
+	pushl %ebx
+	call *%esi
+	movl (%edi),%eax
+	movl 56(%eax),%esi
+	movl (%esi),%edx
+	movl 276(%edx),%ebx
+	pushl $0
+	pushl $0
+	movl 124(%eax),%eax
+	pushl %eax
+	pushl %esi
+	call *%ebx
+	movl (%edi),%edx
+	movl %edx,-40(%ebp)
+	movl 56(%edx),%ebx
+	movl (%ebx),%eax
+	addl $32,%esp
+	movl 288(%eax),%esi
+	pushl $0
+	movl MI_Target+108,%edx
+	addl %edx,%edx
+	movl %edx,-36(%ebp)
+	addl MI_Target+72,%edx
+	pushl %edx
+	movl -40(%ebp),%eax
+	movl 84(%eax),%eax
+	pushl %eax
+	pushl %ebx
+	call *%esi
+	movl (%edi),%edx
+	movl 56(%edx),%esi
+	movl (%esi),%eax
+	movl 276(%eax),%ebx
+	pushl $0
+	pushl $0
+	movl 140(%edx),%edx
+	pushl %edx
+	pushl %esi
+	call *%ebx
+	movl (%edi),%eax
+	movl %eax,-40(%ebp)
+	movl 56(%eax),%ebx
+	movl (%ebx),%edx
+	addl $32,%esp
+	movl 288(%edx),%esi
+	pushl $0
+	movl MI_Target+108,%eax
+	addl MI_Target+72,%eax
+	movl %eax,%edx
+	addl %eax,%edx
+	pushl %edx
+	movl -40(%ebp),%eax
+	movl 84(%eax),%eax
+	pushl %eax
+	pushl %ebx
+	call *%esi
+	leal -8(%ebp),%edx
+	movl %edx,-32(%ebp)
+	pushl %edx
+	pushl $0
+	movl MI_TInt+68,%eax
+	call *%eax
+	movl %eax,%ecx
+	addl $24,%esp
+	testl %ecx,%ecx
+	jne .L184
+	pushl $8256
+	call _m3_fault
+	.align 16
+.L184:
+	movl (%edi),%edx
+	movl 56(%edx),%esi
+	movl (%esi),%eax
+	movl -32(%ebp),%edx
+	movl 308(%eax),%ebx
+	pushl %edx
+	pushl %esi
+	call *%ebx
+.L186:
+	movl (%edi),%ecx
+	movl 56(%ecx),%ebx
+	movl (%ebx),%eax
+	movl 288(%eax),%esi
+	pushl $2
+	movl MI_Target+72,%edx
+	leal (%edx,%edx,2),%edx
+	movl MI_Target+108,%eax
+	addl %eax,%eax
+	movl %eax,-40(%ebp)
+	addl %eax,%edx
+	pushl %edx
+	movl 84(%ecx),%ecx
+	movl %ecx,-36(%ebp)
+	pushl %ecx
+	pushl %ebx
+	call *%esi
+.L185:
+	movl -16(%ebp),%eax
+	leal -52(%ebp),%esp
+	movl %eax,RTThread__handlerStack
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe9:
+	.size	 MxGenCG__GenerateEntryTop,.Lfe9-MxGenCG__GenerateEntryTop
+	.align 16
+	.type	 MxGenCG__GenerateEntryBottom,@function
+MxGenCG__GenerateEntryBottom:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $16,%esp
+	pushl %edi
+	pushl %esi
+	leal -8(%ebp),%ecx
+	pushl %ebx
+	movl 8(%ebp),%edi
+	movl %ecx,-12(%ebp)
+	pushl %ecx
+	movl (%edi),%eax
+	movl 20(%eax),%eax
+	pushl %eax
+	movl MI_TInt+68,%eax
+	call *%eax
+	addl $8,%esp
+	testl %eax,%eax
+	jne .L188
+	pushl $8480
+	call _m3_fault
+	.align 16
+.L188:
+	movl (%edi),%eax
+	movl 56(%eax),%ebx
+	movl (%ebx),%eax
+	movl -12(%ebp),%ecx
+	movl 308(%eax),%esi
+	pushl %ecx
+	pushl %ebx
+	call *%esi
+	movl (%edi),%edx
+	movl 56(%edx),%esi
+	movl (%esi),%eax
+	movl 288(%eax),%ebx
+	pushl $2
+	pushl $0
+	movl 84(%edx),%eax
+	pushl %eax
+	pushl %esi
+	call *%ebx
+	movl (%edi),%edx
+	movl 56(%edx),%ebx
+	movl (%ebx),%eax
+	movl 280(%eax),%esi
+	pushl $0
+	movl 76(%edx),%eax
+	pushl %eax
+	pushl %ebx
+	call *%esi
+	movl (%edi),%edx
+	movl 56(%edx),%esi
+	movl (%esi),%eax
+	addl $36,%esp
+	movl 288(%eax),%ebx
+	pushl $0
+	movl MI_Target+108,%eax
+	pushl %eax
+	movl 84(%edx),%eax
+	pushl %eax
+	pushl %esi
+	call *%ebx
+	movl -12(%ebp),%ecx
+	pushl %ecx
+	pushl $4194304
+	movl MI_TInt+68,%eax
+	call *%eax
+	addl $24,%esp
+	testl %eax,%eax
+	jne .L189
+	pushl $8592
+	call _m3_fault
+	.align 16
+.L189:
+	movl (%edi),%eax
+	movl 56(%eax),%ebx
+	movl (%ebx),%eax
+	movl -12(%ebp),%ecx
+	movl 308(%eax),%esi
+	pushl %ecx
+	pushl %ebx
+	call *%esi
+	movl (%edi),%ecx
+	movl %ecx,-16(%ebp)
+	movl 56(%ecx),%esi
+	movl (%esi),%eax
+	movl 288(%eax),%ebx
+	pushl $0
+	movl MI_Target+72,%eax
+	leal (%eax,%eax,4),%eax
+	movl MI_Target+108,%ecx
+	movl %ecx,%edx
+	addl %ecx,%edx
+	addl %edx,%eax
+	pushl %eax
+	movl -16(%ebp),%ecx
+	movl 84(%ecx),%eax
+	pushl %eax
+	pushl %esi
+	call *%ebx
+	movl (%edi),%edx
+	movl 56(%edx),%ebx
+	movl (%ebx),%eax
+	movl 280(%eax),%esi
+	pushl $0
+	movl 148(%edx),%eax
+	pushl %eax
+	pushl %ebx
+	call *%esi
+	movl (%edi),%ecx
+	movl %ecx,-16(%ebp)
+	movl 56(%ecx),%esi
+	movl (%esi),%eax
+	addl $36,%esp
+	movl 288(%eax),%ebx
+	pushl $0
+	movl MI_Target+72,%ecx
+	leal 0(,%ecx,4),%eax
+	movl MI_Target+108,%ecx
+	movl %ecx,%edx
+	addl %ecx,%edx
+	addl %edx,%eax
+	pushl %eax
+	movl -16(%ebp),%ecx
+	movl 84(%ecx),%eax
+	pushl %eax
+	pushl %esi
+	call *%ebx
+	movl (%edi),%eax
+	addl $16,%esp
+	cmpl $0,116(%eax)
+	jne .L190
+	pushl $8896
+	call _m3_fault
+	.align 16
+.L190:
+	movl 56(%eax),%ebx
+	movl (%ebx),%eax
+	movl 604(%eax),%esi
+	movl MI_Target+752,%eax
+	pushl %eax
+	pushl $15
+	pushl %ebx
+	call *%esi
+	movl (%edi),%edx
+	movl 56(%edx),%esi
+	movl (%esi),%eax
+	movl 276(%eax),%ebx
+	pushl $0
+	movl MI_Target+72,%eax
+	leal (%eax,%eax,4),%eax
+	addl %eax,%eax
+	pushl %eax
+	movl 116(%edx),%eax
+	pushl %eax
+	pushl %esi
+	call *%ebx
+	movl (%edi),%eax
+	movl 56(%eax),%ebx
+	movl (%ebx),%eax
+	movl 608(%eax),%esi
+	movl MI_Target+752,%eax
+	pushl %eax
+	pushl $15
+	pushl %ebx
+	call *%esi
+	movl (%edi),%eax
+	movl 56(%eax),%esi
+	movl (%esi),%eax
+	addl $40,%esp
+	movl 272(%eax),%ebx
+	pushl $15
+	pushl %esi
+	call *%ebx
+	movl (%edi),%edx
+	movl 56(%edx),%ebx
+	movl (%ebx),%eax
+	movl 160(%eax),%esi
+	movl 148(%edx),%eax
+	pushl %eax
+	pushl %ebx
+	call *%esi
+	movl (%edi),%edx
+	movl 56(%edx),%esi
+	movl (%esi),%eax
+	movl 212(%eax),%ebx
+	movl 100(%edx),%eax
+	pushl %eax
+	pushl %esi
+	call *%ebx
+	movl (%edi),%eax
+	movl 56(%eax),%ebx
+	movl (%ebx),%eax
+	movl 16(%eax),%esi
+	pushl %ebx
+	call *%esi
+	leal -28(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe10:
+	.size	 MxGenCG__GenerateEntryBottom,.Lfe10-MxGenCG__GenerateEntryBottom
+	.align 16
+	.type	 M_MxGenCG_t08b9d91e_LINK,@function
+M_MxGenCG_t08b9d91e_LINK:
+	pushl %ebp
+	movl %esp,%ebp
+	movl MM_MxGenCG+1212,%eax
+	movl %ebp,%esp
+	movl 52(%eax),%edx
+	movl MM_MxGenCG+252,%eax
+	movl %eax,4(%edx)
+	popl %ebp
+	ret
+.Lfe11:
+	.size	 M_MxGenCG_t08b9d91e_LINK,.Lfe11-M_MxGenCG_t08b9d91e_LINK
+	.align 16
+	.type	 _m3_fault,@function
+_m3_fault:
+	pushl %ebp
+	movl %esp,%ebp
+	movl 8(%ebp),%eax
+	pushl %eax
+	pushl $MM_MxGenCG
+	movl MI_RTHooks+108,%eax
+	call *%eax
+	.align 16
+.Lfe12:
+	.size	 _m3_fault,.Lfe12-_m3_fault
+.globl MM_MxGenCG
+.data
+	.align 4
+	.type	 MM_MxGenCG,@object
+	.size	 MM_MxGenCG,1240
+MM_MxGenCG:
+	.long MM_MxGenCG+936
+	.long MM_MxGenCG+44
+	.long MM_MxGenCG+304
+	.long MM_MxGenCG+292
+	.zero	4
+	.long MM_MxGenCG+812
+	.zero	28
+	.long 146397470
+.byte 204
+.byte 119
+.byte 184
+.byte 24
+.byte 210
+.byte 174
+.byte 1
+.byte 16
+	.long 1
+	.zero	4
+	.long 124
+	.long 4
+	.zero	4
+	.long 0
+	.zero	12
+	.long MM_MxGenCG+1100
+	.long MM_MxGenCG+1132
+	.long MM_MxGenCG+1161
+	.zero	4
+	.long M_MxGenCG_t08b9d91e_LINK
+	.long -312833500
+	.zero	12
+	.long MM_MxGenCG+1220
+	.long MM_MxGenCG+1230
+	.long MM_MxGenCG+148
+	.zero	8
+	.long 1491709758
+.byte 177
+.byte 59
+.byte 90
+.byte 87
+.byte 143
+.byte 148
+.byte 179
+.byte 15
+	.long 1
+	.zero	4
+	.long 8
+	.long 4
+	.zero	8
+	.long 1
+	.long 8
+	.zero	4
+	.long MM_MxGenCG+1075
+	.long MM_MxGenCG+1081
+	.long MM_MxGenCG+1087
+	.zero	36
+	.long MxGenCG__GenerateMain
+	.long MxGenCG__GenTypeDecls
+	.long MxGenCG__GenerateUnitList
+	.long MxGenCG__ImportUnit
+	.long MxGenCG__InitUnit
+	.long MxGenCG__InitProbe
+	.long MxGenCG__EmitInit
+	.long MxGenCG__GenerateEntryTop
+	.long MxGenCG__GenerateEntryBottom
+	.long MxGenCG__New
+	.long -1417379340
+	.long 146397470
+	.zero	4
+	.long MM_MxGenCG+336
+	.long -1417379340
+	.long 2
+	.long MM_MxGenCG+324
+	.long 10
+	.ascii	"m3main.mc"
+	.zero	3
+	.long MM_MxGenCG+344
+	.long -1078442736
+	.long MM_MxGenCG+352
+	.long 880986034
+	.long MM_MxGenCG+360
+	.long -259465201
+	.long MM_MxGenCG+368
+	.long -259465203
+	.long MM_MxGenCG+1212
+	.long 1491709758
+	.long 2
+	.long MM_MxGenCG+388
+	.long 5
+	.ascii	"Main"
+	.zero	4
+	.long 2
+	.long MM_MxGenCG+408
+	.long 8
+	.ascii	"modules"
+	.zero	1
+	.long 2
+	.long MM_MxGenCG+428
+	.long 9
+	.ascii	"RTLinker"
+	.zero	4
+	.long 2
+	.long MM_MxGenCG+452
+	.long 13
+	.ascii	"m3_link_info"
+	.zero	4
+	.long 2
+	.long MM_MxGenCG+480
+	.long 11
+	.ascii	"WinMain@16"
+	.zero	2
+	.long 2
+	.long MM_MxGenCG+504
+	.long 5
+	.ascii	"self"
+	.zero	4
+	.long 2
+	.long MM_MxGenCG+524
+	.long 5
+	.ascii	"pref"
+	.zero	4
+	.long 2
+	.long MM_MxGenCG+544
+	.long 5
+	.ascii	"args"
+	.zero	4
+	.long 2
+	.long MM_MxGenCG+564
+	.long 5
+	.ascii	"mode"
+	.zero	4
+	.long 2
+	.long MM_MxGenCG+584
+	.long 24
+	.ascii	"GetEnvironmentStrings@0"
+	.zero	1
+	.long 2
+	.long MM_MxGenCG+620
+	.long 5
+	.ascii	"main"
+	.zero	4
+	.long 2
+	.long MM_MxGenCG+640
+	.long 5
+	.ascii	"argc"
+	.zero	4
+	.long 2
+	.long MM_MxGenCG+660
+	.long 5
+	.ascii	"argv"
+	.zero	4
+	.long 2
+	.long MM_MxGenCG+680
+	.long 5
+	.ascii	"envp"
+	.zero	4
+	.ascii	"GenerateEntryBottom"
+	.zero	1
+	.ascii	"GenerateEntryTop"
+	.zero	1
+	.ascii	"EmitInit"
+	.zero	1
+	.ascii	"InitProbe"
+	.zero	1
+	.ascii	"InitUnit"
+	.zero	1
+	.ascii	"ImportUnit"
+	.zero	1
+	.ascii	"GenerateUnitList"
+	.zero	1
+	.ascii	"GenTypeDecls"
+	.zero	1
+	.ascii	"GenerateMain"
+	.zero	1
+	.ascii	"New"
+	.zero	2
+	.long MxGenCG__GenerateEntryBottom
+	.long MM_MxGenCG+688
+	.zero	4
+	.long MxGenCG__GenerateEntryTop
+	.long MM_MxGenCG+708
+	.zero	4
+	.long MxGenCG__EmitInit
+	.long MM_MxGenCG+725
+	.zero	4
+	.long MxGenCG__InitProbe
+	.long MM_MxGenCG+734
+	.zero	4
+	.long MxGenCG__InitUnit
+	.long MM_MxGenCG+744
+	.zero	4
+	.long MxGenCG__ImportUnit
+	.long MM_MxGenCG+753
+	.zero	4
+	.long MxGenCG__GenerateUnitList
+	.long MM_MxGenCG+764
+	.zero	4
+	.long MxGenCG__GenTypeDecls
+	.long MM_MxGenCG+781
+	.zero	4
+	.long MxGenCG__GenerateMain
+	.long MM_MxGenCG+794
+	.zero	4
+	.long MxGenCG__New
+	.long MM_MxGenCG+807
+	.long MI_MxGenCG+44
+	.zero	4
+	.ascii	"/home/ftp/tmp/pm3/tmp/pm3-1.1.15/language/modula3/m3compiler"
+	.ascii	"/m3bootstrap/LINUXLIBC6/pm3-LINUXLIBC6/boot-LINUXLIBC6/m3lin"
+	.ascii	"ker/src/MxGenCG.m3"
+	.zero	1
+.byte 24
+.byte 1
+.byte 14
+.byte 4
+.byte 0
+.byte 0
+.byte 24
+.byte 1
+.byte 37
+.byte 4
+.byte 0
+.byte 0
+.byte 4
+.byte 11
+.byte 1
+.byte 15
+.byte 2
+.byte 19
+.byte 254
+.byte 126
+.byte 16
+.byte 121
+.byte 130
+.byte 239
+.byte 251
+.byte 4
+.byte 14
+.byte 14
+.byte 14
+.byte 14
+.byte 4
+.byte 14
+.byte 4
+.byte 14
+.byte 4
+.byte 14
+.byte 4
+.byte 14
+.byte 4
+.byte 14
+.byte 4
+.byte 14
+.byte 4
+.byte 14
+.byte 4
+.byte 14
+.byte 4
+.byte 14
+.byte 4
+.byte 14
+.byte 4
+.byte 14
+.byte 4
+.byte 14
+.byte 4
+.byte 14
+.byte 0
+.byte 4
+.byte 42
+.byte 16
+.byte 4
+.byte 37
+.byte 4
+.byte 37
+.byte 4
+.byte 37
+.byte 4
+.byte 37
+.byte 4
+.byte 37
+.byte 4
+.byte 37
+.byte 4
+.byte 37
+.byte 4
+.byte 37
+.byte 4
+.byte 37
+.byte 4
+.byte 37
+.byte 4
+.byte 37
+.byte 4
+.byte 37
+.byte 4
+.byte 0
+.byte 25
+.byte 10
+.byte 19
+.byte 16
+.byte 196
+.byte 8
+.byte 79
+.byte 208
+.byte 15
+.byte 1
+.byte 7
+.byte 24
+.byte 24
+.byte 15
+.byte 2
+.byte 19
+.byte 254
+.byte 126
+.byte 16
+.byte 121
+.byte 130
+.byte 239
+.byte 251
+.byte 28
+.byte 25
+.byte 16
+.byte 62
+.byte 175
+.byte 233
+.byte 88
+.byte 15
+.byte 2
+.byte 29
+.byte 16
+.byte 117
+.byte 167
+.byte 196
+.byte 100
+.byte 28
+.byte 28
+.byte 28
+.byte 28
+.byte 28
+.byte 28
+.byte 28
+.byte 28
+.byte 28
+.byte 25
+	.zero	7
+	.long 146397470
+	.ascii	"MxGenCG.T"
+	.zero	1
+	.ascii	"MxGenCG.T"
+	.zero	1
+	.ident	"GCC: (GNU) cygnus-2.7.2-960712"

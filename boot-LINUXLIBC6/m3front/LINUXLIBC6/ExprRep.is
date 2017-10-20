@@ -1,0 +1,293 @@
+	.file	"ExprRep.ic"
+	.version	"01.01"
+/ SRC Modula-3 version cygnus-2.7.2-960712 (i486--linuxelf) compiled by GNU C version egcs-2.91.66 19990314/Linux (egcs-1.1.2 release).
+/ options passed:  -fno-strength-reduce -O2
+/ options enabled:  -fdefer-pop -fcse-follow-jumps -fcse-skip-blocks
+/ -fexpensive-optimizations -fthread-jumps -fpeephole -fforce-mem
+/ -ffunction-cse -finline -fkeep-static-consts -fcaller-saves
+/ -fpcc-struct-return -frerun-cse-after-loop -fschedule-insns2 -fcommon
+/ -fverbose-asm -fgnu-linker -m80387 -mhard-float -mno-soft-float -mieee-fp
+/ -mfp-ret-in-387 -mschedule-prologue -mcpu=i486 -march=i486
+
+gcc2_compiled.:
+.text
+	.align 16
+	.type	 I_ExprRep_teb64504f_LINK,@function
+I_ExprRep_teb64504f_LINK:
+	pushl %ebp
+	movl %esp,%ebp
+	movl MI_ExprRep+712,%eax
+	movl %ebp,%esp
+	movl 52(%eax),%edx
+	movl MI_ExprRep+544,%eax
+	movl %eax,12(%edx)
+	popl %ebp
+	ret
+.Lfe1:
+	.size	 I_ExprRep_teb64504f_LINK,.Lfe1-I_ExprRep_teb64504f_LINK
+	.align 16
+	.type	 I_ExprRep_td257d0fe_LINK,@function
+I_ExprRep_td257d0fe_LINK:
+	pushl %ebp
+	movl %esp,%ebp
+	movl MI_ExprRep+748,%eax
+	movl %ebp,%esp
+	movl 52(%eax),%edx
+	movl MI_ExprRep+544,%eax
+	movl %eax,12(%edx)
+	popl %ebp
+	ret
+.Lfe2:
+	.size	 I_ExprRep_td257d0fe_LINK,.Lfe2-I_ExprRep_td257d0fe_LINK
+	.align 16
+	.type	 I_ExprRep_t1e4e8cc8_LINK,@function
+I_ExprRep_t1e4e8cc8_LINK:
+	pushl %ebp
+	movl %esp,%ebp
+	movl MI_ExprRep+780,%eax
+	movl %ebp,%esp
+	movl 52(%eax),%edx
+	movl MI_ExprRep+540,%eax
+	movl %eax,12(%edx)
+	popl %ebp
+	ret
+.Lfe3:
+	.size	 I_ExprRep_t1e4e8cc8_LINK,.Lfe3-I_ExprRep_t1e4e8cc8_LINK
+	.align 16
+	.type	 I_ExprRep_t733fa4b9_LINK,@function
+I_ExprRep_t733fa4b9_LINK:
+	pushl %ebp
+	movl %esp,%ebp
+	movl MI_ExprRep+820,%eax
+	movl %ebp,%esp
+	movl 52(%eax),%edx
+	movl MI_ExprRep+468,%eax
+	movl %eax,4(%edx)
+	movl MI_ExprRep+472,%eax
+	movl %eax,8(%edx)
+	movl MI_ExprRep+496,%eax
+	movl %eax,12(%edx)
+	movl MI_ExprRep+476,%eax
+	movl %eax,16(%edx)
+	movl MI_ExprRep+484,%eax
+	movl %eax,20(%edx)
+	movl MI_ExprRep+488,%eax
+	movl %eax,24(%edx)
+	movl %eax,28(%edx)
+	movl %eax,32(%edx)
+	movl MI_ExprRep+464,%eax
+	movl %eax,36(%edx)
+	movl MI_ExprRep+500,%eax
+	movl %eax,40(%edx)
+	movl MI_ExprRep+504,%eax
+	movl %eax,44(%edx)
+	movl MI_ExprRep+508,%eax
+	movl %eax,48(%edx)
+	movl MI_ExprRep+516,%eax
+	movl %eax,52(%edx)
+	movl %eax,56(%edx)
+	movl MI_ExprRep+520,%eax
+	movl %eax,60(%edx)
+	movl %eax,64(%edx)
+	movl MI_ExprRep+524,%eax
+	movl %eax,68(%edx)
+	movl %eax,72(%edx)
+	movl MI_ExprRep+536,%eax
+	movl %eax,76(%edx)
+	popl %ebp
+	ret
+.Lfe4:
+	.size	 I_ExprRep_t733fa4b9_LINK,.Lfe4-I_ExprRep_t733fa4b9_LINK
+.globl MI_ExprRep
+.data
+	.align 4
+	.type	 MI_ExprRep,@object
+	.size	 MI_ExprRep,844
+MI_ExprRep:
+	.long MI_ExprRep+560
+	.long MI_ExprRep+44
+	.long MI_ExprRep+712
+	.long MI_ExprRep+548
+	.zero	36
+	.long 1933550777
+.byte 9
+.byte 156
+.byte 1
+.byte 102
+.byte 176
+.byte 56
+.byte 62
+.byte 21
+	.long 1
+	.zero	4
+	.long 8
+	.long 4
+	.zero	4
+	.long 76
+	.zero	12
+	.long MI_ExprRep+799
+	.long MI_ExprRep+804
+	.long MI_ExprRep+806
+	.zero	4
+	.long I_ExprRep_t733fa4b9_LINK
+	.long -2143734992
+	.zero	12
+	.long MI_ExprRep+828
+	.long MI_ExprRep+835
+	.long MI_ExprRep+148
+	.zero	8
+	.long 508464328
+.byte 54
+.byte 34
+.byte 126
+.byte 1
+.byte 254
+.byte 174
+.byte 48
+.byte 31
+	.long 1
+	.zero	4
+	.long 4
+	.long 4
+	.zero	4
+	.long 0
+	.zero	12
+	.long MI_ExprRep+768
+	.long MI_ExprRep+770
+	.long MI_ExprRep+772
+	.zero	4
+	.long I_ExprRep_t1e4e8cc8_LINK
+	.long -350897909
+	.zero	16
+	.long MI_ExprRep+788
+	.long MI_ExprRep+252
+	.zero	8
+	.long -765996802
+.byte 82
+.byte 28
+.byte 75
+.byte 212
+.byte 172
+.byte 204
+.byte 28
+.byte 6
+	.long 1
+	.zero	4
+	.long 8
+	.long 4
+	.zero	4
+	.long 0
+	.zero	12
+	.long MI_ExprRep+733
+	.long MI_ExprRep+736
+	.long MI_ExprRep+739
+	.zero	4
+	.long I_ExprRep_td257d0fe_LINK
+	.long -350897909
+	.zero	16
+	.long MI_ExprRep+756
+	.long MI_ExprRep+356
+	.zero	8
+	.long -345747377
+.byte 17
+.byte 169
+.byte 119
+.byte 237
+.byte 94
+.byte 249
+.byte 19
+.byte 6
+	.long 1
+	.zero	4
+	.long 4
+	.long 4
+	.zero	4
+	.long 0
+	.zero	12
+	.long MI_ExprRep+704
+	.zero	4
+	.long MI_ExprRep+706
+	.zero	4
+	.long I_ExprRep_teb64504f_LINK
+	.long -765996802
+	.zero	16
+	.long MI_ExprRep+720
+	.zero	92
+	.long -350897909
+	.long 1933550777
+	.zero	4
+	.ascii	"/home/ftp/tmp/pm3/tmp/pm3-1.1.15/language/modula3/m3compiler"
+	.ascii	"/m3bootstrap/LINUXLIBC6/pm3-LINUXLIBC6/boot-LINUXLIBC6/m3fro"
+	.ascii	"nt/src/exprs/ExprRep.i3"
+	.zero	1
+.byte 14
+.byte 0
+.byte 2
+.byte 10
+.byte 1
+.byte 7
+	.zero	2
+	.long MI_ExprRep+748
+	.long -345747377
+	.ascii	"ExprRep.Tabc"
+	.zero	1
+.byte 4
+.byte 4
+.byte 0
+.byte 4
+.byte 4
+.byte 0
+.byte 3
+.byte 10
+.byte 2
+.byte 16
+.byte 11
+.byte 185
+.byte 21
+.byte 235
+.byte 23
+	.long MI_ExprRep+780
+	.long -765996802
+	.ascii	"ExprRep.Tab"
+	.zero	1
+.byte 4
+.byte 0
+.byte 4
+.byte 0
+.byte 2
+.byte 10
+.byte 1
+.byte 16
+.byte 11
+.byte 185
+.byte 21
+.byte 235
+	.long MI_ExprRep+820
+	.long 508464328
+	.ascii	"ExprRep.Ta"
+	.zero	1
+.byte 4
+.byte 16
+.byte 16
+.byte 16
+.byte 0
+.byte 4
+.byte 0
+.byte 5
+.byte 10
+.byte 4
+.byte 16
+.byte 38
+.byte 84
+.byte 147
+.byte 129
+.byte 2
+.byte 24
+.byte 24
+	.zero	7
+	.long 1933550777
+	.ascii	"Expr.T"
+	.zero	1
+	.ascii	"M3.Expr"
+	.zero	2
+	.ident	"GCC: (GNU) cygnus-2.7.2-960712"

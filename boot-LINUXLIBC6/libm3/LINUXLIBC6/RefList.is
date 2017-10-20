@@ -1,0 +1,63 @@
+	.file	"RefList.ic"
+	.version	"01.01"
+/ SRC Modula-3 version cygnus-2.7.2-960712 (i486--linuxelf) compiled by GNU C version egcs-2.91.66 19990314/Linux (egcs-1.1.2 release).
+/ options passed:  -fno-strength-reduce -O2
+/ options enabled:  -fdefer-pop -fcse-follow-jumps -fcse-skip-blocks
+/ -fexpensive-optimizations -fthread-jumps -fpeephole -fforce-mem
+/ -ffunction-cse -finline -fkeep-static-consts -fcaller-saves
+/ -fpcc-struct-return -frerun-cse-after-loop -fschedule-insns2 -fcommon
+/ -fverbose-asm -fgnu-linker -m80387 -mhard-float -mno-soft-float -mieee-fp
+/ -mfp-ret-in-387 -mschedule-prologue -mcpu=i486 -march=i486
+
+gcc2_compiled.:
+.globl MI_RefList
+.data
+	.align 4
+	.type	 MI_RefList,@object
+	.size	 MI_RefList,372
+MI_RefList:
+	.long MI_RefList+196
+	.long MI_RefList+44
+	.zero	44
+	.long -1185263845
+.byte 229
+.byte 170
+.byte 239
+.byte 191
+.byte 254
+.byte 229
+.byte 181
+.byte 6
+	.long 1
+	.zero	4
+	.long 8
+	.long 4
+	.zero	4
+	.long 0
+	.zero	12
+	.long MI_RefList+348
+	.long MI_RefList+351
+	.long MI_RefList+354
+	.zero	8
+	.long -1651526519
+	.zero	16
+	.long MI_RefList+359
+	.zero	52
+	.ascii	"RefList.i3 => /home/ftp/tmp/pm3/tmp/pm3-1.1.15/language/modu"
+	.ascii	"la3/m3compiler/m3bootstrap/LINUXLIBC6/pm3-LINUXLIBC6/boot-LI"
+	.ascii	"NUXLIBC6/libm3/src/list/List.ig"
+	.zero	1
+.byte 4
+.byte 4
+.byte 0
+.byte 4
+.byte 4
+.byte 0
+.byte 3
+.byte 10
+.byte 2
+.byte 17
+.byte 22
+	.ascii	"RefList.T"
+	.zero	4
+	.ident	"GCC: (GNU) cygnus-2.7.2-960712"

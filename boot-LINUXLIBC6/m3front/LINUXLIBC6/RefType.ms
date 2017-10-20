@@ -1,0 +1,2149 @@
+	.file	"RefType.mc"
+	.version	"01.01"
+/ SRC Modula-3 version cygnus-2.7.2-960712 (i486--linuxelf) compiled by GNU C version egcs-2.91.66 19990314/Linux (egcs-1.1.2 release).
+/ options passed:  -fno-strength-reduce -O2
+/ options enabled:  -fdefer-pop -fcse-follow-jumps -fcse-skip-blocks
+/ -fexpensive-optimizations -fthread-jumps -fpeephole -fforce-mem
+/ -ffunction-cse -finline -fkeep-static-consts -fcaller-saves
+/ -fpcc-struct-return -frerun-cse-after-loop -fschedule-insns2 -fcommon
+/ -fverbose-asm -fgnu-linker -m80387 -mhard-float -mno-soft-float -mieee-fp
+/ -mfp-ret-in-387 -mschedule-prologue -mcpu=i486 -march=i486
+
+gcc2_compiled.:
+.text
+	.align 16
+	.type	 RefType__Reset,@function
+RefType__Reset:
+	pushl %ebp
+	movl %esp,%ebp
+	xorl %eax,%eax
+.L2:
+	movl $0,L_1(,%eax,4)
+	incl %eax
+	cmpl $97,%eax
+	jle .L2
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe1:
+	.size	 RefType__Reset,.Lfe1-RefType__Reset
+	.align 16
+	.type	 RefType__Parse,@function
+RefType__Parse:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $4,%esp
+	pushl %esi
+	xorl %esi,%esi
+	pushl %ebx
+	movb $1,-4(%ebp)
+	cmpb $99,MI_Scanner+44
+	jne .L6
+	movl MI_Scanner+104,%eax
+	call *%eax
+	cmpb $1,MI_Scanner+44
+	jne .L7
+	cmpl $0,MM_RefType+252
+	jne .L8
+	pushl %esi
+	pushl $MM_RefType+364
+	movl MI_M3ID+44,%eax
+	call *%eax
+	movl %eax,MM_RefType+252
+	addl $8,%esp
+.L8:
+	movl MI_Scanner+48,%eax
+	cmpl %eax,MM_RefType+252
+	je .L9
+	pushl $MM_RefType+384
+	pushl %eax
+	movl MI_Error+52,%eax
+	call *%eax
+	addl $8,%esp
+.L9:
+	movl MI_Scanner+104,%eax
+	call *%eax
+	movl MI_ObjectAdr+44,%esi
+	xorl %eax,%eax
+	movb MI_Scanner+44,%al
+	cmpl $78,%eax
+	je .L7
+	cmpl $50,%eax
+	je .L7
+	movl %esi,%eax
+	jmp .L14
+	.align 16
+.L7:
+	movb $0,-4(%ebp)
+.L6:
+	call RefType__ParseBrand
+	movl %eax,%ebx
+	cmpb $87,MI_Scanner+44
+	jne .L11
+	testl %esi,%esi
+	je .L12
+	pushl $MM_RefType+420
+	movl MI_Error+44,%eax
+	call *%eax
+	addl $4,%esp
+.L12:
+	movl MI_Scanner+104,%eax
+	call *%eax
+	movl MI_Type+56,%eax
+	call *%eax
+	movl %eax,%edx
+	pushl %ebx
+	xorl %eax,%eax
+	movb -4(%ebp),%al
+	pushl %eax
+	pushl %edx
+	call RefType__New
+	jmp .L14
+	.align 16
+.L11:
+	testl %esi,%esi
+	jne .L13
+	cmpb $0,-4(%ebp)
+	jne .L13
+	pushl $MM_RefType+460
+	movl MI_Error+44,%eax
+	call *%eax
+	addl $4,%esp
+.L13:
+	pushl %ebx
+	xorl %eax,%eax
+	movb -4(%ebp),%al
+	pushl %eax
+	pushl %esi
+	movl MI_ObjectType+44,%eax
+	call *%eax
+.L14:
+	leal -12(%ebp),%esp
+	popl %ebx
+	popl %esi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe2:
+	.size	 RefType__Parse,.Lfe2-RefType__Parse
+	.align 16
+	.type	 RefType__New,@function
+RefType__New:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movb 12(%ebp),%bl
+	movl 16(%ebp),%esi
+	movl MM_RefType+500,%eax
+	pushl %eax
+	movl MI_RTHooks+80,%eax
+	call *%eax
+	pushl $14
+	movl %eax,%edi
+	pushl %edi
+	movl MI_TypeRep+148,%eax
+	call *%eax
+	movb %bl,68(%edi)
+	movl %esi,56(%edi)
+	movl $0,60(%edi)
+	movl 8(%ebp),%edx
+	movl %edx,64(%edi)
+	movl $0,72(%edi)
+	leal -12(%ebp),%esp
+	movl %edi,%eax
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe3:
+	.size	 RefType__New,.Lfe3-RefType__New
+	.align 16
+	.type	 RefType__ParseBrand,@function
+RefType__ParseBrand:
+	pushl %ebp
+	movl %esp,%ebp
+	xorl %eax,%eax
+	cmpb $50,MI_Scanner+44
+	jne .L17
+	movl MI_Scanner+104,%eax
+	call *%eax
+	pushl $MI_Token+92
+	xorl %eax,%eax
+	movb MI_Scanner+44,%al
+	pushl %eax
+	call set_member
+	addl $8,%esp
+	testl %eax,%eax
+	je .L18
+	movl MI_Expr+148,%eax
+	call *%eax
+	jmp .L17
+	.align 16
+.L18:
+	call RefType__GenerateBrand
+.L17:
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe4:
+	.size	 RefType__ParseBrand,.Lfe4-RefType__ParseBrand
+	.align 16
+	.type	 RefType__GenerateBrand,@function
+RefType__GenerateBrand:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $16,%esp
+	leal -8(%ebp),%eax
+	pushl %eax
+	movl MI_Module+100,%eax
+	call *%eax
+	movl $4,%eax
+	addl $4,%esp
+	jmp .L21
+	.align 16
+.L22:
+	movb $48,-8(%eax,%ebp)
+	decl %eax
+.L21:
+	cmpl $4,%eax
+	jbe .L24
+	pushl $1937
+	call _m3_fault
+	.align 16
+.L24:
+	xorl %edx,%edx
+	movb -8(%eax,%ebp),%dl
+	cmpl $57,%edx
+	je .L22
+	incl %edx
+	cmpl $255,%edx
+	jbe .L28
+	pushl $1953
+	call _m3_fault
+	.align 16
+.L28:
+	movb %dl,-8(%eax,%ebp)
+	addl $-8,%esp
+	movl -8(%ebp),%eax
+	movl %eax,(%esp)
+	movb -4(%ebp),%al
+	movb %al,4(%esp)
+	movl MI_Module+104,%eax
+	call *%eax
+	addl $8,%esp
+	cmpl $0,MM_RefType+256
+	jne .L29
+	movl MI_M3Buf+44,%eax
+	call *%eax
+	movl %eax,MM_RefType+256
+.L29:
+	pushl $0
+	movl MI_Module+92,%eax
+	call *%eax
+	pushl %eax
+	movl MM_RefType+256,%eax
+	pushl %eax
+	movl MI_M3ID+64,%eax
+	call *%eax
+	pushl $MM_RefType+512
+	movl MM_RefType+256,%eax
+	pushl %eax
+	movl MI_M3Buf+52,%eax
+	call *%eax
+	leal -8(%ebp),%ecx
+	movl %ecx,-16(%ebp)
+	movl $5,-12(%ebp)
+	leal -16(%ebp),%eax
+	pushl %eax
+	movl MM_RefType+256,%eax
+	pushl %eax
+	movl MI_M3Buf+68,%eax
+	call *%eax
+	movl MI_Module+72,%eax
+	call *%eax
+	movb MM_RefType+356(%eax),%al
+	andl $255,%eax
+	pushl %eax
+	movl MM_RefType+256,%eax
+	pushl %eax
+	movl MI_M3Buf+48,%eax
+	call *%eax
+	addl $36,%esp
+	movl MM_RefType+256,%eax
+	pushl %eax
+	movl MI_M3Buf+72,%eax
+	call *%eax
+	pushl %eax
+	movl MI_M3String+44,%eax
+	call *%eax
+	pushl %eax
+	movl MI_TextExpr+44,%eax
+	call *%eax
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe5:
+	.size	 RefType__GenerateBrand,.Lfe5-RefType__GenerateBrand
+	.align 16
+	.type	 RefType__Reduce,@function
+RefType__Reduce:
+	pushl %ebp
+	movl %esp,%ebp
+	movl 8(%ebp),%edx
+.L31:
+	testl %edx,%edx
+	je .L37
+	cmpb $1,34(%edx)
+	jne .L33
+	pushl %edx
+	movl MI_Type+76,%eax
+	call *%eax
+	movl %eax,%edx
+	addl $4,%esp
+.L33:
+	xorl %eax,%eax
+	movb 34(%edx),%al
+	cmpl $14,%eax
+	jne .L34
+	testl %edx,%edx
+	je .L35
+	movl -4(%edx),%eax
+	sall $11,%eax
+	movl %eax,%ecx
+	shrl $12,%ecx
+	cmpl %ecx,MM_RefType+504
+	jg .L36
+	movl MM_RefType+500,%eax
+	cmpl %ecx,4(%eax)
+	jge .L35
+.L36:
+	pushl $2245
+	call _m3_fault
+	.align 16
+.L35:
+	movl %edx,%eax
+	jmp .L39
+	.align 16
+.L34:
+	cmpl $9,%eax
+	jne .L37
+	pushl %edx
+	movl MI_Revelation+176,%eax
+	call *%eax
+	movl %eax,%edx
+	addl $4,%esp
+	jmp .L31
+	.align 16
+.L37:
+	xorl %eax,%eax
+.L39:
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe6:
+	.size	 RefType__Reduce,.Lfe6-RefType__Reduce
+	.align 16
+	.type	 RefType__Is,@function
+RefType__Is:
+	pushl %ebp
+	movl %esp,%ebp
+	movl 8(%ebp),%eax
+	pushl %eax
+	call RefType__Reduce
+	testl %eax,%eax
+	setne %al
+	andl $255,%eax
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe7:
+	.size	 RefType__Is,.Lfe7-RefType__Is
+	.align 16
+	.type	 RefType__IsBranded,@function
+RefType__IsBranded:
+	pushl %ebp
+	movl %esp,%ebp
+	movl 8(%ebp),%eax
+	pushl %eax
+	call RefType__Reduce
+	xorl %edx,%edx
+	testl %eax,%eax
+	je .L42
+	cmpl $0,60(%eax)
+	setne %al
+	xorl %edx,%edx
+	movb %al,%dl
+.L42:
+	movl %edx,%eax
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe8:
+	.size	 RefType__IsBranded,.Lfe8-RefType__IsBranded
+	.align 16
+	.type	 RefType__Split,@function
+RefType__Split:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %ebx
+	movl 8(%ebp),%eax
+	movl 12(%ebp),%ebx
+	pushl %eax
+	call RefType__Reduce
+	testl %eax,%eax
+	je .L44
+	movl 64(%eax),%eax
+	movl %eax,(%ebx)
+	movl $1,%eax
+.L44:
+	movl -4(%ebp),%ebx
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe9:
+	.size	 RefType__Split,.Lfe9-RefType__Split
+	.align 16
+	.type	 RefType__NoteBrand,@function
+RefType__NoteBrand:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $8,%esp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 12(%ebp),%edi
+.L47:
+	movl $5,-4(%ebp)
+	movl RTThread__handlerStack,%eax
+	movl %eax,-8(%ebp)
+	leal -8(%ebp),%edx
+	movl %edx,RTThread__handlerStack
+	pushl %edi
+	movl MI_M3String+80,%eax
+	call *%eax
+	pushl %eax
+	pushl $98
+	call m3_mod
+	movl %eax,%esi
+	addl $12,%esp
+	cmpl $97,%esi
+	jbe .L48
+	pushl $2673
+	call _m3_fault
+	.align 16
+.L48:
+	movl L_1(,%esi,4),%ebx
+	testl %edi,%edi
+	je .L60
+	cmpl $0,8(%ebp)
+	je .L60
+.L51:
+	testl %ebx,%ebx
+	jne .L56
+	movl MM_RefType+528,%eax
+	pushl %eax
+	movl MI_RTHooks+80,%eax
+	call *%eax
+	movl 8(%ebp),%edx
+	movl %edx,8(%eax)
+	movl %edi,4(%eax)
+	movb $0,12(%eax)
+	movl %eax,%ebx
+	addl $4,%esp
+	testl %ebx,%ebx
+	jne .L53
+	pushl $2788
+	call _m3_fault
+	.align 16
+.L53:
+	cmpl $97,%esi
+	jbe .L54
+	pushl $2785
+	call _m3_fault
+	.align 16
+.L54:
+	movl L_1(,%esi,4),%eax
+	movl %eax,(%ebx)
+	movl %ebx,L_1(,%esi,4)
+	jmp .L60
+	.align 16
+.L56:
+	cmpl %edi,4(%ebx)
+	jne .L57
+	movl 8(%ebx),%eax
+	cmpl %eax,8(%ebp)
+	je .L57
+	movl 8(%ebp),%edx
+	movl 4(%eax),%eax
+	cmpl %eax,4(%edx)
+	je .L60
+	pushl %edi
+	pushl %edx
+	call RefType__BrandError
+	addl $8,%esp
+	cmpb $0,12(%ebx)
+	jne .L64
+	pushl %edi
+	movl 8(%ebx),%eax
+	pushl %eax
+	call RefType__BrandError
+.L64:
+	movb $1,12(%ebx)
+.L60:
+	movl -8(%ebp),%eax
+	movl %eax,RTThread__handlerStack
+	jmp .L46
+	.align 16
+.L57:
+	testl %ebx,%ebx
+	jne .L65
+	pushl $2996
+	call _m3_fault
+	.align 16
+.L65:
+	movl (%ebx),%ebx
+	jmp .L51
+	.align 16
+.L67:
+.L46:
+	leal -20(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe10:
+	.size	 RefType__NoteBrand,.Lfe10-RefType__NoteBrand
+	.align 16
+	.type	 RefType__BrandError,@function
+RefType__BrandError:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %ebx
+	movl 8(%ebp),%eax
+	movl 12(%ebp),%edx
+	movl MI_Scanner+88,%ebx
+	movl 4(%eax),%eax
+	movl %eax,MI_Scanner+88
+	pushl %edx
+	movl MI_M3String+56,%eax
+	call *%eax
+	pushl $MM_RefType+540
+	pushl %eax
+	movl MI_Error+60,%eax
+	call *%eax
+	movl %ebx,MI_Scanner+88
+	movl -4(%ebp),%ebx
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe11:
+	.size	 RefType__BrandError,.Lfe11-RefType__BrandError
+	.align 16
+	.type	 RefType__Check,@function
+RefType__Check:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $44,%esp
+	xorl %eax,%eax
+	pushl %esi
+	movl $839,%esi
+	pushl %ebx
+	movl 8(%ebp),%ebx
+	movl %eax,-44(%ebp)
+	movl %eax,-40(%ebp)
+	movl %eax,-36(%ebp)
+	movl %eax,-32(%ebp)
+	movl %eax,-28(%ebp)
+	movl %eax,-24(%ebp)
+	movl %eax,-20(%ebp)
+	movl %eax,-16(%ebp)
+	movl %eax,-12(%ebp)
+	movl %eax,-8(%ebp)
+	movl %eax,-4(%ebp)
+	movl 56(%ebx),%edx
+	testl %edx,%edx
+	je .L70
+	leal -24(%ebp),%eax
+	pushl %eax
+	pushl %edx
+	movl MI_Expr+156,%eax
+	call *%eax
+	movl 56(%ebx),%eax
+	pushl %eax
+	movl MI_Expr+160,%eax
+	call *%eax
+	movl %eax,%edx
+	addl $12,%esp
+	testl %edx,%edx
+	jne .L71
+	pushl $MM_RefType+568
+	jmp .L77
+	.align 16
+.L71:
+	leal 60(%ebx),%eax
+	pushl %eax
+	pushl %edx
+	movl MI_TextExpr+52,%eax
+	call *%eax
+	addl $8,%esp
+	testl %eax,%eax
+	je .L73
+	movl 60(%ebx),%eax
+	pushl %eax
+	movl MI_M3String+80,%eax
+	call *%eax
+	leal 31043(%eax),%esi
+	movl 60(%ebx),%eax
+	pushl %eax
+	pushl %ebx
+	call RefType__NoteBrand
+	addl $12,%esp
+	jmp .L70
+	.align 16
+.L73:
+	pushl $MM_RefType+604
+.L77:
+	movl MI_Error+44,%eax
+	call *%eax
+	addl $4,%esp
+.L70:
+	movl 64(%ebx),%eax
+	pushl %eax
+	movl MI_Type+76,%eax
+	call *%eax
+	movl %eax,%edx
+	addl $4,%esp
+	testl %edx,%edx
+	je .L74
+	leal (%esi,%esi,4),%eax
+	leal (%esi,%eax,4),%eax
+	leal (%esi,%eax,2),%eax
+	movb 34(%edx),%dl
+	andl $255,%edx
+	leal (%edx,%eax),%esi
+.L74:
+	movl MI_Target+60,%eax
+	movl %eax,16(%ebx)
+	movl %eax,20(%ebx)
+	movl MI_Target+64,%eax
+	movl %eax,24(%ebx)
+	movb $0,33(%ebx)
+	movb $0,32(%ebx)
+	movb $14,34(%ebx)
+	xorl %edx,%edx
+	movb 35(%ebx),%dl
+	andb $254,%dl
+	xorl %eax,%eax
+	movb 68(%ebx),%al
+	andl $1,%eax
+	orl %edx,%eax
+	andl $253,%eax
+	orb $4,%al
+	movb %al,35(%ebx)
+	movl %esi,28(%ebx)
+	incl MI_Type+44
+	orb $16,49(%ebx)
+	movl 64(%ebx),%edx
+	testl %edx,%edx
+	je .L75
+	leal -44(%ebp),%eax
+	pushl %eax
+	pushl %edx
+	movl MI_Type+68,%eax
+	call *%eax
+	movl %eax,%edx
+	movl %edx,64(%ebx)
+	addl $8,%esp
+.L75:
+	decl MI_Type+44
+	cmpb $0,68(%ebx)
+	jne .L76
+	testb $1,-25(%ebp)
+	je .L76
+	movl MI_Module+68,%eax
+	call *%eax
+	testl %eax,%eax
+	je .L76
+	pushl $MM_RefType+648
+	movl MI_Error+44,%eax
+	call *%eax
+	addl $4,%esp
+.L76:
+	pushl $0
+	movl 64(%ebx),%eax
+	pushl %eax
+	movl MI_Type+72,%eax
+	call *%eax
+	leal -52(%ebp),%esp
+	popl %ebx
+	popl %esi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe12:
+	.size	 RefType__Check,.Lfe12-RefType__Check
+	.align 16
+	.type	 RefType__Compiler,@function
+RefType__Compiler:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%ebx
+	movl 64(%ebx),%eax
+	pushl %eax
+	movl MI_Type+140,%eax
+	xorl %edi,%edi
+	call *%eax
+	addl $4,%esp
+	movl 60(%ebx),%eax
+	testl %eax,%eax
+	je .L79
+	pushl %eax
+	movl MI_M3String+56,%eax
+	call *%eax
+	movl %eax,%edi
+	addl $4,%esp
+.L79:
+	pushl %ebx
+	movl MI_Type+132,%eax
+	call *%eax
+	movl %eax,%esi
+	movl 64(%ebx),%eax
+	pushl %eax
+	movl MI_Type+132,%eax
+	call *%eax
+	movl %eax,%edx
+	xorl %eax,%eax
+	movb 68(%ebx),%al
+	pushl %eax
+	pushl %edi
+	pushl %edx
+	pushl %esi
+	movl MI_CG+124,%eax
+	call *%eax
+	leal -12(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe13:
+	.size	 RefType__Compiler,.Lfe13-RefType__Compiler
+	.align 16
+	.type	 RefType__NoteRefName,@function
+RefType__NoteRefName:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %ebx
+	movl 8(%ebp),%eax
+	movl 12(%ebp),%ebx
+	pushl %eax
+	call RefType__Reduce
+	testl %eax,%eax
+	je .L80
+	movl %ebx,72(%eax)
+.L80:
+	movl -4(%ebp),%ebx
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe14:
+	.size	 RefType__NoteRefName,.Lfe14-RefType__NoteRefName
+	.align 16
+	.type	 RefType__InitTypecell,@function
+RefType__InitTypecell:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $80,%esp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%esi
+.L83:
+	movl $5,-32(%ebp)
+	movl RTThread__handlerStack,%eax
+	movl %eax,-36(%ebp)
+	leal -36(%ebp),%ecx
+	movl %ecx,RTThread__handlerStack
+	xorl %ebx,%ebx
+	movl %ebx,-28(%ebp)
+	movl %ebx,-24(%ebp)
+	movl %ebx,-20(%ebp)
+	movl %ebx,-16(%ebp)
+	movl %ebx,-12(%ebp)
+	testl %esi,%esi
+	je .L84
+	movl -4(%esi),%eax
+	sall $11,%eax
+	movl %eax,%edx
+	shrl $12,%edx
+	cmpl %edx,MM_RefType+504
+	jg .L85
+	movl MM_RefType+500,%eax
+	cmpl %edx,4(%eax)
+	jge .L84
+.L85:
+	pushl $4309
+	call _m3_fault
+	.align 16
+.L84:
+	movl %esi,-80(%ebp)
+	pushl $0
+	movl -80(%ebp),%ecx
+	pushl %ecx
+	call RefType__GenTypeMap
+	movl %eax,-76(%ebp)
+	pushl $1
+	movl -80(%ebp),%ecx
+	pushl %ecx
+	call RefType__GenTypeMap
+	movl %eax,-72(%ebp)
+	movl -80(%ebp),%ecx
+	pushl %ecx
+	call RefType__GenTypeDesc
+	movl %eax,-68(%ebp)
+	movl -80(%ebp),%ecx
+	pushl %ecx
+	call RefType__GenInitProc
+	movl %eax,-64(%ebp)
+	movl $0,-48(%ebp)
+	movl MI_Target+96,%edi
+	movl -48(%ebp),%ecx
+	movl %ecx,-44(%ebp)
+	leal -8(%ebp),%eax
+	pushl %eax
+	movl -80(%ebp),%ecx
+	pushl %ecx
+	movl MI_TypeFP+44,%eax
+	call *%eax
+	addl $32,%esp
+	movl -44(%ebp),%ecx
+	pushl %ecx
+	movl MI_Module+112,%eax
+	call *%eax
+	movl %eax,-40(%ebp)
+	leal -28(%ebp),%eax
+	pushl %eax
+	movl -80(%ebp),%ecx
+	movl 64(%ecx),%eax
+	pushl %eax
+	movl MI_Type+68,%eax
+	call *%eax
+	movl -80(%ebp),%ecx
+	movl 64(%ecx),%eax
+	pushl %eax
+	movl MI_Type+80,%eax
+	call *%eax
+	movl %eax,%ebx
+	pushl %ebx
+	movl MI_OpenArrayType+64,%eax
+	call *%eax
+	movl %eax,-60(%ebp)
+	movl -20(%ebp),%ecx
+	movl %ecx,-56(%ebp)
+	addl $20,%esp
+	testl %eax,%eax
+	jne .L86
+	movl -28(%ebp),%esi
+	movl -44(%ebp),%ecx
+	movl %ecx,-52(%ebp)
+	jmp .L87
+	.align 16
+.L86:
+	movl MI_Target+100,%edx
+	movl %edx,%eax
+	addl MI_Target+60,%eax
+	decl %eax
+	pushl %eax
+	pushl %edx
+	call m3_div
+	movl %eax,%esi
+	imull MI_Target+100,%esi
+	movl -60(%ebp),%eax
+	imull MI_Target+96,%eax
+	addl %eax,%esi
+	movl -20(%ebp),%edx
+	leal -1(%esi,%edx),%eax
+	pushl %eax
+	pushl %edx
+	call m3_div
+	movl %eax,%esi
+	imull -20(%ebp),%esi
+	pushl %ebx
+	movl MI_OpenArrayType+56,%eax
+	call *%eax
+	movl %eax,-52(%ebp)
+	addl $20,%esp
+.L87:
+	movl $1,%edx
+	movl %esi,%eax
+	sarl $3,%eax
+	movl %edx,%esi
+	cmpl %esi,%eax
+	jle .L88
+	movl %eax,%esi
+.L88:
+	movl -56(%ebp),%eax
+	sarl $3,%eax
+	movl %edx,-56(%ebp)
+	cmpl %edx,%eax
+	jle .L90
+	movl %eax,-56(%ebp)
+.L90:
+	movl -80(%ebp),%ecx
+	sarl $3,-52(%ebp)
+	movl 60(%ecx),%eax
+	testl %eax,%eax
+	je .L92
+	pushl %eax
+	movl MI_M3String+68,%eax
+	call *%eax
+	pushl $0
+	movl %eax,%edx
+	pushl $MM_RefType+704
+	movl MI_Target+604,%eax
+	pushl %eax
+	leal 1(%edx),%eax
+	imull MI_Target+600,%eax
+	pushl %eax
+	movl MI_Module+108,%eax
+	call *%eax
+	movl -80(%ebp),%ecx
+	movl %eax,-48(%ebp)
+	movl 60(%ecx),%eax
+	pushl %eax
+	movl -48(%ebp),%ecx
+	pushl %ecx
+	movl MI_M3String+64,%eax
+	call *%eax
+	addl $28,%esp
+.L92:
+	movl -80(%ebp),%ecx
+	movl 72(%ecx),%eax
+	testl %eax,%eax
+	je .L93
+	pushl %eax
+	movl MI_CG+284,%eax
+	call *%eax
+	movl %eax,-44(%ebp)
+	addl $4,%esp
+.L93:
+	movl -80(%ebp),%ecx
+	pushl %ecx
+	movl MI_Type+132,%eax
+	call *%eax
+	addl $4,%esp
+	testl %edi,%edi
+	jge .L94
+	pushl $5089
+	call _m3_fault
+	.align 16
+.L94:
+	pushl %eax
+	pushl %edi
+	movl 12(%ebp),%eax
+	addl MI_M3RT+180,%eax
+	pushl %eax
+	movl MI_CG+256,%eax
+	call *%eax
+	xorl %ebx,%ebx
+	addl $12,%esp
+.L95:
+	xorl %eax,%eax
+	movb -8(%ebx,%ebp),%al
+	pushl %eax
+	pushl $8
+	movl 12(%ebp),%eax
+	addl MI_M3RT+184,%eax
+	leal (%eax,%ebx,8),%eax
+	pushl %eax
+	movl MI_CG+256,%eax
+	call *%eax
+	incl %ebx
+	addl $12,%esp
+	cmpl $7,%ebx
+	jle .L95
+	movl -80(%ebp),%ecx
+	cmpb $0,68(%ecx)
+	je .L98
+	testl %edi,%edi
+	jge .L99
+	pushl $5169
+	call _m3_fault
+	.align 16
+.L99:
+	pushl $1
+	pushl %edi
+	movl 12(%ebp),%eax
+	addl MI_M3RT+188,%eax
+	pushl %eax
+	movl MI_CG+256,%eax
+	call *%eax
+	addl $12,%esp
+.L98:
+	testl %edi,%edi
+	jge .L100
+	pushl $5201
+	call _m3_fault
+	.align 16
+.L100:
+	pushl %esi
+	pushl %edi
+	movl 12(%ebp),%eax
+	addl MI_M3RT+196,%eax
+	pushl %eax
+	movl MI_CG+256,%eax
+	call *%eax
+	addl $12,%esp
+	movl -56(%ebp),%ecx
+	pushl %ecx
+	pushl %edi
+	movl 12(%ebp),%eax
+	addl MI_M3RT+200,%eax
+	pushl %eax
+	movl MI_CG+256,%eax
+	call *%eax
+	addl $12,%esp
+	cmpl $0,-60(%ebp)
+	jle .L102
+	movl -60(%ebp),%ecx
+	pushl %ecx
+	pushl %edi
+	movl 12(%ebp),%eax
+	addl MI_M3RT+212,%eax
+	pushl %eax
+	movl MI_CG+256,%eax
+	call *%eax
+	addl $12,%esp
+	movl -52(%ebp),%ecx
+	pushl %ecx
+	pushl %edi
+	movl 12(%ebp),%eax
+	addl MI_M3RT+216,%eax
+	pushl %eax
+	movl MI_CG+256,%eax
+	call *%eax
+	addl $12,%esp
+.L102:
+	cmpl $0,-76(%ebp)
+	jle .L105
+	movl -76(%ebp),%ecx
+	pushl %ecx
+	movl -40(%ebp),%ecx
+	pushl %ecx
+	movl 12(%ebp),%eax
+	addl MI_M3RT+224,%eax
+	pushl %eax
+	movl MI_CG+268,%eax
+	call *%eax
+	addl $12,%esp
+.L105:
+	cmpl $0,-72(%ebp)
+	jle .L106
+	movl -72(%ebp),%ecx
+	pushl %ecx
+	movl -40(%ebp),%ecx
+	pushl %ecx
+	movl 12(%ebp),%eax
+	addl MI_M3RT+228,%eax
+	pushl %eax
+	movl MI_CG+268,%eax
+	call *%eax
+	addl $12,%esp
+.L106:
+	cmpl $0,-68(%ebp)
+	jle .L107
+	movl -68(%ebp),%ecx
+	pushl %ecx
+	movl -40(%ebp),%ecx
+	pushl %ecx
+	movl 12(%ebp),%eax
+	addl MI_M3RT+232,%eax
+	pushl %eax
+	movl MI_CG+268,%eax
+	call *%eax
+	addl $12,%esp
+.L107:
+	cmpl $0,-64(%ebp)
+	je .L108
+	movl -64(%ebp),%ecx
+	pushl %ecx
+	movl 12(%ebp),%eax
+	addl MI_M3RT+236,%eax
+	pushl %eax
+	movl MI_CG+260,%eax
+	call *%eax
+	addl $8,%esp
+.L108:
+	cmpl $0,-48(%ebp)
+	je .L109
+	movl -48(%ebp),%ecx
+	pushl %ecx
+	movl -40(%ebp),%ecx
+	pushl %ecx
+	movl 12(%ebp),%eax
+	addl MI_M3RT+260,%eax
+	pushl %eax
+	movl MI_CG+268,%eax
+	call *%eax
+	addl $12,%esp
+.L109:
+	movl -80(%ebp),%ecx
+	cmpl $0,72(%ecx)
+	je .L110
+	movl -44(%ebp),%ecx
+	pushl %ecx
+	movl -40(%ebp),%ecx
+	pushl %ecx
+	movl 12(%ebp),%eax
+	addl MI_M3RT+264,%eax
+	pushl %eax
+	movl MI_CG+268,%eax
+	call *%eax
+	addl $12,%esp
+.L110:
+	cmpl $0,16(%ebp)
+	je .L112
+	movl 16(%ebp),%ecx
+	pushl %ecx
+	movl -40(%ebp),%ecx
+	pushl %ecx
+	movl 12(%ebp),%eax
+	addl MI_M3RT+268,%eax
+	pushl %eax
+	movl MI_CG+268,%eax
+	call *%eax
+.L112:
+	movl -36(%ebp),%eax
+	leal -92(%ebp),%esp
+	movl %eax,RTThread__handlerStack
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe15:
+	.size	 RefType__InitTypecell,.Lfe15-RefType__InitTypecell
+	.align 16
+	.type	 RefType__GenTypeMap,@function
+RefType__GenTypeMap:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%esi
+	movl MI_TipeMap+44,%eax
+	movb 12(%ebp),%bl
+	call *%eax
+	xorl %eax,%eax
+	movb %bl,%al
+	pushl %eax
+	pushl $-1
+	pushl $0
+	movl 64(%esi),%eax
+	pushl %eax
+	movl MI_Type+160,%eax
+	call *%eax
+	pushl %esi
+	movl MI_Type+128,%eax
+	call *%eax
+	pushl $0
+	pushl $0
+	pushl %eax
+	pushl $MM_RefType+724
+	movl MI_TipeMap+48,%eax
+	call *%eax
+	leal -8(%ebp),%esp
+	popl %ebx
+	popl %esi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe16:
+	.size	 RefType__GenTypeMap,.Lfe16-RefType__GenTypeMap
+	.align 16
+	.type	 RefType__GenTypeDesc,@function
+RefType__GenTypeDesc:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %ebx
+	movl 8(%ebp),%ebx
+	cmpb $0,68(%ebx)
+	je .L115
+	movl MI_TipeDesc+44,%eax
+	call *%eax
+	movl 64(%ebx),%eax
+	pushl %eax
+	movl MI_Type+164,%eax
+	call *%eax
+	pushl %ebx
+	movl MI_Type+128,%eax
+	call *%eax
+	pushl $0
+	pushl $0
+	pushl %eax
+	pushl $MM_RefType+752
+	movl MI_TipeDesc+48,%eax
+	call *%eax
+	jmp .L116
+	.align 16
+.L115:
+	movl $-1,%eax
+.L116:
+	movl -4(%ebp),%ebx
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe17:
+	.size	 RefType__GenTypeDesc,.Lfe17-RefType__GenTypeDesc
+	.align 16
+	.type	 RefType__GenInitProc,@function
+RefType__GenInitProc:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $20,%esp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	xorl %ebx,%ebx
+	movl %ebx,-20(%ebp)
+	movl %ebx,-16(%ebp)
+	movl %ebx,-12(%ebp)
+	movl %ebx,-8(%ebp)
+	movl %ebx,-4(%ebp)
+	pushl $1
+	movl 8(%ebp),%ecx
+	movl 64(%ecx),%eax
+	pushl %eax
+	movl MI_Type+156,%eax
+	movl %ebx,%edi
+	call *%eax
+	movl %eax,%edx
+	addl $8,%esp
+	testl %edx,%edx
+	jle .L121
+	movl 8(%ebp),%ecx
+	movl 4(%ecx),%eax
+	pushl %eax
+	movl MI_CG+72,%eax
+	call *%eax
+	pushl %ebx
+	movl MI_Module+96,%eax
+	call *%eax
+	movl %eax,%esi
+	movl 8(%ebp),%ecx
+	pushl %ecx
+	movl MI_Type+128,%eax
+	call *%eax
+	pushl %eax
+	pushl %esi
+	movl MI_RTHooks+76,%eax
+	call *%eax
+	pushl $MM_RefType+788
+	pushl %eax
+	movl MI_RTHooks+76,%eax
+	call *%eax
+	pushl %ebx
+	pushl %ebx
+	pushl %ebx
+	movl %eax,%esi
+	pushl %esi
+	pushl $-1
+	movl MI_CG+788,%eax
+	call *%eax
+	movl 8(%ebp),%ecx
+	addl $48,%esp
+	movl 4(%ecx),%eax
+	movl %eax,MI_Scanner+88
+	movl 4(%ecx),%eax
+	pushl %eax
+	movl MI_CG+72,%eax
+	call *%eax
+	pushl %ebx
+	pushl %esi
+	movl MI_M3ID+44,%eax
+	call *%eax
+	pushl %ebx
+	movl %eax,%edx
+	pushl %ebx
+	movl MI_Target+752,%eax
+	pushl %eax
+	pushl %ebx
+	pushl $15
+	pushl $1
+	pushl %edx
+	movl MI_CG+292,%eax
+	call *%eax
+	movl %eax,%ebx
+	addl $40,%esp
+	movl 8(%ebp),%ecx
+	pushl %ecx
+	movl MI_Type+132,%eax
+	call *%eax
+	pushl $100
+	pushl %edi
+	pushl %edi
+	movl %eax,%edx
+	pushl %edx
+	pushl %edi
+	movl MI_Target+64,%eax
+	pushl %eax
+	movl MI_Target+60,%eax
+	pushl %eax
+	pushl %edi
+	movl MI_CG+204,%eax
+	call *%eax
+	addl $36,%esp
+	movl %eax,%edi
+	pushl %ebx
+	movl MI_CG+296,%eax
+	call *%eax
+	leal -20(%ebp),%eax
+	pushl %eax
+	movl 8(%ebp),%ecx
+	movl 64(%ecx),%eax
+	pushl %eax
+	movl MI_Type+68,%eax
+	call *%eax
+	pushl $0
+	pushl %edi
+	movl MI_CG+388,%eax
+	call *%eax
+	movl -12(%ebp),%eax
+	addl $20,%esp
+	testl %eax,%eax
+	jge .L119
+	pushl $6353
+	call _m3_fault
+	.align 16
+.L119:
+	pushl %eax
+	movl MI_CG+720,%eax
+	call *%eax
+	pushl $1
+	movl 8(%ebp),%ecx
+	movl 64(%ecx),%eax
+	pushl %eax
+	movl MI_Type+148,%eax
+	call *%eax
+	pushl $15
+	movl MI_CG+360,%eax
+	call *%eax
+	pushl %ebx
+	movl MI_CG+300,%eax
+	call *%eax
+.L121:
+	movl %ebx,%eax
+	leal -32(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe18:
+	.size	 RefType__GenInitProc,.Lfe18-RefType__GenInitProc
+	.align 16
+	.type	 RefType__EqualChk,@function
+RefType__EqualChk:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%edx
+	movl 12(%ebp),%ecx
+	movl 16(%ebp),%esi
+	testl %ecx,%ecx
+	je .L123
+	movl -4(%ecx),%eax
+	sall $11,%eax
+	movl %eax,%ebx
+	shrl $12,%ebx
+	cmpl %ebx,MM_RefType+504
+	jg .L124
+	movl MM_RefType+500,%eax
+	cmpl %ebx,4(%eax)
+	jge .L123
+.L124:
+	pushl $6501
+	call _m3_fault
+	.align 16
+.L123:
+	xorl %ebx,%ebx
+	movb 68(%edx),%al
+	cmpb %al,68(%ecx)
+	jne .L125
+	movl 60(%ecx),%eax
+	cmpl %eax,60(%edx)
+	jne .L125
+	movl 64(%edx),%edx
+	testl %edx,%edx
+	jne .L126
+	cmpl $0,64(%ecx)
+	je .L127
+.L126:
+	pushl %esi
+	movl 64(%ecx),%eax
+	pushl %eax
+	pushl %edx
+	movl MI_Type+116,%eax
+	call *%eax
+	testl %eax,%eax
+	je .L125
+.L127:
+	movl $1,%ebx
+.L125:
+	leal -8(%ebp),%esp
+	movl %ebx,%eax
+	popl %ebx
+	popl %esi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe19:
+	.size	 RefType__EqualChk,.Lfe19-RefType__EqualChk
+	.align 16
+	.type	 RefType__Subtyper,@function
+RefType__Subtyper:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%edi
+	pushl $0
+	movl 12(%ebp),%edx
+	pushl %edx
+	pushl %edi
+	movl MI_Type+116,%eax
+	call *%eax
+	movl %eax,%ebx
+	addl $12,%esp
+	testl %ebx,%ebx
+	je .L129
+	movl $1,%eax
+	jmp .L135
+	.align 16
+.L129:
+	pushl %ebx
+	movl MI_Null+44,%eax
+	pushl %eax
+	pushl %edi
+	movl MI_Type+116,%eax
+	call *%eax
+	movl %eax,%ebx
+	addl $12,%esp
+	testl %ebx,%ebx
+	je .L130
+	movl MI_Reff+44,%eax
+	pushl %eax
+	movl 12(%ebp),%edx
+	pushl %edx
+	movl MI_Type+120,%eax
+	movl $1,%esi
+	call *%eax
+	movl %eax,%ebx
+	addl $8,%esp
+	testl %ebx,%ebx
+	jne .L133
+	movl MI_Addr+44,%eax
+	pushl %eax
+	movl 12(%ebp),%edx
+	pushl %edx
+	movl MI_Type+120,%eax
+	call *%eax
+	addl $8,%esp
+	testl %eax,%eax
+	jne .L133
+	movl 12(%ebp),%edx
+	pushl %edx
+	movl MI_ProcType+56,%eax
+	call *%eax
+	testl %eax,%eax
+	setne %al
+	movl %eax,%esi
+	andl $255,%esi
+	jmp .L133
+	.align 16
+.L130:
+	movl $1,%esi
+	cmpb $0,68(%edi)
+	je .L136
+	pushl %ebx
+	movl MI_Reff+44,%eax
+	pushl %eax
+	movl 12(%ebp),%edx
+	pushl %edx
+	movl MI_Type+116,%eax
+	call *%eax
+	addl $12,%esp
+	testl %eax,%eax
+	jne .L133
+	cmpb $0,68(%edi)
+	jne .L134
+.L136:
+	pushl %ebx
+	movl MI_Addr+44,%eax
+	pushl %eax
+	movl 12(%ebp),%edx
+	pushl %edx
+	movl MI_Type+116,%eax
+	call *%eax
+	testl %eax,%eax
+	jne .L133
+.L134:
+	xorl %esi,%esi
+.L133:
+	movl %esi,%eax
+.L135:
+	leal -12(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe20:
+	.size	 RefType__Subtyper,.Lfe20-RefType__Subtyper
+	.align 16
+	.type	 RefType__InitCoster,@function
+RefType__InitCoster:
+	pushl %ebp
+	movl %esp,%ebp
+	cmpb $0,12(%ebp)
+	je .L138
+	xorl %eax,%eax
+	jmp .L139
+	.align 16
+.L138:
+	movl $1,%eax
+.L139:
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe21:
+	.size	 RefType__InitCoster,.Lfe21-RefType__InitCoster
+	.align 16
+	.type	 RefType__GenDesc,@function
+RefType__GenDesc:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %ebx
+	movl 8(%ebp),%ebx
+	pushl $0
+	movl MI_Reff+44,%eax
+	pushl %eax
+	pushl %ebx
+	movl MI_Type+116,%eax
+	call *%eax
+	addl $12,%esp
+	testl %eax,%eax
+	je .L141
+	pushl %ebx
+	pushl $17
+	jmp .L145
+	.align 16
+.L141:
+	pushl %eax
+	movl MI_Addr+44,%eax
+	pushl %eax
+	pushl %ebx
+	movl MI_Type+116,%eax
+	call *%eax
+	addl $12,%esp
+	testl %eax,%eax
+	je .L143
+	pushl %ebx
+	pushl $0
+	jmp .L145
+	.align 16
+.L143:
+	pushl %eax
+	movl MI_Null+44,%eax
+	pushl %eax
+	pushl %ebx
+	movl MI_Type+116,%eax
+	call *%eax
+	addl $12,%esp
+	testl %eax,%eax
+	je .L144
+	pushl %ebx
+	pushl $9
+.L145:
+	movl MI_TipeDesc+52,%eax
+	call *%eax
+	jmp .L140
+	.align 16
+.L144:
+	pushl %ebx
+	movl MI_TypeRep+168,%eax
+	call *%eax
+.L140:
+	movl -4(%ebp),%ebx
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe22:
+	.size	 RefType__GenDesc,.Lfe22-RefType__GenDesc
+	.align 16
+	.type	 RefType__FPrinter,@function
+RefType__FPrinter:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %ebx
+	movl 8(%ebp),%ebx
+	pushl $0
+	movl MI_Reff+44,%eax
+	pushl %eax
+	pushl %ebx
+	movl MI_Type+116,%eax
+	call *%eax
+	addl $12,%esp
+	testl %eax,%eax
+	je .L147
+	movl 12(%ebp),%eax
+	movl $MM_RefType+808,(%eax)
+	jmp .L153
+	.align 16
+.L147:
+	pushl %eax
+	movl MI_Addr+44,%eax
+	pushl %eax
+	pushl %ebx
+	movl MI_Type+116,%eax
+	call *%eax
+	addl $12,%esp
+	testl %eax,%eax
+	je .L149
+	movl 12(%ebp),%eax
+	movl $MM_RefType+828,(%eax)
+	jmp .L153
+	.align 16
+.L149:
+	pushl %eax
+	movl MI_Null+44,%eax
+	pushl %eax
+	pushl %ebx
+	movl MI_Type+116,%eax
+	call *%eax
+	addl $12,%esp
+	testl %eax,%eax
+	je .L150
+	movl 12(%ebp),%eax
+	movl $MM_RefType+852,(%eax)
+.L153:
+	movl 12(%ebp),%eax
+	movl $0,8(%eax)
+	jmp .L146
+	.align 16
+.L150:
+	pushl $MM_RefType+872
+	movl 12(%ebp),%eax
+	movl 4(%eax),%eax
+	pushl %eax
+	movl MI_M3Buf+52,%eax
+	call *%eax
+	addl $8,%esp
+	cmpb $0,68(%ebx)
+	jne .L151
+	pushl $MM_RefType+888
+	movl 12(%ebp),%eax
+	movl 4(%eax),%eax
+	pushl %eax
+	movl MI_M3Buf+52,%eax
+	call *%eax
+	addl $8,%esp
+.L151:
+	cmpl $0,60(%ebx)
+	je .L152
+	pushl $MM_RefType+912
+	movl 12(%ebp),%eax
+	movl 4(%eax),%eax
+	pushl %eax
+	movl MI_M3Buf+52,%eax
+	call *%eax
+	movl 60(%ebx),%eax
+	pushl %eax
+	movl MI_M3String+68,%eax
+	call *%eax
+	pushl %eax
+	movl 12(%ebp),%eax
+	movl 4(%eax),%eax
+	pushl %eax
+	movl MI_M3Buf+56,%eax
+	call *%eax
+	pushl $32
+	movl 12(%ebp),%eax
+	movl 4(%eax),%eax
+	pushl %eax
+	movl MI_M3Buf+48,%eax
+	call *%eax
+	movl 60(%ebx),%eax
+	pushl %eax
+	movl 12(%ebp),%eax
+	movl 4(%eax),%eax
+	pushl %eax
+	movl MI_M3String+60,%eax
+	call *%eax
+.L152:
+	movl 12(%ebp),%edx
+	movl $1,8(%edx)
+	movl 64(%ebx),%eax
+	movl %eax,12(%edx)
+.L146:
+	movl -4(%ebp),%ebx
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe23:
+	.size	 RefType__FPrinter,.Lfe23-RefType__FPrinter
+	.align 16
+	.type	 M_RefType_tdca0351c_LINK,@function
+M_RefType_tdca0351c_LINK:
+	pushl %ebp
+	movl %esp,%ebp
+	movl MM_RefType+500,%eax
+	movl %ebp,%esp
+	movl 52(%eax),%edx
+	movl MM_RefType+276,%eax
+	movl %eax,4(%edx)
+	movl MI_TypeRep+172,%eax
+	movl %eax,8(%edx)
+	movl MM_RefType+296,%eax
+	movl %eax,12(%edx)
+	movl MM_RefType+300,%eax
+	movl %eax,16(%edx)
+	movl MM_RefType+280,%eax
+	movl %eax,20(%edx)
+	movl MM_RefType+304,%eax
+	movl %eax,24(%edx)
+	movl MI_TypeRep+160,%eax
+	movl %eax,28(%edx)
+	movl MI_TypeRep+164,%eax
+	movl %eax,32(%edx)
+	movl MM_RefType+308,%eax
+	movl %eax,36(%edx)
+	movl MM_RefType+312,%eax
+	movl %eax,40(%edx)
+	popl %ebp
+	ret
+.Lfe24:
+	.size	 M_RefType_tdca0351c_LINK,.Lfe24-M_RefType_tdca0351c_LINK
+	.align 16
+	.type	 _m3_fault,@function
+_m3_fault:
+	pushl %ebp
+	movl %esp,%ebp
+	movl 8(%ebp),%eax
+	pushl %eax
+	pushl $MM_RefType
+	movl MI_RTHooks+108,%eax
+	call *%eax
+	.align 16
+.Lfe25:
+	.size	 _m3_fault,.Lfe25-_m3_fault
+.globl MM_RefType
+.data
+	.align 4
+	.type	 MM_RefType,@object
+	.size	 MM_RefType,1696
+MM_RefType:
+	.long MM_RefType+1431
+	.long MM_RefType+44
+	.long MM_RefType+500
+	.zero	8
+	.long MM_RefType+1140
+	.zero	4
+	.long MM_RefType+1420
+	.long MM_RefType+1420
+	.zero	16
+	.long -593480420
+.byte 97
+.byte 73
+.byte 164
+.byte 202
+.byte 125
+.byte 124
+.byte 4
+.byte 22
+	.long 1
+	.zero	4
+	.long 20
+	.long 4
+	.zero	4
+	.long 0
+	.zero	12
+	.long MM_RefType+1639
+	.long MM_RefType+1646
+	.long MM_RefType+1652
+	.zero	4
+	.long M_RefType_tdca0351c_LINK
+	.long -2121051098
+	.zero	12
+	.long MM_RefType+1676
+	.long MM_RefType+1686
+	.long MM_RefType+148
+	.zero	8
+	.long 1555467408
+.byte 231
+.byte 216
+.byte 111
+.byte 73
+.byte 119
+.byte 84
+.byte 217
+.byte 21
+	.long 1
+	.zero	4
+	.long 16
+	.long 4
+	.zero	20
+	.long MM_RefType+1575
+	.long MM_RefType+1580
+	.long MM_RefType+1584
+	.zero	24
+	.long MM_RefType+1603
+	.long MM_RefType+1621
+	.zero	12
+	.long L_1
+	.long RefType__GenerateBrand
+	.long RefType__Reduce
+	.long RefType__BrandError
+	.long RefType__Check
+	.long RefType__Compiler
+	.long RefType__GenTypeMap
+	.long RefType__GenTypeDesc
+	.long RefType__GenInitProc
+	.long RefType__EqualChk
+	.long RefType__Subtyper
+	.long RefType__InitCoster
+	.long RefType__GenDesc
+	.long RefType__FPrinter
+	.long RefType__Parse
+	.long RefType__ParseBrand
+	.long RefType__New
+	.long RefType__Is
+	.long RefType__IsBranded
+	.long RefType__Split
+	.long RefType__NoteBrand
+	.long RefType__NoteRefName
+	.long RefType__InitTypecell
+	.long RefType__Reset
+.byte 77
+.byte 73
+	.zero	2
+	.long 2
+	.long MM_RefType+372
+	.long 5
+	.ascii	"ROOT"
+	.zero	4
+	.long 2
+	.long MM_RefType+392
+	.long 23
+	.ascii	"expected UNTRACED ROOT"
+	.zero	2
+	.long 2
+	.long MM_RefType+428
+	.long 28
+	.ascii	"expected OBJECT declaration"
+	.zero	1
+	.long 2
+	.long MM_RefType+468
+	.long 30
+	.ascii	"expected UNTRACED ROOT OBJECT"
+	.zero	3
+	.long MM_RefType+528
+	.long -593480420
+	.long 2
+	.long MM_RefType+520
+	.long 8
+	.ascii	"_^%#%^_"
+	.zero	5
+	.long 1555467408
+	.long 2
+	.long MM_RefType+548
+	.long 16
+	.ascii	"duplicate brand"
+	.zero	1
+	.long 2
+	.long MM_RefType+576
+	.long 24
+	.ascii	"brand is not a constant"
+	.zero	1
+	.long 2
+	.long MM_RefType+612
+	.long 29
+	.ascii	"brand is not a TEXT constant"
+	.zero	4
+	.long 2
+	.long MM_RefType+656
+	.long 43
+	.ascii	"unsafe: untraced ref type to a traced type"
+	.zero	2
+	.long 2
+	.long MM_RefType+712
+	.long 6
+	.ascii	"brand"
+	.zero	3
+	.long 2
+	.long MM_RefType+732
+	.long 14
+	.ascii	"type map for "
+	.zero	3
+	.long 2
+	.long MM_RefType+760
+	.long 22
+	.ascii	"type description for "
+	.zero	3
+	.long 2
+	.long MM_RefType+796
+	.long 6
+	.ascii	"_INIT"
+	.zero	3
+	.long 2
+	.long MM_RefType+816
+	.long 8
+	.ascii	"$refany"
+	.zero	1
+	.long 2
+	.long MM_RefType+836
+	.long 9
+	.ascii	"$address"
+	.zero	4
+	.long 2
+	.long MM_RefType+860
+	.long 6
+	.ascii	"$null"
+	.zero	3
+	.long 2
+	.long MM_RefType+880
+	.long 4
+	.ascii	"REF"
+	.zero	1
+	.long 2
+	.long MM_RefType+896
+	.long 10
+	.ascii	"-UNTRACED"
+	.zero	3
+	.long 2
+	.long MM_RefType+920
+	.long 8
+	.ascii	"-BRAND "
+	.zero	1
+	.ascii	"FPrinter"
+	.zero	1
+	.ascii	"GenDesc"
+	.zero	1
+	.ascii	"InitCoster"
+	.zero	1
+	.ascii	"Subtyper"
+	.zero	1
+	.ascii	"EqualChk"
+	.zero	1
+	.ascii	"GenInitProc"
+	.zero	1
+	.ascii	"GenTypeDesc"
+	.zero	1
+	.ascii	"GenTypeMap"
+	.zero	1
+	.ascii	"InitTypecell"
+	.zero	1
+	.ascii	"NoteRefName"
+	.zero	1
+	.ascii	"Compiler"
+	.zero	1
+	.ascii	"Check"
+	.zero	1
+	.ascii	"BrandError"
+	.zero	1
+	.ascii	"NoteBrand"
+	.zero	1
+	.ascii	"Split"
+	.zero	1
+	.ascii	"IsBranded"
+	.zero	1
+	.ascii	"Is"
+	.zero	1
+	.ascii	"Reduce"
+	.zero	1
+	.ascii	"GenerateBrand"
+	.zero	1
+	.ascii	"ParseBrand"
+	.zero	1
+	.ascii	"New"
+	.zero	1
+	.ascii	"Parse"
+	.zero	1
+	.ascii	"Reset"
+	.zero	4
+	.long RefType__FPrinter
+	.long MM_RefType+928
+	.zero	4
+	.long RefType__GenDesc
+	.long MM_RefType+937
+	.zero	4
+	.long RefType__InitCoster
+	.long MM_RefType+945
+	.zero	4
+	.long RefType__Subtyper
+	.long MM_RefType+956
+	.zero	4
+	.long RefType__EqualChk
+	.long MM_RefType+965
+	.zero	4
+	.long RefType__GenInitProc
+	.long MM_RefType+974
+	.zero	4
+	.long RefType__GenTypeDesc
+	.long MM_RefType+986
+	.zero	4
+	.long RefType__GenTypeMap
+	.long MM_RefType+998
+	.zero	4
+	.long RefType__InitTypecell
+	.long MM_RefType+1009
+	.long MI_RefType+76
+	.long RefType__NoteRefName
+	.long MM_RefType+1022
+	.long MI_RefType+72
+	.long RefType__Compiler
+	.long MM_RefType+1034
+	.zero	4
+	.long RefType__Check
+	.long MM_RefType+1043
+	.zero	4
+	.long RefType__BrandError
+	.long MM_RefType+1049
+	.zero	4
+	.long RefType__NoteBrand
+	.long MM_RefType+1060
+	.long MI_RefType+68
+	.long RefType__Split
+	.long MM_RefType+1070
+	.long MI_RefType+64
+	.long RefType__IsBranded
+	.long MM_RefType+1076
+	.long MI_RefType+60
+	.long RefType__Is
+	.long MM_RefType+1086
+	.long MI_RefType+56
+	.long RefType__Reduce
+	.long MM_RefType+1089
+	.zero	4
+	.long RefType__GenerateBrand
+	.long MM_RefType+1096
+	.zero	4
+	.long RefType__ParseBrand
+	.long MM_RefType+1110
+	.long MI_RefType+48
+	.long RefType__New
+	.long MM_RefType+1121
+	.long MI_RefType+52
+	.long RefType__Parse
+	.long MM_RefType+1125
+	.long MI_RefType+44
+	.long RefType__Reset
+	.long MM_RefType+1131
+	.long MI_RefType+80
+	.zero	4
+.byte 43
+.byte 0
+.byte 1
+.byte 4
+.byte 2
+.byte 1
+.byte 4
+.byte 26
+.byte 98
+.byte 3
+.byte 0
+	.ascii	"/home/ftp/tmp/pm3/tmp/pm3-1.1.15/language/modula3/m3compiler"
+	.ascii	"/m3bootstrap/LINUXLIBC6/pm3-LINUXLIBC6/boot-LINUXLIBC6/m3fro"
+	.ascii	"nt/src/types/RefType.m3"
+	.zero	1
+.byte 4
+.byte 4
+.byte 4
+.byte 16
+.byte 0
+.byte 4
+.byte 4
+.byte 4
+.byte 0
+.byte 5
+.byte 15
+.byte 4
+.byte 16
+.byte 144
+.byte 140
+.byte 182
+.byte 92
+.byte 16
+.byte 73
+.byte 155
+.byte 79
+.byte 129
+.byte 16
+.byte 38
+.byte 84
+.byte 147
+.byte 129
+.byte 2
+	.ascii	"RefType.BrandNode"
+	.zero	1
+	.ascii	"RefType.BrandNode"
+	.zero	1
+.byte 4
+.byte 4
+.byte 4
+.byte 16
+.byte 36
+.byte 4
+.byte 0
+.byte 4
+.byte 4
+.byte 4
+.byte 37
+.byte 4
+.byte 0
+.byte 6
+.byte 10
+.byte 5
+.byte 16
+.byte 11
+.byte 185
+.byte 21
+.byte 235
+.byte 16
+.byte 73
+.byte 155
+.byte 79
+.byte 129
+.byte 16
+.byte 38
+.byte 84
+.byte 147
+.byte 129
+.byte 2
+.byte 16
+.byte 116
+.byte 101
+.byte 248
+.byte 80
+	.ascii	"RefType.T"
+	.zero	1
+	.ascii	"RefType.P"
+	.zero	1
+	.local	L_1
+	.comm	L_1,392,4
+	.ident	"GCC: (GNU) cygnus-2.7.2-960712"

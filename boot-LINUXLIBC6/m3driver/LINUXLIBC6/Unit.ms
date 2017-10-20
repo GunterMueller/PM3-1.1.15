@@ -1,0 +1,1072 @@
+	.file	"Unit.mc"
+	.version	"01.01"
+/ SRC Modula-3 version cygnus-2.7.2-960712 (i486--linuxelf) compiled by GNU C version egcs-2.91.66 19990314/Linux (egcs-1.1.2 release).
+/ options passed:  -fno-strength-reduce -O2
+/ options enabled:  -fdefer-pop -fcse-follow-jumps -fcse-skip-blocks
+/ -fexpensive-optimizations -fthread-jumps -fpeephole -fforce-mem
+/ -ffunction-cse -finline -fkeep-static-consts -fcaller-saves
+/ -fpcc-struct-return -frerun-cse-after-loop -fschedule-insns2 -fcommon
+/ -fverbose-asm -fgnu-linker -m80387 -mhard-float -mno-soft-float -mieee-fp
+/ -mfp-ret-in-387 -mschedule-prologue -mcpu=i486 -march=i486
+
+gcc2_compiled.:
+.text
+	.align 16
+	.type	 Unit__ResetPath,@function
+Unit__ResetPath:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $180,%esp
+	movl $0,MM_Unit+152
+.L2:
+	movl $MM_Unit+204,-172(%ebp)
+	movl $0,-176(%ebp)
+	movl RTThread__handlerStack,%eax
+	movl %eax,-180(%ebp)
+	leal -180(%ebp),%edx
+	movl %edx,RTThread__handlerStack
+	leal -160(%ebp),%eax
+	pushl %eax
+	call _setjmp
+	addl $4,%esp
+	testl %eax,%eax
+	jne .L1
+	movl MI_Process+180,%eax
+	call *%eax
+	pushl %eax
+	movl MI_Pathname+84,%eax
+	call *%eax
+	movl %eax,MM_Unit+156
+	movl -180(%ebp),%eax
+	movl %eax,RTThread__handlerStack
+.L3:
+.L1:
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe1:
+	.size	 Unit__ResetPath,.Lfe1-Unit__ResetPath
+	.align 16
+	.type	 Unit__PushDir,@function
+Unit__PushDir:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %ebx
+	movl 8(%ebp),%ebx
+	movl MM_Unit+212,%eax
+	pushl %eax
+	movl MI_RTHooks+80,%eax
+	call *%eax
+	movl %eax,%edx
+	movl MM_Unit+152,%eax
+	movl %eax,(%edx)
+	movl %ebx,4(%edx)
+	movl $0,8(%edx)
+	movl %edx,MM_Unit+152
+	movl -4(%ebp),%ebx
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe2:
+	.size	 Unit__PushDir,.Lfe2-Unit__PushDir
+	.align 16
+	.type	 Unit__PushTable,@function
+Unit__PushTable:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%ebx
+	movl MM_Unit+212,%eax
+	pushl %eax
+	movl MI_RTHooks+80,%eax
+	call *%eax
+	movl %eax,%esi
+	movl MM_Unit+152,%eax
+	movl %eax,(%esi)
+	movl %ebx,4(%esi)
+	pushl %ebx
+	call Unit__ReadTable
+	movl %eax,8(%esi)
+	leal -8(%ebp),%esp
+	movl %esi,MM_Unit+152
+	popl %ebx
+	popl %esi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe3:
+	.size	 Unit__PushTable,.Lfe3-Unit__PushTable
+	.align 16
+	.type	 Unit__GetFullPath,@function
+Unit__GetFullPath:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $4,%esp
+	movl 8(%ebp),%eax
+	movl $0,-4(%ebp)
+	pushl $1
+	pushl $0
+	pushl %eax
+	pushl $0
+	movl MI_M3Path+48,%eax
+	call *%eax
+	movl %eax,-4(%ebp)
+	leal -4(%ebp),%eax
+	pushl %eax
+	call Unit__GetPath
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe4:
+	.size	 Unit__GetFullPath,.Lfe4-Unit__GetFullPath
+	.align 16
+	.type	 Unit__GetRelativePath,@function
+Unit__GetRelativePath:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%ebx
+	pushl %ebx
+	movl MI_Pathname+80,%eax
+	call *%eax
+	addl $4,%esp
+	testl %eax,%eax
+	je .L12
+	pushl %ebx
+	movl MI_Text+56,%eax
+	call *%eax
+	movl %eax,%edi
+	movl MM_Unit+156,%eax
+	pushl %eax
+	movl MI_Text+56,%eax
+	call *%eax
+	movl %eax,%esi
+	addl $8,%esp
+	cmpl %esi,%edi
+	jle .L12
+	pushl %esi
+	pushl $0
+	pushl %ebx
+	movl MI_Text+64,%eax
+	call *%eax
+	movl %eax,%edx
+	movl MM_Unit+156,%eax
+	pushl %eax
+	pushl %edx
+	movl MI_Text+48,%eax
+	call *%eax
+	addl $20,%esp
+	testl %eax,%eax
+	je .L12
+	pushl %edi
+	leal 1(%esi),%eax
+	pushl %eax
+	pushl %ebx
+	movl MI_Text+64,%eax
+	call *%eax
+	pushl $1
+	pushl $17
+	movl %eax,%edx
+	pushl %edx
+	movl MI_Pathname+112,%eax
+	pushl %eax
+	movl MI_M3Path+48,%eax
+	call *%eax
+	movl %eax,%ebx
+.L12:
+	movl %ebx,%eax
+	leal -12(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe5:
+	.size	 Unit__GetRelativePath,.Lfe5-Unit__GetRelativePath
+	.align 16
+	.type	 Unit__Open,@function
+Unit__Open:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $16,%esp
+	cmpb $0,12(%ebp)
+	setne %al
+	andl $255,%eax
+	addl %eax,%eax
+	movl 8(%ebp),%edx
+	movl $0,-8(%ebp)
+	movl $0,-4(%ebp)
+	cmpb $0,16(%ebp)
+	je .L16
+	incl %eax
+.L16:
+	cmpl $3,%eax
+	jbe .L17
+	pushl $1281
+	call _m3_fault
+	.align 16
+.L17:
+	pushl $1
+	movb MM_Unit+44(%eax),%al
+	andl $255,%eax
+	pushl %eax
+	pushl %edx
+	pushl $0
+	movl MI_M3Path+48,%eax
+	call *%eax
+	movl %eax,-8(%ebp)
+	leal -8(%ebp),%eax
+	pushl %eax
+	call Unit__SearchPath
+	movl 20(%ebp),%edx
+	movl -8(%ebp),%eax
+	movl %eax,(%edx)
+	movl -4(%ebp),%eax
+	movl %eax,4(%edx)
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe6:
+	.size	 Unit__Open,.Lfe6-Unit__Open
+	.align 16
+	.type	 Unit__Find,@function
+Unit__Find:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $8,%esp
+	cmpb $0,12(%ebp)
+	setne %al
+	andl $255,%eax
+	addl %eax,%eax
+	movl 8(%ebp),%edx
+	movl $0,-8(%ebp)
+	movl $0,-4(%ebp)
+	cmpb $0,16(%ebp)
+	je .L20
+	incl %eax
+.L20:
+	cmpl $3,%eax
+	jbe .L21
+	pushl $1441
+	call _m3_fault
+	.align 16
+.L21:
+	pushl $1
+	movb MM_Unit+44(%eax),%al
+	andl $255,%eax
+	pushl %eax
+	pushl %edx
+	pushl $0
+	movl MI_M3Path+48,%eax
+	call *%eax
+	movl %eax,-8(%ebp)
+	leal -8(%ebp),%eax
+	pushl %eax
+	call Unit__SearchPath
+	addl $20,%esp
+	movl -4(%ebp),%edx
+	testl %edx,%edx
+	je .L22
+	movl -8(%ebp),%eax
+	pushl %eax
+	pushl %edx
+	movl MI_Utils+60,%eax
+	call *%eax
+	movl -8(%ebp),%eax
+	jmp .L23
+	.align 16
+.L22:
+	movl %edx,%eax
+.L23:
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe7:
+	.size	 Unit__Find,.Lfe7-Unit__Find
+	.align 16
+	.type	 Unit__ReadTable,@function
+Unit__ReadTable:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $392,%esp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+.L25:
+	movl $MM_Unit+220,-16(%ebp)
+	movl $4,-20(%ebp)
+	movl RTThread__handlerStack,%eax
+	movl %eax,-24(%ebp)
+	leal -24(%ebp),%edi
+	movl %edi,RTThread__handlerStack
+	movl $0,-388(%ebp)
+	movl -388(%ebp),%edi
+	movl %edi,-12(%ebp)
+	movl %edi,-8(%ebp)
+	movl %edi,-4(%ebp)
+	movl MM_Unit+228,%eax
+	pushl %eax
+	movl MI_RTHooks+80,%eax
+	call *%eax
+	movl %eax,%ecx
+	movl (%ecx),%eax
+	movl 24(%eax),%edx
+	pushl $32
+	pushl %ecx
+	call *%edx
+	movl %eax,-392(%ebp)
+	addl $12,%esp
+.L26:
+	movl $MM_Unit+204,-196(%ebp)
+	movl $0,-200(%ebp)
+	movl RTThread__handlerStack,%eax
+	movl %eax,-204(%ebp)
+	leal -204(%ebp),%edi
+	movl %edi,RTThread__handlerStack
+	leal -184(%ebp),%eax
+	pushl %eax
+	call _setjmp
+	addl $4,%esp
+	testl %eax,%eax
+	jne .L27
+	movl 8(%ebp),%edi
+	pushl %edi
+	movl MI_FileRd+148,%eax
+	call *%eax
+	movl %eax,-388(%ebp)
+	movl -204(%ebp),%eax
+	movl %eax,RTThread__handlerStack
+	addl $4,%esp
+	jmp .L28
+	.align 16
+.L27:
+	movl -188(%ebp),%eax
+	pushl $0
+	pushl $0
+	movl 8(%ebp),%edi
+	pushl %edi
+	pushl $MM_Unit+240
+	pushl %eax
+	movl MI_Msg+56,%eax
+	call *%eax
+	addl $20,%esp
+.L28:
+	movl $0,-12(%ebp)
+	jmp .L30
+	.align 16
+.L31:
+	movl -388(%ebp),%edi
+	pushl %edi
+	movl MI_Rd+108,%eax
+	call *%eax
+	movl %eax,%edx
+	movl %edx,-8(%ebp)
+	pushl %ebx
+	pushl %edx
+	movl MI_Text+52,%eax
+	call *%eax
+	movl %eax,%ebx
+	addl $12,%esp
+	cmpl $64,%ebx
+	jne .L32
+	pushl $2147483647
+	pushl $1
+	movl -8(%ebp),%eax
+	pushl %eax
+	movl MI_Text+64,%eax
+	call *%eax
+	movl %eax,%edx
+	movl %edx,-12(%ebp)
+	jmp .L41
+	.align 16
+.L32:
+	movl -392(%ebp),%edi
+	movl (%edi),%eax
+	movl 4(%eax),%edx
+	leal -4(%ebp),%eax
+	pushl %eax
+	leal -8(%ebp),%esi
+	pushl %esi
+	pushl %edi
+	call *%edx
+	movl %eax,%ebx
+	addl $12,%esp
+	testl %ebx,%ebx
+	je .L34
+	movl -8(%ebp),%eax
+	pushl %eax
+	pushl $MM_Unit+284
+	movl MI_RTHooks+76,%eax
+	call *%eax
+	pushl $MM_Unit+312
+	movl %eax,%edx
+	pushl %edx
+	movl MI_RTHooks+76,%eax
+	call *%eax
+	movl %eax,%edx
+	movl -12(%ebp),%eax
+	pushl %eax
+	pushl $MM_Unit+356
+	movl -4(%ebp),%eax
+	pushl %eax
+	pushl %edx
+	pushl $0
+	movl MI_Msg+56,%eax
+	call *%eax
+	addl $36,%esp
+	jmp .L30
+	.align 16
+.L34:
+	movl -392(%ebp),%edi
+	movl (%edi),%eax
+	movl 8(%eax),%edx
+	leal -12(%ebp),%eax
+	pushl %eax
+	pushl %esi
+	pushl %edi
+	call *%edx
+.L41:
+	addl $12,%esp
+.L30:
+	movl -388(%ebp),%edi
+	pushl %edi
+	movl MI_Rd+84,%eax
+	call *%eax
+	movl %eax,%ebx
+	addl $4,%esp
+	testl %ebx,%ebx
+	je .L31
+.L36:
+	movl $MM_Unit+372,-376(%ebp)
+	movl $0,-380(%ebp)
+	movl RTThread__handlerStack,%eax
+	movl %eax,-384(%ebp)
+	leal -384(%ebp),%edi
+	movl %edi,RTThread__handlerStack
+	leal -364(%ebp),%eax
+	pushl %eax
+	call _setjmp
+	addl $4,%esp
+	testl %eax,%eax
+	jne .L37
+	movl -388(%ebp),%edi
+	pushl %edi
+	movl MI_Rd+116,%eax
+	call *%eax
+	movl -384(%ebp),%eax
+	movl %eax,RTThread__handlerStack
+	jmp .L38
+	.align 16
+.L37:
+	pushl $0
+	pushl $0
+	movl 8(%ebp),%edi
+	pushl %edi
+	pushl $MM_Unit+384
+	pushl $0
+	movl MI_Msg+56,%eax
+	call *%eax
+.L38:
+	movl -24(%ebp),%eax
+	movl %eax,RTThread__handlerStack
+	movl -392(%ebp),%eax
+.L40:
+	leal -404(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe8:
+	.size	 Unit__ReadTable,.Lfe8-Unit__ReadTable
+	.align 16
+	.type	 Unit__SearchPath,@function
+Unit__SearchPath:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $4,%esp
+	pushl %edi
+	pushl %esi
+	xorl %esi,%esi
+	pushl %ebx
+	movl 8(%ebp),%edx
+	movl %esi,-4(%ebp)
+	movl %esi,4(%edx)
+	movl MI_Wr+60,%eax
+	pushl %eax
+	pushl $MM_Unit+460
+	movl (%edx),%eax
+	pushl %eax
+	pushl $MM_Unit+428
+	movl MI_Msg+68,%eax
+	call *%eax
+	movl 8(%ebp),%eax
+	movl (%eax),%eax
+	pushl %eax
+	movl MI_Text+60,%eax
+	call *%eax
+	addl $20,%esp
+	testl %eax,%eax
+	jne .L42
+	movl 8(%ebp),%eax
+	movl (%eax),%eax
+	pushl %eax
+	movl MI_Pathname+80,%eax
+	call *%eax
+	addl $4,%esp
+	testl %eax,%eax
+	je .L44
+	pushl %esi
+	pushl %esi
+	movl MI_Wr+60,%eax
+	pushl %eax
+	pushl $MM_Unit+476
+	movl MI_Msg+68,%eax
+	call *%eax
+	movl 8(%ebp),%edx
+	leal 4(%edx),%eax
+	pushl %eax
+	movl (%edx),%eax
+	pushl %eax
+	call Unit__IsReadable
+	addl $24,%esp
+	testl %eax,%eax
+	jne .L42
+	jmp .L46
+	.align 16
+.L44:
+	movl MM_Unit+152,%esi
+	jmp .L47
+	.align 16
+.L48:
+	movl 8(%esi),%edi
+	testl %edi,%edi
+	jne .L55
+	pushl %edi
+	movl MI_Wr+60,%eax
+	pushl %eax
+	movl 4(%esi),%eax
+	pushl %eax
+	pushl $MM_Unit+508
+	movl MI_Msg+68,%eax
+	call *%eax
+	addl $16,%esp
+	pushl $1
+	pushl $17
+	movl 8(%ebp),%eax
+	movl (%eax),%eax
+	pushl %eax
+	movl 4(%esi),%eax
+	pushl %eax
+	movl MI_M3Path+48,%eax
+	call *%eax
+	movl %eax,%ebx
+	movl 8(%ebp),%eax
+	addl $4,%eax
+	pushl %eax
+	pushl %ebx
+	call Unit__IsReadable
+	addl $24,%esp
+	testl %eax,%eax
+	je .L54
+	pushl %edi
+	pushl %ebx
+	pushl $MM_Unit+556
+	movl 8(%ebp),%eax
+	movl (%eax),%eax
+	pushl %eax
+	pushl $MM_Unit+532
+	movl MI_Msg+72,%eax
+	call *%eax
+	movl 8(%ebp),%edx
+	movl %ebx,(%edx)
+	jmp .L42
+	.align 16
+.L55:
+	movl %edi,%edx
+	movl (%edx),%eax
+	movl 4(%eax),%ecx
+	leal -4(%ebp),%eax
+	pushl %eax
+	movl 8(%ebp),%eax
+	pushl %eax
+	pushl %edx
+	call *%ecx
+	addl $12,%esp
+	testl %eax,%eax
+	je .L54
+	movl -4(%ebp),%edx
+	testl %edx,%edx
+	jne .L57
+	movl 8(%ebp),%eax
+	movl (%eax),%ebx
+	jmp .L58
+	.align 16
+.L57:
+	pushl $1
+	pushl $17
+	movl 8(%ebp),%eax
+	movl (%eax),%eax
+	pushl %eax
+	pushl %edx
+	movl MI_M3Path+48,%eax
+	call *%eax
+	movl %eax,%ecx
+	movl %ecx,%ebx
+	addl $16,%esp
+.L58:
+	pushl $0
+	movl MI_Wr+60,%eax
+	pushl %eax
+	pushl %ebx
+	pushl $MM_Unit+576
+	movl MI_Msg+68,%eax
+	call *%eax
+	movl 8(%ebp),%eax
+	addl $4,%eax
+	pushl %eax
+	pushl %ebx
+	call Unit__IsReadable
+	addl $24,%esp
+	testl %eax,%eax
+	je .L54
+	pushl $0
+	pushl %ebx
+	pushl $MM_Unit+556
+	movl 8(%ebp),%eax
+	movl (%eax),%eax
+	pushl %eax
+	pushl $MM_Unit+532
+	movl MI_Msg+72,%eax
+	call *%eax
+	movl 8(%ebp),%ecx
+	movl %ebx,(%ecx)
+	jmp .L42
+	.align 16
+.L54:
+	testl %esi,%esi
+	jne .L60
+	pushl $2756
+	call _m3_fault
+	.align 16
+.L60:
+	movl (%esi),%esi
+.L47:
+	testl %esi,%esi
+	jne .L48
+.L46:
+	pushl $0
+	pushl $0
+	pushl $0
+	movl 8(%ebp),%eax
+	movl (%eax),%eax
+	pushl %eax
+	pushl $MM_Unit+600
+	movl MI_Msg+72,%eax
+	call *%eax
+.L42:
+	leal -16(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe9:
+	.size	 Unit__SearchPath,.Lfe9-Unit__SearchPath
+	.align 16
+	.type	 Unit__IsReadable,@function
+Unit__IsReadable:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $180,%esp
+.L63:
+	movl $MM_Unit+204,-172(%ebp)
+	movl $0,-176(%ebp)
+	movl RTThread__handlerStack,%eax
+	movl %eax,-180(%ebp)
+	leal -180(%ebp),%edx
+	movl %edx,RTThread__handlerStack
+	leal -160(%ebp),%eax
+	pushl %eax
+	call _setjmp
+	addl $4,%esp
+	testl %eax,%eax
+	jne .L64
+	movl 8(%ebp),%edx
+	pushl %edx
+	movl MI_FS+52,%eax
+	call *%eax
+	movl 12(%ebp),%edx
+	movl %eax,(%edx)
+	movl -180(%ebp),%eax
+	movl %eax,RTThread__handlerStack
+	movl $1,%eax
+	jmp .L67
+	.align 16
+.L64:
+	xorl %eax,%eax
+.L67:
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe10:
+	.size	 Unit__IsReadable,.Lfe10-Unit__IsReadable
+	.align 16
+	.type	 Unit__GetPath,@function
+Unit__GetPath:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $4,%esp
+	pushl %ebx
+	xorl %ebx,%ebx
+	movl %ebx,-4(%ebp)
+	movl MI_Wr+60,%eax
+	pushl %eax
+	pushl $MM_Unit+460
+	movl 8(%ebp),%eax
+	movl (%eax),%eax
+	pushl %eax
+	pushl $MM_Unit+428
+	movl MI_Msg+68,%eax
+	call *%eax
+	movl 8(%ebp),%eax
+	movl (%eax),%eax
+	pushl %eax
+	movl MI_Text+60,%eax
+	call *%eax
+	addl $20,%esp
+	testl %eax,%eax
+	jne .L84
+	movl 8(%ebp),%eax
+	movl (%eax),%eax
+	pushl %eax
+	movl MI_Pathname+80,%eax
+	call *%eax
+	addl $4,%esp
+	testl %eax,%eax
+	je .L70
+	pushl %ebx
+	pushl %ebx
+	movl MI_Wr+60,%eax
+	pushl %eax
+	pushl $MM_Unit+476
+	movl MI_Msg+68,%eax
+	call *%eax
+.L86:
+	movl 8(%ebp),%eax
+	movl (%eax),%eax
+	jmp .L83
+	.align 16
+.L70:
+	movl MM_Unit+152,%ebx
+	jmp .L71
+	.align 16
+.L72:
+	movl 8(%ebx),%ecx
+	testl %ecx,%ecx
+	jne .L77
+	pushl %ecx
+	movl MI_Wr+60,%eax
+	pushl %eax
+	movl 4(%ebx),%eax
+	pushl %eax
+	pushl $MM_Unit+508
+	movl MI_Msg+68,%eax
+	call *%eax
+	addl $16,%esp
+	pushl $1
+	pushl $17
+	movl 8(%ebp),%eax
+	movl (%eax),%eax
+	pushl %eax
+	movl 4(%ebx),%eax
+	pushl %eax
+	jmp .L85
+	.align 16
+.L77:
+	movl (%ecx),%eax
+	movl 4(%eax),%edx
+	leal -4(%ebp),%eax
+	pushl %eax
+	movl 8(%ebp),%eax
+	pushl %eax
+	pushl %ecx
+	call *%edx
+	addl $12,%esp
+	testl %eax,%eax
+	je .L81
+	movl -4(%ebp),%edx
+	testl %edx,%edx
+	je .L86
+	pushl $1
+	pushl $17
+	movl 8(%ebp),%eax
+	movl (%eax),%eax
+	pushl %eax
+	pushl %edx
+.L85:
+	movl MI_M3Path+48,%eax
+	call *%eax
+	jmp .L83
+	.align 16
+.L81:
+	movl (%ebx),%ebx
+.L71:
+	testl %ebx,%ebx
+	jne .L72
+	pushl %ebx
+	pushl %ebx
+	pushl %ebx
+	movl 8(%ebp),%eax
+	movl (%eax),%eax
+	pushl %eax
+	pushl $MM_Unit+600
+	movl MI_Msg+72,%eax
+	call *%eax
+.L84:
+	movl %ebx,%eax
+.L83:
+	movl -8(%ebp),%ebx
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe11:
+	.size	 Unit__GetPath,.Lfe11-Unit__GetPath
+	.align 16
+	.type	 _m3_fault,@function
+_m3_fault:
+	pushl %ebp
+	movl %esp,%ebp
+	movl 8(%ebp),%eax
+	pushl %eax
+	pushl $MM_Unit
+	movl MI_RTHooks+108,%eax
+	call *%eax
+	.align 16
+.Lfe12:
+	.size	 _m3_fault,.Lfe12-_m3_fault
+.globl MM_Unit
+.data
+	.align 4
+	.type	 MM_Unit,@object
+	.size	 MM_Unit,1048
+MM_Unit:
+	.long MM_Unit+873
+	.long MM_Unit+48
+	.long MM_Unit+212
+	.zero	8
+	.long MM_Unit+732
+	.zero	4
+	.long MM_Unit+868
+	.long MM_Unit+868
+	.zero	8
+.byte 4
+.byte 9
+.byte 0
+.byte 8
+	.zero	8
+	.long 1694452878
+.byte 66
+.byte 52
+.byte 179
+.byte 98
+.byte 204
+.byte 120
+.byte 76
+.byte 6
+	.long 1
+	.zero	4
+	.long 12
+	.long 4
+	.zero	20
+	.long MM_Unit+1009
+	.long MM_Unit+1013
+	.long MM_Unit+1017
+	.zero	28
+	.long MM_Unit+1035
+	.zero	12
+	.long Unit__ReadTable
+	.long Unit__SearchPath
+	.long Unit__IsReadable
+	.long Unit__GetPath
+	.long Unit__ResetPath
+	.long Unit__PushDir
+	.long Unit__PushTable
+	.long Unit__GetFullPath
+	.long Unit__GetRelativePath
+	.long Unit__Open
+	.long Unit__Find
+	.long MI_OSError+44
+	.zero	4
+	.long MM_Unit+228
+	.long 1694452878
+	.long MI_M3Driver+68
+	.zero	8
+	.long -473899160
+	.long 2
+	.long MM_Unit+248
+	.long 30
+	.ascii	"unable to open import table: "
+	.zero	3
+	.long 2
+	.long MM_Unit+292
+	.long 16
+	.ascii	"duplicate unit "
+	.zero	1
+	.long 2
+	.long MM_Unit+320
+	.long 30
+	.ascii	" in import table; present in "
+	.zero	3
+	.long 2
+	.long MM_Unit+364
+	.long 6
+	.ascii	" and "
+	.zero	3
+	.long MI_Rd+64
+	.zero	4
+	.long 2
+	.long MM_Unit+392
+	.long 31
+	.ascii	"unable to close import table: "
+	.zero	2
+	.long 2
+	.long MM_Unit+436
+	.long 20
+	.ascii	"--Unit.SearchPath ("
+	.zero	1
+	.long 2
+	.long MM_Unit+468
+	.long 2
+	.ascii	")"
+	.zero	3
+	.long 2
+	.long MM_Unit+484
+	.long 19
+	.ascii	"  absolute path..."
+	.zero	2
+	.long 2
+	.long MM_Unit+516
+	.long 11
+	.ascii	"  try dir "
+	.zero	2
+	.long 2
+	.long MM_Unit+540
+	.long 12
+	.ascii	"  resolve: "
+	.zero	1
+	.long 2
+	.long MM_Unit+564
+	.long 5
+	.ascii	" -> "
+	.zero	4
+	.long 2
+	.long MM_Unit+584
+	.long 12
+	.ascii	"  try file "
+	.zero	1
+	.long 2
+	.long MM_Unit+608
+	.long 16
+	.ascii	"  cannot find: "
+	.zero	1
+	.ascii	"GetPath"
+	.zero	1
+	.ascii	"IsReadable"
+	.zero	1
+	.ascii	"SearchPath"
+	.zero	1
+	.ascii	"ReadTable"
+	.zero	1
+	.ascii	"Find"
+	.zero	1
+	.ascii	"Open"
+	.zero	1
+	.ascii	"GetRelativePath"
+	.zero	1
+	.ascii	"GetFullPath"
+	.zero	1
+	.ascii	"PushTable"
+	.zero	1
+	.ascii	"PushDir"
+	.zero	1
+	.ascii	"ResetPath"
+	.zero	3
+	.long Unit__GetPath
+	.long MM_Unit+624
+	.zero	4
+	.long Unit__IsReadable
+	.long MM_Unit+632
+	.zero	4
+	.long Unit__SearchPath
+	.long MM_Unit+643
+	.zero	4
+	.long Unit__ReadTable
+	.long MM_Unit+654
+	.zero	4
+	.long Unit__Find
+	.long MM_Unit+664
+	.long MI_Unit+68
+	.long Unit__Open
+	.long MM_Unit+669
+	.long MI_Unit+64
+	.long Unit__GetRelativePath
+	.long MM_Unit+674
+	.long MI_Unit+60
+	.long Unit__GetFullPath
+	.long MM_Unit+690
+	.long MI_Unit+56
+	.long Unit__PushTable
+	.long MM_Unit+702
+	.long MI_Unit+52
+	.long Unit__PushDir
+	.long MM_Unit+712
+	.long MI_Unit+48
+	.long Unit__ResetPath
+	.long MM_Unit+720
+	.long MI_Unit+44
+	.zero	4
+.byte 42
+.byte 152
+.byte 4
+.byte 4
+.byte 0
+	.ascii	"/home/ftp/tmp/pm3/tmp/pm3-1.1.15/language/modula3/m3compiler"
+	.ascii	"/m3bootstrap/LINUXLIBC6/pm3-LINUXLIBC6/boot-LINUXLIBC6/m3dri"
+	.ascii	"ver/src/Unit.m3"
+	.zero	1
+.byte 4
+.byte 4
+.byte 4
+.byte 0
+.byte 4
+.byte 4
+.byte 4
+.byte 0
+.byte 4
+.byte 15
+.byte 3
+.byte 16
+.byte 142
+.byte 76
+.byte 255
+.byte 100
+.byte 16
+.byte 116
+.byte 101
+.byte 248
+.byte 80
+.byte 16
+.byte 208
+.byte 88
+.byte 246
+.byte 196
+	.ascii	"Unit.Node"
+	.zero	4
+	.ident	"GCC: (GNU) cygnus-2.7.2-960712"

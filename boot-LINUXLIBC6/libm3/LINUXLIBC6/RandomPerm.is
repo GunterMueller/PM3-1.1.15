@@ -1,0 +1,105 @@
+	.file	"RandomPerm.ic"
+	.version	"01.01"
+/ SRC Modula-3 version cygnus-2.7.2-960712 (i486--linuxelf) compiled by GNU C version egcs-2.91.66 19990314/Linux (egcs-1.1.2 release).
+/ options passed:  -fno-strength-reduce -O2
+/ options enabled:  -fdefer-pop -fcse-follow-jumps -fcse-skip-blocks
+/ -fexpensive-optimizations -fthread-jumps -fpeephole -fforce-mem
+/ -ffunction-cse -finline -fkeep-static-consts -fcaller-saves
+/ -fpcc-struct-return -frerun-cse-after-loop -fschedule-insns2 -fcommon
+/ -fverbose-asm -fgnu-linker -m80387 -mhard-float -mno-soft-float -mieee-fp
+/ -mfp-ret-in-387 -mschedule-prologue -mcpu=i486 -march=i486
+
+gcc2_compiled.:
+.globl MI_RandomPerm
+.data
+	.align 4
+	.type	 MI_RandomPerm,@object
+	.size	 MI_RandomPerm,564
+MI_RandomPerm:
+	.long MI_RandomPerm+388
+	.long MI_RandomPerm+72
+	.zero	36
+	.long MI_RandomPerm+48
+	.ascii	"RandomPerm.Exhausted"
+	.zero	12
+	.long 1716100028
+.byte 82
+.byte 17
+.byte 137
+.byte 126
+.byte 238
+.byte 138
+.byte 192
+.byte 24
+	.long 1
+	.zero	4
+	.long 0
+	.long 1
+	.zero	4
+	.long 16
+	.zero	20
+	.long MI_RandomPerm+547
+	.zero	8
+	.long -1651526519
+	.zero	16
+	.long MI_RandomPerm+550
+	.long MI_RandomPerm+176
+	.zero	8
+	.long -1174613895
+.byte 169
+.byte 157
+.byte 84
+.byte 175
+.byte 208
+.byte 77
+.byte 168
+.byte 22
+	.long 1
+	.zero	4
+	.long 0
+	.long 1
+	.zero	4
+	.long 4
+	.zero	20
+	.long MI_RandomPerm+544
+	.zero	8
+	.long 1716100028
+	.zero	20
+	.long MI_RandomPerm+280
+	.zero	8
+	.long 180086514
+.byte 223
+.byte 125
+.byte 245
+.byte 0
+.byte 45
+.byte 155
+.byte 78
+.byte 10
+	.long 1
+	.zero	4
+	.long 0
+	.long 1
+	.zero	4
+	.long 4
+	.zero	20
+	.long MI_RandomPerm+541
+	.zero	8
+	.long 1716100028
+	.zero	28
+	.ascii	"/home/ftp/tmp/pm3/tmp/pm3-1.1.15/language/modula3/m3compiler"
+	.ascii	"/m3bootstrap/LINUXLIBC6/pm3-LINUXLIBC6/boot-LINUXLIBC6/libm3"
+	.ascii	"/src/random/Common/RandomPerm.i3"
+	.zero	1
+.byte 1
+.byte 10
+.byte 0
+.byte 1
+.byte 10
+.byte 0
+.byte 1
+.byte 10
+.byte 0
+	.ascii	"RandomPerm.T"
+	.zero	2
+	.ident	"GCC: (GNU) cygnus-2.7.2-960712"

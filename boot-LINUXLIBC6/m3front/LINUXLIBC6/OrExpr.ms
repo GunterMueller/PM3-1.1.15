@@ -1,0 +1,534 @@
+	.file	"OrExpr.mc"
+	.version	"01.01"
+/ SRC Modula-3 version cygnus-2.7.2-960712 (i486--linuxelf) compiled by GNU C version egcs-2.91.66 19990314/Linux (egcs-1.1.2 release).
+/ options passed:  -fno-strength-reduce -O2
+/ options enabled:  -fdefer-pop -fcse-follow-jumps -fcse-skip-blocks
+/ -fexpensive-optimizations -fthread-jumps -fpeephole -fforce-mem
+/ -ffunction-cse -finline -fkeep-static-consts -fcaller-saves
+/ -fpcc-struct-return -frerun-cse-after-loop -fschedule-insns2 -fcommon
+/ -fverbose-asm -fgnu-linker -m80387 -mhard-float -mno-soft-float -mieee-fp
+/ -mfp-ret-in-387 -mschedule-prologue -mcpu=i486 -march=i486
+
+gcc2_compiled.:
+.text
+	.align 16
+	.type	 OrExpr__New,@function
+OrExpr__New:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%ebx
+	movl 12(%ebp),%esi
+	movl MM_OrExpr+172,%eax
+	pushl %eax
+	movl MI_RTHooks+80,%eax
+	call *%eax
+	movl %eax,%edi
+	pushl %edi
+	movl MI_ExprRep+460,%eax
+	call *%eax
+	movl %ebx,16(%edi)
+	movl %esi,20(%edi)
+	movl MI_Bool+44,%eax
+	movl %eax,8(%edi)
+	movl $0,24(%edi)
+	leal -12(%ebp),%esp
+	movl %edi,%eax
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe1:
+	.size	 OrExpr__New,.Lfe1-OrExpr__New
+	.align 16
+	.type	 OrExpr__Check,@function
+OrExpr__Check:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%esi
+	movl 12(%ebp),%eax
+	pushl %eax
+	movl 16(%esi),%eax
+	pushl %eax
+	movl MI_Expr+156,%eax
+	call *%eax
+	movl 12(%ebp),%eax
+	pushl %eax
+	movl 20(%esi),%eax
+	pushl %eax
+	movl MI_Expr+156,%eax
+	call *%eax
+	movl 16(%esi),%eax
+	pushl %eax
+	movl MI_Expr+152,%eax
+	call *%eax
+	pushl %eax
+	movl MI_Type+80,%eax
+	call *%eax
+	movl %eax,%ebx
+	movl 20(%esi),%eax
+	pushl %eax
+	movl MI_Expr+152,%eax
+	call *%eax
+	pushl %eax
+	movl MI_Type+80,%eax
+	call *%eax
+	addl $32,%esp
+	cmpl %ebx,MI_Bool+44
+	jne .L3
+	cmpl %ebx,%eax
+	je .L2
+.L3:
+	pushl %eax
+	pushl %ebx
+	pushl $MM_OrExpr+184
+	movl MI_Expr+248,%eax
+	call *%eax
+	movl %eax,8(%esi)
+.L2:
+	leal -8(%ebp),%esp
+	popl %ebx
+	popl %esi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe2:
+	.size	 OrExpr__Check,.Lfe2-OrExpr__Check
+	.align 16
+	.type	 OrExpr__Prep,@function
+OrExpr__Prep:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%ebx
+	pushl $1
+	movl MI_CG+52,%eax
+	call *%eax
+	movl %eax,%esi
+	pushl $MI_TInt+52
+	movl MI_CG+428,%eax
+	call *%eax
+	movl MI_CG+224,%eax
+	call *%eax
+	movl %eax,24(%ebx)
+	pushl $50
+	pushl $-1
+	pushl %esi
+	pushl %ebx
+	call OrExpr__PrepBR
+	pushl $MI_TInt+44
+	movl MI_CG+428,%eax
+	call *%eax
+	movl 24(%ebx),%eax
+	pushl %eax
+	movl MI_CG+236,%eax
+	call *%eax
+	addl $32,%esp
+	pushl $0
+	pushl %esi
+	movl MI_CG+316,%eax
+	call *%eax
+	leal -8(%ebp),%esp
+	popl %ebx
+	popl %esi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe3:
+	.size	 OrExpr__Prep,.Lfe3-OrExpr__Prep
+	.align 16
+	.type	 OrExpr__Compile,@function
+OrExpr__Compile:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %ebx
+	movl 8(%ebp),%ebx
+	movl 24(%ebx),%eax
+	pushl %eax
+	movl MI_CG+228,%eax
+	call *%eax
+	movl 24(%ebx),%eax
+	pushl %eax
+	movl MI_CG+232,%eax
+	call *%eax
+	movl $0,24(%ebx)
+	movl -4(%ebp),%ebx
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe4:
+	.size	 OrExpr__Compile,.Lfe4-OrExpr__Compile
+	.align 16
+	.type	 OrExpr__PrepBR,@function
+OrExpr__PrepBR:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 12(%ebp),%esi
+	movb 20(%ebp),%bl
+	cmpl $-1,16(%ebp)
+	jne .L8
+	andl $255,%ebx
+	pushl %ebx
+	movl 16(%ebp),%edx
+	pushl %edx
+	pushl %esi
+	movl 8(%ebp),%edx
+	movl 16(%edx),%eax
+	pushl %eax
+	movl MI_Expr+220,%eax
+	call *%eax
+	pushl %ebx
+	movl 16(%ebp),%edx
+	pushl %edx
+	pushl %esi
+	movl 8(%ebp),%edx
+	movl 16(%edx),%eax
+	pushl %eax
+	movl MI_Expr+224,%eax
+	call *%eax
+	addl $32,%esp
+	pushl %ebx
+	movl 16(%ebp),%edx
+	pushl %edx
+	pushl %esi
+	movl 8(%ebp),%edx
+	movl 20(%edx),%eax
+	pushl %eax
+	movl MI_Expr+220,%eax
+	call *%eax
+	pushl %ebx
+	movl 16(%ebp),%edx
+	pushl %edx
+	pushl %esi
+	movl 8(%ebp),%edx
+	movl 20(%edx),%eax
+	pushl %eax
+	movl MI_Expr+224,%eax
+	call *%eax
+	jmp .L7
+	.align 16
+.L8:
+	pushl $1
+	movl MI_CG+52,%eax
+	call *%eax
+	movl %ebx,%esi
+	andl $255,%esi
+	movl $100,%ebx
+	subl %esi,%ebx
+	pushl %ebx
+	pushl $-1
+	movl %eax,%edi
+	pushl %edi
+	movl 8(%ebp),%edx
+	movl 16(%edx),%eax
+	pushl %eax
+	movl MI_Expr+220,%eax
+	call *%eax
+	pushl %ebx
+	pushl $-1
+	pushl %edi
+	movl 8(%ebp),%edx
+	movl 16(%edx),%eax
+	pushl %eax
+	movl MI_Expr+224,%eax
+	call *%eax
+	addl $36,%esp
+	pushl %esi
+	movl 16(%ebp),%edx
+	pushl %edx
+	pushl $-1
+	movl 8(%ebp),%edx
+	movl 20(%edx),%eax
+	pushl %eax
+	movl MI_Expr+220,%eax
+	call *%eax
+	pushl %esi
+	movl 16(%ebp),%edx
+	pushl %edx
+	pushl $-1
+	movl 8(%ebp),%edx
+	movl 20(%edx),%eax
+	pushl %eax
+	movl MI_Expr+224,%eax
+	call *%eax
+	addl $32,%esp
+	pushl $0
+	pushl %edi
+	movl MI_CG+316,%eax
+	call *%eax
+.L7:
+	leal -12(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe5:
+	.size	 OrExpr__PrepBR,.Lfe5-OrExpr__PrepBR
+	.align 16
+	.type	 OrExpr__Fold,@function
+OrExpr__Fold:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $36,%esp
+	pushl %edi
+	pushl %esi
+	xorl %esi,%esi
+	pushl %ebx
+	movl 8(%ebp),%ebx
+	movl %esi,-16(%ebp)
+	movl %esi,-12(%ebp)
+	movl 16(%ebx),%eax
+	pushl %eax
+	movl MI_Expr+160,%eax
+	call *%eax
+	movl %eax,%edi
+	movl 20(%ebx),%eax
+	pushl %eax
+	movl MI_Expr+160,%eax
+	movl %edi,%esi
+	call *%eax
+	movl %eax,%edi
+	addl $8,%esp
+	testl %esi,%esi
+	je .L11
+	testl %edi,%edi
+	je .L11
+	leal -16(%ebp),%eax
+	pushl %eax
+	leal -32(%ebp),%ecx
+	movl %ecx,-36(%ebp)
+	pushl %ecx
+	pushl %esi
+	movl MI_EnumExpr+48,%eax
+	call *%eax
+	addl $12,%esp
+	testl %eax,%eax
+	je .L11
+	leal -12(%ebp),%eax
+	pushl %eax
+	leal -24(%ebp),%ebx
+	pushl %ebx
+	pushl %edi
+	movl MI_EnumExpr+48,%eax
+	call *%eax
+	addl $12,%esp
+	testl %eax,%eax
+	je .L11
+	movl -16(%ebp),%eax
+	pushl %eax
+	movl MI_Type+80,%eax
+	call *%eax
+	movl %eax,%edi
+	addl $4,%esp
+	cmpl %edi,MI_Bool+44
+	jne .L11
+	movl -12(%ebp),%eax
+	pushl %eax
+	movl MI_Type+80,%eax
+	call *%eax
+	addl $4,%esp
+	cmpl %eax,MI_Bool+44
+	jne .L11
+	leal -8(%ebp),%eax
+	pushl %eax
+	movl -36(%ebp),%ecx
+	pushl %ecx
+	movl MI_TInt+72,%eax
+	call *%eax
+	addl $8,%esp
+	testl %eax,%eax
+	je .L11
+	leal -4(%ebp),%eax
+	pushl %eax
+	pushl %ebx
+	movl MI_TInt+72,%eax
+	call *%eax
+	testl %eax,%eax
+	jne .L12
+.L11:
+	xorl %eax,%eax
+	jmp .L14
+	.align 16
+.L12:
+	movl $1,%edx
+	cmpl $1,-8(%ebp)
+	je .L13
+	cmpl $1,-4(%ebp)
+	sete %al
+	xorl %edx,%edx
+	movb %al,%dl
+.L13:
+	movl $MI_Bool+56,%eax
+	movl (%eax,%edx,4),%eax
+.L14:
+	leal -48(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe6:
+	.size	 OrExpr__Fold,.Lfe6-OrExpr__Fold
+	.align 16
+	.type	 M_OrExpr_t4c79cd20_LINK,@function
+M_OrExpr_t4c79cd20_LINK:
+	pushl %ebp
+	movl %esp,%ebp
+	movl MM_OrExpr+172,%eax
+	movl %ebp,%esp
+	movl 52(%eax),%edx
+	movl MI_ExprRep+468,%eax
+	movl %eax,4(%edx)
+	movl MM_OrExpr+148,%eax
+	movl %eax,8(%edx)
+	movl MI_ExprRep+464,%eax
+	movl %eax,36(%edx)
+	movl MM_OrExpr+152,%eax
+	movl %eax,52(%edx)
+	movl MM_OrExpr+156,%eax
+	movl %eax,56(%edx)
+	movl MI_ExprRep+520,%eax
+	movl %eax,60(%edx)
+	movl %eax,64(%edx)
+	movl MM_OrExpr+160,%eax
+	movl %eax,68(%edx)
+	movl MI_ExprRep+532,%eax
+	movl %eax,72(%edx)
+	movl MM_OrExpr+164,%eax
+	movl %eax,16(%edx)
+	movl MI_ExprRep+544,%eax
+	movl %eax,12(%edx)
+	movl MI_ExprRep+484,%eax
+	movl %eax,20(%edx)
+	movl MI_ExprRep+488,%eax
+	movl %eax,24(%edx)
+	movl %eax,28(%edx)
+	movl %eax,32(%edx)
+	movl MI_ExprRep+500,%eax
+	movl %eax,40(%edx)
+	movl MI_ExprRep+504,%eax
+	movl %eax,44(%edx)
+	movl MI_ExprRep+508,%eax
+	movl %eax,48(%edx)
+	movl MI_ExprRep+536,%eax
+	movl %eax,76(%edx)
+	popl %ebp
+	ret
+.Lfe7:
+	.size	 M_OrExpr_t4c79cd20_LINK,.Lfe7-M_OrExpr_t4c79cd20_LINK
+.globl MM_OrExpr
+.data
+	.align 4
+	.type	 MM_OrExpr,@object
+	.size	 MM_OrExpr,484
+MM_OrExpr:
+	.long MM_OrExpr+308
+	.long MM_OrExpr+44
+	.long MM_OrExpr+172
+	.zero	8
+	.long MM_OrExpr+232
+	.zero	28
+	.long 1283050784
+.byte 62
+.byte 190
+.byte 10
+.byte 72
+.byte 30
+.byte 115
+.byte 115
+.byte 4
+	.long 1
+	.zero	4
+	.long 4
+	.long 4
+	.zero	4
+	.long 0
+	.zero	12
+	.long MM_OrExpr+451
+	.long MM_OrExpr+453
+	.long MM_OrExpr+455
+	.zero	4
+	.long M_OrExpr_t4c79cd20_LINK
+	.long -765996802
+	.zero	12
+	.long MM_OrExpr+463
+	.long MM_OrExpr+472
+	.zero	4
+	.long OrExpr__Check
+	.long OrExpr__Prep
+	.long OrExpr__Compile
+	.long OrExpr__PrepBR
+	.long OrExpr__Fold
+	.long OrExpr__New
+	.zero	4
+	.long 1283050784
+	.long 2
+	.long MM_OrExpr+192
+	.long 3
+	.ascii	"OR"
+	.zero	2
+	.ascii	"Fold"
+	.zero	1
+	.ascii	"PrepBR"
+	.zero	1
+	.ascii	"Compile"
+	.zero	1
+	.ascii	"Prep"
+	.zero	1
+	.ascii	"Check"
+	.zero	1
+	.ascii	"New"
+	.zero	2
+	.long OrExpr__Fold
+	.long MM_OrExpr+196
+	.zero	4
+	.long OrExpr__PrepBR
+	.long MM_OrExpr+201
+	.zero	4
+	.long OrExpr__Compile
+	.long MM_OrExpr+208
+	.zero	4
+	.long OrExpr__Prep
+	.long MM_OrExpr+216
+	.zero	4
+	.long OrExpr__Check
+	.long MM_OrExpr+221
+	.zero	4
+	.long OrExpr__New
+	.long MM_OrExpr+227
+	.long MI_OrExpr+44
+	.zero	4
+	.ascii	"/home/ftp/tmp/pm3/tmp/pm3-1.1.15/language/modula3/m3compiler"
+	.ascii	"/m3bootstrap/LINUXLIBC6/pm3-LINUXLIBC6/boot-LINUXLIBC6/m3fro"
+	.ascii	"nt/src/exprs/OrExpr.m3"
+	.zero	1
+.byte 4
+.byte 0
+.byte 4
+.byte 0
+.byte 2
+.byte 10
+.byte 1
+.byte 16
+.byte 194
+.byte 223
+.byte 210
+.byte 77
+	.ascii	"OrExpr.P"
+	.zero	1
+	.ascii	"OrExpr.P"
+	.zero	4
+	.ident	"GCC: (GNU) cygnus-2.7.2-960712"

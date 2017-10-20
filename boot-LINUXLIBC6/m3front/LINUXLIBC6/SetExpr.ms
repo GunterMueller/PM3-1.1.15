@@ -1,0 +1,4023 @@
+	.file	"SetExpr.mc"
+	.version	"01.01"
+/ SRC Modula-3 version cygnus-2.7.2-960712 (i486--linuxelf) compiled by GNU C version egcs-2.91.66 19990314/Linux (egcs-1.1.2 release).
+/ options passed:  -fno-strength-reduce -O2
+/ options enabled:  -fdefer-pop -fcse-follow-jumps -fcse-skip-blocks
+/ -fexpensive-optimizations -fthread-jumps -fpeephole -fforce-mem
+/ -ffunction-cse -finline -fkeep-static-consts -fcaller-saves
+/ -fpcc-struct-return -frerun-cse-after-loop -fschedule-insns2 -fcommon
+/ -fverbose-asm -fgnu-linker -m80387 -mhard-float -mno-soft-float -mieee-fp
+/ -mfp-ret-in-387 -mschedule-prologue -mcpu=i486 -march=i486
+
+gcc2_compiled.:
+.text
+	.align 16
+	.type	 SetExpr__New,@function
+SetExpr__New:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%ebx
+	movl 12(%ebp),%esi
+	movl MM_SetExpr+404,%eax
+	pushl %eax
+	movl MI_RTHooks+80,%eax
+	call *%eax
+	movl %eax,%edi
+	pushl %edi
+	movl MI_ExprRep+460,%eax
+	call *%eax
+	movl %ebx,8(%edi)
+	movl %ebx,16(%edi)
+	movl %esi,20(%edi)
+	movb $0,24(%edi)
+	movl $0,28(%edi)
+	movl $0,32(%edi)
+	movl $-1,36(%edi)
+	leal -12(%ebp),%esp
+	movl %edi,%eax
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe1:
+	.size	 SetExpr__New,.Lfe1-SetExpr__New
+	.align 16
+	.type	 SetExpr__NewFromTree,@function
+SetExpr__NewFromTree:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%ebx
+	movl 12(%ebp),%esi
+	movl MM_SetExpr+404,%eax
+	pushl %eax
+	movl MI_RTHooks+80,%eax
+	call *%eax
+	movl %eax,%edi
+	movl 4(%ebx),%eax
+	movl %eax,4(%edi)
+	movl 8(%ebx),%eax
+	movl %eax,8(%edi)
+	movb 12(%ebx),%al
+	movb %al,12(%edi)
+	movl 16(%ebx),%eax
+	movl %eax,16(%edi)
+	movl 20(%ebx),%eax
+	movl %eax,20(%edi)
+	movb $1,24(%edi)
+	pushl %esi
+	call SetExpr__NormalizeTree
+	movl %eax,28(%edi)
+	movl $0,32(%edi)
+	movl $-1,36(%ebx)
+	leal -12(%ebp),%esp
+	movl %edi,%eax
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe2:
+	.size	 SetExpr__NewFromTree,.Lfe2-SetExpr__NewFromTree
+	.align 16
+	.type	 SetExpr__Is,@function
+SetExpr__Is:
+	pushl %ebp
+	movl %esp,%ebp
+	movl 8(%ebp),%eax
+	testl %eax,%eax
+	je .L4
+	movl -4(%eax),%eax
+	sall $11,%eax
+	shrl $12,%eax
+.L4:
+	cmpl %eax,MM_SetExpr+408
+	sete %al
+	andl $255,%eax
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe3:
+	.size	 SetExpr__Is,.Lfe3-SetExpr__Is
+	.align 16
+	.type	 SetExpr__Compare,@function
+SetExpr__Compare:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $52,%esp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%esi
+	movl $0,-44(%ebp)
+	movl $0,-40(%ebp)
+	pushl $36
+	pushl $0
+	leal -36(%ebp),%edi
+	pushl %edi
+	call memset
+	movb $1,%bl
+	movb %bl,-52(%ebp)
+	movb %bl,-48(%ebp)
+	leal -40(%ebp),%eax
+	pushl %eax
+	leal -44(%ebp),%eax
+	pushl %eax
+	movl 12(%ebp),%edx
+	pushl %edx
+	pushl %esi
+	call SetExpr__CheckPair
+	addl $28,%esp
+	testl %eax,%eax
+	je .L18
+	movl -40(%ebp),%eax
+	movl 28(%eax),%eax
+	pushl %eax
+	movl -44(%ebp),%eax
+	movl 28(%eax),%eax
+	pushl %eax
+	pushl %edi
+	call SetExpr__SetupVisit
+	addl $12,%esp
+	jmp .L7
+	.align 16
+.L8:
+	movl -8(%ebp),%eax
+	cmpl %eax,-12(%ebp)
+	jg .L7
+	cmpb $0,-4(%ebp)
+	je .L10
+	movb -3(%ebp),%al
+	testb %al,%al
+	jne .L19
+	movb %al,%bl
+	movb %bl,-52(%ebp)
+	jmp .L7
+	.align 16
+.L10:
+	cmpb $0,-3(%ebp)
+	je .L7
+.L19:
+	movb -4(%ebp),%al
+	testb %al,%al
+	jne .L7
+	movb %al,%bl
+	movb %bl,-48(%ebp)
+.L7:
+	leal -36(%ebp),%eax
+	pushl %eax
+	call SetExpr__Visit
+	addl $4,%esp
+	testl %eax,%eax
+	jne .L8
+	cmpb $0,-52(%ebp)
+	je .L14
+	testb %bl,%bl
+	jne .L14
+	movl 16(%ebp),%edx
+	movl $-1,(%edx)
+	jmp .L15
+	.align 16
+.L14:
+	cmpb $0,-48(%ebp)
+	je .L16
+	testb %bl,%bl
+	jne .L20
+	movl 16(%ebp),%edx
+	movl $1,(%edx)
+	jmp .L15
+	.align 16
+.L16:
+	testb %bl,%bl
+	je .L17
+.L20:
+	movl 16(%ebp),%edx
+	movl $0,(%edx)
+	jmp .L15
+	.align 16
+.L17:
+	movl 16(%ebp),%edx
+	movl $-99,(%edx)
+.L15:
+	movl $1,%eax
+.L18:
+	leal -64(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe4:
+	.size	 SetExpr__Compare,.Lfe4-SetExpr__Compare
+	.align 16
+	.type	 SetExpr__Union,@function
+SetExpr__Union:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $8,%esp
+	pushl %edi
+	pushl %esi
+	leal -4(%ebp),%eax
+	pushl %ebx
+	movl 8(%ebp),%ecx
+	movl 12(%ebp),%edx
+	movl 16(%ebp),%edi
+	movl $0,-8(%ebp)
+	movl $0,-4(%ebp)
+	pushl %eax
+	leal -8(%ebp),%eax
+	pushl %eax
+	pushl %edx
+	xorl %esi,%esi
+	pushl %ecx
+	call SetExpr__CheckPair
+	addl $16,%esp
+	testl %eax,%eax
+	jne .L22
+	movl %esi,%eax
+	jmp .L35
+	.align 16
+.L22:
+	movl -8(%ebp),%eax
+	movl 28(%eax),%ebx
+	jmp .L23
+	.align 16
+.L24:
+	movl 8(%ebx),%eax
+	pushl %eax
+	movl 4(%ebx),%eax
+	pushl %eax
+	pushl %esi
+	call SetExpr__AddNode
+	movl %eax,%esi
+	addl $12,%esp
+	movl (%ebx),%ebx
+.L23:
+	testl %ebx,%ebx
+	jne .L24
+	movl -4(%ebp),%eax
+	movl 28(%eax),%ebx
+	jmp .L29
+	.align 16
+.L30:
+	movl 8(%ebx),%eax
+	pushl %eax
+	movl 4(%ebx),%eax
+	pushl %eax
+	pushl %esi
+	call SetExpr__AddNode
+	movl %eax,%esi
+	addl $12,%esp
+	movl (%ebx),%ebx
+.L29:
+	testl %ebx,%ebx
+	jne .L30
+	pushl %esi
+	movl -8(%ebp),%eax
+	pushl %eax
+	call SetExpr__NewFromTree
+	movl %eax,(%edi)
+	movl $1,%eax
+.L35:
+	leal -20(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe5:
+	.size	 SetExpr__Union,.Lfe5-SetExpr__Union
+	.align 16
+	.type	 SetExpr__Intersection,@function
+SetExpr__Intersection:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $44,%esp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 12(%ebp),%ebx
+	movl $0,-44(%ebp)
+	movl $0,-40(%ebp)
+	pushl $36
+	xorl %edi,%edi
+	pushl %edi
+	leal -36(%ebp),%esi
+	pushl %esi
+	call memset
+	leal -40(%ebp),%eax
+	pushl %eax
+	leal -44(%ebp),%eax
+	pushl %eax
+	pushl %ebx
+	movl 8(%ebp),%ecx
+	pushl %ecx
+	call SetExpr__CheckPair
+	addl $28,%esp
+	testl %eax,%eax
+	jne .L37
+	movl %edi,%eax
+	jmp .L42
+	.align 16
+.L37:
+	movl -40(%ebp),%eax
+	movl 28(%eax),%eax
+	pushl %eax
+	movl -44(%ebp),%eax
+	movl 28(%eax),%eax
+	pushl %eax
+	pushl %esi
+	call SetExpr__SetupVisit
+	jmp .L43
+	.align 16
+.L39:
+	movl -12(%ebp),%edx
+	movl -8(%ebp),%eax
+	cmpl %eax,%edx
+	jg .L38
+	cmpb $0,-4(%ebp)
+	je .L38
+	cmpb $0,-3(%ebp)
+	je .L38
+	pushl %eax
+	pushl %edx
+	pushl %edi
+	call SetExpr__AddNode
+	movl %eax,%edi
+.L43:
+	addl $12,%esp
+.L38:
+	leal -36(%ebp),%eax
+	pushl %eax
+	call SetExpr__Visit
+	addl $4,%esp
+	testl %eax,%eax
+	jne .L39
+	pushl %edi
+	movl -44(%ebp),%eax
+	pushl %eax
+	call SetExpr__NewFromTree
+	movl 16(%ebp),%ecx
+	movl %eax,(%ecx)
+	movl $1,%eax
+.L42:
+	leal -56(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe6:
+	.size	 SetExpr__Intersection,.Lfe6-SetExpr__Intersection
+	.align 16
+	.type	 SetExpr__Difference,@function
+SetExpr__Difference:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $44,%esp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 12(%ebp),%ebx
+	movl $0,-44(%ebp)
+	movl $0,-40(%ebp)
+	pushl $36
+	xorl %edi,%edi
+	pushl %edi
+	leal -36(%ebp),%esi
+	pushl %esi
+	call memset
+	leal -40(%ebp),%eax
+	pushl %eax
+	leal -44(%ebp),%eax
+	pushl %eax
+	pushl %ebx
+	movl 8(%ebp),%ecx
+	pushl %ecx
+	call SetExpr__CheckPair
+	addl $28,%esp
+	testl %eax,%eax
+	jne .L45
+	movl %edi,%eax
+	jmp .L50
+	.align 16
+.L45:
+	movl -40(%ebp),%eax
+	movl 28(%eax),%eax
+	pushl %eax
+	movl -44(%ebp),%eax
+	movl 28(%eax),%eax
+	pushl %eax
+	pushl %esi
+	call SetExpr__SetupVisit
+	jmp .L51
+	.align 16
+.L47:
+	movl -12(%ebp),%edx
+	movl -8(%ebp),%eax
+	cmpl %eax,%edx
+	jg .L46
+	cmpb $0,-4(%ebp)
+	je .L46
+	cmpb $0,-3(%ebp)
+	jne .L46
+	pushl %eax
+	pushl %edx
+	pushl %edi
+	call SetExpr__AddNode
+	movl %eax,%edi
+.L51:
+	addl $12,%esp
+.L46:
+	leal -36(%ebp),%eax
+	pushl %eax
+	call SetExpr__Visit
+	addl $4,%esp
+	testl %eax,%eax
+	jne .L47
+	pushl %edi
+	movl -44(%ebp),%eax
+	pushl %eax
+	call SetExpr__NewFromTree
+	movl 16(%ebp),%ecx
+	movl %eax,(%ecx)
+	movl $1,%eax
+.L50:
+	leal -56(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe7:
+	.size	 SetExpr__Difference,.Lfe7-SetExpr__Difference
+	.align 16
+	.type	 SetExpr__SymDifference,@function
+SetExpr__SymDifference:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $44,%esp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 12(%ebp),%ebx
+	movl $0,-44(%ebp)
+	movl $0,-40(%ebp)
+	pushl $36
+	xorl %edi,%edi
+	pushl %edi
+	leal -36(%ebp),%esi
+	pushl %esi
+	call memset
+	leal -40(%ebp),%eax
+	pushl %eax
+	leal -44(%ebp),%eax
+	pushl %eax
+	pushl %ebx
+	movl 8(%ebp),%edx
+	pushl %edx
+	call SetExpr__CheckPair
+	addl $28,%esp
+	testl %eax,%eax
+	jne .L53
+	movl %edi,%eax
+	jmp .L58
+	.align 16
+.L53:
+	movl -40(%ebp),%eax
+	movl 28(%eax),%eax
+	pushl %eax
+	movl -44(%ebp),%eax
+	movl 28(%eax),%eax
+	pushl %eax
+	pushl %esi
+	call SetExpr__SetupVisit
+	jmp .L59
+	.align 16
+.L55:
+	movl -12(%ebp),%ecx
+	movl -8(%ebp),%ebx
+	cmpl %ebx,%ecx
+	jg .L54
+	movb -4(%ebp),%al
+	cmpb %al,-3(%ebp)
+	je .L54
+	pushl %ebx
+	pushl %ecx
+	pushl %edi
+	call SetExpr__AddNode
+	movl %eax,%edi
+.L59:
+	addl $12,%esp
+.L54:
+	leal -36(%ebp),%eax
+	pushl %eax
+	call SetExpr__Visit
+	addl $4,%esp
+	testl %eax,%eax
+	jne .L55
+	pushl %edi
+	movl -44(%ebp),%eax
+	pushl %eax
+	call SetExpr__NewFromTree
+	movl 16(%ebp),%edx
+	movl %eax,(%edx)
+	movl $1,%eax
+.L58:
+	leal -56(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe8:
+	.size	 SetExpr__SymDifference,.Lfe8-SetExpr__SymDifference
+	.align 16
+	.type	 SetExpr__Include,@function
+SetExpr__Include:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $8,%esp
+	pushl %edi
+	pushl %esi
+	leal -4(%ebp),%eax
+	pushl %ebx
+	movl 8(%ebp),%ebx
+	movl 12(%ebp),%edx
+	movl 16(%ebp),%edi
+	movl $0,-8(%ebp)
+	pushl %eax
+	xorl %esi,%esi
+	pushl %edx
+	call SetExpr__ConstElt
+	addl $8,%esp
+	testl %eax,%eax
+	je .L70
+	leal -8(%ebp),%eax
+	pushl %eax
+	pushl %ebx
+	call SetExpr__BuildMap
+	addl $8,%esp
+	testl %eax,%eax
+	jne .L62
+.L70:
+	movl %esi,%eax
+	jmp .L69
+	.align 16
+.L62:
+	movl -4(%ebp),%eax
+	pushl %eax
+	pushl %eax
+	pushl %esi
+	call SetExpr__AddNode
+	movl %eax,%esi
+	movl -8(%ebp),%eax
+	addl $12,%esp
+	movl 28(%eax),%ebx
+	jmp .L63
+	.align 16
+.L64:
+	movl 8(%ebx),%eax
+	pushl %eax
+	movl 4(%ebx),%eax
+	pushl %eax
+	pushl %esi
+	call SetExpr__AddNode
+	movl %eax,%esi
+	addl $12,%esp
+	movl (%ebx),%ebx
+.L63:
+	testl %ebx,%ebx
+	jne .L64
+	pushl %esi
+	movl -8(%ebp),%eax
+	pushl %eax
+	call SetExpr__NewFromTree
+	movl %eax,(%edi)
+	movl $1,%eax
+.L69:
+	leal -20(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe9:
+	.size	 SetExpr__Include,.Lfe9-SetExpr__Include
+	.align 16
+	.type	 SetExpr__Exclude,@function
+SetExpr__Exclude:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $8,%esp
+	pushl %edi
+	pushl %esi
+	leal -4(%ebp),%eax
+	pushl %ebx
+	movl 8(%ebp),%ebx
+	movl 12(%ebp),%edx
+	movl 16(%ebp),%edi
+	movl $0,-8(%ebp)
+	pushl %eax
+	xorl %esi,%esi
+	pushl %edx
+	call SetExpr__ConstElt
+	addl $8,%esp
+	testl %eax,%eax
+	je .L87
+	leal -8(%ebp),%eax
+	pushl %eax
+	pushl %ebx
+	call SetExpr__BuildMap
+	addl $8,%esp
+	testl %eax,%eax
+	jne .L73
+.L87:
+	movl %esi,%eax
+	jmp .L86
+	.align 16
+.L73:
+	movl -8(%ebp),%eax
+	movl 28(%eax),%ebx
+	jmp .L74
+	.align 16
+.L75:
+	movl 4(%ebx),%edx
+	movl -4(%ebp),%eax
+	cmpl %eax,%edx
+	jg .L77
+	cmpl %eax,8(%ebx)
+	jl .L77
+	decl %eax
+	pushl %eax
+	pushl %edx
+	pushl %esi
+	call SetExpr__AddNode
+	movl %eax,%edx
+	addl $12,%esp
+	movl 8(%ebx),%eax
+	pushl %eax
+	movl -4(%ebp),%eax
+	incl %eax
+	pushl %eax
+	pushl %edx
+	jmp .L88
+	.align 16
+.L77:
+	testl %ebx,%ebx
+	jne .L83
+	pushl $3492
+	call _m3_fault
+	.align 16
+.L83:
+	movl 8(%ebx),%eax
+	pushl %eax
+	movl 4(%ebx),%eax
+	pushl %eax
+	pushl %esi
+.L88:
+	call SetExpr__AddNode
+	movl %eax,%edx
+	movl %edx,%esi
+	addl $12,%esp
+	testl %ebx,%ebx
+	jne .L84
+	pushl $3524
+	call _m3_fault
+	.align 16
+.L84:
+	movl (%ebx),%ebx
+.L74:
+	testl %ebx,%ebx
+	jne .L75
+	pushl %esi
+	movl -8(%ebp),%eax
+	pushl %eax
+	call SetExpr__NewFromTree
+	movl %eax,%edx
+	movl %edx,(%edi)
+	movl $1,%eax
+.L86:
+	leal -20(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe10:
+	.size	 SetExpr__Exclude,.Lfe10-SetExpr__Exclude
+	.align 16
+	.type	 SetExpr__Member,@function
+SetExpr__Member:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $8,%esp
+	pushl %edi
+	pushl %esi
+	leal -4(%ebp),%eax
+	pushl %ebx
+	movl 8(%ebp),%esi
+	movl 12(%ebp),%edx
+	movl 16(%ebp),%edi
+	movl $0,-8(%ebp)
+	pushl %eax
+	xorl %ebx,%ebx
+	pushl %edx
+	call SetExpr__ConstElt
+	addl $8,%esp
+	testl %eax,%eax
+	je .L100
+	leal -8(%ebp),%eax
+	pushl %eax
+	pushl %esi
+	call SetExpr__BuildMap
+	addl $8,%esp
+	testl %eax,%eax
+	jne .L91
+.L100:
+	movl %ebx,%eax
+	jmp .L99
+	.align 16
+.L91:
+	movl -8(%ebp),%eax
+	movl 28(%eax),%ebx
+	jmp .L92
+	.align 16
+.L93:
+	movl -4(%ebp),%eax
+	cmpl %eax,4(%ebx)
+	jg .L95
+	cmpl %eax,8(%ebx)
+	jl .L95
+	movl MI_Bool+60,%eax
+	jmp .L101
+	.align 16
+.L95:
+	testl %ebx,%ebx
+	jne .L97
+	pushl $3796
+	call _m3_fault
+	.align 16
+.L97:
+	movl (%ebx),%ebx
+.L92:
+	testl %ebx,%ebx
+	jne .L93
+	movl MI_Bool+56,%eax
+.L101:
+	movl %eax,(%edi)
+	movl $1,%eax
+.L99:
+	leal -20(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe11:
+	.size	 SetExpr__Member,.Lfe11-SetExpr__Member
+	.align 16
+	.type	 SetExpr__ConstElt,@function
+SetExpr__ConstElt:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $12,%esp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%ebx
+	movl $0,-12(%ebp)
+	pushl %ebx
+	movl MI_Expr+160,%eax
+	call *%eax
+	movl %eax,%ebx
+	addl $4,%esp
+	testl %eax,%eax
+	je .L106
+	leal -8(%ebp),%esi
+	pushl %esi
+	pushl %ebx
+	movl MI_IntegerExpr+48,%eax
+	xorl %edi,%edi
+	call *%eax
+	addl $8,%esp
+	testl %eax,%eax
+	jne .L104
+	leal -12(%ebp),%eax
+	pushl %eax
+	pushl %esi
+	pushl %ebx
+	movl MI_EnumExpr+48,%eax
+	call *%eax
+	addl $12,%esp
+	testl %eax,%eax
+	je .L105
+.L104:
+	movl 12(%ebp),%eax
+	pushl %eax
+	pushl %esi
+	movl MI_TInt+72,%eax
+	call *%eax
+	testl %eax,%eax
+	je .L105
+	movl $1,%edi
+.L105:
+	movl %edi,%eax
+.L106:
+	leal -24(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe12:
+	.size	 SetExpr__ConstElt,.Lfe12-SetExpr__ConstElt
+	.align 16
+	.type	 SetExpr__CheckPair,@function
+SetExpr__CheckPair:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%edx
+	movl 12(%ebp),%esi
+	movl 16(%ebp),%eax
+	pushl %eax
+	xorl %ebx,%ebx
+	pushl %edx
+	call SetExpr__BuildMap
+	addl $8,%esp
+	testl %eax,%eax
+	je .L108
+	movl 20(%ebp),%eax
+	pushl %eax
+	pushl %esi
+	call SetExpr__BuildMap
+	addl $8,%esp
+	testl %eax,%eax
+	je .L108
+	pushl %ebx
+	movl 20(%ebp),%eax
+	movl (%eax),%eax
+	movl 16(%eax),%eax
+	pushl %eax
+	movl 16(%ebp),%eax
+	movl (%eax),%eax
+	movl 16(%eax),%eax
+	pushl %eax
+	movl MI_Type+116,%eax
+	call *%eax
+	testl %eax,%eax
+	setne %al
+	xorl %ebx,%ebx
+	movb %al,%bl
+.L108:
+	leal -8(%ebp),%esp
+	movl %ebx,%eax
+	popl %ebx
+	popl %esi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe13:
+	.size	 SetExpr__CheckPair,.Lfe13-SetExpr__CheckPair
+	.align 16
+	.type	 SetExpr__SetupVisit,@function
+SetExpr__SetupVisit:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %ebx
+	movl 12(%ebp),%ecx
+	movl 8(%ebp),%edx
+	movl 16(%ebp),%ebx
+	movl %ecx,(%edx)
+	movl 8(%ebp),%edx
+	movl %ebx,4(%edx)
+	testl %ecx,%ecx
+	je .L110
+	movl 4(%ecx),%eax
+	movl %eax,8(%edx)
+	movl 8(%ecx),%eax
+	movl %eax,12(%edx)
+.L110:
+	testl %ebx,%ebx
+	je .L109
+	movl 8(%ebp),%eax
+	movl 4(%ebx),%edx
+	movl %edx,16(%eax)
+	movl 8(%ebx),%edx
+	movl %edx,20(%eax)
+.L109:
+	movl -4(%ebp),%ebx
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe14:
+	.size	 SetExpr__SetupVisit,.Lfe14-SetExpr__SetupVisit
+	.align 16
+	.type	 SetExpr__Visit,@function
+SetExpr__Visit:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %ebx
+	movl 8(%ebp),%eax
+	cmpl $0,(%eax)
+	jne .L117
+	movl 4(%eax),%eax
+	testl %eax,%eax
+	je .L140
+.L117:
+	movl 8(%ebp),%edx
+	cmpl $0,(%edx)
+	jne .L118
+	movl 16(%edx),%eax
+	movl %eax,24(%edx)
+	movl 20(%edx),%eax
+	movl %eax,28(%edx)
+	movb $0,32(%edx)
+	movl 8(%ebp),%eax
+	movb $1,33(%eax)
+	movl 8(%ebp),%eax
+	movl 20(%eax),%ebx
+	incl %ebx
+	movl %ebx,16(%eax)
+	jmp .L119
+	.align 16
+.L118:
+	cmpl $0,4(%edx)
+	jne .L120
+	movl 8(%edx),%eax
+	movl %eax,24(%edx)
+	movl 12(%edx),%eax
+	movl %eax,28(%edx)
+	movb $1,32(%edx)
+	movl 8(%ebp),%eax
+	movb $0,33(%eax)
+	movl 8(%ebp),%eax
+	movl 12(%eax),%ebx
+	incl %ebx
+	movl %ebx,8(%eax)
+	jmp .L119
+	.align 16
+.L120:
+	movl 8(%edx),%ecx
+	movl 16(%edx),%eax
+	cmpl %eax,%ecx
+	jge .L121
+	movl %ecx,24(%edx)
+	movb $1,32(%edx)
+	movl 8(%ebp),%eax
+	movb $0,33(%eax)
+	movl 8(%ebp),%edx
+	movl 12(%edx),%ecx
+	movl 16(%edx),%eax
+	cmpl %eax,%ecx
+	jge .L122
+	movl %ecx,28(%edx)
+	movl 12(%edx),%ebx
+	incl %ebx
+	movl %ebx,8(%edx)
+	jmp .L119
+	.align 16
+.L122:
+	decl %eax
+	movl %eax,28(%edx)
+	movl 16(%edx),%eax
+	jmp .L141
+	.align 16
+.L121:
+	cmpl %eax,%ecx
+	jne .L125
+	movl %eax,24(%edx)
+	movb $1,32(%edx)
+	movl 8(%ebp),%eax
+	movb $1,33(%eax)
+	movl 8(%ebp),%eax
+	movl 20(%eax),%ecx
+	movl 12(%eax),%edx
+	cmpl %edx,%ecx
+	jge .L126
+	movl %ecx,28(%eax)
+	movl 20(%eax),%ebx
+	jmp .L142
+	.align 16
+.L126:
+	movl %edx,28(%eax)
+	movl 12(%eax),%ebx
+.L142:
+	incl %ebx
+	movl %ebx,8(%eax)
+	movl 8(%ebp),%edx
+	movl 8(%edx),%eax
+	jmp .L143
+	.align 16
+.L125:
+	movl %eax,24(%edx)
+	movb $0,32(%edx)
+	movl 8(%ebp),%eax
+	movb $1,33(%eax)
+	movl 8(%ebp),%edx
+	movl 20(%edx),%ecx
+	movl 8(%edx),%eax
+	cmpl %eax,%ecx
+	jge .L128
+	movl %ecx,28(%edx)
+	movl 20(%edx),%ebx
+	incl %ebx
+	movl %ebx,16(%edx)
+	jmp .L119
+	.align 16
+.L128:
+	decl %eax
+	movl %eax,28(%edx)
+	movl 8(%edx),%eax
+.L141:
+	movl %eax,8(%edx)
+.L143:
+	movl %eax,16(%edx)
+.L119:
+	movl 8(%ebp),%edx
+	movl 8(%edx),%eax
+	cmpl %eax,12(%edx)
+	jge .L130
+	movl (%edx),%eax
+	testl %eax,%eax
+	je .L130
+	movl (%eax),%eax
+	movl %eax,(%edx)
+	movl 8(%ebp),%edx
+	movl (%edx),%eax
+	testl %eax,%eax
+	je .L130
+	movl 4(%eax),%eax
+	movl %eax,8(%edx)
+	movl (%edx),%eax
+	testl %eax,%eax
+	jne .L134
+	pushl $4948
+	call _m3_fault
+	.align 16
+.L134:
+	movl 8(%eax),%eax
+	movl %eax,12(%edx)
+.L130:
+	movl 8(%ebp),%edx
+	movl 16(%edx),%eax
+	cmpl %eax,20(%edx)
+	jge .L135
+	movl 4(%edx),%eax
+	testl %eax,%eax
+	je .L135
+	movl (%eax),%eax
+	movl %eax,4(%edx)
+	testl %eax,%eax
+	je .L135
+	movl 4(%eax),%eax
+	movl %eax,16(%edx)
+	movl 4(%edx),%eax
+	testl %eax,%eax
+	jne .L139
+	pushl $5012
+	call _m3_fault
+	.align 16
+.L139:
+	movl 8(%eax),%eax
+	movl %eax,20(%edx)
+.L135:
+	movl $1,%eax
+.L140:
+	movl -4(%ebp),%ebx
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe15:
+	.size	 SetExpr__Visit,.Lfe15-SetExpr__Visit
+	.align 16
+	.type	 SetExpr__BuildMap,@function
+SetExpr__BuildMap:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $68,%esp
+	pushl %edi
+	pushl %esi
+	xorl %esi,%esi
+	pushl %ebx
+	movl 8(%ebp),%ebx
+	movl $0,-56(%ebp)
+	movl $0,-52(%ebp)
+	movl %esi,-48(%ebp)
+	movl %esi,-44(%ebp)
+	testl %ebx,%ebx
+	je .L148
+	movl -4(%ebx),%eax
+	sall $11,%eax
+	movl %eax,%edx
+	shrl $12,%edx
+	cmpl %edx,MM_SetExpr+408
+	jg .L148
+	movl MM_SetExpr+404,%eax
+	cmpl %edx,4(%eax)
+	jl .L148
+	movl 12(%ebp),%ecx
+	movl %ebx,(%ecx)
+	jmp .L150
+	.align 16
+.L148:
+	xorl %eax,%eax
+	jmp .L178
+	.align 16
+.L150:
+	movl 12(%ebp),%ecx
+	movl (%ecx),%eax
+	cmpb $0,24(%eax)
+	jne .L179
+	movb $1,24(%eax)
+	leal -52(%ebp),%eax
+	pushl %eax
+	movl 12(%ebp),%ecx
+	movl (%ecx),%eax
+	movl 16(%eax),%eax
+	pushl %eax
+	movl MI_SetType+48,%eax
+	call *%eax
+	addl $8,%esp
+	testl %eax,%eax
+	je .L178
+	leal -16(%ebp),%eax
+	pushl %eax
+	leal -24(%ebp),%eax
+	pushl %eax
+	movl -52(%ebp),%eax
+	pushl %eax
+	movl MI_Type+112,%eax
+	call *%eax
+	movl 12(%ebp),%ecx
+	movl (%ecx),%eax
+	addl $12,%esp
+	movl 20(%eax),%eax
+	testl %eax,%eax
+	jne .L153
+	pushl $5364
+	call _m3_fault
+	.align 16
+.L153:
+	movl $0,-60(%ebp)
+	movl 4(%eax),%eax
+	decl %eax
+	movl %eax,-64(%ebp)
+	jmp .L154
+	.align 16
+.L155:
+	movl 12(%ebp),%ecx
+	movl (%ecx),%eax
+	movl 20(%eax),%eax
+	testl %eax,%eax
+	jne .L156
+	pushl $5380
+	call _m3_fault
+	.align 16
+.L156:
+	movl -60(%ebp),%ecx
+	cmpl %ecx,4(%eax)
+	ja .L157
+	pushl $5378
+	call _m3_fault
+	.align 16
+.L157:
+	movl (%eax),%eax
+	movl -60(%ebp),%ecx
+	movl (%eax,%ecx,4),%eax
+	pushl %eax
+	movl MI_Expr+160,%eax
+	call *%eax
+	movl %eax,%esi
+	addl $4,%esp
+	testl %esi,%esi
+	jne .L158
+	movl 12(%ebp),%ecx
+	movl (%ecx),%edx
+	movl 20(%edx),%eax
+	testl %eax,%eax
+	jne .L159
+	pushl $5428
+	call _m3_fault
+	.align 16
+.L159:
+	movl -60(%ebp),%ecx
+	cmpl %ecx,4(%eax)
+	ja .L160
+	pushl $5426
+	call _m3_fault
+	.align 16
+.L160:
+	movl (%eax),%eax
+	movl -60(%ebp),%ecx
+	movl (%eax,%ecx,4),%eax
+	pushl %eax
+	pushl %edx
+	jmp .L180
+	.align 16
+.L158:
+	leal -40(%ebp),%ebx
+	pushl %ebx
+	pushl %esi
+	movl MI_IntegerExpr+48,%eax
+	call *%eax
+	addl $8,%esp
+	testl %eax,%eax
+	jne .L162
+	leal -56(%ebp),%ecx
+	movl %ecx,-68(%ebp)
+	pushl %ecx
+	pushl %ebx
+	pushl %esi
+	movl MI_EnumExpr+48,%eax
+	call *%eax
+	addl $12,%esp
+	testl %eax,%eax
+	je .L163
+.L162:
+	leal -24(%ebp),%eax
+	pushl %eax
+	pushl %ebx
+	movl MI_TInt+104,%eax
+	call *%eax
+	addl $8,%esp
+	testl %eax,%eax
+	jne .L164
+	pushl %ebx
+	leal -16(%ebp),%eax
+	pushl %eax
+	movl MI_TInt+104,%eax
+	call *%eax
+	addl $8,%esp
+	testl %eax,%eax
+	je .L165
+.L164:
+	pushl $MM_SetExpr+416
+	jmp .L181
+	.align 16
+.L165:
+	leal -8(%ebp),%eax
+	pushl %eax
+	pushl %ebx
+	movl MI_TInt+72,%eax
+	call *%eax
+	addl $8,%esp
+	testl %eax,%eax
+	je .L169
+	movl -8(%ebp),%eax
+	pushl %eax
+	pushl %eax
+	movl 12(%ebp),%ecx
+	movl (%ecx),%eax
+	movl 28(%eax),%eax
+	pushl %eax
+	call SetExpr__AddNode
+	movl 12(%ebp),%ecx
+	movl %eax,%edx
+	movl (%ecx),%eax
+	addl $12,%esp
+	movl %edx,28(%eax)
+	jmp .L161
+	.align 16
+.L163:
+	leal -44(%ebp),%eax
+	pushl %eax
+	leal -48(%ebp),%eax
+	pushl %eax
+	pushl %esi
+	movl MI_RangeExpr+48,%eax
+	call *%eax
+	addl $12,%esp
+	testl %eax,%eax
+	je .L168
+	movl -48(%ebp),%eax
+	pushl %eax
+	movl MI_Expr+160,%eax
+	call *%eax
+	movl %eax,-48(%ebp)
+	movl -44(%ebp),%eax
+	pushl %eax
+	movl MI_Expr+160,%eax
+	call *%eax
+	movl %eax,-44(%ebp)
+	addl $8,%esp
+	movl -48(%ebp),%edx
+	testl %edx,%edx
+	je .L169
+	testl %eax,%eax
+	je .L169
+	pushl %ebx
+	pushl %edx
+	movl MI_IntegerExpr+48,%eax
+	call *%eax
+	addl $8,%esp
+	testl %eax,%eax
+	jne .L170
+	movl -68(%ebp),%ecx
+	pushl %ecx
+	pushl %ebx
+	movl -48(%ebp),%eax
+	pushl %eax
+	movl MI_EnumExpr+48,%eax
+	call *%eax
+	addl $12,%esp
+	testl %eax,%eax
+	je .L169
+.L170:
+	leal -32(%ebp),%edi
+	pushl %edi
+	movl -44(%ebp),%eax
+	pushl %eax
+	movl MI_IntegerExpr+48,%eax
+	call *%eax
+	addl $8,%esp
+	testl %eax,%eax
+	jne .L171
+	movl -68(%ebp),%ecx
+	pushl %ecx
+	pushl %edi
+	movl -44(%ebp),%eax
+	pushl %eax
+	movl MI_EnumExpr+48,%eax
+	call *%eax
+	addl $12,%esp
+	testl %eax,%eax
+	je .L169
+.L171:
+	leal -24(%ebp),%eax
+	pushl %eax
+	pushl %ebx
+	movl MI_TInt+104,%eax
+	call *%eax
+	addl $8,%esp
+	testl %eax,%eax
+	jne .L172
+	pushl %ebx
+	leal -16(%ebp),%eax
+	pushl %eax
+	movl MI_TInt+104,%eax
+	call *%eax
+	addl $8,%esp
+	testl %eax,%eax
+	je .L173
+.L172:
+	pushl $MM_SetExpr+416
+	jmp .L181
+	.align 16
+.L173:
+	leal -8(%ebp),%eax
+	pushl %eax
+	pushl %ebx
+	movl MI_TInt+72,%eax
+	call *%eax
+	addl $8,%esp
+	testl %eax,%eax
+	je .L175
+	leal -4(%ebp),%eax
+	pushl %eax
+	pushl %edi
+	movl MI_TInt+72,%eax
+	call *%eax
+	addl $8,%esp
+	testl %eax,%eax
+	je .L175
+	movl -4(%ebp),%eax
+	pushl %eax
+	movl -8(%ebp),%eax
+	pushl %eax
+	movl 12(%ebp),%ecx
+	movl (%ecx),%eax
+	movl 28(%eax),%eax
+	pushl %eax
+	call SetExpr__AddNode
+	movl 12(%ebp),%ecx
+	movl (%ecx),%edx
+	addl $12,%esp
+	movl %eax,28(%edx)
+	jmp .L161
+	.align 16
+.L175:
+.L169:
+	pushl %esi
+	movl 12(%ebp),%ecx
+	movl (%ecx),%eax
+	pushl %eax
+.L180:
+	call SetExpr__AddOther
+	addl $8,%esp
+	jmp .L161
+	.align 16
+.L168:
+	pushl $MM_SetExpr+456
+.L181:
+	pushl $2
+	movl MI_Error+64,%eax
+	call *%eax
+	pushl %esi
+	movl 12(%ebp),%ecx
+	movl (%ecx),%eax
+	pushl %eax
+	call SetExpr__AddOther
+	addl $16,%esp
+.L161:
+	incl -60(%ebp)
+.L154:
+	movl -64(%ebp),%ecx
+	cmpl %ecx,-60(%ebp)
+	jle .L155
+	movl 12(%ebp),%ecx
+	movl (%ecx),%eax
+	movl 28(%eax),%eax
+	pushl %eax
+	call SetExpr__NormalizeTree
+	movl 12(%ebp),%ecx
+	movl %eax,%edx
+	movl (%ecx),%eax
+	movl %edx,28(%eax)
+	movl (%ecx),%eax
+.L179:
+	cmpl $0,32(%eax)
+	sete %al
+	andl $255,%eax
+.L178:
+	leal -80(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe16:
+	.size	 SetExpr__BuildMap,.Lfe16-SetExpr__BuildMap
+	.align 16
+	.type	 SetExpr__AddOther,@function
+SetExpr__AddOther:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $12,%esp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%ebx
+	movl 12(%ebp),%edi
+	movl 32(%ebx),%esi
+	testl %esi,%esi
+	jne .L183
+	leal -12(%ebp),%edx
+	leal -4(%ebp),%ecx
+	movl %ecx,-12(%ebp)
+	movl $1,-8(%ebp)
+	movl 20(%ebx),%eax
+	testl %eax,%eax
+	jne .L184
+	pushl $6068
+	call _m3_fault
+	.align 16
+.L184:
+	movl 4(%eax),%eax
+	movl %eax,-4(%ebp)
+	pushl %edx
+	movl MM_SetExpr+496,%eax
+	pushl %eax
+	movl MI_RTHooks+84,%eax
+	call *%eax
+	movl %eax,32(%ebx)
+	movl %esi,36(%ebx)
+	addl $8,%esp
+.L183:
+	movl 32(%ebx),%eax
+	testl %eax,%eax
+	jne .L185
+	pushl $6116
+	call _m3_fault
+	.align 16
+.L185:
+	movl 36(%ebx),%edx
+	cmpl %edx,4(%eax)
+	ja .L186
+	pushl $6114
+	call _m3_fault
+	.align 16
+.L186:
+	movl (%eax),%eax
+	leal -24(%ebp),%esp
+	movl %edi,(%eax,%edx,4)
+	incl 36(%ebx)
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe17:
+	.size	 SetExpr__AddOther,.Lfe17-SetExpr__AddOther
+	.align 16
+	.type	 SetExpr__AddNode,@function
+SetExpr__AddNode:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%ebx
+	movl 12(%ebp),%esi
+	movl 16(%ebp),%edi
+	cmpl %esi,%edi
+	jge .L188
+.L210:
+	movl %ebx,%eax
+	jmp .L209
+	.align 16
+.L188:
+	movl %ebx,%eax
+.L189:
+	testl %eax,%eax
+	jne .L194
+	movl MM_SetExpr+504,%eax
+	pushl %eax
+	movl MI_RTHooks+80,%eax
+	call *%eax
+	addl $4,%esp
+	testl %eax,%eax
+	jne .L191
+	pushl $6292
+	call _m3_fault
+	.align 16
+.L191:
+	movl %ebx,(%eax)
+	movl %esi,4(%eax)
+	movl %edi,8(%eax)
+	jmp .L209
+	.align 16
+.L194:
+	movl 4(%eax),%edx
+	cmpl %esi,%edx
+	jg .L198
+	cmpl %esi,8(%eax)
+	jge .L197
+.L198:
+	cmpl %edi,%edx
+	jg .L199
+	jl .L199
+.L197:
+	testl %eax,%eax
+	jne .L201
+	pushl $6372
+	call _m3_fault
+	.align 16
+.L201:
+	cmpl %esi,4(%eax)
+	jle .L204
+	movl %esi,4(%eax)
+.L204:
+	cmpl %edi,8(%eax)
+	jge .L210
+	movl %edi,8(%eax)
+	jmp .L210
+	.align 16
+.L199:
+	testl %eax,%eax
+	jne .L207
+	pushl $6436
+	call _m3_fault
+	.align 16
+.L207:
+	movl (%eax),%eax
+	jmp .L189
+	.align 16
+.L209:
+	leal -12(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe18:
+	.size	 SetExpr__AddNode,.Lfe18-SetExpr__AddNode
+	.align 16
+	.type	 SetExpr__NormalizeTree,@function
+SetExpr__NormalizeTree:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $4,%esp
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%esi
+	testl %esi,%esi
+	je .L250
+.L214:
+	movb $1,-4(%ebp)
+	testl %esi,%esi
+	jne .L215
+	pushl $6644
+	call _m3_fault
+	.align 16
+.L215:
+	movl (%esi),%edx
+	movl %esi,%ecx
+	xorl %ebx,%ebx
+	jmp .L216
+	.align 16
+.L217:
+	testl %ecx,%ecx
+	jne .L219
+	pushl $6676
+	call _m3_fault
+	.align 16
+.L219:
+	movl 4(%ecx),%eax
+	cmpl %eax,4(%edx)
+	jge .L220
+	movl (%edx),%eax
+	movl %eax,(%ecx)
+	movl %ecx,(%edx)
+	testl %ebx,%ebx
+	jne .L226
+	movl %edx,%esi
+	jmp .L225
+	.align 16
+.L226:
+	movl %edx,(%ebx)
+.L225:
+	movl %edx,%ecx
+	testl %edx,%edx
+	jne .L227
+	pushl $6772
+	call _m3_fault
+	.align 16
+.L227:
+	movl (%edx),%edx
+	movb $0,-4(%ebp)
+.L220:
+	movl %ecx,%ebx
+	movl %edx,%ecx
+	testl %edx,%edx
+	jne .L228
+	pushl $6820
+	call _m3_fault
+	.align 16
+.L228:
+	movl (%edx),%edx
+.L216:
+	testl %edx,%edx
+	jne .L217
+	cmpb $0,-4(%ebp)
+	je .L214
+	testl %esi,%esi
+	jne .L231
+	pushl $6900
+	call _m3_fault
+	.align 16
+.L231:
+	movl (%esi),%edx
+	movl %esi,%ecx
+	jmp .L232
+	.align 16
+.L233:
+	testl %ecx,%ecx
+	jne .L235
+	pushl $6932
+	call _m3_fault
+	.align 16
+.L235:
+	movl 4(%edx),%eax
+	cmpl %eax,4(%ecx)
+	jg .L236
+	movl 8(%ecx),%ebx
+	cmpl %ebx,%eax
+	jg .L236
+	movl 8(%edx),%eax
+	cmpl %eax,%ebx
+	jge .L244
+	movl %eax,8(%ecx)
+.L244:
+	movl (%edx),%edx
+	movl %edx,(%ecx)
+	jmp .L232
+	.align 16
+.L236:
+	movl %edx,%ecx
+	testl %edx,%edx
+	jne .L247
+	pushl $7012
+	call _m3_fault
+	.align 16
+.L247:
+	movl (%edx),%edx
+.L232:
+	testl %edx,%edx
+	jne .L233
+.L250:
+	movl %esi,%eax
+	leal -12(%ebp),%esp
+	popl %ebx
+	popl %esi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe19:
+	.size	 SetExpr__NormalizeTree,.Lfe19-SetExpr__NormalizeTree
+	.align 16
+	.type	 SetExpr__Check,@function
+SetExpr__Check:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $60,%esp
+	pushl %edi
+	pushl %esi
+	xorl %esi,%esi
+	pushl %ebx
+	movl $0,-56(%ebp)
+	movl $0,-52(%ebp)
+	movl $0,-16(%ebp)
+	movl $0,-12(%ebp)
+	movl 8(%ebp),%edx
+	movl %esi,-8(%ebp)
+	movl 16(%edx),%eax
+	pushl %eax
+	movl MI_Type+64,%eax
+	call *%eax
+	movl 8(%ebp),%ebx
+	addl $4,%esp
+	movl %eax,16(%ebx)
+	movl 20(%ebx),%eax
+	testl %eax,%eax
+	jne .L252
+	pushl $7284
+	call _m3_fault
+	.align 16
+.L252:
+	movl 4(%eax),%edi
+	decl %edi
+	jmp .L253
+	.align 16
+.L254:
+	movl 8(%ebp),%edx
+	movl 20(%edx),%eax
+	testl %eax,%eax
+	jne .L255
+	pushl $7284
+	call _m3_fault
+	.align 16
+.L255:
+	movl %eax,%ebx
+	cmpl %esi,4(%ebx)
+	ja .L256
+	pushl $7282
+	call _m3_fault
+	.align 16
+.L256:
+	movl 12(%ebp),%eax
+	pushl %eax
+	movl (%ebx),%eax
+	movl (%eax,%esi,4),%eax
+	pushl %eax
+	movl MI_Expr+156,%eax
+	call *%eax
+	incl %esi
+	addl $8,%esp
+.L253:
+	cmpl %edi,%esi
+	jle .L254
+	movl 8(%ebp),%ebx
+	movl 16(%ebx),%eax
+	movl %eax,8(%ebx)
+	leal -52(%ebp),%eax
+	pushl %eax
+	movl 16(%ebx),%eax
+	pushl %eax
+	movl MI_SetType+48,%eax
+	call *%eax
+	addl $8,%esp
+	testl %eax,%eax
+	jne .L258
+	pushl $MM_SetExpr+516
+	movl MI_Error+44,%eax
+	call *%eax
+	jmp .L251
+	.align 16
+.L258:
+	leal -40(%ebp),%eax
+	pushl %eax
+	leal -48(%ebp),%eax
+	pushl %eax
+	movl -52(%ebp),%eax
+	pushl %eax
+	movl MI_Type+112,%eax
+	call *%eax
+	movl 20(%ebx),%eax
+	addl $12,%esp
+	testl %eax,%eax
+	jne .L259
+	pushl $7396
+	call _m3_fault
+	.align 16
+.L259:
+	xorl %edi,%edi
+	movl 4(%eax),%eax
+	decl %eax
+	movl %eax,-60(%ebp)
+	jmp .L260
+	.align 16
+.L261:
+	movl 8(%ebp),%edx
+	movl 20(%edx),%eax
+	testl %eax,%eax
+	jne .L262
+	pushl $7412
+	call _m3_fault
+	.align 16
+.L262:
+	movl %eax,%ebx
+	cmpl %edi,4(%ebx)
+	ja .L263
+	pushl $7410
+	call _m3_fault
+	.align 16
+.L263:
+	movl (%ebx),%eax
+	movl (%eax,%edi,4),%esi
+	pushl %esi
+	movl MI_Expr+152,%eax
+	call *%eax
+	movl %eax,%ebx
+	movl %ebx,-56(%ebp)
+	leal -8(%ebp),%eax
+	pushl %eax
+	leal -4(%ebp),%eax
+	pushl %eax
+	pushl %esi
+	movl MI_KeywordExpr+52,%eax
+	call *%eax
+	addl $16,%esp
+	testl %eax,%eax
+	je .L264
+	pushl $MM_SetExpr+568
+	movl MI_Error+44,%eax
+	call *%eax
+	movl -8(%ebp),%esi
+	movl 8(%ebp),%edx
+	addl $4,%esp
+	movl 20(%edx),%eax
+	testl %eax,%eax
+	jne .L265
+	pushl $7508
+	call _m3_fault
+	.align 16
+.L265:
+	movl %eax,%ebx
+	cmpl %edi,4(%ebx)
+	ja .L266
+	pushl $7506
+	call _m3_fault
+	.align 16
+.L266:
+	movl (%ebx),%eax
+	movl %esi,(%eax,%edi,4)
+.L264:
+	leal -12(%ebp),%eax
+	pushl %eax
+	leal -16(%ebp),%eax
+	pushl %eax
+	pushl %esi
+	movl MI_RangeExpr+48,%eax
+	call *%eax
+	addl $12,%esp
+	testl %eax,%eax
+	je .L267
+	movl 12(%ebp),%eax
+	pushl %eax
+	movl -16(%ebp),%eax
+	pushl %eax
+	movl -52(%ebp),%eax
+	pushl %eax
+	movl MI_AssignStmt+48,%eax
+	call *%eax
+	movl 12(%ebp),%eax
+	pushl %eax
+	movl -12(%ebp),%eax
+	pushl %eax
+	movl -52(%ebp),%eax
+	pushl %eax
+	movl MI_AssignStmt+48,%eax
+	call *%eax
+	movl -16(%ebp),%eax
+	pushl %eax
+	movl MI_Expr+160,%eax
+	call *%eax
+	movl %eax,-16(%ebp)
+	movl -12(%ebp),%eax
+	pushl %eax
+	movl MI_Expr+160,%eax
+	call *%eax
+	movl %eax,-12(%ebp)
+	addl $32,%esp
+	jmp .L268
+	.align 16
+.L267:
+	movl 12(%ebp),%eax
+	pushl %eax
+	pushl %esi
+	movl -52(%ebp),%eax
+	pushl %eax
+	movl MI_AssignStmt+48,%eax
+	call *%eax
+	pushl %esi
+	movl MI_Expr+160,%eax
+	call *%eax
+	movl %eax,-16(%ebp)
+	movl %eax,-12(%ebp)
+	addl $16,%esp
+.L268:
+	movl -16(%ebp),%eax
+	testl %eax,%eax
+	je .L269
+	cmpl $0,-12(%ebp)
+	je .L269
+	leal -32(%ebp),%esi
+	pushl %esi
+	pushl %eax
+	movl MI_IntegerExpr+48,%eax
+	call *%eax
+	addl $8,%esp
+	testl %eax,%eax
+	jne .L270
+	leal -56(%ebp),%eax
+	pushl %eax
+	pushl %esi
+	movl -16(%ebp),%eax
+	pushl %eax
+	movl MI_EnumExpr+48,%eax
+	call *%eax
+	addl $12,%esp
+	testl %eax,%eax
+	je .L269
+.L270:
+	leal -24(%ebp),%ebx
+	pushl %ebx
+	movl -12(%ebp),%eax
+	pushl %eax
+	movl MI_IntegerExpr+48,%eax
+	call *%eax
+	addl $8,%esp
+	testl %eax,%eax
+	jne .L271
+	leal -56(%ebp),%eax
+	pushl %eax
+	pushl %ebx
+	movl -12(%ebp),%eax
+	pushl %eax
+	movl MI_EnumExpr+48,%eax
+	call *%eax
+	addl $12,%esp
+	testl %eax,%eax
+	je .L269
+.L271:
+	leal -48(%ebp),%eax
+	pushl %eax
+	pushl %esi
+	movl MI_TInt+104,%eax
+	call *%eax
+	addl $8,%esp
+	testl %eax,%eax
+	jne .L272
+	pushl %ebx
+	leal -40(%ebp),%eax
+	pushl %eax
+	movl MI_TInt+104,%eax
+	call *%eax
+	addl $8,%esp
+	testl %eax,%eax
+	je .L269
+.L272:
+	pushl $MM_SetExpr+628
+	movl MI_Error+44,%eax
+	call *%eax
+	addl $4,%esp
+.L269:
+	incl %edi
+.L260:
+	cmpl %edi,-60(%ebp)
+	jge .L261
+.L251:
+	leal -72(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe20:
+	.size	 SetExpr__Check,.Lfe20-SetExpr__Check
+	.align 16
+	.type	 SetExpr__EqCheck,@function
+SetExpr__EqCheck:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $4,%esp
+	pushl %edi
+	pushl %esi
+	xorl %esi,%esi
+	pushl %ebx
+	movl 12(%ebp),%ebx
+	testl %ebx,%ebx
+	je .L282
+	movl -4(%ebx),%eax
+	sall $11,%eax
+	movl %eax,%edx
+	shrl $12,%edx
+	cmpl %edx,MM_SetExpr+408
+	jg .L282
+	movl MM_SetExpr+404,%eax
+	cmpl %edx,4(%eax)
+	jl .L282
+	movl %ebx,%edi
+	movl 16(%ebp),%ecx
+	pushl %ecx
+	movl 16(%edi),%eax
+	pushl %eax
+	movl 8(%ebp),%ecx
+	movl 16(%ecx),%eax
+	pushl %eax
+	movl MI_Type+116,%eax
+	call *%eax
+	addl $12,%esp
+	testl %eax,%eax
+	je .L282
+	movl 8(%ebp),%ecx
+	cmpl $0,20(%ecx)
+	sete %al
+	andl $255,%eax
+	cmpl $0,20(%edi)
+	jne .L283
+	cmpl $1,%eax
+	jne .L282
+	jmp .L284
+	.align 16
+.L283:
+	testl %eax,%eax
+	jne .L282
+.L284:
+	movl 8(%ebp),%ecx
+	movl 20(%ecx),%edx
+	testl %edx,%edx
+	je .L285
+	movl 20(%edi),%eax
+	testl %eax,%eax
+	jne .L287
+	pushl $8068
+	call _m3_fault
+	.align 16
+.L287:
+	movl 4(%eax),%eax
+	cmpl %eax,4(%edx)
+	je .L285
+.L282:
+	xorl %eax,%eax
+	jmp .L303
+	.align 16
+.L285:
+	movl 8(%ebp),%ecx
+	movl 20(%ecx),%eax
+	testl %eax,%eax
+	jne .L288
+	pushl $8164
+	call _m3_fault
+	.align 16
+.L288:
+	xorl %ebx,%ebx
+	movl 4(%eax),%eax
+	decl %eax
+	movl %eax,-4(%ebp)
+	jmp .L289
+	.align 16
+.L290:
+	movl 8(%ebp),%ecx
+	movl 20(%ecx),%eax
+	testl %eax,%eax
+	jne .L291
+	pushl $8180
+	call _m3_fault
+	.align 16
+.L291:
+	cmpl %ebx,4(%eax)
+	ja .L292
+	pushl $8178
+	call _m3_fault
+	.align 16
+.L292:
+	movl (%eax),%eax
+	movl (%eax,%ebx,4),%eax
+	pushl %eax
+	movl MI_Expr+160,%eax
+	call *%eax
+	movl %eax,%esi
+	addl $4,%esp
+	testl %esi,%esi
+	jne .L293
+	movl 8(%ebp),%ecx
+	movl 20(%ecx),%eax
+	testl %eax,%eax
+	jne .L294
+	pushl $8196
+	call _m3_fault
+	.align 16
+.L294:
+	cmpl %ebx,4(%eax)
+	ja .L295
+	pushl $8194
+	call _m3_fault
+	.align 16
+.L295:
+	movl (%eax),%eax
+	movl (%eax,%ebx,4),%esi
+.L293:
+	movl 20(%edi),%eax
+	testl %eax,%eax
+	jne .L296
+	pushl $8212
+	call _m3_fault
+	.align 16
+.L296:
+	cmpl %ebx,4(%eax)
+	ja .L297
+	pushl $8210
+	call _m3_fault
+	.align 16
+.L297:
+	movl (%eax),%eax
+	movl (%eax,%ebx,4),%eax
+	pushl %eax
+	movl MI_Expr+160,%eax
+	call *%eax
+	addl $4,%esp
+	testl %eax,%eax
+	jne .L298
+	movl 20(%edi),%eax
+	testl %eax,%eax
+	jne .L299
+	pushl $8228
+	call _m3_fault
+	.align 16
+.L299:
+	cmpl %ebx,4(%eax)
+	ja .L300
+	pushl $8226
+	call _m3_fault
+	.align 16
+.L300:
+	movl (%eax),%eax
+	movl (%eax,%ebx,4),%eax
+.L298:
+	movl 16(%ebp),%ecx
+	pushl %ecx
+	pushl %eax
+	pushl %esi
+	movl MI_Expr+232,%eax
+	call *%eax
+	addl $12,%esp
+	testl %eax,%eax
+	je .L303
+	incl %ebx
+.L289:
+	cmpl %ebx,-4(%ebp)
+	jge .L290
+	movl $1,%eax
+.L303:
+	leal -16(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe21:
+	.size	 SetExpr__EqCheck,.Lfe21-SetExpr__EqCheck
+	.align 16
+	.type	 SetExpr__NeedsAddress,@function
+SetExpr__NeedsAddress:
+	pushl %ebp
+	movl %esp,%ebp
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe22:
+	.size	 SetExpr__NeedsAddress,.Lfe22-SetExpr__NeedsAddress
+	.align 16
+	.type	 SetExpr__Prep,@function
+SetExpr__Prep:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %esi
+	pushl %ebx
+	leal 8(%ebp),%edx
+	pushl %edx
+	movl 8(%ebp),%eax
+	pushl %eax
+	call SetExpr__BuildMap
+	movl 8(%ebp),%eax
+	xorl %ebx,%ebx
+	addl $8,%esp
+	movl 36(%eax),%esi
+	decl %esi
+	jmp .L306
+	.align 16
+.L307:
+	movl 8(%ebp),%eax
+	movl 32(%eax),%eax
+	testl %eax,%eax
+	jne .L308
+	pushl $8500
+	call _m3_fault
+	.align 16
+.L308:
+	cmpl %ebx,4(%eax)
+	ja .L309
+	pushl $8498
+	call _m3_fault
+	.align 16
+.L309:
+	movl (%eax),%eax
+	movl (%eax,%ebx,4),%eax
+	pushl %eax
+	movl MI_Expr+200,%eax
+	call *%eax
+	incl %ebx
+	addl $4,%esp
+.L306:
+	cmpl %esi,%ebx
+	jle .L307
+	leal -8(%ebp),%esp
+	popl %ebx
+	popl %esi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe23:
+	.size	 SetExpr__Prep,.Lfe23-SetExpr__Prep
+	.align 16
+	.type	 SetExpr__Compile,@function
+SetExpr__Compile:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $20,%esp
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%esi
+	movl $0,-20(%ebp)
+	movl $0,-16(%ebp)
+	movl $0,-12(%ebp)
+	movl $0,-8(%ebp)
+	movl $0,-4(%ebp)
+	leal -20(%ebp),%ebx
+	pushl %ebx
+	movl 16(%esi),%eax
+	pushl %eax
+	movl MI_Type+68,%eax
+	call *%eax
+	movl -20(%ebp),%edx
+	addl $8,%esp
+	cmpl %edx,MI_Target+96
+	jl .L312
+	pushl %ebx
+	pushl %esi
+	call SetExpr__CompileSmall
+	jmp .L311
+	.align 16
+.L312:
+	cmpl $0,36(%esi)
+	jg .L314
+	pushl $0
+	pushl $MM_SetExpr+660
+	movl -12(%ebp),%eax
+	pushl %eax
+	pushl %edx
+	movl MI_Module+108,%eax
+	call *%eax
+	movl %eax,%ebx
+	movl 16(%esi),%eax
+	pushl %eax
+	pushl %ebx
+	pushl %esi
+	call SetExpr__GenLiteral
+	pushl $0
+	movl MI_Module+112,%eax
+	call *%eax
+	movl -12(%ebp),%edx
+	addl $32,%esp
+	testl %edx,%edx
+	jge .L315
+	pushl $8721
+	call _m3_fault
+	.align 16
+.L315:
+	pushl %edx
+	pushl %ebx
+	pushl %eax
+	movl MI_CG+368,%eax
+	call *%eax
+	jmp .L311
+	.align 16
+.L314:
+	pushl %ebx
+	pushl %esi
+	call SetExpr__CompileBig
+.L311:
+	leal -28(%ebp),%esp
+	popl %ebx
+	popl %esi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe24:
+	.size	 SetExpr__Compile,.Lfe24-SetExpr__Compile
+	.align 16
+	.type	 SetExpr__CompileBig,@function
+SetExpr__CompileBig:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $92,%esp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+.L317:
+	movl $5,-56(%ebp)
+	movl RTThread__handlerStack,%eax
+	movl %eax,-60(%ebp)
+	leal -60(%ebp),%edx
+	movl %edx,RTThread__handlerStack
+	movl $0,-52(%ebp)
+	movl $0,-24(%ebp)
+	movl $0,-20(%ebp)
+	leal -52(%ebp),%eax
+	pushl %eax
+	movl 8(%ebp),%ecx
+	movl 16(%ecx),%eax
+	pushl %eax
+	movl MI_SetType+48,%eax
+	call *%eax
+	addl $8,%esp
+	testb %al,%al
+	jne .L318
+	pushl $9104
+	call _m3_fault
+	.align 16
+.L318:
+	leal -32(%ebp),%esi
+	pushl %esi
+	leal -40(%ebp),%ebx
+	pushl %ebx
+	movl -52(%ebp),%eax
+	pushl %eax
+	movl MI_Type+112,%eax
+	call *%eax
+	leal -48(%ebp),%eax
+	pushl %eax
+	pushl %ebx
+	movl MI_TInt+72,%eax
+	call *%eax
+	addl $20,%esp
+	testl %eax,%eax
+	je .L319
+	leal -44(%ebp),%eax
+	pushl %eax
+	pushl %esi
+	movl MI_TInt+72,%eax
+	call *%eax
+	movl %eax,%esi
+	addl $8,%esp
+	testl %esi,%esi
+	jne .L320
+.L319:
+	pushl $MM_SetExpr+680
+	movl MI_Error+44,%eax
+	call *%eax
+	movl $-2147483648,-48(%ebp)
+	movl $2147483647,-44(%ebp)
+	addl $4,%esp
+.L320:
+	movl 12(%ebp),%eax
+	movl (%eax),%eax
+	pushl %eax
+	movl MM_SetExpr+252,%eax
+	pushl %eax
+	call m3_div
+	movl %eax,-64(%ebp)
+	movl %eax,%ebx
+	imull MM_SetExpr+252,%ebx
+	addl $8,%esp
+	testl %ebx,%ebx
+	jge .L321
+	pushl $9265
+	call _m3_fault
+	.align 16
+.L321:
+	pushl $1
+	pushl $14
+	movl MI_Target+100,%eax
+	pushl %eax
+	pushl %ebx
+	movl MI_CG+208,%eax
+	call *%eax
+	movl %eax,-68(%ebp)
+	movl 8(%ebp),%edx
+	xorl %esi,%esi
+	movl MI_TInt+44,%eax
+	addl $16,%esp
+	movl 28(%edx),%edi
+	movl %eax,-16(%ebp)
+	movl MI_TInt+48,%eax
+	movl %eax,-12(%ebp)
+	jmp .L322
+	.align 16
+.L323:
+	movl -48(%ebp),%eax
+	movl 4(%edi),%ecx
+	subl %eax,%ecx
+	movl %ecx,%eax
+	pushl %eax
+	movl MM_SetExpr+252,%eax
+	pushl %eax
+	call m3_div
+	movl %eax,-84(%ebp)
+	addl $8,%esp
+	movl -48(%ebp),%eax
+	movl 4(%edi),%edx
+	subl %eax,%edx
+	movl %edx,%eax
+	pushl %eax
+	movl MM_SetExpr+252,%eax
+	pushl %eax
+	call m3_mod
+	movl %eax,-76(%ebp)
+	addl $8,%esp
+	movl -48(%ebp),%eax
+	movl 8(%edi),%ecx
+	subl %eax,%ecx
+	movl %ecx,%eax
+	pushl %eax
+	movl MM_SetExpr+252,%eax
+	pushl %eax
+	call m3_div
+	movl %eax,-80(%ebp)
+	addl $8,%esp
+	movl -48(%ebp),%eax
+	movl 8(%edi),%edx
+	subl %eax,%edx
+	movl %edx,%eax
+	pushl %eax
+	movl MM_SetExpr+252,%eax
+	pushl %eax
+	call m3_mod
+	movl %eax,-72(%ebp)
+	addl $8,%esp
+	cmpl %esi,-84(%ebp)
+	je .L328
+	leal -16(%ebp),%eax
+	pushl %eax
+	pushl %esi
+	movl -68(%ebp),%ecx
+	pushl %ecx
+	call SetExpr__EmitAssign
+	leal 1(%esi),%ebx
+	movl -84(%ebp),%esi
+	decl %esi
+	jmp .L356
+	.align 16
+.L330:
+	pushl $MI_TInt+44
+	pushl %ebx
+	movl -68(%ebp),%edx
+	pushl %edx
+	call SetExpr__EmitAssign
+	incl %ebx
+.L356:
+	addl $12,%esp
+	cmpl %esi,%ebx
+	jle .L330
+	movl -84(%ebp),%esi
+	movl MI_TInt+44,%eax
+	movl %eax,-16(%ebp)
+	movl MI_TInt+48,%eax
+	movl %eax,-12(%ebp)
+.L328:
+	movl -80(%ebp),%ecx
+	cmpl %ecx,-84(%ebp)
+	je .L332
+	cmpl $64,-76(%ebp)
+	jbe .L333
+	pushl $9537
+	call _m3_fault
+	.align 16
+.L333:
+	leal -8(%ebp),%ebx
+	pushl %ebx
+	movl -76(%ebp),%edx
+	leal L_1(,%edx,8),%eax
+	pushl %eax
+	leal -16(%ebp),%eax
+	pushl %eax
+	movl MI_TWord+84,%eax
+	call *%eax
+	pushl %ebx
+	movl -84(%ebp),%ecx
+	pushl %ecx
+	movl -68(%ebp),%edx
+	pushl %edx
+	call SetExpr__EmitAssign
+	movl -84(%ebp),%ebx
+	incl %ebx
+	movl -80(%ebp),%esi
+	decl %esi
+	addl $24,%esp
+	jmp .L334
+	.align 16
+.L335:
+	pushl $MM_SetExpr+256
+	pushl %ebx
+	movl -68(%ebp),%ecx
+	pushl %ecx
+	call SetExpr__EmitAssign
+	incl %ebx
+	addl $12,%esp
+.L334:
+	cmpl %esi,%ebx
+	jle .L335
+	movl -80(%ebp),%esi
+	cmpl $64,-72(%ebp)
+	jbe .L337
+	pushl $9601
+	call _m3_fault
+	.align 16
+.L337:
+	movl $L_2,%eax
+	movl -72(%ebp),%edx
+	movl -72(%ebp),%ecx
+	movl (%eax,%edx,8),%edx
+	movl %edx,-16(%ebp)
+	movl 4(%eax,%ecx,8),%eax
+	movl %eax,-12(%ebp)
+	jmp .L338
+	.align 16
+.L332:
+	cmpl $64,-76(%ebp)
+	jbe .L339
+	pushl $9633
+	call _m3_fault
+	.align 16
+.L339:
+	cmpl $64,-72(%ebp)
+	jbe .L340
+	pushl $9633
+	call _m3_fault
+	.align 16
+.L340:
+	leal -8(%ebp),%ebx
+	pushl %ebx
+	movl -72(%ebp),%edx
+	leal L_2(,%edx,8),%eax
+	pushl %eax
+	movl -76(%ebp),%ecx
+	leal L_1(,%ecx,8),%eax
+	pushl %eax
+	movl MI_TWord+80,%eax
+	call *%eax
+	leal -16(%ebp),%eax
+	pushl %eax
+	pushl %ebx
+	pushl %eax
+	movl MI_TWord+84,%eax
+	call *%eax
+	addl $24,%esp
+.L338:
+	testl %edi,%edi
+	jne .L341
+	pushl $9684
+	call _m3_fault
+	.align 16
+.L341:
+	movl (%edi),%edi
+.L322:
+	testl %edi,%edi
+	jne .L323
+	leal -16(%ebp),%eax
+	pushl %eax
+	pushl %esi
+	movl -68(%ebp),%edx
+	pushl %edx
+	call SetExpr__EmitAssign
+	leal 1(%esi),%ebx
+	movl -64(%ebp),%esi
+	decl %esi
+	jmp .L357
+	.align 16
+.L344:
+	pushl $MI_TInt+44
+	pushl %ebx
+	movl -68(%ebp),%ecx
+	pushl %ecx
+	call SetExpr__EmitAssign
+	incl %ebx
+.L357:
+	addl $12,%esp
+	cmpl %esi,%ebx
+	jle .L344
+	movl 8(%ebp),%edx
+	xorl %edi,%edi
+	movl 36(%edx),%edx
+	decl %edx
+	movl %edx,-88(%ebp)
+	jmp .L346
+	.align 16
+.L347:
+	movl 8(%ebp),%ecx
+	movl 32(%ecx),%eax
+	testl %eax,%eax
+	jne .L348
+	pushl $9860
+	call _m3_fault
+	.align 16
+.L348:
+	cmpl %edi,4(%eax)
+	ja .L349
+	pushl $9858
+	call _m3_fault
+	.align 16
+.L349:
+	movl (%eax),%eax
+	movl (%eax,%edi,4),%ebx
+	leal -20(%ebp),%eax
+	pushl %eax
+	leal -24(%ebp),%eax
+	pushl %eax
+	pushl %ebx
+	movl MI_RangeExpr+48,%eax
+	call *%eax
+	movl %eax,%esi
+	addl $12,%esp
+	testl %esi,%esi
+	je .L350
+	movl MI_Target+100,%eax
+	pushl %eax
+	pushl $0
+	movl -68(%ebp),%edx
+	pushl %edx
+	movl MI_CG+368,%eax
+	call *%eax
+	movl MI_CG+240,%eax
+	call *%eax
+	leal -32(%ebp),%esi
+	pushl %esi
+	leal -40(%ebp),%ebx
+	pushl %ebx
+	movl -24(%ebp),%eax
+	pushl %eax
+	call SetExpr__GenElement
+	pushl %esi
+	pushl %ebx
+	movl -20(%ebp),%eax
+	pushl %eax
+	call SetExpr__GenElement
+	movl 12(%ebp),%eax
+	addl $36,%esp
+	movl (%eax),%eax
+	testl %eax,%eax
+	jge .L351
+	pushl $9953
+	call _m3_fault
+	.align 16
+.L351:
+	pushl %eax
+	movl MI_CG+568,%eax
+	jmp .L358
+	.align 16
+.L350:
+	movl MI_Target+100,%eax
+	pushl %eax
+	pushl %esi
+	movl -68(%ebp),%ecx
+	pushl %ecx
+	movl MI_CG+368,%eax
+	call *%eax
+	leal -32(%ebp),%eax
+	pushl %eax
+	leal -40(%ebp),%eax
+	pushl %eax
+	pushl %ebx
+	call SetExpr__GenElement
+	movl 12(%ebp),%eax
+	addl $24,%esp
+	movl (%eax),%eax
+	testl %eax,%eax
+	jge .L353
+	pushl $10017
+	call _m3_fault
+	.align 16
+.L353:
+	pushl %eax
+	movl MI_CG+564,%eax
+.L358:
+	call *%eax
+	addl $4,%esp
+	incl %edi
+.L346:
+	cmpl %edi,-88(%ebp)
+	jge .L347
+	movl MI_Target+100,%eax
+	pushl %eax
+	pushl $0
+	movl -68(%ebp),%edx
+	pushl %edx
+	movl MI_CG+372,%eax
+	call *%eax
+.L355:
+	movl -60(%ebp),%eax
+	leal -104(%ebp),%esp
+	movl %eax,RTThread__handlerStack
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe25:
+	.size	 SetExpr__CompileBig,.Lfe25-SetExpr__CompileBig
+	.align 16
+	.type	 SetExpr__EmitAssign,@function
+SetExpr__EmitAssign:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%esi
+	movl 12(%ebp),%ebx
+	movl 16(%ebp),%eax
+	pushl %eax
+	movl MI_CG+428,%eax
+	call *%eax
+	imull MM_SetExpr+252,%ebx
+	pushl %ebx
+	pushl %esi
+	movl MI_CG+408,%eax
+	call *%eax
+	movl MI_Target+96,%eax
+	addl $12,%esp
+	cmpl %eax,MM_SetExpr+252
+	je .L359
+	pushl $10208
+	call _m3_fault
+	.align 16
+.L359:
+	leal -8(%ebp),%esp
+	popl %ebx
+	popl %esi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe26:
+	.size	 SetExpr__EmitAssign,.Lfe26-SetExpr__EmitAssign
+	.align 16
+	.type	 SetExpr__GenElement,@function
+SetExpr__GenElement:
+	pushl %ebp
+	movl %esp,%ebp
+	movl 8(%ebp),%edx
+	movl 16(%ebp),%eax
+	pushl %eax
+	movl 12(%ebp),%eax
+	pushl %eax
+	pushl %edx
+	movl MI_CheckExpr+56,%eax
+	call *%eax
+	pushl $MI_TInt+44
+	movl 12(%ebp),%eax
+	pushl %eax
+	movl MI_TInt+100,%eax
+	call *%eax
+	addl $20,%esp
+	testl %eax,%eax
+	jne .L361
+	movl 12(%ebp),%eax
+	pushl %eax
+	movl MI_CG+428,%eax
+	call *%eax
+	pushl $2
+	movl MI_CG+464,%eax
+	call *%eax
+.L361:
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe27:
+	.size	 SetExpr__GenElement,.Lfe27-SetExpr__GenElement
+	.align 16
+	.type	 SetExpr__CompileSmall,@function
+SetExpr__CompileSmall:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $64,%esp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+.L364:
+	movl $5,-56(%ebp)
+	movl RTThread__handlerStack,%eax
+	movl %eax,-60(%ebp)
+	leal -60(%ebp),%edx
+	movl %edx,RTThread__handlerStack
+	movl $0,-52(%ebp)
+	movl $0,-24(%ebp)
+	movl 8(%ebp),%ecx
+	movl $0,-20(%ebp)
+	movl 16(%ecx),%eax
+	pushl %eax
+	movl MI_Type+140,%eax
+	call *%eax
+	movl 12(%ebp),%eax
+	movl (%eax),%eax
+	pushl %eax
+	movl MM_SetExpr+252,%eax
+	pushl %eax
+	call m3_div
+	movl %eax,%ebx
+	movl MI_Target+96,%eax
+	movl 12(%ebp),%edx
+	addl $12,%esp
+	cmpl %eax,(%edx)
+	jle .L365
+	pushl $10656
+	call _m3_fault
+	.align 16
+.L365:
+	cmpl $1,%ebx
+	jle .L366
+	pushl $10672
+	call _m3_fault
+	.align 16
+.L366:
+	leal -52(%ebp),%eax
+	pushl %eax
+	movl 8(%ebp),%ecx
+	movl 16(%ecx),%eax
+	pushl %eax
+	movl MI_SetType+48,%eax
+	call *%eax
+	addl $8,%esp
+	testb %al,%al
+	jne .L367
+	pushl $10704
+	call _m3_fault
+	.align 16
+.L367:
+	leal -32(%ebp),%esi
+	pushl %esi
+	leal -40(%ebp),%ebx
+	pushl %ebx
+	movl -52(%ebp),%eax
+	pushl %eax
+	movl MI_Type+112,%eax
+	call *%eax
+	leal -48(%ebp),%eax
+	pushl %eax
+	pushl %ebx
+	movl MI_TInt+72,%eax
+	call *%eax
+	addl $20,%esp
+	testl %eax,%eax
+	je .L368
+	leal -44(%ebp),%eax
+	pushl %eax
+	pushl %esi
+	movl MI_TInt+72,%eax
+	call *%eax
+	addl $8,%esp
+	testl %eax,%eax
+	jne .L369
+.L368:
+	pushl $MM_SetExpr+680
+	movl MI_Error+44,%eax
+	call *%eax
+	movl $-2147483648,-48(%ebp)
+	movl $2147483647,-44(%ebp)
+	addl $4,%esp
+.L369:
+	movl 8(%ebp),%edx
+	movl MI_TInt+44,%eax
+	movl 28(%edx),%esi
+	movl %eax,-16(%ebp)
+	movl MI_TInt+48,%eax
+	movl %eax,-12(%ebp)
+	jmp .L370
+	.align 16
+.L371:
+	movl -48(%ebp),%eax
+	movl 4(%esi),%edi
+	subl %eax,%edi
+	movl 8(%esi),%ecx
+	subl %eax,%ecx
+	movl %ecx,%eax
+	cmpl $64,%edi
+	jbe .L374
+	pushl $10929
+	call _m3_fault
+	.align 16
+.L374:
+	cmpl $64,%eax
+	jbe .L375
+	pushl $10929
+	call _m3_fault
+	.align 16
+.L375:
+	leal -8(%ebp),%ebx
+	pushl %ebx
+	leal L_2(,%eax,8),%eax
+	pushl %eax
+	leal L_1(,%edi,8),%eax
+	pushl %eax
+	movl MI_TWord+80,%eax
+	call *%eax
+	leal -16(%ebp),%eax
+	pushl %eax
+	pushl %ebx
+	pushl %eax
+	movl MI_TWord+84,%eax
+	call *%eax
+	addl $24,%esp
+	movl (%esi),%esi
+.L370:
+	testl %esi,%esi
+	jne .L371
+	leal -16(%ebp),%eax
+	pushl %eax
+	movl MI_CG+428,%eax
+	call *%eax
+	movl MI_CG+240,%eax
+	call *%eax
+	movl %esi,%edi
+	movl 8(%ebp),%edx
+	addl $4,%esp
+	movl 36(%edx),%edx
+	decl %edx
+	movl %edx,-64(%ebp)
+	jmp .L378
+	.align 16
+.L379:
+	movl 8(%ebp),%ecx
+	movl 32(%ecx),%eax
+	testl %eax,%eax
+	jne .L380
+	pushl $11108
+	call _m3_fault
+	.align 16
+.L380:
+	cmpl %edi,4(%eax)
+	ja .L381
+	pushl $11106
+	call _m3_fault
+	.align 16
+.L381:
+	movl (%eax),%eax
+	movl (%eax,%edi,4),%ebx
+	leal -20(%ebp),%eax
+	pushl %eax
+	leal -24(%ebp),%eax
+	pushl %eax
+	pushl %ebx
+	movl MI_RangeExpr+48,%eax
+	call *%eax
+	addl $12,%esp
+	testl %eax,%eax
+	je .L382
+	leal -32(%ebp),%esi
+	pushl %esi
+	leal -40(%ebp),%ebx
+	pushl %ebx
+	movl -24(%ebp),%eax
+	pushl %eax
+	call SetExpr__GenElement
+	pushl %esi
+	pushl %ebx
+	movl -20(%ebp),%eax
+	pushl %eax
+	call SetExpr__GenElement
+	movl 12(%ebp),%eax
+	addl $24,%esp
+	movl (%eax),%eax
+	testl %eax,%eax
+	jge .L383
+	pushl $11169
+	call _m3_fault
+	.align 16
+.L383:
+	pushl %eax
+	movl MI_CG+568,%eax
+	jmp .L388
+	.align 16
+.L382:
+	leal -32(%ebp),%eax
+	pushl %eax
+	leal -40(%ebp),%eax
+	pushl %eax
+	pushl %ebx
+	call SetExpr__GenElement
+	movl 12(%ebp),%eax
+	addl $12,%esp
+	movl (%eax),%eax
+	testl %eax,%eax
+	jge .L385
+	pushl $11217
+	call _m3_fault
+	.align 16
+.L385:
+	pushl %eax
+	movl MI_CG+564,%eax
+.L388:
+	call *%eax
+	addl $4,%esp
+	incl %edi
+.L378:
+	cmpl %edi,-64(%ebp)
+	jge .L379
+.L387:
+	movl -60(%ebp),%eax
+	leal -76(%ebp),%esp
+	movl %eax,RTThread__handlerStack
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe28:
+	.size	 SetExpr__CompileSmall,.Lfe28-SetExpr__CompileSmall
+	.align 16
+	.type	 SetExpr__Fold,@function
+SetExpr__Fold:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $4,%esp
+	leal -4(%ebp),%eax
+	pushl %ebx
+	movl 8(%ebp),%ebx
+	movl $0,-4(%ebp)
+	pushl %eax
+	pushl %ebx
+	call SetExpr__BuildMap
+	testl %eax,%eax
+	je .L391
+	movl %ebx,%eax
+.L391:
+	movl -8(%ebp),%ebx
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe29:
+	.size	 SetExpr__Fold,.Lfe29-SetExpr__Fold
+	.align 16
+	.type	 SetExpr__IsZeroes,@function
+SetExpr__IsZeroes:
+	pushl %ebp
+	movl %esp,%ebp
+	movl 8(%ebp),%eax
+	movl $1,%edx
+	movl 20(%eax),%eax
+	testl %eax,%eax
+	je .L393
+	cmpl $0,4(%eax)
+	setle %al
+	xorl %edx,%edx
+	movb %al,%dl
+.L393:
+	movl %edx,%eax
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe30:
+	.size	 SetExpr__IsZeroes,.Lfe30-SetExpr__IsZeroes
+	.align 16
+	.type	 SetExpr__GenFPLiteral,@function
+SetExpr__GenFPLiteral:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 12(%ebp),%esi
+	pushl $MM_SetExpr+716
+	pushl %esi
+	movl MI_M3Buf+52,%eax
+	call *%eax
+	movl 8(%ebp),%edx
+	addl $8,%esp
+	movl 20(%edx),%eax
+	testl %eax,%eax
+	jne .L396
+	pushl $11572
+	call _m3_fault
+	.align 16
+.L396:
+	xorl %ebx,%ebx
+	movl 4(%eax),%edi
+	decl %edi
+	jmp .L397
+	.align 16
+.L398:
+	testl %ebx,%ebx
+	jle .L399
+	pushl $44
+	pushl %esi
+	movl MI_M3Buf+48,%eax
+	call *%eax
+	addl $8,%esp
+.L399:
+	movl 8(%ebp),%edx
+	movl 20(%edx),%eax
+	testl %eax,%eax
+	jne .L400
+	pushl $11604
+	call _m3_fault
+	.align 16
+.L400:
+	cmpl %ebx,4(%eax)
+	ja .L401
+	pushl $11602
+	call _m3_fault
+	.align 16
+.L401:
+	pushl %esi
+	movl (%eax),%eax
+	movl (%eax,%ebx,4),%eax
+	pushl %eax
+	movl MI_Expr+244,%eax
+	call *%eax
+	incl %ebx
+	addl $8,%esp
+.L397:
+	cmpl %edi,%ebx
+	jle .L398
+	pushl $62
+	pushl %esi
+	movl MI_M3Buf+48,%eax
+	call *%eax
+	leal -12(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe31:
+	.size	 SetExpr__GenFPLiteral,.Lfe31-SetExpr__GenFPLiteral
+	.align 16
+	.type	 SetExpr__GenLiteral,@function
+SetExpr__GenLiteral:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $68,%esp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 16(%ebp),%edx
+.L404:
+	movl $5,-48(%ebp)
+	movl RTThread__handlerStack,%eax
+	movl %eax,-52(%ebp)
+	leal -52(%ebp),%ecx
+	movl %ecx,RTThread__handlerStack
+	movl $0,-44(%ebp)
+	pushl $0
+	movl 8(%ebp),%eax
+	movl 16(%eax),%eax
+	pushl %eax
+	pushl %edx
+	movl MI_Type+116,%eax
+	call *%eax
+	addl $12,%esp
+	testl %eax,%eax
+	jne .L405
+	pushl $11888
+	call _m3_fault
+	.align 16
+.L405:
+	leal -44(%ebp),%eax
+	pushl %eax
+	movl 8(%ebp),%eax
+	movl 16(%eax),%eax
+	pushl %eax
+	movl MI_SetType+48,%eax
+	call *%eax
+	addl $8,%esp
+	testb %al,%al
+	jne .L406
+	pushl $11904
+	call _m3_fault
+	.align 16
+.L406:
+	leal -32(%ebp),%esi
+	pushl %esi
+	leal -40(%ebp),%ebx
+	pushl %ebx
+	movl -44(%ebp),%eax
+	pushl %eax
+	movl MI_Type+112,%eax
+	call *%eax
+	leal -24(%ebp),%eax
+	pushl %eax
+	pushl %ebx
+	movl MI_TInt+72,%eax
+	call *%eax
+	addl $20,%esp
+	testl %eax,%eax
+	je .L407
+	leal -20(%ebp),%eax
+	pushl %eax
+	pushl %esi
+	movl MI_TInt+72,%eax
+	call *%eax
+	addl $8,%esp
+	testl %eax,%eax
+	jne .L408
+.L407:
+	pushl $MM_SetExpr+736
+	movl MI_Error+44,%eax
+	call *%eax
+	movl $-2147483648,-24(%ebp)
+	movl $2147483647,-20(%ebp)
+	addl $4,%esp
+.L408:
+	leal 8(%ebp),%ecx
+	pushl %ecx
+	movl 8(%ebp),%eax
+	pushl %eax
+	call SetExpr__BuildMap
+	movl 8(%ebp),%edx
+	addl $8,%esp
+	movl 32(%edx),%eax
+	testl %eax,%eax
+	je .L409
+	pushl $12064
+	call _m3_fault
+	.align 16
+.L409:
+	movl 28(%edx),%esi
+	movl %eax,-56(%ebp)
+	movl MI_TInt+44,%eax
+	movl %eax,-16(%ebp)
+	movl MI_TInt+48,%eax
+	movl %eax,-12(%ebp)
+	jmp .L410
+	.align 16
+.L411:
+	movl -24(%ebp),%eax
+	movl 4(%esi),%ecx
+	subl %eax,%ecx
+	movl %ecx,%eax
+	pushl %eax
+	movl MM_SetExpr+252,%eax
+	pushl %eax
+	call m3_div
+	movl %eax,-68(%ebp)
+	addl $8,%esp
+	movl -24(%ebp),%eax
+	movl 4(%esi),%ecx
+	subl %eax,%ecx
+	movl %ecx,%eax
+	pushl %eax
+	movl MM_SetExpr+252,%eax
+	pushl %eax
+	call m3_mod
+	movl %eax,%edi
+	addl $8,%esp
+	movl -24(%ebp),%eax
+	movl 8(%esi),%ecx
+	subl %eax,%ecx
+	movl %ecx,%eax
+	pushl %eax
+	movl MM_SetExpr+252,%eax
+	pushl %eax
+	call m3_div
+	movl %eax,-64(%ebp)
+	addl $8,%esp
+	movl -24(%ebp),%eax
+	movl 8(%esi),%ecx
+	subl %eax,%ecx
+	movl %ecx,%eax
+	pushl %eax
+	movl MM_SetExpr+252,%eax
+	pushl %eax
+	call m3_mod
+	movl %eax,-60(%ebp)
+	addl $8,%esp
+	movl -56(%ebp),%ecx
+	cmpl %ecx,-68(%ebp)
+	je .L416
+	pushl $MI_TInt+44
+	leal -16(%ebp),%ebx
+	pushl %ebx
+	movl MI_TInt+100,%eax
+	call *%eax
+	addl $8,%esp
+	testl %eax,%eax
+	jne .L417
+	pushl %ebx
+	movl MI_Target+96,%eax
+	pushl %eax
+	movl -56(%ebp),%eax
+	imull MI_Target+104,%eax
+	addl 12(%ebp),%eax
+	pushl %eax
+	movl MI_CG+252,%eax
+	call *%eax
+	addl $12,%esp
+.L417:
+	movl -68(%ebp),%ecx
+	movl %ecx,-56(%ebp)
+	movl MI_TInt+44,%eax
+	movl %eax,-16(%ebp)
+	movl MI_TInt+48,%eax
+	movl %eax,-12(%ebp)
+.L416:
+	movl -64(%ebp),%ecx
+	cmpl %ecx,-68(%ebp)
+	je .L418
+	cmpl $64,%edi
+	jbe .L419
+	pushl $12369
+	call _m3_fault
+	.align 16
+.L419:
+	leal -8(%ebp),%ebx
+	pushl %ebx
+	leal L_1(,%edi,8),%eax
+	pushl %eax
+	leal -16(%ebp),%eax
+	pushl %eax
+	movl MI_TWord+84,%eax
+	call *%eax
+	pushl %ebx
+	movl MI_Target+96,%eax
+	pushl %eax
+	movl -68(%ebp),%eax
+	imull MI_Target+104,%eax
+	addl 12(%ebp),%eax
+	pushl %eax
+	movl MI_CG+252,%eax
+	call *%eax
+	movl -68(%ebp),%ebx
+	incl %ebx
+	movl -64(%ebp),%edi
+	decl %edi
+	addl $24,%esp
+	jmp .L420
+	.align 16
+.L421:
+	pushl $MM_SetExpr+256
+	movl MI_Target+96,%eax
+	pushl %eax
+	movl %ebx,%eax
+	imull MI_Target+104,%eax
+	addl 12(%ebp),%eax
+	pushl %eax
+	movl MI_CG+252,%eax
+	call *%eax
+	incl %ebx
+	addl $12,%esp
+.L420:
+	cmpl %edi,%ebx
+	jle .L421
+	movl -64(%ebp),%ecx
+	movl %ecx,-56(%ebp)
+	cmpl $64,-60(%ebp)
+	jbe .L423
+	pushl $12497
+	call _m3_fault
+	.align 16
+.L423:
+	movl $L_2,%eax
+	movl -60(%ebp),%ecx
+	movl (%eax,%ecx,8),%edx
+	movl %edx,-16(%ebp)
+	movl 4(%eax,%ecx,8),%eax
+	movl %eax,-12(%ebp)
+	jmp .L424
+	.align 16
+.L418:
+	cmpl $64,%edi
+	jbe .L425
+	pushl $12529
+	call _m3_fault
+	.align 16
+.L425:
+	cmpl $64,-60(%ebp)
+	jbe .L426
+	pushl $12529
+	call _m3_fault
+	.align 16
+.L426:
+	leal -8(%ebp),%ebx
+	pushl %ebx
+	movl -60(%ebp),%ecx
+	leal L_2(,%ecx,8),%eax
+	pushl %eax
+	leal L_1(,%edi,8),%eax
+	pushl %eax
+	movl MI_TWord+80,%eax
+	call *%eax
+	leal -16(%ebp),%eax
+	pushl %eax
+	pushl %ebx
+	pushl %eax
+	movl MI_TWord+84,%eax
+	call *%eax
+	addl $24,%esp
+.L424:
+	testl %esi,%esi
+	jne .L427
+	pushl $12580
+	call _m3_fault
+	.align 16
+.L427:
+	movl (%esi),%esi
+.L410:
+	testl %esi,%esi
+	jne .L411
+	pushl $MI_TInt+44
+	leal -16(%ebp),%ebx
+	pushl %ebx
+	movl MI_TInt+100,%eax
+	call *%eax
+	addl $8,%esp
+	testl %eax,%eax
+	jne .L430
+	pushl %ebx
+	movl MI_Target+96,%eax
+	pushl %eax
+	movl -56(%ebp),%eax
+	imull MI_Target+104,%eax
+	addl 12(%ebp),%eax
+	pushl %eax
+	movl MI_CG+252,%eax
+	call *%eax
+.L430:
+	movl -52(%ebp),%eax
+	leal -80(%ebp),%esp
+	movl %eax,RTThread__handlerStack
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe32:
+	.size	 SetExpr__GenLiteral,.Lfe32-SetExpr__GenLiteral
+	.align 16
+	.type	 SetExpr__Init,@function
+SetExpr__Init:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $12,%esp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl MI_Target+96,%edx
+	movl MI_Target+764,%eax
+	cmpl %eax,%edx
+	jle .L432
+	movl %edx,%eax
+.L432:
+	testl %eax,%eax
+	jge .L434
+	pushl $12785
+	call _m3_fault
+	.align 16
+.L434:
+	movl %eax,MM_SetExpr+252
+	pushl $MM_SetExpr+256
+	pushl $MI_TInt+44
+	movl MI_TWord+92,%eax
+	call *%eax
+	xorl %ebx,%ebx
+	movl MM_SetExpr+252,%ecx
+	decl %ecx
+	movl %ecx,-12(%ebp)
+	addl $8,%esp
+	jmp .L435
+	.align 16
+.L436:
+	leal -8(%ebp),%esi
+	pushl %esi
+	movl MM_SetExpr+252,%eax
+	decl %eax
+	movl %ebx,%ecx
+	subl %eax,%ecx
+	movl %ecx,%eax
+	pushl %eax
+	movl MI_TInt+68,%eax
+	call *%eax
+	addl $8,%esp
+	testb %al,%al
+	jne .L437
+	pushl $12832
+	call _m3_fault
+	.align 16
+.L437:
+	cmpl $64,%ebx
+	jle .L438
+	pushl $12849
+	call _m3_fault
+	.align 16
+.L438:
+	leal 0(,%ebx,8),%edi
+	movl %edi,%eax
+	addl $L_2,%eax
+	pushl %eax
+	pushl %esi
+	pushl $MM_SetExpr+256
+	movl MI_TWord+96,%eax
+	call *%eax
+	pushl %esi
+	pushl %ebx
+	movl MI_TInt+68,%eax
+	call *%eax
+	addl $20,%esp
+	testb %al,%al
+	jne .L440
+	pushl $12864
+	call _m3_fault
+	.align 16
+.L440:
+	movl %edi,%eax
+	addl $L_1,%eax
+	pushl %eax
+	pushl %esi
+	pushl $MM_SetExpr+256
+	movl MI_TWord+96,%eax
+	call *%eax
+	incl %ebx
+	addl $12,%esp
+.L435:
+	cmpl %ebx,-12(%ebp)
+	jge .L436
+	leal -24(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe33:
+	.size	 SetExpr__Init,.Lfe33-SetExpr__Init
+	.align 16
+	.type	 M_SetExpr_tb361de87_LINK,@function
+M_SetExpr_tb361de87_LINK:
+	pushl %ebp
+	movl %esp,%ebp
+	movl MM_SetExpr+404,%eax
+	movl MI_ExprRep+468,%edx
+	movl 52(%eax),%eax
+	movl %ebp,%esp
+	movl %edx,4(%eax)
+	movl MM_SetExpr+308,%edx
+	movl %edx,8(%eax)
+	movl MM_SetExpr+316,%edx
+	movl %edx,36(%eax)
+	movl MM_SetExpr+320,%edx
+	movl %edx,52(%eax)
+	movl MM_SetExpr+324,%edx
+	movl %edx,56(%eax)
+	movl MI_ExprRep+520,%edx
+	movl %edx,60(%eax)
+	movl %edx,64(%eax)
+	movl MI_ExprRep+524,%edx
+	movl %edx,68(%eax)
+	movl %edx,72(%eax)
+	movl MM_SetExpr+344,%edx
+	movl %edx,16(%eax)
+	movl MM_SetExpr+312,%edx
+	movl %edx,12(%eax)
+	movl MI_ExprRep+484,%edx
+	movl %edx,20(%eax)
+	movl MI_ExprRep+488,%edx
+	movl %edx,24(%eax)
+	movl %edx,28(%eax)
+	movl MM_SetExpr+348,%edx
+	movl %edx,32(%eax)
+	movl MM_SetExpr+352,%edx
+	movl %edx,40(%eax)
+	movl MI_ExprRep+504,%edx
+	movl %edx,44(%eax)
+	movl MM_SetExpr+356,%edx
+	movl %edx,48(%eax)
+	movl MI_ExprRep+536,%edx
+	movl %edx,76(%eax)
+	popl %ebp
+	ret
+.Lfe34:
+	.size	 M_SetExpr_tb361de87_LINK,.Lfe34-M_SetExpr_tb361de87_LINK
+	.align 16
+	.type	 _m3_fault,@function
+_m3_fault:
+	pushl %ebp
+	movl %esp,%ebp
+	movl 8(%ebp),%eax
+	pushl %eax
+	pushl $MM_SetExpr
+	movl MI_RTHooks+108,%eax
+	call *%eax
+	.align 16
+.Lfe35:
+	.size	 _m3_fault,.Lfe35-_m3_fault
+.globl MM_SetExpr
+.data
+	.align 4
+	.type	 MM_SetExpr,@object
+	.size	 MM_SetExpr,1700
+MM_SetExpr:
+	.long MM_SetExpr+1480
+	.long MM_SetExpr+44
+	.long MM_SetExpr+404
+	.zero	8
+	.long MM_SetExpr+1080
+	.zero	28
+	.long -1384439954
+.byte 110
+.byte 12
+.byte 239
+.byte 179
+.byte 0
+.byte 19
+.byte 148
+.byte 30
+	.long 1
+	.zero	4
+	.long 12
+	.long 4
+	.zero	20
+	.long MM_SetExpr+1669
+	.long MM_SetExpr+1673
+	.long MM_SetExpr+1675
+	.zero	28
+	.long MM_SetExpr+1685
+	.long MM_SetExpr+148
+	.zero	8
+	.long -1285431673
+.byte 43
+.byte 163
+.byte 124
+.byte 174
+.byte 172
+.byte 125
+.byte 29
+.byte 29
+	.long 1
+	.zero	4
+	.long 24
+	.long 4
+	.zero	4
+	.long 0
+	.zero	12
+	.long MM_SetExpr+1624
+	.long MM_SetExpr+1632
+	.long MM_SetExpr+1638
+	.zero	4
+	.long M_SetExpr_tb361de87_LINK
+	.long -350897909
+	.zero	16
+	.long MM_SetExpr+1659
+	.zero	16
+	.long L_1
+	.long L_2
+	.long SetExpr__NewFromTree
+	.long SetExpr__ConstElt
+	.long SetExpr__CheckPair
+	.long SetExpr__SetupVisit
+	.long SetExpr__Visit
+	.long SetExpr__BuildMap
+	.long SetExpr__AddOther
+	.long SetExpr__AddNode
+	.long SetExpr__NormalizeTree
+	.long SetExpr__Check
+	.long SetExpr__EqCheck
+	.long SetExpr__NeedsAddress
+	.long SetExpr__Prep
+	.long SetExpr__Compile
+	.long SetExpr__CompileBig
+	.long SetExpr__EmitAssign
+	.long SetExpr__GenElement
+	.long SetExpr__CompileSmall
+	.long SetExpr__Fold
+	.long SetExpr__IsZeroes
+	.long SetExpr__GenFPLiteral
+	.long SetExpr__GenLiteral
+	.long SetExpr__New
+	.long SetExpr__Is
+	.long SetExpr__Compare
+	.long SetExpr__Union
+	.long SetExpr__Intersection
+	.long SetExpr__Difference
+	.long SetExpr__SymDifference
+	.long SetExpr__Include
+	.long SetExpr__Exclude
+	.long SetExpr__Member
+	.long SetExpr__Init
+	.long MM_SetExpr+496
+	.long -1285431673
+	.long 2
+	.long MM_SetExpr+424
+	.long 25
+	.ascii	"set element out of range"
+	.zero	4
+	.long 2
+	.long MM_SetExpr+464
+	.long 30
+	.ascii	"set element is not an ordinal"
+	.zero	3
+	.long MM_SetExpr+504
+	.long 224582288
+	.zero	4
+	.long -1384439954
+	.long 2
+	.long MM_SetExpr+524
+	.long 40
+	.ascii	"set constructor must specify a set type"
+	.zero	1
+	.long 2
+	.long MM_SetExpr+576
+	.long 47
+	.ascii	"keyword values not allowed in set constructors"
+	.zero	2
+	.long 2
+	.long MM_SetExpr+636
+	.long 18
+	.ascii	"illegal set value"
+	.zero	3
+	.long 2
+	.long MM_SetExpr+668
+	.long 6
+	.ascii	"*set*"
+	.zero	3
+	.long 2
+	.long MM_SetExpr+688
+	.long 21
+	.ascii	"set domain too large"
+	.zero	4
+	.long 2
+	.long MM_SetExpr+724
+	.long 5
+	.ascii	"SET<"
+	.zero	4
+	.long 2
+	.long MM_SetExpr+744
+	.long 35
+	.ascii	"set constant's domain is too large"
+	.zero	2
+	.ascii	"Init"
+	.zero	1
+	.ascii	"GenLiteral"
+	.zero	1
+	.ascii	"GenFPLiteral"
+	.zero	1
+	.ascii	"IsZeroes"
+	.zero	1
+	.ascii	"Fold"
+	.zero	1
+	.ascii	"CompileSmall"
+	.zero	1
+	.ascii	"GenElement"
+	.zero	1
+	.ascii	"EmitAssign"
+	.zero	1
+	.ascii	"CompileBig"
+	.zero	1
+	.ascii	"Compile"
+	.zero	1
+	.ascii	"Prep"
+	.zero	1
+	.ascii	"NeedsAddress"
+	.zero	1
+	.ascii	"EqCheck"
+	.zero	1
+	.ascii	"Check"
+	.zero	1
+	.ascii	"NormalizeTree"
+	.zero	1
+	.ascii	"AddNode"
+	.zero	1
+	.ascii	"AddOther"
+	.zero	1
+	.ascii	"BuildMap"
+	.zero	1
+	.ascii	"Visit"
+	.zero	1
+	.ascii	"SetupVisit"
+	.zero	1
+	.ascii	"CheckPair"
+	.zero	1
+	.ascii	"ConstElt"
+	.zero	1
+	.ascii	"Member"
+	.zero	1
+	.ascii	"Exclude"
+	.zero	1
+	.ascii	"Include"
+	.zero	1
+	.ascii	"SymDifference"
+	.zero	1
+	.ascii	"Difference"
+	.zero	1
+	.ascii	"Intersection"
+	.zero	1
+	.ascii	"Union"
+	.zero	1
+	.ascii	"Compare"
+	.zero	1
+	.ascii	"Is"
+	.zero	1
+	.ascii	"NewFromTree"
+	.zero	1
+	.ascii	"New"
+	.zero	2
+	.long SetExpr__Init
+	.long MM_SetExpr+780
+	.long MI_SetExpr+84
+	.long SetExpr__GenLiteral
+	.long MM_SetExpr+785
+	.zero	4
+	.long SetExpr__GenFPLiteral
+	.long MM_SetExpr+796
+	.zero	4
+	.long SetExpr__IsZeroes
+	.long MM_SetExpr+809
+	.zero	4
+	.long SetExpr__Fold
+	.long MM_SetExpr+818
+	.zero	4
+	.long SetExpr__CompileSmall
+	.long MM_SetExpr+823
+	.zero	4
+	.long SetExpr__GenElement
+	.long MM_SetExpr+836
+	.zero	4
+	.long SetExpr__EmitAssign
+	.long MM_SetExpr+847
+	.zero	4
+	.long SetExpr__CompileBig
+	.long MM_SetExpr+858
+	.zero	4
+	.long SetExpr__Compile
+	.long MM_SetExpr+869
+	.zero	4
+	.long SetExpr__Prep
+	.long MM_SetExpr+877
+	.zero	4
+	.long SetExpr__NeedsAddress
+	.long MM_SetExpr+882
+	.zero	4
+	.long SetExpr__EqCheck
+	.long MM_SetExpr+895
+	.zero	4
+	.long SetExpr__Check
+	.long MM_SetExpr+903
+	.zero	4
+	.long SetExpr__NormalizeTree
+	.long MM_SetExpr+909
+	.zero	4
+	.long SetExpr__AddNode
+	.long MM_SetExpr+923
+	.zero	4
+	.long SetExpr__AddOther
+	.long MM_SetExpr+931
+	.zero	4
+	.long SetExpr__BuildMap
+	.long MM_SetExpr+940
+	.zero	4
+	.long SetExpr__Visit
+	.long MM_SetExpr+949
+	.zero	4
+	.long SetExpr__SetupVisit
+	.long MM_SetExpr+955
+	.zero	4
+	.long SetExpr__CheckPair
+	.long MM_SetExpr+966
+	.zero	4
+	.long SetExpr__ConstElt
+	.long MM_SetExpr+976
+	.zero	4
+	.long SetExpr__Member
+	.long MM_SetExpr+985
+	.long MI_SetExpr+80
+	.long SetExpr__Exclude
+	.long MM_SetExpr+992
+	.long MI_SetExpr+76
+	.long SetExpr__Include
+	.long MM_SetExpr+1000
+	.long MI_SetExpr+72
+	.long SetExpr__SymDifference
+	.long MM_SetExpr+1008
+	.long MI_SetExpr+68
+	.long SetExpr__Difference
+	.long MM_SetExpr+1022
+	.long MI_SetExpr+64
+	.long SetExpr__Intersection
+	.long MM_SetExpr+1033
+	.long MI_SetExpr+60
+	.long SetExpr__Union
+	.long MM_SetExpr+1046
+	.long MI_SetExpr+56
+	.long SetExpr__Compare
+	.long MM_SetExpr+1052
+	.long MI_SetExpr+52
+	.long SetExpr__Is
+	.long MM_SetExpr+1060
+	.long MI_SetExpr+48
+	.long SetExpr__NewFromTree
+	.long MM_SetExpr+1063
+	.zero	4
+	.long SetExpr__New
+	.long MM_SetExpr+1075
+	.long MI_SetExpr+44
+	.zero	4
+	.ascii	"/home/ftp/tmp/pm3/tmp/pm3-1.1.15/language/modula3/m3compiler"
+	.ascii	"/m3bootstrap/LINUXLIBC6/pm3-LINUXLIBC6/boot-LINUXLIBC6/m3fro"
+	.ascii	"nt/src/exprs/SetExpr.m3"
+	.zero	1
+.byte 4
+.byte 4
+.byte 16
+.byte 36
+.byte 4
+.byte 4
+.byte 14
+.byte 0
+.byte 4
+.byte 4
+.byte 37
+.byte 4
+.byte 4
+.byte 0
+.byte 7
+.byte 10
+.byte 6
+.byte 16
+.byte 38
+.byte 84
+.byte 147
+.byte 129
+.byte 16
+.byte 144
+.byte 218
+.byte 98
+.byte 13
+.byte 2
+.byte 16
+.byte 110
+.byte 31
+.byte 123
+.byte 173
+.byte 24
+.byte 7
+	.ascii	"SetExpr.P"
+	.zero	1
+.byte 4
+.byte 14
+.byte 14
+.byte 0
+.byte 4
+.byte 0
+.byte 4
+.byte 15
+.byte 3
+.byte 16
+.byte 110
+.byte 31
+.byte 123
+.byte 173
+.byte 7
+.byte 24
+	.ascii	"SetExpr.Node"
+	.zero	3
+	.local	L_1
+	.comm	L_1,520,4
+	.local	L_2
+	.comm	L_2,520,4
+	.ident	"GCC: (GNU) cygnus-2.7.2-960712"

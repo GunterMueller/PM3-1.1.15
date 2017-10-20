@@ -1,0 +1,2627 @@
+	.file	"AssignStmt.mc"
+	.version	"01.01"
+/ SRC Modula-3 version cygnus-2.7.2-960712 (i486--linuxelf) compiled by GNU C version egcs-2.91.66 19990314/Linux (egcs-1.1.2 release).
+/ options passed:  -fno-strength-reduce -O2
+/ options enabled:  -fdefer-pop -fcse-follow-jumps -fcse-skip-blocks
+/ -fexpensive-optimizations -fthread-jumps -fpeephole -fforce-mem
+/ -ffunction-cse -finline -fkeep-static-consts -fcaller-saves
+/ -fpcc-struct-return -frerun-cse-after-loop -fschedule-insns2 -fcommon
+/ -fverbose-asm -fgnu-linker -m80387 -mhard-float -mno-soft-float -mieee-fp
+/ -mfp-ret-in-387 -mschedule-prologue -mcpu=i486 -march=i486
+
+gcc2_compiled.:
+.text
+	.align 16
+	.type	 AssignStmt__Parse,@function
+AssignStmt__Parse:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $4,%esp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl MI_Scanner+88,%edx
+	movl MI_Expr+148,%eax
+	movl %edx,-4(%ebp)
+	call *%eax
+	movl %eax,%ebx
+	movl %ebx,%edi
+	cmpb $12,MI_Scanner+44
+	je .L2
+	pushl %ebx
+	movl MI_CallExpr+156,%eax
+	call *%eax
+	addl $4,%esp
+	testl %eax,%eax
+	jne .L3
+	pushl $MM_AssignStmt+276
+	movl MI_Error+44,%eax
+	call *%eax
+	addl $4,%esp
+.L3:
+	pushl %ebx
+	movl MI_CallStmt+44,%eax
+	call *%eax
+	movl %eax,%ebx
+	movl -4(%ebp),%edx
+	movl %edx,4(%ebx)
+	jmp .L4
+	.align 16
+.L2:
+	movl MM_AssignStmt+316,%eax
+	pushl %eax
+	movl MI_RTHooks+80,%eax
+	call *%eax
+	movl %eax,%esi
+	pushl %esi
+	movl MI_StmtRep+148,%eax
+	call *%eax
+	movl -4(%ebp),%edx
+	movl %edx,4(%esi)
+	movl MI_Scanner+104,%eax
+	call *%eax
+	movl %edi,12(%esi)
+	movl MI_Expr+148,%eax
+	call *%eax
+	movl %eax,%ebx
+	movl %ebx,16(%esi)
+	movl %esi,%eax
+.L4:
+	leal -16(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe1:
+	.size	 AssignStmt__Parse,.Lfe1-AssignStmt__Parse
+	.align 16
+	.type	 AssignStmt__CheckMethod,@function
+AssignStmt__CheckMethod:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%ebx
+	movl 12(%ebp),%eax
+	pushl %eax
+	movl 12(%ebx),%eax
+	pushl %eax
+	movl MI_Expr+156,%eax
+	call *%eax
+	movl 12(%ebp),%eax
+	pushl %eax
+	movl 16(%ebx),%eax
+	pushl %eax
+	movl MI_Expr+156,%eax
+	call *%eax
+	movl 12(%ebx),%eax
+	pushl %eax
+	movl MI_Expr+152,%eax
+	call *%eax
+	movl %eax,%esi
+	movl 12(%ebx),%eax
+	pushl %eax
+	movl MI_Expr+168,%eax
+	call *%eax
+	addl $24,%esp
+	testl %eax,%eax
+	jne .L6
+	pushl $MM_AssignStmt+328
+	jmp .L9
+	.align 16
+.L6:
+	movl 12(%ebx),%eax
+	pushl %eax
+	movl MI_Expr+172,%eax
+	call *%eax
+	addl $4,%esp
+	testl %eax,%eax
+	jne .L7
+	pushl $MM_AssignStmt+376
+.L9:
+	movl MI_Error+44,%eax
+	call *%eax
+	addl $4,%esp
+.L7:
+	movl 12(%ebp),%eax
+	pushl %eax
+	movl 16(%ebx),%eax
+	pushl %eax
+	pushl %esi
+	call AssignStmt__Check
+	leal -8(%ebp),%esp
+	popl %ebx
+	popl %esi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe2:
+	.size	 AssignStmt__CheckMethod,.Lfe2-AssignStmt__CheckMethod
+	.align 16
+	.type	 AssignStmt__Compile,@function
+AssignStmt__Compile:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%ebx
+	movl 12(%ebx),%eax
+	pushl %eax
+	movl MI_Expr+152,%eax
+	call *%eax
+	movl %eax,%esi
+	movl 12(%ebx),%eax
+	pushl %eax
+	movl MI_Expr+208,%eax
+	call *%eax
+	pushl $0
+	movl 16(%ebx),%eax
+	pushl %eax
+	pushl %esi
+	call AssignStmt__PrepForEmit
+	movl 12(%ebx),%eax
+	pushl %eax
+	movl MI_Expr+212,%eax
+	call *%eax
+	movl 16(%ebx),%eax
+	pushl %eax
+	pushl %esi
+	call AssignStmt__Emit
+	addl $32,%esp
+	movl 12(%ebx),%eax
+	pushl %eax
+	movl MI_Expr+228,%eax
+	call *%eax
+	leal -8(%ebp),%esp
+	movl $1,%eax
+	popl %ebx
+	popl %esi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe3:
+	.size	 AssignStmt__Compile,.Lfe3-AssignStmt__Compile
+	.align 16
+	.type	 AssignStmt__GetOutcome,@function
+AssignStmt__GetOutcome:
+	pushl %ebp
+	movl %esp,%ebp
+	movl $1,%eax
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe4:
+	.size	 AssignStmt__GetOutcome,.Lfe4-AssignStmt__GetOutcome
+	.align 16
+	.type	 AssignStmt__Check,@function
+AssignStmt__Check:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $48,%esp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%esi
+	movl 12(%ebp),%edi
+	movl $0,-40(%ebp)
+	movl $0,-36(%ebp)
+	movl $0,-32(%ebp)
+	movl $0,-28(%ebp)
+	movl $0,-24(%ebp)
+	movl $0,-20(%ebp)
+	movl $0,-16(%ebp)
+	movl $0,-12(%ebp)
+	movl $0,-8(%ebp)
+	movl $0,-4(%ebp)
+	pushl %esi
+	movl MI_Type+80,%eax
+	call *%eax
+	movl %eax,%ebx
+	pushl %edi
+	movl MI_Expr+152,%eax
+	call *%eax
+	movl %eax,-48(%ebp)
+	leal -40(%ebp),%eax
+	pushl %eax
+	pushl %esi
+	movl MI_Type+68,%eax
+	call *%eax
+	movl %eax,%esi
+	leal -20(%ebp),%eax
+	pushl %eax
+	pushl %ebx
+	movl MI_Type+68,%eax
+	call *%eax
+	movl %eax,%ebx
+	movb -2(%ebp),%dl
+	movb %dl,-44(%ebp)
+	movl 16(%ebp),%eax
+	pushl %eax
+	pushl %edi
+	movl MI_Expr+156,%eax
+	call *%eax
+	addl $32,%esp
+	movl -48(%ebp),%edx
+	pushl %edx
+	pushl %esi
+	movl MI_Type+124,%eax
+	call *%eax
+	addl $8,%esp
+	testl %eax,%eax
+	jne .L13
+	pushl $MM_AssignStmt+416
+	movl MI_Error+44,%eax
+	call *%eax
+	jmp .L12
+	.align 16
+.L13:
+	pushl %ebx
+	movl MI_Type+104,%eax
+	call *%eax
+	addl $4,%esp
+	testl %eax,%eax
+	je .L15
+	pushl %edi
+	pushl %esi
+	call AssignStmt__CheckOrdinal
+	jmp .L12
+	.align 16
+.L15:
+	xorl %eax,%eax
+	movb -44(%ebp),%al
+	cmpl $14,%eax
+	je .L16
+	cmpl $8,%eax
+	je .L16
+	cmpl $9,%eax
+	jne .L17
+.L16:
+	leal -40(%ebp),%eax
+	pushl %eax
+	movl -48(%ebp),%edx
+	pushl %edx
+	pushl %esi
+	call AssignStmt__CheckReference
+	jmp .L12
+	.align 16
+.L17:
+	cmpl $12,%eax
+	jne .L12
+	pushl %edi
+	call AssignStmt__CheckProcedure
+.L12:
+	leal -60(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe5:
+	.size	 AssignStmt__Check,.Lfe5-AssignStmt__Check
+	.align 16
+	.type	 AssignStmt__CheckOrdinal,@function
+AssignStmt__CheckOrdinal:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $36,%esp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 12(%ebp),%ebx
+	pushl %ebx
+	movl MI_Expr+160,%eax
+	call *%eax
+	addl $4,%esp
+	testl %eax,%eax
+	je .L20
+	movl %eax,%ebx
+.L20:
+	leal -8(%ebp),%edx
+	movl %edx,-36(%ebp)
+	pushl %edx
+	leal -16(%ebp),%esi
+	pushl %esi
+	pushl %ebx
+	movl MI_Expr+164,%eax
+	call *%eax
+	leal -24(%ebp),%ebx
+	pushl %ebx
+	leal -32(%ebp),%edi
+	pushl %edi
+	movl 8(%ebp),%edx
+	pushl %edx
+	movl MI_Type+112,%eax
+	call *%eax
+	pushl %ebx
+	pushl %edi
+	movl MI_TInt+108,%eax
+	call *%eax
+	addl $32,%esp
+	testl %eax,%eax
+	je .L19
+	movl -36(%ebp),%edx
+	pushl %edx
+	pushl %esi
+	movl MI_TInt+108,%eax
+	call *%eax
+	addl $8,%esp
+	testl %eax,%eax
+	je .L19
+	pushl %esi
+	pushl %ebx
+	movl MI_TInt+104,%eax
+	call *%eax
+	addl $8,%esp
+	testl %eax,%eax
+	jne .L22
+	pushl %edi
+	movl -36(%ebp),%edx
+	pushl %edx
+	movl MI_TInt+104,%eax
+	call *%eax
+	addl $8,%esp
+	testl %eax,%eax
+	je .L19
+.L22:
+	pushl $MM_AssignStmt+456
+	pushl $2
+	movl MI_Error+64,%eax
+	call *%eax
+.L19:
+	leal -48(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe6:
+	.size	 AssignStmt__CheckOrdinal,.Lfe6-AssignStmt__CheckOrdinal
+	.align 16
+	.type	 AssignStmt__CheckReference,@function
+AssignStmt__CheckReference:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%esi
+	movl 12(%ebp),%ebx
+	pushl %esi
+	pushl %ebx
+	movl MI_Type+120,%eax
+	call *%eax
+	addl $8,%esp
+	testl %eax,%eax
+	jne .L23
+	pushl %ebx
+	pushl %esi
+	movl MI_Type+120,%eax
+	call *%eax
+	addl $8,%esp
+	testl %eax,%eax
+	je .L31
+	pushl $0
+	movl MI_Addr+44,%eax
+	pushl %eax
+	pushl %ebx
+	movl MI_Type+116,%eax
+	call *%eax
+	addl $12,%esp
+	testl %eax,%eax
+	je .L27
+	movl MI_Module+68,%eax
+	call *%eax
+	testl %eax,%eax
+	je .L23
+	pushl $MM_AssignStmt+504
+	jmp .L32
+	.align 16
+.L27:
+	pushl %ebx
+	movl MI_ObjectType+52,%eax
+	call *%eax
+	addl $4,%esp
+	testl %eax,%eax
+	jne .L23
+	movl 16(%ebp),%eax
+	testb $1,19(%eax)
+	jne .L23
+.L31:
+	pushl $MM_AssignStmt+416
+.L32:
+	movl MI_Error+44,%eax
+	call *%eax
+.L23:
+	leal -8(%ebp),%esp
+	popl %ebx
+	popl %esi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe7:
+	.size	 AssignStmt__CheckReference,.Lfe7-AssignStmt__CheckReference
+	.align 16
+	.type	 AssignStmt__CheckProcedure,@function
+AssignStmt__CheckProcedure:
+	pushl %ebp
+	movl %esp,%ebp
+	movl 8(%ebp),%eax
+	pushl $1
+	pushl %eax
+	call AssignStmt__NeedsClosureCheck
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe8:
+	.size	 AssignStmt__CheckProcedure,.Lfe8-AssignStmt__CheckProcedure
+	.align 16
+	.type	 AssignStmt__NeedsClosureCheck,@function
+AssignStmt__NeedsClosureCheck:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $8,%esp
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%esi
+	movl $0,-4(%ebp)
+	leal -4(%ebp),%ebx
+	pushl %ebx
+	leal -8(%ebp),%eax
+	pushl %eax
+	pushl %esi
+	movl MI_NamedExpr+52,%eax
+	call *%eax
+	addl $12,%esp
+	testl %eax,%eax
+	jne .L36
+	pushl %ebx
+	pushl %esi
+	movl MI_QualifyExpr+48,%eax
+	call *%eax
+	addl $8,%esp
+	testl %eax,%eax
+	jne .L36
+	pushl %ebx
+	pushl %esi
+	movl MI_ProcExpr+48,%eax
+	call *%eax
+	addl $8,%esp
+	testl %eax,%eax
+	je .L44
+.L36:
+	movl -4(%ebp),%eax
+	pushl %eax
+	movl MI_Value+104,%eax
+	call *%eax
+	movl %eax,-4(%ebp)
+	pushl %eax
+	movl MI_Value+80,%eax
+	call *%eax
+	andl $255,%eax
+	addl $8,%esp
+	cmpl $4,%eax
+	jne .L37
+	movl -4(%ebp),%eax
+	testl %eax,%eax
+	je .L38
+	movl -4(%eax),%eax
+	sall $11,%eax
+	movl %eax,%edx
+	shrl $12,%edx
+	cmpl %edx,MM_AssignStmt+540
+	jg .L39
+	movl MM_AssignStmt+536,%eax
+	cmpl %edx,4(%eax)
+	jge .L38
+.L39:
+	pushl $2693
+	call _m3_fault
+	.align 16
+.L38:
+	movl -4(%ebp),%eax
+	pushl %eax
+	movl MI_Procedure+56,%eax
+	call *%eax
+	addl $4,%esp
+	testb %al,%al
+	je .L41
+	cmpb $0,12(%ebp)
+	je .L41
+	movl -4(%ebp),%eax
+	pushl %eax
+	movl MI_Value+108,%eax
+	call *%eax
+	pushl $MM_AssignStmt+548
+	movl %eax,%edx
+	pushl %edx
+	movl MI_Error+52,%eax
+	call *%eax
+	jmp .L41
+	.align 16
+.L37:
+	cmpl $1,%eax
+	jne .L41
+	movl -4(%ebp),%eax
+	testl %eax,%eax
+	je .L42
+	movl -4(%eax),%eax
+	sall $11,%eax
+	movl %eax,%edx
+	shrl $12,%edx
+	cmpl %edx,MM_AssignStmt+592
+	jg .L43
+	movl MM_AssignStmt+588,%eax
+	cmpl %edx,4(%eax)
+	jge .L42
+.L43:
+	pushl $2773
+	call _m3_fault
+	.align 16
+.L42:
+	movl -4(%ebp),%eax
+	pushl %eax
+	movl MI_Variable+68,%eax
+	call *%eax
+	testl %eax,%eax
+	je .L41
+	movl $1,%eax
+	jmp .L44
+	.align 16
+.L41:
+	xorl %eax,%eax
+.L44:
+	leal -16(%ebp),%esp
+	popl %ebx
+	popl %esi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe9:
+	.size	 AssignStmt__NeedsClosureCheck,.Lfe9-AssignStmt__NeedsClosureCheck
+	.align 16
+	.type	 AssignStmt__PrepForEmit,@function
+AssignStmt__PrepForEmit:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%esi
+	movl 12(%ebp),%ebx
+	cmpb $0,MI_Host+80
+	je .L46
+	pushl %ebx
+	movl MI_Expr+188,%eax
+	call *%eax
+	addl $4,%esp
+	testl %eax,%eax
+	je .L46
+	xorl %eax,%eax
+	movb 16(%ebp),%al
+	pushl %eax
+	pushl %ebx
+	pushl %esi
+	call AssignStmt__CanAvoidCopy
+	addl $12,%esp
+	testl %eax,%eax
+	je .L46
+	pushl %ebx
+	movl MI_Expr+192,%eax
+	jmp .L48
+	.align 16
+.L46:
+	pushl %ebx
+	movl MI_Expr+200,%eax
+.L48:
+	call *%eax
+	leal -8(%ebp),%esp
+	popl %ebx
+	popl %esi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe10:
+	.size	 AssignStmt__PrepForEmit,.Lfe10-AssignStmt__PrepForEmit
+	.align 16
+	.type	 AssignStmt__CanAvoidCopy,@function
+AssignStmt__CanAvoidCopy:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $40,%esp
+	pushl %edi
+	pushl %esi
+	xorl %eax,%eax
+	pushl %ebx
+	movl 8(%ebp),%edi
+	movl 12(%ebp),%esi
+	movl %eax,-40(%ebp)
+	movl %eax,-36(%ebp)
+	movl %eax,-32(%ebp)
+	movl %eax,-28(%ebp)
+	movl %eax,-24(%ebp)
+	movl %eax,-20(%ebp)
+	movl %eax,-16(%ebp)
+	movl %eax,-12(%ebp)
+	movl %eax,-8(%ebp)
+	movl %eax,-4(%ebp)
+	movl %eax,%ebx
+	pushl %edi
+	movl MI_Type+80,%eax
+	call *%eax
+	movl %eax,%edx
+	leal -40(%ebp),%eax
+	pushl %eax
+	pushl %edx
+	movl MI_Type+68,%eax
+	call *%eax
+	movl %eax,%edx
+	pushl %edx
+	movl MI_ProcType+88,%eax
+	call *%eax
+	addl $16,%esp
+	testl %eax,%eax
+	je .L62
+	xorl %eax,%eax
+	movb -22(%ebp),%al
+	cmpl $5,%eax
+	jle .L62
+	cmpl $6,%eax
+	jg .L52
+	pushl %esi
+	movl MI_Expr+152,%eax
+	call *%eax
+	movl %eax,%edx
+	pushl %edx
+	movl MI_OpenArrayType+48,%eax
+	call *%eax
+	addl $8,%esp
+	testl %eax,%eax
+	je .L55
+	jmp .L62
+	.align 16
+.L52:
+	cmpl $12,%eax
+	jle .L62
+	cmpl $13,%eax
+	jg .L62
+.L55:
+	leal -40(%ebp),%eax
+	pushl %eax
+	pushl %edi
+	movl MI_Type+68,%eax
+	call *%eax
+	pushl %esi
+	movl MI_Expr+152,%eax
+	call *%eax
+	movl %eax,%edx
+	leal -20(%ebp),%eax
+	pushl %eax
+	pushl %edx
+	movl MI_Type+68,%eax
+	call *%eax
+	movl -12(%ebp),%eax
+	addl $20,%esp
+	cmpl %eax,-32(%ebp)
+	jne .L62
+	xorl %edx,%edx
+	movb -22(%ebp),%dl
+	xorl %eax,%eax
+	movb -2(%ebp),%al
+	cmpl %eax,%edx
+	jne .L62
+	cmpl $11,%edx
+	je .L62
+	pushl %esi
+	movl MI_CallExpr+156,%eax
+	call *%eax
+	addl $4,%esp
+	testl %eax,%eax
+	je .L60
+	pushl %esi
+	movl MI_CallExpr+160,%eax
+	call *%eax
+	jmp .L64
+	.align 16
+.L60:
+	cmpb $0,16(%ebp)
+	je .L64
+	pushl %esi
+	movl MI_ConsExpr+48,%eax
+	call *%eax
+	addl $4,%esp
+	testl %eax,%eax
+	je .L62
+	pushl %esi
+	movl MI_Expr+160,%eax
+	call *%eax
+	addl $4,%esp
+	testl %eax,%eax
+	jne .L62
+	pushl %esi
+	movl MI_ConsExpr+52,%eax
+	call *%eax
+	movl %eax,%ebx
+	pushl %ebx
+	movl MI_Expr+188,%eax
+	call *%eax
+	addl $8,%esp
+	testl %eax,%eax
+	je .L62
+	pushl %ebx
+	movl MI_Expr+192,%eax
+	call *%eax
+	movl $1,%eax
+	jmp .L64
+	.align 16
+.L62:
+	xorl %eax,%eax
+.L64:
+	leal -52(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe11:
+	.size	 AssignStmt__CanAvoidCopy,.Lfe11-AssignStmt__CanAvoidCopy
+.section	.rodata
+	.align 4
+	.type	 L_1.0,@object
+	.size	 L_1.0,60
+L_1.0:
+	.long .L68
+	.long .L69
+	.long .L69
+	.long .L69
+	.long .L70
+	.long .L68
+	.long .L71
+	.long .L71
+	.long .L70
+	.long .L67
+	.long .L72
+	.long .L73
+	.long .L71
+	.long .L74
+	.long .L68
+.text
+	.align 16
+	.type	 AssignStmt__Emit,@function
+AssignStmt__Emit:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $40,%esp
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%ebx
+	movl 12(%ebp),%esi
+	movl $0,-40(%ebp)
+	movl $0,-36(%ebp)
+	movl $0,-32(%ebp)
+	movl $0,-28(%ebp)
+	movl $0,-24(%ebp)
+	movl $0,-20(%ebp)
+	movl $0,-16(%ebp)
+	movl $0,-12(%ebp)
+	movl $0,-8(%ebp)
+	movl $0,-4(%ebp)
+	pushl %ebx
+	movl MI_Type+80,%eax
+	call *%eax
+	movl %eax,%edx
+	leal -20(%ebp),%eax
+	pushl %eax
+	pushl %edx
+	movl MI_Type+68,%eax
+	call *%eax
+	leal -40(%ebp),%eax
+	pushl %eax
+	pushl %ebx
+	movl MI_Type+68,%eax
+	call *%eax
+	movl %eax,%ebx
+	pushl %esi
+	movl MI_Expr+196,%eax
+	call *%eax
+	addl $24,%esp
+	testl %eax,%eax
+	je .L66
+	pushl %esi
+	movl MI_Expr+200,%eax
+	call *%eax
+	pushl %esi
+	movl MI_Expr+204,%eax
+	call *%eax
+	pushl %esi
+	movl MI_Expr+152,%eax
+	call *%eax
+	pushl $0
+	movl %eax,%edx
+	pushl %edx
+	movl MI_Type+84,%eax
+	call *%eax
+	pushl %eax
+	movl MI_CG+640,%eax
+	call *%eax
+	jmp .L65
+	.align 16
+.L66:
+	xorl %eax,%eax
+	movb -2(%ebp),%al
+	addl $-2,%eax
+	js .L67
+	jmp *L_1.0(,%eax,4)
+	.align 16
+.L68:
+	leal -40(%ebp),%eax
+	pushl %eax
+	pushl %esi
+	pushl %ebx
+	call AssignStmt__AssignOrdinal
+	jmp .L65
+	.align 16
+.L69:
+	leal -40(%ebp),%eax
+	pushl %eax
+	pushl %esi
+	call AssignStmt__AssignFloat
+	jmp .L65
+	.align 16
+.L71:
+	leal -40(%ebp),%eax
+	pushl %eax
+	pushl %esi
+	pushl %ebx
+	call AssignStmt__AssignReference
+	jmp .L65
+	.align 16
+.L70:
+	leal -40(%ebp),%eax
+	pushl %eax
+	pushl %esi
+	pushl %ebx
+	call AssignStmt__AssignArray
+	jmp .L65
+	.align 16
+.L72:
+	leal -40(%ebp),%eax
+	pushl %eax
+	pushl %esi
+	call AssignStmt__AssignProcedure
+	jmp .L65
+	.align 16
+.L73:
+	leal -40(%ebp),%eax
+	pushl %eax
+	pushl %esi
+	pushl %ebx
+	call AssignStmt__AssignRecord
+	jmp .L65
+	.align 16
+.L74:
+	leal -40(%ebp),%eax
+	pushl %eax
+	pushl %esi
+	pushl %ebx
+	call AssignStmt__AssignSet
+	jmp .L65
+	.align 16
+.L67:
+	pushl $4624
+	call _m3_fault
+	.align 16
+.L65:
+	leal -48(%ebp),%esp
+	popl %ebx
+	popl %esi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe12:
+	.size	 AssignStmt__Emit,.Lfe12-AssignStmt__Emit
+	.align 16
+	.type	 AssignStmt__AssignOrdinal,@function
+AssignStmt__AssignOrdinal:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $16,%esp
+	pushl %edi
+	pushl %esi
+	leal -8(%ebp),%esi
+	pushl %ebx
+	movl 8(%ebp),%eax
+	movl 12(%ebp),%edi
+	pushl %esi
+	leal -16(%ebp),%ebx
+	pushl %ebx
+	pushl %eax
+	movl MI_Type+112,%eax
+	call *%eax
+	pushl %esi
+	pushl %ebx
+	pushl %edi
+	movl MI_CheckExpr+56,%eax
+	call *%eax
+	movl 16(%ebp),%edx
+	addl $24,%esp
+	movl (%edx),%eax
+	testl %eax,%eax
+	jge .L77
+	pushl $4785
+	call _m3_fault
+	.align 16
+.L77:
+	pushl %eax
+	pushl $0
+	xorl %eax,%eax
+	movb 16(%edx),%al
+	pushl %eax
+	movl MI_CG+400,%eax
+	call *%eax
+	leal -28(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe13:
+	.size	 AssignStmt__AssignOrdinal,.Lfe13-AssignStmt__AssignOrdinal
+	.align 16
+	.type	 AssignStmt__AssignFloat,@function
+AssignStmt__AssignFloat:
+	pushl %ebp
+	movl %esp,%ebp
+	movl 8(%ebp),%eax
+	pushl %eax
+	movl MI_Expr+204,%eax
+	call *%eax
+	movl 12(%ebp),%edx
+	addl $4,%esp
+	movl (%edx),%eax
+	testl %eax,%eax
+	jge .L79
+	pushl $4881
+	call _m3_fault
+	.align 16
+.L79:
+	pushl %eax
+	pushl $0
+	xorl %eax,%eax
+	movb 16(%edx),%al
+	pushl %eax
+	movl MI_CG+400,%eax
+	call *%eax
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe14:
+	.size	 AssignStmt__AssignFloat,.Lfe14-AssignStmt__AssignFloat
+	.align 16
+	.type	 AssignStmt__AssignReference,@function
+AssignStmt__AssignReference:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%edi
+	movl MI_CG+220,%eax
+	movl 12(%ebp),%ebx
+	call *%eax
+	movl %eax,%esi
+	pushl %ebx
+	movl MI_Expr+204,%eax
+	call *%eax
+	addl $4,%esp
+	cmpb $0,MI_Host+83
+	je .L81
+	pushl %ebx
+	movl MI_Expr+152,%eax
+	call *%eax
+	pushl %eax
+	pushl %edi
+	movl MI_Narrow+48,%eax
+	call *%eax
+	addl $12,%esp
+.L81:
+	pushl %esi
+	movl MI_CG+228,%eax
+	call *%eax
+	movl MI_CG+636,%eax
+	call *%eax
+	movl 16(%ebp),%edx
+	addl $4,%esp
+	movl (%edx),%eax
+	testl %eax,%eax
+	jge .L82
+	pushl $5073
+	call _m3_fault
+	.align 16
+.L82:
+	pushl %eax
+	pushl $0
+	xorl %eax,%eax
+	movb 16(%edx),%al
+	pushl %eax
+	movl MI_CG+400,%eax
+	call *%eax
+	pushl %esi
+	movl MI_CG+232,%eax
+	call *%eax
+	leal -12(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe15:
+	.size	 AssignStmt__AssignReference,.Lfe15-AssignStmt__AssignReference
+	.align 16
+	.type	 AssignStmt__AssignProcedure,@function
+AssignStmt__AssignProcedure:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %edi
+	pushl %esi
+	xorl %edi,%edi
+	pushl %ebx
+	movl 8(%ebp),%ebx
+	cmpb $0,MI_Host+83
+	je .L88
+	pushl %edi
+	pushl %ebx
+	call AssignStmt__NeedsClosureCheck
+	addl $8,%esp
+	testl %eax,%eax
+	jne .L86
+.L88:
+	pushl %ebx
+	movl MI_Expr+204,%eax
+	call *%eax
+	addl $4,%esp
+	jmp .L85
+	.align 16
+.L86:
+	movl MI_CG+220,%eax
+	call *%eax
+	movl %eax,%edi
+	pushl %ebx
+	movl MI_Expr+204,%eax
+	call *%eax
+	movl MI_CG+220,%eax
+	call *%eax
+	movl %eax,%ebx
+	pushl $1
+	movl MI_CG+52,%eax
+	call *%eax
+	pushl $100
+	movl %eax,%esi
+	pushl %esi
+	pushl $-1
+	pushl %ebx
+	movl MI_CG+776,%eax
+	call *%eax
+	movl MI_CG+664,%eax
+	call *%eax
+	pushl $0
+	pushl %esi
+	movl MI_CG+316,%eax
+	call *%eax
+	addl $32,%esp
+	pushl %ebx
+	movl MI_CG+228,%eax
+	call *%eax
+	pushl %ebx
+	movl MI_CG+232,%eax
+	call *%eax
+	pushl %edi
+	movl MI_CG+228,%eax
+	call *%eax
+	movl MI_CG+636,%eax
+	call *%eax
+	pushl %edi
+	movl MI_CG+232,%eax
+	call *%eax
+	addl $16,%esp
+.L85:
+	movl 12(%ebp),%edx
+	movl (%edx),%eax
+	testl %eax,%eax
+	jge .L87
+	pushl $5457
+	call _m3_fault
+	.align 16
+.L87:
+	pushl %eax
+	pushl $0
+	xorl %eax,%eax
+	movb 16(%edx),%al
+	pushl %eax
+	movl MI_CG+400,%eax
+	call *%eax
+	leal -12(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe16:
+	.size	 AssignStmt__AssignProcedure,.Lfe16-AssignStmt__AssignProcedure
+	.align 16
+	.type	 AssignStmt__AssignRecord,@function
+AssignStmt__AssignRecord:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%ebx
+	movl 12(%ebp),%esi
+	pushl %esi
+	movl MI_Expr+152,%eax
+	call *%eax
+	pushl %eax
+	pushl %ebx
+	call AssignStmt__AssertSameSize
+	pushl %esi
+	movl MI_Expr+168,%eax
+	call *%eax
+	addl $16,%esp
+	testl %eax,%eax
+	je .L90
+	pushl %esi
+	movl MI_Expr+212,%eax
+	jmp .L93
+	.align 16
+.L90:
+	pushl %esi
+	movl MI_Expr+204,%eax
+.L93:
+	call *%eax
+	addl $4,%esp
+	movl 16(%ebp),%eax
+	movl (%eax),%eax
+	testl %eax,%eax
+	jge .L92
+	pushl $5633
+	call _m3_fault
+	.align 16
+.L92:
+	pushl $0
+	pushl %eax
+	movl MI_CG+648,%eax
+	call *%eax
+	leal -8(%ebp),%esp
+	popl %ebx
+	popl %esi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe17:
+	.size	 AssignStmt__AssignRecord,.Lfe17-AssignStmt__AssignRecord
+	.align 16
+	.type	 AssignStmt__AssignSet,@function
+AssignStmt__AssignSet:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%ebx
+	movl 12(%ebp),%esi
+	pushl %esi
+	movl MI_Expr+152,%eax
+	call *%eax
+	pushl %eax
+	pushl %ebx
+	call AssignStmt__AssertSameSize
+	pushl %ebx
+	movl MI_Type+88,%eax
+	call *%eax
+	movl %eax,%ebx
+	addl $16,%esp
+	testl %ebx,%ebx
+	je .L95
+	pushl %esi
+	movl MI_Expr+168,%eax
+	call *%eax
+	movl %eax,%ebx
+	addl $4,%esp
+	testl %ebx,%ebx
+	je .L96
+	pushl %esi
+	movl MI_Expr+212,%eax
+	jmp .L101
+	.align 16
+.L96:
+	pushl %esi
+	movl MI_Expr+204,%eax
+.L101:
+	call *%eax
+	addl $4,%esp
+	movl 16(%ebp),%eax
+	movl (%eax),%eax
+	testl %eax,%eax
+	jge .L98
+	pushl $5825
+	call _m3_fault
+	.align 16
+.L98:
+	pushl $0
+	pushl %eax
+	movl MI_CG+648,%eax
+	call *%eax
+	jmp .L94
+	.align 16
+.L95:
+	pushl %esi
+	movl MI_Expr+204,%eax
+	call *%eax
+	movl 16(%ebp),%edx
+	addl $4,%esp
+	movl (%edx),%eax
+	testl %eax,%eax
+	jge .L100
+	pushl $5873
+	call _m3_fault
+	.align 16
+.L100:
+	pushl %eax
+	pushl %ebx
+	xorl %eax,%eax
+	movb 16(%edx),%al
+	pushl %eax
+	movl MI_CG+400,%eax
+	call *%eax
+.L94:
+	leal -8(%ebp),%esp
+	popl %ebx
+	popl %esi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe18:
+	.size	 AssignStmt__AssignSet,.Lfe18-AssignStmt__AssignSet
+	.align 16
+	.type	 AssignStmt__AssertSameSize,@function
+AssignStmt__AssertSameSize:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $40,%esp
+	leal -40(%ebp),%eax
+	pushl %ebx
+	movl 8(%ebp),%edx
+	movl 12(%ebp),%ebx
+	movl $0,-40(%ebp)
+	movl $0,-36(%ebp)
+	movl $0,-32(%ebp)
+	movl $0,-28(%ebp)
+	movl $0,-24(%ebp)
+	movl $0,-20(%ebp)
+	movl $0,-16(%ebp)
+	movl $0,-12(%ebp)
+	movl $0,-8(%ebp)
+	movl $0,-4(%ebp)
+	pushl %eax
+	pushl %edx
+	movl MI_Type+68,%eax
+	call *%eax
+	leal -20(%ebp),%eax
+	pushl %eax
+	pushl %ebx
+	movl MI_Type+68,%eax
+	call *%eax
+	movl -20(%ebp),%eax
+	addl $16,%esp
+	cmpl %eax,-40(%ebp)
+	je .L102
+	pushl $MM_AssignStmt+600
+	movl MI_Error+44,%eax
+	call *%eax
+	pushl $6048
+	call _m3_fault
+	.align 16
+.L102:
+	movl -44(%ebp),%ebx
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe19:
+	.size	 AssignStmt__AssertSameSize,.Lfe19-AssignStmt__AssertSameSize
+	.align 16
+	.type	 AssignStmt__AssignArray,@function
+AssignStmt__AssignArray:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $40,%esp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl $0,-28(%ebp)
+	movl $0,-24(%ebp)
+	movl $0,-20(%ebp)
+	movl $0,-16(%ebp)
+	movl $0,-12(%ebp)
+	movl $0,-8(%ebp)
+	movl $0,-4(%ebp)
+	movl 12(%ebp),%edx
+	pushl %edx
+	movl MI_Expr+152,%eax
+	call *%eax
+	movl %eax,%ebx
+	pushl %ebx
+	movl MI_OpenArrayType+48,%eax
+	call *%eax
+	movb %al,-36(%ebp)
+	movl 8(%ebp),%edx
+	pushl %edx
+	movl MI_OpenArrayType+48,%eax
+	call *%eax
+	movb %al,-32(%ebp)
+	movl 8(%ebp),%edx
+	pushl %edx
+	movl MI_ArrayType+60,%eax
+	call *%eax
+	movl %eax,%esi
+	pushl %ebx
+	movl MI_ArrayType+60,%eax
+	call *%eax
+	movl %eax,%edi
+	addl $20,%esp
+	cmpb $0,-36(%ebp)
+	jne .L105
+	cmpb $0,-32(%ebp)
+	je .L106
+.L105:
+	movl MI_CG+220,%eax
+	call *%eax
+	movl %eax,-28(%ebp)
+.L106:
+	movl 12(%ebp),%edx
+	pushl %edx
+	movl MI_Expr+168,%eax
+	call *%eax
+	addl $4,%esp
+	testl %eax,%eax
+	je .L107
+	movl 12(%ebp),%edx
+	pushl %edx
+	movl MI_Expr+212,%eax
+	jmp .L124
+	.align 16
+.L107:
+	movl 12(%ebp),%edx
+	pushl %edx
+	movl MI_Expr+204,%eax
+.L124:
+	call *%eax
+	addl $4,%esp
+	cmpb $0,-36(%ebp)
+	jne .L109
+	cmpb $0,-32(%ebp)
+	je .L110
+.L109:
+	movl MI_CG+220,%eax
+	call *%eax
+	movl %eax,-24(%ebp)
+.L110:
+	cmpb $0,-36(%ebp)
+	je .L115
+	cmpb $0,-32(%ebp)
+	je .L111
+	pushl %ebx
+	movl 8(%ebp),%edx
+	pushl %edx
+	leal -24(%ebp),%edx
+	movl %edx,-40(%ebp)
+	pushl %edx
+	leal -28(%ebp),%eax
+	pushl %eax
+	call AssignStmt__GenOpenArraySizeChecks
+	movl -28(%ebp),%eax
+	pushl %eax
+	movl MI_CG+228,%eax
+	call *%eax
+	addl $20,%esp
+	testl %esi,%esi
+	jge .L112
+	pushl $6465
+	call _m3_fault
+	.align 16
+.L112:
+	pushl %esi
+	movl MI_CG+768,%eax
+	call *%eax
+	movl MI_CG+240,%eax
+	call *%eax
+	movl -24(%ebp),%eax
+	pushl %eax
+	movl MI_CG+228,%eax
+	call *%eax
+	addl $8,%esp
+	testl %edi,%edi
+	jge .L113
+	pushl $6513
+	call _m3_fault
+	.align 16
+.L113:
+	pushl %edi
+	movl MI_CG+768,%eax
+	call *%eax
+	movl MI_CG+240,%eax
+	call *%eax
+	pushl %ebx
+	movl 8(%ebp),%edx
+	pushl %edx
+	movl -40(%ebp),%edx
+	pushl %edx
+	call AssignStmt__GenOpenArrayCopy
+	addl $16,%esp
+	jmp .L114
+	.align 16
+.L111:
+	pushl %ebx
+	movl 8(%ebp),%edx
+	pushl %edx
+	leal -24(%ebp),%eax
+	pushl %eax
+	leal -28(%ebp),%eax
+	pushl %eax
+	call AssignStmt__GenOpenArraySizeChecks
+	movl -28(%ebp),%eax
+	pushl %eax
+	movl MI_CG+228,%eax
+	call *%eax
+	movl -24(%ebp),%eax
+	pushl %eax
+	movl MI_CG+228,%eax
+	call *%eax
+	addl $24,%esp
+	testl %edi,%edi
+	jge .L116
+	pushl $6641
+	call _m3_fault
+	.align 16
+.L116:
+	pushl %edi
+	movl MI_CG+768,%eax
+	call *%eax
+	movl 16(%ebp),%eax
+	addl $4,%esp
+	movl (%eax),%eax
+	testl %eax,%eax
+	jge .L121
+	pushl $6657
+	call _m3_fault
+	.align 16
+.L115:
+	cmpb $0,-32(%ebp)
+	je .L118
+	leal -20(%ebp),%eax
+	pushl %eax
+	pushl %ebx
+	movl MI_Type+68,%eax
+	call *%eax
+	pushl %ebx
+	movl 8(%ebp),%edx
+	pushl %edx
+	leal -24(%ebp),%eax
+	pushl %eax
+	leal -28(%ebp),%eax
+	pushl %eax
+	call AssignStmt__GenOpenArraySizeChecks
+	movl -28(%ebp),%eax
+	pushl %eax
+	movl MI_CG+228,%eax
+	call *%eax
+	addl $28,%esp
+	testl %esi,%esi
+	jge .L119
+	pushl $6753
+	call _m3_fault
+	.align 16
+.L119:
+	pushl %esi
+	movl MI_CG+768,%eax
+	call *%eax
+	movl -24(%ebp),%eax
+	pushl %eax
+	movl MI_CG+228,%eax
+	call *%eax
+	movl -20(%ebp),%eax
+	addl $8,%esp
+	testl %eax,%eax
+	jge .L121
+	pushl $6785
+	call _m3_fault
+	.align 16
+.L118:
+	movl 16(%ebp),%eax
+	movl (%eax),%eax
+	testl %eax,%eax
+	jge .L121
+	pushl $6833
+	call _m3_fault
+	.align 16
+.L121:
+	pushl $1
+	pushl %eax
+	movl MI_CG+648,%eax
+	call *%eax
+	addl $8,%esp
+.L114:
+	cmpb $0,-36(%ebp)
+	jne .L122
+	cmpb $0,-32(%ebp)
+	je .L104
+.L122:
+	movl -28(%ebp),%eax
+	pushl %eax
+	movl MI_CG+232,%eax
+	call *%eax
+	movl -24(%ebp),%eax
+	pushl %eax
+	movl MI_CG+232,%eax
+	call *%eax
+.L104:
+	leal -52(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe20:
+	.size	 AssignStmt__AssignArray,.Lfe20-AssignStmt__AssignArray
+	.align 16
+	.type	 AssignStmt__GenOpenArraySizeChecks,@function
+AssignStmt__GenOpenArraySizeChecks:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $24,%esp
+	pushl %edi
+	pushl %esi
+	xorl %esi,%esi
+	pushl %ebx
+	movl 12(%ebp),%edi
+	movl 16(%ebp),%edx
+	movl 20(%ebp),%ebx
+	movl $0,-16(%ebp)
+	movl $0,-12(%ebp)
+	movl $0,-8(%ebp)
+	movl $0,-4(%ebp)
+	cmpb $0,MI_Host+83
+	je .L125
+	jmp .L127
+	.align 16
+.L128:
+	cmpl $0,-16(%ebp)
+	je .L130
+	cmpl $0,-12(%ebp)
+	jne .L125
+	movl (%edi),%eax
+	pushl %eax
+	movl MI_CG+228,%eax
+	call *%eax
+	pushl %esi
+	movl MI_CG+772,%eax
+	call *%eax
+	leal -24(%ebp),%ebx
+	pushl %ebx
+	movl -16(%ebp),%eax
+	jmp .L135
+	.align 16
+.L130:
+	cmpl $0,-12(%ebp)
+	je .L132
+	movl 8(%ebp),%ecx
+	movl (%ecx),%eax
+	pushl %eax
+	movl MI_CG+228,%eax
+	call *%eax
+	pushl %esi
+	movl MI_CG+772,%eax
+	call *%eax
+	leal -24(%ebp),%ebx
+	pushl %ebx
+	movl -12(%ebp),%eax
+.L135:
+	pushl %eax
+	movl MI_Type+108,%eax
+	call *%eax
+	pushl %ebx
+	movl MI_CG+428,%eax
+	call *%eax
+	movl MI_CG+700,%eax
+	call *%eax
+	addl $20,%esp
+	jmp .L131
+	.align 16
+.L132:
+	movl 8(%ebp),%ecx
+	movl (%ecx),%eax
+	pushl %eax
+	movl MI_CG+228,%eax
+	call *%eax
+	pushl %esi
+	movl MI_CG+772,%eax
+	call *%eax
+	movl (%edi),%eax
+	pushl %eax
+	movl MI_CG+228,%eax
+	call *%eax
+	pushl %esi
+	movl MI_CG+772,%eax
+	call *%eax
+	movl MI_CG+700,%eax
+	call *%eax
+	addl $16,%esp
+.L131:
+	incl %esi
+	movl -8(%ebp),%edx
+	movl -4(%ebp),%ebx
+.L127:
+	leal -8(%ebp),%eax
+	pushl %eax
+	leal -16(%ebp),%eax
+	pushl %eax
+	pushl %edx
+	movl MI_ArrayType+52,%eax
+	call *%eax
+	addl $12,%esp
+	testl %eax,%eax
+	je .L125
+	leal -4(%ebp),%eax
+	pushl %eax
+	leal -12(%ebp),%eax
+	pushl %eax
+	pushl %ebx
+	movl MI_ArrayType+52,%eax
+	call *%eax
+	addl $12,%esp
+	testl %eax,%eax
+	jne .L128
+.L125:
+	leal -36(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe21:
+	.size	 AssignStmt__GenOpenArraySizeChecks,.Lfe21-AssignStmt__GenOpenArraySizeChecks
+	.align 16
+	.type	 AssignStmt__GenOpenArrayCopy,@function
+AssignStmt__GenOpenArrayCopy:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $4,%esp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 12(%ebp),%edx
+	pushl %edx
+	movl MI_OpenArrayType+64,%eax
+	call *%eax
+	movl %eax,%esi
+	movl 16(%ebp),%edx
+	pushl %edx
+	movl MI_OpenArrayType+64,%eax
+	call *%eax
+	movl %eax,-4(%ebp)
+	addl $8,%esp
+	testl %esi,%esi
+	jle .L137
+	testl %eax,%eax
+	jg .L138
+.L137:
+	pushl $7632
+	call _m3_fault
+	.align 16
+.L138:
+	cmpl %esi,%eax
+	jle .L139
+	movl %esi,%eax
+.L139:
+	xorl %ebx,%ebx
+	leal -1(%eax),%edi
+	jmp .L140
+	.align 16
+.L141:
+	movl 8(%ebp),%edx
+	movl (%edx),%eax
+	pushl %eax
+	movl MI_CG+228,%eax
+	call *%eax
+	pushl %ebx
+	movl MI_CG+772,%eax
+	call *%eax
+	addl $8,%esp
+	testl %ebx,%ebx
+	je .L142
+	pushl $1
+	movl MI_CG+468,%eax
+	call *%eax
+	addl $4,%esp
+.L142:
+	incl %ebx
+.L140:
+	cmpl %edi,%ebx
+	jle .L141
+	cmpl %esi,-4(%ebp)
+	jle .L144
+	movl 12(%ebp),%edx
+	pushl %edx
+	movl MI_OpenArrayType+56,%eax
+	call *%eax
+	addl $4,%esp
+	testl %eax,%eax
+	jge .L147
+	pushl $7777
+	call _m3_fault
+	.align 16
+.L144:
+	movl 16(%ebp),%edx
+	pushl %edx
+	movl MI_OpenArrayType+56,%eax
+	call *%eax
+	addl $4,%esp
+	testl %eax,%eax
+	jge .L147
+	pushl $7793
+	call _m3_fault
+	.align 16
+.L147:
+	pushl $1
+	pushl %eax
+	movl MI_CG+644,%eax
+	call *%eax
+	leal -16(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe22:
+	.size	 AssignStmt__GenOpenArrayCopy,.Lfe22-AssignStmt__GenOpenArrayCopy
+.section	.rodata
+	.align 4
+	.type	 L_3.1,@object
+	.size	 L_3.1,60
+L_3.1:
+	.long .L150
+	.long .L151
+	.long .L151
+	.long .L151
+	.long .L152
+	.long .L150
+	.long .L153
+	.long .L153
+	.long .L152
+	.long .L149
+	.long .L154
+	.long .L155
+	.long .L153
+	.long .L156
+	.long .L150
+.text
+	.align 16
+	.type	 AssignStmt__EmitCheck,@function
+AssignStmt__EmitCheck:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $40,%esp
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%ebx
+	movl 12(%ebp),%esi
+	movl $0,-40(%ebp)
+	movl $0,-36(%ebp)
+	movl $0,-32(%ebp)
+	movl $0,-28(%ebp)
+	movl $0,-24(%ebp)
+	movl $0,-20(%ebp)
+	movl $0,-16(%ebp)
+	movl $0,-12(%ebp)
+	movl $0,-8(%ebp)
+	movl $0,-4(%ebp)
+	pushl %ebx
+	movl MI_Type+80,%eax
+	call *%eax
+	movl %eax,%edx
+	leal -20(%ebp),%eax
+	pushl %eax
+	pushl %edx
+	movl MI_Type+68,%eax
+	call *%eax
+	leal -40(%ebp),%eax
+	pushl %eax
+	pushl %ebx
+	movl MI_Type+68,%eax
+	call *%eax
+	movl %eax,%ebx
+	xorl %eax,%eax
+	movb -2(%ebp),%al
+	addl $-2,%eax
+	addl $20,%esp
+	testl %eax,%eax
+	jl .L149
+	jmp *L_3.1(,%eax,4)
+	.align 16
+.L150:
+	pushl %esi
+	pushl %ebx
+	call AssignStmt__DoCheckOrdinal
+	jmp .L148
+	.align 16
+.L151:
+	pushl %esi
+	call AssignStmt__DoCheckFloat
+	jmp .L148
+	.align 16
+.L153:
+	pushl %esi
+	pushl %ebx
+	call AssignStmt__DoCheckReference
+	jmp .L148
+	.align 16
+.L152:
+	pushl %esi
+	pushl %ebx
+	call AssignStmt__DoCheckArray
+	jmp .L148
+	.align 16
+.L154:
+	pushl %esi
+	call AssignStmt__DoCheckProcedure
+	jmp .L148
+	.align 16
+.L155:
+	pushl %esi
+	pushl %ebx
+	call AssignStmt__DoCheckRecord
+	jmp .L148
+	.align 16
+.L156:
+	pushl %esi
+	pushl %ebx
+	call AssignStmt__DoCheckSet
+	jmp .L148
+	.align 16
+.L149:
+	pushl $8272
+	call _m3_fault
+	.align 16
+.L148:
+	leal -48(%ebp),%esp
+	popl %ebx
+	popl %esi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe23:
+	.size	 AssignStmt__EmitCheck,.Lfe23-AssignStmt__EmitCheck
+	.align 16
+	.type	 AssignStmt__DoCheckOrdinal,@function
+AssignStmt__DoCheckOrdinal:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $16,%esp
+	pushl %edi
+	pushl %esi
+	leal -8(%ebp),%esi
+	pushl %ebx
+	movl 8(%ebp),%eax
+	movl 12(%ebp),%edi
+	pushl %esi
+	leal -16(%ebp),%ebx
+	pushl %ebx
+	pushl %eax
+	movl MI_Type+112,%eax
+	call *%eax
+	pushl %esi
+	pushl %ebx
+	pushl %edi
+	movl MI_CheckExpr+56,%eax
+	call *%eax
+	leal -28(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe24:
+	.size	 AssignStmt__DoCheckOrdinal,.Lfe24-AssignStmt__DoCheckOrdinal
+	.align 16
+	.type	 AssignStmt__DoCheckFloat,@function
+AssignStmt__DoCheckFloat:
+	pushl %ebp
+	movl %esp,%ebp
+	movl 8(%ebp),%eax
+	pushl %eax
+	movl MI_Expr+204,%eax
+	call *%eax
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe25:
+	.size	 AssignStmt__DoCheckFloat,.Lfe25-AssignStmt__DoCheckFloat
+	.align 16
+	.type	 AssignStmt__DoCheckReference,@function
+AssignStmt__DoCheckReference:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%esi
+	movl 12(%ebp),%ebx
+	pushl %ebx
+	movl MI_Expr+204,%eax
+	call *%eax
+	addl $4,%esp
+	cmpb $0,MI_Host+83
+	je .L160
+	pushl %ebx
+	movl MI_Expr+152,%eax
+	call *%eax
+	pushl %eax
+	pushl %esi
+	movl MI_Narrow+48,%eax
+	call *%eax
+.L160:
+	leal -8(%ebp),%esp
+	popl %ebx
+	popl %esi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe26:
+	.size	 AssignStmt__DoCheckReference,.Lfe26-AssignStmt__DoCheckReference
+	.align 16
+	.type	 AssignStmt__DoCheckProcedure,@function
+AssignStmt__DoCheckProcedure:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%esi
+	xorl %ebx,%ebx
+	cmpb $0,MI_Host+83
+	jne .L163
+	pushl %esi
+	movl MI_Expr+204,%eax
+	jmp .L166
+	.align 16
+.L163:
+	pushl %ebx
+	pushl %esi
+	call AssignStmt__NeedsClosureCheck
+	addl $8,%esp
+	testl %eax,%eax
+	jne .L165
+	pushl %esi
+	movl MI_Expr+204,%eax
+	jmp .L166
+	.align 16
+.L165:
+	pushl %esi
+	movl MI_Expr+204,%eax
+	call *%eax
+	movl MI_CG+220,%eax
+	call *%eax
+	movl %eax,%ebx
+	pushl $1
+	movl MI_CG+52,%eax
+	call *%eax
+	pushl $100
+	movl %eax,%esi
+	pushl %esi
+	pushl $-1
+	pushl %ebx
+	movl MI_CG+776,%eax
+	call *%eax
+	movl MI_CG+664,%eax
+	call *%eax
+	pushl $0
+	pushl %esi
+	movl MI_CG+316,%eax
+	call *%eax
+	addl $32,%esp
+	pushl %ebx
+	movl MI_CG+228,%eax
+	call *%eax
+	pushl %ebx
+	movl MI_CG+232,%eax
+.L166:
+	call *%eax
+	leal -8(%ebp),%esp
+	popl %ebx
+	popl %esi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe27:
+	.size	 AssignStmt__DoCheckProcedure,.Lfe27-AssignStmt__DoCheckProcedure
+	.align 16
+	.type	 AssignStmt__DoCheckRecord,@function
+AssignStmt__DoCheckRecord:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%ebx
+	movl 12(%ebp),%esi
+	pushl %esi
+	movl MI_Expr+152,%eax
+	call *%eax
+	pushl %eax
+	pushl %ebx
+	call AssignStmt__AssertSameSize
+	pushl %esi
+	movl MI_Expr+168,%eax
+	call *%eax
+	addl $16,%esp
+	testl %eax,%eax
+	je .L168
+	pushl %esi
+	movl MI_Expr+212,%eax
+	jmp .L170
+	.align 16
+.L168:
+	pushl %esi
+	movl MI_Expr+204,%eax
+.L170:
+	call *%eax
+	leal -8(%ebp),%esp
+	popl %ebx
+	popl %esi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe28:
+	.size	 AssignStmt__DoCheckRecord,.Lfe28-AssignStmt__DoCheckRecord
+	.align 16
+	.type	 AssignStmt__DoCheckSet,@function
+AssignStmt__DoCheckSet:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%ebx
+	movl 12(%ebp),%esi
+	pushl %esi
+	movl MI_Expr+152,%eax
+	call *%eax
+	pushl %eax
+	pushl %ebx
+	call AssignStmt__AssertSameSize
+	pushl %ebx
+	movl MI_Type+88,%eax
+	call *%eax
+	addl $16,%esp
+	testl %eax,%eax
+	je .L172
+	pushl %esi
+	movl MI_Expr+168,%eax
+	call *%eax
+	addl $4,%esp
+	testl %eax,%eax
+	je .L173
+	pushl %esi
+	movl MI_Expr+212,%eax
+	jmp .L176
+	.align 16
+.L173:
+.L172:
+	pushl %esi
+	movl MI_Expr+204,%eax
+.L176:
+	call *%eax
+	leal -8(%ebp),%esp
+	popl %ebx
+	popl %esi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe29:
+	.size	 AssignStmt__DoCheckSet,.Lfe29-AssignStmt__DoCheckSet
+	.align 16
+	.type	 AssignStmt__DoCheckArray,@function
+AssignStmt__DoCheckArray:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $12,%esp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%edi
+	movl 12(%ebp),%ebx
+	movl $0,-4(%ebp)
+	pushl %ebx
+	movl MI_Expr+152,%eax
+	call *%eax
+	movl %eax,%esi
+	pushl %esi
+	movl MI_OpenArrayType+48,%eax
+	call *%eax
+	movb %al,-12(%ebp)
+	pushl %edi
+	movl MI_OpenArrayType+48,%eax
+	call *%eax
+	movb %al,-8(%ebp)
+	pushl %ebx
+	movl MI_Expr+168,%eax
+	call *%eax
+	addl $16,%esp
+	testl %eax,%eax
+	je .L178
+	pushl %ebx
+	movl MI_Expr+212,%eax
+	jmp .L184
+	.align 16
+.L178:
+	pushl %ebx
+	movl MI_Expr+204,%eax
+.L184:
+	call *%eax
+	addl $4,%esp
+	cmpb $0,-8(%ebp)
+	je .L180
+	pushl $MM_AssignStmt+672
+	movl MI_Error+44,%eax
+	jmp .L185
+	.align 16
+.L180:
+	cmpb $0,-12(%ebp)
+	je .L177
+	movl MI_CG+220,%eax
+	call *%eax
+	movl %eax,-4(%ebp)
+	pushl %esi
+	pushl %edi
+	leal -4(%ebp),%eax
+	pushl %eax
+	call AssignStmt__GenOpenArraySizeChk
+	movl -4(%ebp),%eax
+	pushl %eax
+	movl MI_CG+228,%eax
+	call *%eax
+	pushl %esi
+	movl MI_ArrayType+60,%eax
+	call *%eax
+	addl $20,%esp
+	testl %eax,%eax
+	jge .L183
+	pushl $9585
+	call _m3_fault
+	.align 16
+.L183:
+	pushl %eax
+	movl MI_CG+768,%eax
+	call *%eax
+	movl -4(%ebp),%eax
+	pushl %eax
+	movl MI_CG+232,%eax
+.L185:
+	call *%eax
+.L177:
+	leal -24(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe30:
+	.size	 AssignStmt__DoCheckArray,.Lfe30-AssignStmt__DoCheckArray
+	.align 16
+	.type	 AssignStmt__GenOpenArraySizeChk,@function
+AssignStmt__GenOpenArraySizeChk:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $24,%esp
+	pushl %edi
+	pushl %esi
+	xorl %esi,%esi
+	pushl %ebx
+	movl 8(%ebp),%edi
+	movl 12(%ebp),%edx
+	movl 16(%ebp),%ebx
+	movl $0,-16(%ebp)
+	movl $0,-12(%ebp)
+	movl $0,-8(%ebp)
+	movl $0,-4(%ebp)
+	cmpb $0,MI_Host+83
+	je .L186
+	jmp .L188
+	.align 16
+.L189:
+	movl (%edi),%eax
+	pushl %eax
+	movl MI_CG+228,%eax
+	call *%eax
+	pushl %esi
+	movl MI_CG+772,%eax
+	call *%eax
+	leal -24(%ebp),%ebx
+	pushl %ebx
+	movl -16(%ebp),%eax
+	pushl %eax
+	movl MI_Type+108,%eax
+	call *%eax
+	pushl %ebx
+	movl MI_CG+428,%eax
+	call *%eax
+	movl MI_CG+700,%eax
+	call *%eax
+	incl %esi
+	movl -8(%ebp),%edx
+	movl -4(%ebp),%ebx
+	addl $20,%esp
+.L188:
+	leal -8(%ebp),%eax
+	pushl %eax
+	leal -16(%ebp),%eax
+	pushl %eax
+	pushl %edx
+	movl MI_ArrayType+52,%eax
+	call *%eax
+	addl $12,%esp
+	testl %eax,%eax
+	je .L186
+	leal -4(%ebp),%eax
+	pushl %eax
+	leal -12(%ebp),%eax
+	pushl %eax
+	pushl %ebx
+	movl MI_ArrayType+52,%eax
+	call *%eax
+	addl $12,%esp
+	testl %eax,%eax
+	je .L186
+	cmpl $0,-12(%ebp)
+	je .L189
+.L186:
+	leal -36(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe31:
+	.size	 AssignStmt__GenOpenArraySizeChk,.Lfe31-AssignStmt__GenOpenArraySizeChk
+	.align 16
+	.type	 M_AssignStmt_t6d5a9f0b_LINK,@function
+M_AssignStmt_t6d5a9f0b_LINK:
+	pushl %ebp
+	movl %esp,%ebp
+	movl MM_AssignStmt+316,%eax
+	movl %ebp,%esp
+	movl 52(%eax),%edx
+	movl MM_AssignStmt+148,%eax
+	movl %eax,4(%edx)
+	movl MM_AssignStmt+152,%eax
+	movl %eax,8(%edx)
+	movl MM_AssignStmt+156,%eax
+	movl %eax,12(%edx)
+	popl %ebp
+	ret
+.Lfe32:
+	.size	 M_AssignStmt_t6d5a9f0b_LINK,.Lfe32-M_AssignStmt_t6d5a9f0b_LINK
+	.align 16
+	.type	 _m3_fault,@function
+_m3_fault:
+	pushl %ebp
+	movl %esp,%ebp
+	movl 8(%ebp),%eax
+	pushl %eax
+	pushl $MM_AssignStmt
+	movl MI_RTHooks+108,%eax
+	call *%eax
+	.align 16
+.Lfe33:
+	.size	 _m3_fault,.Lfe33-_m3_fault
+.globl MM_AssignStmt
+.data
+	.align 4
+	.type	 MM_AssignStmt,@object
+	.size	 MM_AssignStmt,1696
+MM_AssignStmt:
+	.long MM_AssignStmt+1520
+	.long MM_AssignStmt+44
+	.long MM_AssignStmt+316
+	.zero	8
+	.long MM_AssignStmt+1144
+	.zero	28
+	.long 1834655499
+.byte 80
+.byte 89
+.byte 47
+.byte 100
+.byte 91
+.byte 198
+.byte 117
+.byte 9
+	.long 1
+	.zero	4
+	.long 8
+	.long 4
+	.zero	4
+	.long 0
+	.zero	12
+	.long MM_AssignStmt+1667
+	.long MM_AssignStmt+1670
+	.long MM_AssignStmt+1673
+	.zero	4
+	.long M_AssignStmt_t6d5a9f0b_LINK
+	.long 1595657850
+	.zero	16
+	.long MM_AssignStmt+1682
+	.zero	4
+	.long AssignStmt__CheckMethod
+	.long AssignStmt__Compile
+	.long AssignStmt__GetOutcome
+	.long AssignStmt__CheckOrdinal
+	.long AssignStmt__CheckReference
+	.long AssignStmt__CheckProcedure
+	.long AssignStmt__NeedsClosureCheck
+	.long AssignStmt__CanAvoidCopy
+	.long AssignStmt__AssignOrdinal
+	.long AssignStmt__AssignFloat
+	.long AssignStmt__AssignReference
+	.long AssignStmt__AssignProcedure
+	.long AssignStmt__AssignRecord
+	.long AssignStmt__AssignSet
+	.long AssignStmt__AssertSameSize
+	.long AssignStmt__AssignArray
+	.long AssignStmt__GenOpenArraySizeChecks
+	.long AssignStmt__GenOpenArrayCopy
+	.long AssignStmt__DoCheckOrdinal
+	.long AssignStmt__DoCheckFloat
+	.long AssignStmt__DoCheckReference
+	.long AssignStmt__DoCheckProcedure
+	.long AssignStmt__DoCheckRecord
+	.long AssignStmt__DoCheckSet
+	.long AssignStmt__DoCheckArray
+	.long AssignStmt__GenOpenArraySizeChk
+	.long AssignStmt__Parse
+	.long AssignStmt__Check
+	.long AssignStmt__PrepForEmit
+	.long AssignStmt__Emit
+	.long AssignStmt__EmitCheck
+	.long 2
+	.long MM_AssignStmt+284
+	.long 30
+	.ascii	"Expression is not a statement"
+	.zero	3
+	.long MM_AssignStmt+536
+	.long 1834655499
+	.long 2
+	.long MM_AssignStmt+336
+	.long 35
+	.ascii	"left-hand side is not a designator"
+	.zero	2
+	.long 2
+	.long MM_AssignStmt+384
+	.long 28
+	.ascii	"left-hand side is read-only"
+	.zero	1
+	.long 2
+	.long MM_AssignStmt+424
+	.long 25
+	.ascii	"types are not assignable"
+	.zero	4
+	.long 2
+	.long MM_AssignStmt+464
+	.long 35
+	.ascii	"value not assignable (range fault)"
+	.zero	2
+	.long 2
+	.long MM_AssignStmt+512
+	.long 23
+	.ascii	"unsafe implicit NARROW"
+	.zero	2
+	.long MM_AssignStmt+588
+	.long -712670126
+	.long 2
+	.long MM_AssignStmt+556
+	.long 32
+	.ascii	"cannot assign nested procedures"
+	.zero	5
+	.long 149856025
+	.long 2
+	.long MM_AssignStmt+608
+	.long 59
+	.ascii	"INTERNAL ERROR: trying to assign values of differing sizes"
+	.zero	2
+	.long 2
+	.long MM_AssignStmt+680
+	.long 50
+	.ascii	"INTERNAL ERROR: AssignStmt.EmitCheck (OPEN ARRAY)"
+	.zero	3
+	.ascii	"GenOpenArraySizeChk"
+	.zero	1
+	.ascii	"DoCheckArray"
+	.zero	1
+	.ascii	"DoCheckSet"
+	.zero	1
+	.ascii	"DoCheckRecord"
+	.zero	1
+	.ascii	"DoCheckProcedure"
+	.zero	1
+	.ascii	"DoCheckReference"
+	.zero	1
+	.ascii	"DoCheckFloat"
+	.zero	1
+	.ascii	"DoCheckOrdinal"
+	.zero	1
+	.ascii	"EmitCheck"
+	.zero	1
+	.ascii	"GenOpenArrayCopy"
+	.zero	1
+	.ascii	"GenOpenArraySizeChecks"
+	.zero	1
+	.ascii	"AssignArray"
+	.zero	1
+	.ascii	"AssertSameSize"
+	.zero	1
+	.ascii	"AssignSet"
+	.zero	1
+	.ascii	"AssignRecord"
+	.zero	1
+	.ascii	"AssignProcedure"
+	.zero	1
+	.ascii	"AssignReference"
+	.zero	1
+	.ascii	"AssignFloat"
+	.zero	1
+	.ascii	"AssignOrdinal"
+	.zero	1
+	.ascii	"Emit"
+	.zero	1
+	.ascii	"CanAvoidCopy"
+	.zero	1
+	.ascii	"PrepForEmit"
+	.zero	1
+	.ascii	"NeedsClosureCheck"
+	.zero	1
+	.ascii	"CheckProcedure"
+	.zero	1
+	.ascii	"CheckReference"
+	.zero	1
+	.ascii	"CheckOrdinal"
+	.zero	1
+	.ascii	"Check"
+	.zero	1
+	.ascii	"GetOutcome"
+	.zero	1
+	.ascii	"Compile"
+	.zero	1
+	.ascii	"CheckMethod"
+	.zero	1
+	.ascii	"Parse"
+	.zero	1
+	.long AssignStmt__GenOpenArraySizeChk
+	.long MM_AssignStmt+732
+	.zero	4
+	.long AssignStmt__DoCheckArray
+	.long MM_AssignStmt+752
+	.zero	4
+	.long AssignStmt__DoCheckSet
+	.long MM_AssignStmt+765
+	.zero	4
+	.long AssignStmt__DoCheckRecord
+	.long MM_AssignStmt+776
+	.zero	4
+	.long AssignStmt__DoCheckProcedure
+	.long MM_AssignStmt+790
+	.zero	4
+	.long AssignStmt__DoCheckReference
+	.long MM_AssignStmt+807
+	.zero	4
+	.long AssignStmt__DoCheckFloat
+	.long MM_AssignStmt+824
+	.zero	4
+	.long AssignStmt__DoCheckOrdinal
+	.long MM_AssignStmt+837
+	.zero	4
+	.long AssignStmt__EmitCheck
+	.long MM_AssignStmt+852
+	.long MI_AssignStmt+60
+	.long AssignStmt__GenOpenArrayCopy
+	.long MM_AssignStmt+862
+	.zero	4
+	.long AssignStmt__GenOpenArraySizeChecks
+	.long MM_AssignStmt+879
+	.zero	4
+	.long AssignStmt__AssignArray
+	.long MM_AssignStmt+902
+	.zero	4
+	.long AssignStmt__AssertSameSize
+	.long MM_AssignStmt+914
+	.zero	4
+	.long AssignStmt__AssignSet
+	.long MM_AssignStmt+929
+	.zero	4
+	.long AssignStmt__AssignRecord
+	.long MM_AssignStmt+939
+	.zero	4
+	.long AssignStmt__AssignProcedure
+	.long MM_AssignStmt+952
+	.zero	4
+	.long AssignStmt__AssignReference
+	.long MM_AssignStmt+968
+	.zero	4
+	.long AssignStmt__AssignFloat
+	.long MM_AssignStmt+984
+	.zero	4
+	.long AssignStmt__AssignOrdinal
+	.long MM_AssignStmt+996
+	.zero	4
+	.long AssignStmt__Emit
+	.long MM_AssignStmt+1010
+	.long MI_AssignStmt+56
+	.long AssignStmt__CanAvoidCopy
+	.long MM_AssignStmt+1015
+	.zero	4
+	.long AssignStmt__PrepForEmit
+	.long MM_AssignStmt+1028
+	.long MI_AssignStmt+52
+	.long AssignStmt__NeedsClosureCheck
+	.long MM_AssignStmt+1040
+	.zero	4
+	.long AssignStmt__CheckProcedure
+	.long MM_AssignStmt+1058
+	.zero	4
+	.long AssignStmt__CheckReference
+	.long MM_AssignStmt+1073
+	.zero	4
+	.long AssignStmt__CheckOrdinal
+	.long MM_AssignStmt+1088
+	.zero	4
+	.long AssignStmt__Check
+	.long MM_AssignStmt+1101
+	.long MI_AssignStmt+48
+	.long AssignStmt__GetOutcome
+	.long MM_AssignStmt+1107
+	.zero	4
+	.long AssignStmt__Compile
+	.long MM_AssignStmt+1118
+	.zero	4
+	.long AssignStmt__CheckMethod
+	.long MM_AssignStmt+1126
+	.zero	4
+	.long AssignStmt__Parse
+	.long MM_AssignStmt+1138
+	.long MI_AssignStmt+44
+	.zero	4
+	.ascii	"/home/ftp/tmp/pm3/tmp/pm3-1.1.15/language/modula3/m3compiler"
+	.ascii	"/m3bootstrap/LINUXLIBC6/pm3-LINUXLIBC6/boot-LINUXLIBC6/m3fro"
+	.ascii	"nt/src/stmts/AssignStmt.m3"
+	.zero	1
+.byte 4
+.byte 4
+.byte 0
+.byte 4
+.byte 4
+.byte 0
+.byte 3
+.byte 10
+.byte 2
+.byte 16
+.byte 11
+.byte 185
+.byte 21
+.byte 235
+.byte 23
+	.ascii	"AssignStmt.P"
+	.zero	2
+	.ident	"GCC: (GNU) cygnus-2.7.2-960712"

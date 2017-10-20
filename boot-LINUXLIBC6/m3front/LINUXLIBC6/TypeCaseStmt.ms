@@ -1,0 +1,1598 @@
+	.file	"TypeCaseStmt.mc"
+	.version	"01.01"
+/ SRC Modula-3 version cygnus-2.7.2-960712 (i486--linuxelf) compiled by GNU C version egcs-2.91.66 19990314/Linux (egcs-1.1.2 release).
+/ options passed:  -fno-strength-reduce -O2
+/ options enabled:  -fdefer-pop -fcse-follow-jumps -fcse-skip-blocks
+/ -fexpensive-optimizations -fthread-jumps -fpeephole -fforce-mem
+/ -ffunction-cse -finline -fkeep-static-consts -fcaller-saves
+/ -fpcc-struct-return -frerun-cse-after-loop -fschedule-insns2 -fcommon
+/ -fverbose-asm -fgnu-linker -m80387 -mhard-float -mno-soft-float -mieee-fp
+/ -mfp-ret-in-387 -mschedule-prologue -mcpu=i486 -march=i486
+
+gcc2_compiled.:
+.text
+	.align 16
+	.type	 TypeCaseStmt__Parse,@function
+TypeCaseStmt__Parse:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %esi
+	pushl %ebx
+	movl MM_TypeCaseStmt+300,%eax
+	pushl %eax
+	movl MI_RTHooks+80,%eax
+	call *%eax
+	movl %eax,%esi
+	pushl %esi
+	movl MI_StmtRep+148,%eax
+	xorb %bl,%bl
+	call *%eax
+	movl $0,16(%esi)
+	movb %bl,20(%esi)
+	movb %bl,21(%esi)
+	movl $0,24(%esi)
+	pushl $96
+	movl MI_Scanner+108,%eax
+	call *%eax
+	movl MI_Expr+148,%eax
+	call *%eax
+	movl %eax,12(%esi)
+	pushl $79
+	movl MI_Scanner+108,%eax
+	call *%eax
+	addl $16,%esp
+	cmpb $32,MI_Scanner+44
+	sete %bl
+	testb %bl,%bl
+	je .L3
+	movl MI_Scanner+104,%eax
+.L10:
+	call *%eax
+.L3:
+	xorl %eax,%eax
+	movb MI_Scanner+44,%al
+	cmpl $56,%eax
+	je .L5
+	cmpl $58,%eax
+	je .L5
+	xorb %bl,%bl
+	pushl %esi
+	call TypeCaseStmt__ParseCase
+	addl $4,%esp
+	cmpb $32,MI_Scanner+44
+	jne .L5
+	movl MI_Scanner+104,%eax
+	movb $1,%bl
+	jmp .L10
+	.align 16
+.L5:
+	pushl %esi
+	call TypeCaseStmt__ReverseCases
+	addl $4,%esp
+	testb %bl,%bl
+	je .L8
+	pushl $MM_TypeCaseStmt+312
+	movl MI_Scanner+116,%eax
+	call *%eax
+	addl $4,%esp
+.L8:
+	cmpb $56,MI_Scanner+44
+	jne .L9
+	movl MI_Scanner+104,%eax
+	call *%eax
+	movb $1,21(%esi)
+	movl MI_Stmt+44,%eax
+	call *%eax
+	movl %eax,24(%esi)
+.L9:
+	pushl $58
+	movl MI_Scanner+108,%eax
+	call *%eax
+	leal -8(%ebp),%esp
+	movl %esi,%eax
+	popl %ebx
+	popl %esi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe1:
+	.size	 TypeCaseStmt__Parse,.Lfe1-TypeCaseStmt__Parse
+	.align 16
+	.type	 TypeCaseStmt__ParseCase,@function
+TypeCaseStmt__ParseCase:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $16,%esp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%ebx
+	movl MM_TypeCaseStmt+336,%eax
+	pushl %eax
+	movl MI_RTHooks+80,%eax
+	xorl %edi,%edi
+	call *%eax
+	movl %eax,%edx
+	movl %edx,%esi
+	addl $4,%esp
+	testl %edx,%edx
+	jne .L12
+	pushl $1364
+	call _m3_fault
+	.align 16
+.L12:
+	movl MI_Scanner+88,%eax
+	movl %eax,(%edx)
+	movl 16(%ebx),%eax
+	movl %eax,4(%edx)
+	movl %esi,16(%ebx)
+	movl %esi,%edx
+	leal -12(%ebp),%eax
+	leal -4(%ebp),%ecx
+	movl %edi,16(%edx)
+	movl %edi,20(%edx)
+	movl %edi,24(%edx)
+	movl %edi,8(%edx)
+	movl %ecx,-12(%ebp)
+	movl $1,-8(%ebp)
+	movl $2,-4(%ebp)
+	pushl %eax
+	movl MM_TypeCaseStmt+344,%eax
+	pushl %eax
+	movl MI_RTHooks+84,%eax
+	call *%eax
+	movl %eax,%edx
+	addl $8,%esp
+	movl %edx,12(%esi)
+.L19:
+	testl %esi,%esi
+	jne .L21
+	pushl $1508
+	call _m3_fault
+	.align 16
+.L21:
+	movl 12(%esi),%eax
+	testl %eax,%eax
+	jne .L22
+	pushl $1508
+	call _m3_fault
+	.align 16
+.L22:
+	movl 4(%eax),%eax
+	decl %eax
+	cmpl %eax,8(%esi)
+	jle .L23
+	pushl %esi
+	call TypeCaseStmt__ExpandTags
+	addl $4,%esp
+.L23:
+	movl MI_Type+56,%eax
+	call *%eax
+	movl %eax,%ebx
+	movl 12(%esi),%eax
+	testl %eax,%eax
+	jne .L25
+	pushl $1524
+	call _m3_fault
+	.align 16
+.L25:
+	movl %eax,%edx
+	movl 8(%esi),%edi
+	cmpl %edi,4(%edx)
+	ja .L27
+	pushl $1522
+	call _m3_fault
+	.align 16
+.L27:
+	movl (%edx),%eax
+	movl %ebx,(%eax,%edi,4)
+	incl 8(%esi)
+	xorl %eax,%eax
+	movb MI_Scanner+44,%al
+	cmpl $15,%eax
+	jne .L30
+	movl MI_Scanner+104,%eax
+	call *%eax
+	jmp .L19
+	.align 16
+.L30:
+	cmpl $17,%eax
+	jne .L31
+	movl MI_Scanner+104,%eax
+	call *%eax
+	movl MI_Scanner+112,%eax
+	call *%eax
+	movl %eax,-16(%ebp)
+	movl MI_Variable+112,%eax
+	call *%eax
+	movl %eax,%ebx
+	pushl $0
+	movl -16(%ebp),%ecx
+	pushl %ecx
+	movl MI_Variable+48,%eax
+	movl %ebx,%edi
+	call *%eax
+	movl %eax,%ebx
+	addl $8,%esp
+	movl %ebx,16(%esi)
+	pushl %ebx
+	movl MI_Scope+56,%eax
+	call *%eax
+	movl %eax,%edx
+	movl %esi,%ebx
+	addl $4,%esp
+	movl %edx,20(%ebx)
+	pushl %edi
+	movl 16(%ebx),%eax
+	pushl %eax
+	movl MI_Variable+116,%eax
+	call *%eax
+	addl $8,%esp
+	movl 12(%ebx),%eax
+	testl %eax,%eax
+	jne .L38
+	pushl $1732
+	call _m3_fault
+	.align 16
+.L38:
+	movl %eax,%ebx
+	cmpl $0,4(%ebx)
+	jne .L39
+	pushl $1730
+	call _m3_fault
+	.align 16
+.L39:
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $0
+	movl (%ebx),%eax
+	movl (%eax),%eax
+	pushl %eax
+	movl 16(%esi),%eax
+	pushl %eax
+	movl MI_Variable+56,%eax
+	call *%eax
+	pushl $29
+	movl MI_Scanner+108,%eax
+	call *%eax
+	pushl $34
+	movl MI_Scanner+108,%eax
+	call *%eax
+	movl MI_Stmt+44,%eax
+	addl $32,%esp
+	call *%eax
+	movl %eax,%ebx
+	testl %esi,%esi
+	jne .L40
+	pushl $1812
+	call _m3_fault
+	.align 16
+.L40:
+	movl %ebx,24(%esi)
+	movl MI_Scope+48,%eax
+	call *%eax
+	jmp .L11
+	.align 16
+.L31:
+	pushl $34
+	movl MI_Scanner+108,%eax
+	call *%eax
+	movl MI_Stmt+44,%eax
+	call *%eax
+	movl %eax,%edx
+	movl %edx,24(%esi)
+.L11:
+	leal -28(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe2:
+	.size	 TypeCaseStmt__ParseCase,.Lfe2-TypeCaseStmt__ParseCase
+	.align 16
+	.type	 TypeCaseStmt__ExpandTags,@function
+TypeCaseStmt__ExpandTags:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $20,%esp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%edi
+	testl %edi,%edi
+	jne .L44
+	pushl $1988
+	call _m3_fault
+	.align 16
+.L44:
+	movl 12(%edi),%ebx
+	leal -12(%ebp),%eax
+	leal -4(%ebp),%esi
+	movl %esi,-12(%ebp)
+	movl $1,-8(%ebp)
+	testl %ebx,%ebx
+	jne .L45
+	pushl $2004
+	call _m3_fault
+	.align 16
+.L45:
+	movl 4(%ebx),%esi
+	addl %esi,%esi
+	movl %esi,-4(%ebp)
+	pushl %eax
+	movl MM_TypeCaseStmt+344,%eax
+	pushl %eax
+	movl MI_RTHooks+84,%eax
+	call *%eax
+	movl %eax,%ecx
+	addl $8,%esp
+	xorl %edx,%edx
+	movl 4(%ebx),%esi
+	decl %esi
+	movl %esi,-16(%ebp)
+	jmp .L47
+	.align 16
+.L48:
+	testl %ecx,%ecx
+	jne .L49
+	pushl $2020
+	call _m3_fault
+	.align 16
+.L49:
+	cmpl %edx,4(%ecx)
+	ja .L50
+	pushl $2018
+	call _m3_fault
+	.align 16
+.L50:
+	movl (%ecx),%eax
+	leal (%eax,%edx,4),%eax
+	movl %eax,-20(%ebp)
+	testl %ebx,%ebx
+	jne .L51
+	pushl $2020
+	call _m3_fault
+	.align 16
+.L51:
+	cmpl %edx,4(%ebx)
+	ja .L52
+	pushl $2018
+	call _m3_fault
+	.align 16
+.L52:
+	movl (%ebx),%eax
+	movl -20(%ebp),%esi
+	movl (%eax,%edx,4),%eax
+	movl %eax,(%esi)
+	incl %edx
+.L47:
+	cmpl %edx,-16(%ebp)
+	jge .L48
+	testl %edi,%edi
+	jne .L54
+	pushl $2036
+	call _m3_fault
+	.align 16
+.L54:
+	leal -32(%ebp),%esp
+	movl %ecx,12(%edi)
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe3:
+	.size	 TypeCaseStmt__ExpandTags,.Lfe3-TypeCaseStmt__ExpandTags
+	.align 16
+	.type	 TypeCaseStmt__ReverseCases,@function
+TypeCaseStmt__ReverseCases:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %ebx
+	movl 8(%ebp),%ebx
+	xorl %ecx,%ecx
+	movl 16(%ebx),%edx
+	jmp .L56
+	.align 16
+.L57:
+	movl 4(%edx),%eax
+	movl %ecx,4(%edx)
+	movl %edx,%ecx
+	movl %eax,%edx
+.L56:
+	testl %edx,%edx
+	jne .L57
+	movl %ecx,16(%ebx)
+	movl -4(%ebp),%ebx
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe4:
+	.size	 TypeCaseStmt__ReverseCases,.Lfe4-TypeCaseStmt__ReverseCases
+	.align 16
+	.type	 TypeCaseStmt__Check,@function
+TypeCaseStmt__Check:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%esi
+	movl 12(%ebp),%eax
+	pushl %eax
+	movl 12(%esi),%eax
+	pushl %eax
+	movl MI_Expr+156,%eax
+	call *%eax
+	movl 12(%esi),%eax
+	pushl %eax
+	movl MI_Expr+152,%eax
+	call *%eax
+	pushl %eax
+	movl MI_Type+80,%eax
+	call *%eax
+	movl %eax,%edi
+	movl MI_Reff+44,%eax
+	pushl %eax
+	pushl %edi
+	movl MI_Type+120,%eax
+	call *%eax
+	addl $24,%esp
+	testl %eax,%eax
+	jne .L62
+	movl MI_ObjectAdr+44,%eax
+	pushl %eax
+	pushl %edi
+	movl MI_Type+120,%eax
+	call *%eax
+	addl $8,%esp
+	testl %eax,%eax
+	jne .L62
+	pushl $MM_TypeCaseStmt+356
+	movl MI_Error+44,%eax
+	call *%eax
+	addl $4,%esp
+.L62:
+	movb 21(%esi),%al
+	movb %al,20(%esi)
+	movl 16(%esi),%ebx
+	jmp .L63
+	.align 16
+.L64:
+	movl 12(%ebp),%eax
+	pushl %eax
+	pushl %edi
+	pushl %ebx
+	call TypeCaseStmt__CheckCase
+	addl $12,%esp
+	testl %eax,%eax
+	je .L66
+	movb $1,20(%esi)
+.L66:
+	movl 4(%ebx),%ebx
+.L63:
+	testl %ebx,%ebx
+	jne .L64
+	movl 12(%ebp),%eax
+	pushl %eax
+	movl 24(%esi),%eax
+	pushl %eax
+	movl MI_Stmt+48,%eax
+	call *%eax
+	addl $8,%esp
+	cmpb $0,20(%esi)
+	jne .L61
+	movl 4(%esi),%eax
+	movl %eax,MI_Scanner+88
+	pushl $MM_TypeCaseStmt+416
+	pushl $1
+	movl MI_Error+64,%eax
+	call *%eax
+.L61:
+	leal -12(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe5:
+	.size	 TypeCaseStmt__Check,.Lfe5-TypeCaseStmt__Check
+	.align 16
+	.type	 TypeCaseStmt__CheckCase,@function
+TypeCaseStmt__CheckCase:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $12,%esp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%esi
+	movb $0,-4(%ebp)
+	xorl %ebx,%ebx
+	testl %esi,%esi
+	jne .L70
+	pushl $2836
+	call _m3_fault
+	.align 16
+.L70:
+	movl 12(%esi),%eax
+	testl %eax,%eax
+	jne .L71
+	pushl $2836
+	call _m3_fault
+	.align 16
+.L71:
+	cmpl $0,4(%eax)
+	jne .L72
+	pushl $2834
+	call _m3_fault
+	.align 16
+.L72:
+	movl (%eax),%eax
+	movl (%eax),%eax
+	movl %eax,-8(%ebp)
+	movl 8(%esi),%edx
+	decl %edx
+	movl %edx,-12(%ebp)
+	jmp .L74
+	.align 16
+.L75:
+	testl %esi,%esi
+	jne .L76
+	pushl $2868
+	call _m3_fault
+	.align 16
+.L76:
+	movl 12(%esi),%eax
+	testl %eax,%eax
+	jne .L77
+	pushl $2868
+	call _m3_fault
+	.align 16
+.L77:
+	cmpl %ebx,4(%eax)
+	ja .L78
+	pushl $2866
+	call _m3_fault
+	.align 16
+.L78:
+	movl (%eax),%eax
+	movl (%eax,%ebx,4),%eax
+	pushl %eax
+	movl MI_Type+64,%eax
+	call *%eax
+	movl %eax,%edi
+	addl $4,%esp
+	movl 12(%esi),%eax
+	testl %eax,%eax
+	jne .L80
+	pushl $2884
+	call _m3_fault
+	.align 16
+.L80:
+	cmpl %ebx,4(%eax)
+	ja .L81
+	pushl $2882
+	call _m3_fault
+	.align 16
+.L81:
+	movl (%eax),%eax
+	movl %edi,(%eax,%ebx,4)
+	cmpl $0,20(%esi)
+	je .L83
+	pushl $0
+	movl -8(%ebp),%edx
+	pushl %edx
+	pushl %edi
+	movl MI_Type+116,%eax
+	call *%eax
+	addl $12,%esp
+	testl %eax,%eax
+	jne .L83
+	movl (%esi),%eax
+	movl %eax,MI_Scanner+88
+	pushl $MM_TypeCaseStmt+472
+	movl MI_Error+44,%eax
+	call *%eax
+	addl $4,%esp
+.L83:
+	movl 12(%ebp),%edx
+	pushl %edx
+	pushl %edi
+	movl MI_Type+120,%eax
+	call *%eax
+	addl $8,%esp
+	testl %eax,%eax
+	jne .L85
+	testl %esi,%esi
+	jne .L86
+	pushl $2996
+	call _m3_fault
+	.align 16
+.L86:
+	movl (%esi),%eax
+	movl %eax,MI_Scanner+88
+	pushl $MM_TypeCaseStmt+516
+	movl MI_Error+44,%eax
+	call *%eax
+	addl $4,%esp
+.L85:
+	movl $1,%eax
+	cmpb $0,-4(%ebp)
+	jne .L87
+	pushl %edi
+	movl 12(%ebp),%edx
+	pushl %edx
+	movl MI_Type+120,%eax
+	call *%eax
+	addl $8,%esp
+	testl %eax,%eax
+	setne %al
+	andl $255,%eax
+.L87:
+	movb %al,-4(%ebp)
+	incl %ebx
+.L74:
+	cmpl %ebx,-12(%ebp)
+	jge .L75
+	testl %esi,%esi
+	jne .L89
+	pushl $3108
+	call _m3_fault
+	.align 16
+.L89:
+	movl 20(%esi),%eax
+	testl %eax,%eax
+	je .L96
+	pushl %eax
+	movl MI_Scope+60,%eax
+	call *%eax
+	movl %eax,%ebx
+	addl $4,%esp
+	movl 16(%ebp),%eax
+	pushl %eax
+	movl 20(%esi),%eax
+	pushl %eax
+	movl MI_Scope+92,%eax
+	call *%eax
+	addl $8,%esp
+	movl 16(%ebp),%eax
+	pushl %eax
+	movl 24(%esi),%eax
+	pushl %eax
+	movl MI_Stmt+48,%eax
+	call *%eax
+	addl $8,%esp
+	movl 20(%esi),%eax
+	pushl %eax
+	movl MI_Scope+96,%eax
+	call *%eax
+	pushl %ebx
+	movl MI_Scope+64,%eax
+	call *%eax
+	jmp .L95
+	.align 16
+.L96:
+	movl 16(%ebp),%eax
+	pushl %eax
+	movl 24(%esi),%eax
+	pushl %eax
+	movl MI_Stmt+48,%eax
+	call *%eax
+.L95:
+	leal -24(%ebp),%esp
+	xorl %eax,%eax
+	movb -4(%ebp),%al
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe6:
+	.size	 TypeCaseStmt__CheckCase,.Lfe6-TypeCaseStmt__CheckCase
+	.align 16
+	.type	 TypeCaseStmt__Compile,@function
+TypeCaseStmt__Compile:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $24,%esp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movb $0,-20(%ebp)
+	pushl $1
+	movl MI_CG+52,%eax
+	call *%eax
+	movl 8(%ebp),%edx
+	movl %eax,-16(%ebp)
+	movl 16(%edx),%eax
+	pushl %eax
+	call TypeCaseStmt__CntCases
+	pushl %eax
+	movl MI_CG+52,%eax
+	call *%eax
+	movl %eax,-12(%ebp)
+	pushl $1
+	movl MI_CG+52,%eax
+	call *%eax
+	movl %eax,-8(%ebp)
+	pushl $1
+	movl MI_CG+52,%eax
+	call *%eax
+	movl 8(%ebp),%edx
+	movl %eax,-4(%ebp)
+	movl 12(%edx),%eax
+	pushl %eax
+	movl MI_Expr+152,%eax
+	call *%eax
+	pushl %eax
+	movl MI_Type+80,%eax
+	call *%eax
+	movl %eax,%esi
+	pushl %esi
+	movl MI_Type+140,%eax
+	call *%eax
+	movl 8(%ebp),%edx
+	addl $32,%esp
+	movl 12(%edx),%eax
+	pushl %eax
+	movl MI_Expr+200,%eax
+	call *%eax
+	movl 8(%ebp),%edx
+	movl 12(%edx),%eax
+	pushl %eax
+	movl MI_Expr+204,%eax
+	call *%eax
+	pushl %esi
+	movl MI_Type+132,%eax
+	xorl %ebx,%ebx
+	call *%eax
+	pushl %ebx
+	pushl %ebx
+	pushl %ebx
+	pushl %eax
+	pushl %ebx
+	movl MI_Target+64,%eax
+	pushl %eax
+	movl MI_Target+60,%eax
+	pushl %eax
+	pushl %ebx
+	movl MI_CG+200,%eax
+	call *%eax
+	addl $44,%esp
+	movl %eax,-24(%ebp)
+	pushl %ebx
+	movl -24(%ebp),%edx
+	pushl %edx
+	movl MI_CG+412,%eax
+	call *%eax
+	pushl %ebx
+	movl -24(%ebp),%edx
+	pushl %edx
+	movl MI_CG+388,%eax
+	call *%eax
+	movl MI_CG+416,%eax
+	call *%eax
+	pushl $50
+	pushl %ebx
+	movl -16(%ebp),%edx
+	pushl %edx
+	movl MI_CG+332,%eax
+	call *%eax
+	pushl %ebx
+	movl -24(%ebp),%edx
+	pushl %edx
+	movl MI_CG+388,%eax
+	call *%eax
+	movl MI_CG+764,%eax
+	addl $36,%esp
+	call *%eax
+	movl MI_CG+220,%eax
+	call *%eax
+	movl %eax,%edi
+	movl 8(%ebp),%edx
+	xorl %esi,%esi
+	movl 16(%edx),%ebx
+	jmp .L98
+	.align 16
+.L99:
+	movl -12(%ebp),%eax
+	addl %esi,%eax
+	pushl %eax
+	pushl %edi
+	pushl %ebx
+	movl 8(%ebp),%edx
+	pushl %edx
+	call TypeCaseStmt__CompileCaseTest
+	movb %al,-20(%ebp)
+	addl $16,%esp
+	testb %al,%al
+	je .L105
+	movl 4(%ebx),%eax
+	testl %eax,%eax
+	je .L102
+	pushl %eax
+	call TypeCaseStmt__UnreachableCases
+	addl $4,%esp
+.L102:
+	xorl %ebx,%ebx
+	jmp .L104
+	.align 16
+.L105:
+	movl 4(%ebx),%ebx
+.L104:
+	incl %esi
+.L98:
+	testl %ebx,%ebx
+	jne .L99
+	cmpb $0,-20(%ebp)
+	jne .L107
+	movl -8(%ebp),%edx
+	pushl %edx
+	movl MI_CG+320,%eax
+	call *%eax
+	addl $4,%esp
+.L107:
+	pushl %edi
+	movl MI_CG+232,%eax
+	call *%eax
+	movl %ebx,%edi
+	pushl %edi
+	movl -16(%ebp),%edx
+	pushl %edx
+	movl MI_CG+316,%eax
+	call *%eax
+	movl 8(%ebp),%edx
+	movl %edi,%esi
+	addl $12,%esp
+	movl 16(%edx),%ebx
+	jmp .L108
+	.align 16
+.L109:
+	movl -4(%ebp),%edx
+	pushl %edx
+	movl -12(%ebp),%eax
+	addl %esi,%eax
+	pushl %eax
+	movl -24(%ebp),%edx
+	pushl %edx
+	pushl %ebx
+	call TypeCaseStmt__CompileCaseBody
+	orl %eax,%edi
+	addl $16,%esp
+	movl 4(%ebx),%ebx
+	incl %esi
+.L108:
+	testl %ebx,%ebx
+	jne .L109
+	cmpb $0,-20(%ebp)
+	je .L112
+	movl 8(%ebp),%edx
+	movl 24(%edx),%eax
+	testl %eax,%eax
+	je .L114
+	movl 4(%eax),%eax
+	movl %eax,MI_Scanner+88
+	pushl $MM_TypeCaseStmt+576
+	pushl $1
+	movl MI_Error+64,%eax
+	call *%eax
+	addl $8,%esp
+	jmp .L114
+	.align 16
+.L112:
+	pushl %ebx
+	movl -8(%ebp),%edx
+	pushl %edx
+	movl MI_CG+316,%eax
+	call *%eax
+	movl 8(%ebp),%edx
+	addl $8,%esp
+	cmpb $0,21(%edx)
+	je .L115
+	movl 24(%edx),%eax
+	pushl %eax
+	movl MI_Stmt+52,%eax
+	call *%eax
+	orl %eax,%edi
+	addl $4,%esp
+	jmp .L114
+	.align 16
+.L115:
+	movl 8(%ebp),%edx
+	cmpb $0,20(%edx)
+	jne .L114
+	cmpb $0,MI_Host+87
+	je .L114
+	movl MI_CG+676,%eax
+	call *%eax
+.L114:
+	pushl $0
+	movl -4(%ebp),%edx
+	pushl %edx
+	movl MI_CG+316,%eax
+	call *%eax
+	leal -36(%ebp),%esp
+	movl %edi,%eax
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe7:
+	.size	 TypeCaseStmt__Compile,.Lfe7-TypeCaseStmt__Compile
+	.align 16
+	.type	 TypeCaseStmt__CntCases,@function
+TypeCaseStmt__CntCases:
+	pushl %ebp
+	movl %esp,%ebp
+	xorl %eax,%eax
+	movl 8(%ebp),%edx
+	jmp .L119
+	.align 16
+.L120:
+	incl %eax
+	movl 4(%edx),%edx
+.L119:
+	testl %edx,%edx
+	jne .L120
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe8:
+	.size	 TypeCaseStmt__CntCases,.Lfe8-TypeCaseStmt__CntCases
+	.align 16
+	.type	 TypeCaseStmt__CompileCaseTest,@function
+TypeCaseStmt__CompileCaseTest:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $12,%esp
+	pushl %edi
+	pushl %esi
+	xorl %esi,%esi
+	pushl %ebx
+	movl 8(%ebp),%ebx
+	cmpl $0,12(%ebp)
+	jne .L124
+	pushl $4756
+	call _m3_fault
+	.align 16
+.L124:
+	movl 12(%ebp),%edx
+	movl (%edx),%eax
+	pushl %eax
+	movl MI_CG+72,%eax
+	call *%eax
+	movl 12(%ebx),%eax
+	pushl %eax
+	movl MI_Expr+152,%eax
+	call *%eax
+	movl %eax,-4(%ebp)
+	addl $8,%esp
+	movl 12(%ebp),%ecx
+	movl %esi,-8(%ebp)
+	movl 8(%ecx),%ecx
+	decl %ecx
+	movl %ecx,-12(%ebp)
+	jmp .L126
+	.align 16
+.L127:
+	cmpl $0,12(%ebp)
+	jne .L128
+	pushl $4804
+	call _m3_fault
+	.align 16
+.L128:
+	movl 12(%ebp),%edx
+	movl 12(%edx),%eax
+	testl %eax,%eax
+	jne .L129
+	pushl $4804
+	call _m3_fault
+	.align 16
+.L129:
+	movl -8(%ebp),%ecx
+	cmpl %ecx,4(%eax)
+	ja .L130
+	pushl $4802
+	call _m3_fault
+	.align 16
+.L130:
+	movl (%eax),%eax
+	movl -8(%ebp),%edx
+	movl (%eax,%edx,4),%esi
+	pushl $0
+	movl MI_Null+44,%eax
+	pushl %eax
+	pushl %esi
+	movl MI_Type+116,%eax
+	call *%eax
+	movl %eax,%ebx
+	addl $12,%esp
+	testl %ebx,%ebx
+	jne .L132
+	pushl %esi
+	movl -4(%ebp),%ecx
+	pushl %ecx
+	movl MI_Type+120,%eax
+	call *%eax
+	movl %eax,%ebx
+	addl $8,%esp
+	testl %ebx,%ebx
+	je .L133
+	movl 20(%ebp),%edx
+	pushl %edx
+	movl MI_CG+320,%eax
+	call *%eax
+	movl $1,%eax
+	jmp .L136
+	.align 16
+.L133:
+	pushl %esi
+	movl MI_RefType+56,%eax
+	call *%eax
+	movl %eax,%ebx
+	addl $4,%esp
+	testl %ebx,%ebx
+	je .L134
+	movl 16(%ebp),%ecx
+	pushl %ecx
+	movl MI_CG+228,%eax
+	call *%eax
+	pushl $0
+	movl MI_M3RT+172,%eax
+	pushl %eax
+	pushl %esi
+	movl MI_Type+144,%eax
+	call *%eax
+	pushl $50
+	pushl $2
+	movl 20(%ebp),%edx
+	pushl %edx
+	movl MI_CG+332,%eax
+	call *%eax
+	addl $28,%esp
+	jmp .L132
+	.align 16
+.L134:
+	pushl $1
+	movl MI_CG+52,%eax
+	call *%eax
+	movl %eax,%edi
+	movl 16(%ebp),%ecx
+	pushl %ecx
+	movl MI_CG+228,%eax
+	call *%eax
+	pushl %ebx
+	movl MI_M3RT+172,%eax
+	pushl %eax
+	pushl %esi
+	movl MI_Type+144,%eax
+	call *%eax
+	pushl $50
+	pushl $2
+	pushl %edi
+	movl MI_CG+348,%eax
+	call *%eax
+	addl $32,%esp
+	movl 16(%ebp),%edx
+	pushl %edx
+	movl MI_CG+228,%eax
+	call *%eax
+	pushl %ebx
+	movl MI_M3RT+176,%eax
+	pushl %eax
+	pushl %esi
+	movl MI_Type+144,%eax
+	call *%eax
+	pushl $50
+	pushl $2
+	movl 20(%ebp),%ecx
+	pushl %ecx
+	movl MI_CG+352,%eax
+	call *%eax
+	pushl %ebx
+	pushl %edi
+	movl MI_CG+316,%eax
+	call *%eax
+	addl $36,%esp
+.L132:
+	incl -8(%ebp)
+.L126:
+	movl -12(%ebp),%edx
+	cmpl %edx,-8(%ebp)
+	jle .L127
+	xorl %eax,%eax
+.L136:
+	leal -24(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe9:
+	.size	 TypeCaseStmt__CompileCaseTest,.Lfe9-TypeCaseStmt__CompileCaseTest
+	.align 16
+	.type	 TypeCaseStmt__CompileCaseBody,@function
+TypeCaseStmt__CompileCaseBody:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %edi
+	pushl %esi
+	xorl %edi,%edi
+	pushl %ebx
+	movl 8(%ebp),%esi
+	movl 16(%ebp),%ebx
+	testl %esi,%esi
+	jne .L138
+	pushl $5284
+	call _m3_fault
+	.align 16
+.L138:
+	movl (%esi),%eax
+	pushl %eax
+	movl MI_CG+72,%eax
+	call *%eax
+	pushl %edi
+	pushl %ebx
+	movl MI_CG+316,%eax
+	call *%eax
+	addl $12,%esp
+	movl 20(%esi),%eax
+	testl %eax,%eax
+	je .L150
+	pushl %eax
+	movl MI_Scope+60,%eax
+	call *%eax
+	movl %eax,%edi
+	addl $4,%esp
+	movl 20(%esi),%eax
+	pushl %eax
+	movl MI_Scope+100,%eax
+	call *%eax
+	addl $4,%esp
+	movl 20(%esi),%eax
+	pushl %eax
+	movl MI_Scope+104,%eax
+	call *%eax
+	addl $4,%esp
+	movl 16(%esi),%eax
+	pushl %eax
+	movl MI_Variable+88,%eax
+	call *%eax
+	pushl $0
+	movl 12(%ebp),%edx
+	pushl %edx
+	movl MI_CG+388,%eax
+	call *%eax
+	movl MI_Target+60,%eax
+	pushl %eax
+	pushl $0
+	pushl $0
+	movl MI_CG+400,%eax
+	call *%eax
+	addl $24,%esp
+	movl 16(%esi),%eax
+	pushl %eax
+	movl MI_Variable+124,%eax
+	call *%eax
+	addl $4,%esp
+	movl 24(%esi),%eax
+	pushl %eax
+	movl MI_Stmt+52,%eax
+	call *%eax
+	movl %eax,%ebx
+	addl $4,%esp
+	testb $1,%bl
+	je .L148
+	movl 20(%ebp),%edx
+	pushl %edx
+	movl MI_CG+320,%eax
+	call *%eax
+	addl $4,%esp
+.L148:
+	movl 20(%esi),%eax
+	pushl %eax
+	movl MI_Scope+108,%eax
+	call *%eax
+	pushl %edi
+	movl MI_Scope+64,%eax
+	jmp .L152
+	.align 16
+.L150:
+	movl 24(%esi),%eax
+	pushl %eax
+	movl MI_Stmt+52,%eax
+	call *%eax
+	movl %eax,%ebx
+	addl $4,%esp
+	testb $1,%bl
+	je .L149
+	movl 20(%ebp),%edx
+	pushl %edx
+	movl MI_CG+320,%eax
+.L152:
+	call *%eax
+.L149:
+	leal -12(%ebp),%esp
+	movl %ebx,%eax
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe10:
+	.size	 TypeCaseStmt__CompileCaseBody,.Lfe10-TypeCaseStmt__CompileCaseBody
+	.align 16
+	.type	 TypeCaseStmt__UnreachableCases,@function
+TypeCaseStmt__UnreachableCases:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%ebx
+	movl MI_Scanner+88,%esi
+	jmp .L154
+	.align 16
+.L155:
+	movl (%ebx),%eax
+	movl %eax,MI_Scanner+88
+	pushl $MM_TypeCaseStmt+620
+	pushl $1
+	movl MI_Error+64,%eax
+	call *%eax
+	addl $8,%esp
+	movl 4(%ebx),%ebx
+.L154:
+	testl %ebx,%ebx
+	jne .L155
+	leal -8(%ebp),%esp
+	movl %esi,MI_Scanner+88
+	popl %ebx
+	popl %esi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe11:
+	.size	 TypeCaseStmt__UnreachableCases,.Lfe11-TypeCaseStmt__UnreachableCases
+	.align 16
+	.type	 TypeCaseStmt__GetOutcome,@function
+TypeCaseStmt__GetOutcome:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%edi
+	xorl %esi,%esi
+	movl 16(%edi),%ebx
+	jmp .L160
+	.align 16
+.L161:
+	movl 24(%ebx),%eax
+	pushl %eax
+	movl MI_Stmt+56,%eax
+	call *%eax
+	orl %eax,%esi
+	addl $4,%esp
+	movl 4(%ebx),%ebx
+.L160:
+	testl %ebx,%ebx
+	jne .L161
+	cmpb $0,21(%edi)
+	je .L165
+	movl 24(%edi),%eax
+	pushl %eax
+	movl MI_Stmt+56,%eax
+	call *%eax
+	orl %eax,%esi
+.L165:
+	leal -12(%ebp),%esp
+	movl %esi,%eax
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe12:
+	.size	 TypeCaseStmt__GetOutcome,.Lfe12-TypeCaseStmt__GetOutcome
+	.align 16
+	.type	 M_TypeCaseStmt_t7572ce59_LINK,@function
+M_TypeCaseStmt_t7572ce59_LINK:
+	pushl %ebp
+	movl %esp,%ebp
+	movl MM_TypeCaseStmt+300,%eax
+	movl %ebp,%esp
+	movl 52(%eax),%edx
+	movl MM_TypeCaseStmt+264,%eax
+	movl %eax,4(%edx)
+	movl MM_TypeCaseStmt+272,%eax
+	movl %eax,8(%edx)
+	movl MM_TypeCaseStmt+292,%eax
+	movl %eax,12(%edx)
+	popl %ebp
+	ret
+.Lfe13:
+	.size	 M_TypeCaseStmt_t7572ce59_LINK,.Lfe13-M_TypeCaseStmt_t7572ce59_LINK
+	.align 16
+	.type	 _m3_fault,@function
+_m3_fault:
+	pushl %ebp
+	movl %esp,%ebp
+	movl 8(%ebp),%eax
+	pushl %eax
+	pushl $MM_TypeCaseStmt
+	movl MI_RTHooks+108,%eax
+	call *%eax
+	.align 16
+.Lfe14:
+	.size	 _m3_fault,.Lfe14-_m3_fault
+.globl MM_TypeCaseStmt
+.data
+	.align 4
+	.type	 MM_TypeCaseStmt,@object
+	.size	 MM_TypeCaseStmt,1192
+MM_TypeCaseStmt:
+	.long MM_TypeCaseStmt+932
+	.long MM_TypeCaseStmt+44
+	.long MM_TypeCaseStmt+300
+	.zero	8
+	.long MM_TypeCaseStmt+784
+	.zero	28
+	.long 1970458201
+.byte 20
+.byte 176
+.byte 94
+.byte 107
+.byte 77
+.byte 126
+.byte 44
+.byte 30
+	.long 1
+	.zero	4
+	.long 16
+	.long 4
+	.zero	4
+	.long 0
+	.zero	12
+	.long MM_TypeCaseStmt+1145
+	.long MM_TypeCaseStmt+1152
+	.long MM_TypeCaseStmt+1157
+	.zero	4
+	.long M_TypeCaseStmt_t7572ce59_LINK
+	.long 1595657850
+	.zero	16
+	.long MM_TypeCaseStmt+1177
+	.long MM_TypeCaseStmt+148
+	.zero	8
+	.long 2133855293
+.byte 211
+.byte 45
+.byte 124
+.byte 119
+.byte 238
+.byte 33
+.byte 76
+.byte 8
+	.long 1
+	.zero	4
+	.long 28
+	.long 4
+	.zero	20
+	.long MM_TypeCaseStmt+1081
+	.long MM_TypeCaseStmt+1089
+	.long MM_TypeCaseStmt+1097
+	.zero	28
+	.long MM_TypeCaseStmt+1127
+	.zero	4
+	.long TypeCaseStmt__ParseCase
+	.long TypeCaseStmt__ExpandTags
+	.long TypeCaseStmt__ReverseCases
+	.long TypeCaseStmt__Check
+	.long TypeCaseStmt__CheckCase
+	.long TypeCaseStmt__Compile
+	.long TypeCaseStmt__CntCases
+	.long TypeCaseStmt__CompileCaseTest
+	.long TypeCaseStmt__CompileCaseBody
+	.long TypeCaseStmt__UnreachableCases
+	.long TypeCaseStmt__GetOutcome
+	.long TypeCaseStmt__Parse
+	.long MM_TypeCaseStmt+336
+	.long 1970458201
+	.long 2
+	.long MM_TypeCaseStmt+320
+	.long 13
+	.ascii	"missing case"
+	.zero	4
+	.long MM_TypeCaseStmt+344
+	.long 2133855293
+	.zero	4
+	.long 1942183804
+	.long 2
+	.long MM_TypeCaseStmt+364
+	.long 47
+	.ascii	"typecase selector must be a REF or OBJECT type"
+	.zero	2
+	.long 2
+	.long MM_TypeCaseStmt+424
+	.long 44
+	.ascii	"TYPECASE statement may not handle all cases"
+	.zero	1
+	.long 2
+	.long MM_TypeCaseStmt+480
+	.long 29
+	.ascii	"type labels are incompatible"
+	.zero	4
+	.long 2
+	.long MM_TypeCaseStmt+524
+	.long 45
+	.ascii	"type label incompatible with case expression"
+	.zero	4
+	.long 2
+	.long MM_TypeCaseStmt+584
+	.long 29
+	.ascii	"unreachable ELSE in TYPECASE"
+	.zero	4
+	.long 2
+	.long MM_TypeCaseStmt+628
+	.long 17
+	.ascii	"unreachable case"
+	.zero	4
+	.ascii	"GetOutcome"
+	.zero	1
+	.ascii	"UnreachableCases"
+	.zero	1
+	.ascii	"CompileCaseBody"
+	.zero	1
+	.ascii	"CompileCaseTest"
+	.zero	1
+	.ascii	"CntCases"
+	.zero	1
+	.ascii	"Compile"
+	.zero	1
+	.ascii	"CheckCase"
+	.zero	1
+	.ascii	"Check"
+	.zero	1
+	.ascii	"ReverseCases"
+	.zero	1
+	.ascii	"ExpandTags"
+	.zero	1
+	.ascii	"ParseCase"
+	.zero	1
+	.ascii	"Parse"
+	.zero	4
+	.long TypeCaseStmt__GetOutcome
+	.long MM_TypeCaseStmt+648
+	.zero	4
+	.long TypeCaseStmt__UnreachableCases
+	.long MM_TypeCaseStmt+659
+	.zero	4
+	.long TypeCaseStmt__CompileCaseBody
+	.long MM_TypeCaseStmt+676
+	.zero	4
+	.long TypeCaseStmt__CompileCaseTest
+	.long MM_TypeCaseStmt+692
+	.zero	4
+	.long TypeCaseStmt__CntCases
+	.long MM_TypeCaseStmt+708
+	.zero	4
+	.long TypeCaseStmt__Compile
+	.long MM_TypeCaseStmt+717
+	.zero	4
+	.long TypeCaseStmt__CheckCase
+	.long MM_TypeCaseStmt+725
+	.zero	4
+	.long TypeCaseStmt__Check
+	.long MM_TypeCaseStmt+735
+	.zero	4
+	.long TypeCaseStmt__ReverseCases
+	.long MM_TypeCaseStmt+741
+	.zero	4
+	.long TypeCaseStmt__ExpandTags
+	.long MM_TypeCaseStmt+754
+	.zero	4
+	.long TypeCaseStmt__ParseCase
+	.long MM_TypeCaseStmt+765
+	.zero	4
+	.long TypeCaseStmt__Parse
+	.long MM_TypeCaseStmt+775
+	.long MI_TypeCaseStmt+44
+	.zero	4
+	.ascii	"/home/ftp/tmp/pm3/tmp/pm3-1.1.15/language/modula3/m3compiler"
+	.ascii	"/m3bootstrap/LINUXLIBC6/pm3-LINUXLIBC6/boot-LINUXLIBC6/m3fro"
+	.ascii	"nt/src/stmts/TypeCaseStmt.m3"
+	.zero	1
+.byte 14
+.byte 4
+.byte 14
+.byte 4
+.byte 4
+.byte 4
+.byte 4
+.byte 0
+.byte 37
+.byte 4
+.byte 37
+.byte 4
+.byte 4
+.byte 4
+.byte 4
+.byte 0
+.byte 8
+.byte 15
+.byte 7
+.byte 7
+.byte 16
+.byte 61
+.byte 12
+.byte 48
+.byte 127
+.byte 23
+.byte 16
+.byte 124
+.byte 95
+.byte 195
+.byte 115
+.byte 16
+.byte 25
+.byte 159
+.byte 238
+.byte 8
+.byte 16
+.byte 225
+.byte 46
+.byte 241
+.byte 204
+.byte 16
+.byte 122
+.byte 206
+.byte 27
+.byte 95
+	.ascii	"TypeCaseStmt.Case"
+	.zero	1
+.byte 4
+.byte 4
+.byte 16
+.byte 16
+.byte 35
+.byte 4
+.byte 0
+.byte 4
+.byte 4
+.byte 37
+.byte 4
+.byte 0
+.byte 6
+.byte 10
+.byte 5
+.byte 16
+.byte 11
+.byte 185
+.byte 21
+.byte 235
+.byte 16
+.byte 61
+.byte 12
+.byte 48
+.byte 127
+.byte 2
+.byte 25
+.byte 16
+.byte 122
+.byte 206
+.byte 27
+.byte 95
+	.ascii	"TypeCaseStmt.P"
+	.zero	1
+	.ident	"GCC: (GNU) cygnus-2.7.2-960712"

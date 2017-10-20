@@ -1,0 +1,3 @@
+install_file("libm3config.a", "/usr/local/pm3/lib/m3/pkg/m3config/LINUXLIBC6", "0644")
+install_file("libm3config.m3x", "/usr/local/pm3/lib/m3/pkg/m3config/LINUXLIBC6", "0644")
+install_file("/home/ftp/tmp/pm3/tmp/pm3-1.1.15/language/modula3/m3compiler/m3bootstrap/LINUXLIBC6/pm3-LINUXLIBC6/boot-LINUXLIBC6/m3config/LINUXLIBC6/M3Config.i3", "/usr/local/pm3/lib/m3/pkg/m3config/LINUXLIBC6", "0644")

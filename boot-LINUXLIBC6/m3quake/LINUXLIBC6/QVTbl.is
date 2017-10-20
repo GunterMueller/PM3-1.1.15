@@ -1,0 +1,103 @@
+	.file	"QVTbl.ic"
+	.version	"01.01"
+/ SRC Modula-3 version cygnus-2.7.2-960712 (i486--linuxelf) compiled by GNU C version egcs-2.91.66 19990314/Linux (egcs-1.1.2 release).
+/ options passed:  -fno-strength-reduce -O2
+/ options enabled:  -fdefer-pop -fcse-follow-jumps -fcse-skip-blocks
+/ -fexpensive-optimizations -fthread-jumps -fpeephole -fforce-mem
+/ -ffunction-cse -finline -fkeep-static-consts -fcaller-saves
+/ -fpcc-struct-return -frerun-cse-after-loop -fschedule-insns2 -fcommon
+/ -fverbose-asm -fgnu-linker -m80387 -mhard-float -mno-soft-float -mieee-fp
+/ -mfp-ret-in-387 -mschedule-prologue -mcpu=i486 -march=i486
+
+gcc2_compiled.:
+.globl MI_QVTbl
+.data
+	.align 4
+	.type	 MI_QVTbl,@object
+	.size	 MI_QVTbl,432
+MI_QVTbl:
+	.long MI_QVTbl+356
+	.long MI_QVTbl+44
+	.zero	44
+	.long -1174334778
+.byte 201
+.byte 69
+.byte 28
+.byte 168
+.byte 15
+.byte 87
+.byte 29
+.byte 18
+	.long 1
+	.zero	4
+	.long 0
+	.long 1
+	.zero	4
+	.long 20
+	.zero	20
+	.long MI_QVTbl+420
+	.zero	8
+	.long -1651526519
+	.zero	16
+	.long MI_QVTbl+423
+	.long MI_QVTbl+148
+	.zero	8
+	.long -1802554677
+.byte 1
+.byte 237
+.byte 49
+.byte 144
+.byte 202
+.byte 223
+.byte 190
+.byte 4
+	.long 1
+	.zero	4
+	.long 0
+	.long 1
+	.zero	4
+	.long 4
+	.zero	20
+	.long MI_QVTbl+402
+	.zero	8
+	.long -1651526519
+	.zero	16
+	.long MI_QVTbl+405
+	.long MI_QVTbl+252
+	.zero	8
+	.long 1486429961
+.byte 32
+.byte 97
+.byte 42
+.byte 95
+.byte 41
+.byte 126
+.byte 179
+.byte 7
+	.long 1
+	.zero	4
+	.long 0
+	.long 1
+	.zero	4
+	.long 12
+	.zero	20
+	.long MI_QVTbl+399
+	.zero	8
+	.long -1174334778
+	.zero	24
+	.ascii	"QVTbl.i3 => ../../libm3/src/table/Table.ig"
+	.zero	1
+.byte 1
+.byte 10
+.byte 0
+.byte 1
+.byte 10
+.byte 0
+	.ascii	"QVTbl.Iterator"
+	.zero	1
+.byte 1
+.byte 10
+.byte 0
+	.ascii	"QVTbl.T"
+	.zero	2
+	.ident	"GCC: (GNU) cygnus-2.7.2-960712"

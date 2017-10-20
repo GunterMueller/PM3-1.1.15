@@ -1,0 +1,105 @@
+	.file	"IntRefTbl.ic"
+	.version	"01.01"
+/ SRC Modula-3 version cygnus-2.7.2-960712 (i486--linuxelf) compiled by GNU C version egcs-2.91.66 19990314/Linux (egcs-1.1.2 release).
+/ options passed:  -fno-strength-reduce -O2
+/ options enabled:  -fdefer-pop -fcse-follow-jumps -fcse-skip-blocks
+/ -fexpensive-optimizations -fthread-jumps -fpeephole -fforce-mem
+/ -ffunction-cse -finline -fkeep-static-consts -fcaller-saves
+/ -fpcc-struct-return -frerun-cse-after-loop -fschedule-insns2 -fcommon
+/ -fverbose-asm -fgnu-linker -m80387 -mhard-float -mno-soft-float -mieee-fp
+/ -mfp-ret-in-387 -mschedule-prologue -mcpu=i486 -march=i486
+
+gcc2_compiled.:
+.globl MI_IntRefTbl
+.data
+	.align 4
+	.type	 MI_IntRefTbl,@object
+	.size	 MI_IntRefTbl,552
+MI_IntRefTbl:
+	.long MI_IntRefTbl+356
+	.long MI_IntRefTbl+44
+	.zero	44
+	.long 1523825195
+.byte 225
+.byte 142
+.byte 1
+.byte 90
+.byte 202
+.byte 52
+.byte 210
+.byte 0
+	.long 1
+	.zero	4
+	.long 0
+	.long 1
+	.zero	4
+	.long 20
+	.zero	20
+	.long MI_IntRefTbl+537
+	.zero	8
+	.long -1651526519
+	.zero	16
+	.long MI_IntRefTbl+540
+	.long MI_IntRefTbl+148
+	.zero	8
+	.long 2032361058
+.byte 84
+.byte 245
+.byte 39
+.byte 96
+.byte 54
+.byte 171
+.byte 4
+.byte 25
+	.long 1
+	.zero	4
+	.long 0
+	.long 1
+	.zero	4
+	.long 4
+	.zero	20
+	.long MI_IntRefTbl+515
+	.zero	8
+	.long -1651526519
+	.zero	16
+	.long MI_IntRefTbl+518
+	.long MI_IntRefTbl+252
+	.zero	8
+	.long 1969248737
+.byte 40
+.byte 84
+.byte 219
+.byte 109
+.byte 201
+.byte 13
+.byte 187
+.byte 24
+	.long 1
+	.zero	4
+	.long 0
+	.long 1
+	.zero	4
+	.long 12
+	.zero	20
+	.long MI_IntRefTbl+512
+	.zero	8
+	.long 1523825195
+	.zero	24
+	.ascii	"IntRefTbl.i3 => /home/ftp/tmp/pm3/tmp/pm3-1.1.15/language/mo"
+	.ascii	"dula3/m3compiler/m3bootstrap/LINUXLIBC6/pm3-LINUXLIBC6/boot-"
+	.ascii	"LINUXLIBC6/libm3/src/table/Table.ig"
+	.zero	1
+.byte 1
+.byte 10
+.byte 0
+.byte 1
+.byte 10
+.byte 0
+	.ascii	"IntRefTbl.Iterator"
+	.zero	1
+.byte 1
+.byte 10
+.byte 0
+	.ascii	"IntRefTbl.T"
+	.zero	1
+	.ident	"GCC: (GNU) cygnus-2.7.2-960712"

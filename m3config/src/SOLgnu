@@ -1,0 +1,52 @@
+% 
+% Standard configuration file for SOLgnu (Solaris 2.x w/gcc)
+%
+
+readonly TARGET = "SOLgnu"
+
+include("COMMON")
+
+%INSTALL_ROOT = "/usr/local"
+
+X11ROOT = "/usr/openwin/lib"
+
+proc import_X11() is
+  import_lib("Xaw", X11ROOT)
+  import_lib("Xmu", X11ROOT)
+  import_lib("Xext", X11ROOT)
+  import_lib("Xt", X11ROOT)
+  import_lib("X11", X11ROOT)
+end
+
+PLATFORM_SUPPORTS_MOTIF  = "T"
+PLATFORM_SUPPORTS_SHARED_LIB = "T"
+PLATFORM_SUPPORTS_LATEX = ""
+SKIP_LLSCAN = "T"
+
+CC = [ "gcc", "-Wa,-P", "-c" ]
+LINK = [ "gcc" ]
+MAKELIB = [ "/usr/ccs/bin/ar", "cru" ]
+MAKESHLIB = [ "/usr/ccs/bin/ld", "-dy", "-G", "-z", "text" ]
+ASM = [ "/usr/ccs/bin/as", "-s", "-o" ]
+
+STATIC_FLAG = [ "-Xlinker", "-dy", "-Xlinker", "-Bstatic" ]
+LINK_suffix = [ "-lsocket", "-lnsl", "-lm", "-lintl", "-Xlinker", "-Bdynamic",
+    "-ldl" ]
+RPATH_FLAG = "-Xlinker"
+RPATH_prefix = "-R"
+
+setDefault("","")
+
+proc m3_assemble (source, object) is
+  local cmd = [ ASM_CMD, object, source ]
+
+  if Options{"shared_lib"}[0] cmd += [ "-K", "PIC" ] end
+  if VERBOSE write(cmd, CR) end
+  return exec (cmd)
+end
+
+proc install_file (src, dest, mode) is
+  Note_install (src, dest)
+  local ret = exec (["/usr/ucb/install", "-c", "-m", mode, src, dest])
+  if not equal(ret, 0) error("install failed with error code: ", ret) end
+end

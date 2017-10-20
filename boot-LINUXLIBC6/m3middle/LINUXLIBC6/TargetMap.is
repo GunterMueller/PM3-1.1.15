@@ -1,0 +1,29 @@
+	.file	"TargetMap.ic"
+	.version	"01.01"
+/ SRC Modula-3 version cygnus-2.7.2-960712 (i486--linuxelf) compiled by GNU C version egcs-2.91.66 19990314/Linux (egcs-1.1.2 release).
+/ options passed:  -fno-strength-reduce -O2
+/ options enabled:  -fdefer-pop -fcse-follow-jumps -fcse-skip-blocks
+/ -fexpensive-optimizations -fthread-jumps -fpeephole -fforce-mem
+/ -ffunction-cse -finline -fkeep-static-consts -fcaller-saves
+/ -fpcc-struct-return -frerun-cse-after-loop -fschedule-insns2 -fcommon
+/ -fverbose-asm -fgnu-linker -m80387 -mhard-float -mno-soft-float -mieee-fp
+/ -mfp-ret-in-387 -mschedule-prologue -mcpu=i486 -march=i486
+
+gcc2_compiled.:
+.globl MI_TargetMap
+.data
+	.align 4
+	.type	 MI_TargetMap,@object
+	.size	 MI_TargetMap,612
+MI_TargetMap:
+	.long MI_TargetMap+468
+	.zero	312
+	.long L_1
+	.zero	148
+	.ascii	"/home/ftp/tmp/pm3/tmp/pm3-1.1.15/language/modula3/m3compiler"
+	.ascii	"/m3bootstrap/LINUXLIBC6/pm3-LINUXLIBC6/boot-LINUXLIBC6/m3mid"
+	.ascii	"dle/src/TargetMap.i3"
+	.zero	4
+	.local	L_1
+	.comm	L_1,288,4
+	.ident	"GCC: (GNU) cygnus-2.7.2-960712"

@@ -1,0 +1,12558 @@
+	.file	"M3Driver.mc"
+	.version	"01.01"
+/ SRC Modula-3 version cygnus-2.7.2-960712 (i486--linuxelf) compiled by GNU C version egcs-2.91.66 19990314/Linux (egcs-1.1.2 release).
+/ options passed:  -fno-strength-reduce -O2
+/ options enabled:  -fdefer-pop -fcse-follow-jumps -fcse-skip-blocks
+/ -fexpensive-optimizations -fthread-jumps -fpeephole -fforce-mem
+/ -ffunction-cse -finline -fkeep-static-consts -fcaller-saves
+/ -fpcc-struct-return -frerun-cse-after-loop -fschedule-insns2 -fcommon
+/ -fverbose-asm -fgnu-linker -m80387 -mhard-float -mno-soft-float -mieee-fp
+/ -mfp-ret-in-387 -mschedule-prologue -mcpu=i486 -march=i486
+
+gcc2_compiled.:
+.text
+	.align 16
+	.type	 M3Driver__ResetCompiler,@function
+M3Driver__ResetCompiler:
+	pushl %ebp
+	movl %esp,%ebp
+	movl 8(%ebp),%eax
+	pushl %eax
+	call M3Driver__Init
+	movl MI_MxVS+44,%eax
+	call *%eax
+	movl MI_Unit+44,%eax
+	call *%eax
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe1:
+	.size	 M3Driver__ResetCompiler,.Lfe1-M3Driver__ResetCompiler
+	.align 16
+	.type	 M3Driver__Compile,@function
+M3Driver__Compile:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $180,%esp
+.L3:
+	movl $MM_M3Driver+1224,-172(%ebp)
+	movl $0,-176(%ebp)
+	movl RTThread__handlerStack,%eax
+	movl %eax,-180(%ebp)
+	leal -180(%ebp),%edx
+	movl %edx,RTThread__handlerStack
+	leal -160(%ebp),%eax
+	pushl %eax
+	call _setjmp
+	addl $4,%esp
+	testl %eax,%eax
+	jne .L4
+	movl 8(%ebp),%edx
+	pushl %edx
+	call M3Driver__InitFromInterface
+	call M3Driver__DoIt
+	movl -180(%ebp),%eax
+	movl %eax,RTThread__handlerStack
+	jmp .L2
+	.align 16
+.L4:
+	pushl $0
+	pushl $MI_M3Driver+44
+	movl MI_RTHooks+52,%eax
+	call *%eax
+.L2:
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe2:
+	.size	 M3Driver__Compile,.Lfe2-M3Driver__Compile
+	.align 16
+	.type	 M3Driver__InitFromInterface,@function
+M3Driver__InitFromInterface:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %ebx
+	movl 8(%ebp),%ebx
+	movl %ebx,MM_M3Driver+256
+	movb 4(%ebx),%al
+	movb %al,MM_M3Driver+290
+	movb 5(%ebx),%al
+	movb %al,MM_M3Driver+296
+	movb 6(%ebx),%al
+	movb %al,MM_M3Driver+297
+	movb 7(%ebx),%al
+	movb %al,MM_M3Driver+299
+	movb 8(%ebx),%al
+	movb %al,MM_M3Driver+323
+	movb 9(%ebx),%al
+	movb %al,MM_M3Driver+300
+	movb 10(%ebx),%al
+	movb %al,MM_M3Driver+281
+	movb 11(%ebx),%al
+	movb %al,MM_M3Driver+289
+	movb 12(%ebx),%al
+	movb %al,MM_M3Driver+288
+	movb 13(%ebx),%al
+	movb %al,MM_M3Driver+298
+	movb 14(%ebx),%al
+	movb %al,MM_M3Driver+322
+	movb 15(%ebx),%al
+	movb %al,MM_M3Driver+301
+	cmpb $0,16(%ebx)
+	je .L8
+	movl MI_M3Timers+136,%eax
+	call *%eax
+.L8:
+	movb 17(%ebx),%al
+	movb %al,MM_M3Driver+291
+	movl 20(%ebx),%eax
+	movl %eax,MM_M3Driver+264
+	movl 24(%ebx),%eax
+	movl %eax,MM_M3Driver+268
+	movb 28(%ebx),%al
+	movb %al,MM_M3Driver+272
+	movl 36(%ebx),%edx
+	movl $4,%eax
+	cmpl %edx,%eax
+	jle .L9
+	movl %edx,%eax
+.L9:
+	xorl %edx,%edx
+	testl %eax,%eax
+	jle .L10
+	movl %eax,%edx
+.L10:
+	cmpl $4,%edx
+	jbe .L12
+	pushl $2401
+	call _m3_fault
+	.align 16
+.L12:
+	pushl %edx
+	movl MI_Msg+48,%eax
+	call *%eax
+	xorl %eax,%eax
+	movb MI_Msg+44,%al
+	addl $4,%esp
+	cmpl $2,%eax
+	jle .L13
+	movl MI_M3Timers+136,%eax
+	call *%eax
+.L13:
+	movl 32(%ebx),%eax
+	movl %eax,MM_M3Driver+324
+	movb 48(%ebx),%al
+	movb %al,MM_M3Driver+292
+	movb 49(%ebx),%al
+	movb %al,MM_M3Driver+320
+	movb 51(%ebx),%al
+	movb %al,MM_M3Driver+328
+	movb 50(%ebx),%al
+	movb %al,MM_M3Driver+321
+	movl 44(%ebx),%eax
+	pushl %eax
+	call M3Driver__SetTarget
+	movb 52(%ebx),%al
+	movb %al,MM_M3Driver+302
+	movb 54(%ebx),%al
+	movb %al,MM_M3Driver+294
+	movb 53(%ebx),%al
+	movb %al,MM_M3Driver+293
+	movb 55(%ebx),%al
+	movb %al,MM_M3Driver+496
+	movl -4(%ebp),%ebx
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe3:
+	.size	 M3Driver__InitFromInterface,.Lfe3-M3Driver__InitFromInterface
+	.align 16
+	.type	 M3Driver__ResetASTCache,@function
+M3Driver__ResetASTCache:
+	pushl %ebp
+	movl %esp,%ebp
+	movl MM_M3Driver+1232,%eax
+	pushl %eax
+	movl MI_RTHooks+80,%eax
+	call *%eax
+	movl %eax,%edx
+	movl (%edx),%eax
+	movl 24(%eax),%eax
+	pushl $100
+	pushl %edx
+	call *%eax
+	movl %eax,MM_M3Driver+380
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe4:
+	.size	 M3Driver__ResetASTCache,.Lfe4-M3Driver__ResetASTCache
+	.align 16
+	.type	 M3Driver__Setup,@function
+M3Driver__Setup:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %ebx
+	movl 8(%ebp),%eax
+	movl 12(%ebp),%ebx
+	pushl %eax
+	call M3Driver__SetHostOS
+	pushl %ebx
+	call M3Driver__SetTargetOS
+	movl -4(%ebp),%ebx
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe5:
+	.size	 M3Driver__Setup,.Lfe5-M3Driver__Setup
+	.align 16
+	.type	 M3Driver__Init,@function
+M3Driver__Init:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %ebx
+	movl 8(%ebp),%eax
+	movl $0,MM_M3Driver+256
+	movl %eax,MM_M3Driver+260
+	movl MM_M3Driver+1240,%eax
+	pushl %eax
+	movl MI_RTHooks+80,%eax
+	call *%eax
+	movl %eax,%edx
+	movl %edx,MM_M3Driver+492
+	movl $0,MM_M3Driver+264
+	movl $0,MM_M3Driver+268
+	movb $0,MM_M3Driver+272
+	movl $0,MM_M3Driver+276
+	movl MI_Time+44,%eax
+	movb $0,MM_M3Driver+280
+	call *%eax
+	subl $8,%esp
+	fstpl (%esp)
+	movl MI_Utils+116,%eax
+	call *%eax
+	movl %eax,MM_M3Driver+284
+	movb $0,MM_M3Driver+288
+	movb $0,MM_M3Driver+289
+	movb $0,MM_M3Driver+290
+	movb $0,MM_M3Driver+291
+	movb $0,MM_M3Driver+292
+	movb $0,MM_M3Driver+293
+	movb $0,MM_M3Driver+294
+	movb $0,MM_M3Driver+295
+	movb $0,MM_M3Driver+296
+	movb $0,MM_M3Driver+297
+	movb $0,MM_M3Driver+298
+	movb $0,MM_M3Driver+299
+	movb $0,MM_M3Driver+300
+	movb $0,MM_M3Driver+301
+	movb $0,MM_M3Driver+302
+	movl $0,MM_M3Driver+312
+	movl MM_M3Driver+1248,%eax
+	pushl %eax
+	movl MI_RTHooks+80,%eax
+	call *%eax
+	movl %eax,%edx
+	movl (%edx),%eax
+	movl 4(%eax),%ebx
+	pushl $5
+	pushl %edx
+	call *%ebx
+	movl %eax,%edx
+	movl %edx,MM_M3Driver+316
+	movb $0,MM_M3Driver+320
+	movb $0,MM_M3Driver+321
+	movb $0,MM_M3Driver+322
+	movb $0,MM_M3Driver+323
+	movl $0,MM_M3Driver+324
+	movb $0,MM_M3Driver+328
+	movl MI_Arg+252,%eax
+	movl $0,MM_M3Driver+332
+	call *%eax
+	movl %eax,%edx
+	movl MI_Arg+252,%eax
+	movl %edx,MM_M3Driver+336
+	call *%eax
+	movl %eax,%edx
+	movl %edx,MI_M3DriverRep+44
+	movl $0,MM_M3Driver+340
+	movl $0,MI_M3DriverRep+152
+	movl $0,MM_M3Driver+344
+	movl MM_M3Driver+1256,%eax
+	pushl %eax
+	movl MI_RTHooks+80,%eax
+	call *%eax
+	movl %eax,%edx
+	movl (%edx),%eax
+	movl 24(%eax),%ebx
+	pushl $100
+	pushl %edx
+	call *%ebx
+	movl %eax,%edx
+	movl %edx,MM_M3Driver+348
+	addl $36,%esp
+	movl MM_M3Driver+1256,%eax
+	pushl %eax
+	movl MI_RTHooks+80,%eax
+	call *%eax
+	movl %eax,%edx
+	movl (%edx),%eax
+	movl 24(%eax),%ebx
+	pushl $100
+	pushl %edx
+	call *%ebx
+	movl %eax,%edx
+	movl %edx,MM_M3Driver+352
+	movl MM_M3Driver+1264,%eax
+	pushl %eax
+	movl MI_RTHooks+80,%eax
+	call *%eax
+	movl %eax,%edx
+	movl (%edx),%eax
+	movl 24(%eax),%ebx
+	pushl $100
+	pushl %edx
+	call *%ebx
+	movl %eax,%edx
+	movl %edx,MM_M3Driver+356
+	movl MM_M3Driver+1264,%eax
+	pushl %eax
+	movl MI_RTHooks+80,%eax
+	call *%eax
+	movl %eax,%edx
+	movl (%edx),%eax
+	movl 24(%eax),%ebx
+	pushl $100
+	pushl %edx
+	call *%ebx
+	movl %eax,%edx
+	movl %edx,MM_M3Driver+360
+	movl $0,MM_M3Driver+364
+	addl $36,%esp
+	movl MM_M3Driver+1256,%eax
+	pushl %eax
+	movl MI_RTHooks+80,%eax
+	call *%eax
+	movl %eax,%edx
+	movl (%edx),%eax
+	movl 24(%eax),%ebx
+	pushl $20
+	pushl %edx
+	call *%ebx
+	movl %eax,%edx
+	movl %edx,MM_M3Driver+368
+	movl MM_M3Driver+1256,%eax
+	pushl %eax
+	movl MI_RTHooks+80,%eax
+	call *%eax
+	movl %eax,%edx
+	movl (%edx),%eax
+	movl 24(%eax),%ebx
+	pushl $20
+	pushl %edx
+	call *%ebx
+	movl %eax,%edx
+	movl %edx,MM_M3Driver+372
+	movl MM_M3Driver+1256,%eax
+	pushl %eax
+	movl MI_RTHooks+80,%eax
+	call *%eax
+	movl %eax,%edx
+	movl (%edx),%eax
+	movl 24(%eax),%ebx
+	pushl $100
+	pushl %edx
+	call *%ebx
+	movl %eax,%edx
+	movl %edx,MM_M3Driver+376
+	addl $36,%esp
+	movl MM_M3Driver+1232,%eax
+	pushl %eax
+	movl MI_RTHooks+80,%eax
+	call *%eax
+	movl %eax,%edx
+	movl (%edx),%eax
+	movl 24(%eax),%ebx
+	pushl $100
+	pushl %edx
+	call *%ebx
+	movl %eax,%edx
+	movl %edx,MM_M3Driver+380
+	movl $0,MM_M3Driver+384
+	movb $1,MM_M3Driver+496
+	movl -4(%ebp),%ebx
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe6:
+	.size	 M3Driver__Init,.Lfe6-M3Driver__Init
+	.align 16
+	.type	 M_M3Driver_LINE_332.0,@function
+M_M3Driver_LINE_332.0:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $4,%esp
+	movl %ecx,-4(%ebp)
+	call M3Driver__CleanUp
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe7:
+	.size	 M_M3Driver_LINE_332.0,.Lfe7-M_M3Driver_LINE_332.0
+	.align 16
+	.type	 M3Driver__DoIt,@function
+M3Driver__DoIt:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $16,%esp
+	movl $M_M3Driver_LINE_332.0,-8(%ebp)
+	movl %ebp,-4(%ebp)
+.L18:
+	movl $3,-12(%ebp)
+	movl RTThread__handlerStack,%eax
+	movl %eax,-16(%ebp)
+	leal -16(%ebp),%edx
+	movl %edx,RTThread__handlerStack
+	cmpb $0,MM_M3Driver+290
+	je .L19
+	call M3Driver__DumpConfiguration
+	movl MM_M3Driver+260,%eax
+	pushl %eax
+	movl MI_M3Timers+140,%eax
+	call *%eax
+	call M3Driver__CleanUp
+	pushl $0
+	movl MI_Process+156,%eax
+	call *%eax
+	addl $8,%esp
+.L19:
+	movl MM_M3Driver+312,%eax
+	testl %eax,%eax
+	jne .L20
+	pushl %eax
+	pushl %eax
+	pushl %eax
+	pushl $MM_M3Driver+1276
+	pushl %eax
+	movl MI_Msg+56,%eax
+	call *%eax
+	addl $20,%esp
+.L20:
+	call M3Driver__ReverseSources
+	call M3Driver__BuildSearchPaths
+	movl MI_M3Timers+128,%eax
+	pushl %eax
+	movl MI_ETimer+52,%eax
+	call *%eax
+	movl MI_Utils+96,%eax
+	call *%eax
+	movl MI_ETimer+56,%eax
+	call *%eax
+	call M3Driver__InhaleLinkInfo
+	call M3Driver__BuildLibraryPool
+	call M3Driver__CompileEverything
+	call M3Driver__DumpLinkInfo
+	movl MI_WebFile+48,%eax
+	call *%eax
+	addl $4,%esp
+	cmpl $0,MM_M3Driver+264
+	je .L21
+	cmpb $0,MM_M3Driver+296
+	je .L22
+	call M3Driver__BuildBootLibrary
+	jmp .L24
+	.align 16
+.L22:
+	call M3Driver__BuildLibrary
+	jmp .L24
+	.align 16
+.L21:
+	movl MM_M3Driver+268,%eax
+	testl %eax,%eax
+	jne .L25
+	pushl %eax
+	movl MI_M3Path+56,%eax
+	call *%eax
+	movl %eax,MM_M3Driver+268
+	addl $4,%esp
+.L25:
+	cmpb $0,MM_M3Driver+296
+	je .L26
+	call M3Driver__BuildBootProgram
+	jmp .L24
+	.align 16
+.L26:
+	call M3Driver__BuildProgram
+.L24:
+	cmpb $0,MM_M3Driver+280
+	je .L28
+	pushl $0
+	pushl $MI_M3Driver+68
+	movl MI_RTHooks+52,%eax
+	call *%eax
+	addl $8,%esp
+.L28:
+	movl -16(%ebp),%eax
+	movl %eax,RTThread__handlerStack
+	movl %ebp,%ecx
+	call M_M3Driver_LINE_332.0
+.L29:
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe8:
+	.size	 M3Driver__DoIt,.Lfe8-M3Driver__DoIt
+	.align 16
+	.type	 M3Driver__CleanUp,@function
+M3Driver__CleanUp:
+	pushl %ebp
+	movl %esp,%ebp
+	call M3Driver__DumpLinkInfo
+	movl MI_WebFile+48,%eax
+	call *%eax
+	movl MI_M3Timers+112,%eax
+	testl %eax,%eax
+	je .L32
+	cmpb $0,MM_M3Driver+320
+	jne .L35
+	cmpb $0,MM_M3Driver+321
+	jne .L33
+	pushl $MM_M3Driver+1320
+	jmp .L38
+	.align 16
+.L33:
+	pushl $MM_M3Driver+1364
+	jmp .L38
+	.align 16
+.L35:
+	cmpb $0,MM_M3Driver+321
+	jne .L32
+	pushl $MM_M3Driver+1408
+	movl MI_M3Timers+92,%eax
+.L38:
+	pushl %eax
+	movl MI_ETimer+48,%eax
+	call *%eax
+	addl $8,%esp
+.L32:
+	movl MM_M3Driver+260,%eax
+	pushl %eax
+	movl MI_M3Timers+140,%eax
+	call *%eax
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $0
+	movl MI_Msg+84,%eax
+	call *%eax
+	movl MI_Utils+76,%eax
+	addl $32,%esp
+	call *%eax
+	cmpb $0,MM_M3Driver+300
+	je .L31
+	pushl $2147483647
+	pushl $0
+	pushl $1
+	pushl $1
+	movl MI_RTutils+44,%eax
+	call *%eax
+	movl MI_RTCollector+60,%eax
+	call *%eax
+	pushl $2147483647
+	pushl $0
+	pushl $1
+	pushl $1
+	movl MI_RTutils+44,%eax
+	call *%eax
+.L31:
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe9:
+	.size	 M3Driver__CleanUp,.Lfe9-M3Driver__CleanUp
+	.align 16
+	.type	 M3Driver__SetTarget,@function
+M3Driver__SetTarget:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %ebx
+	movl 8(%ebp),%ebx
+	cmpb $0,MM_M3Driver+320
+	sete %al
+	andl $255,%eax
+	pushl %eax
+	pushl %ebx
+	movl MI_Target+44,%eax
+	call *%eax
+	addl $8,%esp
+	testl %eax,%eax
+	jne .L40
+	pushl %eax
+	pushl %eax
+	pushl %ebx
+	pushl $MM_M3Driver+1444
+	pushl %eax
+	movl MI_Msg+56,%eax
+	call *%eax
+.L40:
+	movl %ebx,MM_M3Driver+312
+	movl -4(%ebp),%ebx
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe10:
+	.size	 M3Driver__SetTarget,.Lfe10-M3Driver__SetTarget
+	.align 16
+	.type	 M3Driver__SetHostOS,@function
+M3Driver__SetHostOS:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $100,%esp
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%esi
+	pushl $100
+	pushl $0
+	leal -100(%ebp),%ebx
+	pushl %ebx
+	call memset
+	pushl %esi
+	pushl %ebx
+	call M3Driver__GetOSKind
+	pushl $1
+	pushl %ebx
+	movl MI_M3Path+44,%eax
+	call *%eax
+	leal -108(%ebp),%esp
+	movl %esi,MM_M3Driver+308
+	popl %ebx
+	popl %esi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe11:
+	.size	 M3Driver__SetHostOS,.Lfe11-M3Driver__SetHostOS
+	.align 16
+	.type	 M3Driver__SetTargetOS,@function
+M3Driver__SetTargetOS:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $100,%esp
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%esi
+	pushl $100
+	pushl $0
+	leal -100(%ebp),%ebx
+	pushl %ebx
+	call memset
+	pushl %esi
+	pushl %ebx
+	call M3Driver__GetOSKind
+	pushl $0
+	pushl %ebx
+	movl MI_M3Path+44,%eax
+	call *%eax
+	leal -108(%ebp),%esp
+	movl %esi,MM_M3Driver+304
+	popl %ebx
+	popl %esi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe12:
+	.size	 M3Driver__SetTargetOS,.Lfe12-M3Driver__SetTargetOS
+	.align 16
+	.type	 M3Driver__GetOSKind,@function
+M3Driver__GetOSKind:
+	pushl %ebp
+	movl %esp,%ebp
+	xorl %edx,%edx
+	pushl %ebx
+	movl 12(%ebp),%ecx
+.L44:
+	cmpl $21,%edx
+	jbe .L45
+	pushl $6305
+	call _m3_fault
+	.align 16
+.L45:
+	movl 8(%ebp),%eax
+	leal (%eax,%edx,4),%ebx
+	testl %ecx,%ecx
+	jne .L47
+	pushl $6308
+	call _m3_fault
+	.align 16
+.L47:
+	movl (%ecx,%edx,4),%eax
+	movl %eax,(%ebx)
+	incl %edx
+	cmpl $21,%edx
+	jle .L44
+	movl 8(%ebp),%edx
+	movl 92(%ecx),%eax
+	movl %eax,88(%edx)
+	movl 88(%ecx),%eax
+	movl %eax,92(%edx)
+	movb 100(%ecx),%al
+	movb %al,96(%edx)
+	movl 8(%ebp),%edx
+	movb 101(%ecx),%al
+	movb %al,97(%edx)
+	movl 8(%ebp),%edx
+	movb 104(%ecx),%al
+	movb %al,98(%edx)
+	movl -4(%ebp),%ebx
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe13:
+	.size	 M3Driver__GetOSKind,.Lfe13-M3Driver__GetOSKind
+	.align 16
+	.type	 M3Driver__PushPath,@function
+M3Driver__PushPath:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $4,%esp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%edi
+	pushl %edi
+	movl MI_Text+56,%eax
+	call *%eax
+	movl %eax,%edx
+	leal -1(%edx),%ebx
+	movl MM_M3Driver+308,%eax
+	addl $4,%esp
+	testl %eax,%eax
+	jne .L56
+	pushl $6468
+	call _m3_fault
+	.align 16
+.L56:
+	movb 102(%eax),%al
+	movb %al,-4(%ebp)
+	jmp .L57
+	.align 16
+.L58:
+	movl %ebx,%esi
+	jmp .L59
+	.align 16
+.L60:
+	decl %ebx
+.L59:
+	testl %ebx,%ebx
+	jl .L63
+	pushl %ebx
+	pushl %edi
+	movl MI_Text+52,%eax
+	call *%eax
+	movl %eax,%edx
+	xorl %eax,%eax
+	movb -4(%ebp),%al
+	addl $8,%esp
+	cmpl %eax,%edx
+	jne .L60
+.L63:
+	cmpl %esi,%ebx
+	jge .L64
+	leal 1(%ebx),%edx
+	testl %edx,%edx
+	jge .L65
+	pushl $6545
+	call _m3_fault
+	.align 16
+.L65:
+	movl %esi,%eax
+	subl %ebx,%eax
+	jns .L66
+	pushl $6545
+	call _m3_fault
+	.align 16
+.L66:
+	pushl %eax
+	pushl %edx
+	pushl %edi
+	movl MI_Text+64,%eax
+	call *%eax
+	pushl %eax
+	movl MI_M3DriverRep+44,%eax
+	pushl %eax
+	movl MI_Arg+260,%eax
+	call *%eax
+	addl $20,%esp
+.L64:
+	decl %ebx
+.L57:
+	testl %ebx,%ebx
+	jge .L58
+	leal -16(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe14:
+	.size	 M3Driver__PushPath,.Lfe14-M3Driver__PushPath
+	.align 16
+	.type	 M3Driver__DumpConfiguration,@function
+M3Driver__DumpConfiguration:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %ebx
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $0
+	movl MI_Wr+60,%eax
+	pushl %eax
+	movl MM_M3Driver+312,%eax
+	pushl %eax
+	pushl $MM_M3Driver+1488
+	movl MI_Msg+84,%eax
+	call *%eax
+	movl MI_M3DriverRep+44,%eax
+	pushl %eax
+	pushl $0
+	pushl $MM_M3Driver+1520
+	movl MI_Msg+88,%eax
+	call *%eax
+	addl $40,%esp
+	pushl $0
+	pushl $0
+	pushl $0
+	movl $MM_M3Driver+1136,%ebx
+	pushl $0
+	movl MI_Wr+60,%eax
+	pushl %eax
+	xorl %eax,%eax
+	movb MM_M3Driver+288,%al
+	movl (%ebx,%eax,4),%eax
+	pushl %eax
+	pushl $MM_M3Driver+1552
+	movl MI_Msg+84,%eax
+	call *%eax
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $0
+	movl MI_Wr+60,%eax
+	pushl %eax
+	xorl %eax,%eax
+	movb MM_M3Driver+296,%al
+	movl (%ebx,%eax,4),%eax
+	pushl %eax
+	pushl $MM_M3Driver+1584
+	movl MI_Msg+84,%eax
+	call *%eax
+	addl $56,%esp
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $0
+	movl MI_Wr+60,%eax
+	pushl %eax
+	xorl %eax,%eax
+	movb MM_M3Driver+297,%al
+	movl (%ebx,%eax,4),%eax
+	pushl %eax
+	pushl $MM_M3Driver+1616
+	movl MI_Msg+84,%eax
+	call *%eax
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $0
+	movl MI_Wr+60,%eax
+	pushl %eax
+	xorl %eax,%eax
+	movb MM_M3Driver+289,%al
+	movl (%ebx,%eax,4),%eax
+	pushl %eax
+	pushl $MM_M3Driver+1648
+	movl MI_Msg+84,%eax
+	call *%eax
+	addl $56,%esp
+	pushl $0
+	pushl $0
+	movl MI_Wr+60,%eax
+	pushl %eax
+	movl MM_M3Driver+324,%eax
+	pushl %eax
+	pushl $MM_M3Driver+1712
+	xorl %eax,%eax
+	movb MM_M3Driver+291,%al
+	movl (%ebx,%eax,4),%eax
+	pushl %eax
+	pushl $MM_M3Driver+1680
+	movl MI_Msg+84,%eax
+	call *%eax
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $0
+	movl MI_Wr+60,%eax
+	pushl %eax
+	xorl %eax,%eax
+	movb MM_M3Driver+281,%al
+	movl (%ebx,%eax,4),%eax
+	pushl %eax
+	pushl $MM_M3Driver+1728
+	movl MI_Msg+84,%eax
+	call *%eax
+	movl -4(%ebp),%ebx
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe15:
+	.size	 M3Driver__DumpConfiguration,.Lfe15-M3Driver__DumpConfiguration
+	.align 16
+	.type	 M3Driver__AddLibrary,@function
+M3Driver__AddLibrary:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%esi
+	movl 12(%ebp),%eax
+	pushl %eax
+	pushl %esi
+	call M3Driver__NewSource
+	movl %eax,%ebx
+	addl $8,%esp
+	testl %esi,%esi
+	je .L70
+	testl %ebx,%ebx
+	jne .L71
+	pushl $6964
+	call _m3_fault
+	.align 16
+.L71:
+	movl %esi,4(%ebx)
+	jmp .L72
+	.align 16
+.L70:
+	testl %ebx,%ebx
+	jne .L73
+	pushl $6980
+	call _m3_fault
+	.align 16
+.L73:
+	leal 28(%ebx),%eax
+	pushl %eax
+	call M3Driver__ResolveLib
+	addl $4,%esp
+	movl %eax,4(%ebx)
+.L72:
+	testl %ebx,%ebx
+	jne .L75
+	pushl $7012
+	call _m3_fault
+	.align 16
+.L75:
+	movb MM_M3Driver+292,%al
+	movb %al,43(%ebx)
+	movl MI_M3DriverRep+152,%eax
+	movl %eax,(%ebx)
+	leal -8(%ebp),%esp
+	movl %ebx,MI_M3DriverRep+152
+	popl %ebx
+	popl %esi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe16:
+	.size	 M3Driver__AddLibrary,.Lfe16-M3Driver__AddLibrary
+	.align 16
+	.type	 M3Driver__ResolveLib,@function
+M3Driver__ResolveLib:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %esi
+	pushl %ebx
+	movl MI_M3DriverRep+44,%eax
+	testl %eax,%eax
+	jne .L78
+	pushl $7108
+	call _m3_fault
+	.align 16
+.L78:
+	movl (%eax),%esi
+	jmp .L79
+	.align 16
+.L80:
+	pushl $1
+	movl 8(%ebp),%edx
+	xorl %eax,%eax
+	movb 8(%edx),%al
+	pushl %eax
+	movl 4(%edx),%eax
+	pushl %eax
+	movl (%esi),%eax
+	pushl %eax
+	movl MI_M3Path+48,%eax
+	call *%eax
+	movl %eax,%ebx
+	pushl %ebx
+	movl MI_Utils+104,%eax
+	call *%eax
+	addl $20,%esp
+	testl %eax,%eax
+	je .L84
+	pushl $0
+	pushl %ebx
+	pushl $MM_M3Driver+1784
+	movl 8(%ebp),%eax
+	movl 4(%eax),%eax
+	pushl %eax
+	pushl $MM_M3Driver+1760
+	movl MI_Msg+72,%eax
+	call *%eax
+	movl 8(%ebp),%edx
+	movl (%esi),%eax
+	movl %eax,(%edx)
+	jmp .L95
+	.align 16
+.L84:
+	pushl $1
+	pushl $15
+	movl 8(%ebp),%eax
+	movl 4(%eax),%eax
+	pushl %eax
+	movl (%esi),%eax
+	pushl %eax
+	movl MI_M3Path+48,%eax
+	call *%eax
+	movl %eax,%ebx
+	pushl %ebx
+	movl MI_Utils+104,%eax
+	call *%eax
+	addl $20,%esp
+	testl %eax,%eax
+	je .L88
+	pushl $0
+	pushl %ebx
+	pushl $MM_M3Driver+1784
+	movl 8(%ebp),%eax
+	movl 4(%eax),%eax
+	pushl %eax
+	pushl $MM_M3Driver+1760
+	movl MI_Msg+72,%eax
+	call *%eax
+	movl 8(%ebp),%edx
+	addl $20,%esp
+	movl (%esi),%eax
+	movl %eax,(%edx)
+	pushl $1
+	pushl $14
+	jmp .L96
+	.align 16
+.L88:
+	pushl $1
+	pushl $21
+	movl 8(%ebp),%eax
+	movl 4(%eax),%eax
+	pushl %eax
+	movl (%esi),%eax
+	pushl %eax
+	movl MI_M3Path+48,%eax
+	call *%eax
+	movl %eax,%ebx
+	pushl %ebx
+	movl MI_Utils+104,%eax
+	call *%eax
+	addl $20,%esp
+	testl %eax,%eax
+	je .L92
+	pushl $0
+	pushl %ebx
+	pushl $MM_M3Driver+1784
+	movl 8(%ebp),%eax
+	movl 4(%eax),%eax
+	pushl %eax
+	pushl $MM_M3Driver+1760
+	movl MI_Msg+72,%eax
+	call *%eax
+	movl 8(%ebp),%edx
+	addl $20,%esp
+	movl (%esi),%eax
+	movl %eax,(%edx)
+	pushl $1
+	pushl $21
+.L96:
+	movl 8(%ebp),%eax
+	movl 4(%eax),%eax
+	pushl %eax
+	movl (%esi),%eax
+	pushl %eax
+	movl MI_M3Path+48,%eax
+	call *%eax
+	movl %eax,%edx
+	jmp .L94
+	.align 16
+.L92:
+	movl 4(%esi),%esi
+.L79:
+	testl %esi,%esi
+	jne .L80
+	movl 8(%ebp),%edx
+	movl %esi,(%edx)
+	movl 8(%ebp),%eax
+	movl 4(%eax),%eax
+	pushl %eax
+	pushl $MM_M3Driver+1804
+	movl MI_RTHooks+76,%eax
+	call *%eax
+	pushl %esi
+	movl %eax,%ebx
+	pushl %ebx
+	pushl $MM_M3Driver+1784
+	movl 8(%ebp),%eax
+	movl 4(%eax),%eax
+	pushl %eax
+	pushl $MM_M3Driver+1760
+	movl MI_Msg+72,%eax
+	call *%eax
+.L95:
+	movl %ebx,%eax
+.L94:
+	leal -8(%ebp),%esp
+	popl %ebx
+	popl %esi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe17:
+	.size	 M3Driver__ResolveLib,.Lfe17-M3Driver__ResolveLib
+.section	.rodata
+	.align 4
+	.type	 L_3.3,@object
+	.size	 L_3.3,88
+L_3.3:
+	.long .L98
+	.long .L98
+	.long .L98
+	.long .L98
+	.long .L99
+	.long .L99
+	.long .L99
+	.long .L99
+	.long .L100
+	.long .L100
+	.long .L101
+	.long .L101
+	.long .L101
+	.long .L101
+	.long .L102
+	.long .L103
+	.long .L103
+	.long .L104
+	.long .L104
+	.long .L104
+	.long .L104
+	.long .L102
+.text
+	.align 16
+	.type	 M3Driver__AddSourceFile,@function
+M3Driver__AddSourceFile:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $12,%esp
+	pushl %ebx
+	movl 8(%ebp),%edx
+	movl 12(%ebp),%eax
+	pushl $1
+	pushl $17
+	pushl %eax
+	pushl %edx
+	movl MI_M3Path+48,%eax
+	call *%eax
+	movl %eax,%ebx
+	leal -12(%ebp),%eax
+	pushl %eax
+	pushl $1
+	pushl %ebx
+	movl MI_M3Path+52,%eax
+	call *%eax
+	xorl %eax,%eax
+	movb -4(%ebp),%al
+	addl $28,%esp
+	jmp *L_3.3(,%eax,4)
+	.align 16
+.L98:
+	leal -12(%ebp),%eax
+	pushl %eax
+	pushl %ebx
+	call M3Driver__AddInterfaceSource
+	jmp .L97
+	.align 16
+.L99:
+	leal -12(%ebp),%eax
+	pushl %eax
+	pushl %ebx
+	call M3Driver__AddModuleSource
+	jmp .L97
+	.align 16
+.L100:
+	leal -12(%ebp),%eax
+	pushl %eax
+	pushl %ebx
+	call M3Driver__AddGeneric
+	jmp .L97
+	.align 16
+.L101:
+	leal -12(%ebp),%eax
+	pushl %eax
+	pushl %ebx
+	call M3Driver__AddSource
+	jmp .L97
+	.align 16
+.L102:
+	leal -12(%ebp),%eax
+	pushl %eax
+	pushl %ebx
+	call M3Driver__AddLibrary
+	jmp .L97
+	.align 16
+.L103:
+	leal -12(%ebp),%eax
+	pushl %eax
+	pushl %ebx
+	call M3Driver__AddLinkInfo
+	jmp .L97
+	.align 16
+.L104:
+	xorl %eax,%eax
+	movb 16(%ebp),%al
+	pushl %eax
+	pushl %ebx
+	call M3Driver__VisitSourceDir
+.L97:
+	movl -16(%ebp),%ebx
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe18:
+	.size	 M3Driver__AddSourceFile,.Lfe18-M3Driver__AddSourceFile
+	.align 16
+	.type	 M3Driver__NewSource,@function
+M3Driver__NewSource:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %ebx
+	movl 8(%ebp),%ebx
+	testl %ebx,%ebx
+	je .L107
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl %ebx
+	pushl $MM_M3Driver+1820
+	movl MI_Msg+72,%eax
+	call *%eax
+	addl $20,%esp
+.L107:
+	movl MM_M3Driver+1836,%eax
+	pushl %eax
+	movl MI_RTHooks+80,%eax
+	call *%eax
+	movl %eax,%ecx
+	movl %ebx,8(%ecx)
+	movl 12(%ebp),%edx
+	movl (%edx),%eax
+	movl %eax,28(%ecx)
+	movl 4(%edx),%eax
+	movl %eax,32(%ecx)
+	movl 8(%edx),%eax
+	movl %eax,36(%ecx)
+	movl %ecx,%eax
+	movl -4(%ebp),%ebx
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe19:
+	.size	 M3Driver__NewSource,.Lfe19-M3Driver__NewSource
+	.align 16
+	.type	 M3Driver__AddLinkInfo,@function
+M3Driver__AddLinkInfo:
+	pushl %ebp
+	movl %esp,%ebp
+	movl 8(%ebp),%edx
+	movl 12(%ebp),%eax
+	pushl %eax
+	pushl %edx
+	call M3Driver__NewSource
+	movl %eax,%edx
+	addl $8,%esp
+	testl %edx,%edx
+	jne .L109
+	pushl $8020
+	call _m3_fault
+	.align 16
+.L109:
+	movl MM_M3Driver+340,%eax
+	movl %eax,(%edx)
+	movl %edx,MM_M3Driver+340
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe20:
+	.size	 M3Driver__AddLinkInfo,.Lfe20-M3Driver__AddLinkInfo
+	.align 16
+	.type	 M3Driver__AddInterfaceSource,@function
+M3Driver__AddInterfaceSource:
+	pushl %ebp
+	movl %esp,%ebp
+	movl 8(%ebp),%edx
+	movl 12(%ebp),%eax
+	pushl %eax
+	pushl %edx
+	call M3Driver__NewSource
+	movl %eax,%edx
+	addl $8,%esp
+	testl %edx,%edx
+	jne .L111
+	pushl $8132
+	call _m3_fault
+	.align 16
+.L111:
+	movl MM_M3Driver+340,%eax
+	movl %eax,(%edx)
+	movl %edx,MM_M3Driver+340
+	pushl %edx
+	call M3Driver__AddInterface
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe21:
+	.size	 M3Driver__AddInterfaceSource,.Lfe21-M3Driver__AddInterfaceSource
+	.align 16
+	.type	 M3Driver__AddInterface,@function
+M3Driver__AddInterface:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $20,%esp
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%esi
+	movl $0,-4(%ebp)
+	xorl %ebx,%ebx
+	testl %esi,%esi
+	jne .L113
+	pushl $8228
+	call _m3_fault
+	.align 16
+.L113:
+	pushl %ebx
+	movl 32(%esi),%eax
+	pushl %eax
+	movl MI_M3ID+44,%eax
+	call *%eax
+	movl MM_M3Driver+348,%edx
+	movl %eax,%ebx
+	movl (%edx),%eax
+	movl 4(%eax),%ecx
+	movl %ebx,-8(%ebp)
+	leal -4(%ebp),%eax
+	pushl %eax
+	leal -8(%ebp),%eax
+	pushl %eax
+	pushl %edx
+	call *%ecx
+	addl $20,%esp
+	testl %eax,%eax
+	jne .L114
+	movl MM_M3Driver+348,%edx
+	movl (%edx),%eax
+	movl 8(%eax),%ecx
+	movl %ebx,-12(%ebp)
+	movl %esi,-16(%ebp)
+	leal -16(%ebp),%eax
+	pushl %eax
+	leal -12(%ebp),%eax
+	pushl %eax
+	pushl %edx
+	call *%ecx
+	addl $12,%esp
+	cmpl $0,8(%esi)
+	je .L112
+	cmpl $0,28(%esi)
+	je .L118
+	movl MM_M3Driver+356,%eax
+	movl (%eax),%edx
+	movl 8(%edx),%ecx
+	pushl $MM_M3Driver+44
+	leal 28(%esi),%edx
+	jmp .L141
+	.align 16
+.L118:
+	movl MM_M3Driver+356,%eax
+	movl (%eax),%edx
+	movl 8(%edx),%ecx
+	movl $MM_M3Driver+1848,-20(%ebp)
+	pushl $MM_M3Driver+44
+	leal -20(%ebp),%edx
+.L141:
+	pushl %edx
+	pushl %eax
+	call *%ecx
+	jmp .L112
+	.align 16
+.L114:
+	movl -4(%ebp),%eax
+	testl %eax,%eax
+	je .L122
+	movl -4(%eax),%eax
+	sall $11,%eax
+	shrl $12,%eax
+	cmpl %eax,MM_M3Driver+1840
+	je .L122
+	pushl $8405
+	call _m3_fault
+	.align 16
+.L122:
+	movl -4(%ebp),%ebx
+	testl %ebx,%ebx
+	jne .L123
+	pushl $8420
+	call _m3_fault
+	.align 16
+.L123:
+	movl 8(%ebx),%edx
+	testl %edx,%edx
+	je .L131
+	testl %esi,%esi
+	jne .L125
+	pushl $8436
+	call _m3_fault
+	.align 16
+.L125:
+	movl 8(%esi),%eax
+	testl %eax,%eax
+	je .L142
+	pushl %edx
+	pushl %eax
+	movl MI_Text+48,%eax
+	call *%eax
+	addl $8,%esp
+	testl %eax,%eax
+	jne .L112
+	jmp .L142
+	.align 16
+.L131:
+	cmpl $0,16(%ebx)
+	je .L133
+.L142:
+	pushl $MM_M3Driver+1864
+	pushl %esi
+	pushl %ebx
+	call M3Driver__Duplicate
+	jmp .L112
+	.align 16
+.L133:
+	testl %esi,%esi
+	jne .L134
+	pushl $8532
+	call _m3_fault
+	.align 16
+.L134:
+	movl 4(%esi),%eax
+	movl %eax,4(%ebx)
+	movl 8(%esi),%eax
+	movl %eax,8(%ebx)
+	movl 16(%esi),%eax
+	movl %eax,16(%ebx)
+	movl 20(%esi),%eax
+	movl %eax,20(%ebx)
+.L112:
+	leal -28(%ebp),%esp
+	popl %ebx
+	popl %esi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe22:
+	.size	 M3Driver__AddInterface,.Lfe22-M3Driver__AddInterface
+	.align 16
+	.type	 M3Driver__AddModuleSource,@function
+M3Driver__AddModuleSource:
+	pushl %ebp
+	movl %esp,%ebp
+	movl 8(%ebp),%edx
+	movl 12(%ebp),%eax
+	pushl %eax
+	pushl %edx
+	call M3Driver__NewSource
+	movl %eax,%edx
+	addl $8,%esp
+	testl %edx,%edx
+	jne .L144
+	pushl $8724
+	call _m3_fault
+	.align 16
+.L144:
+	movl MM_M3Driver+340,%eax
+	movl %eax,(%edx)
+	movl %edx,MM_M3Driver+340
+	pushl %edx
+	call M3Driver__AddModule
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe23:
+	.size	 M3Driver__AddModuleSource,.Lfe23-M3Driver__AddModuleSource
+	.align 16
+	.type	 M3Driver__AddModule,@function
+M3Driver__AddModule:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $16,%esp
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%esi
+	movl $0,-4(%ebp)
+	xorl %ebx,%ebx
+	testl %esi,%esi
+	jne .L146
+	pushl $8820
+	call _m3_fault
+	.align 16
+.L146:
+	pushl %ebx
+	movl 32(%esi),%eax
+	pushl %eax
+	movl MI_M3ID+44,%eax
+	call *%eax
+	movl MM_M3Driver+352,%edx
+	movl %eax,%ebx
+	movl (%edx),%eax
+	movl 4(%eax),%ecx
+	movl %ebx,-8(%ebp)
+	leal -4(%ebp),%eax
+	pushl %eax
+	leal -8(%ebp),%eax
+	pushl %eax
+	pushl %edx
+	call *%ecx
+	addl $20,%esp
+	testl %eax,%eax
+	jne .L147
+	movl MM_M3Driver+352,%edx
+	movl (%edx),%eax
+	movl 8(%eax),%ecx
+	movl %ebx,-12(%ebp)
+	movl %esi,-16(%ebp)
+	leal -16(%ebp),%eax
+	pushl %eax
+	leal -12(%ebp),%eax
+	pushl %eax
+	pushl %edx
+	call *%ecx
+	jmp .L145
+	.align 16
+.L147:
+	movl -4(%ebp),%eax
+	testl %eax,%eax
+	je .L149
+	movl -4(%eax),%eax
+	sall $11,%eax
+	shrl $12,%eax
+	cmpl %eax,MM_M3Driver+1840
+	je .L149
+	pushl $8901
+	call _m3_fault
+	.align 16
+.L149:
+	movl -4(%ebp),%ebx
+	testl %ebx,%ebx
+	jne .L150
+	pushl $8916
+	call _m3_fault
+	.align 16
+.L150:
+	movl 8(%ebx),%edx
+	testl %edx,%edx
+	je .L158
+	testl %esi,%esi
+	jne .L152
+	pushl $8932
+	call _m3_fault
+	.align 16
+.L152:
+	movl 8(%esi),%eax
+	testl %eax,%eax
+	je .L168
+	pushl %edx
+	pushl %eax
+	movl MI_Text+48,%eax
+	call *%eax
+	addl $8,%esp
+	testl %eax,%eax
+	jne .L145
+	jmp .L168
+	.align 16
+.L158:
+	cmpl $0,16(%ebx)
+	je .L160
+.L168:
+	pushl $MM_M3Driver+1888
+	pushl %esi
+	pushl %ebx
+	call M3Driver__Duplicate
+	jmp .L145
+	.align 16
+.L160:
+	testl %esi,%esi
+	jne .L161
+	pushl $9028
+	call _m3_fault
+	.align 16
+.L161:
+	movl 4(%esi),%eax
+	movl %eax,4(%ebx)
+	movl 8(%esi),%eax
+	movl %eax,8(%ebx)
+	movl 16(%esi),%eax
+	movl %eax,16(%ebx)
+	movl 20(%esi),%eax
+	movl %eax,20(%ebx)
+.L145:
+	leal -24(%ebp),%esp
+	popl %ebx
+	popl %esi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe24:
+	.size	 M3Driver__AddModule,.Lfe24-M3Driver__AddModule
+	.align 16
+	.type	 M3Driver__AddGeneric,@function
+M3Driver__AddGeneric:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $20,%esp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%esi
+	pushl $0
+	movl 12(%ebp),%eax
+	movl 4(%eax),%eax
+	pushl %eax
+	movl MI_M3ID+44,%eax
+	call *%eax
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl %esi
+	movl %eax,%ebx
+	pushl $MM_M3Driver+1820
+	movl MI_Msg+72,%eax
+	movl %ebx,%edi
+	call *%eax
+	movl 12(%ebp),%eax
+	addl $28,%esp
+	cmpb $8,8(%eax)
+	jne .L170
+	movl MM_M3Driver+368,%edx
+	movl (%edx),%eax
+	movl 8(%eax),%ecx
+	movl %ebx,-4(%ebp)
+	movl %esi,-8(%ebp)
+	leal -8(%ebp),%eax
+	pushl %eax
+	leal -4(%ebp),%eax
+	jmp .L174
+	.align 16
+.L170:
+	movl MM_M3Driver+372,%edx
+	movl (%edx),%eax
+	movl 8(%eax),%ecx
+	movl %edi,-12(%ebp)
+	movl %esi,-16(%ebp)
+	leal -16(%ebp),%eax
+	pushl %eax
+	leal -12(%ebp),%eax
+.L174:
+	pushl %eax
+	pushl %edx
+	call *%ecx
+	addl $12,%esp
+	movl 12(%ebp),%ebx
+	cmpl $0,(%ebx)
+	je .L172
+	movl MM_M3Driver+356,%edx
+	movl (%edx),%eax
+	movl 8(%eax),%ecx
+	pushl $MM_M3Driver+44
+	pushl %ebx
+	pushl %edx
+	jmp .L175
+	.align 16
+.L172:
+	movl MM_M3Driver+356,%eax
+	movl (%eax),%edx
+	movl 8(%edx),%ecx
+	movl $MM_M3Driver+1848,-20(%ebp)
+	pushl $MM_M3Driver+44
+	leal -20(%ebp),%edx
+	pushl %edx
+	pushl %eax
+.L175:
+	call *%ecx
+	leal -32(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe25:
+	.size	 M3Driver__AddGeneric,.Lfe25-M3Driver__AddGeneric
+	.align 16
+	.type	 M3Driver__AddSource,@function
+M3Driver__AddSource:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $4,%esp
+	pushl %ebx
+	movl 8(%ebp),%edx
+	movl 12(%ebp),%eax
+	pushl %eax
+	pushl %edx
+	call M3Driver__NewSource
+	movl %eax,%ecx
+	addl $8,%esp
+	testl %ecx,%ecx
+	jne .L177
+	pushl $9428
+	call _m3_fault
+	.align 16
+.L177:
+	movl MM_M3Driver+340,%eax
+	movl %eax,(%ecx)
+	movl 12(%ebp),%ebx
+	movl %ecx,MM_M3Driver+340
+	cmpb $11,8(%ebx)
+	jne .L176
+	cmpl $0,(%ebx)
+	je .L179
+	movl MM_M3Driver+360,%edx
+	movl (%edx),%eax
+	movl 8(%eax),%ecx
+	pushl $MM_M3Driver+44
+	pushl %ebx
+	pushl %edx
+	jmp .L181
+	.align 16
+.L179:
+	movl MM_M3Driver+360,%eax
+	movl (%eax),%edx
+	movl 8(%edx),%ecx
+	movl $MM_M3Driver+1848,-4(%ebp)
+	pushl $MM_M3Driver+44
+	leal -4(%ebp),%edx
+	pushl %edx
+	pushl %eax
+.L181:
+	call *%ecx
+.L176:
+	movl -8(%ebp),%ebx
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe26:
+	.size	 M3Driver__AddSource,.Lfe26-M3Driver__AddSource
+	.align 16
+	.type	 M_M3Driver_LINE_612.1,@function
+M_M3Driver_LINE_612.1:
+	pushl %ebp
+	movl %esp,%ebp
+	movl %ecx,-4(%ebp)
+	movl -4(%ebp),%edx
+	movl -208(%edx),%eax
+	movl (%eax),%eax
+	subl $4,%esp
+	movl 12(%eax),%ecx
+	movl %ecx,-204(%edx)
+	movl -208(%edx),%eax
+	pushl %eax
+	call *%ecx
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe27:
+	.size	 M_M3Driver_LINE_612.1,.Lfe27-M_M3Driver_LINE_612.1
+	.align 16
+	.type	 M3Driver__VisitSourceDir,@function
+M3Driver__VisitSourceDir:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $208,%esp
+	pushl %ebx
+.L183:
+	movl $MM_M3Driver+1904,-172(%ebp)
+	movl $0,-176(%ebp)
+	movl RTThread__handlerStack,%eax
+	movl %eax,-180(%ebp)
+	leal -180(%ebp),%edx
+	movl %edx,RTThread__handlerStack
+	leal -160(%ebp),%eax
+	pushl %eax
+	call _setjmp
+	movl %eax,%ebx
+	addl $4,%esp
+	testl %ebx,%ebx
+	jne .L184
+	movl %ebx,-208(%ebp)
+	movl %ebx,-184(%ebp)
+	movl 8(%ebp),%edx
+	pushl %edx
+	movl MI_FS+180,%eax
+	call *%eax
+	movl %eax,-204(%ebp)
+	movl %eax,-208(%ebp)
+	pushl %ebx
+	pushl %ebx
+	pushl %ebx
+	movl 8(%ebp),%edx
+	pushl %edx
+	pushl $MM_M3Driver+1916
+	movl MI_Msg+72,%eax
+	call *%eax
+	movl $M_M3Driver_LINE_612.1,-192(%ebp)
+	movl %ebp,-188(%ebp)
+	addl $24,%esp
+.L185:
+	movl $3,-196(%ebp)
+	movl RTThread__handlerStack,%eax
+	movl %eax,-200(%ebp)
+	leal -200(%ebp),%edx
+	movl %edx,RTThread__handlerStack
+	jmp .L186
+	.align 16
+.L187:
+	pushl $0
+	movl -184(%ebp),%eax
+	pushl %eax
+	movl 8(%ebp),%edx
+	pushl %edx
+	call M3Driver__AddSourceFile
+	addl $12,%esp
+.L186:
+	movl -208(%ebp),%ecx
+	movl (%ecx),%eax
+	movl 4(%eax),%edx
+	movl %edx,-204(%ebp)
+	leal -184(%ebp),%eax
+	pushl %eax
+	pushl %ecx
+	call *%edx
+	addl $8,%esp
+	testl %eax,%eax
+	jne .L187
+	movl -200(%ebp),%eax
+	movl %eax,RTThread__handlerStack
+	movl %ebp,%ecx
+	call M_M3Driver_LINE_612.1
+.L189:
+	movl -180(%ebp),%eax
+	movl %eax,RTThread__handlerStack
+	jmp .L182
+	.align 16
+.L184:
+	movl -164(%ebp),%ebx
+	cmpb $0,12(%ebp)
+	je .L192
+	pushl $0
+	pushl $MM_M3Driver+1976
+	movl 8(%ebp),%edx
+	pushl %edx
+	pushl $MM_M3Driver+1940
+	pushl %ebx
+	movl MI_Msg+56,%eax
+	call *%eax
+	addl $20,%esp
+.L192:
+	pushl %ebx
+	movl MI_Msg+64,%eax
+	call *%eax
+	pushl $0
+	pushl $0
+	pushl %eax
+	movl 8(%ebp),%edx
+	pushl %edx
+	pushl $MM_M3Driver+1992
+	movl MI_Msg+72,%eax
+	call *%eax
+.L182:
+	movl -212(%ebp),%ebx
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe28:
+	.size	 M3Driver__VisitSourceDir,.Lfe28-M3Driver__VisitSourceDir
+	.align 16
+	.type	 M3Driver__ReverseSources,@function
+M3Driver__ReverseSources:
+	pushl %ebp
+	movl %esp,%ebp
+	xorl %edx,%edx
+	movl MM_M3Driver+340,%eax
+	jmp .L195
+	.align 16
+.L196:
+	movl (%eax),%ecx
+	movl %edx,(%eax)
+	movl %eax,%edx
+	movl %ecx,%eax
+.L195:
+	testl %eax,%eax
+	jne .L196
+	movl %edx,MM_M3Driver+340
+	movl MI_M3DriverRep+152,%eax
+	xorl %edx,%edx
+	jmp .L200
+	.align 16
+.L201:
+	movl (%eax),%ecx
+	movl %edx,(%eax)
+	movl %eax,%edx
+	movl %ecx,%eax
+.L200:
+	testl %eax,%eax
+	jne .L201
+	movl %edx,MI_M3DriverRep+152
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe29:
+	.size	 M3Driver__ReverseSources,.Lfe29-M3Driver__ReverseSources
+	.align 16
+	.type	 M3Driver__BuildSearchPaths,@function
+M3Driver__BuildSearchPaths:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $4,%esp
+	pushl %ebx
+	xorl %ebx,%ebx
+	cmpl $0,MM_M3Driver+332
+	jne .L206
+	movl MM_M3Driver+356,%eax
+	movl %ebx,-4(%ebp)
+	movl (%eax),%edx
+	movl 20(%edx),%edx
+	pushl %eax
+	call *%edx
+	movl %eax,%edx
+	movl %edx,%ebx
+	jmp .L221
+	.align 16
+.L208:
+	movl -4(%ebp),%eax
+	pushl %eax
+	movl MI_Text+60,%eax
+	call *%eax
+	addl $4,%esp
+	testl %eax,%eax
+	jne .L207
+	movl -4(%ebp),%eax
+	pushl %eax
+	movl MI_Unit+48,%eax
+	call *%eax
+.L221:
+	addl $4,%esp
+.L207:
+	movl (%ebx),%eax
+	movl 4(%eax),%edx
+	pushl $MM_M3Driver+44
+	leal -4(%ebp),%eax
+	pushl %eax
+	pushl %ebx
+	call *%edx
+	addl $12,%esp
+	testl %eax,%eax
+	jne .L208
+.L206:
+	movl MM_M3Driver+360,%eax
+	movl $0,-4(%ebp)
+	movl (%eax),%edx
+	movl 20(%edx),%edx
+	pushl %eax
+	call *%edx
+	movl %eax,%edx
+	movl %edx,%ebx
+	addl $4,%esp
+	jmp .L211
+	.align 16
+.L212:
+	movl -4(%ebp),%eax
+	pushl %eax
+	movl MI_Text+60,%eax
+	call *%eax
+	addl $4,%esp
+	testl %eax,%eax
+	jne .L211
+	movl -4(%ebp),%eax
+	pushl %eax
+	movl MM_M3Driver+336,%eax
+	pushl %eax
+	movl MI_Arg+260,%eax
+	call *%eax
+	addl $8,%esp
+.L211:
+	movl (%ebx),%eax
+	movl 4(%eax),%edx
+	pushl $MM_M3Driver+44
+	leal -4(%ebp),%eax
+	pushl %eax
+	pushl %ebx
+	call *%edx
+	addl $12,%esp
+	testl %eax,%eax
+	jne .L212
+	movl MM_M3Driver+336,%eax
+	testl %eax,%eax
+	jne .L215
+	pushl $10724
+	call _m3_fault
+	.align 16
+.L215:
+	movl (%eax),%ebx
+	jmp .L216
+	.align 16
+.L217:
+	movl MM_M3Driver+316,%eax
+	movl (%eax),%edx
+	movl 12(%edx),%edx
+	pushl %ebx
+	pushl %eax
+	call *%edx
+	addl $8,%esp
+	movl 4(%ebx),%ebx
+.L216:
+	testl %ebx,%ebx
+	jne .L217
+	movl -8(%ebp),%ebx
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe30:
+	.size	 M3Driver__BuildSearchPaths,.Lfe30-M3Driver__BuildSearchPaths
+	.align 16
+	.type	 M3Driver__InhaleLinkInfo,@function
+M3Driver__InhaleLinkInfo:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $16,%esp
+	pushl %edi
+	movl $2147483647,%edi
+	pushl %esi
+	xorl %esi,%esi
+	pushl %ebx
+	movl %esi,-12(%ebp)
+	movl %esi,-8(%ebp)
+	movl %esi,-4(%ebp)
+	movb $0,-16(%ebp)
+	movl MI_M3Timers+132,%eax
+	pushl %eax
+	movl MI_ETimer+52,%eax
+	movl %esi,%ebx
+	call *%eax
+	addl $4,%esp
+	movl MM_M3Driver+268,%eax
+	testl %eax,%eax
+	je .L223
+	movl %eax,%esi
+	movb $16,-16(%ebp)
+	jmp .L224
+	.align 16
+.L223:
+	movl MM_M3Driver+264,%eax
+	testl %eax,%eax
+	je .L225
+	movl %eax,%esi
+	movb $15,-16(%ebp)
+	jmp .L224
+	.align 16
+.L225:
+	pushl %ebx
+	pushl %ebx
+	pushl $MM_M3Driver+2060
+	pushl $MM_M3Driver+2016
+	pushl %ebx
+	movl MI_Msg+56,%eax
+	call *%eax
+	addl $20,%esp
+.L224:
+	leal -12(%ebp),%eax
+	pushl %eax
+	pushl $1
+	pushl %esi
+	movl MI_M3Path+52,%eax
+	call *%eax
+	pushl $1
+	xorl %eax,%eax
+	movb -16(%ebp),%al
+	pushl %eax
+	movl -8(%ebp),%eax
+	pushl %eax
+	pushl $0
+	movl MI_M3Path+48,%eax
+	call *%eax
+	movl %eax,MM_M3Driver+276
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl %eax
+	pushl $MM_M3Driver+2104
+	movl MI_Msg+76,%eax
+	call *%eax
+	addl $52,%esp
+	pushl $0
+	pushl $0
+	movl MM_M3Driver+276,%eax
+	pushl %eax
+	call M3Driver__GetLinkUnits
+	movl %eax,%ebx
+	addl $12,%esp
+	testl %ebx,%ebx
+	jne .L226
+	pushl %ebx
+	pushl %ebx
+	movl MI_Wr+60,%eax
+	pushl %eax
+	pushl $MM_M3Driver+2124
+	jmp .L234
+	.align 16
+.L226:
+	cmpb $0,MM_M3Driver+281
+	je .L228
+	movl MM_M3Driver+276,%eax
+	pushl %eax
+	movl MI_Utils+108,%eax
+	call *%eax
+	movl %eax,%edi
+	addl $4,%esp
+.L228:
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $MM_M3Driver+2156
+	movl MI_Msg+68,%eax
+	call *%eax
+	addl $16,%esp
+	jmp .L229
+	.align 16
+.L230:
+	pushl %edi
+	movl (%ebx),%eax
+	pushl %eax
+	call M3Driver__MatchLocalUnit
+	addl $8,%esp
+	movl 4(%ebx),%ebx
+.L229:
+	testl %ebx,%ebx
+	jne .L230
+	pushl %ebx
+	pushl %ebx
+	pushl %ebx
+	movl MI_Wr+60,%eax
+	pushl %eax
+.L234:
+	movl MI_Msg+68,%eax
+	call *%eax
+	addl $16,%esp
+	movl MI_ETimer+56,%eax
+	movb $0,MM_M3Driver+295
+	call *%eax
+	leal -28(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe31:
+	.size	 M3Driver__InhaleLinkInfo,.Lfe31-M3Driver__InhaleLinkInfo
+	.align 16
+	.type	 M3Driver__MatchLocalUnit,@function
+M3Driver__MatchLocalUnit:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $8,%esp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%edi
+	movl $0,-4(%ebp)
+	testl %edi,%edi
+	je .L235
+	cmpb $0,8(%edi)
+	je .L238
+	movl MM_M3Driver+348,%ebx
+	movl $MM_M3Driver+1212,%esi
+	jmp .L239
+	.align 16
+.L238:
+	movl MM_M3Driver+352,%ebx
+	movl $MM_M3Driver+1196,%esi
+.L239:
+	movl (%ebx),%eax
+	movl 4(%eax),%edx
+	testl %edi,%edi
+	jne .L240
+	pushl $11604
+	call _m3_fault
+	.align 16
+.L240:
+	movl (%edi),%eax
+	movl %eax,-8(%ebp)
+	leal -4(%ebp),%eax
+	pushl %eax
+	leal -8(%ebp),%eax
+	pushl %eax
+	pushl %ebx
+	call *%edx
+	addl $12,%esp
+	testl %eax,%eax
+	je .L256
+	movl -4(%ebp),%eax
+	testl %eax,%eax
+	je .L242
+	movl -4(%eax),%eax
+	sall $11,%eax
+	shrl $12,%eax
+	cmpl %eax,MM_M3Driver+1840
+	je .L242
+	pushl $11621
+	call _m3_fault
+	.align 16
+.L242:
+	movl -4(%ebp),%ebx
+	testl %ebx,%ebx
+	jne .L243
+	pushl $11636
+	call _m3_fault
+	.align 16
+.L243:
+	pushl $0
+	pushl %esi
+	movl 32(%ebx),%eax
+	pushl %eax
+	pushl $MM_M3Driver+1712
+	movl MI_Msg+68,%eax
+	call *%eax
+	addl $16,%esp
+	cmpl $0,16(%ebx)
+	je .L246
+	pushl %ebx
+	call M3Driver__FName
+	pushl $0
+	pushl $0
+	movl %eax,%edx
+	pushl %edx
+	pushl $MM_M3Driver+2184
+	pushl $0
+	movl MI_Msg+56,%eax
+	call *%eax
+	addl $24,%esp
+.L246:
+	movl %edi,16(%ebx)
+	testl %edi,%edi
+	jne .L247
+	pushl $11716
+	call _m3_fault
+	.align 16
+.L247:
+	movl 4(%edi),%edx
+	testl %edx,%edx
+	je .L248
+	cmpl $0,(%edx)
+	jne .L248
+	movl 8(%ebx),%eax
+	movl %eax,(%edx)
+.L248:
+	testl %ebx,%ebx
+	jne .L254
+	pushl $11764
+	call _m3_fault
+	.align 16
+.L254:
+	movl 12(%ebp),%ecx
+	movl %ecx,20(%ebx)
+	jmp .L235
+	.align 16
+.L256:
+	movl (%edi),%eax
+	pushl %eax
+	movl MI_M3ID+52,%eax
+	call *%eax
+	pushl $MM_M3Driver+2240
+	pushl %esi
+	movl %eax,%edx
+	pushl %edx
+	pushl $MM_M3Driver+2224
+	movl MI_Msg+68,%eax
+	call *%eax
+.L235:
+	leal -20(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe32:
+	.size	 M3Driver__MatchLocalUnit,.Lfe32-M3Driver__MatchLocalUnit
+	.align 16
+	.type	 M3Driver__DumpLinkInfo,@function
+M3Driver__DumpLinkInfo:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %esi
+	xorl %esi,%esi
+	pushl %ebx
+	movl MM_M3Driver+340,%ebx
+	cmpb $0,MM_M3Driver+295
+	je .L257
+	movb $0,MM_M3Driver+295
+	movl MI_M3Timers+60,%eax
+	pushl %eax
+	movl MI_ETimer+52,%eax
+	call *%eax
+	addl $4,%esp
+	jmp .L259
+	.align 16
+.L260:
+	cmpl $0,16(%ebx)
+	je .L264
+	movl MM_M3Driver+2252,%eax
+	pushl %eax
+	movl MI_RTHooks+80,%eax
+	call *%eax
+	movl %eax,%edx
+	movl 16(%ebx),%eax
+	movl %eax,(%edx)
+	movl %edx,%eax
+	addl $4,%esp
+	movl %esi,4(%eax)
+	movl %eax,%esi
+.L264:
+	movl (%ebx),%ebx
+.L259:
+	testl %ebx,%ebx
+	jne .L260
+	pushl %ebx
+	pushl %ebx
+	pushl %ebx
+	pushl %ebx
+	movl MM_M3Driver+276,%eax
+	pushl %eax
+	pushl $MM_M3Driver+2264
+	movl MI_Msg+76,%eax
+	call *%eax
+	pushl $1
+	movl MM_M3Driver+276,%eax
+	pushl %eax
+	movl MI_Utils+44,%eax
+	call *%eax
+	addl $32,%esp
+	movl %eax,%ebx
+	pushl %ebx
+	pushl %esi
+	movl MI_MxOut+44,%eax
+	call *%eax
+	movl MM_M3Driver+276,%eax
+	pushl %eax
+	pushl %ebx
+	movl MI_Utils+52,%eax
+	call *%eax
+	movl MI_ETimer+56,%eax
+	call *%eax
+.L257:
+	leal -8(%ebp),%esp
+	popl %ebx
+	popl %esi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe33:
+	.size	 M3Driver__DumpLinkInfo,.Lfe33-M3Driver__DumpLinkInfo
+	.align 16
+	.type	 M3Driver__BuildLibraryPool,@function
+M3Driver__BuildLibraryPool:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $4,%esp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl MI_M3DriverRep+152,%esi
+	movl $2147483647,-4(%ebp)
+	jmp .L267
+	.align 16
+.L268:
+	movl MI_M3Timers+132,%eax
+	pushl %eax
+	movl MI_ETimer+52,%eax
+	call *%eax
+	addl $4,%esp
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $0
+	movl 4(%esi),%eax
+	pushl %eax
+	pushl $MM_M3Driver+2104
+	movl MI_Msg+76,%eax
+	call *%eax
+	addl $24,%esp
+	pushl $1
+	pushl $15
+	movl 32(%esi),%eax
+	pushl %eax
+	movl 28(%esi),%eax
+	pushl %eax
+	movl MI_M3Path+48,%eax
+	call *%eax
+	addl $16,%esp
+	movl %eax,%edi
+	pushl $1
+	movl 4(%esi),%eax
+	pushl %eax
+	pushl %edi
+	call M3Driver__GetLinkUnits
+	movl %eax,%ebx
+	addl $12,%esp
+	testl %ebx,%ebx
+	jne .L273
+	pushl %ebx
+	movl MI_Wr+60,%eax
+	pushl %eax
+	movl 4(%esi),%eax
+	pushl %eax
+	pushl $MM_M3Driver+2284
+	jmp .L285
+	.align 16
+.L273:
+	cmpb $0,MM_M3Driver+281
+	je .L276
+	pushl %edi
+	movl MI_Utils+108,%eax
+	call *%eax
+	movl %eax,-4(%ebp)
+	addl $4,%esp
+.L276:
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $MM_M3Driver+2156
+	movl MI_Msg+68,%eax
+	call *%eax
+	addl $16,%esp
+	jmp .L277
+	.align 16
+.L278:
+	testl %esi,%esi
+	jne .L280
+	pushl $12596
+	call _m3_fault
+	.align 16
+.L280:
+	movl -4(%ebp),%edx
+	pushl %edx
+	movl 4(%esi),%eax
+	pushl %eax
+	movl (%ebx),%eax
+	pushl %eax
+	call M3Driver__AddLibraryUnit
+	addl $12,%esp
+	movl 4(%ebx),%ebx
+.L277:
+	testl %ebx,%ebx
+	jne .L278
+	pushl %ebx
+	pushl %ebx
+	pushl %ebx
+	movl MI_Wr+60,%eax
+	pushl %eax
+.L285:
+	movl MI_Msg+68,%eax
+	call *%eax
+	addl $16,%esp
+	movl MI_ETimer+56,%eax
+	call *%eax
+	testl %esi,%esi
+	jne .L283
+	pushl $12692
+	call _m3_fault
+	.align 16
+.L283:
+	movl (%esi),%esi
+.L267:
+	testl %esi,%esi
+	jne .L268
+	leal -16(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe34:
+	.size	 M3Driver__BuildLibraryPool,.Lfe34-M3Driver__BuildLibraryPool
+	.align 16
+	.type	 M3Driver__AddLibraryUnit,@function
+M3Driver__AddLibraryUnit:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $8,%esp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%edi
+	movl 12(%ebp),%ebx
+	testl %edi,%edi
+	jne .L287
+	pushl $12820
+	call _m3_fault
+	.align 16
+.L287:
+	movl (%edi),%eax
+	pushl %eax
+	movl MI_M3ID+52,%eax
+	call *%eax
+	movl %eax,%esi
+	movl MM_M3Driver+1836,%eax
+	pushl %eax
+	movl MI_RTHooks+80,%eax
+	call *%eax
+	movl %ebx,4(%eax)
+	movl %eax,%ebx
+	addl $8,%esp
+	movl %edi,16(%ebx)
+	movl %ebx,-4(%ebp)
+	pushl $0
+	xorl %eax,%eax
+	movb 8(%edi),%al
+	movl MM_M3Driver+1184(,%eax,4),%eax
+	pushl %eax
+	pushl %esi
+	pushl $MM_M3Driver+1712
+	movl MI_Msg+68,%eax
+	call *%eax
+	addl $16,%esp
+	testl %ebx,%ebx
+	jne .L289
+	pushl $12884
+	call _m3_fault
+	.align 16
+.L289:
+	movl 16(%ebp),%ecx
+	movl %ecx,20(%ebx)
+	movl $0,8(%ebx)
+	movl $0,28(%ebx)
+	movl %esi,32(%ebx)
+	cmpb $0,8(%edi)
+	je .L297
+	movb $0,36(%ebx)
+	pushl %ebx
+	call M3Driver__AddInterface
+	jmp .L286
+	.align 16
+.L297:
+	movb $4,36(%ebx)
+	pushl %ebx
+	call M3Driver__AddModule
+	addl $4,%esp
+	movl 12(%edi),%eax
+	movl %eax,%edx
+	addl 16(%edi),%edx
+	movl %eax,%esi
+	decl %edx
+	movl %edx,-8(%ebp)
+	jmp .L301
+	.align 16
+.L302:
+	testl %edi,%edi
+	jne .L303
+	pushl $13076
+	call _m3_fault
+	.align 16
+.L303:
+	movl 124(%edi),%eax
+	testl %eax,%eax
+	jne .L304
+	pushl $13076
+	call _m3_fault
+	.align 16
+.L304:
+	movl %eax,%ebx
+	cmpl %esi,4(%ebx)
+	ja .L305
+	pushl $13074
+	call _m3_fault
+	.align 16
+.L305:
+	movl -4(%ebp),%ecx
+	pushl %ecx
+	movl (%ebx),%eax
+	movl (%eax,%esi,4),%eax
+	pushl %eax
+	call M3Driver__AddExportHook
+	incl %esi
+	addl $8,%esp
+.L301:
+	cmpl %esi,-8(%ebp)
+	jge .L302
+.L286:
+	leal -20(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe35:
+	.size	 M3Driver__AddLibraryUnit,.Lfe35-M3Driver__AddLibraryUnit
+	.align 16
+	.type	 M3Driver__AddExportHook,@function
+M3Driver__AddExportHook:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $20,%esp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 12(%ebp),%ebx
+	movl $0,-4(%ebp)
+	movl MM_M3Driver+2312,%eax
+	pushl %eax
+	movl MI_RTHooks+80,%eax
+	call *%eax
+	movl %eax,%ecx
+	movl %ebx,(%ecx)
+	movl MM_M3Driver+348,%edx
+	movl %ecx,-20(%ebp)
+	movl (%edx),%eax
+	movl 8(%ebp),%edi
+	movl 4(%eax),%esi
+	movl %edi,-8(%ebp)
+	leal -4(%ebp),%eax
+	pushl %eax
+	leal -8(%ebp),%eax
+	pushl %eax
+	pushl %edx
+	call *%esi
+	movl %eax,%esi
+	addl $16,%esp
+	testl %esi,%esi
+	je .L308
+	movl -4(%ebp),%eax
+	testl %eax,%eax
+	je .L309
+	movl -4(%eax),%eax
+	sall $11,%eax
+	shrl $12,%eax
+	cmpl %eax,MM_M3Driver+1840
+	je .L309
+	pushl $13221
+	call _m3_fault
+	.align 16
+.L309:
+	movl -4(%ebp),%ebx
+	jmp .L310
+	.align 16
+.L308:
+	movl MM_M3Driver+1836,%eax
+	pushl %eax
+	movl MI_RTHooks+80,%eax
+	call *%eax
+	movl %eax,%ebx
+	addl $4,%esp
+	testl %ebx,%ebx
+	jne .L311
+	pushl $13268
+	call _m3_fault
+	.align 16
+.L311:
+	movl %esi,28(%ebx)
+	movl 8(%ebp),%edi
+	pushl %edi
+	movl MI_M3ID+52,%eax
+	call *%eax
+	movl %ebx,%ecx
+	movl %eax,%esi
+	movl %esi,32(%ecx)
+	movb $0,36(%ecx)
+	movl MM_M3Driver+348,%edx
+	movl (%edx),%eax
+	addl $4,%esp
+	movl 8(%eax),%ecx
+	movl %edi,-12(%ebp)
+	movl %ebx,-16(%ebp)
+	leal -16(%ebp),%eax
+	pushl %eax
+	leal -12(%ebp),%eax
+	pushl %eax
+	pushl %edx
+	call *%ecx
+	addl $12,%esp
+.L310:
+	cmpl $0,-20(%ebp)
+	jne .L314
+	pushl $13348
+	call _m3_fault
+	.align 16
+.L314:
+	testl %ebx,%ebx
+	jne .L315
+	pushl $13348
+	call _m3_fault
+	.align 16
+.L315:
+	movl 24(%ebx),%eax
+	movl -20(%ebp),%edi
+	leal -32(%ebp),%esp
+	movl %eax,4(%edi)
+	movl %edi,24(%ebx)
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe36:
+	.size	 M3Driver__AddExportHook,.Lfe36-M3Driver__AddExportHook
+	.align 16
+	.type	 M3Driver__CompileEverything,@function
+M3Driver__CompileEverything:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $8,%esp
+	pushl %ebx
+	xorl %ebx,%ebx
+	movl MI_Mx+44,%eax
+	movl %ebx,-4(%ebp)
+	call *%eax
+	movl %eax,%ecx
+	movl %ecx,MM_M3Driver+364
+	pushl %ebx
+	pushl $MM_M3Driver+2324
+	movl MI_M3ID+44,%eax
+	call *%eax
+	movl MM_M3Driver+348,%edx
+	movl %eax,%ebx
+	movl (%edx),%eax
+	movl 4(%eax),%ecx
+	movl %ebx,-8(%ebp)
+	leal -4(%ebp),%eax
+	pushl %eax
+	leal -8(%ebp),%eax
+	pushl %eax
+	pushl %edx
+	call *%ecx
+	addl $20,%esp
+	testl %eax,%eax
+	je .L318
+	movl -4(%ebp),%eax
+	testl %eax,%eax
+	je .L319
+	movl -4(%eax),%eax
+	sall $11,%eax
+	shrl $12,%eax
+	cmpl %eax,MM_M3Driver+1840
+	je .L319
+	pushl $13541
+	call _m3_fault
+	.align 16
+.L319:
+	movl -4(%ebp),%eax
+	pushl %eax
+	call M3Driver__CompileOne
+	addl $4,%esp
+.L318:
+	movl MM_M3Driver+340,%ebx
+	jmp .L320
+	.align 16
+.L321:
+	cmpb $4,36(%ebx)
+	je .L324
+	pushl %ebx
+	call M3Driver__CompileOne
+	addl $4,%esp
+.L324:
+	movl (%ebx),%ebx
+.L320:
+	testl %ebx,%ebx
+	jne .L321
+	movl MM_M3Driver+340,%ebx
+	jmp .L326
+	.align 16
+.L327:
+	cmpb $4,36(%ebx)
+	jne .L330
+	pushl %ebx
+	call M3Driver__CompileOne
+	addl $4,%esp
+.L330:
+	movl (%ebx),%ebx
+.L326:
+	testl %ebx,%ebx
+	jne .L327
+	call M3Driver__FlushPending
+	cmpb $0,MM_M3Driver+298
+	jne .L332
+	movl MM_M3Driver+340,%ebx
+	jmp .L333
+	.align 16
+.L334:
+	pushl %ebx
+	call M3Driver__CouldBeImproved
+	addl $4,%esp
+	testl %eax,%eax
+	je .L336
+	pushl %ebx
+	call M3Driver__RecompileM3
+	addl $4,%esp
+.L336:
+	movl (%ebx),%ebx
+.L333:
+	testl %ebx,%ebx
+	jne .L334
+.L332:
+	call M3Driver__FlushPending
+	movl -12(%ebp),%ebx
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe37:
+	.size	 M3Driver__CompileEverything,.Lfe37-M3Driver__CompileEverything
+.section	.rodata
+	.align 4
+	.type	 L_25.4,@object
+	.size	 L_25.4,56
+L_25.4:
+	.long .L350
+	.long .L351
+	.long .L352
+	.long .L353
+	.long .L350
+	.long .L351
+	.long .L352
+	.long .L353
+	.long .L349
+	.long .L349
+	.long .L351
+	.long .L354
+	.long .L352
+	.long .L353
+.text
+	.align 16
+	.type	 M3Driver__CompileOne,@function
+M3Driver__CompileOne:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %ebx
+	movl 8(%ebp),%ebx
+	testl %ebx,%ebx
+	jne .L339
+	pushl $14068
+	call _m3_fault
+	.align 16
+.L339:
+	cmpb $0,40(%ebx)
+	jne .L338
+	movb $1,40(%ebx)
+	pushl %ebx
+	pushl $MM_M3Driver+2348
+	call M3Driver__VerboseF
+	addl $8,%esp
+	cmpb $15,36(%ebx)
+	jne .L345
+	call M3Driver__FlushPending
+	pushl %ebx
+	call M3Driver__CompileAX
+	addl $4,%esp
+	jmp .L344
+	.align 16
+.L345:
+	cmpl $0,8(%ebx)
+	je .L356
+	call M3Driver__FlushPending
+	pushl %ebx
+	call M3Driver__ObjectName
+	addl $4,%esp
+	movl %eax,12(%ebx)
+	xorl %eax,%eax
+	movb 36(%ebx),%al
+	cmpl $13,%eax
+	jg .L349
+	jmp *L_25.4(,%eax,4)
+	.align 16
+.L350:
+	pushl %ebx
+	call M3Driver__CompileM3
+	addl $4,%esp
+	jmp .L344
+	.align 16
+.L351:
+	pushl %ebx
+	call M3Driver__CompileC
+	addl $4,%esp
+	jmp .L344
+	.align 16
+.L352:
+	pushl %ebx
+	call M3Driver__CompileS
+	addl $4,%esp
+	jmp .L344
+	.align 16
+.L353:
+	pushl %ebx
+	call M3Driver__CompileO
+	addl $4,%esp
+	jmp .L344
+	.align 16
+.L354:
+	pushl %ebx
+	call M3Driver__CompileH
+	addl $4,%esp
+	jmp .L344
+	.align 16
+.L349:
+	pushl %ebx
+	pushl $MM_M3Driver+2372
+	jmp .L373
+	.align 16
+.L356:
+	cmpl $0,16(%ebx)
+	je .L357
+	cmpl $0,4(%ebx)
+	jne .L360
+	pushl %ebx
+	pushl $MM_M3Driver+2408
+	call M3Driver__BadFile
+	addl $8,%esp
+.L360:
+	movl 16(%ebx),%eax
+	testl %eax,%eax
+	jne .L361
+	pushl $14420
+	call _m3_fault
+	.align 16
+.L361:
+	cmpb $0,8(%eax)
+	je .L364
+	pushl %ebx
+	call M3Driver__Merge
+	addl $4,%esp
+	jmp .L344
+	.align 16
+.L364:
+	cmpl $0,(%ebx)
+	je .L366
+	pushl $14464
+	call _m3_fault
+	.align 16
+.L366:
+	movl MM_M3Driver+344,%eax
+	movl %eax,(%ebx)
+	movl %ebx,MM_M3Driver+344
+	jmp .L344
+	.align 16
+.L357:
+	pushl %ebx
+	pushl $MM_M3Driver+2452
+.L373:
+	call M3Driver__BadFile
+	addl $8,%esp
+.L344:
+	testl %ebx,%ebx
+	jne .L367
+	pushl $14612
+	call _m3_fault
+	.align 16
+.L367:
+	movl 24(%ebx),%ebx
+	jmp .L368
+	.align 16
+.L369:
+	movl (%ebx),%eax
+	pushl %eax
+	call M3Driver__CompileOne
+	addl $4,%esp
+	movl 4(%ebx),%ebx
+.L368:
+	testl %ebx,%ebx
+	jne .L369
+.L338:
+	movl -4(%ebp),%ebx
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe38:
+	.size	 M3Driver__CompileOne,.Lfe38-M3Driver__CompileOne
+	.align 16
+	.type	 M3Driver__FlushPending,@function
+M3Driver__FlushPending:
+	pushl %ebp
+	movl %esp,%ebp
+	jmp .L375
+	.align 16
+.L376:
+	movl (%edx),%eax
+	movl %eax,MM_M3Driver+344
+	movl $0,(%edx)
+	pushl %edx
+	call M3Driver__Merge
+	addl $4,%esp
+.L375:
+	movl MM_M3Driver+344,%edx
+	testl %edx,%edx
+	jne .L376
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe39:
+	.size	 M3Driver__FlushPending,.Lfe39-M3Driver__FlushPending
+	.align 16
+	.type	 M3Driver__CompileAX,@function
+M3Driver__CompileAX:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%esi
+	xorl %ebx,%ebx
+	testl %esi,%esi
+	jne .L381
+	pushl $14980
+	call _m3_fault
+	.align 16
+.L381:
+	cmpl $0,16(%esi)
+	jne .L382
+	pushl %ebx
+	pushl %esi
+	pushl $MM_M3Driver+2484
+	call M3Driver__DebugF
+	addl $12,%esp
+	pushl %ebx
+	movl 8(%esi),%eax
+	pushl %eax
+	pushl %eax
+	call M3Driver__GetLinkUnits
+	movl %eax,%ebx
+	addl $12,%esp
+	testl %ebx,%ebx
+	jne .L387
+	pushl %esi
+	pushl $MM_M3Driver+2520
+	call M3Driver__BadFile
+	addl $8,%esp
+	testl %ebx,%ebx
+	jne .L387
+	pushl $15044
+	call _m3_fault
+	.align 16
+.L387:
+	movl (%ebx),%eax
+	movl %eax,16(%esi)
+	cmpl $0,4(%ebx)
+	je .L382
+	pushl $15056
+	call _m3_fault
+	.align 16
+.L382:
+	pushl %esi
+	call M3Driver__Merge
+	leal -8(%ebp),%esp
+	popl %ebx
+	popl %esi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe40:
+	.size	 M3Driver__CompileAX,.Lfe40-M3Driver__CompileAX
+	.align 16
+	.type	 M3Driver__CompileO,@function
+M3Driver__CompileO:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %ebx
+	movl 8(%ebp),%ebx
+	testl %ebx,%ebx
+	jne .L391
+	pushl $15188
+	call _m3_fault
+	.align 16
+.L391:
+	cmpb $13,36(%ebx)
+	je .L392
+	pushl %ebx
+	call M3Driver__Merge
+	addl $4,%esp
+.L392:
+	cmpb $0,MM_M3Driver+296
+	je .L393
+	pushl $0
+	pushl $0
+	movl 12(%ebx),%eax
+	pushl %eax
+	pushl $MM_M3Driver+2552
+	movl MI_Msg+80,%eax
+	call *%eax
+	pushl $0
+	pushl %ebx
+	call M3Driver__PullForBootstrap
+	addl $24,%esp
+.L393:
+	movl 12(%ebx),%eax
+	pushl %eax
+	movl MI_Utils+108,%eax
+	call *%eax
+	movl -4(%ebp),%ebx
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe41:
+	.size	 M3Driver__CompileO,.Lfe41-M3Driver__CompileO
+	.align 16
+	.type	 M3Driver__CompileS,@function
+M3Driver__CompileS:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %ebx
+	movl 8(%ebp),%ebx
+	testl %ebx,%ebx
+	jne .L397
+	pushl $15380
+	call _m3_fault
+	.align 16
+.L397:
+	cmpb $12,36(%ebx)
+	je .L399
+	pushl %ebx
+	call M3Driver__Merge
+	addl $4,%esp
+.L399:
+	movl 12(%ebx),%edx
+	testl %edx,%edx
+	je .L420
+	movl 8(%ebx),%eax
+	pushl %eax
+	pushl %edx
+	movl MI_Text+48,%eax
+	call *%eax
+	addl $8,%esp
+	testl %eax,%eax
+	jne .L420
+	pushl %ebx
+	call M3Driver__ObjectIsStale
+	addl $4,%esp
+	testl %eax,%eax
+	je .L396
+	cmpb $0,MM_M3Driver+296
+	je .L409
+	pushl $1
+	pushl %ebx
+	call M3Driver__PullForBootstrap
+	addl $8,%esp
+.L420:
+	movl 12(%ebx),%eax
+	pushl %eax
+	movl MI_Utils+108,%eax
+	call *%eax
+	jmp .L396
+	.align 16
+.L409:
+	cmpb $12,36(%ebx)
+	jne .L410
+	movl 32(%ebx),%eax
+	pushl %eax
+	movl 12(%ebx),%eax
+	pushl %eax
+	movl 8(%ebx),%eax
+	pushl %eax
+	call M3Driver__Pass1
+	jmp .L421
+	.align 16
+.L410:
+	movl 32(%ebx),%eax
+	pushl %eax
+	movl 12(%ebx),%eax
+	pushl %eax
+	movl 8(%ebx),%eax
+	pushl %eax
+	call M3Driver__Pass7
+.L421:
+	addl $12,%esp
+	movl 12(%ebx),%eax
+	pushl %eax
+	movl MI_Utils+112,%eax
+	call *%eax
+.L396:
+	movl -4(%ebp),%ebx
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe42:
+	.size	 M3Driver__CompileS,.Lfe42-M3Driver__CompileS
+	.align 16
+	.type	 M3Driver__CompileC,@function
+M3Driver__CompileC:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %esi
+	xorl %esi,%esi
+	pushl %ebx
+	movl 8(%ebp),%ebx
+	testl %ebx,%ebx
+	jne .L423
+	pushl $15764
+	call _m3_fault
+	.align 16
+.L423:
+	cmpb $10,36(%ebx)
+	je .L425
+	pushl %ebx
+	call M3Driver__Merge
+	addl $4,%esp
+.L425:
+	movl 12(%ebx),%edx
+	testl %edx,%edx
+	je .L430
+	movl 8(%ebx),%eax
+	pushl %eax
+	pushl %edx
+	movl MI_Text+48,%eax
+	call *%eax
+	addl $8,%esp
+	testl %eax,%eax
+	je .L429
+.L430:
+	movl 12(%ebx),%eax
+	pushl %eax
+	movl MI_Utils+108,%eax
+	call *%eax
+	jmp .L422
+	.align 16
+.L429:
+	pushl %ebx
+	call M3Driver__ObjectIsStale
+	addl $4,%esp
+	testl %eax,%eax
+	je .L422
+	cmpb $10,36(%ebx)
+	jne .L434
+	cmpb $0,MM_M3Driver+296
+	je .L435
+	pushl $1
+	pushl %ebx
+	call M3Driver__PullForBootstrap
+	addl $8,%esp
+	jmp .L436
+	.align 16
+.L435:
+	movl 32(%ebx),%eax
+	pushl %eax
+	movl 12(%ebx),%eax
+	pushl %eax
+	movl 8(%ebx),%eax
+	pushl %eax
+	call M3Driver__Pass1
+	addl $12,%esp
+.L436:
+	testl %ebx,%ebx
+	jne .L454
+	pushl $15956
+	call _m3_fault
+	.align 16
+.L434:
+	cmpb $0,MM_M3Driver+320
+	jne .L441
+	pushl %esi
+	pushl %esi
+	pushl %esi
+	pushl $MM_M3Driver+2588
+	pushl %esi
+	movl MI_Msg+56,%eax
+	call *%eax
+	jmp .L422
+	.align 16
+.L441:
+	cmpb $0,MM_M3Driver+296
+	je .L442
+	movl 32(%ebx),%eax
+	pushl %eax
+	movl 12(%ebx),%eax
+	pushl %eax
+	movl 8(%ebx),%eax
+	pushl %eax
+	call M3Driver__Pass6
+	addl $12,%esp
+	jmp .L454
+	.align 16
+.L442:
+	pushl %ebx
+	call M3Driver__TempSName
+	movl %eax,%esi
+	addl $4,%esp
+	cmpb $0,MM_M3Driver+289
+	jne .L449
+	pushl %esi
+	movl MI_Utils+72,%eax
+	call *%eax
+	addl $4,%esp
+.L449:
+	movl 32(%ebx),%eax
+	pushl %eax
+	pushl %esi
+	movl 8(%ebx),%eax
+	pushl %eax
+	call M3Driver__Pass6
+	addl $12,%esp
+	testl %eax,%eax
+	je .L450
+	movl 32(%ebx),%eax
+	pushl %eax
+	movl 12(%ebx),%eax
+	pushl %eax
+	pushl %esi
+	call M3Driver__Pass7
+	addl $12,%esp
+.L450:
+	cmpb $0,MM_M3Driver+289
+	jne .L453
+	pushl %esi
+	movl MI_Utils+80,%eax
+	call *%eax
+	addl $4,%esp
+.L453:
+	testl %ebx,%ebx
+	jne .L454
+	pushl $16164
+	call _m3_fault
+	.align 16
+.L454:
+	movl 12(%ebx),%eax
+	pushl %eax
+	movl MI_Utils+112,%eax
+	call *%eax
+.L422:
+	leal -8(%ebp),%esp
+	popl %ebx
+	popl %esi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe43:
+	.size	 M3Driver__CompileC,.Lfe43-M3Driver__CompileC
+	.align 16
+	.type	 M3Driver__CompileH,@function
+M3Driver__CompileH:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %ebx
+	movl 8(%ebp),%ebx
+	cmpb $0,MM_M3Driver+296
+	je .L455
+	testl %ebx,%ebx
+	jne .L458
+	pushl $16308
+	call _m3_fault
+	.align 16
+.L458:
+	movl 12(%ebx),%edx
+	testl %edx,%edx
+	je .L466
+	movl 8(%ebx),%eax
+	pushl %eax
+	pushl %edx
+	movl MI_Text+48,%eax
+	call *%eax
+	addl $8,%esp
+	testl %eax,%eax
+	jne .L466
+	pushl %ebx
+	call M3Driver__ObjectIsStale
+	addl $4,%esp
+	testl %eax,%eax
+	je .L455
+	pushl $1
+	pushl %ebx
+	call M3Driver__PullForBootstrap
+	addl $8,%esp
+.L466:
+	movl 12(%ebx),%eax
+	pushl %eax
+	movl MI_Utils+108,%eax
+	call *%eax
+.L455:
+	movl -4(%ebp),%ebx
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe44:
+	.size	 M3Driver__CompileH,.Lfe44-M3Driver__CompileH
+	.align 16
+	.type	 M3Driver__CompileM3,@function
+M3Driver__CompileM3:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %ebx
+	movl 8(%ebp),%ebx
+	testl %ebx,%ebx
+	jne .L468
+	pushl $16532
+	call _m3_fault
+	.align 16
+.L468:
+	cmpl $0,4(%ebx)
+	je .L473
+	cmpl $0,16(%ebx)
+	jne .L471
+	pushl $16544
+	call _m3_fault
+	.align 16
+.L471:
+	pushl $MM_M3Driver+2672
+	pushl %ebx
+	pushl $MM_M3Driver+2648
+	call M3Driver__DebugF
+	jmp .L481
+	.align 16
+.L473:
+	movl 12(%ebx),%edx
+	testl %edx,%edx
+	je .L478
+	movl 8(%ebx),%eax
+	pushl %eax
+	pushl %edx
+	movl MI_Text+48,%eax
+	call *%eax
+	addl $8,%esp
+	testl %eax,%eax
+	je .L477
+.L478:
+	movl 12(%ebx),%eax
+	pushl %eax
+	movl MI_Utils+108,%eax
+	call *%eax
+	pushl $MM_M3Driver+2704
+	jmp .L482
+	.align 16
+.L477:
+	pushl %ebx
+	call M3Driver__M3isStale
+	addl $4,%esp
+	testl %eax,%eax
+	jne .L479
+	pushl $MM_M3Driver+2736
+.L482:
+	pushl %ebx
+	pushl $MM_M3Driver+2648
+	call M3Driver__DebugF
+	jmp .L467
+	.align 16
+.L479:
+	pushl %ebx
+	call M3Driver__PushOneM3
+	addl $4,%esp
+	testl %eax,%eax
+	je .L467
+.L481:
+	pushl %ebx
+	call M3Driver__Merge
+.L467:
+	movl -4(%ebp),%ebx
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe45:
+	.size	 M3Driver__CompileM3,.Lfe45-M3Driver__CompileM3
+.section	.rodata
+	.align 4
+	.type	 L_26.5,@object
+	.size	 L_26.5,32
+L_26.5:
+	.long .L491
+	.long .L492
+	.long .L493
+	.long .L494
+	.long .L491
+	.long .L491
+	.long .L495
+	.long .L495
+.text
+	.align 16
+	.type	 M3Driver__PushOneM3,@function
+M3Driver__PushOneM3:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $8,%esp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%edi
+	xorl %ebx,%ebx
+	movb $0,-4(%ebp)
+	movb -4(%ebp),%al
+	testl %edi,%edi
+	jne .L484
+	pushl $16884
+	call _m3_fault
+	.align 16
+.L484:
+	movl %ebx,16(%edi)
+	cmpb $0,MM_M3Driver+328
+	jne .L485
+	movb $1,%al
+.L485:
+	cmpb $0,MM_M3Driver+320
+	je .L487
+	andl $255,%eax
+	addl $2,%eax
+	cmpl $7,%eax
+	jle .L488
+	pushl $16945
+	call _m3_fault
+	.align 16
+.L488:
+.L487:
+	cmpb $0,MM_M3Driver+296
+	je .L489
+	andl $255,%eax
+	addl $4,%eax
+	cmpl $7,%eax
+	jle .L490
+	pushl $16961
+	call _m3_fault
+	.align 16
+.L490:
+.L489:
+	andl $255,%eax
+	jmp *L_26.5(,%eax,4)
+	.align 16
+.L491:
+	testl %edi,%edi
+	jne .L496
+	pushl $17060
+	call _m3_fault
+	.align 16
+.L496:
+	movl 12(%edi),%eax
+	pushl %eax
+	pushl %edi
+	call M3Driver__Pass0
+	addl $8,%esp
+	testl %eax,%eax
+	je .L497
+	movb $1,-4(%ebp)
+	jmp .L501
+	.align 16
+.L497:
+	cmpb $0,MM_M3Driver+289
+	jne .L501
+	movl 12(%edi),%eax
+	pushl %eax
+	jmp .L530
+	.align 16
+.L492:
+	pushl %edi
+	call M3Driver__TempSName
+	movl %eax,%esi
+	movl %esi,-8(%ebp)
+	addl $4,%esp
+	cmpb $0,MM_M3Driver+289
+	jne .L502
+	pushl %esi
+	movl MI_Utils+72,%eax
+	call *%eax
+	addl $4,%esp
+.L502:
+	pushl %esi
+	pushl %edi
+	call M3Driver__Pass0
+	addl $8,%esp
+	testl %eax,%eax
+	je .L503
+	testl %edi,%edi
+	jne .L505
+	pushl $17220
+	call _m3_fault
+	.align 16
+.L505:
+	movl 32(%edi),%eax
+	pushl %eax
+	movl 12(%edi),%eax
+	pushl %eax
+	pushl %esi
+	call M3Driver__Pass7
+	addl $12,%esp
+	movb $1,-4(%ebp)
+.L503:
+	cmpb $0,MM_M3Driver+289
+	jne .L501
+	movl -8(%ebp),%edx
+	pushl %edx
+	jmp .L530
+	.align 16
+.L493:
+	pushl %edi
+	call M3Driver__TempCName
+	movl %eax,%ebx
+	addl $4,%esp
+	cmpb $0,MM_M3Driver+289
+	jne .L508
+	pushl %ebx
+	movl MI_Utils+72,%eax
+	call *%eax
+	addl $4,%esp
+.L508:
+	pushl %ebx
+	pushl %edi
+	call M3Driver__Pass0
+	addl $8,%esp
+	testl %eax,%eax
+	je .L509
+	testl %edi,%edi
+	jne .L511
+	pushl $17380
+	call _m3_fault
+	.align 16
+.L511:
+	movl 32(%edi),%eax
+	pushl %eax
+	movl 12(%edi),%eax
+	pushl %eax
+	pushl %ebx
+	call M3Driver__Pass6
+	movb $1,-4(%ebp)
+	addl $12,%esp
+.L509:
+	cmpb $0,MM_M3Driver+289
+	jne .L501
+	jmp .L531
+	.align 16
+.L494:
+	pushl %edi
+	call M3Driver__TempCName
+	movl %eax,%ebx
+	pushl %edi
+	call M3Driver__TempSName
+	movl %eax,%esi
+	movl %esi,-8(%ebp)
+	addl $8,%esp
+	cmpb $0,MM_M3Driver+289
+	jne .L514
+	pushl %ebx
+	movl MI_Utils+72,%eax
+	call *%eax
+	addl $4,%esp
+	cmpb $0,MM_M3Driver+289
+	jne .L514
+	pushl %esi
+	movl MI_Utils+72,%eax
+	call *%eax
+	addl $4,%esp
+.L514:
+	pushl %ebx
+	pushl %edi
+	call M3Driver__Pass0
+	addl $8,%esp
+	testl %eax,%eax
+	je .L515
+	testl %edi,%edi
+	jne .L516
+	pushl $17572
+	call _m3_fault
+	.align 16
+.L516:
+	movl 32(%edi),%eax
+	pushl %eax
+	pushl %esi
+	pushl %ebx
+	call M3Driver__Pass6
+	addl $12,%esp
+	testl %eax,%eax
+	je .L517
+	movl 32(%edi),%eax
+	pushl %eax
+	movl 12(%edi),%eax
+	pushl %eax
+	pushl %esi
+	call M3Driver__Pass7
+	addl $12,%esp
+.L517:
+	movb $1,-4(%ebp)
+.L515:
+	cmpb $0,MM_M3Driver+289
+	jne .L501
+	pushl %ebx
+	movl MI_Utils+80,%eax
+	call *%eax
+	addl $4,%esp
+	cmpb $0,MM_M3Driver+289
+	jne .L501
+	movl -8(%ebp),%edx
+	pushl %edx
+	jmp .L530
+	.align 16
+.L495:
+	pushl %edi
+	call M3Driver__TempCName
+	movl %eax,%ebx
+	addl $4,%esp
+	cmpb $0,MM_M3Driver+289
+	jne .L522
+	cmpb $0,MM_M3Driver+297
+	jne .L522
+	pushl %ebx
+	movl MI_Utils+72,%eax
+	call *%eax
+	addl $4,%esp
+.L522:
+	pushl %ebx
+	pushl %edi
+	call M3Driver__Pass0
+	addl $8,%esp
+	testl %eax,%eax
+	je .L523
+	cmpb $0,MM_M3Driver+297
+	jne .L524
+	testl %edi,%edi
+	jne .L526
+	pushl $17828
+	call _m3_fault
+	.align 16
+.L526:
+	movl 32(%edi),%eax
+	pushl %eax
+	movl 12(%edi),%eax
+	pushl %eax
+	pushl %ebx
+	call M3Driver__Pass6
+	addl $12,%esp
+.L524:
+	movb $1,-4(%ebp)
+.L523:
+	cmpb $0,MM_M3Driver+289
+	jne .L501
+	cmpb $0,MM_M3Driver+297
+	jne .L501
+.L531:
+	pushl %ebx
+.L530:
+	movl MI_Utils+80,%eax
+	call *%eax
+	addl $4,%esp
+.L501:
+	testl %edi,%edi
+	jne .L529
+	pushl $17924
+	call _m3_fault
+	.align 16
+.L529:
+	movl 12(%edi),%eax
+	pushl %eax
+	movl MI_Utils+112,%eax
+	call *%eax
+	leal -20(%ebp),%esp
+	xorl %eax,%eax
+	movb -4(%ebp),%al
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe46:
+	.size	 M3Driver__PushOneM3,.Lfe46-M3Driver__PushOneM3
+	.align 16
+	.type	 M3Driver__RecompileM3,@function
+M3Driver__RecompileM3:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %ebx
+	movl 8(%ebp),%ebx
+	pushl %ebx
+	call M3Driver__PushOneM3
+	addl $4,%esp
+	testl %eax,%eax
+	je .L532
+	pushl %ebx
+	call M3Driver__Remerge
+.L532:
+	movl -4(%ebp),%ebx
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe47:
+	.size	 M3Driver__RecompileM3,.Lfe47-M3Driver__RecompileM3
+	.align 16
+	.type	 M3Driver__CouldBeImproved,@function
+M3Driver__CouldBeImproved:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $12,%esp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%esi
+	movl $0,-4(%ebp)
+	testl %esi,%esi
+	jne .L535
+	pushl $18148
+	call _m3_fault
+	.align 16
+.L535:
+	movl 4(%esi),%ebx
+	testl %ebx,%ebx
+	jne .L557
+	cmpl $0,16(%esi)
+	je .L557
+	cmpb $4,36(%esi)
+	jne .L557
+	movl 12(%esi),%edx
+	testl %edx,%edx
+	je .L557
+	movl 8(%esi),%eax
+	pushl %eax
+	pushl %edx
+	movl MI_Text+48,%eax
+	call *%eax
+	movl %eax,%edx
+	addl $8,%esp
+	testl %edx,%edx
+	jne .L557
+	movl 16(%esi),%eax
+	testl %eax,%eax
+	jne .L547
+	pushl $18324
+	call _m3_fault
+	.align 16
+.L547:
+	movl %eax,%ecx
+	leal 100(%ecx),%eax
+	movl %eax,-8(%ebp)
+	movl 100(%ecx),%edx
+	movl 4(%eax),%eax
+	addl %edx,%eax
+	movl %edx,%ebx
+	decl %eax
+	movl %eax,-12(%ebp)
+	jmp .L548
+	.align 16
+.L549:
+	movl MM_M3Driver+376,%edi
+	movl (%edi),%eax
+	movl 4(%eax),%ecx
+	testl %esi,%esi
+	jne .L550
+	pushl $18356
+	call _m3_fault
+	.align 16
+.L550:
+	movl 16(%esi),%eax
+	testl %eax,%eax
+	jne .L551
+	pushl $18356
+	call _m3_fault
+	.align 16
+.L551:
+	movl 124(%eax),%edx
+	testl %edx,%edx
+	jne .L552
+	pushl $18356
+	call _m3_fault
+	.align 16
+.L552:
+	cmpl %ebx,4(%edx)
+	ja .L553
+	pushl $18354
+	call _m3_fault
+	.align 16
+.L553:
+	leal -4(%ebp),%eax
+	pushl %eax
+	movl (%edx),%eax
+	leal (%eax,%ebx,4),%eax
+	pushl %eax
+	pushl %edi
+	call *%ecx
+	movl %eax,%edx
+	addl $12,%esp
+	testl %edx,%edx
+	je .L554
+	pushl %esi
+	pushl $MM_M3Driver+2764
+	call M3Driver__ExplainF
+	movl $1,%eax
+	jmp .L556
+	.align 16
+.L554:
+	incl %ebx
+.L548:
+	cmpl %ebx,-12(%ebp)
+	jge .L549
+.L557:
+	xorl %eax,%eax
+.L556:
+	leal -24(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe48:
+	.size	 M3Driver__CouldBeImproved,.Lfe48-M3Driver__CouldBeImproved
+	.align 16
+	.type	 M3Driver__ObjectIsStale,@function
+M3Driver__ObjectIsStale:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%ebx
+	cmpb $0,MM_M3Driver+288
+	jne .L559
+	testl %ebx,%ebx
+	jne .L560
+	pushl $18580
+	call _m3_fault
+	.align 16
+.L560:
+	movb 36(%ebx),%al
+	testb %al,%al
+	je .L564
+	cmpb $4,%al
+	jne .L566
+.L564:
+	movb $1,41(%ebx)
+	jmp .L579
+	.align 16
+.L566:
+	movl 8(%ebx),%eax
+	pushl %eax
+	movl MI_Unit+60,%eax
+	call *%eax
+	pushl $0
+	pushl $0
+	pushl %eax
+	pushl $MM_M3Driver+2808
+	movl MI_Msg+80,%eax
+	call *%eax
+	jmp .L579
+	.align 16
+.L559:
+	movl MI_M3Timers+124,%eax
+	pushl %eax
+	movl MI_ETimer+52,%eax
+	call *%eax
+	addl $4,%esp
+	testl %ebx,%ebx
+	jne .L567
+	pushl $18740
+	call _m3_fault
+	.align 16
+.L567:
+	movl 12(%ebx),%eax
+	pushl %eax
+	movl MI_Utils+100,%eax
+	call *%eax
+	movl %eax,%esi
+	addl $4,%esp
+	testl %esi,%esi
+	je .L571
+	movl 8(%ebx),%eax
+	pushl %eax
+	movl MI_Utils+104,%eax
+	call *%eax
+	addl $4,%esp
+	cmpl %eax,%esi
+	jge .L570
+.L571:
+	movb 36(%ebx),%al
+	testb %al,%al
+	je .L575
+	cmpb $4,%al
+	jne .L577
+.L575:
+	movb $1,41(%ebx)
+	jmp .L576
+	.align 16
+.L577:
+	movl 8(%ebx),%eax
+	pushl %eax
+	movl MI_Unit+60,%eax
+	call *%eax
+	pushl $0
+	pushl $0
+	pushl %eax
+	pushl $MM_M3Driver+2836
+	movl MI_Msg+80,%eax
+	call *%eax
+	addl $20,%esp
+.L576:
+	movl MI_ETimer+56,%eax
+	call *%eax
+.L579:
+	movl $1,%eax
+	jmp .L578
+	.align 16
+.L570:
+	movl MI_ETimer+56,%eax
+	call *%eax
+	xorl %eax,%eax
+.L578:
+	leal -8(%ebp),%esp
+	popl %ebx
+	popl %esi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe49:
+	.size	 M3Driver__ObjectIsStale,.Lfe49-M3Driver__ObjectIsStale
+	.align 16
+	.type	 M3Driver__M3isStale,@function
+M3Driver__M3isStale:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %ebx
+	movl 8(%ebp),%ebx
+	pushl %ebx
+	call M3Driver__ObjectIsStale
+	addl $4,%esp
+	testl %eax,%eax
+	jne .L590
+	movl MI_M3Timers+120,%eax
+	pushl %eax
+	movl MI_ETimer+52,%eax
+	call *%eax
+	addl $4,%esp
+	testl %ebx,%ebx
+	jne .L582
+	pushl $19252
+	call _m3_fault
+	.align 16
+.L582:
+	movl 16(%ebx),%eax
+	testl %eax,%eax
+	jne .L585
+	movb $1,42(%ebx)
+	jmp .L591
+	.align 16
+.L585:
+	pushl %eax
+	call M3Driver__CheckImports
+	pushl %ebx
+	call M3Driver__NewGenerics
+	addl $8,%esp
+	testl %eax,%eax
+	je .L586
+	pushl %ebx
+	pushl $MM_M3Driver+2876
+	jmp .L592
+	.align 16
+.L586:
+	pushl %eax
+	pushl %ebx
+	pushl $MM_M3Driver+2924
+	call M3Driver__DebugF
+	addl $12,%esp
+	pushl $1
+	movl 16(%ebx),%eax
+	pushl %eax
+	call M3Driver__MergeUnit
+	addl $8,%esp
+	testl %eax,%eax
+	je .L588
+	pushl $0
+	pushl %ebx
+	pushl $MM_M3Driver+3008
+	call M3Driver__DebugF
+	movl MI_ETimer+56,%eax
+	call *%eax
+	xorl %eax,%eax
+	jmp .L589
+	.align 16
+.L588:
+	pushl %ebx
+	pushl $MM_M3Driver+2968
+.L592:
+	call M3Driver__ExplainF
+.L591:
+	movl MI_ETimer+56,%eax
+	call *%eax
+.L590:
+	movl $1,%eax
+.L589:
+	movl -4(%ebp),%ebx
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe50:
+	.size	 M3Driver__M3isStale,.Lfe50-M3Driver__M3isStale
+	.align 16
+	.type	 M3Driver__Merge,@function
+M3Driver__Merge:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %ebx
+	movl 8(%ebp),%ebx
+	movl MI_M3Timers+116,%eax
+	pushl %eax
+	movl MI_ETimer+52,%eax
+	call *%eax
+	addl $4,%esp
+	testl %ebx,%ebx
+	jne .L594
+	pushl $19796
+	call _m3_fault
+	.align 16
+.L594:
+	cmpl $0,16(%ebx)
+	jne .L596
+	pushl %ebx
+	pushl $MM_M3Driver+2520
+	call M3Driver__BadFile
+	addl $8,%esp
+.L596:
+	movl 16(%ebx),%eax
+	pushl %eax
+	call M3Driver__CheckImports
+	pushl $0
+	pushl %ebx
+	pushl $MM_M3Driver+3024
+	call M3Driver__DebugF
+	addl $16,%esp
+	pushl $0
+	movl 16(%ebx),%eax
+	pushl %eax
+	call M3Driver__MergeUnit
+	movl MI_ETimer+56,%eax
+	call *%eax
+	movl -4(%ebp),%ebx
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe51:
+	.size	 M3Driver__Merge,.Lfe51-M3Driver__Merge
+	.align 16
+	.type	 M3Driver__Remerge,@function
+M3Driver__Remerge:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %ebx
+	movl 8(%ebp),%ebx
+	movl MI_M3Timers+116,%eax
+	pushl %eax
+	movl MI_ETimer+52,%eax
+	call *%eax
+	addl $4,%esp
+	testl %ebx,%ebx
+	jne .L599
+	pushl $20036
+	call _m3_fault
+	.align 16
+.L599:
+	cmpl $0,16(%ebx)
+	jne .L600
+	pushl %ebx
+	pushl $MM_M3Driver+2520
+	call M3Driver__BadFile
+	addl $8,%esp
+.L600:
+	pushl $0
+	pushl %ebx
+	pushl $MM_M3Driver+3068
+	call M3Driver__DebugF
+	addl $12,%esp
+	movl 16(%ebx),%eax
+	pushl %eax
+	call M3Driver__AddMagic
+	movl MI_ETimer+56,%eax
+	call *%eax
+	movl -4(%ebp),%ebx
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe52:
+	.size	 M3Driver__Remerge,.Lfe52-M3Driver__Remerge
+	.align 16
+	.type	 M3Driver__CheckImports,@function
+M3Driver__CheckImports:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %ebx
+	movl 8(%ebp),%ebx
+	testl %ebx,%ebx
+	jne .L603
+	pushl $20212
+	call _m3_fault
+	.align 16
+.L603:
+	movl MM_M3Driver+348,%eax
+	pushl %eax
+	leal 20(%ebx),%eax
+	pushl %eax
+	pushl %ebx
+	call M3Driver__CheckImp
+	addl $12,%esp
+	movl MM_M3Driver+348,%eax
+	pushl %eax
+	leal 12(%ebx),%eax
+	pushl %eax
+	pushl %ebx
+	call M3Driver__CheckImp
+	addl $12,%esp
+	movl MM_M3Driver+348,%eax
+	pushl %eax
+	leal 36(%ebx),%eax
+	pushl %eax
+	pushl %ebx
+	call M3Driver__CheckImp
+	addl $12,%esp
+	movl MM_M3Driver+352,%eax
+	pushl %eax
+	leal 44(%ebx),%eax
+	pushl %eax
+	pushl %ebx
+	call M3Driver__CheckImp
+	movl -4(%ebp),%ebx
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe53:
+	.size	 M3Driver__CheckImports,.Lfe53-M3Driver__CheckImports
+	.align 16
+	.type	 M3Driver__CheckImp,@function
+M3Driver__CheckImp:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $8,%esp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 16(%ebp),%edi
+	movl 12(%ebp),%eax
+	movl $0,-4(%ebp)
+	movl (%eax),%edx
+	movl 4(%eax),%eax
+	addl %edx,%eax
+	movl %edx,%ebx
+	leal -1(%eax),%esi
+	jmp .L608
+	.align 16
+.L609:
+	movl (%edi),%eax
+	movl 4(%eax),%eax
+	movl %eax,-8(%ebp)
+	cmpl $0,8(%ebp)
+	jne .L610
+	pushl $20388
+	call _m3_fault
+	.align 16
+.L610:
+	movl 8(%ebp),%ecx
+	movl 124(%ecx),%edx
+	testl %edx,%edx
+	jne .L611
+	pushl $20388
+	call _m3_fault
+	.align 16
+.L611:
+	cmpl %ebx,4(%edx)
+	ja .L612
+	pushl $20386
+	call _m3_fault
+	.align 16
+.L612:
+	leal -4(%ebp),%eax
+	pushl %eax
+	movl (%edx),%eax
+	leal (%eax,%ebx,4),%eax
+	pushl %eax
+	pushl %edi
+	movl -8(%ebp),%ecx
+	call *%ecx
+	movl %eax,%edx
+	addl $12,%esp
+	testl %edx,%edx
+	je .L613
+	movl -4(%ebp),%eax
+	testl %eax,%eax
+	je .L614
+	movl -4(%eax),%eax
+	sall $11,%eax
+	shrl $12,%eax
+	cmpl %eax,MM_M3Driver+1840
+	je .L614
+	pushl $20389
+	call _m3_fault
+	.align 16
+.L614:
+	movl -4(%ebp),%eax
+	pushl %eax
+	call M3Driver__CompileOne
+	addl $4,%esp
+.L613:
+	incl %ebx
+.L608:
+	cmpl %esi,%ebx
+	jle .L609
+	leal -20(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe54:
+	.size	 M3Driver__CheckImp,.Lfe54-M3Driver__CheckImp
+	.align 16
+	.type	 M3Driver__NewGenerics,@function
+M3Driver__NewGenerics:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $8,%esp
+	pushl %edi
+	pushl %esi
+	xorl %edx,%edx
+	pushl %ebx
+	movl 8(%ebp),%eax
+	testl %eax,%eax
+	jne .L617
+	pushl $20500
+	call _m3_fault
+	.align 16
+.L617:
+	movl 16(%eax),%ebx
+	testl %ebx,%ebx
+	jne .L618
+	pushl $20580
+	call _m3_fault
+	.align 16
+.L618:
+	cmpl $0,32(%ebx)
+	jle .L631
+	movl 12(%eax),%eax
+	pushl %eax
+	movl MI_Utils+100,%eax
+	call *%eax
+	movl %eax,-8(%ebp)
+	addl $4,%esp
+	leal 28(%ebx),%edx
+	movl %edx,-4(%ebp)
+	movl 28(%ebx),%eax
+	movl %eax,%esi
+	movl 4(%edx),%edx
+	addl %eax,%edx
+	leal -1(%edx),%edi
+	jmp .L622
+	.align 16
+.L623:
+	testl %ebx,%ebx
+	jne .L624
+	pushl $20660
+	call _m3_fault
+	.align 16
+.L624:
+	movl 124(%ebx),%eax
+	testl %eax,%eax
+	jne .L625
+	pushl $20660
+	call _m3_fault
+	.align 16
+.L625:
+	cmpl %esi,4(%eax)
+	ja .L626
+	pushl $20658
+	call _m3_fault
+	.align 16
+.L626:
+	movl (%eax),%eax
+	movl (%eax,%esi,4),%eax
+	pushl %eax
+	movl MI_M3ID+52,%eax
+	call *%eax
+	movl %eax,%edx
+	addl $4,%esp
+	xorl %eax,%eax
+	movb 8(%ebx),%al
+	pushl %eax
+	pushl %edx
+	call M3Driver__FindGeneric
+	addl $8,%esp
+	cmpl %eax,-8(%ebp)
+	jge .L628
+	movl $1,%eax
+	jmp .L630
+	.align 16
+.L628:
+	incl %esi
+.L622:
+	cmpl %edi,%esi
+	jle .L623
+.L631:
+	xorl %eax,%eax
+.L630:
+	leal -20(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe55:
+	.size	 M3Driver__NewGenerics,.Lfe55-M3Driver__NewGenerics
+	.align 16
+	.type	 M3Driver__FindGeneric,@function
+M3Driver__FindGeneric:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%esi
+	pushl $1
+	xorl %eax,%eax
+	movb 12(%ebp),%al
+	pushl %eax
+	pushl %esi
+	movl MI_Unit+68,%eax
+	call *%eax
+	movl %eax,%edx
+	movl %edx,%ebx
+	movb $8,%al
+	addl $12,%esp
+	testl %edx,%edx
+	jne .L633
+	cmpb $0,12(%ebp)
+	jne .L634
+	movb $9,%al
+.L634:
+	pushl $1
+	andl $255,%eax
+	pushl %eax
+	pushl %esi
+	pushl %edx
+	movl MI_M3Path+48,%eax
+	call *%eax
+	pushl %ebx
+	pushl %ebx
+	movl %eax,%edx
+	pushl %edx
+	pushl $MM_M3Driver+3104
+	pushl %ebx
+	movl MI_Msg+56,%eax
+	call *%eax
+	movl %ebx,%eax
+	jmp .L635
+	.align 16
+.L633:
+	pushl %ebx
+	movl MI_Utils+104,%eax
+	call *%eax
+.L635:
+	leal -8(%ebp),%esp
+	popl %ebx
+	popl %esi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe56:
+	.size	 M3Driver__FindGeneric,.Lfe56-M3Driver__FindGeneric
+	.align 16
+	.type	 M3Driver__ResetEnv,@function
+M3Driver__ResetEnv:
+	pushl %ebp
+	movl %esp,%ebp
+	movl MM_M3Driver+492,%edx
+	movl 8(%ebp),%eax
+	movl 12(%ebp),%ecx
+	movl %eax,4(%edx)
+	movl %ecx,8(%edx)
+	movl $0,12(%edx)
+	movl $0,16(%edx)
+	movl $0,20(%edx)
+	movl $0,24(%edx)
+	movl $0,28(%edx)
+	movl $0,32(%edx)
+	movl $0,36(%edx)
+	movl $0,40(%edx)
+	movl $0,44(%edx)
+	movl $0,48(%edx)
+	movl $0,56(%edx)
+	movl $0,64(%edx)
+	movl $0,72(%edx)
+	movl $0,80(%edx)
+	movl $0,88(%edx)
+	movl $0,96(%edx)
+	movl $0,104(%edx)
+	movl $0,112(%edx)
+	movl $0,120(%edx)
+	movl $0,128(%edx)
+	movl $0,136(%edx)
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe57:
+	.size	 M3Driver__ResetEnv,.Lfe57-M3Driver__ResetEnv
+	.align 16
+	.type	 M3Driver__Pass0,@function
+M3Driver__Pass0:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $220,%esp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl $0,-8(%ebp)
+	movl MM_M3Driver+256,%eax
+	movl $0,-4(%ebp)
+	movl 56(%eax),%eax
+	movl %eax,-216(%ebp)
+	movl $0,-212(%ebp)
+	movl MI_M3Timers+112,%eax
+	pushl %eax
+	movl MI_ETimer+52,%eax
+	call *%eax
+	addl $4,%esp
+	cmpl $0,8(%ebp)
+	jne .L638
+	pushl $22468
+	call _m3_fault
+	.align 16
+.L638:
+	movl -212(%ebp),%ecx
+	pushl %ecx
+	movl 8(%ebp),%esi
+	movl 8(%esi),%eax
+	pushl %eax
+	movl MI_Utils+56,%eax
+	call *%eax
+	movl %eax,-212(%ebp)
+	addl $8,%esp
+	testl %eax,%eax
+	setne %cl
+	movb %cl,-220(%ebp)
+	movl 8(%esi),%eax
+	movl %eax,-8(%ebp)
+	movl -212(%ebp),%esi
+	movl %esi,-4(%ebp)
+	testb %cl,%cl
+	je .L671
+	movl 8(%ebp),%ecx
+	cmpb $0,41(%ecx)
+	jne .L642
+	cmpb $0,42(%ecx)
+	je .L640
+.L642:
+	leal -8(%ebp),%eax
+	pushl %eax
+	call M3Driver__Pass0_CheckImports
+	call M3Driver__FlushPending
+	movl 8(%ebp),%esi
+	addl $4,%esp
+	movb 42(%esi),%al
+	testb %al,%al
+	je .L645
+	movb $0,42(%esi)
+	pushl %esi
+	pushl $MM_M3Driver+3148
+	call M3Driver__ExplainF
+	addl $8,%esp
+	jmp .L640
+	.align 16
+.L645:
+	cmpb $0,MM_M3Driver+288
+	jne .L651
+	movl 8(%ebp),%ecx
+	movb %al,41(%ecx)
+	movl 8(%ecx),%eax
+	pushl %eax
+	movl MI_Unit+60,%eax
+	call *%eax
+	pushl $0
+	pushl $0
+	pushl %eax
+	pushl $MM_M3Driver+2808
+	jmp .L681
+	.align 16
+.L651:
+	movl 8(%ebp),%esi
+	movb %al,41(%esi)
+	movl 8(%esi),%eax
+	pushl %eax
+	movl MI_Unit+60,%eax
+	call *%eax
+	pushl $0
+	pushl $0
+	pushl %eax
+	pushl $MM_M3Driver+2836
+.L681:
+	movl MI_Msg+80,%eax
+	call *%eax
+	addl $20,%esp
+.L640:
+	cmpb $0,-220(%ebp)
+	je .L671
+	cmpl $0,8(%ebp)
+	jne .L654
+	pushl $22852
+	call _m3_fault
+	.align 16
+.L654:
+	movl 12(%ebp),%ecx
+	pushl %ecx
+	movl 8(%ebp),%esi
+	movl 8(%esi),%eax
+	pushl %eax
+	call M3Driver__ResetEnv
+	addl $8,%esp
+	movl -216(%ebp),%ecx
+	pushl %ecx
+	movl 8(%esi),%eax
+	pushl %eax
+	call M3Driver__Pass0_Trace
+	addl $8,%esp
+	cmpb $0,MM_M3Driver+291
+	je .L666
+	leal -20(%ebp),%eax
+	leal -12(%ebp),%esi
+	movl %esi,-20(%ebp)
+	movl $1,-16(%ebp)
+	cmpl $0,-216(%ebp)
+	jne .L657
+	pushl $22916
+	call _m3_fault
+	.align 16
+.L657:
+	movl -216(%ebp),%ecx
+	movl 4(%ecx),%ecx
+	incl %ecx
+	movl %ecx,-12(%ebp)
+	pushl %eax
+	movl MM_M3Driver+3196,%eax
+	pushl %eax
+	movl MI_RTHooks+84,%eax
+	call *%eax
+	movl %eax,%ebx
+	addl $8,%esp
+	testl %ebx,%ebx
+	jne .L658
+	pushl $22948
+	call _m3_fault
+	.align 16
+.L658:
+	movl -216(%ebp),%esi
+	movl 4(%esi),%edx
+	movl %edx,-24(%ebp)
+	movl %edx,%eax
+	subl 4(%ebx),%eax
+	testl %eax,%eax
+	jle .L660
+	pushl $22945
+	call _m3_fault
+	.align 16
+.L660:
+	movl (%ebx),%edi
+	movl -216(%ebp),%ecx
+	movl %edi,-28(%ebp)
+	cmpl %edx,4(%ecx)
+	je .L662
+	pushl $22947
+	call _m3_fault
+	.align 16
+.L662:
+	leal 0(,%edx,4),%eax
+	pushl %eax
+	movl -216(%ebp),%esi
+	movl (%esi),%eax
+	pushl %eax
+	pushl %edi
+	call memmove
+	addl $12,%esp
+	movl 4(%ebx),%eax
+	leal -1(%eax),%edx
+	cmpl %eax,%edx
+	jb .L665
+	pushl $22962
+	call _m3_fault
+	.align 16
+.L665:
+	movl (%ebx),%eax
+	movl $MM_M3Driver+3208,(%eax,%edx,4)
+	movl %ebx,-216(%ebp)
+.L666:
+	movl $MM_M3Driver+3220,-200(%ebp)
+	movl $0,-204(%ebp)
+	movl RTThread__handlerStack,%eax
+	movl %eax,-208(%ebp)
+	leal -208(%ebp),%ecx
+	movl %ecx,RTThread__handlerStack
+	leal -188(%ebp),%eax
+	pushl %eax
+	call _setjmp
+	addl $4,%esp
+	testl %eax,%eax
+	jne .L667
+	cmpl $0,-216(%ebp)
+	jne .L668
+	pushl $23060
+	call _m3_fault
+	.align 16
+.L668:
+	movl -216(%ebp),%esi
+	pushl %esi
+	movl MM_M3Driver+492,%eax
+	pushl %eax
+	leal -8(%ebp),%eax
+	pushl %eax
+	movl MI_M3Compiler+284,%eax
+	call *%eax
+	movb %al,-220(%ebp)
+	movl -208(%ebp),%eax
+	movl %eax,RTThread__handlerStack
+	addl $12,%esp
+	jmp .L653
+	.align 16
+.L667:
+	pushl $0
+	pushl $MI_M3Driver+68
+	movl MI_RTHooks+52,%eax
+	call *%eax
+	addl $8,%esp
+.L653:
+	cmpb $0,-220(%ebp)
+	je .L671
+	movl MM_M3Driver+492,%eax
+	cmpl $0,20(%eax)
+	je .L671
+	movb $1,MM_M3Driver+295
+	pushl %eax
+	call M3Driver__FinishUnitInfo
+	addl $4,%esp
+	cmpl $0,8(%ebp)
+	jne .L672
+	pushl $23172
+	call _m3_fault
+	.align 16
+.L672:
+	movl 8(%ebp),%ecx
+	movl %eax,16(%ecx)
+	jmp .L673
+	.align 16
+.L671:
+	cmpl $0,8(%ebp)
+	jne .L674
+	pushl $23204
+	call _m3_fault
+	.align 16
+.L674:
+	movl 8(%ebp),%esi
+	cmpl $0,16(%esi)
+	je .L676
+	movb $1,MM_M3Driver+295
+.L676:
+	movl 8(%ebp),%ecx
+	movl $0,16(%ecx)
+.L673:
+	movl MM_M3Driver+492,%eax
+	movl 16(%eax),%eax
+	testl %eax,%eax
+	je .L677
+	pushl %eax
+	movl MI_M3Backend+48,%eax
+	call *%eax
+	addl $4,%esp
+.L677:
+	cmpl $0,8(%ebp)
+	jne .L678
+	pushl $23332
+	call _m3_fault
+	.align 16
+.L678:
+	movl 8(%ebp),%esi
+	movl 8(%esi),%eax
+	pushl %eax
+	movl -212(%ebp),%ecx
+	pushl %ecx
+	movl MI_Utils+60,%eax
+	call *%eax
+	movl MM_M3Driver+492,%edx
+	movl 8(%edx),%eax
+	pushl %eax
+	movl 12(%edx),%eax
+	pushl %eax
+	movl MI_Utils+52,%eax
+	call *%eax
+	pushl $0
+	pushl $0
+	call M3Driver__ResetEnv
+	addl $24,%esp
+	cmpb $0,-220(%ebp)
+	jne .L679
+	movb $1,MM_M3Driver+280
+	cmpb $0,MM_M3Driver+289
+	jne .L679
+	movl 12(%ebp),%esi
+	pushl %esi
+	movl MI_Utils+80,%eax
+	call *%eax
+	addl $4,%esp
+.L679:
+	movl MI_ETimer+56,%eax
+	call *%eax
+	leal -232(%ebp),%esp
+	xorl %eax,%eax
+	movb -220(%ebp),%al
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe58:
+	.size	 M3Driver__Pass0,.Lfe58-M3Driver__Pass0
+	.align 16
+	.type	 M3Driver__Pass0_InitCodeGenerator,@function
+M3Driver__Pass0_InitCodeGenerator:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $180,%esp
+	pushl %esi
+	pushl %ebx
+.L683:
+	movl $MM_M3Driver+1224,-172(%ebp)
+	movl $0,-176(%ebp)
+	movl RTThread__handlerStack,%eax
+	movl %eax,-180(%ebp)
+	leal -180(%ebp),%esi
+	movl %esi,RTThread__handlerStack
+	leal -160(%ebp),%eax
+	pushl %eax
+	call _setjmp
+	movl %eax,%ebx
+	addl $4,%esp
+	testl %ebx,%ebx
+	jne .L684
+	movl 8(%ebp),%esi
+	movl %ebx,16(%esi)
+	pushl %ebx
+	movl 8(%esi),%eax
+	pushl %eax
+	movl MI_Utils+44,%eax
+	call *%eax
+	movl %eax,%ecx
+	movl %ecx,12(%esi)
+	addl $8,%esp
+	testl %ecx,%ecx
+	je .L685
+	movl %ebx,%edx
+	cmpl $0,MM_M3Driver+264
+	je .L686
+	cmpb $0,MM_M3Driver+293
+	setne %al
+	xorl %edx,%edx
+	movb %al,%dl
+.L686:
+	movl MM_M3Driver+256,%eax
+	pushl %eax
+	pushl %edx
+	xorl %eax,%eax
+	movb MM_M3Driver+323,%al
+	pushl %eax
+	xorl %eax,%eax
+	movb MM_M3Driver+322,%al
+	pushl %eax
+	movl 8(%ebp),%esi
+	movl 8(%esi),%eax
+	pushl %eax
+	pushl %ecx
+	movl MI_M3Backend+44,%eax
+	call *%eax
+	movl %eax,16(%esi)
+.L685:
+	movl -180(%ebp),%eax
+	movl %eax,RTThread__handlerStack
+	jmp .L687
+	.align 16
+.L684:
+	pushl $0
+	pushl $MI_M3Compiler+44
+	movl MI_RTHooks+52,%eax
+	call *%eax
+.L687:
+	movl 8(%ebp),%esi
+	leal -188(%ebp),%esp
+	movl 16(%esi),%eax
+	popl %ebx
+	popl %esi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe59:
+	.size	 M3Driver__Pass0_InitCodeGenerator,.Lfe59-M3Driver__Pass0_InitCodeGenerator
+	.align 16
+	.type	 M3Driver__Pass0_CheckImports,@function
+M3Driver__Pass0_CheckImports:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $8,%esp
+	pushl %ebx
+	xorl %ebx,%ebx
+	movl %ebx,-4(%ebp)
+	pushl %ebx
+	movl 8(%ebp),%eax
+	movl (%eax),%eax
+	pushl %eax
+	call M3Driver__ResetEnv
+	movl MM_M3Driver+492,%eax
+	pushl %eax
+	movl 8(%ebp),%eax
+	pushl %eax
+	movl MI_M3Compiler+72,%eax
+	call *%eax
+	movl %eax,%ebx
+	addl $16,%esp
+	jmp .L690
+	.align 16
+.L691:
+	movl MM_M3Driver+348,%edx
+	movl (%edx),%eax
+	movl 4(%eax),%ecx
+	movl (%ebx),%eax
+	movl %eax,-8(%ebp)
+	leal -4(%ebp),%eax
+	pushl %eax
+	leal -8(%ebp),%eax
+	pushl %eax
+	pushl %edx
+	call *%ecx
+	addl $12,%esp
+	testl %eax,%eax
+	je .L693
+	movl -4(%ebp),%eax
+	testl %eax,%eax
+	je .L694
+	movl -4(%eax),%eax
+	sall $11,%eax
+	shrl $12,%eax
+	cmpl %eax,MM_M3Driver+1840
+	je .L694
+	pushl $23941
+	call _m3_fault
+	.align 16
+.L694:
+	movl -4(%ebp),%eax
+	pushl %eax
+	call M3Driver__CompileOne
+	addl $4,%esp
+.L693:
+	testl %ebx,%ebx
+	jne .L695
+	pushl $23956
+	call _m3_fault
+	.align 16
+.L695:
+	movl 4(%ebx),%ebx
+.L690:
+	testl %ebx,%ebx
+	jne .L691
+	movl 8(%ebp),%edx
+	movl (%edx),%eax
+	pushl %eax
+	movl 4(%edx),%eax
+	pushl %eax
+	movl MI_Utils+64,%eax
+	call *%eax
+	movl -12(%ebp),%ebx
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe60:
+	.size	 M3Driver__Pass0_CheckImports,.Lfe60-M3Driver__Pass0_CheckImports
+	.align 16
+	.type	 M3Driver__Pass0_Trace,@function
+M3Driver__Pass0_Trace:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%edx
+	movl 12(%ebp),%esi
+	xorl %eax,%eax
+	movb MI_Msg+44,%al
+	cmpl $1,%eax
+	jle .L697
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl %edx
+	pushl $MM_M3Driver+3232
+	movl MI_Msg+84,%eax
+	call *%eax
+	addl $28,%esp
+	testl %esi,%esi
+	jne .L699
+	pushl $24100
+	call _m3_fault
+	.align 16
+.L699:
+	xorl %ebx,%ebx
+	movl 4(%esi),%edi
+	decl %edi
+	jmp .L700
+	.align 16
+.L701:
+	testl %esi,%esi
+	jne .L702
+	pushl $24116
+	call _m3_fault
+	.align 16
+.L702:
+	cmpl %ebx,4(%esi)
+	ja .L703
+	pushl $24114
+	call _m3_fault
+	.align 16
+.L703:
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $0
+	movl (%esi),%eax
+	movl (%eax,%ebx,4),%eax
+	pushl %eax
+	pushl $MM_M3Driver+1712
+	movl MI_Msg+84,%eax
+	call *%eax
+	incl %ebx
+	addl $28,%esp
+.L700:
+	cmpl %edi,%ebx
+	jle .L701
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $0
+	movl MI_Wr+60,%eax
+	pushl %eax
+	movl MI_Msg+84,%eax
+	call *%eax
+.L697:
+	leal -12(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe61:
+	.size	 M3Driver__Pass0_Trace,.Lfe61-M3Driver__Pass0_Trace
+	.align 16
+	.type	 M3Driver__Pass0_Error,@function
+M3Driver__Pass0_Error:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 12(%ebp),%eax
+	movl 16(%ebp),%esi
+	movl 20(%ebp),%edi
+	testl %eax,%eax
+	je .L706
+	pushl %eax
+	movl MI_Unit+60,%eax
+	call *%eax
+	pushl $10
+	movl %eax,%ebx
+	pushl %esi
+	movl MI_Fmt+52,%eax
+	call *%eax
+	movl %eax,%edx
+	movl MI_Wr+60,%eax
+	pushl %eax
+	pushl %edi
+	pushl $MM_M3Driver+3276
+	pushl %edx
+	pushl $MM_M3Driver+3252
+	pushl %ebx
+	pushl $MM_M3Driver+1976
+	jmp .L708
+	.align 16
+.L706:
+	pushl %eax
+	pushl %eax
+	pushl %eax
+	pushl %eax
+	pushl %eax
+	pushl %eax
+	movl MI_Wr+60,%eax
+	pushl %eax
+.L708:
+	movl MI_Msg+84,%eax
+	call *%eax
+	leal -12(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe62:
+	.size	 M3Driver__Pass0_Error,.Lfe62-M3Driver__Pass0_Error
+	.align 16
+	.type	 M3Driver__Pass0_Open,@function
+M3Driver__Pass0_Open:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $8,%esp
+	pushl %ebx
+	movl 12(%ebp),%eax
+	movb 20(%ebp),%bl
+	pushl %eax
+	movl MI_M3ID+52,%eax
+	call *%eax
+	movl %eax,%edx
+	movl 24(%ebp),%eax
+	pushl %eax
+	xorl %eax,%eax
+	movb %bl,%al
+	pushl %eax
+	xorl %eax,%eax
+	movb 16(%ebp),%al
+	pushl %eax
+	pushl %edx
+	movl MI_Unit+64,%eax
+	call *%eax
+	movl -12(%ebp),%ebx
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe63:
+	.size	 M3Driver__Pass0_Open,.Lfe63-M3Driver__Pass0_Open
+	.align 16
+	.type	 M3Driver__Pass0_NoteUnit,@function
+M3Driver__Pass0_NoteUnit:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 12(%ebp),%esi
+	movb 16(%ebp),%bl
+	movl MM_M3Driver+3288,%eax
+	pushl %eax
+	movl MI_RTHooks+80,%eax
+	call *%eax
+	movl %eax,%edi
+	movl %esi,(%edi)
+	movb %bl,8(%edi)
+	movl MM_M3Driver+3296,%eax
+	pushl %eax
+	movl MI_RTHooks+80,%eax
+	call *%eax
+	movl 8(%ebp),%ecx
+	movl %eax,%edx
+	movl 4(%ecx),%eax
+	movl %eax,(%edx)
+	movl %edx,4(%edi)
+	movl %edi,20(%ecx)
+	movl MM_M3Driver+3304,%eax
+	pushl %eax
+	movl MI_RTHooks+80,%eax
+	call *%eax
+	movl %eax,%edx
+	movl (%edx),%eax
+	movl 24(%eax),%esi
+	pushl $0
+	pushl %edx
+	call *%esi
+	movl 8(%ebp),%ecx
+	movl %eax,%esi
+	movl %esi,24(%ecx)
+	movl MM_M3Driver+3304,%eax
+	pushl %eax
+	movl MI_RTHooks+80,%eax
+	call *%eax
+	movl %eax,%edx
+	movl (%edx),%eax
+	movl 24(%eax),%esi
+	pushl $0
+	pushl %edx
+	call *%esi
+	movl %eax,%esi
+	movl 8(%ebp),%ecx
+	addl $32,%esp
+	movl %esi,28(%ecx)
+	movl MM_M3Driver+3304,%eax
+	pushl %eax
+	movl MI_RTHooks+80,%eax
+	call *%eax
+	movl %eax,%edx
+	movl (%edx),%eax
+	movl 24(%eax),%esi
+	pushl $0
+	pushl %edx
+	call *%esi
+	movl 8(%ebp),%ecx
+	movl %eax,%esi
+	movl %esi,32(%ecx)
+	movl MM_M3Driver+3304,%eax
+	pushl %eax
+	movl MI_RTHooks+80,%eax
+	call *%eax
+	movl %eax,%edx
+	movl (%edx),%eax
+	movl 24(%eax),%esi
+	pushl $0
+	pushl %edx
+	call *%esi
+	movl 8(%ebp),%ecx
+	movl %eax,%esi
+	movl %esi,36(%ecx)
+	movl MM_M3Driver+3304,%eax
+	pushl %eax
+	movl MI_RTHooks+80,%eax
+	call *%eax
+	movl %eax,%edx
+	movl (%edx),%eax
+	movl 24(%eax),%esi
+	pushl $0
+	pushl %edx
+	call *%esi
+	movl %eax,%esi
+	movl 8(%ebp),%ecx
+	addl $36,%esp
+	movl %esi,40(%ecx)
+	movl MM_M3Driver+3304,%eax
+	pushl %eax
+	movl MI_RTHooks+80,%eax
+	call *%eax
+	movl %eax,%edx
+	movl (%edx),%eax
+	movl 24(%eax),%esi
+	pushl $0
+	pushl %edx
+	call *%esi
+	movl %eax,%esi
+	movl 8(%ebp),%ecx
+	leal -12(%ebp),%esp
+	movl %esi,44(%ecx)
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe64:
+	.size	 M3Driver__Pass0_NoteUnit,.Lfe64-M3Driver__Pass0_NoteUnit
+	.align 16
+	.type	 M3Driver__Pass0_NoteInterface,@function
+M3Driver__Pass0_NoteInterface:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $24,%esp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%edi
+	movl 32(%edi),%edx
+	movl 12(%ebp),%esi
+	movl (%edx),%eax
+	movb 16(%ebp),%bl
+	movl 8(%eax),%ecx
+	movl %esi,-4(%ebp)
+	movl $0,-8(%ebp)
+	leal -8(%ebp),%eax
+	pushl %eax
+	leal -4(%ebp),%eax
+	pushl %eax
+	pushl %edx
+	call *%ecx
+	addl $12,%esp
+	testb %bl,%bl
+	je .L712
+	movl 24(%edi),%ecx
+	movl (%ecx),%eax
+	movl 8(%eax),%edx
+	movl %esi,-12(%ebp)
+	movl $0,-16(%ebp)
+	leal -16(%ebp),%eax
+	pushl %eax
+	leal -12(%ebp),%eax
+	pushl %eax
+	pushl %ecx
+	call *%edx
+	addl $12,%esp
+	testl %eax,%eax
+	jne .L711
+	pushl %esi
+	leal 56(%edi),%eax
+	jmp .L716
+	.align 16
+.L712:
+	movl 28(%edi),%edx
+	movl (%edx),%eax
+	movl 8(%eax),%ecx
+	movl %esi,-20(%ebp)
+	movl $0,-24(%ebp)
+	leal -24(%ebp),%eax
+	pushl %eax
+	leal -20(%ebp),%eax
+	pushl %eax
+	pushl %edx
+	call *%ecx
+	addl $12,%esp
+	testl %eax,%eax
+	jne .L711
+	pushl %esi
+	leal 48(%edi),%eax
+.L716:
+	pushl %eax
+	call M3Driver__AddInfo
+.L711:
+	leal -36(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe65:
+	.size	 M3Driver__Pass0_NoteInterface,.Lfe65-M3Driver__Pass0_NoteInterface
+	.align 16
+	.type	 M3Driver__Pass0_NoteGeneric,@function
+M3Driver__Pass0_NoteGeneric:
+	pushl %ebp
+	movl %esp,%ebp
+	movl 12(%ebp),%eax
+	pushl %eax
+	movl 8(%ebp),%eax
+	addl $64,%eax
+	pushl %eax
+	call M3Driver__AddInfo
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe66:
+	.size	 M3Driver__Pass0_NoteGeneric,.Lfe66-M3Driver__Pass0_NoteGeneric
+	.align 16
+	.type	 M3Driver__Pass0_NoteVS,@function
+M3Driver__Pass0_NoteVS:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $16,%esp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%ebx
+	movl 16(%ebp),%eax
+	movl 12(%ebp),%ecx
+	movl %ecx,-16(%ebp)
+	movl 20(%ebp),%edx
+	movl %eax,-12(%ebp)
+	movl (%edx),%eax
+	movl %eax,-8(%ebp)
+	movl 4(%edx),%eax
+	movl %eax,-4(%ebp)
+	leal -16(%ebp),%eax
+	pushl %eax
+	movl MI_MxVS+52,%eax
+	call *%eax
+	movl %eax,%esi
+	xorl %eax,%eax
+	movb 24(%ebp),%al
+	pushl %eax
+	movl 12(%ebp),%ecx
+	pushl %ecx
+	movl %esi,%edi
+	pushl %ebx
+	call M3Driver__Pass0_NoteInterface
+	addl $16,%esp
+	cmpb $0,24(%ebp)
+	je .L719
+	cmpb $0,28(%ebp)
+	je .L720
+	pushl %esi
+	leal 88(%ebx),%eax
+	jmp .L725
+	.align 16
+.L720:
+	pushl %esi
+	leal 96(%ebx),%eax
+	jmp .L725
+	.align 16
+.L719:
+	cmpb $0,28(%ebp)
+	je .L723
+	pushl %esi
+	leal 104(%ebx),%eax
+	jmp .L725
+	.align 16
+.L723:
+	pushl %edi
+	leal 112(%ebx),%eax
+.L725:
+	pushl %eax
+	call M3Driver__AddInfo
+	leal -28(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe67:
+	.size	 M3Driver__Pass0_NoteVS,.Lfe67-M3Driver__Pass0_NoteVS
+	.align 16
+	.type	 M3Driver__Pass0_NoteRevelation,@function
+M3Driver__Pass0_NoteRevelation:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 20(%ebp),%ebx
+	movl 24(%ebp),%esi
+	movl MM_M3Driver+3312,%eax
+	pushl %eax
+	movl MI_RTHooks+80,%eax
+	call *%eax
+	movl %eax,%edi
+	movl 12(%ebp),%edx
+	addl $4,%esp
+	movl %edx,(%edi)
+	movl %ebx,4(%edi)
+	movl %esi,8(%edi)
+	cmpb $0,28(%ebp)
+	sete %al
+	movb %al,16(%edi)
+	cmpb $0,32(%ebp)
+	sete %al
+	movb %al,17(%edi)
+	xorl %eax,%eax
+	movb 16(%ebp),%al
+	pushl %eax
+	movl %edi,%ebx
+	pushl %edx
+	movl 8(%ebp),%edx
+	pushl %edx
+	call M3Driver__Pass0_AddUnit
+	addl $12,%esp
+	testl %edi,%edi
+	jne .L727
+	pushl $25396
+	call _m3_fault
+	.align 16
+.L727:
+	movl 8(%ebp),%edx
+	movl 20(%edx),%eax
+	testl %eax,%eax
+	jne .L728
+	pushl $25396
+	call _m3_fault
+	.align 16
+.L728:
+	movl 120(%eax),%eax
+	movl %eax,12(%edi)
+	movl 8(%ebp),%edx
+	movl 20(%edx),%eax
+	testl %eax,%eax
+	jne .L729
+	pushl $25412
+	call _m3_fault
+	.align 16
+.L729:
+	leal -12(%ebp),%esp
+	movl %ebx,120(%eax)
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe68:
+	.size	 M3Driver__Pass0_NoteRevelation,.Lfe68-M3Driver__Pass0_NoteRevelation
+	.align 16
+	.type	 M3Driver__Pass0_Comment,@function
+M3Driver__Pass0_Comment:
+	pushl %ebp
+	movl %esp,%ebp
+	movl 12(%ebp),%eax
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl %eax
+	movl MI_Msg+72,%eax
+	call *%eax
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe69:
+	.size	 M3Driver__Pass0_Comment,.Lfe69-M3Driver__Pass0_Comment
+	.align 16
+	.type	 M3Driver__Pass0_NoteOpaque,@function
+M3Driver__Pass0_NoteOpaque:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%edi
+	movl 12(%ebp),%ebx
+	movl 16(%ebp),%esi
+	movl MM_M3Driver+3320,%eax
+	pushl %eax
+	movl MI_RTHooks+80,%eax
+	call *%eax
+	movl %eax,%edx
+	addl $4,%esp
+	movl %ebx,4(%edx)
+	movl %esi,8(%edx)
+	movl 20(%edi),%eax
+	testl %eax,%eax
+	jne .L732
+	pushl $25572
+	call _m3_fault
+	.align 16
+.L732:
+	movl 108(%eax),%eax
+	movl %eax,(%edx)
+	movl 20(%edi),%eax
+	testl %eax,%eax
+	jne .L733
+	pushl $25572
+	call _m3_fault
+	.align 16
+.L733:
+	leal -12(%ebp),%esp
+	movl %edx,108(%eax)
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe70:
+	.size	 M3Driver__Pass0_NoteOpaque,.Lfe70-M3Driver__Pass0_NoteOpaque
+	.align 16
+	.type	 M3Driver__Pass0_AddUnit,@function
+M3Driver__Pass0_AddUnit:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $16,%esp
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%esi
+	movl 12(%ebp),%ebx
+	cmpb $0,16(%ebp)
+	je .L735
+	movl 32(%esi),%edx
+	movl (%edx),%eax
+	movl 8(%eax),%ecx
+	movl %ebx,-4(%ebp)
+	movl $0,-8(%ebp)
+	leal -8(%ebp),%eax
+	pushl %eax
+	leal -4(%ebp),%eax
+	pushl %eax
+	pushl %edx
+	call *%ecx
+	addl $12,%esp
+	testl %eax,%eax
+	jne .L734
+	pushl %ebx
+	leal 72(%esi),%eax
+	jmp .L739
+	.align 16
+.L735:
+	movl 36(%esi),%ecx
+	movl (%ecx),%eax
+	movl 8(%eax),%edx
+	movl %ebx,-12(%ebp)
+	movl $0,-16(%ebp)
+	leal -16(%ebp),%eax
+	pushl %eax
+	leal -12(%ebp),%eax
+	pushl %eax
+	pushl %ecx
+	call *%edx
+	addl $12,%esp
+	testl %eax,%eax
+	jne .L734
+	pushl %ebx
+	leal 80(%esi),%eax
+.L739:
+	pushl %eax
+	call M3Driver__AddInfo
+.L734:
+	leal -24(%ebp),%esp
+	popl %ebx
+	popl %esi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe71:
+	.size	 M3Driver__Pass0_AddUnit,.Lfe71-M3Driver__Pass0_AddUnit
+	.align 16
+	.type	 M3Driver__Pass0_AddMagic,@function
+M3Driver__Pass0_AddMagic:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $8,%esp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%ebx
+	movl 16(%ebp),%edi
+	movl 20(%ebp),%esi
+	movl 24(%ebp),%ecx
+	movl 28(%ebp),%eax
+	movl 20(%ebx),%edx
+	testl %edx,%edx
+	jne .L742
+	pushl $25956
+	call _m3_fault
+	.align 16
+.L742:
+	pushl %eax
+	pushl %ecx
+	pushl %esi
+	pushl %edi
+	movl 12(%ebp),%eax
+	pushl %eax
+	pushl $0
+	xorl %eax,%eax
+	movb 8(%edx),%al
+	pushl %eax
+	movl (%edx),%eax
+	pushl %eax
+	pushl %ebx
+	call M3Driver__Pass0_NoteObject
+	movl %eax,%edx
+	movl %edx,%edi
+	movl 44(%ebx),%edx
+	movl (%edx),%eax
+	addl $36,%esp
+	movl 8(%eax),%esi
+	movl $0,-4(%ebp)
+	leal -4(%ebp),%eax
+	pushl %eax
+	leal 12(%ebp),%ebx
+	pushl %ebx
+	pushl %edx
+	call *%esi
+	movl MM_M3Driver+376,%edx
+	movl (%edx),%eax
+	movl 8(%eax),%esi
+	movl %edi,-8(%ebp)
+	leal -8(%ebp),%eax
+	pushl %eax
+	pushl %ebx
+	pushl %edx
+	call *%esi
+	leal -20(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe72:
+	.size	 M3Driver__Pass0_AddMagic,.Lfe72-M3Driver__Pass0_AddMagic
+	.align 16
+	.type	 M3Driver__Pass0_FindMagic,@function
+M3Driver__Pass0_FindMagic:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $16,%esp
+	pushl %edi
+	pushl %esi
+	leal 12(%ebp),%esi
+	pushl %ebx
+	movl MM_M3Driver+376,%eax
+	movl $0,-4(%ebp)
+	movl (%eax),%edx
+	movl 8(%ebp),%edi
+	movl 4(%edx),%ecx
+	leal -4(%ebp),%edx
+	pushl %edx
+	movl %esi,-16(%ebp)
+	pushl %esi
+	xorl %ebx,%ebx
+	pushl %eax
+	call *%ecx
+	addl $12,%esp
+	testl %eax,%eax
+	jne .L744
+	movl 40(%edi),%ecx
+	movl (%ecx),%eax
+	movl 8(%eax),%edx
+	movl %ebx,-8(%ebp)
+	leal -8(%ebp),%eax
+	pushl %eax
+	pushl %esi
+	pushl %ecx
+	call *%edx
+	addl $12,%esp
+	testl %eax,%eax
+	jne .L745
+	movl 12(%ebp),%eax
+	pushl %eax
+	leal 136(%edi),%eax
+	pushl %eax
+	call M3Driver__AddInfo
+.L745:
+	movl %ebx,%eax
+	jmp .L759
+	.align 16
+.L744:
+	movl -4(%ebp),%eax
+	testl %eax,%eax
+	je .L746
+	movl -4(%eax),%eax
+	sall $11,%eax
+	shrl $12,%eax
+	cmpl %eax,MM_M3Driver+3332
+	je .L746
+	pushl $26309
+	call _m3_fault
+	.align 16
+.L746:
+	movl 44(%edi),%edx
+	movl (%edx),%eax
+	movl -4(%ebp),%ebx
+	movl 8(%eax),%ecx
+	movl $0,-12(%ebp)
+	leal -12(%ebp),%eax
+	pushl %eax
+	leal 12(%ebp),%eax
+	pushl %eax
+	pushl %edx
+	call *%ecx
+	addl $12,%esp
+	testl %eax,%eax
+	jne .L747
+	testl %ebx,%ebx
+	jne .L754
+	pushl $26356
+	call _m3_fault
+	.align 16
+.L754:
+	movl 24(%ebx),%eax
+	pushl %eax
+	movl 20(%ebx),%eax
+	pushl %eax
+	movl 16(%ebx),%eax
+	pushl %eax
+	movl 12(%ebx),%eax
+	pushl %eax
+	movl 8(%ebx),%eax
+	pushl %eax
+	pushl $1
+	cmpb $0,29(%ebx)
+	sete %al
+	andl $255,%eax
+	pushl %eax
+	movl 4(%ebx),%eax
+	pushl %eax
+	pushl %edi
+	call M3Driver__Pass0_NoteObject
+	addl $36,%esp
+.L747:
+	testl %ebx,%ebx
+	jne .L755
+	pushl $26436
+	call _m3_fault
+	.align 16
+.L755:
+	movl 16(%ebp),%esi
+	movl 12(%ebx),%eax
+	movl %eax,(%esi)
+	movl 20(%ebp),%esi
+	movl 16(%ebx),%eax
+	movl %eax,(%esi)
+	movl 24(%ebp),%esi
+	movl 20(%ebx),%eax
+	movl %eax,(%esi)
+	movl 28(%ebp),%esi
+	movl 24(%ebx),%eax
+	movl %eax,(%esi)
+	movl $1,%eax
+.L759:
+	leal -28(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe73:
+	.size	 M3Driver__Pass0_FindMagic,.Lfe73-M3Driver__Pass0_FindMagic
+	.align 16
+	.type	 M3Driver__Pass0_NoteObject,@function
+M3Driver__Pass0_NoteObject:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 24(%ebp),%ebx
+	movl 28(%ebp),%esi
+	movl 32(%ebp),%edi
+	movl MM_M3Driver+3328,%eax
+	pushl %eax
+	movl MI_RTHooks+80,%eax
+	call *%eax
+	movl %eax,%edx
+	movl 12(%ebp),%ecx
+	addl $4,%esp
+	movl %ecx,4(%edx)
+	movl %ebx,8(%edx)
+	movl %esi,12(%edx)
+	movl %edi,16(%edx)
+	movl 36(%ebp),%ecx
+	movl %ecx,20(%edx)
+	movl 40(%ebp),%ecx
+	movl %ecx,24(%edx)
+	cmpb $0,20(%ebp)
+	sete %al
+	movb %al,28(%edx)
+	movzbl 16(%ebp),%esi
+	testl %esi,%esi
+	sete %al
+	movb %al,29(%edx)
+	movl %edx,%ebx
+	cmpb $0,20(%ebp)
+	jne .L761
+	testl %ebx,%ebx
+	jne .L762
+	pushl $26724
+	call _m3_fault
+	.align 16
+.L762:
+	movl 8(%ebp),%ecx
+	movl 20(%ecx),%eax
+	testl %eax,%eax
+	jne .L763
+	pushl $26724
+	call _m3_fault
+	.align 16
+.L763:
+	movl 116(%eax),%eax
+	movl %eax,(%ebx)
+	movl 8(%ebp),%ecx
+	movl 20(%ecx),%eax
+	testl %eax,%eax
+	jne .L764
+	pushl $26740
+	call _m3_fault
+	.align 16
+.L764:
+	movl %ebx,116(%eax)
+	jmp .L765
+	.align 16
+.L761:
+	pushl %esi
+	movl 12(%ebp),%ecx
+	pushl %ecx
+	movl 8(%ebp),%ecx
+	pushl %ecx
+	call M3Driver__Pass0_AddUnit
+	addl $12,%esp
+	testl %ebx,%ebx
+	jne .L766
+	pushl $26788
+	call _m3_fault
+	.align 16
+.L766:
+	movl 8(%ebp),%ecx
+	movl 20(%ecx),%eax
+	testl %eax,%eax
+	jne .L767
+	pushl $26788
+	call _m3_fault
+	.align 16
+.L767:
+	movl 112(%eax),%eax
+	movl %eax,(%ebx)
+	movl 8(%ebp),%ecx
+	movl 20(%ecx),%eax
+	testl %eax,%eax
+	jne .L768
+	pushl $26804
+	call _m3_fault
+	.align 16
+.L768:
+	movl %ebx,112(%eax)
+.L765:
+	leal -12(%ebp),%esp
+	movl %ebx,%eax
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe74:
+	.size	 M3Driver__Pass0_NoteObject,.Lfe74-M3Driver__Pass0_NoteObject
+	.align 16
+	.type	 M3Driver__ExpandInfo,@function
+M3Driver__ExpandInfo:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $20,%esp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%eax
+	movl 4(%eax),%eax
+	testl %eax,%eax
+	jne .L770
+	pushl $26900
+	call _m3_fault
+	.align 16
+.L770:
+	movl 4(%eax),%ebx
+	leal -12(%ebp),%eax
+	leal -4(%ebp),%edi
+	movl %edi,-12(%ebp)
+	movl $1,-8(%ebp)
+	movl %ebx,%edi
+	addl %ebx,%edi
+	movl %edi,-4(%ebp)
+	pushl %eax
+	movl MM_M3Driver+3336,%eax
+	pushl %eax
+	movl MI_RTHooks+84,%eax
+	call *%eax
+	movl %eax,%esi
+	addl $8,%esp
+	testl %esi,%esi
+	jne .L771
+	pushl $26932
+	call _m3_fault
+	.align 16
+.L771:
+	movl %ebx,-16(%ebp)
+	movl %ebx,%eax
+	subl 4(%esi),%eax
+	testl %eax,%eax
+	jle .L772
+	pushl $26929
+	call _m3_fault
+	.align 16
+.L772:
+	movl (%esi),%ecx
+	movl 8(%ebp),%eax
+	movl %ecx,-20(%ebp)
+	movl 4(%eax),%edx
+	testl %edx,%edx
+	jne .L773
+	pushl $26932
+	call _m3_fault
+	.align 16
+.L773:
+	cmpl %ebx,4(%edx)
+	je .L774
+	pushl $26931
+	call _m3_fault
+	.align 16
+.L774:
+	leal 0(,%ebx,4),%eax
+	pushl %eax
+	movl (%edx),%eax
+	pushl %eax
+	pushl %ecx
+	call memmove
+	movl 8(%ebp),%eax
+	leal -32(%ebp),%esp
+	movl %esi,4(%eax)
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe75:
+	.size	 M3Driver__ExpandInfo,.Lfe75-M3Driver__ExpandInfo
+	.align 16
+	.type	 M3Driver__FullName,@function
+M3Driver__FullName:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %ebx
+	movl 8(%ebp),%eax
+	pushl %eax
+	movl MI_M3ID+52,%eax
+	call *%eax
+	movl %eax,%ebx
+	pushl %ebx
+	movl MI_Unit+56,%eax
+	call *%eax
+	testl %eax,%eax
+	jne .L776
+	movl %ebx,%eax
+.L776:
+	movl -4(%ebp),%ebx
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe76:
+	.size	 M3Driver__FullName,.Lfe76-M3Driver__FullName
+	.align 16
+	.type	 M3Driver__Pass0_NoteAST,@function
+M3Driver__Pass0_NoteAST:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $8,%esp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 12(%ebp),%ebx
+	movl 16(%ebp),%esi
+	pushl %ebx
+	call M3Driver__FullName
+	movl %eax,%edi
+	movl %edi,-4(%ebp)
+	movl MM_M3Driver+3344,%eax
+	pushl %eax
+	movl MI_RTHooks+80,%eax
+	call *%eax
+	movl %eax,%edi
+	movl -4(%ebp),%eax
+	movl %eax,(%edi)
+	movl %ebx,4(%edi)
+	movl MM_M3Driver+284,%eax
+	movl %eax,8(%edi)
+	movl %esi,20(%edi)
+	movl MM_M3Driver+380,%edx
+	movl (%edx),%eax
+	movl 8(%eax),%ecx
+	movl %edi,-8(%ebp)
+	leal -8(%ebp),%eax
+	pushl %eax
+	leal -4(%ebp),%eax
+	pushl %eax
+	pushl %edx
+	call *%ecx
+	leal -20(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe77:
+	.size	 M3Driver__Pass0_NoteAST,.Lfe77-M3Driver__Pass0_NoteAST
+	.align 16
+	.type	 M3Driver__AddImports,@function
+M3Driver__AddImports:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%esi
+	movl 12(%ebp),%ebx
+	movl MM_M3Driver+3352,%eax
+	pushl %eax
+	movl MI_RTHooks+80,%eax
+	call *%eax
+	movl %ebx,(%eax)
+	leal -8(%ebp),%esp
+	movl %esi,4(%eax)
+	popl %ebx
+	popl %esi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe78:
+	.size	 M3Driver__AddImports,.Lfe78-M3Driver__AddImports
+	.align 16
+	.type	 M3Driver__GetImports,@function
+M3Driver__GetImports:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $8,%esp
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%esi
+	movl $0,-8(%ebp)
+	movl $0,-4(%ebp)
+	xorl %ebx,%ebx
+	testl %esi,%esi
+	jne .L780
+	pushl $27444
+	call _m3_fault
+	.align 16
+.L780:
+	cmpl $-1,16(%esi)
+	jne .L779
+	movl %ebx,16(%esi)
+	movl 20(%esi),%eax
+	pushl %eax
+	movl MI_M3Compiler+288,%eax
+	call *%eax
+	movl %eax,%ebx
+	addl $4,%esp
+	jmp .L784
+	.align 16
+.L785:
+	movl (%ebx),%eax
+	pushl %eax
+	call M3Driver__FullName
+	movl %eax,%ecx
+	movl MM_M3Driver+380,%edx
+	movl %ecx,-4(%ebp)
+	movl (%edx),%eax
+	movl 4(%eax),%ecx
+	leal -8(%ebp),%eax
+	pushl %eax
+	leal -4(%ebp),%eax
+	pushl %eax
+	pushl %edx
+	call *%ecx
+	movl %esi,%edx
+	addl $16,%esp
+	testl %esi,%esi
+	jne .L787
+	pushl $27556
+	call _m3_fault
+	.align 16
+.L787:
+	movl -8(%ebp),%eax
+	testl %eax,%eax
+	je .L788
+	movl -4(%eax),%eax
+	sall $11,%eax
+	shrl $12,%eax
+	cmpl %eax,MM_M3Driver+3348
+	je .L788
+	pushl $27557
+	call _m3_fault
+	.align 16
+.L788:
+	movl -8(%ebp),%eax
+	pushl %eax
+	movl 12(%edx),%eax
+	pushl %eax
+	call M3Driver__AddImports
+	movl %eax,%ecx
+	addl $8,%esp
+	testl %esi,%esi
+	jne .L789
+	pushl $27556
+	call _m3_fault
+	.align 16
+.L789:
+	movl %ecx,12(%esi)
+	incl 16(%esi)
+	testl %ebx,%ebx
+	jne .L791
+	pushl $27588
+	call _m3_fault
+	.align 16
+.L791:
+	movl 4(%ebx),%ebx
+.L784:
+	testl %ebx,%ebx
+	jne .L785
+.L779:
+	leal -16(%ebp),%esp
+	popl %ebx
+	popl %esi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe79:
+	.size	 M3Driver__GetImports,.Lfe79-M3Driver__GetImports
+	.align 16
+	.type	 M3Driver__MakeValid,@function
+M3Driver__MakeValid:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $12,%esp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%edi
+	movl $0,-4(%ebp)
+	movb $1,-12(%ebp)
+	pushl %edi
+	call M3Driver__GetImports
+	addl $4,%esp
+	testl %edi,%edi
+	jne .L794
+	pushl $27828
+	call _m3_fault
+	.align 16
+.L794:
+	movl 12(%edi),%esi
+	jmp .L795
+	.align 16
+.L796:
+	xorl %ebx,%ebx
+	movl (%esi),%eax
+	pushl %eax
+	call M3Driver__MakeValid
+	addl $4,%esp
+	testl %eax,%eax
+	je .L798
+	cmpb $0,-12(%ebp)
+	setne %al
+	xorl %ebx,%ebx
+	movb %al,%bl
+.L798:
+	movb %bl,-12(%ebp)
+	movl 4(%esi),%esi
+.L795:
+	testl %esi,%esi
+	jne .L796
+	cmpb $0,-12(%ebp)
+	je .L814
+	testl %edi,%edi
+	jne .L802
+	pushl $28004
+	call _m3_fault
+	.align 16
+.L802:
+	movl MM_M3Driver+284,%eax
+	cmpl %eax,8(%edi)
+	jge .L801
+	movl MM_M3Driver+348,%edx
+	movl (%edx),%eax
+	movl 4(%eax),%ecx
+	movl 4(%edi),%eax
+	movl %eax,-8(%ebp)
+	leal -4(%ebp),%eax
+	pushl %eax
+	leal -8(%ebp),%eax
+	pushl %eax
+	pushl %edx
+	call *%ecx
+	addl $12,%esp
+	movl -4(%ebp),%eax
+	testl %eax,%eax
+	je .L805
+	movl -4(%eax),%eax
+	sall $11,%eax
+	shrl $12,%eax
+	cmpl %eax,MM_M3Driver+1840
+	je .L805
+	pushl $28053
+	call _m3_fault
+	.align 16
+.L805:
+	movl -4(%ebp),%edx
+	testl %edx,%edx
+	je .L806
+	testl %edi,%edi
+	jne .L808
+	pushl $28116
+	call _m3_fault
+	.align 16
+.L808:
+	movl 8(%edi),%eax
+	cmpl %eax,20(%edx)
+	jle .L801
+.L806:
+	testl %edi,%edi
+	jne .L810
+	pushl $28164
+	call _m3_fault
+	.align 16
+.L810:
+	movl (%edi),%eax
+	pushl %eax
+	movl MI_Utils+108,%eax
+	call *%eax
+	movl %eax,%ebx
+	addl $4,%esp
+	cmpl %ebx,8(%edi)
+	setg %cl
+	movb %cl,-12(%ebp)
+.L801:
+	cmpb $0,-12(%ebp)
+	je .L814
+	testl %edi,%edi
+	jne .L813
+	pushl $28276
+	call _m3_fault
+	.align 16
+.L813:
+	movl MM_M3Driver+284,%eax
+	movl %eax,8(%edi)
+.L814:
+	leal -24(%ebp),%esp
+	xorl %eax,%eax
+	movb -12(%ebp),%al
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe80:
+	.size	 M3Driver__MakeValid,.Lfe80-M3Driver__MakeValid
+	.align 16
+	.type	 M3Driver__Pass0_FindAST,@function
+M3Driver__Pass0_FindAST:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $8,%esp
+	pushl %ebx
+	movl 12(%ebp),%eax
+	movl $0,-8(%ebp)
+	pushl %eax
+	call M3Driver__FullName
+	movl %eax,%ecx
+	movl MM_M3Driver+380,%edx
+	movl %ecx,-4(%ebp)
+	movl (%edx),%eax
+	movl 4(%eax),%ecx
+	leal -8(%ebp),%eax
+	pushl %eax
+	leal -4(%ebp),%eax
+	pushl %eax
+	pushl %edx
+	call *%ecx
+	addl $16,%esp
+	testl %eax,%eax
+	je .L816
+	movl -8(%ebp),%eax
+	testl %eax,%eax
+	je .L817
+	movl -4(%eax),%eax
+	sall $11,%eax
+	shrl $12,%eax
+	cmpl %eax,MM_M3Driver+3348
+	je .L817
+	pushl $28501
+	call _m3_fault
+	.align 16
+.L817:
+	movl -8(%ebp),%ebx
+	cmpb $0,MM_M3Driver+281
+	je .L818
+	pushl %ebx
+	call M3Driver__MakeValid
+	addl $4,%esp
+	testl %eax,%eax
+	je .L822
+	testl %ebx,%ebx
+	jne .L821
+	pushl $28596
+	call _m3_fault
+	.align 16
+.L818:
+	testl %ebx,%ebx
+	jne .L821
+	pushl $28676
+	call _m3_fault
+	.align 16
+.L821:
+	movl 20(%ebx),%eax
+.L816:
+.L822:
+	movl -12(%ebp),%ebx
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe81:
+	.size	 M3Driver__Pass0_FindAST,.Lfe81-M3Driver__Pass0_FindAST
+	.align 16
+	.type	 M3Driver__Pass0_NoteType,@function
+M3Driver__Pass0_NoteType:
+	pushl %ebp
+	movl %esp,%ebp
+	movl 8(%ebp),%eax
+	movl 12(%ebp),%edx
+	cmpb $0,16(%ebp)
+	je .L824
+	pushl %edx
+	addl $120,%eax
+	jmp .L826
+	.align 16
+.L824:
+	pushl %edx
+	addl $128,%eax
+.L826:
+	pushl %eax
+	call M3Driver__AddInfo
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe82:
+	.size	 M3Driver__Pass0_NoteType,.Lfe82-M3Driver__Pass0_NoteType
+	.align 16
+	.type	 M3Driver__AddInfo,@function
+M3Driver__AddInfo:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $12,%esp
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%edx
+	movl 12(%ebp),%ebx
+	movl 4(%edx),%eax
+	testl %eax,%eax
+	jne .L830
+	leal -12(%ebp),%eax
+	leal -4(%ebp),%esi
+	movl %esi,-12(%ebp)
+	movl $1,-8(%ebp)
+	movl $40,-4(%ebp)
+	pushl %eax
+	movl MM_M3Driver+3336,%eax
+	pushl %eax
+	movl MI_RTHooks+84,%eax
+	call *%eax
+	movl %eax,%edx
+	movl 8(%ebp),%eax
+	addl $8,%esp
+	movl %edx,4(%eax)
+	jmp .L829
+	.align 16
+.L830:
+	movl 4(%eax),%eax
+	cmpl %eax,(%edx)
+	jl .L829
+	pushl %edx
+	call M3Driver__ExpandInfo
+	addl $4,%esp
+.L829:
+	movl 8(%ebp),%edx
+	movl 4(%edx),%eax
+	testl %eax,%eax
+	jne .L832
+	pushl $29028
+	call _m3_fault
+	.align 16
+.L832:
+	movl (%edx),%ecx
+	cmpl %ecx,4(%eax)
+	ja .L833
+	pushl $29026
+	call _m3_fault
+	.align 16
+.L833:
+	movl (%eax),%eax
+	leal -20(%ebp),%esp
+	movl %ebx,(%eax,%ecx,4)
+	incl (%edx)
+	popl %ebx
+	popl %esi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe83:
+	.size	 M3Driver__AddInfo,.Lfe83-M3Driver__AddInfo
+	.align 16
+	.type	 M3Driver__FinishUnitInfo,@function
+M3Driver__FinishUnitInfo:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $16,%esp
+	pushl %edi
+	pushl %esi
+	leal -12(%ebp),%edx
+	pushl %ebx
+	movl 8(%ebp),%esi
+	leal -4(%ebp),%ecx
+	movl 20(%esi),%ebx
+	movl 56(%esi),%eax
+	addl 48(%esi),%eax
+	addl 64(%esi),%eax
+	addl 72(%esi),%eax
+	addl 80(%esi),%eax
+	addl 88(%esi),%eax
+	addl 96(%esi),%eax
+	addl 104(%esi),%eax
+	addl 112(%esi),%eax
+	addl 120(%esi),%eax
+	addl 128(%esi),%eax
+	addl 136(%esi),%eax
+	movl %ecx,-12(%ebp)
+	movl $1,-8(%ebp)
+	movl %eax,-4(%ebp)
+	pushl %edx
+	movl MM_M3Driver+3336,%eax
+	pushl %eax
+	movl MI_RTHooks+84,%eax
+	call *%eax
+	movl %eax,%edi
+	movl %edi,-16(%ebp)
+	addl $8,%esp
+	testl %ebx,%ebx
+	jne .L835
+	pushl $29268
+	call _m3_fault
+	.align 16
+.L835:
+	leal 12(%ebx),%eax
+	pushl %eax
+	leal 48(%esi),%eax
+	pushl %eax
+	pushl $0
+	pushl %edi
+	call M3Driver__FinishInfo
+	movl %eax,%edx
+	addl $16,%esp
+	leal 20(%ebx),%eax
+	pushl %eax
+	leal 56(%esi),%eax
+	pushl %eax
+	pushl %edx
+	pushl %edi
+	call M3Driver__FinishInfo
+	movl %eax,%edx
+	addl $16,%esp
+	leal 28(%ebx),%eax
+	pushl %eax
+	leal 64(%esi),%eax
+	pushl %eax
+	pushl %edx
+	pushl %edi
+	call M3Driver__FinishInfo
+	movl %eax,%edx
+	addl $16,%esp
+	leal 36(%ebx),%eax
+	pushl %eax
+	leal 72(%esi),%eax
+	pushl %eax
+	pushl %edx
+	pushl %edi
+	call M3Driver__FinishInfo
+	movl %eax,%edx
+	addl $16,%esp
+	leal 44(%ebx),%eax
+	pushl %eax
+	leal 80(%esi),%eax
+	pushl %eax
+	pushl %edx
+	pushl %edi
+	call M3Driver__FinishInfo
+	movl %eax,%edx
+	addl $16,%esp
+	leal 52(%ebx),%eax
+	pushl %eax
+	leal 88(%esi),%eax
+	pushl %eax
+	pushl %edx
+	pushl %edi
+	call M3Driver__FinishInfo
+	movl %eax,%edx
+	addl $16,%esp
+	leal 60(%ebx),%eax
+	pushl %eax
+	leal 96(%esi),%eax
+	pushl %eax
+	pushl %edx
+	pushl %edi
+	call M3Driver__FinishInfo
+	movl %eax,%edx
+	addl $16,%esp
+	leal 68(%ebx),%eax
+	pushl %eax
+	leal 104(%esi),%eax
+	pushl %eax
+	pushl %edx
+	pushl %edi
+	call M3Driver__FinishInfo
+	movl %eax,%edx
+	addl $16,%esp
+	leal 76(%ebx),%eax
+	pushl %eax
+	leal 112(%esi),%eax
+	pushl %eax
+	pushl %edx
+	pushl %edi
+	call M3Driver__FinishInfo
+	movl %eax,%edx
+	addl $16,%esp
+	leal 84(%ebx),%eax
+	pushl %eax
+	leal 120(%esi),%eax
+	pushl %eax
+	pushl %edx
+	pushl %edi
+	call M3Driver__FinishInfo
+	movl %eax,%edx
+	addl $16,%esp
+	leal 92(%ebx),%eax
+	pushl %eax
+	leal 128(%esi),%eax
+	pushl %eax
+	pushl %edx
+	movl -16(%ebp),%ecx
+	pushl %ecx
+	call M3Driver__FinishInfo
+	movl %eax,%edx
+	addl $16,%esp
+	leal 100(%ebx),%eax
+	pushl %eax
+	leal 136(%esi),%eax
+	pushl %eax
+	pushl %edx
+	movl -16(%ebp),%ecx
+	pushl %ecx
+	call M3Driver__FinishInfo
+	movl %edi,124(%ebx)
+	leal -28(%ebp),%esp
+	movl %ebx,%eax
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe84:
+	.size	 M3Driver__FinishUnitInfo,.Lfe84-M3Driver__FinishUnitInfo
+	.align 16
+	.type	 M3Driver__FinishInfo,@function
+M3Driver__FinishInfo:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%edi
+	movl 12(%ebp),%ecx
+	testl %ecx,%ecx
+	jge .L849
+	pushl $29585
+	call _m3_fault
+	.align 16
+.L849:
+	movl 20(%ebp),%eax
+	movl %ecx,(%eax)
+	movl 16(%ebp),%esi
+	movl (%esi),%edx
+	testl %edx,%edx
+	jge .L850
+	pushl $29601
+	call _m3_fault
+	.align 16
+.L850:
+	movl 20(%ebp),%eax
+	xorl %ebx,%ebx
+	movl %edx,4(%eax)
+	movl (%esi),%esi
+	decl %esi
+	jmp .L851
+	.align 16
+.L852:
+	testl %edi,%edi
+	jne .L853
+	pushl $29636
+	call _m3_fault
+	.align 16
+.L853:
+	cmpl %ecx,4(%edi)
+	ja .L854
+	pushl $29634
+	call _m3_fault
+	.align 16
+.L854:
+	movl 16(%ebp),%eax
+	movl 4(%eax),%edx
+	testl %edx,%edx
+	jne .L855
+	pushl $29636
+	call _m3_fault
+	.align 16
+.L855:
+	cmpl %ebx,4(%edx)
+	ja .L856
+	pushl $29634
+	call _m3_fault
+	.align 16
+.L856:
+	movl (%edx),%edx
+	movl (%edi),%eax
+	movl (%edx,%ebx,4),%edx
+	movl %edx,(%eax,%ecx,4)
+	incl %ecx
+	incl %ebx
+.L851:
+	cmpl %esi,%ebx
+	jle .L852
+	leal -12(%ebp),%esp
+	movl %ecx,%eax
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe85:
+	.size	 M3Driver__FinishInfo,.Lfe85-M3Driver__FinishInfo
+	.align 16
+	.type	 M3Driver__Pass0_NoteWebInfo,@function
+M3Driver__Pass0_NoteWebInfo:
+	pushl %ebp
+	movl %esp,%ebp
+	movl 8(%ebp),%edx
+	movl 12(%ebp),%eax
+	pushl %eax
+	movl 4(%edx),%eax
+	pushl %eax
+	movl MI_WebFile+44,%eax
+	call *%eax
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe86:
+	.size	 M3Driver__Pass0_NoteWebInfo,.Lfe86-M3Driver__Pass0_NoteWebInfo
+	.align 16
+	.type	 M3Driver__Pass1,@function
+M3Driver__Pass1:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $180,%esp
+	pushl %esi
+	pushl %ebx
+	movl MI_M3Timers+80,%eax
+	pushl %eax
+	movl MI_ETimer+52,%eax
+	call *%eax
+	addl $4,%esp
+.L860:
+	movl $MM_M3Driver+3360,-172(%ebp)
+	movl $0,-176(%ebp)
+	movl RTThread__handlerStack,%eax
+	movl %eax,-180(%ebp)
+	leal -180(%ebp),%esi
+	movl %esi,RTThread__handlerStack
+	leal -160(%ebp),%eax
+	pushl %eax
+	call _setjmp
+	addl $4,%esp
+	testl %eax,%eax
+	jne .L861
+	movl %eax,%ebx
+	cmpl $0,MM_M3Driver+264
+	je .L862
+	cmpb $0,MM_M3Driver+293
+	setne %al
+	xorl %ebx,%ebx
+	movb %al,%bl
+.L862:
+	movl MM_M3Driver+256,%edx
+	movl (%edx),%eax
+	movl 4(%eax),%ecx
+	pushl %ebx
+	xorl %eax,%eax
+	movb MM_M3Driver+323,%al
+	pushl %eax
+	xorl %eax,%eax
+	movb MM_M3Driver+322,%al
+	pushl %eax
+	movl MM_M3Driver+316,%eax
+	pushl %eax
+	movl 12(%ebp),%esi
+	pushl %esi
+	movl 8(%ebp),%esi
+	pushl %esi
+	pushl %edx
+	call *%ecx
+	movl -180(%ebp),%eax
+	movl %eax,RTThread__handlerStack
+	addl $28,%esp
+	jmp .L863
+	.align 16
+.L861:
+	movb $1,MM_M3Driver+280
+	movl 12(%ebp),%esi
+	pushl %esi
+	movl MI_Utils+80,%eax
+	call *%eax
+	addl $4,%esp
+.L863:
+	movl MI_ETimer+56,%eax
+	call *%eax
+	leal -188(%ebp),%esp
+	popl %ebx
+	popl %esi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe87:
+	.size	 M3Driver__Pass1,.Lfe87-M3Driver__Pass1
+	.align 16
+	.type	 M3Driver__Pass6,@function
+M3Driver__Pass6:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $180,%esp
+	pushl %esi
+	pushl %ebx
+	movl MI_M3Timers+92,%eax
+	pushl %eax
+	movl MI_ETimer+52,%eax
+	call *%eax
+	addl $4,%esp
+.L866:
+	movl $MM_M3Driver+3360,-172(%ebp)
+	movl $0,-176(%ebp)
+	movl RTThread__handlerStack,%eax
+	movl %eax,-180(%ebp)
+	leal -180(%ebp),%esi
+	movl %esi,RTThread__handlerStack
+	leal -160(%ebp),%eax
+	pushl %eax
+	call _setjmp
+	addl $4,%esp
+	testl %eax,%eax
+	jne .L867
+	movl %eax,%ebx
+	cmpl $0,MM_M3Driver+264
+	je .L868
+	cmpb $0,MM_M3Driver+293
+	setne %al
+	xorl %ebx,%ebx
+	movb %al,%bl
+.L868:
+	movl MM_M3Driver+256,%edx
+	movl (%edx),%eax
+	movl 8(%eax),%ecx
+	pushl %ebx
+	xorl %eax,%eax
+	movb MM_M3Driver+323,%al
+	pushl %eax
+	xorl %eax,%eax
+	movb MM_M3Driver+322,%al
+	pushl %eax
+	movl 12(%ebp),%esi
+	pushl %esi
+	movl 8(%ebp),%esi
+	pushl %esi
+	pushl %edx
+	call *%ecx
+	movl MI_ETimer+56,%eax
+	call *%eax
+	movl -180(%ebp),%eax
+	movl %eax,RTThread__handlerStack
+	jmp .L869
+	.align 16
+.L867:
+	movb $1,MM_M3Driver+280
+	movl 12(%ebp),%esi
+	pushl %esi
+	movl MI_Utils+80,%eax
+	call *%eax
+	xorl %eax,%eax
+	jmp .L871
+	.align 16
+.L869:
+	movl $1,%eax
+.L871:
+	leal -188(%ebp),%esp
+	popl %ebx
+	popl %esi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe88:
+	.size	 M3Driver__Pass6,.Lfe88-M3Driver__Pass6
+	.align 16
+	.type	 M3Driver__Pass7,@function
+M3Driver__Pass7:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $180,%esp
+	pushl %esi
+	pushl %ebx
+	movl MI_M3Timers+88,%eax
+	pushl %eax
+	movl MI_ETimer+52,%eax
+	call *%eax
+	addl $4,%esp
+.L873:
+	movl $MM_M3Driver+3360,-172(%ebp)
+	movl $0,-176(%ebp)
+	movl RTThread__handlerStack,%eax
+	movl %eax,-180(%ebp)
+	leal -180(%ebp),%esi
+	movl %esi,RTThread__handlerStack
+	leal -160(%ebp),%eax
+	pushl %eax
+	call _setjmp
+	addl $4,%esp
+	testl %eax,%eax
+	jne .L874
+	movl %eax,%ebx
+	cmpl $0,MM_M3Driver+264
+	je .L875
+	cmpb $0,MM_M3Driver+293
+	setne %al
+	xorl %ebx,%ebx
+	movb %al,%bl
+.L875:
+	movl MM_M3Driver+256,%edx
+	movl (%edx),%eax
+	movl 12(%eax),%ecx
+	pushl %ebx
+	xorl %eax,%eax
+	movb MM_M3Driver+323,%al
+	pushl %eax
+	xorl %eax,%eax
+	movb MM_M3Driver+322,%al
+	pushl %eax
+	movl 12(%ebp),%esi
+	pushl %esi
+	movl 8(%ebp),%esi
+	pushl %esi
+	pushl %edx
+	call *%ecx
+	movl MI_ETimer+56,%eax
+	call *%eax
+	movl -180(%ebp),%eax
+	movl %eax,RTThread__handlerStack
+	jmp .L876
+	.align 16
+.L874:
+	movb $1,MM_M3Driver+280
+	movl 12(%ebp),%esi
+	pushl %esi
+	movl MI_Utils+80,%eax
+	call *%eax
+	xorl %eax,%eax
+	jmp .L878
+	.align 16
+.L876:
+	movl $1,%eax
+.L878:
+	leal -188(%ebp),%esp
+	popl %ebx
+	popl %esi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe89:
+	.size	 M3Driver__Pass7,.Lfe89-M3Driver__Pass7
+	.align 16
+	.type	 M3Driver__GenerateMain,@function
+M3Driver__GenerateMain:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $40,%esp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movb 24(%ebp),%bl
+	pushl $0
+	pushl $13
+	movl 12(%ebp),%ecx
+	pushl %ecx
+	pushl $0
+	movl MI_M3Path+48,%eax
+	call *%eax
+	movl %eax,%esi
+	movl %esi,-12(%ebp)
+	pushl $MM_M3Driver+3372
+	movl 12(%ebp),%ecx
+	pushl %ecx
+	movl MI_RTHooks+76,%eax
+	call *%eax
+	movl %eax,-8(%ebp)
+	movl -12(%ebp),%ecx
+	pushl %ecx
+	movl MI_Utils+100,%eax
+	xorl %edi,%edi
+	call *%eax
+	movl %eax,%edx
+	movl %edx,-4(%ebp)
+	xorl %eax,%eax
+	movb %bl,%al
+	addl $28,%esp
+	testl %eax,%eax
+	jle .L880
+	cmpl $1,%eax
+	jle .L881
+.L880:
+	pushl %edi
+	pushl $10
+	movl 12(%ebp),%ecx
+	pushl %ecx
+	pushl %edi
+	movl MI_M3Path+48,%eax
+	call *%eax
+	movl %eax,%esi
+	movl %esi,-16(%ebp)
+	pushl %esi
+	movl MI_Utils+100,%eax
+	call *%eax
+	movl %eax,%edx
+	addl $20,%esp
+	cmpl %edx,-4(%ebp)
+	jl .L882
+	testl %edx,%edx
+	jne .L883
+.L882:
+	movl %esi,%edi
+	jmp .L884
+	.align 16
+.L883:
+	movl -8(%ebp),%edi
+	pushl %edi
+	movl MI_Utils+72,%eax
+	call *%eax
+	addl $4,%esp
+.L884:
+	movl MI_M3Timers+72,%eax
+	pushl %eax
+	movl MI_ETimer+52,%eax
+	call *%eax
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl %edi
+	pushl $MM_M3Driver+3392
+	movl MI_Msg+76,%eax
+	call *%eax
+	pushl $1
+	pushl %edi
+	movl MI_Utils+44,%eax
+	call *%eax
+	movl %eax,%esi
+	movl %esi,-20(%ebp)
+	addl $36,%esp
+	xorl %eax,%eax
+	movb 20(%ebp),%al
+	pushl %eax
+	xorl %eax,%eax
+	movb 16(%ebp),%al
+	pushl %eax
+	movl -20(%ebp),%ecx
+	pushl %ecx
+	movl 8(%ebp),%ecx
+	pushl %ecx
+	movl MI_MxGenC+44,%eax
+	call *%eax
+	movl %eax,%ebx
+	addl $16,%esp
+	testl %ebx,%ebx
+	je .L885
+	movl (%ebx),%eax
+	movl 4(%eax),%esi
+	pushl %ebx
+	call *%esi
+	pushl %edi
+	movl -20(%ebp),%ecx
+	pushl %ecx
+	movl MI_Utils+52,%eax
+	call *%eax
+	addl $12,%esp
+	jmp .L886
+	.align 16
+.L885:
+	pushl %ebx
+	pushl $MM_M3Driver+3416
+	movl -16(%ebp),%ecx
+	pushl %ecx
+	pushl $MM_M3Driver+3392
+	pushl %ebx
+	movl MI_Msg+56,%eax
+	call *%eax
+	addl $20,%esp
+.L886:
+	movl MI_ETimer+56,%eax
+	call *%eax
+	cmpl %edi,-8(%ebp)
+	jne .L889
+	movl -16(%ebp),%ecx
+	pushl %ecx
+	movl -8(%ebp),%ecx
+	pushl %ecx
+	movl MI_Utils+92,%eax
+	call *%eax
+	addl $8,%esp
+	testl %eax,%eax
+	je .L887
+	movl -8(%ebp),%ecx
+	pushl %ecx
+	movl MI_Utils+80,%eax
+	jmp .L912
+	.align 16
+.L887:
+	movl -16(%ebp),%ecx
+	pushl %ecx
+	movl -8(%ebp),%ecx
+	pushl %ecx
+	movl MI_Utils+84,%eax
+	call *%eax
+	movl -8(%ebp),%ecx
+	pushl %ecx
+	movl MI_Utils+80,%eax
+	call *%eax
+	addl $12,%esp
+.L889:
+	movl MI_Wr+60,%eax
+	pushl %eax
+	pushl $MM_M3Driver+3464
+	movl -16(%ebp),%ecx
+	pushl %ecx
+	pushl $MM_M3Driver+3440
+	movl MI_Msg+68,%eax
+	call *%eax
+	movl 12(%ebp),%ecx
+	pushl %ecx
+	movl -12(%ebp),%ecx
+	pushl %ecx
+	movl -16(%ebp),%ecx
+	pushl %ecx
+	call M3Driver__Pass1
+	addl $28,%esp
+	cmpb $0,MM_M3Driver+280
+	je .L890
+	pushl $0
+	pushl $MM_M3Driver+3500
+	movl -16(%ebp),%ecx
+	pushl %ecx
+	pushl $MM_M3Driver+3484
+	pushl $0
+	movl MI_Msg+56,%eax
+	call *%eax
+	addl $20,%esp
+.L890:
+	movl -12(%ebp),%ecx
+	pushl %ecx
+	movl MI_Utils+112,%eax
+	call *%eax
+	movl -16(%ebp),%ecx
+	jmp .L913
+	.align 16
+.L881:
+	pushl $MM_M3Driver+3524
+	movl 12(%ebp),%ecx
+	pushl %ecx
+	movl MI_RTHooks+76,%eax
+	call *%eax
+	movl %eax,-24(%ebp)
+	pushl $MM_M3Driver+3540
+	movl 12(%ebp),%ecx
+	pushl %ecx
+	movl MI_RTHooks+76,%eax
+	call *%eax
+	movl %eax,-28(%ebp)
+	pushl $MM_M3Driver+3556
+	movl 12(%ebp),%ecx
+	pushl %ecx
+	movl MI_RTHooks+76,%eax
+	call *%eax
+	movl %eax,%esi
+	pushl $MM_M3Driver+3572
+	movl 12(%ebp),%ecx
+	pushl %ecx
+	movl MI_RTHooks+76,%eax
+	movl %esi,%ebx
+	call *%eax
+	movl %eax,-32(%ebp)
+	addl $32,%esp
+	cmpb $0,MM_M3Driver+320
+	jne .L892
+	movl %ebx,%edi
+	cmpb $0,MM_M3Driver+328
+	je .L897
+	movl -32(%ebp),%edi
+	jmp .L897
+	.align 16
+.L892:
+	movl -24(%ebp),%ecx
+	pushl %ecx
+	movl MI_Utils+100,%eax
+	call *%eax
+	movl %eax,%edx
+	addl $4,%esp
+	cmpl %edx,-4(%ebp)
+	jl .L898
+	testl %edx,%edx
+	jne .L899
+.L898:
+	movl -24(%ebp),%edi
+	jmp .L897
+	.align 16
+.L899:
+	movl -8(%ebp),%edi
+	pushl %edi
+	movl MI_Utils+72,%eax
+	call *%eax
+	addl $4,%esp
+.L897:
+	movl MI_M3Timers+72,%eax
+	pushl %eax
+	movl MI_ETimer+52,%eax
+	call *%eax
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl %edi
+	pushl $MM_M3Driver+3392
+	movl MI_Msg+76,%eax
+	call *%eax
+	pushl $1
+	pushl %edi
+	movl MI_Utils+44,%eax
+	call *%eax
+	movl %eax,-36(%ebp)
+	xorl %edx,%edx
+	addl $36,%esp
+	cmpl $0,MM_M3Driver+264
+	je .L901
+	cmpb $0,MM_M3Driver+293
+	setne %al
+	xorl %edx,%edx
+	movb %al,%dl
+.L901:
+	movl MM_M3Driver+256,%eax
+	pushl %eax
+	pushl %edx
+	xorl %eax,%eax
+	movb MM_M3Driver+323,%al
+	pushl %eax
+	xorl %eax,%eax
+	movb MM_M3Driver+322,%al
+	pushl %eax
+	pushl %edi
+	movl -36(%ebp),%ecx
+	pushl %ecx
+	movl MI_M3Backend+44,%eax
+	call *%eax
+	movl %eax,%esi
+	movl %esi,-40(%ebp)
+	addl $24,%esp
+	testl %esi,%esi
+	je .L902
+	xorl %eax,%eax
+	movb 20(%ebp),%al
+	pushl %eax
+	xorl %eax,%eax
+	movb 16(%ebp),%al
+	pushl %eax
+	pushl %esi
+	movl 8(%ebp),%ecx
+	pushl %ecx
+	movl MI_MxGenCG+44,%eax
+	call *%eax
+	movl %eax,%ebx
+	addl $16,%esp
+	testl %ebx,%ebx
+	je .L903
+	movl (%ebx),%eax
+	movl 4(%eax),%esi
+	pushl %ebx
+	call *%esi
+	movl -40(%ebp),%ecx
+	pushl %ecx
+	movl MI_M3Backend+48,%eax
+	call *%eax
+	addl $8,%esp
+	jmp .L902
+	.align 16
+.L903:
+	movl 12(%ebp),%ecx
+	pushl %ecx
+	pushl $MM_M3Driver+3588
+	movl MI_RTHooks+76,%eax
+	call *%eax
+	pushl %ebx
+	pushl %ebx
+	pushl %ebx
+	movl %eax,%esi
+	pushl %esi
+	pushl %ebx
+	movl MI_Msg+56,%eax
+	call *%eax
+	addl $28,%esp
+.L902:
+	pushl %edi
+	movl -36(%ebp),%ecx
+	pushl %ecx
+	movl MI_Utils+52,%eax
+	call *%eax
+	movl MI_ETimer+56,%eax
+	call *%eax
+	addl $8,%esp
+	cmpl %edi,-32(%ebp)
+	je .L879
+	cmpl %edi,-8(%ebp)
+	jne .L908
+	movl -24(%ebp),%ecx
+	pushl %ecx
+	movl -8(%ebp),%ecx
+	pushl %ecx
+	movl MI_Utils+92,%eax
+	call *%eax
+	addl $8,%esp
+	testl %eax,%eax
+	je .L907
+	movl -8(%ebp),%ecx
+	pushl %ecx
+	movl MI_Utils+80,%eax
+	jmp .L912
+	.align 16
+.L907:
+	movl -24(%ebp),%ecx
+	pushl %ecx
+	movl -8(%ebp),%ecx
+	pushl %ecx
+	movl MI_Utils+84,%eax
+	call *%eax
+	movl -8(%ebp),%ecx
+	pushl %ecx
+	movl MI_Utils+80,%eax
+	call *%eax
+	addl $12,%esp
+.L908:
+	movl MI_Wr+60,%eax
+	pushl %eax
+	pushl $MM_M3Driver+3464
+	movl -24(%ebp),%ecx
+	pushl %ecx
+	pushl $MM_M3Driver+3440
+	movl MI_Msg+68,%eax
+	call *%eax
+	movl 12(%ebp),%ecx
+	pushl %ecx
+	movl -28(%ebp),%ecx
+	pushl %ecx
+	movl -24(%ebp),%ecx
+	pushl %ecx
+	call M3Driver__Pass6
+	addl $28,%esp
+	testl %eax,%eax
+	jne .L909
+	pushl %eax
+	pushl $MM_M3Driver+3500
+	movl -24(%ebp),%ecx
+	pushl %ecx
+	pushl $MM_M3Driver+3620
+	pushl %eax
+	movl MI_Msg+56,%eax
+	call *%eax
+	addl $20,%esp
+.L909:
+	movl 12(%ebp),%ecx
+	pushl %ecx
+	movl -32(%ebp),%ecx
+	pushl %ecx
+	movl -28(%ebp),%ecx
+	pushl %ecx
+	call M3Driver__Pass7
+	addl $12,%esp
+	testl %eax,%eax
+	jne .L910
+	pushl %eax
+	pushl $MM_M3Driver+3500
+	movl -24(%ebp),%ecx
+	pushl %ecx
+	pushl $MM_M3Driver+3640
+	pushl %eax
+	movl MI_Msg+56,%eax
+	call *%eax
+	addl $20,%esp
+.L910:
+	movl -32(%ebp),%ecx
+	pushl %ecx
+	movl MI_Utils+112,%eax
+	call *%eax
+	movl -24(%ebp),%ecx
+	pushl %ecx
+	movl MI_Utils+112,%eax
+	call *%eax
+	movl -28(%ebp),%ecx
+.L913:
+	pushl %ecx
+	movl MI_Utils+112,%eax
+.L912:
+	call *%eax
+.L879:
+	leal -52(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe90:
+	.size	 M3Driver__GenerateMain,.Lfe90-M3Driver__GenerateMain
+	.align 16
+	.type	 M3Driver__BuildProgram,@function
+M3Driver__BuildProgram:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $208,%esp
+	pushl %edi
+	pushl %esi
+	xorl %edi,%edi
+	pushl %ebx
+	movl %edi,-8(%ebp)
+	movl %edi,-4(%ebp)
+	pushl %edi
+	pushl $13
+	pushl $MM_M3Driver+3656
+	pushl %edi
+	movl MI_M3Path+48,%eax
+	call *%eax
+	movl %eax,%ebx
+	movl %ebx,-12(%ebp)
+	movl MM_M3Driver+1248,%eax
+	pushl %eax
+	movl MI_RTHooks+80,%eax
+	call *%eax
+	movl %eax,%ebx
+	movl (%ebx),%eax
+	movl 4(%eax),%esi
+	pushl $5
+	pushl %ebx
+	call *%esi
+	movl %eax,-200(%ebp)
+	movl MM_M3Driver+3672,%eax
+	pushl %eax
+	movl MI_RTHooks+80,%eax
+	call *%eax
+	movl %eax,%edx
+	movl (%edx),%eax
+	addl $32,%esp
+	movl 4(%eax),%esi
+	pushl $5
+	pushl %edx
+	call *%esi
+	movl %eax,%ebx
+	movl %ebx,-196(%ebp)
+	movl MM_M3Driver+268,%esi
+	addl $8,%esp
+	cmpb $0,MM_M3Driver+296
+	je .L915
+	pushl $33072
+	call _m3_fault
+	.align 16
+.L915:
+	cmpb $0,MM_M3Driver+280
+	je .L916
+	pushl %edi
+	pushl $MM_M3Driver+1976
+	pushl %esi
+	pushl $MM_M3Driver+3684
+	movl MI_Msg+80,%eax
+	call *%eax
+	jmp .L914
+	.align 16
+.L916:
+	movl MM_M3Driver+304,%eax
+	testl %eax,%eax
+	jne .L917
+	pushl $33204
+	call _m3_fault
+	.align 16
+.L917:
+	movl 80(%eax),%eax
+	pushl %eax
+	pushl %esi
+	movl MI_RTHooks+76,%eax
+	call *%eax
+	movl %eax,%ebx
+	pushl %ebx
+	movl MI_Utils+100,%eax
+	movl %ebx,%esi
+	call *%eax
+	movl %eax,-208(%ebp)
+	movl %edi,%eax
+	addl $12,%esp
+	cmpb $0,MM_M3Driver+288
+	je .L918
+	cmpl $0,-208(%ebp)
+	setne %al
+	andl $255,%eax
+.L918:
+	movb %al,-204(%ebp)
+	testb %al,%al
+	jne .L919
+	cmpb $0,MM_M3Driver+301
+	jne .L919
+	pushl %edi
+	pushl %edi
+	pushl %ebx
+	pushl $MM_M3Driver+3744
+	movl MI_Msg+80,%eax
+	call *%eax
+	addl $16,%esp
+.L919:
+	movl MM_M3Driver+340,%edi
+	jmp .L920
+	.align 16
+.L921:
+	movl 12(%edi),%eax
+	testl %eax,%eax
+	je .L923
+	cmpb $0,-204(%ebp)
+	je .L924
+	pushl %eax
+	movl MI_Utils+100,%eax
+	call *%eax
+	addl $4,%esp
+	cmpl %eax,-208(%ebp)
+	jge .L924
+	cmpb $0,MM_M3Driver+301
+	jne .L926
+	pushl %esi
+	pushl $MM_M3Driver+3792
+	movl 12(%edi),%eax
+	pushl %eax
+	pushl $MM_M3Driver+3772
+	movl MI_Msg+80,%eax
+	call *%eax
+	addl $16,%esp
+.L926:
+	movb $0,-204(%ebp)
+.L924:
+	movl -200(%ebp),%ecx
+	movl (%ecx),%eax
+	movl 12(%eax),%ebx
+	testl %edi,%edi
+	jne .L928
+	pushl $33476
+	call _m3_fault
+	.align 16
+.L928:
+	leal 12(%edi),%eax
+	pushl %eax
+	movl -200(%ebp),%ecx
+	pushl %ecx
+	call *%ebx
+	addl $8,%esp
+.L923:
+	testl %edi,%edi
+	jne .L929
+	pushl $33508
+	call _m3_fault
+	.align 16
+.L929:
+	movl (%edi),%edi
+.L920:
+	testl %edi,%edi
+	jne .L921
+	cmpb $0,MM_M3Driver+291
+	je .L931
+	movl -200(%ebp),%ecx
+	movl (%ecx),%eax
+	movl 12(%eax),%ebx
+	pushl $MM_M3Driver+324
+	pushl %ecx
+	call *%ebx
+	addl $8,%esp
+.L931:
+	movl MI_M3DriverRep+152,%edi
+	jmp .L932
+	.align 16
+.L933:
+	cmpb $0,-204(%ebp)
+	je .L934
+	movl 4(%edi),%eax
+	pushl %eax
+	movl MI_Utils+104,%eax
+	call *%eax
+	addl $4,%esp
+	cmpl %eax,-208(%ebp)
+	jge .L934
+	cmpb $0,MM_M3Driver+301
+	jne .L936
+	pushl %esi
+	pushl $MM_M3Driver+3792
+	movl 4(%edi),%eax
+	pushl %eax
+	pushl $MM_M3Driver+3772
+	movl MI_Msg+80,%eax
+	call *%eax
+	addl $16,%esp
+.L936:
+	movb $0,-204(%ebp)
+.L934:
+	testl %edi,%edi
+	jne .L938
+	pushl $33748
+	call _m3_fault
+	.align 16
+.L938:
+	movl 28(%edi),%eax
+	movl %eax,-8(%ebp)
+	movl 32(%edi),%eax
+	movl -196(%ebp),%ecx
+	movl %eax,-4(%ebp)
+	movl (%ecx),%eax
+	movl 12(%eax),%ebx
+	leal -8(%ebp),%eax
+	pushl %eax
+	pushl %ecx
+	call *%ebx
+	addl $8,%esp
+	movl (%edi),%edi
+.L932:
+	testl %edi,%edi
+	jne .L933
+	cmpb $0,-204(%ebp)
+	jne .L914
+	cmpb $0,MM_M3Driver+272
+	jne .L943
+	movl MI_M3Timers+76,%eax
+	pushl %eax
+	movl MI_ETimer+52,%eax
+	call *%eax
+	movl MM_M3Driver+260,%eax
+	pushl %eax
+	movl MM_M3Driver+364,%eax
+	pushl %eax
+	movl MI_MxCheck+44,%eax
+	call *%eax
+	addl $12,%esp
+	testl %eax,%eax
+	jne .L944
+	pushl %eax
+	pushl %eax
+	pushl %eax
+	pushl $MM_M3Driver+3820
+	pushl %eax
+	movl MI_Msg+56,%eax
+	call *%eax
+	addl $20,%esp
+.L944:
+	movl MI_ETimer+56,%eax
+	call *%eax
+	xorl %eax,%eax
+	movb MM_M3Driver+496,%al
+	pushl %eax
+	xorl %eax,%eax
+	movb MM_M3Driver+299,%al
+	pushl %eax
+	xorl %eax,%eax
+	movb MI_Msg+44,%al
+	cmpl $3,%eax
+	setg %al
+	andl $255,%eax
+	pushl %eax
+	pushl $MM_M3Driver+3656
+	movl MM_M3Driver+364,%eax
+	pushl %eax
+	call M3Driver__GenerateMain
+	movl -200(%ebp),%ecx
+	movl (%ecx),%eax
+	movl 12(%eax),%ebx
+	leal -12(%ebp),%eax
+	pushl %eax
+	pushl %ecx
+	call *%ebx
+	addl $28,%esp
+.L943:
+	cmpb $0,MM_M3Driver+301
+	jne .L914
+	movl MI_M3Timers+64,%eax
+	pushl %eax
+	movl MI_ETimer+52,%eax
+	call *%eax
+	addl $4,%esp
+.L946:
+	movl $MM_M3Driver+3360,-184(%ebp)
+	movl $0,-188(%ebp)
+	movl RTThread__handlerStack,%eax
+	movl %eax,-192(%ebp)
+	leal -192(%ebp),%ecx
+	movl %ecx,RTThread__handlerStack
+	leal -172(%ebp),%eax
+	pushl %eax
+	call _setjmp
+	addl $4,%esp
+	testl %eax,%eax
+	jne .L948
+	movl MM_M3Driver+256,%edx
+	movl (%edx),%eax
+	movl 16(%eax),%ebx
+	xorl %eax,%eax
+	movb MM_M3Driver+292,%al
+	pushl %eax
+	xorl %eax,%eax
+	movb MM_M3Driver+323,%al
+	pushl %eax
+	movl -196(%ebp),%ecx
+	pushl %ecx
+	movl -200(%ebp),%ecx
+	pushl %ecx
+	movl MM_M3Driver+268,%eax
+	pushl %eax
+	pushl %edx
+	call *%ebx
+	movl -192(%ebp),%eax
+	movl %eax,RTThread__handlerStack
+	addl $24,%esp
+.L947:
+.L948:
+	movl MI_ETimer+56,%eax
+	call *%eax
+.L914:
+	leal -220(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe91:
+	.size	 M3Driver__BuildProgram,.Lfe91-M3Driver__BuildProgram
+	.align 16
+	.type	 M3Driver__BuildBootProgram,@function
+M3Driver__BuildBootProgram:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $188,%esp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl $0,-188(%ebp)
+	movl -188(%ebp),%esi
+	movl %esi,-184(%ebp)
+	cmpb $0,MM_M3Driver+296
+	jne .L951
+	pushl $35856
+	call _m3_fault
+	.align 16
+.L951:
+	cmpb $0,MM_M3Driver+280
+	je .L952
+	movl -188(%ebp),%ecx
+	pushl %ecx
+	pushl $MM_M3Driver+1976
+	movl MM_M3Driver+268,%eax
+	pushl %eax
+	pushl $MM_M3Driver+3684
+	movl MI_Msg+80,%eax
+	call *%eax
+	pushl $MM_M3Driver+3852
+	movl MI_Utils+80,%eax
+	call *%eax
+	jmp .L950
+	.align 16
+.L952:
+	movl MI_M3Timers+76,%eax
+	pushl %eax
+	movl MI_ETimer+52,%eax
+	call *%eax
+	movl MM_M3Driver+260,%eax
+	pushl %eax
+	movl MM_M3Driver+364,%eax
+	pushl %eax
+	movl MI_MxCheck+44,%eax
+	call *%eax
+	addl $12,%esp
+	testl %eax,%eax
+	jne .L953
+	movl -188(%ebp),%ecx
+	pushl %ecx
+	pushl %ecx
+	pushl %ecx
+	pushl $MM_M3Driver+3820
+	pushl %ecx
+	movl MI_Msg+56,%eax
+	call *%eax
+	addl $20,%esp
+.L953:
+	movl MI_ETimer+56,%eax
+	call *%eax
+	movl MI_M3Timers+72,%eax
+	pushl %eax
+	movl MI_ETimer+52,%eax
+	call *%eax
+	movl -188(%ebp),%ecx
+	pushl %ecx
+	pushl $10
+	pushl $MM_M3Driver+3656
+	pushl %ecx
+	movl MI_M3Path+48,%eax
+	call *%eax
+	movl -188(%ebp),%ecx
+	pushl %ecx
+	pushl %ecx
+	pushl %ecx
+	movl %eax,%ebx
+	pushl %ecx
+	movl %ebx,%edi
+	pushl %edi
+	pushl $MM_M3Driver+3392
+	movl MI_Msg+76,%eax
+	call *%eax
+	addl $44,%esp
+	pushl $1
+	pushl %edi
+	movl MI_Utils+44,%eax
+	call *%eax
+	movl %eax,-188(%ebp)
+	xorl %eax,%eax
+	movb MM_M3Driver+299,%al
+	pushl %eax
+	xorl %eax,%eax
+	movb MI_Msg+44,%al
+	cmpl $3,%eax
+	setg %al
+	andl $255,%eax
+	pushl %eax
+	movl -188(%ebp),%ecx
+	pushl %ecx
+	movl MM_M3Driver+364,%eax
+	pushl %eax
+	movl MI_MxGenC+44,%eax
+	call *%eax
+	movl %eax,%ebx
+	movl %ebx,%edx
+	movl (%edx),%eax
+	movl 4(%eax),%ebx
+	pushl %edx
+	call *%ebx
+	pushl %edi
+	movl -188(%ebp),%ecx
+	pushl %ecx
+	movl MI_Utils+52,%eax
+	call *%eax
+	movl MI_ETimer+56,%eax
+	addl $36,%esp
+	call *%eax
+	pushl %esi
+	pushl %esi
+	movl $MM_M3Driver+3852,%ebx
+	pushl %ebx
+	pushl $MM_M3Driver+3876
+	movl MI_Msg+80,%eax
+	call *%eax
+	pushl $1
+	pushl %ebx
+	movl MI_Utils+44,%eax
+	call *%eax
+	movl %eax,-188(%ebp)
+	addl $24,%esp
+.L954:
+	movl $MM_M3Driver+3908,-172(%ebp)
+	movl $0,-176(%ebp)
+	movl RTThread__handlerStack,%eax
+	movl %eax,-180(%ebp)
+	leal -180(%ebp),%ecx
+	movl %ecx,RTThread__handlerStack
+	leal -160(%ebp),%eax
+	pushl %eax
+	call _setjmp
+	addl $4,%esp
+	testl %eax,%eax
+	jne .L955
+	pushl $MM_M3Driver+3924
+	movl -188(%ebp),%ecx
+	pushl %ecx
+	movl MI_Wr+68,%eax
+	call *%eax
+	addl $8,%esp
+	cmpb $0,MM_M3Driver+297
+	je .L956
+	pushl $MM_M3Driver+3968
+	jmp .L988
+	.align 16
+.L956:
+	pushl $MM_M3Driver+4004
+.L988:
+	movl -188(%ebp),%ecx
+	pushl %ecx
+	movl MI_Wr+68,%eax
+	call *%eax
+	addl $8,%esp
+	movl MI_Target+816,%eax
+	pushl %eax
+	movl -188(%ebp),%ecx
+	pushl %ecx
+	movl MI_Wr+68,%eax
+	call *%eax
+	movl MI_Target+816,%eax
+	pushl %eax
+	movl -188(%ebp),%ecx
+	pushl %ecx
+	movl MI_Wr+68,%eax
+	call *%eax
+	addl $16,%esp
+	cmpb $0,MM_M3Driver+297
+	je .L958
+	pushl $MM_M3Driver+4040
+	movl -188(%ebp),%ecx
+	pushl %ecx
+	movl MI_Wr+68,%eax
+	call *%eax
+	movl MI_Target+816,%eax
+	pushl %eax
+	movl -188(%ebp),%ecx
+	pushl %ecx
+	movl MI_Wr+68,%eax
+	call *%eax
+	pushl $MM_M3Driver+4068
+	movl -188(%ebp),%ecx
+	pushl %ecx
+	movl MI_Wr+68,%eax
+	call *%eax
+	movl MI_Target+816,%eax
+	pushl %eax
+	movl -188(%ebp),%ecx
+	pushl %ecx
+	movl MI_Wr+68,%eax
+	call *%eax
+	addl $32,%esp
+	movl MI_Target+816,%eax
+	pushl %eax
+	movl -188(%ebp),%ecx
+	pushl %ecx
+	movl MI_Wr+68,%eax
+	call *%eax
+	pushl $MM_M3Driver+4132
+	movl -188(%ebp),%ecx
+	pushl %ecx
+	movl MI_Wr+68,%eax
+	call *%eax
+	movl MI_Target+816,%eax
+	pushl %eax
+	movl -188(%ebp),%ecx
+	pushl %ecx
+	movl MI_Wr+68,%eax
+	call *%eax
+	movl $MM_M3Driver+4156,%ebx
+	pushl %ebx
+	movl -188(%ebp),%ecx
+	pushl %ecx
+	movl MI_Wr+68,%eax
+	call *%eax
+	addl $32,%esp
+	movl MI_Target+816,%eax
+	pushl %eax
+	movl -188(%ebp),%ecx
+	pushl %ecx
+	movl MI_Wr+68,%eax
+	call *%eax
+	movl MI_Target+816,%eax
+	pushl %eax
+	movl -188(%ebp),%ecx
+	pushl %ecx
+	movl MI_Wr+68,%eax
+	call *%eax
+	pushl $MM_M3Driver+4228
+	movl -188(%ebp),%ecx
+	pushl %ecx
+	movl MI_Wr+68,%eax
+	call *%eax
+	movl MI_Target+816,%eax
+	pushl %eax
+	movl -188(%ebp),%ecx
+	pushl %ecx
+	movl MI_Wr+68,%eax
+	call *%eax
+	addl $32,%esp
+	pushl %ebx
+	movl -188(%ebp),%ecx
+	pushl %ecx
+	movl MI_Wr+68,%eax
+	call *%eax
+	movl MI_Target+816,%eax
+	pushl %eax
+	movl -188(%ebp),%ecx
+	pushl %ecx
+	movl MI_Wr+68,%eax
+	call *%eax
+	movl MI_Target+816,%eax
+	pushl %eax
+	movl -188(%ebp),%ecx
+	pushl %ecx
+	movl MI_Wr+68,%eax
+	call *%eax
+	addl $24,%esp
+	jmp .L959
+	.align 16
+.L958:
+	pushl $MM_M3Driver+4252
+	movl -188(%ebp),%ecx
+	pushl %ecx
+	movl MI_Wr+68,%eax
+	call *%eax
+	movl MI_Target+816,%eax
+	pushl %eax
+	movl -188(%ebp),%ecx
+	pushl %ecx
+	movl MI_Wr+68,%eax
+	call *%eax
+	movl $MM_M3Driver+4276,%ebx
+	pushl %ebx
+	movl -188(%ebp),%ecx
+	pushl %ecx
+	movl MI_Wr+68,%eax
+	call *%eax
+	movl MI_Target+816,%eax
+	pushl %eax
+	movl -188(%ebp),%ecx
+	pushl %ecx
+	movl MI_Wr+68,%eax
+	call *%eax
+	addl $32,%esp
+	movl MI_Target+816,%eax
+	pushl %eax
+	movl -188(%ebp),%ecx
+	pushl %ecx
+	movl MI_Wr+68,%eax
+	call *%eax
+	pushl $MM_M3Driver+4316
+	movl -188(%ebp),%ecx
+	pushl %ecx
+	movl MI_Wr+68,%eax
+	call *%eax
+	movl MI_Target+816,%eax
+	pushl %eax
+	movl -188(%ebp),%ecx
+	pushl %ecx
+	movl MI_Wr+68,%eax
+	call *%eax
+	pushl %ebx
+	movl -188(%ebp),%ecx
+	pushl %ecx
+	movl MI_Wr+68,%eax
+	call *%eax
+	addl $32,%esp
+	movl MI_Target+816,%eax
+	pushl %eax
+	movl -188(%ebp),%ecx
+	pushl %ecx
+	movl MI_Wr+68,%eax
+	call *%eax
+	movl MI_Target+816,%eax
+	pushl %eax
+	movl -188(%ebp),%ecx
+	pushl %ecx
+	movl MI_Wr+68,%eax
+	call *%eax
+	addl $16,%esp
+.L959:
+	pushl $MM_M3Driver+4340
+	movl -188(%ebp),%ecx
+	pushl %ecx
+	movl MI_Wr+68,%eax
+	call *%eax
+	movl MM_M3Driver+268,%eax
+	pushl %eax
+	movl -188(%ebp),%ecx
+	pushl %ecx
+	movl MI_Wr+68,%eax
+	call *%eax
+	movl MI_Target+816,%eax
+	pushl %eax
+	movl -188(%ebp),%ecx
+	pushl %ecx
+	movl MI_Wr+68,%eax
+	call *%eax
+	movl MI_Target+816,%eax
+	pushl %eax
+	movl -188(%ebp),%ecx
+	pushl %ecx
+	movl MI_Wr+68,%eax
+	call *%eax
+	addl $32,%esp
+	pushl $MM_M3Driver+4360
+	movl -188(%ebp),%ecx
+	pushl %ecx
+	movl MI_Wr+68,%eax
+	call *%eax
+	movl MI_Target+816,%eax
+	pushl %eax
+	movl -188(%ebp),%ecx
+	pushl %ecx
+	movl MI_Wr+68,%eax
+	call *%eax
+	movl MM_M3Driver+340,%esi
+	addl $16,%esp
+	jmp .L960
+	.align 16
+.L961:
+	cmpl $0,12(%esi)
+	je .L963
+	movl MM_M3Driver+4392,%eax
+	pushl %eax
+	movl MI_RTHooks+80,%eax
+	call *%eax
+	movl %eax,%ebx
+	movl -184(%ebp),%ecx
+	movl %ecx,4(%ebx)
+	movl %ebx,-184(%ebp)
+	pushl %esi
+	movl -188(%ebp),%ecx
+	pushl %ecx
+	call M3Driver__GenBootLine
+	addl $12,%esp
+	testl %ebx,%ebx
+	jne .L964
+	pushl $37156
+	call _m3_fault
+	.align 16
+.L964:
+	movl %eax,(%ebx)
+.L963:
+	testl %esi,%esi
+	jne .L965
+	pushl $37188
+	call _m3_fault
+	.align 16
+.L965:
+	movl (%esi),%esi
+.L960:
+	testl %esi,%esi
+	jne .L961
+	movl MI_Target+816,%eax
+	pushl %eax
+	movl -188(%ebp),%ecx
+	pushl %ecx
+	movl MI_Wr+68,%eax
+	call *%eax
+	pushl $MM_M3Driver+4404
+	movl -188(%ebp),%ecx
+	pushl %ecx
+	movl MI_Wr+68,%eax
+	call *%eax
+	addl $16,%esp
+	jmp .L967
+	.align 16
+.L968:
+	movl -184(%ebp),%ecx
+	movl (%ecx),%eax
+	testl %eax,%eax
+	je .L972
+	pushl $MM_M3Driver+1712
+	pushl %eax
+	movl MI_RTHooks+76,%eax
+	call *%eax
+	movl %eax,%ebx
+	pushl %ebx
+	movl -188(%ebp),%ecx
+	pushl %ecx
+	movl MI_Wr+68,%eax
+	call *%eax
+	addl $16,%esp
+.L972:
+	movl -184(%ebp),%ecx
+	movl 4(%ecx),%ecx
+	movl %ecx,-184(%ebp)
+.L967:
+	cmpl $0,-184(%ebp)
+	jne .L968
+	pushl $MM_M3Driver+4424
+	movl -188(%ebp),%ecx
+	pushl %ecx
+	movl MI_Wr+68,%eax
+	call *%eax
+	movl MI_Target+816,%eax
+	pushl %eax
+	movl -188(%ebp),%ecx
+	pushl %ecx
+	movl MI_Wr+68,%eax
+	call *%eax
+	movl MI_Target+816,%eax
+	pushl %eax
+	movl -188(%ebp),%ecx
+	pushl %ecx
+	movl MI_Wr+68,%eax
+	call *%eax
+	pushl $MM_M3Driver+4448
+	movl -188(%ebp),%ecx
+	pushl %ecx
+	movl MI_Wr+68,%eax
+	call *%eax
+	movl MI_M3DriverRep+152,%esi
+	addl $32,%esp
+	jmp .L974
+	.align 16
+.L975:
+	movl 28(%esi),%edx
+	testl %edx,%edx
+	jne .L982
+	movl 32(%esi),%eax
+	pushl %eax
+	pushl $MM_M3Driver+1804
+	movl MI_RTHooks+76,%eax
+	call *%eax
+	pushl $MM_M3Driver+1712
+	movl %eax,%ebx
+	pushl %ebx
+	movl MI_RTHooks+76,%eax
+	call *%eax
+	pushl %eax
+	movl -188(%ebp),%ecx
+	pushl %ecx
+	movl MI_Wr+68,%eax
+	call *%eax
+	addl $24,%esp
+	jmp .L979
+	.align 16
+.L982:
+	pushl $0
+	xorl %eax,%eax
+	movb 36(%esi),%al
+	pushl %eax
+	movl 32(%esi),%eax
+	pushl %eax
+	pushl %edx
+	movl MI_M3Path+48,%eax
+	call *%eax
+	pushl $0
+	pushl %eax
+	movl MI_M3Path+60,%eax
+	call *%eax
+	movl %eax,%ebx
+	pushl %ebx
+	movl MI_M3Path+64,%eax
+	call *%eax
+	pushl $MM_M3Driver+1712
+	pushl %eax
+	movl MI_RTHooks+76,%eax
+	call *%eax
+	addl $36,%esp
+	pushl %eax
+	movl -188(%ebp),%ecx
+	pushl %ecx
+	movl MI_Wr+68,%eax
+	call *%eax
+	addl $8,%esp
+.L979:
+	testl %esi,%esi
+	jne .L983
+	pushl $37588
+	call _m3_fault
+	.align 16
+.L983:
+	movl (%esi),%esi
+.L974:
+	testl %esi,%esi
+	jne .L975
+	movl MI_Target+816,%eax
+	pushl %eax
+	movl -188(%ebp),%ecx
+	pushl %ecx
+	movl MI_Wr+68,%eax
+	call *%eax
+	movl MI_Target+816,%eax
+	pushl %eax
+	movl -188(%ebp),%ecx
+	pushl %ecx
+	movl MI_Wr+68,%eax
+	call *%eax
+	movl MM_M3Driver+268,%eax
+	pushl %eax
+	movl MI_M3Path+64,%eax
+	call *%eax
+	pushl $MM_M3Driver+4468
+	pushl %eax
+	movl MI_RTHooks+76,%eax
+	call *%eax
+	pushl %eax
+	movl -188(%ebp),%ecx
+	pushl %ecx
+	movl MI_Wr+68,%eax
+	call *%eax
+	addl $36,%esp
+	movl MI_Target+816,%eax
+	pushl %eax
+	movl -188(%ebp),%ecx
+	pushl %ecx
+	movl MI_Wr+68,%eax
+	call *%eax
+	pushl $MM_M3Driver+4492
+	movl -188(%ebp),%ecx
+	pushl %ecx
+	movl MI_Wr+68,%eax
+	call *%eax
+	movl MI_Target+816,%eax
+	pushl %eax
+	movl -188(%ebp),%ecx
+	pushl %ecx
+	movl MI_Wr+68,%eax
+	call *%eax
+	movl MI_Target+816,%eax
+	pushl %eax
+	movl -188(%ebp),%ecx
+	pushl %ecx
+	movl MI_Wr+68,%eax
+	call *%eax
+	addl $32,%esp
+	pushl $MM_M3Driver+4552
+	movl -188(%ebp),%ecx
+	pushl %ecx
+	movl MI_Wr+68,%eax
+	call *%eax
+	movl MI_Target+816,%eax
+	pushl %eax
+	movl -188(%ebp),%ecx
+	pushl %ecx
+	movl MI_Wr+68,%eax
+	call *%eax
+	pushl $MM_M3Driver+4572
+	movl -188(%ebp),%ecx
+	pushl %ecx
+	movl MI_Wr+68,%eax
+	call *%eax
+	movl MM_M3Driver+268,%eax
+	pushl %eax
+	movl MI_M3Path+64,%eax
+	call *%eax
+	pushl %eax
+	movl -188(%ebp),%ecx
+	pushl %ecx
+	movl MI_Wr+68,%eax
+	call *%eax
+	addl $36,%esp
+	movl MI_Target+816,%eax
+	pushl %eax
+	movl -188(%ebp),%ecx
+	pushl %ecx
+	movl MI_Wr+68,%eax
+	call *%eax
+	movl -188(%ebp),%ecx
+	pushl %ecx
+	movl MI_Wr+84,%eax
+	call *%eax
+	movl -180(%ebp),%eax
+	movl %eax,RTThread__handlerStack
+	jmp .L950
+	.align 16
+.L955:
+	cmpl $MI_Wr+44,-168(%ebp)
+	jne .L986
+	movl -164(%ebp),%eax
+	pushl $0
+	pushl $0
+	pushl $MM_M3Driver+3852
+	pushl $MM_M3Driver+4600
+	pushl %eax
+	jmp .L989
+	.align 16
+.L986:
+	pushl $0
+	pushl $0
+	pushl $MM_M3Driver+3852
+	pushl $MM_M3Driver+4600
+	pushl $0
+.L989:
+	movl MI_Msg+56,%eax
+	call *%eax
+.L950:
+	leal -200(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe92:
+	.size	 M3Driver__BuildBootProgram,.Lfe92-M3Driver__BuildBootProgram
+.section	.rodata
+	.align 4
+	.type	 L_57.6,@object
+	.size	 L_57.6,56
+L_57.6:
+	.long .L993
+	.long .L993
+	.long .L993
+	.long .L994
+	.long .L995
+	.long .L995
+	.long .L995
+	.long .L994
+	.long .L992
+	.long .L992
+	.long .L996
+	.long .L992
+	.long .L997
+	.long .L994
+.text
+	.align 16
+	.type	 M3Driver__GenBootLine,@function
+M3Driver__GenBootLine:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %edi
+	pushl %esi
+	xorl %edi,%edi
+	pushl %ebx
+	movl 12(%ebp),%esi
+	movl %edi,%ebx
+	testl %esi,%esi
+	jne .L991
+	pushl $38084
+	call _m3_fault
+	.align 16
+.L991:
+	xorl %eax,%eax
+	movb 36(%esi),%al
+	cmpl $13,%eax
+	jg .L992
+	jmp *L_57.6(,%eax,4)
+	.align 16
+.L993:
+	movl MM_M3Driver+304,%eax
+	testl %eax,%eax
+	jne .L998
+	pushl $38116
+	call _m3_fault
+	.align 16
+.L998:
+	cmpb $0,103(%eax)
+	je .L999
+	testl %esi,%esi
+	jne .L1000
+	pushl $38132
+	call _m3_fault
+	.align 16
+.L1000:
+	movl 32(%esi),%eax
+	pushl %eax
+	call M3Driver__ShortenName
+	movl %eax,%ebx
+	addl $4,%esp
+	jmp .L1001
+	.align 16
+.L999:
+	testl %esi,%esi
+	jne .L1002
+	pushl $38164
+	call _m3_fault
+	.align 16
+.L1002:
+	movl 32(%esi),%ebx
+.L1001:
+	cmpb $0,MM_M3Driver+321
+	je .L1003
+	pushl $MM_M3Driver+4636
+	pushl %ebx
+	movl MI_RTHooks+76,%eax
+	call *%eax
+	movl %eax,%edi
+	addl $8,%esp
+	cmpb $0,MM_M3Driver+297
+	je .L1004
+	pushl $MM_M3Driver+4656
+	pushl %ebx
+	jmp .L1022
+	.align 16
+.L1004:
+	pushl $MM_M3Driver+4672
+	pushl %ebx
+	jmp .L1022
+	.align 16
+.L1003:
+	pushl $MM_M3Driver+4636
+	jmp .L1023
+	.align 16
+.L995:
+	movl MM_M3Driver+304,%eax
+	testl %eax,%eax
+	jne .L1008
+	pushl $38372
+	call _m3_fault
+	.align 16
+.L1008:
+	cmpb $0,103(%eax)
+	je .L1009
+	testl %esi,%esi
+	jne .L1010
+	pushl $38388
+	call _m3_fault
+	.align 16
+.L1010:
+	movl 32(%esi),%eax
+	pushl %eax
+	call M3Driver__ShortenName
+	movl %eax,%ebx
+	addl $4,%esp
+	jmp .L1011
+	.align 16
+.L1009:
+	testl %esi,%esi
+	jne .L1012
+	pushl $38420
+	call _m3_fault
+	.align 16
+.L1012:
+	movl 32(%esi),%ebx
+.L1011:
+	cmpb $0,MM_M3Driver+321
+	je .L1013
+	pushl $MM_M3Driver+4688
+	pushl %ebx
+	movl MI_RTHooks+76,%eax
+	call *%eax
+	movl %eax,%edi
+	addl $8,%esp
+	cmpb $0,MM_M3Driver+297
+	je .L1014
+	pushl $MM_M3Driver+3524
+	pushl %ebx
+	jmp .L1022
+	.align 16
+.L1014:
+	pushl $MM_M3Driver+3540
+	pushl %ebx
+	jmp .L1022
+	.align 16
+.L1013:
+	pushl $MM_M3Driver+4688
+.L1023:
+	pushl %ebx
+	movl MI_RTHooks+76,%eax
+	call *%eax
+	jmp .L1021
+	.align 16
+.L996:
+	testl %esi,%esi
+	jne .L1017
+	pushl $38628
+	call _m3_fault
+	.align 16
+.L1017:
+	pushl $MM_M3Driver+3572
+	movl 32(%esi),%eax
+	pushl %eax
+	movl MI_RTHooks+76,%eax
+	call *%eax
+	addl $8,%esp
+	movl %eax,%edi
+	pushl $MM_M3Driver+4708
+	jmp .L1024
+	.align 16
+.L997:
+	testl %esi,%esi
+	jne .L1019
+	pushl $38676
+	call _m3_fault
+	.align 16
+.L1019:
+	pushl $MM_M3Driver+3572
+	movl 32(%esi),%eax
+	pushl %eax
+	movl MI_RTHooks+76,%eax
+	call *%eax
+	addl $8,%esp
+	movl %eax,%edi
+	pushl $MM_M3Driver+4724
+.L1024:
+	movl 32(%esi),%eax
+	pushl %eax
+.L1022:
+	movl MI_RTHooks+76,%eax
+	call *%eax
+	movl %eax,%ebx
+	addl $8,%esp
+.L994:
+	jmp .L1007
+	.align 16
+.L992:
+	xorl %eax,%eax
+	jmp .L1021
+	.align 16
+.L1007:
+	pushl $MM_M3Driver+3276
+	pushl %edi
+	movl MI_RTHooks+76,%eax
+	call *%eax
+	pushl %ebx
+	pushl %eax
+	movl MI_RTHooks+76,%eax
+	call *%eax
+	movl %eax,%edx
+	movl MI_Target+816,%eax
+	pushl %eax
+	pushl %edx
+	movl MI_RTHooks+76,%eax
+	call *%eax
+	pushl %eax
+	movl 8(%ebp),%ecx
+	pushl %ecx
+	movl MI_Wr+68,%eax
+	call *%eax
+	movl %edi,%eax
+.L1021:
+	leal -12(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe93:
+	.size	 M3Driver__GenBootLine,.Lfe93-M3Driver__GenBootLine
+	.align 16
+	.type	 M3Driver__BuildLibrary,@function
+M3Driver__BuildLibrary:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $208,%esp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl MM_M3Driver+264,%edi
+	movb $1,-200(%ebp)
+	movl MM_M3Driver+1248,%eax
+	pushl %eax
+	movl MI_RTHooks+80,%eax
+	call *%eax
+	movl %eax,%esi
+	movl (%esi),%eax
+	movl 4(%eax),%eax
+	pushl $5
+	pushl %esi
+	call *%eax
+	movl %eax,-196(%ebp)
+	leal -12(%ebp),%eax
+	pushl %eax
+	xorl %ebx,%ebx
+	pushl %ebx
+	movl MM_M3Driver+264,%eax
+	pushl %eax
+	movl MI_M3Path+52,%eax
+	call *%eax
+	addl $24,%esp
+	cmpb $0,MM_M3Driver+296
+	je .L1026
+	pushl $38992
+	call _m3_fault
+	.align 16
+.L1026:
+	cmpb $14,-4(%ebp)
+	je .L1027
+	pushl %ebx
+	pushl %ebx
+	movl MM_M3Driver+264,%eax
+	pushl %eax
+	pushl $MM_M3Driver+4740
+	pushl %ebx
+	movl MI_Msg+56,%eax
+	call *%eax
+	addl $20,%esp
+.L1027:
+	movb MM_M3Driver+280,%cl
+	movb %cl,-204(%ebp)
+	testb %cl,%cl
+	je .L1028
+	pushl %ebx
+	pushl $MM_M3Driver+1976
+	movl MM_M3Driver+264,%eax
+	pushl %eax
+	pushl $MM_M3Driver+4772
+	movl MI_Msg+80,%eax
+	call *%eax
+	jmp .L1025
+	.align 16
+.L1028:
+	pushl %edi
+	movl MI_Utils+100,%eax
+	call *%eax
+	movl %eax,%esi
+	addl $4,%esp
+	cmpb $0,MM_M3Driver+288
+	je .L1029
+	testl %eax,%eax
+	jne .L1030
+.L1029:
+	pushl %ebx
+	pushl %ebx
+	pushl %edi
+	pushl $MM_M3Driver+4832
+	movl MI_Msg+80,%eax
+	call *%eax
+	movb -204(%ebp),%cl
+	movb %cl,-200(%ebp)
+	addl $16,%esp
+.L1030:
+	movl MM_M3Driver+340,%ebx
+	jmp .L1031
+	.align 16
+.L1032:
+	movl 12(%ebx),%eax
+	testl %eax,%eax
+	je .L1034
+	cmpb $0,-200(%ebp)
+	je .L1035
+	pushl %eax
+	movl MI_Utils+100,%eax
+	call *%eax
+	addl $4,%esp
+	cmpl %esi,%eax
+	jle .L1035
+	pushl %edi
+	pushl $MM_M3Driver+4860
+	movl 12(%ebx),%eax
+	pushl %eax
+	pushl $MM_M3Driver+3772
+	movl MI_Msg+80,%eax
+	call *%eax
+	movb $0,-200(%ebp)
+	addl $16,%esp
+.L1035:
+	movl -196(%ebp),%ecx
+	movl (%ecx),%eax
+	movl 12(%eax),%edx
+	testl %ebx,%ebx
+	jne .L1038
+	pushl $39412
+	call _m3_fault
+	.align 16
+.L1038:
+	leal 12(%ebx),%eax
+	pushl %eax
+	movl -196(%ebp),%ecx
+	pushl %ecx
+	call *%edx
+	addl $8,%esp
+.L1034:
+	testl %ebx,%ebx
+	jne .L1039
+	pushl $39444
+	call _m3_fault
+	.align 16
+.L1039:
+	movl (%ebx),%ebx
+.L1031:
+	testl %ebx,%ebx
+	jne .L1032
+	cmpb $0,-200(%ebp)
+	jne .L1025
+	movl MI_M3Timers+76,%eax
+	pushl %eax
+	movl MI_ETimer+52,%eax
+	call *%eax
+	movl MM_M3Driver+260,%eax
+	pushl %eax
+	movl MM_M3Driver+364,%eax
+	pushl %eax
+	movl MI_MxCheck+48,%eax
+	call *%eax
+	addl $12,%esp
+	testl %eax,%eax
+	jne .L1042
+	pushl %ebx
+	pushl %ebx
+	pushl %ebx
+	pushl $MM_M3Driver+4888
+	pushl %ebx
+	movl MI_Msg+56,%eax
+	call *%eax
+	addl $20,%esp
+.L1042:
+	movl MI_ETimer+56,%eax
+	call *%eax
+	pushl %ebx
+	pushl %ebx
+	movl MI_Wr+60,%eax
+	pushl %eax
+	pushl $MM_M3Driver+4920
+	movl MI_Msg+68,%eax
+	call *%eax
+	pushl %edi
+	movl MI_Utils+80,%eax
+	call *%eax
+	movl MI_M3Timers+56,%eax
+	pushl %eax
+	movl MI_ETimer+52,%eax
+	call *%eax
+	addl $24,%esp
+.L1043:
+	movl $MM_M3Driver+3360,-184(%ebp)
+	movl $0,-188(%ebp)
+	movl RTThread__handlerStack,%eax
+	movl %eax,-192(%ebp)
+	leal -192(%ebp),%ecx
+	movl %ecx,RTThread__handlerStack
+	leal -172(%ebp),%eax
+	pushl %eax
+	call _setjmp
+	addl $4,%esp
+	testl %eax,%eax
+	jne .L1045
+	movl MM_M3Driver+1248,%eax
+	pushl %eax
+	movl MI_RTHooks+80,%eax
+	call *%eax
+	movl %eax,%edx
+	movl (%edx),%eax
+	movl 4(%eax),%eax
+	pushl $5
+	pushl %edx
+	call *%eax
+	movl MM_M3Driver+256,%edx
+	movl %eax,%esi
+	movl (%edx),%eax
+	movl 20(%eax),%eax
+	movl %eax,-208(%ebp)
+	xorl %eax,%eax
+	movb MM_M3Driver+293,%al
+	pushl %eax
+	xorl %eax,%eax
+	movb MM_M3Driver+294,%al
+	pushl %eax
+	pushl %esi
+	movl -196(%ebp),%ecx
+	pushl %ecx
+	movl -8(%ebp),%eax
+	pushl %eax
+	pushl %edx
+	movl -208(%ebp),%ecx
+	call *%ecx
+	movl -192(%ebp),%eax
+	movl %eax,RTThread__handlerStack
+	addl $36,%esp
+.L1044:
+.L1045:
+	movl MI_ETimer+56,%eax
+	call *%eax
+.L1025:
+	leal -220(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe94:
+	.size	 M3Driver__BuildLibrary,.Lfe94-M3Driver__BuildLibrary
+	.align 16
+	.type	 M3Driver__BuildBootLibrary,@function
+M3Driver__BuildBootLibrary:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $188,%esp
+	pushl %esi
+	pushl %ebx
+	movl $0,-188(%ebp)
+	movl -188(%ebp),%edx
+	movl %edx,-184(%ebp)
+	cmpb $0,MM_M3Driver+296
+	jne .L1048
+	pushl $40000
+	call _m3_fault
+	.align 16
+.L1048:
+	cmpb $0,MM_M3Driver+280
+	je .L1049
+	movl -188(%ebp),%edx
+	pushl %edx
+	pushl $MM_M3Driver+1976
+	movl MM_M3Driver+264,%eax
+	pushl %eax
+	pushl $MM_M3Driver+4772
+	movl MI_Msg+80,%eax
+	call *%eax
+	pushl $MM_M3Driver+3852
+	movl MI_Utils+80,%eax
+	call *%eax
+	jmp .L1047
+	.align 16
+.L1049:
+	movl MI_M3Timers+76,%eax
+	pushl %eax
+	movl MI_ETimer+52,%eax
+	call *%eax
+	movl MM_M3Driver+260,%eax
+	pushl %eax
+	movl MM_M3Driver+364,%eax
+	pushl %eax
+	movl MI_MxCheck+48,%eax
+	call *%eax
+	addl $12,%esp
+	testl %eax,%eax
+	jne .L1050
+	movl -188(%ebp),%edx
+	pushl %edx
+	pushl %edx
+	pushl %edx
+	pushl $MM_M3Driver+4888
+	pushl %edx
+	movl MI_Msg+56,%eax
+	call *%eax
+	addl $20,%esp
+.L1050:
+	movl MI_ETimer+56,%eax
+	call *%eax
+	movl -188(%ebp),%edx
+	pushl %edx
+	pushl %edx
+	movl $MM_M3Driver+3852,%ebx
+	pushl %ebx
+	pushl $MM_M3Driver+3876
+	movl MI_Msg+80,%eax
+	call *%eax
+	pushl $1
+	pushl %ebx
+	movl MI_Utils+44,%eax
+	call *%eax
+	movl %eax,-188(%ebp)
+	addl $24,%esp
+.L1051:
+	movl $MM_M3Driver+3908,-172(%ebp)
+	movl $0,-176(%ebp)
+	movl RTThread__handlerStack,%eax
+	movl %eax,-180(%ebp)
+	leal -180(%ebp),%edx
+	movl %edx,RTThread__handlerStack
+	leal -160(%ebp),%eax
+	pushl %eax
+	call _setjmp
+	addl $4,%esp
+	testl %eax,%eax
+	jne .L1052
+	pushl $MM_M3Driver+3924
+	movl -188(%ebp),%edx
+	pushl %edx
+	movl MI_Wr+68,%eax
+	call *%eax
+	addl $8,%esp
+	cmpb $0,MM_M3Driver+297
+	je .L1053
+	pushl $MM_M3Driver+3968
+	jmp .L1073
+	.align 16
+.L1053:
+	pushl $MM_M3Driver+4004
+.L1073:
+	movl -188(%ebp),%edx
+	pushl %edx
+	movl MI_Wr+68,%eax
+	call *%eax
+	addl $8,%esp
+	movl MI_Target+816,%eax
+	pushl %eax
+	movl -188(%ebp),%edx
+	pushl %edx
+	movl MI_Wr+68,%eax
+	call *%eax
+	movl MI_Target+816,%eax
+	pushl %eax
+	movl -188(%ebp),%edx
+	pushl %edx
+	movl MI_Wr+68,%eax
+	call *%eax
+	addl $16,%esp
+	cmpb $0,MM_M3Driver+297
+	je .L1055
+	pushl $MM_M3Driver+4040
+	movl -188(%ebp),%edx
+	pushl %edx
+	movl MI_Wr+68,%eax
+	call *%eax
+	movl MI_Target+816,%eax
+	pushl %eax
+	movl -188(%ebp),%edx
+	pushl %edx
+	movl MI_Wr+68,%eax
+	call *%eax
+	pushl $MM_M3Driver+4068
+	movl -188(%ebp),%edx
+	pushl %edx
+	movl MI_Wr+68,%eax
+	call *%eax
+	movl MI_Target+816,%eax
+	pushl %eax
+	movl -188(%ebp),%edx
+	pushl %edx
+	movl MI_Wr+68,%eax
+	call *%eax
+	addl $32,%esp
+	movl MI_Target+816,%eax
+	pushl %eax
+	movl -188(%ebp),%edx
+	pushl %edx
+	movl MI_Wr+68,%eax
+	call *%eax
+	pushl $MM_M3Driver+4132
+	movl -188(%ebp),%edx
+	pushl %edx
+	movl MI_Wr+68,%eax
+	call *%eax
+	movl MI_Target+816,%eax
+	pushl %eax
+	movl -188(%ebp),%edx
+	pushl %edx
+	movl MI_Wr+68,%eax
+	call *%eax
+	movl $MM_M3Driver+4156,%ebx
+	pushl %ebx
+	movl -188(%ebp),%edx
+	pushl %edx
+	movl MI_Wr+68,%eax
+	call *%eax
+	addl $32,%esp
+	movl MI_Target+816,%eax
+	pushl %eax
+	movl -188(%ebp),%edx
+	pushl %edx
+	movl MI_Wr+68,%eax
+	call *%eax
+	movl MI_Target+816,%eax
+	pushl %eax
+	movl -188(%ebp),%edx
+	pushl %edx
+	movl MI_Wr+68,%eax
+	call *%eax
+	pushl $MM_M3Driver+4228
+	movl -188(%ebp),%edx
+	pushl %edx
+	movl MI_Wr+68,%eax
+	call *%eax
+	movl MI_Target+816,%eax
+	pushl %eax
+	movl -188(%ebp),%edx
+	pushl %edx
+	movl MI_Wr+68,%eax
+	call *%eax
+	addl $32,%esp
+	pushl %ebx
+	movl -188(%ebp),%edx
+	pushl %edx
+	movl MI_Wr+68,%eax
+	call *%eax
+	movl MI_Target+816,%eax
+	pushl %eax
+	movl -188(%ebp),%edx
+	pushl %edx
+	movl MI_Wr+68,%eax
+	call *%eax
+	movl MI_Target+816,%eax
+	pushl %eax
+	movl -188(%ebp),%edx
+	pushl %edx
+	movl MI_Wr+68,%eax
+	call *%eax
+	addl $24,%esp
+	jmp .L1056
+	.align 16
+.L1055:
+	pushl $MM_M3Driver+4252
+	movl -188(%ebp),%edx
+	pushl %edx
+	movl MI_Wr+68,%eax
+	call *%eax
+	movl MI_Target+816,%eax
+	pushl %eax
+	movl -188(%ebp),%edx
+	pushl %edx
+	movl MI_Wr+68,%eax
+	call *%eax
+	movl $MM_M3Driver+4276,%ebx
+	pushl %ebx
+	movl -188(%ebp),%edx
+	pushl %edx
+	movl MI_Wr+68,%eax
+	call *%eax
+	movl MI_Target+816,%eax
+	pushl %eax
+	movl -188(%ebp),%edx
+	pushl %edx
+	movl MI_Wr+68,%eax
+	call *%eax
+	addl $32,%esp
+	movl MI_Target+816,%eax
+	pushl %eax
+	movl -188(%ebp),%edx
+	pushl %edx
+	movl MI_Wr+68,%eax
+	call *%eax
+	pushl $MM_M3Driver+4316
+	movl -188(%ebp),%edx
+	pushl %edx
+	movl MI_Wr+68,%eax
+	call *%eax
+	movl MI_Target+816,%eax
+	pushl %eax
+	movl -188(%ebp),%edx
+	pushl %edx
+	movl MI_Wr+68,%eax
+	call *%eax
+	pushl %ebx
+	movl -188(%ebp),%edx
+	pushl %edx
+	movl MI_Wr+68,%eax
+	call *%eax
+	addl $32,%esp
+	movl MI_Target+816,%eax
+	pushl %eax
+	movl -188(%ebp),%edx
+	pushl %edx
+	movl MI_Wr+68,%eax
+	call *%eax
+	movl MI_Target+816,%eax
+	pushl %eax
+	movl -188(%ebp),%edx
+	pushl %edx
+	movl MI_Wr+68,%eax
+	call *%eax
+	addl $16,%esp
+.L1056:
+	pushl $MM_M3Driver+4340
+	movl -188(%ebp),%edx
+	pushl %edx
+	movl MI_Wr+68,%eax
+	call *%eax
+	movl MM_M3Driver+264,%eax
+	pushl %eax
+	movl -188(%ebp),%edx
+	pushl %edx
+	movl MI_Wr+68,%eax
+	call *%eax
+	movl MI_Target+816,%eax
+	pushl %eax
+	movl -188(%ebp),%edx
+	pushl %edx
+	movl MI_Wr+68,%eax
+	call *%eax
+	movl MI_Target+816,%eax
+	pushl %eax
+	movl -188(%ebp),%edx
+	pushl %edx
+	movl MI_Wr+68,%eax
+	call *%eax
+	movl MM_M3Driver+340,%ebx
+	addl $32,%esp
+	jmp .L1057
+	.align 16
+.L1058:
+	cmpl $0,12(%ebx)
+	je .L1060
+	pushl %ebx
+	movl -188(%ebp),%edx
+	pushl %edx
+	call M3Driver__GenBootLine
+	movl %eax,%esi
+	addl $8,%esp
+	testl %esi,%esi
+	je .L1060
+	movl MM_M3Driver+4392,%eax
+	pushl %eax
+	movl MI_RTHooks+80,%eax
+	call *%eax
+	movl -184(%ebp),%edx
+	movl %edx,4(%eax)
+	movl %eax,-184(%ebp)
+	addl $4,%esp
+	testl %eax,%eax
+	jne .L1062
+	pushl $41156
+	call _m3_fault
+	.align 16
+.L1062:
+	movl -184(%ebp),%edx
+	movl %esi,(%edx)
+.L1060:
+	testl %ebx,%ebx
+	jne .L1063
+	pushl $41204
+	call _m3_fault
+	.align 16
+.L1063:
+	movl (%ebx),%ebx
+.L1057:
+	testl %ebx,%ebx
+	jne .L1058
+	movl MI_Target+816,%eax
+	pushl %eax
+	movl -188(%ebp),%edx
+	pushl %edx
+	movl MI_Wr+68,%eax
+	call *%eax
+	pushl $MM_M3Driver+4404
+	movl -188(%ebp),%edx
+	pushl %edx
+	movl MI_Wr+68,%eax
+	call *%eax
+	addl $16,%esp
+	jmp .L1065
+	.align 16
+.L1066:
+	pushl $MM_M3Driver+1712
+	movl -184(%ebp),%edx
+	movl (%edx),%eax
+	pushl %eax
+	movl MI_RTHooks+76,%eax
+	call *%eax
+	pushl %eax
+	movl -188(%ebp),%edx
+	pushl %edx
+	movl MI_Wr+68,%eax
+	call *%eax
+	movl -184(%ebp),%edx
+	addl $16,%esp
+	movl 4(%edx),%edx
+	movl %edx,-184(%ebp)
+.L1065:
+	cmpl $0,-184(%ebp)
+	jne .L1066
+	movl MI_Target+816,%eax
+	pushl %eax
+	movl -188(%ebp),%edx
+	pushl %edx
+	movl MI_Wr+68,%eax
+	call *%eax
+	movl MI_Target+816,%eax
+	pushl %eax
+	movl -188(%ebp),%edx
+	pushl %edx
+	movl MI_Wr+68,%eax
+	call *%eax
+	movl MM_M3Driver+264,%eax
+	pushl %eax
+	movl -188(%ebp),%edx
+	pushl %edx
+	movl MI_Wr+68,%eax
+	call *%eax
+	pushl $MM_M3Driver+4468
+	movl -188(%ebp),%edx
+	pushl %edx
+	movl MI_Wr+68,%eax
+	call *%eax
+	addl $32,%esp
+	movl MI_Target+816,%eax
+	pushl %eax
+	movl -188(%ebp),%edx
+	pushl %edx
+	movl MI_Wr+68,%eax
+	call *%eax
+	pushl $MM_M3Driver+4956
+	movl -188(%ebp),%edx
+	pushl %edx
+	movl MI_Wr+68,%eax
+	call *%eax
+	movl MI_Target+816,%eax
+	pushl %eax
+	movl -188(%ebp),%edx
+	pushl %edx
+	movl MI_Wr+68,%eax
+	call *%eax
+	pushl $MM_M3Driver+4992
+	movl -188(%ebp),%edx
+	pushl %edx
+	movl MI_Wr+68,%eax
+	call *%eax
+	addl $32,%esp
+	movl MI_Target+816,%eax
+	pushl %eax
+	movl -188(%ebp),%edx
+	pushl %edx
+	movl MI_Wr+68,%eax
+	call *%eax
+	movl MI_Target+816,%eax
+	pushl %eax
+	movl -188(%ebp),%edx
+	pushl %edx
+	movl MI_Wr+68,%eax
+	call *%eax
+	pushl $MM_M3Driver+4552
+	movl -188(%ebp),%edx
+	pushl %edx
+	movl MI_Wr+68,%eax
+	call *%eax
+	movl MI_Target+816,%eax
+	pushl %eax
+	movl -188(%ebp),%edx
+	pushl %edx
+	movl MI_Wr+68,%eax
+	call *%eax
+	addl $32,%esp
+	pushl $MM_M3Driver+4572
+	movl -188(%ebp),%edx
+	pushl %edx
+	movl MI_Wr+68,%eax
+	call *%eax
+	movl MM_M3Driver+264,%eax
+	pushl %eax
+	movl -188(%ebp),%edx
+	pushl %edx
+	movl MI_Wr+68,%eax
+	call *%eax
+	movl MI_Target+816,%eax
+	pushl %eax
+	movl -188(%ebp),%edx
+	pushl %edx
+	movl MI_Wr+68,%eax
+	call *%eax
+	movl -188(%ebp),%edx
+	pushl %edx
+	movl MI_Wr+84,%eax
+	call *%eax
+	movl -180(%ebp),%eax
+	movl %eax,RTThread__handlerStack
+	jmp .L1047
+	.align 16
+.L1052:
+	cmpl $MI_Wr+44,-168(%ebp)
+	jne .L1071
+	movl -164(%ebp),%eax
+	pushl $0
+	pushl $0
+	pushl $MM_M3Driver+3852
+	pushl $MM_M3Driver+4600
+	pushl %eax
+	jmp .L1074
+	.align 16
+.L1071:
+	pushl $0
+	pushl $0
+	pushl $MM_M3Driver+3852
+	pushl $MM_M3Driver+4600
+	pushl $0
+.L1074:
+	movl MI_Msg+56,%eax
+	call *%eax
+.L1047:
+	leal -196(%ebp),%esp
+	popl %ebx
+	popl %esi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe95:
+	.size	 M3Driver__BuildBootLibrary,.Lfe95-M3Driver__BuildBootLibrary
+	.align 16
+	.type	 M_M3Driver_LINE_2641.2,@function
+M_M3Driver_LINE_2641.2:
+	pushl %ebp
+	movl %esp,%ebp
+	movl %ecx,-4(%ebp)
+	movl -4(%ebp),%edx
+	movl -220(%edx),%eax
+	subl $4,%esp
+	movl (%eax),%eax
+	pushl %eax
+	movl -224(%edx),%eax
+	pushl %eax
+	movl MI_Utils+60,%eax
+	call *%eax
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe96:
+	.size	 M_M3Driver_LINE_2641.2,.Lfe96-M_M3Driver_LINE_2641.2
+.section	.rodata
+	.align 4
+.LC0:
+	.long 0x0,0x3fe00000
+.text
+	.align 16
+	.type	 M3Driver__GetLinkUnits,@function
+M3Driver__GetLinkUnits:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $236,%esp
+	pushl %esi
+	pushl %ebx
+	leal 8(%ebp),%ebx
+	movl %ebx,-220(%ebp)
+.L1076:
+	movl $MM_M3Driver+1224,-4(%ebp)
+	movl $4,-8(%ebp)
+	movl RTThread__handlerStack,%eax
+	movl %eax,-12(%ebp)
+	leal -12(%ebp),%ebx
+	movl %ebx,RTThread__handlerStack
+	movl $0,-224(%ebp)
+	xorl %eax,%eax
+	movb MI_Msg+44,%al
+	cmpl $2,%eax
+	jle .L1080
+	movl MI_Time+44,%eax
+	call *%eax
+	fld %st(0)
+	fldz
+	fcomp %st(2)
+	fnstsw %ax
+	andb $69,%ah
+	decb %ah
+	cmpb $64,%ah
+	jae .L1099
+	fstp %st(0)
+	fldl .LC0
+	faddp %st,%st(1)
+	jmp .L1096
+	.align 16
+.L1099:
+	fstp %st(1)
+	fldl .LC0
+	fsubrp %st,%st(1)
+.L1096:
+	fnstcw -16(%ebp)
+	movl -16(%ebp),%eax
+	movb $12,%ah
+	movl %eax,-20(%ebp)
+	fldcw -20(%ebp)
+	fistpl -236(%ebp)
+	fldcw -16(%ebp)
+.L1080:
+	movl $MM_M3Driver+1904,-192(%ebp)
+	movl $0,-196(%ebp)
+	movl RTThread__handlerStack,%eax
+	movl %eax,-200(%ebp)
+	leal -200(%ebp),%ebx
+	movl %ebx,RTThread__handlerStack
+	leal -180(%ebp),%eax
+	pushl %eax
+	call _setjmp
+	addl $4,%esp
+	testl %eax,%eax
+	jne .L1081
+	movl 8(%ebp),%eax
+	pushl %eax
+	movl MI_FS+52,%eax
+	call *%eax
+	movl %eax,%edx
+	movl %edx,-224(%ebp)
+	movl -200(%ebp),%eax
+	movl %eax,RTThread__handlerStack
+	addl $4,%esp
+	jmp .L1082
+	.align 16
+.L1081:
+	movl -184(%ebp),%eax
+	pushl %eax
+	movl MI_Msg+64,%eax
+	call *%eax
+	movl %eax,%edx
+	movl MI_Wr+60,%eax
+	pushl %eax
+	pushl %edx
+	movl 8(%ebp),%eax
+	pushl %eax
+	pushl $MM_M3Driver+5020
+	jmp .L1097
+	.align 16
+.L1082:
+	xorl %eax,%eax
+	movb MI_Msg+44,%al
+	cmpl $2,%eax
+	jg .L1084
+	xorl %edx,%edx
+	jmp .L1085
+	.align 16
+.L1084:
+	movl MM_M3Driver+260,%edx
+.L1085:
+	movl $M_M3Driver_LINE_2641.2,-208(%ebp)
+	movl %ebp,-204(%ebp)
+.L1086:
+	movl $3,-212(%ebp)
+	movl RTThread__handlerStack,%eax
+	movl %eax,-216(%ebp)
+	leal -216(%ebp),%ebx
+	movl %ebx,RTThread__handlerStack
+	pushl %edx
+	xorl %eax,%eax
+	movb 16(%ebp),%al
+	pushl %eax
+	movl 12(%ebp),%ebx
+	pushl %ebx
+	movl -224(%ebp),%eax
+	pushl %eax
+	movl MI_MxIn+44,%eax
+	call *%eax
+	movl %eax,%esi
+	movl -216(%ebp),%eax
+	movl %eax,RTThread__handlerStack
+	movl %ebp,%ecx
+	call M_M3Driver_LINE_2641.2
+	addl $16,%esp
+.L1087:
+	testl %esi,%esi
+	jne .L1089
+	cmpb $0,16(%ebp)
+	je .L1090
+	pushl %esi
+	pushl %esi
+	movl 8(%ebp),%eax
+	pushl %eax
+	pushl $MM_M3Driver+5064
+	pushl %esi
+	movl MI_Msg+56,%eax
+	call *%eax
+	jmp .L1091
+	.align 16
+.L1090:
+	pushl %esi
+	pushl %esi
+	movl 8(%ebp),%eax
+	pushl %eax
+	pushl $MM_M3Driver+5064
+.L1097:
+	movl MI_Msg+68,%eax
+	call *%eax
+.L1091:
+	movl -12(%ebp),%eax
+	movl %eax,RTThread__handlerStack
+	xorl %eax,%eax
+	jmp .L1075
+	.align 16
+.L1089:
+	xorl %eax,%eax
+	movb MI_Msg+44,%al
+	cmpl $2,%eax
+	jle .L1092
+	movl MI_Time+44,%eax
+	call *%eax
+	fldz
+	fcomp %st(1)
+	fnstsw %ax
+	andb $69,%ah
+	decb %ah
+	cmpb $64,%ah
+	jae .L1093
+	fldl .LC0
+	faddp %st,%st(1)
+	jmp .L1098
+	.align 16
+.L1093:
+	fldl .LC0
+	fsubrp %st,%st(1)
+.L1098:
+	fnstcw -228(%ebp)
+	movl -228(%ebp),%eax
+	movb $12,%ah
+	movl %eax,-232(%ebp)
+	fldcw -232(%ebp)
+	subl $4,%esp
+	fistpl (%esp)
+	popl %edx
+	fldcw -228(%ebp)
+	pushl $10
+	movl %edx,%eax
+	subl -236(%ebp),%eax
+	pushl %eax
+	movl MI_Fmt+52,%eax
+	call *%eax
+	pushl $MM_M3Driver+5140
+	pushl %eax
+	pushl $MM_M3Driver+5124
+	movl 8(%ebp),%eax
+	pushl %eax
+	pushl $MM_M3Driver+5100
+	movl MI_Msg+72,%eax
+	call *%eax
+.L1092:
+	movl -12(%ebp),%eax
+	movl %eax,RTThread__handlerStack
+	movl %esi,%eax
+.L1095:
+.L1075:
+	leal -244(%ebp),%esp
+	popl %ebx
+	popl %esi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe97:
+	.size	 M3Driver__GetLinkUnits,.Lfe97-M3Driver__GetLinkUnits
+	.align 16
+	.type	 M3Driver__MergeUnit,@function
+M3Driver__MergeUnit:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $20,%esp
+	pushl %edi
+	pushl %esi
+	xorl %esi,%esi
+	pushl %ebx
+	movl 8(%ebp),%edi
+	movl %esi,-4(%ebp)
+	movl MM_M3Driver+260,%edx
+	movb $1,-16(%ebp)
+	testl %edi,%edi
+	je .L1125
+	cmpb $0,12(%ebp)
+	je .L1102
+	xorl %eax,%eax
+	movb MI_Msg+44,%al
+	cmpl $3,%eax
+	jg .L1102
+	movl %esi,%edx
+.L1102:
+	pushl %edx
+	movl MM_M3Driver+364,%eax
+	pushl %eax
+	pushl %edi
+	movl MI_MxMerge+44,%eax
+	call *%eax
+	movl %eax,%esi
+	addl $12,%esp
+.L1103:
+	testl %eax,%eax
+	je .L1106
+	cmpl %edi,(%eax)
+	je .L1105
+	movl 4(%eax),%eax
+	jmp .L1103
+	.align 16
+.L1106:
+	pushl %edi
+	call M3Driver__AddMagic
+	addl $4,%esp
+.L1105:
+	testl %esi,%esi
+	jne .L1112
+.L1125:
+	movl $1,%eax
+	jmp .L1124
+	.align 16
+.L1112:
+	movl (%esi),%ebx
+	testl %ebx,%ebx
+	jne .L1113
+	pushl $42996
+	call _m3_fault
+	.align 16
+.L1113:
+	cmpb $0,8(%ebx)
+	je .L1114
+	movl MM_M3Driver+348,%ecx
+	movl %ecx,-20(%ebp)
+	movb $0,-12(%ebp)
+	jmp .L1115
+	.align 16
+.L1114:
+	movl MM_M3Driver+352,%ecx
+	movl %ecx,-20(%ebp)
+	movb $4,-12(%ebp)
+.L1115:
+	cmpl %edi,%ebx
+	je .L1116
+	movl -20(%ebp),%ecx
+	movl (%ecx),%eax
+	movl 4(%eax),%edx
+	testl %ebx,%ebx
+	jne .L1117
+	pushl $43060
+	call _m3_fault
+	.align 16
+.L1117:
+	movl (%ebx),%eax
+	movl %eax,-8(%ebp)
+	leal -4(%ebp),%eax
+	pushl %eax
+	leal -8(%ebp),%eax
+	pushl %eax
+	movl -20(%ebp),%ecx
+	pushl %ecx
+	call *%edx
+	addl $12,%esp
+	testl %eax,%eax
+	je .L1116
+	movl -4(%ebp),%eax
+	testl %eax,%eax
+	je .L1118
+	movl -4(%eax),%eax
+	sall $11,%eax
+	shrl $12,%eax
+	cmpl %eax,MM_M3Driver+1840
+	je .L1118
+	pushl $43077
+	call _m3_fault
+	.align 16
+.L1118:
+	movl -4(%ebp),%eax
+	pushl %eax
+	call M3Driver__CompileOne
+	addl $4,%esp
+	jmp .L1119
+	.align 16
+.L1116:
+	cmpb $0,12(%ebp)
+	jne .L1120
+	testl %ebx,%ebx
+	jne .L1121
+	pushl $43124
+	call _m3_fault
+	.align 16
+.L1121:
+	movl (%ebx),%eax
+	pushl %eax
+	movl MI_M3ID+52,%eax
+	call *%eax
+	movl %eax,%edx
+	pushl $0
+	xorl %eax,%eax
+	movb -12(%ebp),%al
+	pushl %eax
+	pushl %edx
+	pushl $0
+	movl MI_M3Path+48,%eax
+	call *%eax
+	pushl $0
+	pushl $0
+	pushl %eax
+	pushl $MM_M3Driver+5164
+	pushl $0
+	movl MI_Msg+56,%eax
+	call *%eax
+	addl $40,%esp
+.L1120:
+	movb $0,-16(%ebp)
+.L1119:
+	testl %esi,%esi
+	jne .L1122
+	pushl $43220
+	call _m3_fault
+	.align 16
+.L1122:
+	movl 4(%esi),%esi
+	testl %esi,%esi
+	jne .L1112
+	xorl %eax,%eax
+	movb -16(%ebp),%al
+.L1124:
+	leal -32(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe98:
+	.size	 M3Driver__MergeUnit,.Lfe98-M3Driver__MergeUnit
+	.align 16
+	.type	 M3Driver__AddMagic,@function
+M3Driver__AddMagic:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $8,%esp
+	pushl %ebx
+	movl 8(%ebp),%eax
+	testl %eax,%eax
+	jne .L1127
+	pushl $43332
+	call _m3_fault
+	.align 16
+.L1127:
+	movl 116(%eax),%ebx
+	jmp .L1128
+	.align 16
+.L1129:
+	movl MM_M3Driver+376,%edx
+	movl (%edx),%eax
+	movl 8(%eax),%ecx
+	movl 8(%ebx),%eax
+	movl %eax,-4(%ebp)
+	movl %ebx,-8(%ebp)
+	leal -8(%ebp),%eax
+	pushl %eax
+	leal -4(%ebp),%eax
+	pushl %eax
+	pushl %edx
+	call *%ecx
+	addl $12,%esp
+	movl (%ebx),%ebx
+.L1128:
+	testl %ebx,%ebx
+	jne .L1129
+	movl -12(%ebp),%ebx
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe99:
+	.size	 M3Driver__AddMagic,.Lfe99-M3Driver__AddMagic
+.section	.rodata
+	.align 4
+	.type	 L_66.7,@object
+	.size	 L_66.7,28
+L_66.7:
+	.long .L1136
+	.long .L1136
+	.long .L1137
+	.long .L1135
+	.long .L1138
+	.long .L1138
+	.long .L1139
+.text
+	.align 16
+	.type	 M3Driver__TempCName,@function
+M3Driver__TempCName:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %ebx
+	movl 8(%ebp),%edx
+	testl %edx,%edx
+	jne .L1134
+	pushl $43508
+	call _m3_fault
+	.align 16
+.L1134:
+	xorb %cl,%cl
+	xorl %eax,%eax
+	movb 36(%edx),%al
+	cmpl $6,%eax
+	jg .L1135
+	jmp *L_66.7(,%eax,4)
+	.align 16
+.L1136:
+	movb $1,%bl
+	jmp .L1140
+	.align 16
+.L1137:
+	movb $2,%bl
+	movb $1,%cl
+	jmp .L1140
+	.align 16
+.L1138:
+	movb $5,%bl
+	jmp .L1140
+	.align 16
+.L1139:
+	movb $6,%bl
+	movb $1,%cl
+	jmp .L1140
+	.align 16
+.L1135:
+	pushl $43616
+	call _m3_fault
+	.align 16
+.L1140:
+	testl %edx,%edx
+	jne .L1141
+	pushl $43652
+	call _m3_fault
+	.align 16
+.L1141:
+	movl 32(%edx),%edx
+	testb %cl,%cl
+	je .L1142
+	movl MM_M3Driver+304,%eax
+	testl %eax,%eax
+	jne .L1143
+	pushl $43668
+	call _m3_fault
+	.align 16
+.L1143:
+	cmpb $0,103(%eax)
+	je .L1142
+	pushl %edx
+	call M3Driver__ShortenName
+	movl %eax,%edx
+	addl $4,%esp
+.L1142:
+	pushl $0
+	xorl %eax,%eax
+	movb %bl,%al
+	pushl %eax
+	pushl %edx
+	pushl $0
+	movl MI_M3Path+48,%eax
+	call *%eax
+	movl -4(%ebp),%ebx
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe100:
+	.size	 M3Driver__TempCName,.Lfe100-M3Driver__TempCName
+	.align 16
+	.type	 M3Driver__TempSName,@function
+M3Driver__TempSName:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %ebx
+	movl 8(%ebp),%edx
+	testl %edx,%edx
+	jne .L1146
+	pushl $43780
+	call _m3_fault
+	.align 16
+.L1146:
+	xorl %eax,%eax
+	movb 36(%edx),%al
+	cmpl $1,%eax
+	jle .L1147
+	cmpl $3,%eax
+	jle .L1148
+	cmpl $5,%eax
+	jle .L1149
+	jmp .L1148
+	.align 16
+.L1147:
+	movb $2,%bl
+	jmp .L1150
+	.align 16
+.L1149:
+	movb $6,%bl
+	jmp .L1150
+	.align 16
+.L1148:
+	pushl $43856
+	call _m3_fault
+	.align 16
+.L1150:
+	testl %edx,%edx
+	jne .L1151
+	pushl $43892
+	call _m3_fault
+	.align 16
+.L1151:
+	movl 32(%edx),%edx
+	movl MM_M3Driver+304,%eax
+	testl %eax,%eax
+	jne .L1152
+	pushl $43908
+	call _m3_fault
+	.align 16
+.L1152:
+	cmpb $0,103(%eax)
+	je .L1153
+	pushl %edx
+	call M3Driver__ShortenName
+	movl %eax,%edx
+	addl $4,%esp
+.L1153:
+	pushl $1
+	xorl %eax,%eax
+	movb %bl,%al
+	pushl %eax
+	pushl %edx
+	pushl $0
+	movl MI_M3Path+48,%eax
+	call *%eax
+	movl -4(%ebp),%ebx
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe101:
+	.size	 M3Driver__TempSName,.Lfe101-M3Driver__TempSName
+.section	.rodata
+	.align 4
+	.type	 L_67.8,@object
+	.size	 L_67.8,56
+L_67.8:
+	.long .L1159
+	.long .L1159
+	.long .L1159
+	.long .L1160
+	.long .L1161
+	.long .L1161
+	.long .L1161
+	.long .L1160
+	.long .L1158
+	.long .L1158
+	.long .L1162
+	.long .L1158
+	.long .L1162
+	.long .L1160
+	.align 4
+	.type	 L_68.9,@object
+	.size	 L_68.9,56
+L_68.9:
+	.long .L1168
+	.long .L1169
+	.long .L1170
+	.long .L1171
+	.long .L1172
+	.long .L1169
+	.long .L1173
+	.long .L1171
+	.long .L1167
+	.long .L1167
+	.long .L1174
+	.long .L1174
+	.long .L1174
+	.long .L1171
+	.align 4
+	.type	 L_69.10,@object
+	.size	 L_69.10,56
+L_69.10:
+	.long .L1178
+	.long .L1178
+	.long .L1178
+	.long .L1179
+	.long .L1180
+	.long .L1180
+	.long .L1180
+	.long .L1179
+	.long .L1177
+	.long .L1177
+	.long .L1181
+	.long .L1181
+	.long .L1181
+	.long .L1179
+	.align 4
+	.type	 L_70.11,@object
+	.size	 L_70.11,56
+L_70.11:
+	.long .L1184
+	.long .L1184
+	.long .L1184
+	.long .L1185
+	.long .L1186
+	.long .L1186
+	.long .L1186
+	.long .L1185
+	.long .L1183
+	.long .L1183
+	.long .L1187
+	.long .L1187
+	.long .L1187
+	.long .L1185
+.text
+	.align 16
+	.type	 M3Driver__ObjectName,@function
+M3Driver__ObjectName:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %ebx
+	movl 8(%ebp),%edx
+	testl %edx,%edx
+	jne .L1156
+	pushl $44020
+	call _m3_fault
+	.align 16
+.L1156:
+	movb 36(%edx),%bl
+	xorb %cl,%cl
+	cmpb $0,MM_M3Driver+296
+	jne .L1157
+	xorl %eax,%eax
+	movb %bl,%al
+	cmpl $13,%eax
+	jg .L1183
+	jmp *L_67.8(,%eax,4)
+	.align 16
+.L1159:
+	jmp .L1184
+	.align 16
+.L1161:
+	jmp .L1186
+	.align 16
+.L1162:
+	movb $13,%bl
+	jmp .L1165
+	.align 16
+.L1160:
+	testl %edx,%edx
+	jne .L1164
+	pushl $44148
+	call _m3_fault
+	.align 16
+.L1164:
+	movl 8(%edx),%eax
+	jmp .L1193
+	.align 16
+.L1158:
+	jmp .L1183
+	.align 16
+.L1157:
+	cmpb $0,MM_M3Driver+297
+	je .L1166
+	xorl %eax,%eax
+	movb %bl,%al
+	cmpl $13,%eax
+	jg .L1183
+	jmp *L_68.9(,%eax,4)
+	.align 16
+.L1168:
+	movb $1,%bl
+	jmp .L1165
+	.align 16
+.L1172:
+	movb $5,%bl
+	jmp .L1165
+	.align 16
+.L1170:
+	jmp .L1194
+	.align 16
+.L1173:
+	movb $1,%cl
+.L1169:
+.L1174:
+.L1171:
+	jmp .L1165
+	.align 16
+.L1167:
+	jmp .L1183
+	.align 16
+.L1166:
+	cmpb $0,MM_M3Driver+321
+	je .L1176
+	xorl %eax,%eax
+	movb %bl,%al
+	cmpl $13,%eax
+	jg .L1183
+	jmp *L_69.10(,%eax,4)
+	.align 16
+.L1178:
+	movb $2,%bl
+	movb $1,%cl
+	jmp .L1165
+	.align 16
+.L1180:
+	movb $6,%bl
+.L1194:
+	movb $1,%cl
+.L1181:
+.L1179:
+	jmp .L1165
+	.align 16
+.L1177:
+	jmp .L1183
+	.align 16
+.L1176:
+	xorl %eax,%eax
+	movb %bl,%al
+	cmpl $13,%eax
+	jg .L1183
+	jmp *L_70.11(,%eax,4)
+	.align 16
+.L1184:
+	movb $3,%bl
+	jmp .L1165
+	.align 16
+.L1186:
+	movb $7,%bl
+.L1187:
+.L1185:
+	jmp .L1165
+	.align 16
+.L1183:
+	xorl %eax,%eax
+	jmp .L1193
+	.align 16
+.L1165:
+	testl %edx,%edx
+	jne .L1189
+	pushl $44756
+	call _m3_fault
+	.align 16
+.L1189:
+	movl 32(%edx),%edx
+	movl MM_M3Driver+304,%eax
+	testl %eax,%eax
+	jne .L1190
+	pushl $44772
+	call _m3_fault
+	.align 16
+.L1190:
+	cmpb $0,103(%eax)
+	je .L1191
+	testb %cl,%cl
+	je .L1191
+	pushl %edx
+	call M3Driver__ShortenName
+	movl %eax,%edx
+	addl $4,%esp
+.L1191:
+	pushl $0
+	xorl %eax,%eax
+	movb %bl,%al
+	pushl %eax
+	pushl %edx
+	pushl $0
+	movl MI_M3Path+48,%eax
+	call *%eax
+.L1193:
+	movl -4(%ebp),%ebx
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe102:
+	.size	 M3Driver__ObjectName,.Lfe102-M3Driver__ObjectName
+	.align 16
+	.type	 M3Driver__ShortenName,@function
+M3Driver__ShortenName:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $52,%esp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl $0,-4(%ebp)
+	movl 8(%ebp),%ecx
+	pushl %ecx
+	movl MI_Text+56,%eax
+	xorl %edi,%edi
+	call *%eax
+	addl $4,%esp
+	cmpl $7,%eax
+	jg .L1196
+	movl 8(%ebp),%eax
+	jmp .L1216
+	.align 16
+.L1196:
+	cmpl $0,MM_M3Driver+384
+	jne .L1197
+	movl MM_M3Driver+1256,%eax
+	pushl %eax
+	movl MI_RTHooks+80,%eax
+	call *%eax
+	movl %eax,%edx
+	movl (%edx),%eax
+	movl 24(%eax),%eax
+	pushl %edi
+	pushl %edx
+	call *%eax
+	movl %eax,%ebx
+	movl %ebx,MM_M3Driver+384
+	addl $12,%esp
+.L1197:
+	leal -12(%ebp),%esi
+	movl %esi,-20(%ebp)
+	movl $8,-16(%ebp)
+	movl 8(%ebp),%ecx
+	pushl %ecx
+	leal -20(%ebp),%ebx
+	pushl %ebx
+	movl MI_Text+68,%eax
+	call *%eax
+	movl %esi,-20(%ebp)
+	movl $8,-16(%ebp)
+	pushl $99999
+	pushl %ebx
+	movl MI_M3ID+48,%eax
+	call *%eax
+	movl MM_M3Driver+384,%edx
+	movl %eax,-48(%ebp)
+	movl (%edx),%eax
+	movl -48(%ebp),%ecx
+	movl 4(%eax),%ebx
+	movl %ecx,-24(%ebp)
+	leal -4(%ebp),%eax
+	pushl %eax
+	leal -24(%ebp),%eax
+	pushl %eax
+	pushl %edx
+	call *%ebx
+	addl $28,%esp
+	testl %eax,%eax
+	je .L1198
+	movl -4(%ebp),%eax
+	testl %eax,%eax
+	je .L1199
+	movl -4(%eax),%eax
+	sall $11,%eax
+	shrl $12,%eax
+	cmpl %eax,MM_M3Driver+5200
+	je .L1199
+	pushl $45317
+	call _m3_fault
+	.align 16
+.L1199:
+	movl -4(%ebp),%ecx
+	movl %ecx,-44(%ebp)
+	jmp .L1200
+	.align 16
+.L1198:
+	movl %edi,-44(%ebp)
+.L1200:
+	movl -44(%ebp),%edi
+	xorl %ebx,%ebx
+	jmp .L1201
+	.align 16
+.L1202:
+	movl (%edi),%eax
+	pushl %eax
+	movl 8(%ebp),%ecx
+	pushl %ecx
+	movl MI_Text+48,%eax
+	call *%eax
+	addl $8,%esp
+	testl %eax,%eax
+	jne .L1217
+	movl 8(%edi),%edi
+	incl %ebx
+.L1201:
+	testl %edi,%edi
+	jne .L1202
+	testl %ebx,%ebx
+	jle .L1208
+	pushl $10
+	pushl %ebx
+	movl MI_Fmt+52,%eax
+	call *%eax
+	movl %eax,%ebx
+	pushl %ebx
+	movl MI_Text+56,%eax
+	call *%eax
+	movl %eax,%esi
+	leal -32(%ebp),%ecx
+	movl %ecx,-20(%ebp)
+	movl $8,-16(%ebp)
+	pushl %ebx
+	leal -20(%ebp),%eax
+	pushl %eax
+	movl MI_Text+68,%eax
+	call *%eax
+	movl %edi,%edx
+	leal -1(%esi),%ebx
+	addl $20,%esp
+	jmp .L1209
+	.align 16
+.L1210:
+	leal 8(%edx),%eax
+	movl %eax,%edi
+	subl %esi,%edi
+	cmpl $7,%edi
+	jbe .L1211
+	pushl $45633
+	call _m3_fault
+	.align 16
+.L1211:
+	cmpl $7,%edx
+	jle .L1212
+	pushl $45633
+	call _m3_fault
+	.align 16
+.L1212:
+	movb -32(%edx,%ebp),%al
+	movb %al,-12(%edi,%ebp)
+	incl %edx
+.L1209:
+	cmpl %ebx,%edx
+	jle .L1210
+.L1208:
+	movl MM_M3Driver+5196,%eax
+	pushl %eax
+	movl MI_RTHooks+80,%eax
+	call *%eax
+	movl %eax,%ebx
+	movl 8(%ebp),%ecx
+	leal -20(%ebp),%eax
+	movl %ecx,(%ebx)
+	leal -12(%ebp),%ecx
+	movl %ecx,-20(%ebp)
+	movl $8,-16(%ebp)
+	pushl %eax
+	movl MI_Text+76,%eax
+	call *%eax
+	movl %eax,%edx
+	movl %edx,4(%ebx)
+	movl -44(%ebp),%ecx
+	movl %ecx,8(%ebx)
+	movl MM_M3Driver+384,%edx
+	movl %ebx,%edi
+	movl (%edx),%eax
+	movl -48(%ebp),%ecx
+	movl 8(%eax),%eax
+	movl %eax,-52(%ebp)
+	movl %ecx,-36(%ebp)
+	movl %edi,-40(%ebp)
+	leal -40(%ebp),%eax
+	pushl %eax
+	leal -36(%ebp),%eax
+	pushl %eax
+	pushl %edx
+	movl -52(%ebp),%ecx
+	call *%ecx
+	addl $20,%esp
+	testl %edi,%edi
+	jne .L1214
+	pushl $45748
+	call _m3_fault
+	.align 16
+.L1214:
+	pushl $0
+	movl 4(%edi),%eax
+	pushl %eax
+	pushl $MM_M3Driver+1784
+	movl 8(%ebp),%ecx
+	pushl %ecx
+	pushl $MM_M3Driver+5208
+	movl MI_Msg+72,%eax
+	call *%eax
+.L1217:
+	movl 4(%edi),%eax
+.L1216:
+	leal -64(%ebp),%esp
+	popl %ebx
+	popl %esi
+	popl %edi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe103:
+	.size	 M3Driver__ShortenName,.Lfe103-M3Driver__ShortenName
+	.align 16
+	.type	 M3Driver__PullForBootstrap,@function
+M3Driver__PullForBootstrap:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %ebx
+	movl 8(%ebp),%ebx
+	testl %ebx,%ebx
+	jne .L1220
+	pushl $45892
+	call _m3_fault
+	.align 16
+.L1220:
+	movl 12(%ebx),%eax
+	pushl %eax
+	movl 8(%ebx),%eax
+	pushl %eax
+	movl MI_Text+48,%eax
+	call *%eax
+	addl $8,%esp
+	testl %eax,%eax
+	jne .L1218
+	movl 12(%ebx),%eax
+	pushl %eax
+	movl MI_Utils+80,%eax
+	call *%eax
+	addl $4,%esp
+	cmpb $0,12(%ebp)
+	je .L1223
+	movl MI_Target+816,%eax
+	pushl %eax
+	movl MI_Wr+60,%eax
+	pushl %eax
+	movl MI_Text+48,%eax
+	call *%eax
+	addl $8,%esp
+	testl %eax,%eax
+	jne .L1223
+	movl 12(%ebx),%eax
+	pushl %eax
+	movl 8(%ebx),%eax
+	pushl %eax
+	movl MI_Utils+88,%eax
+	jmp .L1229
+	.align 16
+.L1223:
+	testl %ebx,%ebx
+	jne .L1228
+	pushl $45956
+	call _m3_fault
+	.align 16
+.L1228:
+	movl 12(%ebx),%eax
+	pushl %eax
+	movl 8(%ebx),%eax
+	pushl %eax
+	movl MI_Utils+84,%eax
+.L1229:
+	call *%eax
+.L1218:
+	movl -4(%ebp),%ebx
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe104:
+	.size	 M3Driver__PullForBootstrap,.Lfe104-M3Driver__PullForBootstrap
+	.align 16
+	.type	 M3Driver__Duplicate,@function
+M3Driver__Duplicate:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %edi
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%esi
+	movl 12(%ebp),%ebx
+	pushl %esi
+	call M3Driver__FName
+	movl %eax,%edi
+	pushl %ebx
+	call M3Driver__FName
+	addl $8,%esp
+	testl %esi,%esi
+	jne .L1231
+	pushl $46132
+	call _m3_fault
+	.align 16
+.L1231:
+	pushl %eax
+	movl MI_Wr+60,%eax
+	pushl %eax
+	pushl %edi
+	pushl %eax
+	movl 32(%esi),%eax
+	pushl %eax
+	pushl $MM_M3Driver+5232
+	movl MI_Fmt+76,%eax
+	call *%eax
+	pushl $0
+	pushl %eax
+	movl 16(%ebp),%edx
+	pushl %edx
+	pushl $MM_M3Driver+5264
+	pushl $0
+	movl MI_Msg+56,%eax
+	call *%eax
+	addl $44,%esp
+	pushl $46176
+	call _m3_fault
+	.align 16
+.Lfe105:
+	.size	 M3Driver__Duplicate,.Lfe105-M3Driver__Duplicate
+	.align 16
+	.type	 M3Driver__BadFile,@function
+M3Driver__BadFile:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %ebx
+	movl 8(%ebp),%ebx
+	movl 12(%ebp),%eax
+	pushl %eax
+	call M3Driver__FName
+	pushl $0
+	pushl %eax
+	pushl $MM_M3Driver+3276
+	pushl %ebx
+	pushl $0
+	movl MI_Msg+56,%eax
+	call *%eax
+	movl -4(%ebp),%ebx
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe106:
+	.size	 M3Driver__BadFile,.Lfe106-M3Driver__BadFile
+	.align 16
+	.type	 M3Driver__DebugF,@function
+M3Driver__DebugF:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %esi
+	pushl %ebx
+	movl 8(%ebp),%esi
+	movl 12(%ebp),%edx
+	movl 16(%ebp),%ebx
+	xorl %eax,%eax
+	movb MI_Msg+44,%al
+	cmpl $3,%eax
+	jle .L1233
+	pushl %edx
+	call M3Driver__FName
+	movl %eax,%edx
+	movl MI_Wr+60,%eax
+	pushl %eax
+	pushl %ebx
+	pushl %edx
+	pushl %esi
+	movl MI_Msg+68,%eax
+	call *%eax
+.L1233:
+	leal -8(%ebp),%esp
+	popl %ebx
+	popl %esi
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe107:
+	.size	 M3Driver__DebugF,.Lfe107-M3Driver__DebugF
+	.align 16
+	.type	 M3Driver__ExplainF,@function
+M3Driver__ExplainF:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %ebx
+	movl 8(%ebp),%ebx
+	movl 12(%ebp),%eax
+	cmpb $0,MI_Msg+44
+	je .L1235
+	pushl %eax
+	call M3Driver__FName
+	pushl $0
+	pushl $0
+	pushl %eax
+	pushl %ebx
+	movl MI_Msg+80,%eax
+	call *%eax
+.L1235:
+	movl -4(%ebp),%ebx
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe108:
+	.size	 M3Driver__ExplainF,.Lfe108-M3Driver__ExplainF
+	.align 16
+	.type	 M3Driver__VerboseF,@function
+M3Driver__VerboseF:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %ebx
+	movl 8(%ebp),%ebx
+	movl 12(%ebp),%edx
+	xorl %eax,%eax
+	movb MI_Msg+44,%al
+	cmpl $2,%eax
+	jle .L1237
+	pushl %edx
+	call M3Driver__FName
+	pushl $0
+	pushl $0
+	pushl $0
+	pushl %eax
+	pushl %ebx
+	movl MI_Msg+72,%eax
+	call *%eax
+.L1237:
+	movl -4(%ebp),%ebx
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe109:
+	.size	 M3Driver__VerboseF,.Lfe109-M3Driver__VerboseF
+	.align 16
+	.type	 M3Driver__FName,@function
+M3Driver__FName:
+	pushl %ebp
+	movl %esp,%ebp
+	pushl %ebx
+	movl 8(%ebp),%ebx
+	testl %ebx,%ebx
+	jne .L1240
+	pushl $46692
+	call _m3_fault
+	.align 16
+.L1240:
+	movl 8(%ebx),%eax
+	testl %eax,%eax
+	je .L1241
+	cmpl $0,4(%ebx)
+	je .L1241
+	pushl %eax
+	movl MI_Unit+60,%eax
+	call *%eax
+	pushl $MM_M3Driver+5288
+	pushl %eax
+	movl MI_RTHooks+76,%eax
+	call *%eax
+	movl %eax,%edx
+	addl $12,%esp
+	jmp .L1260
+	.align 16
+.L1241:
+	testl %ebx,%ebx
+	jne .L1245
+	pushl $46724
+	call _m3_fault
+	.align 16
+.L1245:
+	movl 8(%ebx),%eax
+	testl %eax,%eax
+	je .L1248
+	pushl %eax
+	movl MI_Unit+60,%eax
+	call *%eax
+	jmp .L1259
+	.align 16
+.L1248:
+	cmpl $0,4(%ebx)
+	je .L1254
+	pushl $1
+	xorl %eax,%eax
+	movb 36(%ebx),%al
+	pushl %eax
+	movl 32(%ebx),%eax
+	pushl %eax
+	movl 28(%ebx),%eax
+	pushl %eax
+	movl MI_M3Path+48,%eax
+	call *%eax
+	pushl $MM_M3Driver+5288
+	pushl %eax
+	movl MI_RTHooks+76,%eax
+	call *%eax
+	movl %eax,%edx
+	addl $24,%esp
+.L1260:
+	movl 4(%ebx),%eax
+	pushl %eax
+	pushl %edx
+	movl MI_RTHooks+76,%eax
+	call *%eax
+	jmp .L1259
+	.align 16
+.L1254:
+	movl 32(%ebx),%edx
+	testl %edx,%edx
+	je .L1255
+	pushl $1
+	xorl %eax,%eax
+	movb 36(%ebx),%al
+	pushl %eax
+	pushl %edx
+	movl 28(%ebx),%eax
+	pushl %eax
+	movl MI_M3Path+48,%eax
+	call *%eax
+	jmp .L1259
+	.align 16
+.L1255:
+	movl $MM_M3Driver+5316,%eax
+.L1259:
+	movl -4(%ebp),%ebx
+	movl %ebp,%esp
+	popl %ebp
+	ret
+.Lfe110:
+	.size	 M3Driver__FName,.Lfe110-M3Driver__FName
+	.align 16
+	.type	 M_M3Driver_t89e73dd6_LINK,@function
+M_M3Driver_t89e73dd6_LINK:
+	pushl %ebp
+	movl %esp,%ebp
+	movl MM_M3Driver+1240,%eax
+	movl MM_M3Driver+704,%edx
+	movl 52(%eax),%eax
+	movl %ebp,%esp
+	movl %edx,4(%eax)
+	movl MM_M3Driver+708,%edx
+	movl %edx,8(%eax)
+	movl MM_M3Driver+712,%edx
+	movl %edx,12(%eax)
+	movl MM_M3Driver+732,%edx
+	movl %edx,16(%eax)
+	movl MM_M3Driver+716,%edx
+	movl %edx,20(%eax)
+	movl MM_M3Driver+720,%edx
+	movl %edx,24(%eax)
+	movl MM_M3Driver+724,%edx
+	movl %edx,28(%eax)
+	movl MM_M3Driver+736,%edx
+	movl %edx,32(%eax)
+	movl MM_M3Driver+728,%edx
+	movl %edx,36(%eax)
+	movl MM_M3Driver+744,%edx
+	movl %edx,40(%eax)
+	movl MM_M3Driver+748,%edx
+	movl %edx,44(%eax)
+	movl MM_M3Driver+764,%edx
+	movl %edx,48(%eax)
+	movl MM_M3Driver+780,%edx
+	movl %edx,52(%eax)
+	movl MM_M3Driver+784,%edx
+	movl %edx,56(%eax)
+	movl MM_M3Driver+692,%edx
+	movl %edx,60(%eax)
+	movl MM_M3Driver+800,%edx
+	movl %edx,64(%eax)
+	popl %ebp
+	ret
+.Lfe111:
+	.size	 M_M3Driver_t89e73dd6_LINK,.Lfe111-M_M3Driver_t89e73dd6_LINK
+	.align 16
+	.type	 M_M3Driver_tef47ed18_INIT,@function
+M_M3Driver_tef47ed18_INIT:
+	pushl %ebp
+	movl %esp,%ebp
+	movl 8(%ebp),%eax
+	movl %ebp,%esp
+	movl $-1,16(%eax)
+	popl %ebp
+	ret
+.Lfe112:
+	.size	 M_M3Driver_tef47ed18_INIT,.Lfe112-M_M3Driver_tef47ed18_INIT
+	.align 16
+	.type	 _m3_fault,@function
+_m3_fault:
+	pushl %ebp
+	movl %esp,%ebp
+	movl 8(%ebp),%eax
+	pushl %eax
+	pushl $MM_M3Driver
+	movl MI_RTHooks+108,%eax
+	call *%eax
+	.align 16
+.Lfe113:
+	.size	 _m3_fault,.Lfe113-_m3_fault
+.globl MM_M3Driver
+.data
+	.align 4
+	.type	 MM_M3Driver,@object
+	.size	 MM_M3Driver,8524
+MM_M3Driver:
+	.long MM_M3Driver+8055
+	.long MM_M3Driver+48
+	.long MM_M3Driver+1232
+	.zero	8
+	.long MM_M3Driver+6696
+	.zero	4
+	.long MM_M3Driver+8020
+	.long MM_M3Driver+8020
+	.zero	20
+	.long -280498918
+.byte 44
+.byte 29
+.byte 78
+.byte 239
+.byte 54
+.byte 240
+.byte 9
+.byte 0
+	.long 1
+	.zero	4
+	.long 8
+	.long 4
+	.zero	20
+	.long MM_M3Driver+8487
+	.long MM_M3Driver+8490
+	.long MM_M3Driver+8493
+	.zero	28
+	.long MM_M3Driver+8506
+	.long MM_M3Driver+152
+	.zero	8
+	.long -280498920
+.byte 44
+.byte 29
+.byte 78
+.byte 239
+.byte 52
+.byte 240
+.byte 9
+.byte 0
+	.long 1
+	.zero	4
+	.long 24
+	.long 4
+	.zero	20
+	.long MM_M3Driver+8432
+	.long MM_M3Driver+8439
+	.long MM_M3Driver+8445
+	.long M_M3Driver_tef47ed18_INIT
+	.zero	24
+	.long MM_M3Driver+8464
+	.long MM_M3Driver+388
+	.zero	140
+	.long -1981334058
+.byte 46
+.byte 99
+.byte 14
+.byte 141
+.byte 248
+.byte 94
+.byte 233
+.byte 4
+	.long 1
+	.zero	4
+	.long 140
+	.long 4
+	.zero	4
+	.long 0
+	.zero	12
+	.long MM_M3Driver+8294
+	.long MM_M3Driver+8330
+	.long MM_M3Driver+8366
+	.zero	4
+	.long M_M3Driver_t89e73dd6_LINK
+	.long -955699805
+	.zero	16
+	.long MM_M3Driver+8419
+	.long MM_M3Driver+828
+	.zero	8
+	.long M3Driver__InitFromInterface
+	.long M3Driver__DoIt
+	.long M3Driver__CleanUp
+	.long M3Driver__SetTarget
+	.long M3Driver__SetHostOS
+	.long M3Driver__SetTargetOS
+	.long M3Driver__GetOSKind
+	.long M3Driver__DumpConfiguration
+	.long M3Driver__ResolveLib
+	.long M3Driver__NewSource
+	.long M3Driver__AddLinkInfo
+	.long M3Driver__AddInterfaceSource
+	.long M3Driver__AddInterface
+	.long M3Driver__AddModuleSource
+	.long M3Driver__AddModule
+	.long M3Driver__AddGeneric
+	.long M3Driver__AddSource
+	.long M3Driver__VisitSourceDir
+	.long M3Driver__ReverseSources
+	.long M3Driver__BuildSearchPaths
+	.long M3Driver__InhaleLinkInfo
+	.long M3Driver__MatchLocalUnit
+	.long M3Driver__DumpLinkInfo
+	.long M3Driver__BuildLibraryPool
+	.long M3Driver__AddLibraryUnit
+	.long M3Driver__AddExportHook
+	.long M3Driver__CompileEverything
+	.long M3Driver__CompileOne
+	.long M3Driver__FlushPending
+	.long M3Driver__CompileAX
+	.long M3Driver__CompileO
+	.long M3Driver__CompileS
+	.long M3Driver__CompileC
+	.long M3Driver__CompileH
+	.long M3Driver__CompileM3
+	.long M3Driver__PushOneM3
+	.long M3Driver__RecompileM3
+	.long M3Driver__CouldBeImproved
+	.long M3Driver__ObjectIsStale
+	.long M3Driver__M3isStale
+	.long M3Driver__Merge
+	.long M3Driver__Remerge
+	.long M3Driver__CheckImports
+	.long M3Driver__CheckImp
+	.long M3Driver__NewGenerics
+	.long M3Driver__FindGeneric
+	.long M3Driver__ResetEnv
+	.long M3Driver__Pass0
+	.long M3Driver__Pass0_InitCodeGenerator
+	.long M3Driver__Pass0_CheckImports
+	.long M3Driver__Pass0_Trace
+	.long M3Driver__Pass0_Error
+	.long M3Driver__Pass0_Open
+	.long M3Driver__Pass0_NoteUnit
+	.long M3Driver__Pass0_NoteInterface
+	.long M3Driver__Pass0_NoteGeneric
+	.long M3Driver__Pass0_NoteVS
+	.long M3Driver__Pass0_NoteRevelation
+	.long M3Driver__Pass0_Comment
+	.long M3Driver__Pass0_NoteOpaque
+	.long M3Driver__Pass0_AddUnit
+	.long M3Driver__Pass0_AddMagic
+	.long M3Driver__Pass0_FindMagic
+	.long M3Driver__Pass0_NoteObject
+	.long M3Driver__ExpandInfo
+	.long M3Driver__FullName
+	.long M3Driver__Pass0_NoteAST
+	.long M3Driver__AddImports
+	.long M3Driver__GetImports
+	.long M3Driver__MakeValid
+	.long M3Driver__Pass0_FindAST
+	.long M3Driver__Pass0_NoteType
+	.long M3Driver__AddInfo
+	.long M3Driver__FinishUnitInfo
+	.long M3Driver__FinishInfo
+	.long M3Driver__Pass0_NoteWebInfo
+	.long M3Driver__Pass1
+	.long M3Driver__Pass6
+	.long M3Driver__Pass7
+	.long M3Driver__GenerateMain
+	.long M3Driver__BuildProgram
+	.long M3Driver__BuildBootProgram
+	.zero	8
+	.long -1502682665
+.byte 182
+.byte 110
+.byte 13
+.byte 183
+.byte 97
+.byte 143
+.byte 99
+.byte 17
+	.long 1
+	.zero	4
+	.long 8
+	.long 4
+	.zero	20
+	.long MM_M3Driver+8240
+	.long MM_M3Driver+8243
+	.long MM_M3Driver+8246
+	.zero	28
+	.long MM_M3Driver+8259
+	.long MM_M3Driver+968
+	.long M3Driver__GenBootLine
+	.long M3Driver__BuildLibrary
+	.long M3Driver__BuildBootLibrary
+	.long M3Driver__GetLinkUnits
+	.long M3Driver__MergeUnit
+	.long M3Driver__AddMagic
+	.long M3Driver__TempCName
+	.long M3Driver__TempSName
+	.long M3Driver__ObjectName
+	.zero	8
+	.long 1979268965
+.byte 112
+.byte 49
+.byte 222
+.byte 114
+.byte 21
+.byte 14
+.byte 39
+.byte 7
+	.long 1
+	.zero	4
+	.long 12
+	.long 4
+	.zero	20
+	.long MM_M3Driver+8195
+	.long MM_M3Driver+8199
+	.long MM_M3Driver+8203
+	.zero	28
+	.long MM_M3Driver+8217
+	.zero	4
+	.long M3Driver__ShortenName
+	.long M3Driver__PullForBootstrap
+	.long M3Driver__Duplicate
+	.long M3Driver__BadFile
+	.long M3Driver__DebugF
+	.long M3Driver__ExplainF
+	.long M3Driver__VerboseF
+	.long M3Driver__FName
+	.long M3Driver__Init
+	.long M3Driver__Setup
+	.long M3Driver__ResetCompiler
+	.long M3Driver__Compile
+	.long M3Driver__ResetASTCache
+	.long M3Driver__AddSourceFile
+	.long M3Driver__AddLibrary
+	.long M3Driver__PushPath
+	.long MM_M3Driver+1148
+	.long MM_M3Driver+1168
+	.long 2
+	.long MM_M3Driver+1156
+	.long 6
+	.ascii	"FALSE"
+	.zero	3
+	.long 2
+	.long MM_M3Driver+1176
+	.long 5
+	.ascii	"TRUE"
+	.zero	4
+	.long MM_M3Driver+1196
+	.long MM_M3Driver+1212
+	.long 2
+	.long MM_M3Driver+1204
+	.long 4
+	.ascii	".m3"
+	.zero	1
+	.long 2
+	.long MM_M3Driver+1220
+	.long 4
+	.ascii	".i3"
+	.zero	1
+	.long MI_M3Driver+68
+	.zero	4
+	.long MM_M3Driver+1240
+	.long -548236165
+	.long MM_M3Driver+1248
+	.long -1981334058
+	.long MM_M3Driver+1256
+	.long -2012935793
+	.long MM_M3Driver+1264
+	.long 1969248738
+	.long MM_M3Driver+1836
+	.long -1836174216
+	.long 2
+	.long MM_M3Driver+1284
+	.long 29
+	.ascii	"target machine not specified"
+	.zero	4
+	.long 2
+	.long MM_M3Driver+1328
+	.long 29
+	.ascii	"compiling Modula-3 -> object"
+	.zero	4
+	.long 2
+	.long MM_M3Driver+1372
+	.long 31
+	.ascii	"compiling Modula-3 -> assembly"
+	.zero	2
+	.long 2
+	.long MM_M3Driver+1416
+	.long 23
+	.ascii	"compiling IL -> object"
+	.zero	2
+	.long 2
+	.long MM_M3Driver+1452
+	.long 30
+	.ascii	"unrecognized target machine: "
+	.zero	3
+	.long 2
+	.long MM_M3Driver+1496
+	.long 17
+	.ascii	"target       := "
+	.zero	4
+	.long 2
+	.long MM_M3Driver+1528
+	.long 17
+	.ascii	"lib path     := "
+	.zero	4
+	.long 2
+	.long MM_M3Driver+1560
+	.long 17
+	.ascii	"make mode    := "
+	.zero	4
+	.long 2
+	.long MM_M3Driver+1592
+	.long 17
+	.ascii	"bootstrap    := "
+	.zero	4
+	.long 2
+	.long MM_M3Driver+1624
+	.long 17
+	.ascii	"bootstrap IL := "
+	.zero	4
+	.long 2
+	.long MM_M3Driver+1656
+	.long 17
+	.ascii	"keep files   := "
+	.zero	4
+	.long 2
+	.long MM_M3Driver+1688
+	.long 17
+	.ascii	"coverage     := "
+	.zero	4
+	.long 2
+	.long MM_M3Driver+1720
+	.long 2
+	.ascii	" "
+	.zero	3
+	.long 2
+	.long MM_M3Driver+1736
+	.long 17
+	.ascii	"keep_cache   := "
+	.zero	4
+	.long 2
+	.long MM_M3Driver+1768
+	.long 10
+	.ascii	"resolve: "
+	.zero	3
+	.long 2
+	.long MM_M3Driver+1792
+	.long 5
+	.ascii	" -> "
+	.zero	4
+	.long 2
+	.long MM_M3Driver+1812
+	.long 3
+	.ascii	"-l"
+	.zero	2
+	.long 2
+	.long MM_M3Driver+1828
+	.long 7
+	.ascii	"using "
+	.zero	2
+	.long MM_M3Driver+2252
+	.long 1930186367
+	.long 2
+	.long MM_M3Driver+1856
+	.long 2
+	.ascii	"."
+	.zero	3
+	.long 2
+	.long MM_M3Driver+1872
+	.long 10
+	.ascii	"interface"
+	.zero	3
+	.long 2
+	.long MM_M3Driver+1896
+	.long 7
+	.ascii	"module"
+	.zero	2
+	.long MI_OSError+44
+	.zero	4
+	.long 2
+	.long MM_M3Driver+1924
+	.long 12
+	.ascii	"Looking in "
+	.zero	1
+	.long 2
+	.long MM_M3Driver+1948
+	.long 24
+	.ascii	"unsupported file type \""
+	.zero	1
+	.long 2
+	.long MM_M3Driver+1984
+	.long 2
+	.ascii	"\""
+	.zero	3
+	.long 2
+	.long MM_M3Driver+2000
+	.long 10
+	.ascii	"ignoring "
+	.zero	3
+	.long 2
+	.long MM_M3Driver+2024
+	.long 31
+	.ascii	"cannot locate version stamps: "
+	.zero	2
+	.long 2
+	.long MM_M3Driver+2068
+	.long 32
+	.ascii	"no program or library specified"
+	.zero	1
+	.long 2
+	.long MM_M3Driver+2112
+	.long 8
+	.ascii	"inhale "
+	.zero	1
+	.long 2
+	.long MM_M3Driver+2132
+	.long 19
+	.ascii	"no local link info"
+	.zero	2
+	.long 2
+	.long MM_M3Driver+2164
+	.long 15
+	.ascii	"adding units: "
+	.zero	2
+	.long 2
+	.long MM_M3Driver+2192
+	.long 25
+	.ascii	"duplicate link info for "
+	.zero	4
+	.long 2
+	.long MM_M3Driver+2232
+	.long 3
+	.ascii	" <"
+	.zero	2
+	.long 2
+	.long MM_M3Driver+2248
+	.long 2
+	.ascii	">"
+	.zero	3
+	.long MM_M3Driver+2312
+	.long -1203380091
+	.long 2
+	.long MM_M3Driver+2272
+	.long 8
+	.ascii	"exhale "
+	.zero	1
+	.long 2
+	.long MM_M3Driver+2292
+	.long 18
+	.ascii	"no link info for "
+	.zero	3
+	.long MM_M3Driver+3196
+	.long 1930186365
+	.long 2
+	.long MM_M3Driver+2332
+	.long 11
+	.ascii	"M3_BUILTIN"
+	.zero	2
+	.long 2
+	.long MM_M3Driver+2356
+	.long 10
+	.ascii	"checking "
+	.zero	3
+	.long 2
+	.long MM_M3Driver+2380
+	.long 23
+	.ascii	"unexpected source unit"
+	.zero	2
+	.long 2
+	.long MM_M3Driver+2416
+	.long 32
+	.ascii	"non-library unit without source"
+	.zero	1
+	.long 2
+	.long MM_M3Driver+2460
+	.long 20
+	.ascii	"missing source file"
+	.zero	1
+	.long 2
+	.long MM_M3Driver+2492
+	.long 24
+	.ascii	"reading link info from "
+	.zero	1
+	.long 2
+	.long MM_M3Driver+2528
+	.long 18
+	.ascii	"missing link info"
+	.zero	3
+	.long 2
+	.long MM_M3Driver+2560
+	.long 23
+	.ascii	"new object -> copying "
+	.zero	2
+	.long 2
+	.long MM_M3Driver+2596
+	.long 46
+	.ascii	"this compiler cannot compile .ic or .mc files"
+	.zero	3
+	.long 2
+	.long MM_M3Driver+2656
+	.long 9
+	.ascii	"compile "
+	.zero	4
+	.long 2
+	.long MM_M3Driver+2680
+	.long 17
+	.ascii	" -> from library"
+	.zero	4
+	.long 2
+	.long MM_M3Driver+2712
+	.long 20
+	.ascii	" -> object = source"
+	.zero	1
+	.long 2
+	.long MM_M3Driver+2744
+	.long 14
+	.ascii	" -> not stale"
+	.zero	3
+	.long 2
+	.long MM_M3Driver+2772
+	.long 32
+	.ascii	"new opaque info -> recompiling "
+	.zero	1
+	.long 2
+	.long MM_M3Driver+2816
+	.long 15
+	.ascii	" -> compiling "
+	.zero	2
+	.long 2
+	.long MM_M3Driver+2844
+	.long 25
+	.ascii	"new source -> compiling "
+	.zero	4
+	.long 2
+	.long MM_M3Driver+2884
+	.long 33
+	.ascii	"new generic source -> compiling "
+	.zero	4
+	.long 2
+	.long MM_M3Driver+2932
+	.long 31
+	.ascii	"merging initial link info for "
+	.zero	2
+	.long 2
+	.long MM_M3Driver+2976
+	.long 28
+	.ascii	"stale imports -> compiling "
+	.zero	1
+	.long 2
+	.long MM_M3Driver+3016
+	.long 4
+	.ascii	"ok "
+	.zero	1
+	.long 2
+	.long MM_M3Driver+3032
+	.long 29
+	.ascii	"merging final link info for "
+	.zero	4
+	.long 2
+	.long MM_M3Driver+3076
+	.long 22
+	.ascii	"adding new magic for "
+	.zero	3
+	.long 2
+	.long MM_M3Driver+3112
+	.long 29
+	.ascii	"cannot find generic source: "
+	.zero	4
+	.long 2
+	.long MM_M3Driver+3156
+	.long 37
+	.ascii	"missing version stamps -> compiling "
+	.zero	4
+	.long MM_M3Driver+3288
+	.long -244065135
+	.long 2
+	.long MM_M3Driver+3216
+	.long 3
+	.ascii	"-Z"
+	.zero	2
+	.long MI_M3Compiler+44
+	.zero	4
+	.long 2
+	.long MM_M3Driver+3240
+	.long 5
+	.ascii	"m3c "
+	.zero	4
+	.long 2
+	.long MM_M3Driver+3260
+	.long 9
+	.ascii	"\", line "
+	.zero	4
+	.long 2
+	.long MM_M3Driver+3284
+	.long 3
+	.ascii	": "
+	.zero	2
+	.long MM_M3Driver+3296
+	.long 880986034
+	.long MM_M3Driver+3304
+	.long 314313739
+	.long MM_M3Driver+3312
+	.long 951908833
+	.long MM_M3Driver+3320
+	.long -660466080
+	.long MM_M3Driver+3328
+	.long 812208790
+	.long MM_M3Driver+3336
+	.long -929516260
+	.long MM_M3Driver+3344
+	.long 562018850
+	.long MM_M3Driver+3352
+	.long -280498920
+	.long MM_M3Driver+3672
+	.long -280498918
+	.long MI_M3Driver+432
+	.zero	4
+	.long 2
+	.long MM_M3Driver+3380
+	.long 5
+	.ascii	".new"
+	.zero	4
+	.long 2
+	.long MM_M3Driver+3400
+	.long 10
+	.ascii	"generate "
+	.zero	3
+	.long 2
+	.long MM_M3Driver+3424
+	.long 10
+	.ascii	"failled!!"
+	.zero	3
+	.long 2
+	.long MM_M3Driver+3448
+	.long 11
+	.ascii	"compiling "
+	.zero	2
+	.long 2
+	.long MM_M3Driver+3472
+	.long 5
+	.ascii	" ..."
+	.zero	4
+	.long 2
+	.long MM_M3Driver+3492
+	.long 4
+	.ascii	"cc "
+	.zero	1
+	.long 2
+	.long MM_M3Driver+3508
+	.long 10
+	.ascii	" failed!!"
+	.zero	3
+	.long 2
+	.long MM_M3Driver+3532
+	.long 4
+	.ascii	".mc"
+	.zero	1
+	.long 2
+	.long MM_M3Driver+3548
+	.long 4
+	.ascii	".ms"
+	.zero	1
+	.long 2
+	.long MM_M3Driver+3564
+	.long 3
+	.ascii	".a"
+	.zero	2
+	.long 2
+	.long MM_M3Driver+3580
+	.long 3
+	.ascii	".o"
+	.zero	2
+	.long 2
+	.long MM_M3Driver+3596
+	.long 19
+	.ascii	"couldn't generate "
+	.zero	2
+	.long 2
+	.long MM_M3Driver+3628
+	.long 8
+	.ascii	"m3cgc1 "
+	.zero	1
+	.long 2
+	.long MM_M3Driver+3648
+	.long 4
+	.ascii	"as "
+	.zero	1
+	.long 2
+	.long MM_M3Driver+3664
+	.long 8
+	.ascii	"_m3main"
+	.zero	1
+	.long MM_M3Driver+4392
+	.long -1105469154
+	.long 2
+	.long MM_M3Driver+3692
+	.long 45
+	.ascii	"compilation failed => not building program \""
+	.zero	4
+	.long 2
+	.long MM_M3Driver+3752
+	.long 13
+	.ascii	" -> linking "
+	.zero	4
+	.long 2
+	.long MM_M3Driver+3780
+	.long 6
+	.ascii	"new \""
+	.zero	3
+	.long 2
+	.long MM_M3Driver+3800
+	.long 14
+	.ascii	"\" -> linking "
+	.zero	3
+	.long 2
+	.long MM_M3Driver+3828
+	.long 19
+	.ascii	"incomplete program"
+	.zero	2
+	.long 2
+	.long MM_M3Driver+3860
+	.long 10
+	.ascii	"make.boot"
+	.zero	3
+	.long 2
+	.long MM_M3Driver+3884
+	.long 22
+	.ascii	"building makefile -> "
+	.zero	3
+	.long MI_Thread+184
+	.long MI_Wr+44
+	.zero	4
+	.long 2
+	.long MM_M3Driver+3932
+	.long 30
+	.ascii	"# bootstrap Modula-3 makefile"
+	.zero	3
+	.long 2
+	.long MM_M3Driver+3976
+	.long 23
+	.ascii	" (bootstrap_il = TRUE)"
+	.zero	2
+	.long 2
+	.long MM_M3Driver+4012
+	.long 24
+	.ascii	" (bootstrap_il = FALSE)"
+	.zero	1
+	.long 2
+	.long MM_M3Driver+4048
+	.long 14
+	.ascii	"M3CG = m3cgc1"
+	.zero	3
+	.long 2
+	.long MM_M3Driver+4076
+	.long 49
+	.ascii	"M3CGFLAGS = -fno-strength-reduce -quiet -fPIC -g"
+	.zero	4
+	.long 2
+	.long MM_M3Driver+4140
+	.long 12
+	.ascii	"%_m.o: %.mc"
+	.zero	1
+	.long 2
+	.long MM_M3Driver+4164
+	.long 57
+	.ascii	"\t$(M3CG) -o - $(M3CGFLAGS) $< | $(AS) -o $@ $(ASFLAGS) -"
+	.zero	4
+	.long 2
+	.long MM_M3Driver+4236
+	.long 12
+	.ascii	"%_i.o: %.ic"
+	.zero	1
+	.long 2
+	.long MM_M3Driver+4260
+	.long 12
+	.ascii	"%_m.o: %.ms"
+	.zero	1
+	.long 2
+	.long MM_M3Driver+4284
+	.long 27
+	.ascii	"\t$(AS) -o $@ $(ASFLAGS) $<"
+	.zero	2
+	.long 2
+	.long MM_M3Driver+4324
+	.long 12
+	.ascii	"%_i.o: %.is"
+	.zero	1
+	.long 2
+	.long MM_M3Driver+4348
+	.long 6
+	.ascii	"all: "
+	.zero	3
+	.long 2
+	.long MM_M3Driver+4368
+	.long 21
+	.ascii	"_m3main.o: _m3main.c"
+	.zero	4
+	.long MM_M3Driver+5196
+	.long -1502682665
+	.long 2
+	.long MM_M3Driver+4412
+	.long 6
+	.ascii	"OBJS="
+	.zero	3
+	.long 2
+	.long MM_M3Driver+4432
+	.long 10
+	.ascii	"_m3main.o"
+	.zero	3
+	.long 2
+	.long MM_M3Driver+4456
+	.long 6
+	.ascii	"LIBS="
+	.zero	3
+	.long 2
+	.long MM_M3Driver+4476
+	.long 10
+	.ascii	": $(OBJS)"
+	.zero	3
+	.long 2
+	.long MM_M3Driver+4500
+	.long 48
+	.ascii	"\t$(CC) $(LDFLAGS) -o $@ $^ $(LIBS) $(EXTRALIBS)"
+	.zero	1
+	.long 2
+	.long MM_M3Driver+4560
+	.long 7
+	.ascii	"clean:"
+	.zero	2
+	.long 2
+	.long MM_M3Driver+4580
+	.long 13
+	.ascii	"\trm $(OBJS) "
+	.zero	4
+	.long 2
+	.long MM_M3Driver+4608
+	.long 23
+	.ascii	"unable to write file: "
+	.zero	2
+	.long 2
+	.long MM_M3Driver+4644
+	.long 5
+	.ascii	"_i.o"
+	.zero	4
+	.long 2
+	.long MM_M3Driver+4664
+	.long 4
+	.ascii	".ic"
+	.zero	1
+	.long 2
+	.long MM_M3Driver+4680
+	.long 4
+	.ascii	".is"
+	.zero	1
+	.long 2
+	.long MM_M3Driver+4696
+	.long 5
+	.ascii	"_m.o"
+	.zero	4
+	.long 2
+	.long MM_M3Driver+4716
+	.long 3
+	.ascii	".c"
+	.zero	2
+	.long 2
+	.long MM_M3Driver+4732
+	.long 3
+	.ascii	".s"
+	.zero	2
+	.long 2
+	.long MM_M3Driver+4748
+	.long 19
+	.ascii	"bad library name: "
+	.zero	2
+	.long 2
+	.long MM_M3Driver+4780
+	.long 45
+	.ascii	"compilation failed => not building library \""
+	.zero	4
+	.long 2
+	.long MM_M3Driver+4840
+	.long 15
+	.ascii	" -> archiving "
+	.zero	2
+	.long 2
+	.long MM_M3Driver+4868
+	.long 16
+	.ascii	"\" -> archiving "
+	.zero	1
+	.long 2
+	.long MM_M3Driver+4896
+	.long 19
+	.ascii	"incomplete library"
+	.zero	2
+	.long 2
+	.long MM_M3Driver+4928
+	.long 24
+	.ascii	"building the library..."
+	.zero	1
+	.long 2
+	.long MM_M3Driver+4964
+	.long 24
+	.ascii	"\t$(AR) $(ARFLAGS) $@ $^"
+	.zero	1
+	.long 2
+	.long MM_M3Driver+5000
+	.long 14
+	.ascii	"\t$(RANLIB) $@"
+	.zero	3
+	.long 2
+	.long MM_M3Driver+5028
+	.long 32
+	.ascii	"unable to open link info file: "
+	.zero	1
+	.long 2
+	.long MM_M3Driver+5072
+	.long 21
+	.ascii	"bad link info file: "
+	.zero	4
+	.long 2
+	.long MM_M3Driver+5108
+	.long 10
+	.ascii	"reading \""
+	.zero	3
+	.long 2
+	.long MM_M3Driver+5132
+	.long 4
+	.ascii	"\": "
+	.zero	1
+	.long 2
+	.long MM_M3Driver+5148
+	.long 9
+	.ascii	" seconds"
+	.zero	4
+	.long 2
+	.long MM_M3Driver+5172
+	.long 21
+	.ascii	"bad version stamps: "
+	.zero	8
+	.long 1979268965
+	.long 2
+	.long MM_M3Driver+5216
+	.long 12
+	.ascii	"long name: "
+	.zero	1
+	.long 2
+	.long MM_M3Driver+5240
+	.long 17
+	.ascii	": %s%s  %s%s  %s"
+	.zero	4
+	.long 2
+	.long MM_M3Driver+5272
+	.long 11
+	.ascii	"duplicate "
+	.zero	2
+	.long 2
+	.long MM_M3Driver+5296
+	.long 13
+	.ascii	" in library "
+	.zero	4
+	.long 2
+	.long MM_M3Driver+5324
+	.long 4
+	.ascii	"???"
+	.zero	1
+	.ascii	"FName"
+	.zero	1
+	.ascii	"VerboseF"
+	.zero	1
+	.ascii	"ExplainF"
+	.zero	1
+	.ascii	"DebugF"
+	.zero	1
+	.ascii	"BadFile"
+	.zero	1
+	.ascii	"Duplicate"
+	.zero	1
+	.ascii	"PullForBootstrap"
+	.zero	1
+	.ascii	"ShortenName"
+	.zero	1
+	.ascii	"ObjectName"
+	.zero	1
+	.ascii	"TempSName"
+	.zero	1
+	.ascii	"TempCName"
+	.zero	1
+	.ascii	"AddMagic"
+	.zero	1
+	.ascii	"MergeUnit"
+	.zero	1
+	.ascii	"GetLinkUnits"
+	.zero	1
+	.ascii	"M_M3Driver_LINE_2641"
+	.zero	1
+	.ascii	"BuildBootLibrary"
+	.zero	1
+	.ascii	"BuildLibrary"
+	.zero	1
+	.ascii	"GenBootLine"
+	.zero	1
+	.ascii	"BuildBootProgram"
+	.zero	1
+	.ascii	"BuildProgram"
+	.zero	1
+	.ascii	"GenerateMain"
+	.zero	1
+	.ascii	"Pass7"
+	.zero	1
+	.ascii	"Pass6"
+	.zero	1
+	.ascii	"Pass1"
+	.zero	1
+	.ascii	"Pass0_NoteWebInfo"
+	.zero	1
+	.ascii	"FinishInfo"
+	.zero	1
+	.ascii	"FinishUnitInfo"
+	.zero	1
+	.ascii	"AddInfo"
+	.zero	1
+	.ascii	"Pass0_NoteType"
+	.zero	1
+	.ascii	"Pass0_FindAST"
+	.zero	1
+	.ascii	"MakeValid"
+	.zero	1
+	.ascii	"GetImports"
+	.zero	1
+	.ascii	"AddImports"
+	.zero	1
+	.ascii	"Pass0_NoteAST"
+	.zero	1
+	.ascii	"FullName"
+	.zero	1
+	.ascii	"ExpandInfo"
+	.zero	1
+	.ascii	"Pass0_NoteObject"
+	.zero	1
+	.ascii	"Pass0_FindMagic"
+	.zero	1
+	.ascii	"Pass0_AddMagic"
+	.zero	1
+	.ascii	"Pass0_AddUnit"
+	.zero	1
+	.ascii	"Pass0_NoteOpaque"
+	.zero	1
+	.ascii	"Pass0_Comment"
+	.zero	1
+	.ascii	"Pass0_NoteRevelation"
+	.zero	1
+	.ascii	"Pass0_NoteVS"
+	.zero	1
+	.ascii	"Pass0_NoteGeneric"
+	.zero	1
+	.ascii	"Pass0_NoteInterface"
+	.zero	1
+	.ascii	"Pass0_NoteUnit"
+	.zero	1
+	.ascii	"Pass0_Open"
+	.zero	1
+	.ascii	"Pass0_Error"
+	.zero	1
+	.ascii	"Pass0_Trace"
+	.zero	1
+	.ascii	"Pass0_CheckImports"
+	.zero	1
+	.ascii	"Pass0_InitCodeGenerator"
+	.zero	1
+	.ascii	"Pass0"
+	.zero	1
+	.ascii	"ResetEnv"
+	.zero	1
+	.ascii	"FindGeneric"
+	.zero	1
+	.ascii	"NewGenerics"
+	.zero	1
+	.ascii	"CheckImp"
+	.zero	1
+	.ascii	"CheckImports"
+	.zero	1
+	.ascii	"Remerge"
+	.zero	1
+	.ascii	"Merge"
+	.zero	1
+	.ascii	"M3isStale"
+	.zero	1
+	.ascii	"ObjectIsStale"
+	.zero	1
+	.ascii	"CouldBeImproved"
+	.zero	1
+	.ascii	"RecompileM3"
+	.zero	1
+	.ascii	"PushOneM3"
+	.zero	1
+	.ascii	"CompileM3"
+	.zero	1
+	.ascii	"CompileH"
+	.zero	1
+	.ascii	"CompileC"
+	.zero	1
+	.ascii	"CompileS"
+	.zero	1
+	.ascii	"CompileO"
+	.zero	1
+	.ascii	"CompileAX"
+	.zero	1
+	.ascii	"FlushPending"
+	.zero	1
+	.ascii	"CompileOne"
+	.zero	1
+	.ascii	"CompileEverything"
+	.zero	1
+	.ascii	"AddExportHook"
+	.zero	1
+	.ascii	"AddLibraryUnit"
+	.zero	1
+	.ascii	"BuildLibraryPool"
+	.zero	1
+	.ascii	"DumpLinkInfo"
+	.zero	1
+	.ascii	"MatchLocalUnit"
+	.zero	1
+	.ascii	"InhaleLinkInfo"
+	.zero	1
+	.ascii	"BuildSearchPaths"
+	.zero	1
+	.ascii	"ReverseSources"
+	.zero	1
+	.ascii	"VisitSourceDir"
+	.zero	1
+	.ascii	"M_M3Driver_LINE_612"
+	.zero	1
+	.ascii	"AddSource"
+	.zero	1
+	.ascii	"AddGeneric"
+	.zero	1
+	.ascii	"AddModule"
+	.zero	1
+	.ascii	"AddModuleSource"
+	.zero	1
+	.ascii	"AddInterface"
+	.zero	1
+	.ascii	"AddInterfaceSource"
+	.zero	1
+	.ascii	"AddLinkInfo"
+	.zero	1
+	.ascii	"NewSource"
+	.zero	1
+	.ascii	"AddSourceFile"
+	.zero	1
+	.ascii	"ResolveLib"
+	.zero	1
+	.ascii	"AddLibrary"
+	.zero	1
+	.ascii	"DumpConfiguration"
+	.zero	1
+	.ascii	"PushPath"
+	.zero	1
+	.ascii	"GetOSKind"
+	.zero	1
+	.ascii	"SetTargetOS"
+	.zero	1
+	.ascii	"SetHostOS"
+	.zero	1
+	.ascii	"SetTarget"
+	.zero	1
+	.ascii	"CleanUp"
+	.zero	1
+	.ascii	"DoIt"
+	.zero	1
+	.ascii	"M_M3Driver_LINE_332"
+	.zero	1
+	.ascii	"Init"
+	.zero	1
+	.ascii	"Setup"
+	.zero	1
+	.ascii	"ResetASTCache"
+	.zero	1
+	.ascii	"InitFromInterface"
+	.zero	1
+	.ascii	"Compile"
+	.zero	1
+	.ascii	"ResetCompiler"
+	.zero	4
+	.long M3Driver__FName
+	.long MM_M3Driver+5328
+	.zero	4
+	.long M3Driver__VerboseF
+	.long MM_M3Driver+5334
+	.zero	4
+	.long M3Driver__ExplainF
+	.long MM_M3Driver+5343
+	.zero	4
+	.long M3Driver__DebugF
+	.long MM_M3Driver+5352
+	.zero	4
+	.long M3Driver__BadFile
+	.long MM_M3Driver+5359
+	.zero	4
+	.long M3Driver__Duplicate
+	.long MM_M3Driver+5367
+	.zero	4
+	.long M3Driver__PullForBootstrap
+	.long MM_M3Driver+5377
+	.zero	4
+	.long M3Driver__ShortenName
+	.long MM_M3Driver+5394
+	.zero	4
+	.long M3Driver__ObjectName
+	.long MM_M3Driver+5406
+	.zero	4
+	.long M3Driver__TempSName
+	.long MM_M3Driver+5417
+	.zero	4
+	.long M3Driver__TempCName
+	.long MM_M3Driver+5427
+	.zero	4
+	.long M3Driver__AddMagic
+	.long MM_M3Driver+5437
+	.zero	4
+	.long M3Driver__MergeUnit
+	.long MM_M3Driver+5446
+	.zero	4
+	.long M3Driver__GetLinkUnits
+	.long MM_M3Driver+5456
+	.zero	4
+	.long M_M3Driver_LINE_2641.2
+	.long MM_M3Driver+5469
+	.zero	4
+	.long M3Driver__BuildBootLibrary
+	.long MM_M3Driver+5490
+	.zero	4
+	.long M3Driver__BuildLibrary
+	.long MM_M3Driver+5507
+	.zero	4
+	.long M3Driver__GenBootLine
+	.long MM_M3Driver+5520
+	.zero	4
+	.long M3Driver__BuildBootProgram
+	.long MM_M3Driver+5532
+	.zero	4
+	.long M3Driver__BuildProgram
+	.long MM_M3Driver+5549
+	.zero	4
+	.long M3Driver__GenerateMain
+	.long MM_M3Driver+5562
+	.zero	4
+	.long M3Driver__Pass7
+	.long MM_M3Driver+5575
+	.zero	4
+	.long M3Driver__Pass6
+	.long MM_M3Driver+5581
+	.zero	4
+	.long M3Driver__Pass1
+	.long MM_M3Driver+5587
+	.zero	4
+	.long M3Driver__Pass0_NoteWebInfo
+	.long MM_M3Driver+5593
+	.zero	4
+	.long M3Driver__FinishInfo
+	.long MM_M3Driver+5611
+	.zero	4
+	.long M3Driver__FinishUnitInfo
+	.long MM_M3Driver+5622
+	.zero	4
+	.long M3Driver__AddInfo
+	.long MM_M3Driver+5637
+	.zero	4
+	.long M3Driver__Pass0_NoteType
+	.long MM_M3Driver+5645
+	.zero	4
+	.long M3Driver__Pass0_FindAST
+	.long MM_M3Driver+5660
+	.zero	4
+	.long M3Driver__MakeValid
+	.long MM_M3Driver+5674
+	.zero	4
+	.long M3Driver__GetImports
+	.long MM_M3Driver+5684
+	.zero	4
+	.long M3Driver__AddImports
+	.long MM_M3Driver+5695
+	.zero	4
+	.long M3Driver__Pass0_NoteAST
+	.long MM_M3Driver+5706
+	.zero	4
+	.long M3Driver__FullName
+	.long MM_M3Driver+5720
+	.zero	4
+	.long M3Driver__ExpandInfo
+	.long MM_M3Driver+5729
+	.zero	4
+	.long M3Driver__Pass0_NoteObject
+	.long MM_M3Driver+5740
+	.zero	4
+	.long M3Driver__Pass0_FindMagic
+	.long MM_M3Driver+5757
+	.zero	4
+	.long M3Driver__Pass0_AddMagic
+	.long MM_M3Driver+5773
+	.zero	4
+	.long M3Driver__Pass0_AddUnit
+	.long MM_M3Driver+5788
+	.zero	4
+	.long M3Driver__Pass0_NoteOpaque
+	.long MM_M3Driver+5802
+	.zero	4
+	.long M3Driver__Pass0_Comment
+	.long MM_M3Driver+5819
+	.zero	4
+	.long M3Driver__Pass0_NoteRevelation
+	.long MM_M3Driver+5833
+	.zero	4
+	.long M3Driver__Pass0_NoteVS
+	.long MM_M3Driver+5854
+	.zero	4
+	.long M3Driver__Pass0_NoteGeneric
+	.long MM_M3Driver+5867
+	.zero	4
+	.long M3Driver__Pass0_NoteInterface
+	.long MM_M3Driver+5885
+	.zero	4
+	.long M3Driver__Pass0_NoteUnit
+	.long MM_M3Driver+5905
+	.zero	4
+	.long M3Driver__Pass0_Open
+	.long MM_M3Driver+5920
+	.zero	4
+	.long M3Driver__Pass0_Error
+	.long MM_M3Driver+5931
+	.zero	4
+	.long M3Driver__Pass0_Trace
+	.long MM_M3Driver+5943
+	.zero	4
+	.long M3Driver__Pass0_CheckImports
+	.long MM_M3Driver+5955
+	.zero	4
+	.long M3Driver__Pass0_InitCodeGenerator
+	.long MM_M3Driver+5974
+	.zero	4
+	.long M3Driver__Pass0
+	.long MM_M3Driver+5998
+	.zero	4
+	.long M3Driver__ResetEnv
+	.long MM_M3Driver+6004
+	.zero	4
+	.long M3Driver__FindGeneric
+	.long MM_M3Driver+6013
+	.zero	4
+	.long M3Driver__NewGenerics
+	.long MM_M3Driver+6025
+	.zero	4
+	.long M3Driver__CheckImp
+	.long MM_M3Driver+6037
+	.zero	4
+	.long M3Driver__CheckImports
+	.long MM_M3Driver+6046
+	.zero	4
+	.long M3Driver__Remerge
+	.long MM_M3Driver+6059
+	.zero	4
+	.long M3Driver__Merge
+	.long MM_M3Driver+6067
+	.zero	4
+	.long M3Driver__M3isStale
+	.long MM_M3Driver+6073
+	.zero	4
+	.long M3Driver__ObjectIsStale
+	.long MM_M3Driver+6083
+	.zero	4
+	.long M3Driver__CouldBeImproved
+	.long MM_M3Driver+6097
+	.zero	4
+	.long M3Driver__RecompileM3
+	.long MM_M3Driver+6113
+	.zero	4
+	.long M3Driver__PushOneM3
+	.long MM_M3Driver+6125
+	.zero	4
+	.long M3Driver__CompileM3
+	.long MM_M3Driver+6135
+	.zero	4
+	.long M3Driver__CompileH
+	.long MM_M3Driver+6145
+	.zero	4
+	.long M3Driver__CompileC
+	.long MM_M3Driver+6154
+	.zero	4
+	.long M3Driver__CompileS
+	.long MM_M3Driver+6163
+	.zero	4
+	.long M3Driver__CompileO
+	.long MM_M3Driver+6172
+	.zero	4
+	.long M3Driver__CompileAX
+	.long MM_M3Driver+6181
+	.zero	4
+	.long M3Driver__FlushPending
+	.long MM_M3Driver+6191
+	.zero	4
+	.long M3Driver__CompileOne
+	.long MM_M3Driver+6204
+	.zero	4
+	.long M3Driver__CompileEverything
+	.long MM_M3Driver+6215
+	.zero	4
+	.long M3Driver__AddExportHook
+	.long MM_M3Driver+6233
+	.zero	4
+	.long M3Driver__AddLibraryUnit
+	.long MM_M3Driver+6247
+	.zero	4
+	.long M3Driver__BuildLibraryPool
+	.long MM_M3Driver+6262
+	.zero	4
+	.long M3Driver__DumpLinkInfo
+	.long MM_M3Driver+6279
+	.zero	4
+	.long M3Driver__MatchLocalUnit
+	.long MM_M3Driver+6292
+	.zero	4
+	.long M3Driver__InhaleLinkInfo
+	.long MM_M3Driver+6307
+	.zero	4
+	.long M3Driver__BuildSearchPaths
+	.long MM_M3Driver+6322
+	.zero	4
+	.long M3Driver__ReverseSources
+	.long MM_M3Driver+6339
+	.zero	4
+	.long M3Driver__VisitSourceDir
+	.long MM_M3Driver+6354
+	.zero	4
+	.long M_M3Driver_LINE_612.1
+	.long MM_M3Driver+6369
+	.zero	4
+	.long M3Driver__AddSource
+	.long MM_M3Driver+6389
+	.zero	4
+	.long M3Driver__AddGeneric
+	.long MM_M3Driver+6399
+	.zero	4
+	.long M3Driver__AddModule
+	.long MM_M3Driver+6410
+	.zero	4
+	.long M3Driver__AddModuleSource
+	.long MM_M3Driver+6420
+	.zero	4
+	.long M3Driver__AddInterface
+	.long MM_M3Driver+6436
+	.zero	4
+	.long M3Driver__AddInterfaceSource
+	.long MM_M3Driver+6449
+	.zero	4
+	.long M3Driver__AddLinkInfo
+	.long MM_M3Driver+6468
+	.zero	4
+	.long M3Driver__NewSource
+	.long MM_M3Driver+6480
+	.zero	4
+	.long M3Driver__AddSourceFile
+	.long MM_M3Driver+6490
+	.long MI_M3Driver+316
+	.long M3Driver__ResolveLib
+	.long MM_M3Driver+6504
+	.zero	4
+	.long M3Driver__AddLibrary
+	.long MM_M3Driver+6515
+	.long MI_M3Driver+320
+	.long M3Driver__DumpConfiguration
+	.long MM_M3Driver+6526
+	.zero	4
+	.long M3Driver__PushPath
+	.long MM_M3Driver+6544
+	.long MI_M3Driver+324
+	.long M3Driver__GetOSKind
+	.long MM_M3Driver+6553
+	.zero	4
+	.long M3Driver__SetTargetOS
+	.long MM_M3Driver+6563
+	.zero	4
+	.long M3Driver__SetHostOS
+	.long MM_M3Driver+6575
+	.zero	4
+	.long M3Driver__SetTarget
+	.long MM_M3Driver+6585
+	.zero	4
+	.long M3Driver__CleanUp
+	.long MM_M3Driver+6595
+	.zero	4
+	.long M3Driver__DoIt
+	.long MM_M3Driver+6603
+	.zero	4
+	.long M_M3Driver_LINE_332.0
+	.long MM_M3Driver+6608
+	.zero	4
+	.long M3Driver__Init
+	.long MM_M3Driver+6628
+	.long MI_M3Driver+88
+	.long M3Driver__Setup
+	.long MM_M3Driver+6633
+	.long MI_M3Driver+196
+	.long M3Driver__ResetASTCache
+	.long MM_M3Driver+6639
+	.long MI_M3Driver+312
+	.long M3Driver__InitFromInterface
+	.long MM_M3Driver+6653
+	.zero	4
+	.long M3Driver__Compile
+	.long MM_M3Driver+6671
+	.long MI_M3Driver+308
+	.long M3Driver__ResetCompiler
+	.long MM_M3Driver+6679
+	.long MI_M3Driver+200
+	.zero	4
+.byte 43
+.byte 0
+.byte 1
+.byte 4
+.byte 4
+.byte 4
+.byte 4
+.byte 37
+.byte 4
+.byte 42
+.byte 24
+.byte 4
+.byte 4
+.byte 4
+.byte 4
+.byte 37
+.byte 4
+.byte 41
+.byte 4
+.byte 4
+.byte 4
+.byte 4
+.byte 4
+.byte 4
+.byte 4
+.byte 4
+.byte 4
+.byte 4
+.byte 4
+.byte 4
+.byte 4
+.byte 42
+.byte 104
+.byte 4
+.byte 0
+	.ascii	"/home/ftp/tmp/pm3/tmp/pm3-1.1.15/language/modula3/m3compiler"
+	.ascii	"/m3bootstrap/LINUXLIBC6/pm3-LINUXLIBC6/boot-LINUXLIBC6/m3dri"
+	.ascii	"ver/src/M3Driver.m3"
+	.zero	1
+.byte 4
+.byte 4
+.byte 4
+.byte 0
+.byte 4
+.byte 4
+.byte 4
+.byte 0
+.byte 4
+.byte 15
+.byte 3
+.byte 16
+.byte 116
+.byte 101
+.byte 248
+.byte 80
+.byte 23
+.byte 16
+.byte 101
+.byte 63
+.byte 249
+.byte 117
+	.ascii	"M3Driver.TruncatedName"
+	.zero	1
+.byte 4
+.byte 4
+.byte 0
+.byte 4
+.byte 4
+.byte 0
+.byte 3
+.byte 15
+.byte 2
+.byte 16
+.byte 116
+.byte 101
+.byte 248
+.byte 80
+.byte 16
+.byte 215
+.byte 225
+.byte 110
+.byte 166
+	.ascii	"M3Driver.BuildBootProgram.TextList"
+	.zero	1
+.byte 4
+.byte 4
+.byte 4
+.byte 4
+.byte 4
+.byte 4
+.byte 4
+.byte 4
+.byte 4
+.byte 4
+.byte 4
+.byte 14
+.byte 4
+.byte 14
+.byte 4
+.byte 14
+.byte 4
+.byte 14
+.byte 4
+.byte 14
+.byte 4
+.byte 14
+.byte 4
+.byte 14
+.byte 4
+.byte 14
+.byte 4
+.byte 14
+.byte 4
+.byte 14
+.byte 4
+.byte 14
+.byte 4
+.byte 14
+.byte 4
+.byte 0
+.byte 4
+.byte 4
+.byte 4
+.byte 4
+.byte 4
+.byte 4
+.byte 4
+.byte 4
+.byte 4
+.byte 4
+.byte 4
+.byte 37
+.byte 4
+.byte 37
+.byte 4
+.byte 37
+.byte 4
+.byte 37
+.byte 4
+.byte 37
+.byte 4
+.byte 37
+.byte 4
+.byte 37
+.byte 4
+.byte 37
+.byte 4
+.byte 37
+.byte 4
+.byte 37
+.byte 4
+.byte 37
+.byte 4
+.byte 37
+.byte 4
+.byte 0
+.byte 26
+.byte 10
+.byte 23
+.byte 16
+.byte 116
+.byte 101
+.byte 248
+.byte 80
+.byte 23
+.byte 16
+.byte 135
+.byte 20
+.byte 118
+.byte 98
+.byte 16
+.byte 196
+.byte 8
+.byte 79
+.byte 208
+.byte 16
+.byte 178
+.byte 199
+.byte 130
+.byte 52
+.byte 16
+.byte 59
+.byte 238
+.byte 29
+.byte 237
+.byte 28
+.byte 28
+.byte 28
+.byte 28
+.byte 28
+.byte 15
+.byte 2
+.byte 7
+.byte 16
+.byte 34
+.byte 186
+.byte 127
+.byte 33
+.byte 34
+.byte 34
+.byte 34
+.byte 34
+.byte 34
+.byte 34
+.byte 34
+.byte 34
+.byte 34
+.byte 34
+.byte 34
+	.ascii	"M3Driver.Env"
+	.zero	1
+.byte 4
+.byte 14
+.byte 14
+.byte 4
+.byte 14
+.byte 4
+.byte 0
+.byte 4
+.byte 41
+.byte 4
+.byte 37
+.byte 4
+.byte 0
+.byte 7
+.byte 15
+.byte 6
+.byte 16
+.byte 116
+.byte 101
+.byte 248
+.byte 80
+.byte 19
+.byte 254
+.byte 126
+.byte 7
+.byte 16
+.byte 26
+.byte 237
+.byte 71
+.byte 239
+.byte 25
+.byte 17
+	.ascii	"M3Driver.ASTCacheEntry"
+	.zero	1
+.byte 4
+.byte 4
+.byte 0
+.byte 4
+.byte 4
+.byte 0
+.byte 3
+.byte 15
+.byte 2
+.byte 16
+.byte 24
+.byte 237
+.byte 71
+.byte 239
+.byte 16
+.byte 26
+.byte 237
+.byte 71
+.byte 239
+	.ascii	"M3Driver.ASTList"
+	.zero	2
+	.ident	"GCC: (GNU) cygnus-2.7.2-960712"

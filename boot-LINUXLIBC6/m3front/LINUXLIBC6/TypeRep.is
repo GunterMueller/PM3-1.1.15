@@ -1,0 +1,167 @@
+	.file	"TypeRep.ic"
+	.version	"01.01"
+/ SRC Modula-3 version cygnus-2.7.2-960712 (i486--linuxelf) compiled by GNU C version egcs-2.91.66 19990314/Linux (egcs-1.1.2 release).
+/ options passed:  -fno-strength-reduce -O2
+/ options enabled:  -fdefer-pop -fcse-follow-jumps -fcse-skip-blocks
+/ -fexpensive-optimizations -fthread-jumps -fpeephole -fforce-mem
+/ -ffunction-cse -finline -fkeep-static-consts -fcaller-saves
+/ -fpcc-struct-return -frerun-cse-after-loop -fschedule-insns2 -fcommon
+/ -fverbose-asm -fgnu-linker -m80387 -mhard-float -mno-soft-float -mieee-fp
+/ -mfp-ret-in-387 -mschedule-prologue -mcpu=i486 -march=i486
+
+gcc2_compiled.:
+.text
+	.align 16
+	.type	 I_TypeRep_t93b57160_LINK,@function
+I_TypeRep_t93b57160_LINK:
+	pushl %ebp
+	movl %esp,%ebp
+	movl MI_TypeRep+424,%eax
+	movl %ebp,%esp
+	movl 52(%eax),%edx
+	movl MI_TypeRep+156,%eax
+	movl %eax,16(%edx)
+	popl %ebp
+	ret
+.Lfe1:
+	.size	 I_TypeRep_t93b57160_LINK,.Lfe1-I_TypeRep_t93b57160_LINK
+.globl MI_TypeRep
+.data
+	.align 4
+	.type	 MI_TypeRep,@object
+	.size	 MI_TypeRep,448
+MI_TypeRep:
+	.long MI_TypeRep+188
+	.long MI_TypeRep+44
+	.long MI_TypeRep+424
+	.long MI_TypeRep+176
+	.zero	36
+	.long -1816825504
+.byte 159
+.byte 13
+.byte 38
+.byte 153
+.byte 255
+.byte 124
+.byte 147
+.byte 10
+	.long 1
+	.zero	4
+	.long 48
+	.long 4
+	.zero	4
+	.long 40
+	.zero	12
+	.long MI_TypeRep+332
+	.long MI_TypeRep+369
+	.long MI_TypeRep+373
+	.zero	4
+	.long I_TypeRep_t93b57160_LINK
+	.long -2143734992
+	.zero	12
+	.long MI_TypeRep+432
+	.long MI_TypeRep+439
+	.zero	32
+	.long -2121051098
+	.long -1816825504
+	.zero	4
+	.ascii	"/home/ftp/tmp/pm3/tmp/pm3-1.1.15/language/modula3/m3compiler"
+	.ascii	"/m3bootstrap/LINUXLIBC6/pm3-LINUXLIBC6/boot-LINUXLIBC6/m3fro"
+	.ascii	"nt/src/types/TypeRep.i3"
+	.zero	1
+.byte 1
+.byte 16
+.byte 26
+.byte 8
+.byte 14
+.byte 14
+.byte 14
+.byte 14
+.byte 16
+.byte 16
+.byte 16
+.byte 11
+.byte 0
+.byte 1
+.byte 11
+.byte 1
+.byte 1
+.byte 11
+.byte 2
+.byte 1
+.byte 34
+.byte 14
+.byte 14
+.byte 14
+.byte 10
+.byte 0
+.byte 12
+.byte 34
+.byte 11
+.byte 4
+.byte 1
+.byte 11
+.byte 5
+.byte 1
+.byte 36
+.byte 4
+.byte 0
+.byte 42
+.byte 44
+.byte 4
+.byte 0
+.byte 25
+.byte 10
+.byte 9
+.byte 15
+.byte 1
+.byte 1
+.byte 8
+.byte 12
+.byte 8
+.byte 19
+.byte 0
+.byte 65
+.byte 255
+.byte 15
+.byte 10
+.byte 7
+.byte 28
+.byte 28
+.byte 28
+.byte 5
+.byte 16
+.byte 32
+.byte 5
+.byte 17
+.byte 12
+.byte 1
+.byte 2
+.byte 35
+.byte 35
+.byte 28
+.byte 28
+.byte 28
+.byte 12
+.byte 12
+.byte 19
+.byte 194
+.byte 0
+.byte 8
+.byte 66
+.byte 255
+.byte 7
+.byte 35
+.byte 35
+.byte 16
+.byte 38
+.byte 84
+.byte 147
+.byte 129
+	.zero	7
+	.long -1816825504
+	.ascii	"Type.T"
+	.zero	1
+	.ascii	"M3.Type"
+	.zero	2
+	.ident	"GCC: (GNU) cygnus-2.7.2-960712"

@@ -1,0 +1,105 @@
+	.file	"AtomTextTbl.ic"
+	.version	"01.01"
+/ SRC Modula-3 version cygnus-2.7.2-960712 (i486--linuxelf) compiled by GNU C version egcs-2.91.66 19990314/Linux (egcs-1.1.2 release).
+/ options passed:  -fno-strength-reduce -O2
+/ options enabled:  -fdefer-pop -fcse-follow-jumps -fcse-skip-blocks
+/ -fexpensive-optimizations -fthread-jumps -fpeephole -fforce-mem
+/ -ffunction-cse -finline -fkeep-static-consts -fcaller-saves
+/ -fpcc-struct-return -frerun-cse-after-loop -fschedule-insns2 -fcommon
+/ -fverbose-asm -fgnu-linker -m80387 -mhard-float -mno-soft-float -mieee-fp
+/ -mfp-ret-in-387 -mschedule-prologue -mcpu=i486 -march=i486
+
+gcc2_compiled.:
+.globl MI_AtomTextTbl
+.data
+	.align 4
+	.type	 MI_AtomTextTbl,@object
+	.size	 MI_AtomTextTbl,560
+MI_AtomTextTbl:
+	.long MI_AtomTextTbl+356
+	.long MI_AtomTextTbl+44
+	.zero	44
+	.long 951243703
+.byte 63
+.byte 118
+.byte 213
+.byte 36
+.byte 136
+.byte 165
+.byte 103
+.byte 28
+	.long 1
+	.zero	4
+	.long 0
+	.long 1
+	.zero	4
+	.long 20
+	.zero	20
+	.long MI_AtomTextTbl+541
+	.zero	8
+	.long -1651526519
+	.zero	16
+	.long MI_AtomTextTbl+544
+	.long MI_AtomTextTbl+148
+	.zero	8
+	.long 1163558579
+.byte 80
+.byte 115
+.byte 42
+.byte 66
+.byte 227
+.byte 13
+.byte 112
+.byte 7
+	.long 1
+	.zero	4
+	.long 0
+	.long 1
+	.zero	4
+	.long 4
+	.zero	20
+	.long MI_AtomTextTbl+517
+	.zero	8
+	.long -1651526519
+	.zero	16
+	.long MI_AtomTextTbl+520
+	.long MI_AtomTextTbl+252
+	.zero	8
+	.long -811696779
+.byte 159
+.byte 16
+.byte 178
+.byte 220
+.byte 234
+.byte 109
+.byte 44
+.byte 19
+	.long 1
+	.zero	4
+	.long 0
+	.long 1
+	.zero	4
+	.long 12
+	.zero	20
+	.long MI_AtomTextTbl+514
+	.zero	8
+	.long 951243703
+	.zero	24
+	.ascii	"AtomTextTbl.i3 => /home/ftp/tmp/pm3/tmp/pm3-1.1.15/language/"
+	.ascii	"modula3/m3compiler/m3bootstrap/LINUXLIBC6/pm3-LINUXLIBC6/boo"
+	.ascii	"t-LINUXLIBC6/libm3/src/table/Table.ig"
+	.zero	1
+.byte 1
+.byte 10
+.byte 0
+.byte 1
+.byte 10
+.byte 0
+	.ascii	"AtomTextTbl.Iterator"
+	.zero	1
+.byte 1
+.byte 10
+.byte 0
+	.ascii	"AtomTextTbl.T"
+	.zero	3
+	.ident	"GCC: (GNU) cygnus-2.7.2-960712"

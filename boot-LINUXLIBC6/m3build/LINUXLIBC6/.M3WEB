@@ -1,0 +1,54 @@
+Main.m3 702
+$ 0
+@Main.m3
+AMain
+P193b61b6 193b61b5
+K193b61b5 96 3
+Lnext 0 32 193b61b6
+Lsymbol 32 32 50f86574
+Lvalue 64 32 50f86574
+R20117ca1 4 00000000 0
+Sa 50f86574
+Sb 50f86574
+Sc 50f86574
+Sd 50f86574
+Rc6ae5a0e 2 00000000 0
+Sa 50f86574
+Sb 50f86574
+R6129bd15 1 00000000 0
+Sdefn 50f86574
+Rac17e1b0 1 00000000 0
+Sdir 50f86574
+R42d8abd5 2 1e59237d 0
+Sa 50f86574
+Sb 50f86574
+R49f1552e 3 00000000 1
+Sm 23199190
+Ssym 50f86574
+Sval 50f86574
+TQuake.Error
+R52c250f8 2 00000000 1
+Sm 23199190
+Sfile 50f86574
+TQuake.Error
+Rfe2be11e 1 00000000 0
+Sbuild_target 50f86574
+DMain
+CBldQuake
+CM3File
+CQuake
+CPathname
+CParams
+CThread
+CASCII
+CProcess
+CEnv
+COSError
+CFS
+CWr
+CStdio
+CM3Config
+CTextList
+CText
+CRTHooks
+E193b61b6 Main.DefineList

@@ -1,0 +1,37 @@
+
+readonly TARGET = "SPARC"
+
+include("COMMON")
+
+PLATFORM_SUPPORTS_SHARED_LIB = "T"
+
+X11ROOT = "/usr/local/lib"
+%INSTALL_ROOT = "/usr/local"
+
+CC = ["gcc","-c","-traditional"]
+LINK = ["cc"]
+MAKESHLIB = ["ld","-assert","pure-text"]
+ASM = ["as","-k","-o"]
+
+STATIC_FLAG = ["-Xlinker", "-Bstatic"]
+RPATH_FLAG = ""
+
+setDefault("","")
+
+TARGET_NAMING_CONVENTIONS = GRUMPY_POSIX_CONVENTIONS
+NAMING_CONVENTIONS = GRUMPY_POSIX_CONVENTIONS
+
+proc import_X11() is
+  import_lib("Xaw", X11ROOT)
+  import_lib("Xmu", X11ROOT)
+  import_lib("Xext", X11ROOT)
+  import_lib("Xt", X11ROOT)
+  import_lib("X11", X11ROOT)
+end
+
+proc install_file (src, dest, mode) is
+  Note_install (src, dest)
+  local ret = exec (["cp", "-p", src, dest])
+  if not equal(ret, 0) error("install failed with error code: ", ret) end
+end
+

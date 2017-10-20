@@ -1,0 +1,137 @@
+	.file	"M3.ic"
+	.version	"01.01"
+/ SRC Modula-3 version cygnus-2.7.2-960712 (i486--linuxelf) compiled by GNU C version egcs-2.91.66 19990314/Linux (egcs-1.1.2 release).
+/ options passed:  -fno-strength-reduce -O2
+/ options enabled:  -fdefer-pop -fcse-follow-jumps -fcse-skip-blocks
+/ -fexpensive-optimizations -fthread-jumps -fpeephole -fforce-mem
+/ -ffunction-cse -finline -fkeep-static-consts -fcaller-saves
+/ -fpcc-struct-return -frerun-cse-after-loop -fschedule-insns2 -fcommon
+/ -fverbose-asm -fgnu-linker -m80387 -mhard-float -mno-soft-float -mieee-fp
+/ -mfp-ret-in-387 -mschedule-prologue -mcpu=i486 -march=i486
+
+gcc2_compiled.:
+.globl MI_M3
+.data
+	.align 4
+	.type	 MI_M3,@object
+	.size	 MI_M3,576
+MI_M3:
+	.long MI_M3+380
+	.long MI_M3+44
+	.zero	44
+	.long -2143734992
+.byte 184
+.byte 238
+.byte 241
+.byte 130
+.byte 136
+.byte 221
+.byte 200
+.byte 2
+	.long 1
+	.zero	4
+	.long 4
+	.long 4
+	.zero	4
+	.long 0
+	.zero	12
+	.long MI_M3+561
+	.zero	4
+	.long MI_M3+563
+	.zero	8
+	.long -1651526519
+	.zero	16
+	.long MI_M3+567
+	.long MI_M3+148
+	.zero	8
+	.long -105857943
+.byte 50
+.byte 100
+.byte 163
+.byte 225
+.byte 91
+.byte 216
+.byte 19
+.byte 24
+	.long 1
+	.zero	4
+	.long 4
+	.long 4
+	.zero	4
+	.long 0
+	.zero	12
+	.long MI_M3+536
+	.long MI_M3+538
+	.long MI_M3+540
+	.zero	8
+	.long -2143734992
+	.zero	16
+	.long MI_M3+548
+	.long MI_M3+276
+	.zero	32
+	.long 1942183804
+.byte 40
+.byte 48
+.byte 246
+.byte 113
+.byte 84
+.byte 111
+.byte 53
+.byte 2
+	.long 1
+	.zero	4
+	.long 8
+	.long 4
+	.zero	8
+	.long 1
+	.long 4
+	.zero	4
+	.long MI_M3+518
+	.long MI_M3+523
+	.long MI_M3+528
+	.zero	36
+	.ascii	"/home/ftp/tmp/pm3/tmp/pm3-1.1.15/language/modula3/m3compiler"
+	.ascii	"/m3bootstrap/LINUXLIBC6/pm3-LINUXLIBC6/boot-LINUXLIBC6/m3fro"
+	.ascii	"nt/src/misc/M3.i3"
+	.zero	1
+.byte 24
+.byte 1
+.byte 4
+.byte 0
+.byte 0
+.byte 24
+.byte 1
+.byte 4
+.byte 0
+.byte 0
+.byte 2
+.byte 11
+.byte 1
+.byte 16
+.byte 38
+.byte 84
+.byte 147
+.byte 129
+.byte 4
+.byte 0
+.byte 4
+.byte 0
+.byte 2
+.byte 10
+.byte 1
+.byte 16
+.byte 106
+.byte 188
+.byte 176
+.byte 249
+	.ascii	"M3.ValueNode"
+	.zero	1
+.byte 14
+.byte 0
+.byte 2
+.byte 10
+.byte 1
+.byte 7
+	.ascii	"M3.Node"
+	.zero	2
+	.ident	"GCC: (GNU) cygnus-2.7.2-960712"
